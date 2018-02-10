@@ -1,2 +1,3 @@
 #python
 *.pyc
+*.sqlite3
