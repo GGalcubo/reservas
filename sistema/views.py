@@ -10,3 +10,10 @@ def dashboard(request):
 
 	context = { 'mensaje':mensaje }
 	return render(request, 'sistema/dashboard.html', context)
+
+@login_required
+def operaciones(request):
+	mensaje = ""
+
+	context = { 'mensaje':mensaje }
+	return render(request, 'sistema/operaciones.html', context)
