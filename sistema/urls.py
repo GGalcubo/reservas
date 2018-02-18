@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard
+from sistema.views import dashboard, operaciones
 
 urlpatterns = [
     url(r'^dashboard/', dashboard, name='dashboard'),
