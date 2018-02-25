@@ -17,3 +17,4 @@ def operaciones(request):
 
 	context = { 'mensaje':mensaje }
 	return render(request, 'sistema/operaciones.html', context)
+	
