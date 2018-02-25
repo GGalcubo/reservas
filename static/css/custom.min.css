@@ -1,0 +1,28 @@
+/* Menú a la derecha */
+.page-header.navbar .page-logo {
+    float: right;
+}
+
+/* Menú usuario a a izquierda */
+.page-header.navbar .top-menu {
+    float: left;
+}
+
+/* Desplegable del menú usuario un toque a la derecha */
+.nav.pull-right>li>.dropdown-menu, .nav>li>.dropdown-menu.pull-right {
+    left: 0;
+    right: auto;
+}
+
+/* Flechita del Desplegable del menú de usuario tirada a la izquierda */
+.page-header.navbar .top-menu .navbar-nav>li.dropdown .dropdown-menu:before {
+    right: 164px;
+}
+.page-header.navbar .top-menu .navbar-nav>li.dropdown .dropdown-menu:after {
+    right: 165px;
+}
+
+/* Título de la página a la derecha */
+.page-title {
+    text-align: right;
+}
