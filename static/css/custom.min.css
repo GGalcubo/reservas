@@ -8,6 +8,18 @@
     float: left;
 }
 
+/* Sin padding para que entre el logo y fondo acorde */
+.page-header.navbar .page-logo {
+    padding-left: 0;
+    padding-right: 0;
+    background: #d79144;
+}
+
+/* Logo unos px más abajo */
+.page-header.navbar .page-logo .logo-default {
+    margin: 30px 0 0;
+}
+
 /* Desplegable del menú usuario un toque a la derecha */
 .nav.pull-right>li>.dropdown-menu, .nav>li>.dropdown-menu.pull-right {
     left: 0;
@@ -25,4 +37,22 @@
 /* Título de la página a la derecha */
 .page-title {
     text-align: right;
+}
+
+/* Ubicacion del datepicker */
+.datepicker.dropdown-menu {
+    padding: 0px;
+}
+
+.input-195 {
+	width: 195px!important;
+}
+
+/* Despues hay que armar una formula en SASS para generar estas clases para paddings, margins, widths y heights */
+.pd-0 {
+	padding: 0px !important;
+}
+
+.height-36 {
+	min-height: 36px !important;
 }
