@@ -56,3 +56,10 @@
 .height-36 {
 	min-height: 36px !important;
 }
+
+.datepicker {
+	text-align: center;
+    /* font-size: 20px; */
+    font-family: helvetica;
+    font-weight: 700;
+}
