@@ -17,4 +17,10 @@ def operaciones(request):
 
 	context = { 'mensaje':mensaje }
 	return render(request, 'sistema/operaciones.html', context)
-	
+
+@login_required
+def viaje(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/viaje.html', context)
