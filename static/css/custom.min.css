@@ -63,3 +63,26 @@
     font-family: helvetica;
     font-weight: 700;
 }
+
+/* DATATABLES */
+
+/* Mas angostas las rows */
+table.dataTable tbody th,
+table.dataTable tbody td,
+table.dataTable thead th,
+table.dataTable thead td {
+    padding: 4px 8px;
+}
+
+/* BOOTSTRAP TABLES */
+
+/* Elimino bordes y alineo al medio */
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+    vertical-align: middle;
+    border-top: none;
+}
