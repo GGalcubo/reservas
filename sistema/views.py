@@ -24,3 +24,17 @@ def viaje(request):
 
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/viaje.html', context)
+
+@login_required
+def persona(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/persona.html', context)
+
+@login_required
+def empresa(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/empresa.html', context)

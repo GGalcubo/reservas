@@ -89,6 +89,9 @@ class Observacion(models.Model):
     def __str__(self):
         return self.estado
 
+    class Meta:
+        verbose_name_plural = "Observaciones" 
+
 class Licencia(models.Model):
     tipo_licencia = models.ForeignKey(TipoLicencia)
     fecha_vencimiento = models.CharField(max_length=8)
