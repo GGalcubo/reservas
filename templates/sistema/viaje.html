@@ -6,7 +6,7 @@
 <html lang="en">
     <!--<![endif]-->
     {% include "sistema/cabecera.html" %}
-    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-md">
+    <body class="page-header-fixed page-sidebar-fixed page-container-bg-solid page-sidebar-reversed page-md">
         {% include "sistema/barra_top.html" %}
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
@@ -19,7 +19,7 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
-                    <h1 class="page-title">Crear Viaje</h1>
+                    <h1 class="page-title">Viaje</h1>
                     <!-- END PAGE HEADER-->
                     <div class="row">
                         <div class="col-md-12">
@@ -28,12 +28,274 @@
                                 <div class="portlet-title">
                                     <div class="caption font-green">
                                         <i class="icon-rocket font-green"></i>
-                                        <span class="caption-subject bold uppercase">Nuevo Viaje</span>
+                                        <span class="caption-subject bold uppercase">Ingreso del Cliente y Datos Personales</span>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
-
+                                    <form role="form">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_1">
+                                                        <label for="form_control_1">Id. Cl.</label>
+                                                        <span class="help-block">Some help goes here...</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_1">
+                                                        <label for="form_control_1">Cl. Tel.</label>
+                                                        <span class="help-block">Some help goes here...</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_1">
+                                                        <label for="form_control_1">Razón Social</label>
+                                                        <span class="help-block">Some help goes here...</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_1">
+                                                        <label for="form_control_1">Dirección</label>
+                                                        <span class="help-block">Some help goes here...</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_1">
+                                                        <label for="form_control_1">C. Fact.</label>
+                                                        <span class="help-block">Some help goes here...</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_1">
+                                                        <label for="form_control_1">Categ.</label>
+                                                        <span class="help-block">Some help goes here...</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-7">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">Solicitante</label>
+                                                                <span class="help-block">Some help goes here...</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">Centro de Costos</label>
+                                                                <span class="help-block">Some help goes here...</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">Pasajero</label>
+                                                                <span class="help-block">Some help goes here...</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">Fecha</label>
+                                                                <span class="help-block">Some help goes here...</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">Hora</label>
+                                                                <span class="help-block">Some help goes here...</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">Tipo de Servicio</label>
+                                                                <span class="help-block">Some help goes here...</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <button type="button" class="btn blue">OK</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                        <div class="col-md-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light ">
+                                <div class="portlet-body">
+                                    <div class="tabbable-line">
+                                        <ul class="nav nav-tabs ">
+                                            <li class="active">
+                                                <a href="#tab_15_1" data-toggle="tab" aria-expanded="true"> Viaje </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#tab_15_2" data-toggle="tab" aria-expanded="false"> Operaciones </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#tab_15_3" data-toggle="tab" aria-expanded="false"> Administración </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#tab_15_3" data-toggle="tab" aria-expanded="false"> Historial </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab_15_1">
+                                                <form role="form">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="row">
+                                                                    <div class="col-md-12 form-titu-viaje">
+                                                                        <h3 style="text-align: center">DESDE</h3>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <button type="button" class="btn blue">OK</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="row">
+                                                                    <div class="col-md-12 form-titu-viaje">
+                                                                        <h3 style="text-align: center">HASTA</h3>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="form_control_1">
+                                                                            <label for="form_control_1">Destino</label>
+                                                                            <span class="help-block">Some help goes here...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <button type="button" class="btn blue">OK</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane" id="tab_15_2">
+                                                <p> Howdy, I'm in Section 2. </p>
+                                                <p> Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+                                                    consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation. </p>
+                                                <p>
+                                                    <a class="btn green" href="ui_tabs_accordions_navs.html#tab_15_2" target="_blank"> Activate this tab via URL </a>
+                                                </p>
+                                            </div>
+                                            <div class="tab-pane" id="tab_15_3">
+                                                <p> Howdy, I'm in Section 3. </p>
+                                                <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
+                                                    iriure dolor in hendrerit in vulputate velit esse molestie consequat </p>
+                                                <p>
+                                                    <a class="btn yellow" href="ui_tabs_accordions_navs.html#tab_15_3" target="_blank"> Activate this tab via URL </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
