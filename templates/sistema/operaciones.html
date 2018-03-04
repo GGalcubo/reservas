@@ -6,7 +6,7 @@
 <html lang="en">
     <!--<![endif]-->
     {% include "sistema/cabecera.html" %}
-    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-md">
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
         {% include "sistema/barra_top.html" %}
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
@@ -1387,13 +1387,23 @@
                 $(document).ready(function(){
                     $('#viajesEnProgreso').DataTable( {
                         responsive: true,
+                        scrollY: 200,
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
                         language: {
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
-                        }
+                        },
                     } );
 
                     $('#futurosViajes').DataTable( {
                         responsive: true,
+                        scrollY: 350,
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
                         language: {
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
                         }

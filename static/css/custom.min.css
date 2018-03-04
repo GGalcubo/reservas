@@ -53,6 +53,10 @@
 	padding: 0px !important;
 }
 
+.mg-b-0 {
+    margin-bottom: 0 !important;
+}
+
 .height-36 {
 	min-height: 36px !important;
 }
