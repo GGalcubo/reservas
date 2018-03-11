@@ -1,0 +1,174 @@
+// Variables de Branding
+// --------------------------------------------------
+
+// Colores
+
+// $blanco: #fff;
+// $celeste: #00a1e1;
+// $turquesa: #3fb3e6;
+// $gris-mas-oscuro: #807f7d;
+// $gris-muy-oscuro: #b3b3b3;
+// $gris-oscuro: #eaeaea;
+// $gris-claro: #f3f3f3;
+// $rojo: #e60219;
+// $bordo: #9a0405;
+// $verde: #007c57;
+// $naranja: #fe8204;
+// $grain: #c8e1e4;
+
+// $tabla_de_colores: (
+//   "celeste": $celeste,
+//   "turquesa": $turquesa,
+//   "gris-oscuro": $gris-oscuro,
+//   "gris-claro": $gris-claro,
+//   "gris-muy-oscuro": $gris-muy-oscuro,
+//   "gris-mas-oscuro": $gris-mas-oscuro,
+//   "rojo": $rojo,
+//   "bordo": $bordo,
+//   "verde": $verde,
+//   "naranja": $naranja,
+//   "blanco": $blanco,
+//   "grain": $grain,
+// ) !default;
+
+// @each $color in $tabla_de_colores {
+//   .#{nth($color,1)} {
+//     background-color: #{nth($color,2)} !important;
+//   }
+//   .#{nth($color,1)}-text {
+//     color: #{nth($color,2)} !important;
+//   }
+// }
+
+// $brand_blanco: #fff;
+// $brand_celeste: #00A3DD;
+// $brand_blue: #00a3dd;
+// $brand_naranja: #FF8300;
+// $brand_borgonia: #707274;
+// $brand_gris: #707274;
+// $fondo: #f0f3f4;
+
+// Position Absolute
+// Del 1 al 9
+@for $posi from 0 through 50 {
+  // Positivos
+  .top-#{$posi} {top: #{$posi}px !important;}
+  .bottom-#{$posi} {bottom: #{$posi}px !important;}
+  .left-#{$posi} {left: #{$posi}px !important;}
+  .right-#{$posi} {right: #{$posi}px !important;}
+}
+@for $posi-cincuenta from 100 through 200 {
+  @if $posi-cincuenta % 50 == 0 {
+    .top-#{$posi-cincuenta} {top: #{$posi-cincuenta}px !important;}
+    .bottom-#{$posi-cincuenta} {bottom: #{$posi-cincuenta}px !important;}
+    .left-#{$posi-cincuenta} {left: #{$posi-cincuenta}px !important;}
+    .right-#{$posi-cincuenta} {right: #{$posi-cincuenta}px !important;}
+  }
+}
+
+@for $posi-neg from 0 through 50 {
+  // Posi-negtivos
+  .top-neg-#{$posi-neg} {top: -#{$posi-neg}px !important;}
+  .bottom-neg-#{$posi-neg} {bottom: -#{$posi-neg}px !important;}
+  .left-neg-#{$posi-neg} {left: -#{$posi-neg}px !important;}
+  .right-neg-#{$posi-neg} {right: -#{$posi-neg}px !important;}
+}
+@for $posi-cincuenta-neg from 100 through 200 {
+  @if $posi-cincuenta-neg % 50 == 0 {
+    .top-neg-#{$posi-cincuenta-neg} {top: -#{$posi-cincuenta-neg}px !important;}
+    .bottom-neg-#{$posi-cincuenta-neg} {bottom: -#{$posi-cincuenta-neg}px !important;}
+    .left-neg-#{$posi-cincuenta-neg} {left: -#{$posi-cincuenta-neg}px !important;}
+    .right-neg-#{$posi-cincuenta-neg} {right: -#{$posi-cincuenta-neg}px !important;}
+  }
+}
+
+// Margenes
+// Del 1 al 24
+@for $mg from 0 through 24 {
+  // Positivos
+  .mg-#{$mg} {margin: #{$mg}px !important;}
+  .mg-l-#{$mg} {margin-left: #{$mg}px !important;}
+  .mg-r-#{$mg} {margin-right: #{$mg}px !important;}
+  .mg-t-#{$mg} {margin-top: #{$mg}px !important;}
+  .mg-b-#{$mg} {margin-bottom: #{$mg}px !important;}
+  //Negativos
+  .mg-neg-#{$mg} {margin: -#{$mg}px !important;}
+  .mg-neg-l-#{$mg} {margin-left: -#{$mg}px !important;}
+  .mg-neg-r-#{$mg} {margin-right: -#{$mg}px !important;}
+  .mg-neg-t-#{$mg} {margin-top: -#{$mg}px !important;}
+  .mg-neg-b-#{$mg} {margin-bottom: -#{$mg}px !important;}
+}
+
+// Del 25 al 100 iterando de a 5
+@for $margin-iterate from 25 through 100 {
+  @if $margin-iterate % 5 == 0 {
+    .mg-#{$margin-iterate} {margin: #{$margin-iterate}px !important;}
+    .mg-l-#{$margin-iterate} {margin-left: #{$margin-iterate}px !important;}
+    .mg-r-#{$margin-iterate} {margin-right: #{$margin-iterate}px !important;}
+    .mg-t-#{$margin-iterate} {margin-top: #{$margin-iterate}px !important;}
+    .mg-b-#{$margin-iterate} {margin-bottom: #{$margin-iterate}px !important;}
+    // Negativos
+    // .mg-neg-#{$margin-iterate} {margin: -#{$margin-iterate}px !important;}
+    // .mg-neg-l-#{$margin-iterate} {margin-left: -#{$margin-iterate}px !important;}
+    // .mg-neg-r-#{$margin-iterate} {margin-right: -#{$margin-iterate}px !important;}
+    // .mg-neg-t-#{$margin-iterate} {margin-top: -#{$margin-iterate}px !important;}
+    // .mg-neg-b-#{$margin-iterate} {margin-bottom: -#{$margin-iterate}px !important;}
+  }
+}
+
+// Paddings
+// Del 1 al 19
+@for $mg from 0 through 19 {
+  .pd-#{$mg} {padding: #{$mg}px !important;}
+  .pd-l-#{$mg} {padding-left: #{$mg}px !important;}
+  .pd-r-#{$mg} {padding-right: #{$mg}px !important;}
+  .pd-t-#{$mg} {padding-top: #{$mg}px !important;}
+  .pd-b-#{$mg} {padding-bottom: #{$mg}px !important;}
+}
+
+// Del 20 al 100 iterando de a 5
+@for $padding-iterate from 20 through 100 {
+  @if $padding-iterate % 5 == 0 {
+    .pd-#{$padding-iterate} {padding: #{$padding-iterate}px !important;}
+    .pd-l-#{$padding-iterate} {padding-left: #{$padding-iterate}px !important;}
+    .pd-r-#{$padding-iterate} {padding-right: #{$padding-iterate}px !important;}
+    .pd-t-#{$padding-iterate} {padding-top: #{$padding-iterate}px !important;}
+    .pd-b-#{$padding-iterate} {padding-bottom: #{$padding-iterate}px !important;}
+  }
+}
+
+// Limiters
+@for $limiter-iterate from 1 through 300 {
+  @if $limiter-iterate % 5 == 0 {
+    .max-#{$limiter-iterate} {width: 100%; max-width: #{$limiter-iterate}px !important;}
+    .max-l-#{$limiter-iterate} {width: 100%; max-width: #{$limiter-iterate}px !important;}
+    .max-r-#{$limiter-iterate} {width: 100%; max-width: #{$limiter-iterate}px !important;}
+    .max-t-#{$limiter-iterate} {width: 100%; max-width: #{$limiter-iterate}px !important;}
+    .max-b-#{$limiter-iterate} {width: 100%; max-width: #{$limiter-iterate}px !important;}
+  }
+}
+@for $limiter-iterate-cincuenta from 350 through 800 {
+  @if $limiter-iterate-cincuenta % 50 == 0 {
+    .max-#{$limiter-iterate-cincuenta} {width: 100%; max-width: #{$limiter-iterate-cincuenta}px !important;}
+    .max-l-#{$limiter-iterate-cincuenta} {width: 100%; max-width: #{$limiter-iterate-cincuenta}px !important;}
+    .max-r-#{$limiter-iterate-cincuenta} {width: 100%; max-width: #{$limiter-iterate-cincuenta}px !important;}
+    .max-t-#{$limiter-iterate-cincuenta} {width: 100%; max-width: #{$limiter-iterate-cincuenta}px !important;}
+    .max-b-#{$limiter-iterate-cincuenta} {width: 100%; max-width: #{$limiter-iterate-cincuenta}px !important;}
+  }
+}
+
+// Widths Percentage
+@for $width-iterate from 1 through 100 {
+  @if $width-iterate % 5 == 0 {
+      .width-#{$width-iterate} {
+        width: percentage($width-iterate)/100!important;
+    }
+  }
+}
+
+// Heights
+@for $height-iterate from 1 through 100 {
+  // @if $height-iterate % 5 == 0 {
+    .height-#{$height-iterate} {min-height: auto !important; max-height: auto !important; height: #{$height-iterate}px !important;}
+  // }
+}
