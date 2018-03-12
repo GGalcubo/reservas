@@ -6,7 +6,7 @@
 <html lang="en">
     <!--<![endif]-->
     {% include "sistema/cabecera.html" %}
-    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+    <body id="operaciones" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
         {% include "sistema/barra_top.html" %}
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
@@ -1388,6 +1388,7 @@
                     $('#viajesEnProgreso').DataTable( {
                         responsive: true,
                         scrollY: 200,
+                        order: [[ 2, "asc" ]],
                         lengthMenu: [
                                         [ -1, 500, 100, 50, 25, 10 ],
                                         [ 'Todos', '500', '100', '50', '25', '10' ]

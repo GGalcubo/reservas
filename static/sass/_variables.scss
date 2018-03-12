@@ -172,3 +172,24 @@
     .height-#{$height-iterate} {min-height: auto !important; max-height: auto !important; height: #{$height-iterate}px !important;}
   // }
 }
+
+
+/* VISTAS */
+
+$tabla_de_vistas: (
+  "operaciones",
+  "viajes",
+  "clientes",
+  "datosCliente",
+) !default;
+
+@each $vista in $tabla_de_vistas {
+	##{nth($vista,1)} {
+		.show-on-#{nth($vista,1)} {
+			display: block !important;
+		}
+		.hide-on-#{nth($vista,1)} {
+			display: none !important;
+		}
+	}
+}

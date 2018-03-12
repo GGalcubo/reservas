@@ -41,6 +41,9 @@
   display: inline-flex; }
 
 /* Helpers */
+.hide {
+  display: none !important; }
+
 .block {
   display: block !important; }
 
@@ -144,11 +147,24 @@ table.dataTable thead td {
   border-top: none; }
 
 /* CREAR VIAJE */
-.form-viaje-cliente label {
+.form-viaje-cliente label, .form-viaje-cliente input, .form-viaje-cliente select, .form-viaje-cliente textarea,
+.form-datos-cliente label,
+.form-datos-cliente input,
+.form-datos-cliente select,
+.form-datos-cliente textarea,
+.form-datos-cliente-contacto-cc label,
+.form-datos-cliente-contacto-cc input,
+.form-datos-cliente-contacto-cc select,
+.form-datos-cliente-contacto-cc textarea,
+.form-datos-cliente-facturacion label,
+.form-datos-cliente-facturacion input,
+.form-datos-cliente-facturacion select,
+.form-datos-cliente-facturacion textarea {
   font-size: 12px !important; }
-.form-viaje-cliente input {
-  font-size: 12px !important; }
-.form-viaje-cliente .form-group.form-md-line-input {
+.form-viaje-cliente .form-group.form-md-line-input,
+.form-datos-cliente .form-group.form-md-line-input,
+.form-datos-cliente-contacto-cc .form-group.form-md-line-input,
+.form-datos-cliente-facturacion .form-group.form-md-line-input {
   margin: 0 0 10px; }
 
 .top-0 {
@@ -4951,5 +4967,26 @@ table.dataTable thead td {
   min-height: auto !important;
   max-height: auto !important;
   height: 100px !important; }
+
+/* VISTAS */
+#operaciones .show-on-operaciones {
+  display: block !important; }
+#operaciones .hide-on-operaciones {
+  display: none !important; }
+
+#viajes .show-on-viajes {
+  display: block !important; }
+#viajes .hide-on-viajes {
+  display: none !important; }
+
+#clientes .show-on-clientes {
+  display: block !important; }
+#clientes .hide-on-clientes {
+  display: none !important; }
+
+#datosCliente .show-on-datosCliente {
+  display: block !important; }
+#datosCliente .hide-on-datosCliente {
+  display: none !important; }
 
 /*# sourceMappingURL=style.css.map */
