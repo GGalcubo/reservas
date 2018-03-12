@@ -61,6 +61,10 @@
 
 /* Helpers */
 
+.hide {
+  display: none !important;
+}
+
 .block {
   display: block !important;
 }
@@ -177,12 +181,12 @@ table.dataTable thead td {/* Mas angostas las rows */
 }
 
 
-/* CREAR VIAJE */
-.form-viaje-cliente {
-  label {
-    font-size: 12px!important;
-  }
-  input {
+/* FORMULARIOS */
+.form-viaje-cliente,
+.form-datos-cliente,
+.form-datos-cliente-contacto-cc,
+.form-datos-cliente-facturacion {
+  label, input, select, textarea {
     font-size: 12px!important;
   }
   .form-group.form-md-line-input {

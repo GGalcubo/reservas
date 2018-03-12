@@ -1,0 +1,421 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    {% include "sistema/cabecera.html" %}
+    <body id="datosCliente" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+        {% include "sistema/barra_top.html" %}
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            {% include "sistema/barra_lat.html" %}
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEADER-->
+                    <h1 class="page-title">Clientes</h1>
+                    <!-- END PAGE HEADER-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green">
+                                        <i class="icon-briefcase font-green"></i>
+                                        <span class="caption-subject bold uppercase">Datos del Cliente</span>
+                                    </div>
+                                    <div class="tools"> </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <form role="form" class="form-datos-cliente">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="text" class="form-control" id="form_control_1" value="1">
+                                                        <label for="form_control_1">ID</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="text" class="form-control" id="form_control_1" value="3 Monos">
+                                                        <label for="form_control_1">Razón Social</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control" id="form_control_1">
+                                                            <option value=""></option>
+                                                            <option value="1" selected="selected">Buenos Aires</option>
+                                                            <option value="2">Option 2</option>
+                                                            <option value="3">Option 3</option>
+                                                            <option value="4">Option 4</option>
+                                                        </select>
+                                                        <label for="form_control_1">Provincia</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="text" class="form-control" id="form_control_1" value="Buenos Aires">
+                                                        <label for="form_control_1">CP</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control" id="form_control_1">
+                                                            <option value=""></option>
+                                                            <option value="1" selected="selected">Cap. Fed.</option>
+                                                            <option value="2">Option 2</option>
+                                                            <option value="3">Option 3</option>
+                                                            <option value="4">Option 4</option>
+                                                        </select>
+                                                        <label for="form_control_1">Localidad</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="text" class="form-control" id="form_control_1" value="Riobamba">
+                                                        <label for="form_control_1">Calle</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="text" class="form-control" id="form_control_1" value="4567">
+                                                        <label for="form_control_1">Altura</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="text" class="form-control" id="form_control_1" value="3A">
+                                                        <label for="form_control_1">Piso</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="text" class="form-control" id="form_control_1" value="hola@3-monos.com.ar">
+                                                        <label for="form_control_1">Mail</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="text" class="form-control" id="form_control_1" value="4567-8910">
+                                                        <label for="form_control_1">Teléfono</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control" id="form_control_1">
+                                                            <option value=""></option>
+                                                            <option value="1" selected="selected">Tarifa 1</option>
+                                                            <option value="2">Option 2</option>
+                                                            <option value="3">Option 3</option>
+                                                            <option value="4">Option 4</option>
+                                                        </select>
+                                                        <label for="form_control_1">Tarifario</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <textarea class="form-control" rows="1" placeholder=""></textarea>
+                                                        <label for="form_control_1">Observaciones del cliente</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                        <div class="col-sm-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light ">
+                                <div class="portlet-body">
+                                    <div class="tabbable-line">
+                                        <ul class="nav nav-tabs ">
+                                            <li class="active">
+                                                <a href="#tabDatosCliente" data-toggle="tab" aria-expanded="true"> Cliente </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#tabDatosFacturacionCliente" data-toggle="tab" aria-expanded="false"> Datos de Facturación </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tabDatosCliente">
+                                                <form role="form" class="form-datos-cliente-contactos-cc">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption font-green">
+                                                                            <i class="icon-briefcase font-green mg-t-8"></i>
+                                                                            <span class="caption-subject bold uppercase">Contactos</span>
+                                                                            <button type="button" class="btn green btn-outline mg-l-20">Agregar contacto</button>
+                                                                        </div>
+                                                                        <div class="tools"> </div>
+                                                                    </div>
+                                                                    <div class="portlet-body">
+                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaContactoClientes">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="all">Nombre</th>
+                                                                                    <th class="min-tablet">Apellido</th>
+                                                                                    <th class="min-phone-l">Puesto</th>
+                                                                                    <th class="desktop">Teléfono</th>
+                                                                                    <th class="min-tablet">Mail</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>Juan</td>
+                                                                                    <td>Perez</td>
+                                                                                    <td>Comercial</td>
+                                                                                    <td>4578-8978</td>
+                                                                                    <td>ejemplo@mail.com</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Maria</td>
+                                                                                    <td>Duarte</td>
+                                                                                    <td>Comercial</td>
+                                                                                    <td>5488-7848</td>
+                                                                                    <td>ejemplo@mail.com</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Candelaria</td>
+                                                                                    <td>Duarte</td>
+                                                                                    <td>Asistente</td>
+                                                                                    <td>4488-7848</td>
+                                                                                    <td>ejemplo@mail.com</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Federico</td>
+                                                                                    <td>Perez</td>
+                                                                                    <td>Asistente</td>
+                                                                                    <td>4678-6858</td>
+                                                                                    <td>ejemplo@mail.com</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption font-green">
+                                                                            <i class="icon-briefcase font-green mg-t-8"></i>
+                                                                            <span class="caption-subject bold uppercase">Centros de Costo</span>
+                                                                            <button type="button" class="btn green btn-outline mg-l-20">Agregar centro de costo</button>
+                                                                        </div>
+                                                                        <div class="tools"> </div>
+                                                                    </div>
+                                                                    <div class="portlet-body">
+                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaCCClientes">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="all">Centro</th>
+                                                                                    <th class="min-tablet">Descripción</th>
+                                                                                    <th class="min-phone-l">Desde</th>
+                                                                                    <th class="desktop">Hasta</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>456789</td>
+                                                                                    <td>Feria del Libro</td>
+                                                                                    <td>15/01/2018</td>
+                                                                                    <td>15/03/2018</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>789456</td>
+                                                                                    <td>La Rural</td>
+                                                                                    <td>01/01/2018</td>
+                                                                                    <td>31/12/2018</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>123456</td>
+                                                                                    <td>Noche de los Museos</td>
+                                                                                    <td>01/10/2018</td>
+                                                                                    <td>31/03/2019</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>456123</td>
+                                                                                    <td>Noche de las Librerías</td>
+                                                                                    <td>01/05/2018</td>
+                                                                                    <td>31/12/2018</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions noborder">
+                                                        <button type="button" class="btn blue">Guardar</button>
+                                                        <button type="button" class="btn default">Cerrar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane" id="tabDatosFacturacionCliente">
+                                                <form role="form" class="form-datos-cliente-facturacion">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption font-green">
+                                                                            <i class="icon-briefcase font-green"></i>
+                                                                            <span class="caption-subject bold uppercase">Datos de Facturación</span>
+                                                                        </div>
+                                                                        <div class="tools"> </div>
+                                                                    </div>
+                                                                    <div class="portlet-body">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-3">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <input type="text" class="form-control" id="form_control_1" value="30-12345678-2">
+                                                                                    <label for="form_control_1">CUIT</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <select class="form-control" id="form_control_1">
+                                                                                        <option value=""></option>
+                                                                                        <option value="1" selected="selected">Responsable Inscripto</option>
+                                                                                        <option value="2">Option 2</option>
+                                                                                        <option value="3">Option 3</option>
+                                                                                        <option value="4">Option 4</option>
+                                                                                    </select>
+                                                                                    <label for="form_control_1">IVA</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <select class="form-control" id="form_control_1">
+                                                                                        <option value=""></option>
+                                                                                        <option value="1" selected="selected">Efectivo</option>
+                                                                                        <option value="2">Option 2</option>
+                                                                                        <option value="3">Option 3</option>
+                                                                                        <option value="4">Option 4</option>
+                                                                                    </select>
+                                                                                    <label for="form_control_1">Condición de Pago</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <select class="form-control" id="form_control_1">
+                                                                                        <option value=""></option>
+                                                                                        <option value="1" selected="selected">ASFDSF</option>
+                                                                                        <option value="2">Option 2</option>
+                                                                                        <option value="3">Option 3</option>
+                                                                                        <option value="4">Option 4</option>
+                                                                                    </select>
+                                                                                    <label for="form_control_1">Facturación</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-sm-4">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <input type="text" class="form-control" id="form_control_1" value="12345678910123456789012">
+                                                                                    <label for="form_control_1">CBU</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            
+                                                                            <div class="col-sm-4">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <input type="text" class="form-control" id="form_control_1" value="perro.caca.pis">
+                                                                                    <label for="form_control_1">Alias</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <textarea class="form-control" rows="1" placeholder=""></textarea>
+                                                                                    <label for="form_control_1">Observaciones de pago</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions noborder">
+                                                        <button type="button" class="btn blue">Guardar</button>
+                                                        <button type="button" class="btn default">Cerrar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        {% include "sistema/footer.html" %}
+
+            <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
+            <script>
+                $(document).ready(function(){
+                    $('#tablaContactoClientes').DataTable( {
+                        responsive: true,
+                        // scrollY: 200,
+                        order: [[ 1, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+
+                    $('#tablaCCClientes').DataTable( {
+                        responsive: true,
+                        // scrollY: 200,
+                        order: [[ 0, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+                });
+            </script>
+
+        </div>
+    </body>
+
+</html>

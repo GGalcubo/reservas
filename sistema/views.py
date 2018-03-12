@@ -38,3 +38,17 @@ def empresa(request):
 
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/empresa.html', context)
+
+@login_required
+def cliente(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/cliente.html', context)
+
+@login_required
+def datosCliente(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/datosCliente.html', context)

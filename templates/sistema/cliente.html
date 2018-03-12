@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    {% include "sistema/cabecera.html" %}
+    <body id="clientes" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+        {% include "sistema/barra_top.html" %}
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            {% include "sistema/barra_lat.html" %}
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEADER-->
+                    <h1 class="page-title">Clientes</h1>
+                    <!-- END PAGE HEADER-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green">
+                                        <i class="icon-briefcase font-green mg-t-8"></i>
+                                        <span class="caption-subject bold uppercase">Listado de clientes</span>
+                                        <button type="button" class="btn green btn-outline mg-l-20">Agregar cliente</button>
+                                    </div>
+                                    <div class="tools"> </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaClientes">
+                                        <thead>
+                                            <tr>
+                                                <th class="all">Editar</th>
+                                                <th class="min-tablet">ID</th>
+                                                <th class="min-phone-l">Cliente</th>
+                                                <th class="desktop">Teléfono</th>
+                                                <th class="min-tablet">Dirección</th>
+                                                <th class="desktop">Tarifario</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>1</td>
+                                                <td>3 Monos</td>
+                                                <td>488-7848</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>2</td>
+                                                <td>Siemens</td>
+                                                <td>488-7848</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>3</td>
+                                                <td>Simmons</td>
+                                                <td>488-7848</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>4</td>
+                                                <td>SAP</td>
+                                                <td>4678-6858</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>5</td>
+                                                <td>Prisma</td>
+                                                <td>488-7848</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>6</td>
+                                                <td>BBVA Francés</td>
+                                                <td>4123-4567</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>7</td>
+                                                <td>Santander Río</td>
+                                                <td>4678-6858</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>8</td>
+                                                <td>Galcubo</td>
+                                                <td>4587-7898</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>9</td>
+                                                <td>Tu hermana</td>
+                                                <td>4678-6858</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>10</td>
+                                                <td>Tu tía</td>
+                                                <td>488-7848</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>11</td>
+                                                <td>Tu novia</td>
+                                                <td>1234-4567</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>12</td>
+                                                <td>Tu prima</td>
+                                                <td>4678-6858</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>13</td>
+                                                <td>Tu abuela</td>
+                                                <td>4568-1346</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>14</td>
+                                                <td>Tu perra</td>
+                                                <td>4123-4567</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>15</td>
+                                                <td>Tu gata</td>
+                                                <td>4987-6543</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td>16</td>
+                                                <td>Tu vieja</td>
+                                                <td>4567-8910</td>
+                                                <td>Virrey Arredondo 456</td>
+                                                <td>Tarifa 1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        {% include "sistema/footer.html" %}
+            
+            <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
+            <script>
+                $(document).ready(function(){
+                    $('#tablaClientes').DataTable( {
+                        responsive: true,
+                        scrollY: 300,
+                        order: [[ 1, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+                    
+                });
+            </script>
+
+        </div>
+    </body>
+
+</html>
