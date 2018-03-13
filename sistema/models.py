@@ -59,6 +59,17 @@ class TipoLicencia(models.Model):
     def __str__(self):
         return self.tipo_licencia
 
+class Adjunto(models.Model):
+    upload = models.FileField(upload_to='adjuntos/')
+    fecha = models.CharField(max_length=12)
+    observacion = models.TextField()
+
+    def __unicode__(self):
+        return u'%s' % self.upload
+
+    def __str__(self):
+        return self.upload
+
 class TipoTelefono(models.Model):
     tipo_telefono = models.CharField(max_length=50)
 
@@ -151,7 +162,6 @@ class Viaje(models.Model):
     fecha = models.CharField(max_length=12)
     empresa = models.ForeignKey(Empresa)
     vehiculo = models.ForeignKey(Vehiculo)
-    #adjuntos
     base_total = models.IntegerField(default=0)
     peaje_total = models.IntegerField()
     estacionamiento_total = models.IntegerField()
@@ -167,6 +177,37 @@ class Viaje(models.Model):
 
     class Meta:
         verbose_name_plural = "Viajes" 
+
+class Trayecto(models.Model):
+    viaje = models.ForeignKey(Viaje)
+    calle_desde = models.CharField(max_length=100, null=True, blank=True)
+    altura_desde = models.CharField(max_length=10, null=True, blank=True)
+    entre_desde = models.CharField(max_length=100, null=True, blank=True)
+    provincia_desde = models.CharField(max_length=30, null=True, blank=True)
+    compania_desde = models.CharField(max_length=30, null=True, blank=True)
+    vuelo_desde = models.CharField(max_length=30, null=True, blank=True)
+    Localidad_desde = models.CharField(max_length=30, null=True, blank=True)
+    Destino_desde = models.CharField(max_length=30, null=True, blank=True)
+    calle_hast = models.CharField(max_length=30, null=True, blank=True)
+    altura_hast = models.CharField(max_length=30, null=True, blank=True)
+    entre_hast = models.CharField(max_length=30, null=True, blank=True)
+    provincia_hast = models.CharField(max_length=30, null=True, blank=True)
+    compania_hast = models.CharField(max_length=30, null=True, blank=True)
+    vuelo_hast = models.CharField(max_length=30, null=True, blank=True)
+    Localidad_hast = models.CharField(max_length=30, null=True, blank=True)
+    Destino_hast = models.CharField(max_length=30, null=True, blank=True)
+    Base_tot = models.CharField(max_length=30, null=True, blank=True)
+    Peaje_tot = models.CharField(max_length=30, null=True, blank=True)
+    estacionamiento_tot = models.CharField(max_length=30, null=True, blank=True)
+    Otros_tot = models.CharField(max_length=30, null=True, blank=True)
+    Maletas = models.CharField(max_length=30, null=True, blank=True)
+    Bilingue = models.CharField(max_length=30, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.calle_desde
+
+    def __str__(self):
+        return self.calle_desde
 
 class PersonaEmpresa(models.Model):
     persona = models.ForeignKey(Persona)
@@ -227,3 +268,13 @@ class TelefonoEmpresa(models.Model):
 
     def __str__(self):
         return self.observacion
+
+class AdjuntoViaje(models.Model):
+    adjunto = models.ForeignKey(Adjunto)
+    viaje = models.ForeignKey(Viaje)
+
+    def __unicode__(self):
+        return u'%s' % self.adjunto
+
+    def __str__(self):
+        return self.adjunto
