@@ -154,6 +154,11 @@ class Empresa(models.Model):
     cuil = models.CharField(max_length=11)
     categoria = models.ForeignKey(CategoriaEmpresa)
     #tipo_tarifa
+    def __unicode__(self):
+        return u'%s' % self.razon_social
+
+    def __str__(self):
+        return self.razon_social
 
 class Viaje(models.Model):
     factura = models.CharField(max_length=30, null=True, blank=True)
