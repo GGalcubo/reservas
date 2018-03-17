@@ -103,3 +103,11 @@ table.dataTable thead td {
 .form-viaje-cliente .form-group.form-md-line-input {
     margin: 0 0 10px;
 }
+
+.form-titu-viaje{
+    padding-bottom: 15px;
+}
+
+.form-group.form-md-line-input {
+    margin: 0 0 10px;
+}
