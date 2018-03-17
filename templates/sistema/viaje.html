@@ -4,49 +4,149 @@
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
-    <!--<![endif]-->
-    {% include "sistema/cabecera.html" %}
-    <body id="viajes" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
-        {% include "sistema/barra_top.html" %}
-        <!-- BEGIN HEADER & CONTENT DIVIDER -->
-        <div class="clearfix"> </div>
-        <!-- END HEADER & CONTENT DIVIDER -->
-        <!-- BEGIN CONTAINER -->
-        <div class="page-container">
-            {% include "sistema/barra_lat.html" %}
-            <!-- BEGIN CONTENT -->
-            <div class="page-content-wrapper">
-                <!-- BEGIN CONTENT BODY -->
-                <div class="page-content">
-                    <!-- BEGIN PAGE HEADER-->
-                    <h1 class="page-title">Viaje</h1>
-                    <!-- END PAGE HEADER-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light ">
-                                <div class="portlet-title">
-                                    <div class="caption font-green">
-                                        <i class="icon-rocket font-green"></i>
-                                        <span class="caption-subject bold uppercase">Ingreso del Cliente y Datos Personales</span>
+<!--<![endif]-->
+{% include "sistema/cabecera.html" %}
+<body id="viajes"
+      class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+{% include "sistema/barra_top.html" %}
+<!-- BEGIN HEADER & CONTENT DIVIDER -->
+<div class="clearfix"></div>
+<!-- END HEADER & CONTENT DIVIDER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    {% include "sistema/barra_lat.html" %}
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <!-- BEGIN PAGE HEADER-->
+            <h1 class="page-title">Viaje</h1>
+            <!-- END PAGE HEADER-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption font-green">
+                                <i class="icon-rocket font-green"></i>
+                                <span class="caption-subject bold uppercase">Ingreso del Cliente y Datos Personales</span>
+                            </div>
+                            <div class="tools"></div>
+                        </div>
+                        <div class="portlet-body">
+                            <form role="form" class="form-viaje-cliente">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="text" class="form-control" id="form_control_1"
+                                                       value="1212">
+                                                <label for="form_control_1">ID Cliente</label>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="text" class="form-control" id="form_control_1"
+                                                       value="1212">
+                                                <label for="form_control_1">Cliente Tel</label>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group form-md-line-input">
+                                                <select class="form-control" id="form_control_1">
+                                                    <option value=""></option>
+                                                    <option value="1" selected="selected">Torneos y Competencia S.A.
+                                                    </option>
+                                                    <option value="2">Option 2</option>
+                                                    <option value="3">Option 3</option>
+                                                    <option value="4">Option 4</option>
+                                                </select>
+                                                <label for="form_control_1">Razón Social</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="text" class="form-control" id="form_control_1"
+                                                       value="Balcarce 510 CAP. FED.">
+                                                <label for="form_control_1">Dirección</label>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="text" class="form-control" id="form_control_1"
+                                                       value="CTA.CTE.">
+                                                <label for="form_control_1">C. Fact.</label>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="text" class="form-control" id="form_control_1" value="A">
+                                                <label for="form_control_1">Categ.</label>
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="tools"> </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <form role="form" class="form-viaje-cliente">
-                                        <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-7">
                                             <div class="row">
-                                                <div class="col-md-1">
+                                                <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="form_control_1" value="1212">
-                                                        <label for="form_control_1">ID Cliente</label>
+                                                        <select class="form-control" id="form_control_1">
+                                                            <option value=""></option>
+                                                            <option value="1" selected="selected">Oscar</option>
+                                                            <option value="2">Option 2</option>
+                                                            <option value="3">Option 3</option>
+                                                            <option value="4">Option 4</option>
+                                                        </select>
+                                                        <label for="form_control_1">Solicitante</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control" id="form_control_1">
+                                                            <option value=""></option>
+                                                            <option value="1" selected="selected">Noticiero Fox</option>
+                                                            <option value="2">Option 2</option>
+                                                            <option value="3">Option 3</option>
+                                                            <option value="4">Option 4</option>
+                                                        </select>
+                                                        <label for="form_control_1">Centro de Costos</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control" id="form_control_1">
+                                                            <option value=""></option>
+                                                            <option value="1" selected="selected">Raggi Emiliano
+                                                            </option>
+                                                            <option value="2">Option 2</option>
+                                                            <option value="3">Option 3</option>
+                                                            <option value="4">Option 4</option>
+                                                        </select>
+                                                        <label for="form_control_1">Pasajero</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="text" class="form-control" id="form_control_1"
+                                                               value="06/4/2018">
+                                                        <label for="form_control_1">Fecha</label>
 
                                                     </div>
                                                 </div>
-                                                <div class="col-md-1">
+                                                <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="form_control_1" value="1212">
-                                                        <label for="form_control_1">Cliente Tel</label>
+                                                        <input type="text" class="form-control" id="form_control_1"
+                                                               value="23:30">
+                                                        <label for="form_control_1">Hora</label>
 
                                                     </div>
                                                 </div>
@@ -54,322 +154,204 @@
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control" id="form_control_1">
                                                             <option value=""></option>
-                                                            <option value="1" selected="selected">Torneos y Competencia S.A.</option>
+                                                            <option value="1" selected="selected">Remises</option>
                                                             <option value="2">Option 2</option>
                                                             <option value="3">Option 3</option>
                                                             <option value="4">Option 4</option>
                                                         </select>
-                                                        <label for="form_control_1">Razón Social</label>
+                                                        <label for="form_control_1">Tipo de Servicio</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-2">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="form_control_1" value="Balcarce 510 CAP. FED.">
-                                                        <label for="form_control_1">Dirección</label>
-
+                                                        <button type="button" class="btn blue">OK</button>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-1">
-                                                    <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="form_control_1" value="CTA.CTE.">
-                                                        <label for="form_control_1">C. Fact.</label>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="form_control_1" value="A">
-                                                        <label for="form_control_1">Categ.</label>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group form-md-line-input">
-                                                                <select class="form-control" id="form_control_1">
-                                                                    <option value=""></option>
-                                                                    <option value="1" selected="selected">Oscar</option>
-                                                                    <option value="2">Option 2</option>
-                                                                    <option value="3">Option 3</option>
-                                                                    <option value="4">Option 4</option>
-                                                                </select>
-                                                                <label for="form_control_1">Solicitante</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group form-md-line-input">
-                                                                <select class="form-control" id="form_control_1">
-                                                                    <option value=""></option>
-                                                                    <option value="1" selected="selected">Noticiero Fox</option>
-                                                                    <option value="2">Option 2</option>
-                                                                    <option value="3">Option 3</option>
-                                                                    <option value="4">Option 4</option>
-                                                                </select>
-                                                                <label for="form_control_1">Centro de Costos</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group form-md-line-input">
-                                                                <select class="form-control" id="form_control_1">
-                                                                    <option value=""></option>
-                                                                    <option value="1" selected="selected">Raggi Emiliano</option>
-                                                                    <option value="2">Option 2</option>
-                                                                    <option value="3">Option 3</option>
-                                                                    <option value="4">Option 4</option>
-                                                                </select>
-                                                                <label for="form_control_1">Pasajero</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <div class="row">
-                                                        <div class="col-md-3">
-                                                            <div class="form-group form-md-line-input">
-                                                                <input type="text" class="form-control" id="form_control_1" value="06/4/2018">
-                                                                <label for="form_control_1">Fecha</label>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <div class="form-group form-md-line-input">
-                                                                <input type="text" class="form-control" id="form_control_1" value="23:30">
-                                                                <label for="form_control_1">Hora</label>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group form-md-line-input">
-                                                                <select class="form-control" id="form_control_1">
-                                                                    <option value=""></option>
-                                                                    <option value="1" selected="selected">Remises</option>
-                                                                    <option value="2">Option 2</option>
-                                                                    <option value="3">Option 3</option>
-                                                                    <option value="4">Option 4</option>
-                                                                </select>
-                                                                <label for="form_control_1">Tipo de Servicio</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <div class="form-group form-md-line-input">
-                                                                <button type="button" class="btn blue">OK</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                        </div>
-                        <div class="col-md-12">
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light ">
-                                <div class="portlet-body">
-                                    <div class="tabbable-line">
-                                        <ul class="nav nav-tabs ">
-                                            <li class="active">
-                                                <a href="#tab_15_1" data-toggle="tab" aria-expanded="true"> Viaje </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="#tab_15_2" data-toggle="tab" aria-expanded="false"> Operaciones </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="#tab_15_3" data-toggle="tab" aria-expanded="false"> Administración </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="#tab_15_4" data-toggle="tab" aria-expanded="false"> Historial </a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="tab_15_1">
-                                                <form role="form">
-                                                    <div class="form-body">
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="row">
-                                                                    <div class="col-md-12 form-titu-viaje">
-                                                                        <h3 style="text-align: center">Desde</h3>
-                                                                    </div>
-                                                                    <div class="col-md-12 row">
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group form-md-line-input">
-                                                                                <input type="text" class="form-control" id="form_control_1">
-                                                                                <label for="form_control_1">Destino</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group form-md-line-input">
-                                                                                <input type="text" class="form-control" id="form_control_1">
-                                                                                <label for="form_control_1">Localidad</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12 row">
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group form-md-line-input">
-                                                                                <input type="text" class="form-control" id="form_control_1">
-                                                                                <label for="form_control_1">Calle</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group form-md-line-input">
-                                                                                <input type="text" class="form-control" id="form_control_1">
-                                                                                <label for="form_control_1">Entre</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="row">
-                                                                    <div class="col-md-12 form-titu-viaje">
-                                                                        <h3 style="text-align: center">Hasta</h3>
-                                                                    </div>
-                                                                    <div class="col-md-12 row">
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group form-md-line-input">
-                                                                                <input type="text" class="form-control" id="form_control_1">
-                                                                                <label for="form_control_1">Destino</label>
-
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group form-md-line-input">
-                                                                                <input type="text" class="form-control" id="form_control_1">
-                                                                                <label for="form_control_1">Localidad</label>
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12 row">
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group form-md-line-input">
-                                                                                <input type="text" class="form-control" id="form_control_1">
-                                                                                <label for="form_control_1">Calle</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group form-md-line-input">
-                                                                                <input type="text" class="form-control" id="form_control_1">
-                                                                                <label for="form_control_1">Entre</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row" style="margin-bottom: 30px">
-                                                            <div class="col-md-12">
-                                                                <span class="input-group-btn btn">
-                                                                    <button class="btn white-stripe" type="button">Agregar Tramo</button>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group form-md-line-input">
-                                                                            <select class="form-control" id="form_control_1">
-                                                                                <option value=""></option>
-                                                                                <option value="1">Remises</option>
-                                                                                <option value="2">Option 2</option>
-                                                                                <option value="3">Option 3</option>
-                                                                                <option value="4">Option 4</option>
-                                                                            </select>
-                                                                            <label for="form_control_1">Unidad</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group form-md-line-input">
-                                                                            <input type="text" class="form-control" id="form_control_1" value="">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group form-md-line-input">
-                                                                            <textarea class="form-control" rows="3" placeholder=""></textarea>
-                                                                            <label for="form_control_1">Comentario para el chofer</label>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <p>Estado Actual: Nuevo</p>
-                                                                <p>Modificado por: Nombre de Usuario</p>
-                                                            </div>
-                                                             <div class="col-md-6">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <span class="input-group-btn btn">
-                                                                            <button class="btn blue" type="button">Confirmar</button>
-                                                                        </span>
-                                                                    </div>
-                                                                     <div class="col-md-6">
-                                                                        <span class="input-group-btn btn">
-                                                                            <button class="btn yellow" type="button">Cancelar Viaje</button>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row" style="margin-bottom: 30px">
-                                                            <div class="col-md-12">
-                                                                <span class="input-group-btn btn">
-                                                                    <button class="btn green-haze" type="button">Guardar</button>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="tab-pane" id="tab_15_2">
-                                                <p>Operaciones</p>
-                                            </div>
-                                            <div class="tab-pane" id="tab_15_3">
-                                                <p> Administración</p>
-                                            </div>
-                                            <div class="tab-pane" id="tab_15_4">
-                                                <p> Historial</p>
-                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
+                            </form>
                         </div>
                     </div>
-
+                    <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
-                <!-- END CONTENT BODY -->
+                <div class="col-md-12">
+                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                    <div class="portlet light ">
+                        <div class="portlet-body">
+                            <div class="tabbable-line">
+                                <ul class="nav nav-tabs ">
+                                    <li class="active">
+                                        <a href="#tab_15_1" data-toggle="tab" aria-expanded="true"> Viaje </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#tab_15_2" data-toggle="tab" aria-expanded="false"> Operaciones </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#tab_15_3" data-toggle="tab" aria-expanded="false"> Administración </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#tab_15_4" data-toggle="tab" aria-expanded="false"> Historial </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_15_1">
+                                        <form role="form" class="form-viaje-viaje">
+                                            <div class="form-body">
+                                                <div class="form-group mt-repeater">
+                                                    <div data-repeater-list="group-c">
+                                                        <div data-repeater-item="" class="mt-repeater-item">
+                                                            <div class="row mt-repeater-row">
+                                                                <div class="col-md-3">
+                                                                    <label class="control-label">Destino</label>
+                                                                    <input type="text"
+                                                                           class="form-control"></div>
+                                                                <div class="col-md-3">
+                                                                    <label class="control-label">Localidad</label>
+                                                                    <input type="text"
+                                                                           class="form-control"></div>
+                                                                <div class="col-md-3">
+                                                                    <label class="control-label">Calle</label>
+                                                                    <input type="text"
+                                                                           class="form-control"></div>
+                                                                <div class="col-md-3">
+                                                                    <label class="control-label">Entre</label>
+                                                                    <input type="text"
+                                                                           class="form-control"></div>
+                                                                <div class="col-md-3">
+                                                                    <label class="control-label">Destino</label>
+                                                                    <input type="text"
+                                                                           class="form-control"></div>
+                                                                <div class="col-md-3">
+                                                                    <label class="control-label">Localidad</label>
+                                                                    <input type="text"
+                                                                           class="form-control"></div>
+                                                                <div class="col-md-3">
+                                                                    <label class="control-label">Calle</label>
+                                                                    <input type="text"
+                                                                           class="form-control"></div>
+                                                                <div class="col-md-3">
+                                                                    <label class="control-label">Entre</label>
+                                                                    <input type="text"
+                                                                           class="form-control"></div>
+                                                                <div class="col-md-1">
+                                                                    <a href="javascript:;" data-repeater-delete=""
+                                                                       class="btn btn-danger mt-repeater-delete">
+                                                                        <i class="fa fa-close"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a href="javascript:;" data-repeater-create=""
+                                                       class="btn btn-info mt-repeater-add">
+                                                        <i class="fa fa-plus"></i> Agregar Tramo</a>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <select class="form-control" id="form_control_1">
+                                                                        <option value=""></option>
+                                                                        <option value="1">Remises</option>
+                                                                        <option value="2">Option 2</option>
+                                                                        <option value="3">Option 3</option>
+                                                                        <option value="4">Option 4</option>
+                                                                    </select>
+                                                                    <label for="form_control_1">Unidad</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <input type="text" class="form-control"
+                                                                           id="form_control_1" value="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <textarea class="form-control" rows="3"
+                                                                              placeholder=""></textarea>
+                                                                    <label for="form_control_1">Comentario para el
+                                                                        chofer</label>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p>Estado Actual: Nuevo</p>
+                                                        <p>Modificado por: Nombre de Usuario</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                        <span class="input-group-btn btn">
+                                                                            <button class="btn blue" type="button">Confirmar</button>
+                                                                        </span>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                        <span class="input-group-btn btn">
+                                                                            <button class="btn yellow" type="button">Cancelar Viaje</button>
+                                                                        </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="margin-bottom: 30px">
+                                                    <div class="col-md-12">
+                                                                <span class="input-group-btn btn">
+                                                                    <button class="btn green-haze"
+                                                                            type="button">Guardar</button>
+                                                                </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="tab_15_2">
+                                        <p>Operaciones</p>
+                                    </div>
+                                    <div class="tab-pane" id="tab_15_3">
+                                        <p> Administración</p>
+                                    </div>
+                                    <div class="tab-pane" id="tab_15_4">
+                                        <p> Historial</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END EXAMPLE TABLE PORTLET-->
+                </div>
             </div>
-            <!-- END CONTENT -->
-            <!-- BEGIN QUICK SIDEBAR -->
-            <!-- END QUICK SIDEBAR -->
-        </div>
-        <!-- END CONTAINER -->
-        {% include "sistema/footer.html" %}
-
-            <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
-            <script>
-                $(document).ready(function(){
-                });
-            </script>
 
         </div>
-    </body>
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+    <!-- BEGIN QUICK SIDEBAR -->
+    <!-- END QUICK SIDEBAR -->
+</div>
+<!-- END CONTAINER -->
+{% include "sistema/footer.html" %}
+<script src="{% static 'js/jquery.repeater.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/form-repeater.min.js' %}" type="text/javascript"></script>
+<!-- SCRIPTS PROPIOS DE ESTA VISTA -->
+<script>
+    $(document).ready(function () {
+    });
+</script>
+
+</div>
+</body>
 
 </html>

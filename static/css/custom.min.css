@@ -91,23 +91,5 @@ table.dataTable thead td {
     border-top: none;
 }
 
-/* CREAR VIAJE */
 
-.form-viaje-cliente label{
-    font-size: 12px!important;
-}
-.form-viaje-cliente input{
-    font-size: 12px!important;
-}
 
-.form-viaje-cliente .form-group.form-md-line-input {
-    margin: 0 0 10px;
-}
-
-.form-titu-viaje{
-    padding-bottom: 15px;
-}
-
-.form-group.form-md-line-input {
-    margin: 0 0 10px;
-}
