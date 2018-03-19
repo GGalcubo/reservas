@@ -55,7 +55,7 @@ ROOT_URLCONF = 'reservas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['D:/freelos/reservas/templates'],
+        'DIRS': ['c:/xampp/htdocs/galcubo/reservas//templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,7 +124,7 @@ import os
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    'D:/freelos/reservas/static',
+    'c:/xampp/htdocs/galcubo/reservas/static',
 ]
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')

@@ -195,12 +195,32 @@ table.dataTable thead td {/* Mas angostas las rows */
   }
 }
 
+.form-viaje-viaje{
+  .mt-repeater-delete {
+    margin-top: 0.8em;
+  }
+}
+
 .viaje_desde{
-  padding: 0 10px 0 10px;
+  padding-bottom: 4px;
+  .col-md-3{
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .form-control{
+    height: 24px;
+  }
 }
 
 .viaje_hasta{
-  padding: 0 10px 0 10px;
+  padding-bottom: 4px;
+  .col-md-3{
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .form-control{
+    height: 24px;
+  }
 }
 
 .form-titu-viaje{

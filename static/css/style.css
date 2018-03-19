@@ -172,11 +172,24 @@ table.dataTable thead td {
 .form-datos-cliente-facturacion .form-group.form-md-line-input {
   margin: 0 0 10px; }
 
+.form-viaje-viaje .mt-repeater-delete {
+  margin-top: 0.8em; }
+
 .viaje_desde {
-  padding: 0 10px 0 10px; }
+  padding-bottom: 4px; }
+  .viaje_desde .col-md-3 {
+    padding-left: 3px;
+    padding-right: 3px; }
+  .viaje_desde .form-control {
+    height: 24px; }
 
 .viaje_hasta {
-  padding: 0 10px 0 10px; }
+  padding-bottom: 4px; }
+  .viaje_hasta .col-md-3 {
+    padding-left: 3px;
+    padding-right: 3px; }
+  .viaje_hasta .form-control {
+    height: 24px; }
 
 .form-titu-viaje {
   padding-bottom: 15px; }
