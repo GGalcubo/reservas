@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import Permission
 from django.contrib import admin
-from .models import Viaje, Estado, CategoriaEmpresa, CategoriaVehiculo, TipoPersona, TipoObservacion, TipoLicencia, TipoTelefono, Telefono, Observacion, Licencia, Persona, Vehiculo, Empresa, PersonaEmpresa, ObservacionVehiculo, ObservacionEmpresa, ObservacionViaje, TelefonoPersona, TelefonoEmpresa, Adjunto, AdjuntoViaje, Trayecto, CentroCosto, Proveedor, ObservacionCentroCosto
+from .models import Viaje, Estado, CategoriaEmpresa, CategoriaVehiculo, TipoPersona, TipoObservacion, TipoLicencia, TipoTelefono, Telefono, Observacion, Licencia, Persona, Vehiculo, Empresa, PersonaEmpresa, ObservacionVehiculo, ObservacionEmpresa, ObservacionViaje, TelefonoPersona, TelefonoEmpresa, Adjunto, AdjuntoViaje, Trayecto, CentroCosto, Proveedor, ObservacionCentroCosto, Calle, Partido, Provincia
 
 class TrayectoInline(admin.TabularInline):
     model = Trayecto
@@ -24,6 +24,9 @@ class ViajeAdmin(admin.ModelAdmin):
 
 admin.site.register(Viaje,ViajeAdmin)
 admin.site.register(TipoTelefono)
+admin.site.register(Calle)
+admin.site.register(Partido)
+admin.site.register(Provincia)
 admin.site.register(TipoLicencia)
 admin.site.register(TipoObservacion)
 admin.site.register(TipoPersona)

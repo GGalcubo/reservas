@@ -322,3 +322,34 @@ class AdjuntoViaje(models.Model):
 
     def __str__(self):
         return self.adjunto
+
+class Provincia(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
+class Partido(models.Model):
+    nombre = models.CharField(max_length=100)
+    provincia = models.ForeignKey(Provincia, null=True, blank=True)
+    
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
+class Calle(models.Model):
+    nombre = models.CharField(max_length=100)
+    altura_desde = models.CharField(max_length=10, null=True, blank=True)
+    altura_hasta  = models.CharField(max_length=10, null=True, blank=True)
+    partido = models.ForeignKey(Partido, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
