@@ -120,6 +120,7 @@ class Persona(models.Model):
     fecha_nacimiento = models.CharField(max_length=8)
     documento = models.CharField(max_length=8)
     tipo_persona = models.ForeignKey(TipoPersona)
+    porcentaje_viaje = models.CharField(max_length=3)
 
     def __unicode__(self):
         return u'%s' % self.nombre
@@ -148,6 +149,20 @@ class Vehiculo(models.Model):
     def __str__(self):
         return self.nro_motor
 
+class Proveedor(models.Model):
+    chofer = models.ForeignKey(Persona, related_name='chofer')
+    owner = models.ForeignKey(Persona, related_name='owner')
+    vehiculo = models.ForeignKey(Vehiculo)
+
+    def __unicode__(self):
+        return u'%s' % self.chofer
+
+    def __str__(self):
+        return self.chofer
+
+    class Meta:
+        verbose_name_plural = "Proveedores" 
+
 class Empresa(models.Model):
     razon_social = models.CharField(max_length=100)
     direccion = models.CharField(max_length=100)
@@ -166,7 +181,7 @@ class Viaje(models.Model):
     estado = models.ForeignKey(Estado)
     fecha = models.CharField(max_length=12)
     empresa = models.ForeignKey(Empresa)
-    vehiculo = models.ForeignKey(Vehiculo)
+    proveedor = models.ForeignKey(Proveedor, null=True, blank=True)
     base_total = models.IntegerField(default=0)
     peaje_total = models.IntegerField()
     estacionamiento_total = models.IntegerField()
@@ -214,6 +229,19 @@ class Trayecto(models.Model):
     def __str__(self):
         return self.calle_desde
 
+class CentroCosto(models.Model):
+    nombre = models.CharField(max_length=100)
+    fecha_inicio = models.CharField(max_length=8, null=True, blank=True)
+    fecha_fin = models.CharField(max_length=8, null=True, blank=True)
+    descripcion = models.TextField(null=True, blank=True)
+    empresa = models.ForeignKey(Empresa)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
 class PersonaEmpresa(models.Model):
     persona = models.ForeignKey(Persona)
     empresa = models.ForeignKey(Empresa)
@@ -254,6 +282,17 @@ class ObservacionViaje(models.Model):
     def __str__(self):
         return self.observacion
 
+class ObservacionCentroCosto(models.Model):
+    observacion = models.ForeignKey(Observacion)
+    centro_costo = models.ForeignKey(CentroCosto)
+
+    def __unicode__(self):
+        return u'%s' % self.observacion
+
+    def __str__(self):
+        return self.observacion
+
+
 class TelefonoPersona(models.Model):
     Telefono = models.ForeignKey(Telefono)
     persona = models.ForeignKey(Persona)
@@ -283,3 +322,34 @@ class AdjuntoViaje(models.Model):
 
     def __str__(self):
         return self.adjunto
+
+class Provincia(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
+class Partido(models.Model):
+    nombre = models.CharField(max_length=100)
+    provincia = models.ForeignKey(Provincia, null=True, blank=True)
+    
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
+class Calle(models.Model):
+    nombre = models.CharField(max_length=100)
+    altura_desde = models.CharField(max_length=10, null=True, blank=True)
+    altura_hasta  = models.CharField(max_length=10, null=True, blank=True)
+    partido = models.ForeignKey(Partido, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre

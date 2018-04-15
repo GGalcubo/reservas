@@ -124,6 +124,7 @@
   font-family: helvetica;
   font-weight: 700; }
   .datepicker.dropdown-menu {
+    position: fixed;
     top: 103px !important;
     padding: 0px; }
 
@@ -148,6 +149,10 @@ table.dataTable thead td {
 
 /* FORMULARIOS */
 .form-viaje-cliente label, .form-viaje-cliente input, .form-viaje-cliente select, .form-viaje-cliente textarea,
+.form-viaje-viaje label,
+.form-viaje-viaje input,
+.form-viaje-viaje select,
+.form-viaje-viaje textarea,
 .form-datos-cliente label,
 .form-datos-cliente input,
 .form-datos-cliente select,
@@ -162,10 +167,25 @@ table.dataTable thead td {
 .form-datos-cliente-facturacion textarea {
   font-size: 12px !important; }
 .form-viaje-cliente .form-group.form-md-line-input,
+.form-viaje-viaje .form-group.form-md-line-input,
 .form-datos-cliente .form-group.form-md-line-input,
 .form-datos-cliente-contacto-cc .form-group.form-md-line-input,
 .form-datos-cliente-facturacion .form-group.form-md-line-input {
   margin: 0 0 10px; }
+
+.viaje_desde {
+  padding: 0 10px 0 10px; }
+
+.viaje_hasta {
+  padding: 0 10px 0 10px; }
+
+.form-titu-viaje {
+  padding-bottom: 15px; }
+  .form-titu-viaje h3 {
+    font-size: 19px;
+    margin-top: 5px;
+    margin-bottom: -5px;
+    margin-left: -2px; }
 
 .top-0 {
   top: 0px !important; }

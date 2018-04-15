@@ -155,6 +155,7 @@
   font-family: helvetica;
   font-weight: 700;
   &.dropdown-menu {
+    position: fixed;
     top: 103px !important;
     padding: 0px;
   }
@@ -183,6 +184,7 @@ table.dataTable thead td {/* Mas angostas las rows */
 
 /* FORMULARIOS */
 .form-viaje-cliente,
+.form-viaje-viaje,
 .form-datos-cliente,
 .form-datos-cliente-contacto-cc,
 .form-datos-cliente-facturacion {
@@ -194,3 +196,20 @@ table.dataTable thead td {/* Mas angostas las rows */
   }
 }
 
+.viaje_desde{
+  padding: 0 10px 0 10px;
+}
+
+.viaje_hasta{
+  padding: 0 10px 0 10px;
+}
+
+.form-titu-viaje{
+    padding-bottom: 15px;
+    h3{
+      font-size: 19px;
+      margin-top: 5px;
+      margin-bottom: -5px;
+      margin-left: -2px;
+    }
+}
