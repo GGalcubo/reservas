@@ -81,25 +81,18 @@ def viaje(request):
 	return render(request, 'sistema/viaje.html', context)
 
 @login_required
-def persona(request):
+def altaPersona(request):
 	mensaje = ""
 
 	context = {'mensaje': mensaje}
-	return render(request, 'sistema/persona.html', context)
+	return render(request, 'sistema/altaPersona.html', context)
 
 @login_required
-def empresa(request):
+def listadoCliente(request):
 	mensaje = ""
 
 	context = {'mensaje': mensaje}
-	return render(request, 'sistema/empresa.html', context)
-
-@login_required
-def cliente(request):
-	mensaje = ""
-
-	context = {'mensaje': mensaje}
-	return render(request, 'sistema/cliente.html', context)
+	return render(request, 'sistema/listadoCliente.html', context)
 
 @login_required
 def datosCliente(request):
@@ -107,3 +100,31 @@ def datosCliente(request):
 
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/datosCliente.html', context)
+
+@login_required
+def altaCliente(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/altaCliente.html', context)
+
+@login_required
+def altaContacto(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/altaContacto.html', context)
+
+@login_required
+def altaCentroDeCosto(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/altaCentroDeCosto.html', context)
+
+@login_required
+def listadoCentroDeCosto(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/listadoCentroDeCosto.html', context)
