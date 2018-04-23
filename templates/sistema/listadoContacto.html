@@ -19,7 +19,7 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
-                    <h1 class="page-title">Centro de Costo</h1>
+                    <h1 class="page-title">Contacto</h1>
                     <!-- END PAGE HEADER-->
                     <div class="row">
                         <div class="col-md-12">
@@ -27,61 +27,61 @@
                             <div class="portlet light ">
                                 <div class="portlet-title">
                                     <div class="caption font-blue">
-                                        <i class="icon-flag font-blue mg-t-8"></i>
-                                        <span class="caption-subject bold uppercase">Listado de centros de costo</span>
-                                        <a href="/sistema/altaCentroDeCosto/" role="button" class="btn green btn-outline mg-l-20">Agregar centro de costo</a>
+                                        <i class="icon-user font-blue mg-t-8"></i>
+                                        <span class="caption-subject bold uppercase">Listado de contactos</span>
+                                        <a href="/sistema/altaContacto/" role="button" class="btn green btn-outline mg-l-20">Agregar contacto</a>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoCC">
+                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaContactos">
                                         <thead>
                                             <tr>
                                                 <th class="all">Editar</th>
-                                                <th class="all">ID</th>
-                                                <th class="all">Centro de Costo</th>
-                                                <th class="all">Descripción</th>
-                                                <th class="all">Tarifario</th>
-                                                <th class="all">Desde</th>
-                                                <th class="all">Hasta</th>
+                                                <th class="all">Nombre</th>
+                                                <th class="all">Apellido</th>
+                                                <th class="all">Cliente/Empresa</th>
+                                                <th class="all">Puesto</th>
+                                                <th class="all">Teléfono</th>
+                                                <th class="all">Mail</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaCentroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>1</td>
-                                                <td>3MONOSRURAL</td>
-                                                <td>La Rural</td>
-                                                <td>General</td>
-                                                <td>01/01/2018</td>
-                                                <td>25/05/2019</td>
+                                                <td class="text-center"><a href="/sistema/editaContacto/"><i class="fa fa-pencil">
+                                                <td>Juan</td>
+                                                <td>Perez</td>
+                                                <td>3 Monos</td>
+                                                <td>Comercial</td>
+                                                <td>4578-8978</td>
+                                                <td>ejemplo@mail.com</td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaCentroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>2</td>
-                                                <td>SIEMENSCONGRESO</td>
-                                                <td>Congreso Tecnópolis</td>
-                                                <td>Especial</td>
-                                                <td>01/01/2018</td>
-                                                <td>26/08/2018</td>
+                                                <td class="text-center"><a href="/sistema/editaContacto/"><i class="fa fa-pencil">
+                                                <td>Maria</td>
+                                                <td>Duarte</td>
+                                                <td>Siemens</td>
+                                                <td>Comercial</td>
+                                                <td>5488-7848</td>
+                                                <td>ejemplo@mail.com</td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaCentroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>3</td>
-                                                <td>SIMMONSFERIA</td>
-                                                <td>Simmons</td>
-                                                <td>488-7848</td>
-                                                <td>01/01/2018</td>
-                                                <td>26/08/2018</td>
+                                                <td class="text-center"><a href="/sistema/editaContacto/"><i class="fa fa-pencil">
+                                                <td>Candelaria</td>
+                                                <td>Duarte</td>
+                                                <td>Pfizer</td>
+                                                <td>Asistente</td>
+                                                <td>4488-7848</td>
+                                                <td>ejemplo@mail.com</td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaCentroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>4</td>
-                                                <td>SAPTESTPETER</td>
+                                                <td class="text-center"><a href="/sistema/editaContacto/"><i class="fa fa-pencil">
+                                                <td>Federico</td>
+                                                <td>Perez</td>
                                                 <td>SAP</td>
-                                                <td>Premium</td>
-                                                <td>01/01/2018</td>
-                                                <td>26/08/2018</td>
+                                                <td>Asistente</td>
+                                                <td>4678-6858</td>
+                                                <td>ejemplo@mail.com</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -104,9 +104,9 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 $(document).ready(function(){
-                    $('#tablaListadoCC').DataTable( {
+                    $('#tablaContactos').DataTable( {
                         responsive: true,
-                        scrollY: 300,
+                        // scrollY: 300,
                         order: [[ 1, "asc" ]],
                         lengthMenu: [
                                         [ -1, 500, 100, 50, 25, 10 ],

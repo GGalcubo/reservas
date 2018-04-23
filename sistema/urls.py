@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, viaje, altaPersona, listadoCliente, datosCliente, altaCliente, altaContacto, altaCentroDeCosto, listadoCentroDeCosto, importar_calles
+from sistema.views import dashboard, operaciones, viaje, altaPersona, listadoCliente, datosCliente, altaCliente, datosProvedor, listadoProvedor, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, importar_calles
 
 urlpatterns = [
     url(r'^dashboard/', dashboard, name='dashboard'),
@@ -9,9 +9,13 @@ urlpatterns = [
     url(r'^listadoCliente/', listadoCliente, name='listadoCliente'),
     url(r'^datosCliente/', datosCliente, name='datosCliente'),
     url(r'^altaCliente/', altaCliente, name='altaCliente'),
+    url(r'^datosProvedor/', datosProvedor, name='datosProvedor'),
+    url(r'^listadoProvedor/', listadoProvedor, name='listadoProvedor'),
     url(r'^altaContacto/', altaContacto, name='altaContacto'),
+    url(r'^listadoContacto/', listadoContacto, name='listadoContacto'),
     url(r'^altaCentroDeCosto/', altaCentroDeCosto, name='altaCentroDeCosto'),
     url(r'^listadoCentroDeCosto/', listadoCentroDeCosto, name='listadoCentroDeCosto'),
+    url(r'^listadoTarifario/', listadoTarifario, name='listadoTarifario'),
     url(r'^importarcalles/', importar_calles, name='importar_calles'),
     
     #url(r'^$', 'sistema.views.index', name='index'),
