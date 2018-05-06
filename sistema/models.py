@@ -212,11 +212,21 @@ class Unidad(models.Model):
     class Meta:
         verbose_name_plural = "Unidades" 
 
+class Tarifario(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+        
 class Cliente(models.Model):
     razon_social = models.CharField(max_length=100)
     direccion = models.CharField(max_length=100, null=True, blank=True)
     cuil = models.CharField(max_length=11, null=True, blank=True)
     categoria = models.ForeignKey(CategoriaCliente, null=True, blank=True)
+    tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.razon_social
@@ -299,15 +309,6 @@ class CentroCosto(models.Model):
     fecha_fin = models.CharField(max_length=8, null=True, blank=True)
     descripcion = models.TextField(null=True, blank=True)
     cliente = models.ForeignKey(Cliente, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.nombre
-
-    def __str__(self):
-        return self.nombre
-
-class Tarifario(models.Model):
-    nombre = models.CharField(max_length=100)
 
     def __unicode__(self):
         return u'%s' % self.nombre
