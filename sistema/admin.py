@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import Permission
 from django.contrib import admin
-from .models import Viaje, Estado, CategoriaEmpresa, CategoriaVehiculo, TipoPersona, TipoObservacion, TipoLicencia, TipoTelefono, Telefono, Observacion, Licencia, Persona, Vehiculo, Empresa, PersonaEmpresa, ObservacionVehiculo, ObservacionEmpresa, ObservacionViaje, TelefonoPersona, TelefonoEmpresa, Adjunto, AdjuntoViaje, Trayecto, CentroCosto, Proveedor, ObservacionCentroCosto, Calle, Partido, Provincia
+from .models import Provincia, Localidad, Calle, Estado, EstadoCivil, CategoriaCliente, CategoriaUnidad, TipoPersona, TipoObservacion, TipoLicencia, Adjunto, TipoTelefono, Telefono, Observacion, Licencia, Persona, Vehiculo, Unidad, Cliente, Viaje, ViajeHistorial, Trayecto, CentroCosto, PersonaCliente, ObservacionPersona, ObservacionUnidad, ObservacionVehiculo, ObservacionCliente, ObservacionViaje, ObservacionCentroCosto, ObservacionLicencia, TelefonoPersona, TelefonoCliente, AdjuntoViaje
 
 class TrayectoInline(admin.TabularInline):
     model = Trayecto
@@ -20,34 +20,39 @@ class ViajeAdmin(admin.ModelAdmin):
     inlines = [
         TrayectoInline, ObservacionViajeInline, AdjuntoViajeInline,
     ]
-    list_display = ('factura', 'proforma', 'estado', 'fecha', 'empresa', 'proveedor', 'base_total')
+    list_display = ('factura', 'proforma', 'estado', 'fecha', 'cliente', 'unidad', 'base_total')
 
 admin.site.register(Viaje,ViajeAdmin)
-admin.site.register(TipoTelefono)
-admin.site.register(Calle)
-admin.site.register(Partido)
 admin.site.register(Provincia)
-admin.site.register(TipoLicencia)
-admin.site.register(TipoObservacion)
-admin.site.register(TipoPersona)
-admin.site.register(CategoriaVehiculo)
-admin.site.register(CategoriaEmpresa)
-admin.site.register(Proveedor)
-admin.site.register(CentroCosto)
+admin.site.register(Localidad)
+admin.site.register(Calle)
 admin.site.register(Estado)
+admin.site.register(EstadoCivil)
+admin.site.register(CategoriaCliente)
+admin.site.register(CategoriaUnidad)
+admin.site.register(TipoObservacion)
+admin.site.register(TipoLicencia)
+admin.site.register(TipoTelefono)
+admin.site.register(Adjunto)
+admin.site.register(Telefono)
 admin.site.register(Observacion)
 admin.site.register(Licencia)
 admin.site.register(Persona)
 admin.site.register(Vehiculo)
-admin.site.register(Empresa)
-admin.site.register(Adjunto)
+admin.site.register(Unidad)
+admin.site.register(Cliente)
+admin.site.register(ViajeHistorial)
 admin.site.register(Trayecto)
-admin.site.register(AdjuntoViaje)
-admin.site.register(PersonaEmpresa)
+admin.site.register(CentroCosto)
+admin.site.register(PersonaCliente)
+admin.site.register(ObservacionPersona)
+admin.site.register(ObservacionUnidad)
 admin.site.register(ObservacionVehiculo)
-admin.site.register(ObservacionEmpresa)
+admin.site.register(ObservacionCliente)
 admin.site.register(ObservacionViaje)
 admin.site.register(ObservacionCentroCosto)
+admin.site.register(ObservacionLicencia)
 admin.site.register(TelefonoPersona)
-admin.site.register(TelefonoEmpresa)
+admin.site.register(TelefonoCliente)
+admin.site.register(AdjuntoViaje)
 admin.site.register(Permission)

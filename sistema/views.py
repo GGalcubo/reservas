@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Partido, Provincia
+from .models import Calle, Localidad, Provincia
 
 @login_required
 def importar_calles(request):

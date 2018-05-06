@@ -1,9 +1,40 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
+class Provincia(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
+class Localidad(models.Model):
+    nombre = models.CharField(max_length=100)
+    provincia = models.ForeignKey(Provincia, null=True, blank=True)
+    
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
+class Calle(models.Model):
+    nombre = models.CharField(max_length=100)
+    altura_desde = models.CharField(max_length=10, null=True, blank=True)
+    altura_hasta  = models.CharField(max_length=10, null=True, blank=True)
+    localidad = models.ForeignKey(Localidad, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
 class Estado(models.Model):
     estado = models.CharField(max_length=50)
 
@@ -13,7 +44,16 @@ class Estado(models.Model):
     def __str__(self):
         return self.estado
 
-class CategoriaEmpresa(models.Model):
+class EstadoCivil(models.Model):
+    estado_civil = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return u'%s' % self.estado_civil
+
+    def __str__(self):
+        return self.estado_civil
+
+class CategoriaCliente(models.Model):
     categoria = models.CharField(max_length=50)
 
     def __unicode__(self):
@@ -22,8 +62,8 @@ class CategoriaEmpresa(models.Model):
     def __str__(self):
         return self.categoria
 
-class CategoriaVehiculo(models.Model):
-    codigo = models.CharField(max_length=10)
+class CategoriaUnidad(models.Model):
+    codigo = models.CharField(max_length=10, null=True, blank=True)
     categoria = models.CharField(max_length=50)
 
     def __unicode__(self):
@@ -62,7 +102,7 @@ class TipoLicencia(models.Model):
 class Adjunto(models.Model):
     upload = models.FileField(upload_to='adjuntos/')
     fecha = models.CharField(max_length=12)
-    observacion = models.TextField()
+    observacion = models.TextField(null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.upload
@@ -77,10 +117,10 @@ class TipoTelefono(models.Model):
         return u'%s' % self.tipo_telefono
 
     def __str__(self):
-        return self.tipo_obsertipo_telefonotipo_telefonovacion
+        return self.tipo_telefono
 
 class Telefono(models.Model):
-    tipo_telefono = models.ForeignKey(TipoTelefono)
+    tipo_telefono = models.ForeignKey(TipoTelefono, null=True, blank=True)
     numero = models.CharField(max_length=50)
 
     def __unicode__(self):
@@ -92,35 +132,46 @@ class Telefono(models.Model):
 class Observacion(models.Model):
     fecha = models.CharField(max_length=12)
     observacion = models.TextField()
-    tipo_observacion = models.ForeignKey(TipoObservacion)
+    tipo_observacion = models.ForeignKey(TipoObservacion, null=True, blank=True)
 
     def __unicode__(self):
-        return u'%s' % self.estado
+        return u'%s' % self.observacion
 
     def __str__(self):
-        return self.estado
+        return self.observacion
 
     class Meta:
         verbose_name_plural = "Observaciones" 
 
 class Licencia(models.Model):
-    tipo_licencia = models.ForeignKey(TipoLicencia)
-    fecha_vencimiento = models.CharField(max_length=8)
-    identificador = models.CharField(max_length=50)
+    tipo_licencia = models.ForeignKey(TipoLicencia, null=True, blank=True)
+    fecha_vencimiento = models.CharField(max_length=8, null=True, blank=True)
+    numero = models.CharField(max_length=50)
 
     def __unicode__(self):
-        return u'%s' % self.identificador
+        return u'%s' % self.numero
 
     def __str__(self):
-        return self.identificador
+        return self.numero
 
 class Persona(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
-    fecha_nacimiento = models.CharField(max_length=8)
-    documento = models.CharField(max_length=8)
-    tipo_persona = models.ForeignKey(TipoPersona)
-    porcentaje_viaje = models.CharField(max_length=3)
+    fecha_nacimiento = models.CharField(max_length=8, null=True, blank=True)
+    documento = models.CharField(max_length=8, null=True, blank=True)
+    tipo_persona = models.ForeignKey(TipoPersona, null=True, blank=True)
+    porcentaje_viaje = models.CharField(max_length=3, null=True, blank=True)
+    estado_civil = models.ForeignKey(EstadoCivil, null=True, blank=True)
+    calle = models.CharField(max_length=100, null=True, blank=True)
+    altura = models.CharField(max_length=10, null=True, blank=True)
+    piso = models.CharField(max_length=10, null=True, blank=True)
+    localidad = models.CharField(max_length=50, null=True, blank=True)
+    cp = models.CharField(max_length=10, null=True, blank=True)
+    mail = models.CharField(max_length=100, null=True, blank=True)
+    porcentaje_viaje = models.IntegerField(default=0)
+    contacto_cliente = models.CharField(max_length=100, null=True, blank=True)
+    puesto = models.CharField(max_length=100, null=True, blank=True)
+    licencia = models.ForeignKey(Licencia, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.nombre
@@ -132,16 +183,13 @@ class Vehiculo(models.Model):
     marca = models.CharField(max_length=100)
     modelo = models.CharField(max_length=100)
     ano = models.CharField(max_length=10)
-    color = models.CharField(max_length=50)
-    puertas = models.CharField(max_length=10)
-    patente = models.CharField(max_length=100)
-    nro_motor = models.CharField(max_length=100)
-    nro_chasis = models.CharField(max_length=100)
-    licencia = models.ForeignKey(Licencia)
-    dueno = models.ForeignKey(Persona)
-    categoria = models.ForeignKey(CategoriaVehiculo)
-    licencia_centro = models.CharField(max_length=100)
-    vto_licencia_centro = models.CharField(max_length=100)
+    color = models.CharField(max_length=50, null=True, blank=True)
+    puertas = models.CharField(max_length=10, null=True, blank=True)
+    patente = models.CharField(max_length=100, null=True, blank=True)
+    nro_motor = models.CharField(max_length=100, null=True, blank=True)
+    nro_chasis = models.CharField(max_length=100, null=True, blank=True)
+    licencia = models.ForeignKey(Licencia, null=True, blank=True)
+    dueno = models.ForeignKey(Persona, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.nro_motor
@@ -149,26 +197,27 @@ class Vehiculo(models.Model):
     def __str__(self):
         return self.nro_motor
 
-class Proveedor(models.Model):
-    chofer = models.ForeignKey(Persona, related_name='chofer')
-    owner = models.ForeignKey(Persona, related_name='owner')
-    vehiculo = models.ForeignKey(Vehiculo)
+class Unidad(models.Model):
+    identificacion = models.CharField(max_length=100)
+    chofer = models.ForeignKey(Persona, related_name='chofer', null=True, blank=True)
+    owner = models.ForeignKey(Persona, related_name='owner', null=True, blank=True)
+    vehiculo = models.ForeignKey(Vehiculo, null=True, blank=True)
 
     def __unicode__(self):
-        return u'%s' % self.chofer
+        return u'%s' % self.identificacion
 
     def __str__(self):
-        return self.chofer
+        return self.identificacion
 
     class Meta:
-        verbose_name_plural = "Proveedores" 
+        verbose_name_plural = "Unidades" 
 
-class Empresa(models.Model):
+class Cliente(models.Model):
     razon_social = models.CharField(max_length=100)
-    direccion = models.CharField(max_length=100)
-    cuil = models.CharField(max_length=11)
-    categoria = models.ForeignKey(CategoriaEmpresa)
-    #tipo_tarifa
+    direccion = models.CharField(max_length=100, null=True, blank=True)
+    cuil = models.CharField(max_length=11, null=True, blank=True)
+    categoria = models.ForeignKey(CategoriaCliente, null=True, blank=True)
+
     def __unicode__(self):
         return u'%s' % self.razon_social
 
@@ -178,16 +227,16 @@ class Empresa(models.Model):
 class Viaje(models.Model):
     factura = models.CharField(max_length=30, null=True, blank=True)
     proforma = models.CharField(max_length=30, null=True, blank=True)
-    estado = models.ForeignKey(Estado)
+    estado = models.ForeignKey(Estado, null=True, blank=True)
     fecha = models.CharField(max_length=12)
-    empresa = models.ForeignKey(Empresa)
-    proveedor = models.ForeignKey(Proveedor, null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, null=True, blank=True)
+    unidad = models.ForeignKey(Unidad, null=True, blank=True)
     base_total = models.IntegerField(default=0)
-    peaje_total = models.IntegerField()
-    estacionamiento_total = models.IntegerField()
-    Otros_tot = models.IntegerField()
-    maletas = models.CharField(max_length=30)
-    bilingue = models.CharField(max_length=30)
+    peaje_total = models.IntegerField(default=0)
+    estacionamiento_total = models.IntegerField(default=0)
+    Otros_tot = models.IntegerField(default=0)
+    maletas = models.BooleanField(default=False)
+    bilingue = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s' % self.fecha
@@ -198,30 +247,45 @@ class Viaje(models.Model):
     class Meta:
         verbose_name_plural = "Viajes" 
 
+class ViajeHistorial(models.Model):
+    viaje = models.ForeignKey(Viaje, null=True, blank=True)
+    usuario = models.OneToOneField(User)
+    fecha = models.CharField(max_length=12)
+    valor_anterior = models.CharField(max_length=100)
+    valor_actual = models.CharField(max_length=100)
+    campo_modificado = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return u'%s' % self.campo_modificado
+
+    def __str__(self):
+        return self.campo_modificado
+
+    class Meta:
+        verbose_name_plural = "Historial de viajes" 
+
 class Trayecto(models.Model):
-    viaje = models.ForeignKey(Viaje)
+    viaje = models.ForeignKey(Viaje, null=True, blank=True)
     calle_desde = models.CharField(max_length=100, null=True, blank=True)
     altura_desde = models.CharField(max_length=10, null=True, blank=True)
     entre_desde = models.CharField(max_length=100, null=True, blank=True)
-    provincia_desde = models.CharField(max_length=30, null=True, blank=True)
+    localidad_desde = models.ForeignKey(Localidad, null=True, blank=True, related_name='localidad_desde')
+    provincia_desde = models.ForeignKey(Provincia, null=True, blank=True, related_name='provincia_desde')
     compania_desde = models.CharField(max_length=30, null=True, blank=True)
     vuelo_desde = models.CharField(max_length=30, null=True, blank=True)
-    Localidad_desde = models.CharField(max_length=30, null=True, blank=True)
-    Destino_desde = models.CharField(max_length=30, null=True, blank=True)
-    calle_hast = models.CharField(max_length=30, null=True, blank=True)
-    altura_hast = models.CharField(max_length=30, null=True, blank=True)
-    entre_hast = models.CharField(max_length=30, null=True, blank=True)
-    provincia_hast = models.CharField(max_length=30, null=True, blank=True)
-    compania_hast = models.CharField(max_length=30, null=True, blank=True)
-    vuelo_hast = models.CharField(max_length=30, null=True, blank=True)
-    Localidad_hast = models.CharField(max_length=30, null=True, blank=True)
-    Destino_hast = models.CharField(max_length=30, null=True, blank=True)
-    Base_tot = models.CharField(max_length=30, null=True, blank=True)
-    Peaje_tot = models.CharField(max_length=30, null=True, blank=True)
+    destino_desde = models.CharField(max_length=30, null=True, blank=True)
+    calle_hasta = models.CharField(max_length=30, null=True, blank=True)
+    altura_hasta = models.CharField(max_length=30, null=True, blank=True)
+    entre_hasta = models.CharField(max_length=30, null=True, blank=True)
+    localidad_hasta = models.ForeignKey(Localidad, null=True, blank=True, related_name='localidad_hasta')
+    provincia_hasta = models.ForeignKey(Provincia, null=True, blank=True, related_name='provincia_hasta')
+    compania_hasta = models.CharField(max_length=30, null=True, blank=True)
+    vuelo_hasta = models.CharField(max_length=30, null=True, blank=True)
+    destino_hasta = models.CharField(max_length=30, null=True, blank=True)
+    base_tot = models.CharField(max_length=30, null=True, blank=True)
+    peaje_tot = models.CharField(max_length=30, null=True, blank=True)
     estacionamiento_tot = models.CharField(max_length=30, null=True, blank=True)
-    Otros_tot = models.CharField(max_length=30, null=True, blank=True)
-    Maletas = models.CharField(max_length=30, null=True, blank=True)
-    Bilingue = models.CharField(max_length=30, null=True, blank=True)
+    otros_tot = models.CharField(max_length=30, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.calle_desde
@@ -234,7 +298,7 @@ class CentroCosto(models.Model):
     fecha_inicio = models.CharField(max_length=8, null=True, blank=True)
     fecha_fin = models.CharField(max_length=8, null=True, blank=True)
     descripcion = models.TextField(null=True, blank=True)
-    empresa = models.ForeignKey(Empresa)
+    cliente = models.ForeignKey(Cliente, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.nombre
@@ -242,9 +306,9 @@ class CentroCosto(models.Model):
     def __str__(self):
         return self.nombre
 
-class PersonaEmpresa(models.Model):
-    persona = models.ForeignKey(Persona)
-    empresa = models.ForeignKey(Empresa)
+class PersonaCliente(models.Model):
+    persona = models.ForeignKey(Persona, null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.persona
@@ -252,9 +316,9 @@ class PersonaEmpresa(models.Model):
     def __str__(self):
         return self.persona
 
-class ObservacionVehiculo(models.Model):
-    observacion = models.ForeignKey(Observacion)
-    vehiculo = models.ForeignKey(Vehiculo)
+class ObservacionPersona(models.Model):
+    observacion = models.ForeignKey(Observacion, null=True, blank=True)
+    persona = models.ForeignKey(Persona, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.observacion
@@ -262,9 +326,29 @@ class ObservacionVehiculo(models.Model):
     def __str__(self):
         return self.observacion
 
-class ObservacionEmpresa(models.Model):
-    observacion = models.ForeignKey(Observacion)
-    empresa = models.ForeignKey(Empresa)
+class ObservacionUnidad(models.Model):
+    observacion = models.ForeignKey(Observacion, null=True, blank=True)
+    unidad = models.ForeignKey(Unidad, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.observacion
+
+    def __str__(self):
+        return self.observacion
+
+class ObservacionVehiculo(models.Model):
+    observacion = models.ForeignKey(Observacion, null=True, blank=True)
+    vehiculo = models.ForeignKey(Vehiculo, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.observacion
+
+    def __str__(self):
+        return self.observacion
+
+class ObservacionCliente(models.Model):
+    observacion = models.ForeignKey(Observacion, null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.observacion
@@ -273,8 +357,8 @@ class ObservacionEmpresa(models.Model):
         return self.observacion
 
 class ObservacionViaje(models.Model):
-    observacion = models.ForeignKey(Observacion)
-    viaje = models.ForeignKey(Viaje)
+    observacion = models.ForeignKey(Observacion, null=True, blank=True)
+    viaje = models.ForeignKey(Viaje, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.observacion
@@ -283,8 +367,18 @@ class ObservacionViaje(models.Model):
         return self.observacion
 
 class ObservacionCentroCosto(models.Model):
-    observacion = models.ForeignKey(Observacion)
-    centro_costo = models.ForeignKey(CentroCosto)
+    observacion = models.ForeignKey(Observacion, null=True, blank=True)
+    centro_costo = models.ForeignKey(CentroCosto, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.observacion
+
+    def __str__(self):
+        return self.observacion
+
+class ObservacionLicencia(models.Model):
+    observacion = models.ForeignKey(Observacion, null=True, blank=True)
+    licencia = models.ForeignKey(Licencia, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.observacion
@@ -294,8 +388,8 @@ class ObservacionCentroCosto(models.Model):
 
 
 class TelefonoPersona(models.Model):
-    Telefono = models.ForeignKey(Telefono)
-    persona = models.ForeignKey(Persona)
+    Telefono = models.ForeignKey(Telefono, null=True, blank=True)
+    persona = models.ForeignKey(Persona, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.observacion
@@ -303,53 +397,22 @@ class TelefonoPersona(models.Model):
     def __str__(self):
         return self.observacion
 
-class TelefonoEmpresa(models.Model):
-    telefono = models.ForeignKey(Telefono)
-    empresa = models.ForeignKey(Empresa)
+class TelefonoCliente(models.Model):
+    telefono = models.ForeignKey(Telefono, null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, null=True, blank=True)
 
     def __unicode__(self):
-        return u'%s' % self.observacion
+        return u'%s' % self.cliente
 
     def __str__(self):
-        return self.observacion
+        return self.cliente
 
 class AdjuntoViaje(models.Model):
-    adjunto = models.ForeignKey(Adjunto)
-    viaje = models.ForeignKey(Viaje)
+    adjunto = models.ForeignKey(Adjunto, null=True, blank=True)
+    viaje = models.ForeignKey(Viaje, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.adjunto
 
     def __str__(self):
         return self.adjunto
-
-class Provincia(models.Model):
-    nombre = models.CharField(max_length=100)
-
-    def __unicode__(self):
-        return u'%s' % self.nombre
-
-    def __str__(self):
-        return self.nombre
-
-class Partido(models.Model):
-    nombre = models.CharField(max_length=100)
-    provincia = models.ForeignKey(Provincia, null=True, blank=True)
-    
-    def __unicode__(self):
-        return u'%s' % self.nombre
-
-    def __str__(self):
-        return self.nombre
-
-class Calle(models.Model):
-    nombre = models.CharField(max_length=100)
-    altura_desde = models.CharField(max_length=10, null=True, blank=True)
-    altura_hasta  = models.CharField(max_length=10, null=True, blank=True)
-    partido = models.ForeignKey(Partido, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.nombre
-
-    def __str__(self):
-        return self.nombre
