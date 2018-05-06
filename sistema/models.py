@@ -306,6 +306,15 @@ class CentroCosto(models.Model):
     def __str__(self):
         return self.nombre
 
+class Tarifario(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
 class PersonaCliente(models.Model):
     persona = models.ForeignKey(Persona, null=True, blank=True)
     cliente = models.ForeignKey(Cliente, null=True, blank=True)
