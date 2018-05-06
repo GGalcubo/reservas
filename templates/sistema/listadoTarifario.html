@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    {% include "sistema/cabecera.html" %}
+    <body id="clientes" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+        {% include "sistema/barra_top.html" %}
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            {% include "sistema/barra_lat.html" %}
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEADER-->
+                    <h1 class="page-title">Tarifario</h1>
+                    <!-- END PAGE HEADER-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-blue">
+                                        <i class="icon-list font-blue mg-t-8"></i>
+                                        <span class="caption-subject bold uppercase">Listado de tarifarios</span>
+                                        <a href="/sistema/altaTarifario/" role="button" class="btn green btn-outline mg-l-20">Agregar tarifario</a>
+                                    </div>
+                                    <div class="tools"> </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaTarifario">
+                                        <thead>
+                                            <tr>
+                                                <th class="all">Editar</th>
+                                                <th class="all">ID</th>
+                                                <th class="all">Tarifario</th>
+                                                <th class="all">Descripción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/editaTarifario/"><i class="fa fa-pencil">
+                                                <td>123</td>
+                                                <td>General</td>
+                                                <td>Tarifario base</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/editaTarifario/"><i class="fa fa-pencil">
+                                                <td>456</td>
+                                                <td>Especial</td>
+                                                <td>Tarifario especial para clientes nuevos</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/editaTarifario/"><i class="fa fa-pencil">
+                                                <td>789</td>
+                                                <td>Interior</td>
+                                                <td>Tarifario para el interior</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a href="/sistema/editaTarifario/"><i class="fa fa-pencil">
+                                                <td>1011</td>
+                                                <td>Gral + 10%</td>
+                                                <td>Tarifario base + 10%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        {% include "sistema/footer.html" %}
+            
+            <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
+            <script>
+                $(document).ready(function(){
+                    $('#tablaTarifario').DataTable( {
+                        responsive: true,
+                        // scrollY: 300,
+                        order: [[ 1, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+                    
+                });
+            </script>
+
+        </div>
+    </body>
+
+</html>

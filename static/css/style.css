@@ -124,6 +124,7 @@
   font-family: helvetica;
   font-weight: 700; }
   .datepicker.dropdown-menu {
+    position: fixed;
     top: 103px !important;
     padding: 0px; }
 
@@ -156,10 +157,14 @@ table.dataTable thead td {
 .form-datos-cliente input,
 .form-datos-cliente select,
 .form-datos-cliente textarea,
-.form-datos-cliente-contacto-cc label,
-.form-datos-cliente-contacto-cc input,
-.form-datos-cliente-contacto-cc select,
-.form-datos-cliente-contacto-cc textarea,
+.form-datos-cliente-contactos label,
+.form-datos-cliente-contactos input,
+.form-datos-cliente-contactos select,
+.form-datos-cliente-contactos textarea,
+.form-datos-cliente-cc label,
+.form-datos-cliente-cc input,
+.form-datos-cliente-cc select,
+.form-datos-cliente-cc textarea,
 .form-datos-cliente-facturacion label,
 .form-datos-cliente-facturacion input,
 .form-datos-cliente-facturacion select,
@@ -168,7 +173,8 @@ table.dataTable thead td {
 .form-viaje-cliente .form-group.form-md-line-input,
 .form-viaje-viaje .form-group.form-md-line-input,
 .form-datos-cliente .form-group.form-md-line-input,
-.form-datos-cliente-contacto-cc .form-group.form-md-line-input,
+.form-datos-cliente-contactos .form-group.form-md-line-input,
+.form-datos-cliente-cc .form-group.form-md-line-input,
 .form-datos-cliente-facturacion .form-group.form-md-line-input {
   margin: 0 0 10px; }
 

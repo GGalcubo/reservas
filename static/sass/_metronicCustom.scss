@@ -155,6 +155,7 @@
   font-family: helvetica;
   font-weight: 700;
   &.dropdown-menu {
+    position: fixed;
     top: 103px !important;
     padding: 0px;
   }
@@ -185,7 +186,8 @@ table.dataTable thead td {/* Mas angostas las rows */
 .form-viaje-cliente,
 .form-viaje-viaje,
 .form-datos-cliente,
-.form-datos-cliente-contacto-cc,
+.form-datos-cliente-contactos,
+.form-datos-cliente-cc,
 .form-datos-cliente-facturacion {
   label, input, select, textarea {
     font-size: 12px!important;

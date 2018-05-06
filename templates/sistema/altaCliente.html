@@ -19,16 +19,16 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
-                    <h1 class="page-title">Empresa</h1>
+                    <h1 class="page-title">Cliente</h1>
                     <!-- END PAGE HEADER-->
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
+                        <div class="col-sm-8 col-sm-offset-2">
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light ">
                                 <div class="portlet-title">
-                                    <div class="caption font-green">
-                                        <i class="icon-rocket font-green"></i>
-                                        <span class="caption-subject bold uppercase">Ingreso de Empresa y sus Datos</span>
+                                    <div class="caption font-blue">
+                                        <i class="icon-briefcase font-blue"></i>
+                                        <span class="caption-subject bold uppercase">Alta/Edición de cliente</span>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -36,42 +36,59 @@
                                     <form role="form">
                                         <div class="form-body">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-sm-7">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="form_control_1">
-                                                        <label for="form_control_1">Razón Social</label>
-                                                        <span class="help-block">Some help goes here...</span>
+                                                        <label for="form_control_1">Nombre o Razón Social</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-sm-5">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="form_control_2">
-                                                        <label for="form_control_2">Dirección</label>
-                                                        <span class="help-block">Some help goes here...</span>
+                                                        <label for="form_control_2">CUIL/CUIT</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-sm-7">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="form_control_3">
-                                                        <label for="form_control_3">CUIT</label>
-                                                        <span class="help-block">Some help goes here...</span>
+                                                        <label for="form_control_3">Dirección</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-sm-5">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="form_control_4">
-                                                        <label for="form_control_4">Categoría</label>
-                                                        <span class="help-block">Some help goes here...</span>
+                                                        <label for="form_control_4">Teléfono</label>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col-md-4">
+                                                <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_5">
-                                                        <label for="form_control_5">Tipo Tarifa</label>
-                                                        <span class="help-block">Some help goes here...</span>
+                                                        <select class="form-control" id="form_control_5">
+                                                            <option value=""></option>
+                                                            <option value="1">Categoría 1</option>
+                                                            <option value="2">Categoría 2</option>
+                                                            <option value="3">Categoría 3</option>
+                                                            <option value="4">Categoría 4</option>
+                                                        </select>
+                                                        <label for="form_control_5">Categoría</label>
                                                     </div>
-                                                </div> -->
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <select class="form-control" id="form_control_6">
+                                                            <option value=""></option>
+                                                            <option value="1">General</option>
+                                                            <option value="2">Especial 1</option>
+                                                            <option value="3">Especial 2</option>
+                                                            <option value="4">Especial 3</option>
+                                                        </select>
+                                                        <label for="form_control_6">Tarifario</label>
+                                                    </div>
+                                                </div>
                                             </div>
+                                        </div>
+                                        <div class="form-actions noborder flex flex-j-between">
+                                            <button type="submit" class="btn green">Guardar</button>
+                                            <button type="button" class="btn red">Cancelar</button>
                                         </div>
                                     </form>
                                 </div>

@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    {% include "sistema/cabecera.html" %}
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+        {% include "sistema/barra_top.html" %}
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            {% include "sistema/barra_lat.html" %}
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEADER-->
+                    <h1 class="page-title">Centro de Costo</h1>
+                    <!-- END PAGE HEADER-->
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-blue">
+                                        <i class="icon-flag font-blue"></i>
+                                        <span class="caption-subject bold uppercase">Alta/Edición de centro de costo</span>
+                                    </div>
+                                    <div class="tools"> </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <form role="form">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <select class="form-control" id="form_control_1">
+                                                            <option value=""></option>
+                                                            <option value="1">Cliente 1</option>
+                                                            <option value="2">Cliente 2</option>
+                                                            <option value="3">Cliente 3</option>
+                                                            <option value="4">Cliente 4</option>
+                                                        </select>
+                                                        <label for="form_control_1">Cliente</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <select class="form-control" id="form_control_2">
+                                                            <option value=""></option>
+                                                            <option value="1">General</option>
+                                                            <option value="2">Especial 1</option>
+                                                            <option value="3">Gral + 10%</option>
+                                                            <option value="4">Especial 2</option>
+                                                        </select>
+                                                        <label for="form_control_2">Tarifario</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 text-center">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <a href="/sistema/altaTarifario/" role="button" class="btn green"><i class="icon-plus font-white"></i> Tarifario</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_3">
+                                                        <label for="form_control_3">Código del Centro de Costo</label>
+                                                        <span class="help-block">Código Cliente + Área + Detalle (Ej: PFZVACUJOSE)</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_4">
+                                                        <label for="form_control_4">Descripción</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_5">
+                                                        <label for="form_control_5">Válido desde</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_6">
+                                                        <label for="form_control_6">Válido Hasta</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions noborder flex flex-j-between">
+                                            <button type="submit" class="btn green">Guardar</button>
+                                            <button type="button" class="btn red">Cancelar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        {% include "sistema/footer.html" %}
+
+            <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
+            <script>
+                $(document).ready(function(){
+                    
+                });
+            </script>
+
+        </div>
+    </body>
+
+</html>
