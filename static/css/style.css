@@ -5012,11 +5012,6 @@ table.dataTable thead td {
 #operaciones .hide-on-operaciones {
   display: none !important; }
 
-#viajes .show-on-viajes {
-  display: block !important; }
-#viajes .hide-on-viajes {
-  display: none !important; }
-
 #clientes .show-on-clientes {
   display: block !important; }
 #clientes .hide-on-clientes {
