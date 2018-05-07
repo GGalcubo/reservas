@@ -33,53 +33,51 @@
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <form role="form">
+                                    <form role="form" id="formGuardarCliente" action="/sistema/guardarCliente/">
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-sm-7">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_1">
+                                                        <input type="text" class="form-control" id="razonSocial" name="razonSocial">
                                                         <label for="form_control_1">Nombre o Razón Social</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-5">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_2">
+                                                        <input type="text" class="form-control" id="cuil" name="cuil" >
                                                         <label for="form_control_2">CUIL/CUIT</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-7">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_3">
+                                                        <input type="text" class="form-control" id="direccion" name="direccion">
                                                         <label for="form_control_3">Dirección</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-5">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_4">
+                                                        <input type="text" class="form-control" id="telefono" name="telefono">
                                                         <label for="form_control_4">Teléfono</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <select class="form-control" id="form_control_5">
+                                                        <select class="form-control" id="categorias" name="tarifarios">
                                                             <option value=""></option>
-                                                            <option value="1">Categoría 1</option>
-                                                            <option value="2">Categoría 2</option>
-                                                            <option value="3">Categoría 3</option>
-                                                            <option value="4">Categoría 4</option>
+                                                            {% for c in categorias %}
+                                                                <option value="{{ c.id }}">{{ c.categoria }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="form_control_5">Categoría</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <select class="form-control" id="form_control_6">
+                                                        <select class="form-control" id="tarifarios" name="tarifarios">
                                                             <option value=""></option>
-                                                            <option value="1">General</option>
-                                                            <option value="2">Especial 1</option>
-                                                            <option value="3">Especial 2</option>
-                                                            <option value="4">Especial 3</option>
+                                                            {% for t in tarifarios %}
+                                                                <option value="{{ t.id }}">{{ t.nombre }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="form_control_6">Tarifario</label>
                                                     </div>
@@ -87,7 +85,7 @@
                                             </div>
                                         </div>
                                         <div class="form-actions noborder flex flex-j-between">
-                                            <button type="submit" class="btn green">Guardar</button>
+                                            <button type="button" onclick="guardarCliente();" class="btn green">Guardar</button>
                                             <button type="button" class="btn red">Cancelar</button>
                                         </div>
                                     </form>
@@ -112,6 +110,32 @@
                 $(document).ready(function(){
                     
                 });
+
+                function guardarCliente(){
+
+                    if ($("#razonSocial").val() == ""){
+
+                    }
+                    if ($("#cuil").val() == ""){
+                        
+                    }
+                    if ($("#direccion").val() == ""){
+                        
+                    }
+                    if ($("#telefono").val() == ""){
+                        
+                    }
+                    if ($("#categorias").val() == ""){
+                        
+                    }
+                    if ($("#tarifarios").val() == ""){
+                        
+                    }
+
+                    $("#formGuardarCliente").submit();
+                    
+                }
+
             </script>
 
         </div>
