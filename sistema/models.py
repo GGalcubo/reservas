@@ -227,12 +227,22 @@ class Cliente(models.Model):
     cuil = models.CharField(max_length=11, null=True, blank=True)
     categoria = models.ForeignKey(CategoriaCliente, null=True, blank=True)
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
-
+    baja = models.BooleanField(default=False)
+    
     def __unicode__(self):
         return u'%s' % self.razon_social
 
     def __str__(self):
         return self.razon_social
+
+    def telefonoPrincipal(self):
+        retorno = "Sin telefono."
+        if len(self.telefonocliente_set.all()) > 0:
+            for tel in self.telefonocliente_set.all():
+                if tel.telefono.tipo_telefono.tipo_telefono == "Principal":
+                    retorno = tel.telefono.numero
+        return retorno
+
 
 class Viaje(models.Model):
     factura = models.CharField(max_length=30, null=True, blank=True)

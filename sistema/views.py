@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario
+from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente
 
 @login_required
 def importar_calles(request):
@@ -94,10 +94,18 @@ def editaPersona(request):
 	return render(request, 'sistema/altaPersona.html', context)
 
 @login_required
-def listadoCliente(request):
-	mensaje = ""
-
-	context = {'mensaje': mensaje}
+def listadoCliente(request, **kwargs):
+	razon_social = request.session.get('razon_social', '')
+	try:
+		del request.session['razon_social']
+	except KeyError:
+		pass
+	clientes = Cliente.objects.filter(baja=False)
+	if razon_social == '':
+		mensajeSuccess = ''
+	else:
+		mensajeSuccess = 'Se dio de alta el cliente ' + razon_social
+	context = {'clientes': clientes, 'mensajeSuccess':mensajeSuccess}
 	return render(request, 'sistema/listadoCliente.html', context)
 
 @login_required
@@ -119,12 +127,25 @@ def altaCliente(request):
 @login_required
 def guardarCliente(request):
 
-	print request.POST['razonSocial']
-	print request.POST['cuil']
-	print request.POST['direccion']
-	print request.POST['telefono']
-	print request.POST['categorias']
-	print request.POST['tarifarios']
+	cliente = Cliente()
+	cliente.razon_social = request.POST.get('razonSocial', False)
+	cliente.cuil = request.POST.get('cuil', False)
+	cliente.direccion = request.POST.get('direccion', False)
+	cliente.categoria = CategoriaCliente.objects.get(id=request.POST.get('categorias', False))
+	cliente.tarifario = Tarifario.objects.get(id=request.POST.get('tarifarios', False))
+	cliente.save()
+
+	tel = Telefono()
+	tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
+	tel.numero = request.POST.get('telefono', False)
+	tel.save()
+
+	telcli = TelefonoCliente()
+	telcli.cliente = cliente
+	telcli.telefono = tel
+	telcli.save()
+
+	request.session['razon_social'] = cliente.razon_social
 
 	return redirect('listadoCliente')
 

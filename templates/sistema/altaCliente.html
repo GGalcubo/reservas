@@ -32,8 +32,12 @@
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
+                                <div id="clienteValidacion" class="alert alert-danger">
+                                    <button class="close" data-close="alert"></button> 
+                                    <div></div> <div id="mensajeValidacion" ></div> 
+                                </div>
                                 <div class="portlet-body">
-                                    <form role="form" id="formGuardarCliente" action="/sistema/guardarCliente/">
+                                    <form role="form" method="post" id="formGuardarCliente" action="/sistema/guardarCliente/">{% csrf_token %}
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-sm-7">
@@ -62,7 +66,7 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <select class="form-control" id="categorias" name="tarifarios">
+                                                        <select class="form-control" id="categorias" name="categorias">
                                                             <option value=""></option>
                                                             {% for c in categorias %}
                                                                 <option value="{{ c.id }}">{{ c.categoria }}</option>
@@ -108,28 +112,41 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 $(document).ready(function(){
-                    
+                    $("#mensajeValidacion").html("");
+                    $("#clienteValidacion").hide();
                 });
 
                 function guardarCliente(){
 
                     if ($("#razonSocial").val() == ""){
-
+                        $("#mensajeValidacion").html("El campo Razon Social es obligatorio.");
+                        $("#clienteValidacion").show()
+                        return false;
                     }
                     if ($("#cuil").val() == ""){
-                        
+                        $("#mensajeValidacion").html("El campo CUIL/CUIT es obligatorio.");
+                        $("#clienteValidacion").show()
+                        return false;
                     }
                     if ($("#direccion").val() == ""){
-                        
+                        $("#mensajeValidacion").html("El campo Direccion es obligatorio.");
+                        $("#clienteValidacion").show()
+                        return false;
                     }
                     if ($("#telefono").val() == ""){
-                        
+                        $("#mensajeValidacion").html("El campo Telefono es obligatorio.");
+                        $("#clienteValidacion").show()
+                        return false;
                     }
                     if ($("#categorias").val() == ""){
-                        
+                        $("#mensajeValidacion").html("El campo Categoria es obligatorio.");
+                        $("#clienteValidacion").show()
+                        return false;
                     }
                     if ($("#tarifarios").val() == ""){
-                        
+                        $("#mensajeValidacion").html("El Tarifario es obligatorio.");
+                        $("#clienteValidacion").show()
+                        return false;
                     }
 
                     $("#formGuardarCliente").submit();
