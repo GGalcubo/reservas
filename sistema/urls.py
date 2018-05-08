@@ -1,9 +1,5 @@
 from django.conf.urls import url
-<<<<<<< HEAD
 from sistema.views import dashboard, operaciones, viaje, altaPersona, listadoCliente, datosCliente, altaCliente, guardarCliente, datosProvedor, listadoProvedor, datosUnidad, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, importar_calles
-=======
-from sistema.views import dashboard, operaciones, viaje, altaPersona, listadoCliente, datosCliente, altaCliente, guardarCliente, datosProvedor, listadoProvedor, datosUnidad, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, importar_calles
->>>>>>> 87a2bfe057a7309d22e92ba07b58b45288c38eb2
 
 urlpatterns = [
     url(r'^dashboard/', dashboard, name='dashboard'),
