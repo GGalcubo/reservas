@@ -171,6 +171,13 @@ def listadoProvedor(request):
 	return render(request, 'sistema/listadoProvedor.html', context)
 
 @login_required
+def datosUnidad(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/datosUnidad.html', context)
+
+@login_required
 def altaContacto(request):
 	mensaje = ""
 
