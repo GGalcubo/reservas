@@ -188,7 +188,11 @@ table.dataTable thead td {/* Mas angostas las rows */
 .form-datos-cliente,
 .form-datos-cliente-contactos,
 .form-datos-cliente-cc,
-.form-datos-cliente-facturacion {
+.form-datos-cliente-facturacion,
+.form-datos-provedor,
+.form-datos-provedor-unidad,
+.form-datos-provedor-chofer,
+.form-datos-unidad {
   label, input, select, textarea {
     font-size: 12px!important;
   }
@@ -197,12 +201,32 @@ table.dataTable thead td {/* Mas angostas las rows */
   }
 }
 
+.form-viaje-viaje{
+  .mt-repeater-delete {
+    margin-top: 0.8em;
+  }
+}
+
 .viaje_desde{
-  padding: 0 10px 0 10px;
+  padding-bottom: 4px;
+  .col-md-3{
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .form-control{
+    height: 24px;
+  }
 }
 
 .viaje_hasta{
-  padding: 0 10px 0 10px;
+  padding-bottom: 4px;
+  .col-md-3{
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .form-control{
+    height: 24px;
+  }
 }
 
 .form-titu-viaje{
@@ -213,4 +237,41 @@ table.dataTable thead td {/* Mas angostas las rows */
       margin-bottom: -5px;
       margin-left: -2px;
     }
+}
+
+
+
+/* CAMBIO DE COLORES */
+// CAMBIO EL COLOR DE LA LINEA DE LOS INPUTS
+.form-group.form-md-line-input .form-control.edited:not([readonly])~.form-control-focus:after,
+.form-group.form-md-line-input .form-control.edited:not([readonly])~label:after,
+.form-group.form-md-line-input .form-control:focus:not([readonly])~.form-control-focus:after,
+.form-group.form-md-line-input .form-control:focus:not([readonly])~label:after {
+  background: #3598dc;
+}
+
+// CAMBIO EL COLOR DE LA LINEA DE LAS TABS ACTIVE
+.tabbable-line>.nav-tabs>li.active {
+  border-bottom: 4px solid #3598dc;
+}
+
+// CAMBIO EL COLOR DE LA LINEA DE LAS TABS HOVER
+.tabbable-line>.nav-tabs>li.open,
+.tabbable-line>.nav-tabs>li:hover {
+    border-bottom: 4px solid #abb0e8;
+}
+
+// CAMBIO EL BOTONCITO DE DATATABES PARA DESPLEGAR CELDAS OCULTAS
+table.dataTable.dtr-column>tbody>tr.parent td.control:before,
+table.dataTable.dtr-column>tbody>tr.parent th.control:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
+    background-color: #3598dc;
+}
+
+/* TABS */
+
+// ELIMINO ESPACIO
+.tabbable-line>.tab-content {
+  padding: 0 0;
 }

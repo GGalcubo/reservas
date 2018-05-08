@@ -6,8 +6,7 @@
 <html lang="en">
 <!--<![endif]-->
 {% include "sistema/cabecera.html" %}
-<body id="viajes"
-      class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+<body id="viajes" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
 {% include "sistema/barra_top.html" %}
 <!-- BEGIN HEADER & CONTENT DIVIDER -->
 <div class="clearfix"></div>
@@ -186,7 +185,7 @@
                                         <a href="#tab_15_1" data-toggle="tab" aria-expanded="true"> Viaje </a>
                                     </li>
                                     <li class="">
-                                        <a href="#tab_15_2" data-toggle="tab" aria-expanded="false"> Operaciones </a>
+                                        <a href="#tab_15_2" data-toggle="tab" aria-expanded="false"> Observaciones</a>
                                     </li>
                                     <li class="">
                                         <a href="#tab_15_3" data-toggle="tab" aria-expanded="false"> Administración </a>
@@ -194,62 +193,44 @@
                                     <li class="">
                                         <a href="#tab_15_4" data-toggle="tab" aria-expanded="false"> Historial </a>
                                     </li>
+                                    <li class="">
+                                        <a href="#tab_15_5" data-toggle="tab" aria-expanded="false"> Pasajeros </a>
+                                    </li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_15_1">
                                         <form role="form" class="form-viaje-viaje">
                                             <div class="form-body">
-                                                <div class="form-group mt-repeater">
-                                                    <div data-repeater-list="group-c">
-                                                        <div data-repeater-item="" class="mt-repeater-item">
-                                                            <div class="row mt-repeater-row">
-                                                                <div class="col-md-3">
-                                                                    <label class="control-label">Destino</label>
-                                                                    <input type="text"
-                                                                           class="form-control"></div>
-                                                                <div class="col-md-3">
-                                                                    <label class="control-label">Localidad</label>
-                                                                    <input type="text"
-                                                                           class="form-control"></div>
-                                                                <div class="col-md-3">
-                                                                    <label class="control-label">Calle</label>
-                                                                    <input type="text"
-                                                                           class="form-control"></div>
-                                                                <div class="col-md-3">
-                                                                    <label class="control-label">Entre</label>
-                                                                    <input type="text"
-                                                                           class="form-control"></div>
-                                                                <div class="col-md-3">
-                                                                    <label class="control-label">Destino</label>
-                                                                    <input type="text"
-                                                                           class="form-control"></div>
-                                                                <div class="col-md-3">
-                                                                    <label class="control-label">Localidad</label>
-                                                                    <input type="text"
-                                                                           class="form-control"></div>
-                                                                <div class="col-md-3">
-                                                                    <label class="control-label">Calle</label>
-                                                                    <input type="text"
-                                                                           class="form-control"></div>
-                                                                <div class="col-md-3">
-                                                                    <label class="control-label">Entre</label>
-                                                                    <input type="text"
-                                                                           class="form-control"></div>
-                                                                <div class="col-md-1">
-                                                                    <a href="javascript:;" data-repeater-delete=""
-                                                                       class="btn btn-danger mt-repeater-delete">
-                                                                        <i class="fa fa-close"></i>
-                                                                    </a>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <select class="form-control" id="form_control_1">
+                                                                        <option value=""></option>
+                                                                        <option value="1">Nuevo</option>
+                                                                        <option value="2">Confirmado</option>
+                                                                        <option value="3">Cancelado</option>
+                                                                        <option value="4">Aceptado</option>
+                                                                    </select>
+                                                                    <label for="form_control_1">Estado</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <input type="text" class="form-control"
+                                                                           id="form_control_1" value="">
+                                                                    <label for="form_control_1">Costo Provedor</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <input type="text" class="form-control"
+                                                                           id="form_control_1" value="">
+                                                                    <label for="form_control_1">Tarifa pasada</label>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <a href="javascript:;" data-repeater-create=""
-                                                       class="btn btn-info mt-repeater-add">
-                                                        <i class="fa fa-plus"></i> Agregar Tramo</a>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
@@ -273,7 +254,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="row">
-                                                            <div class="col-md-12">
+                                                            <div class="col-md-8">
                                                                 <div class="form-group form-md-line-input">
                                                                     <textarea class="form-control" rows="3"
                                                                               placeholder=""></textarea>
@@ -282,42 +263,494 @@
 
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-4">
+                                                                <span style="color: #888;font-size: 12px;margin-right: 20px">Agregar Adjunto</span>
+                                                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                    <span class="btn green btn-file">
+                                                                        <span class="fileinput-new"> <i class="fa fa-upload"></i> </span>
+                                                                        <span class="fileinput-exists"> Change </span>
+                                                                        <input type="hidden"><input type="file" name="..."> </span>
+                                                                    <span class="fileinput-filename"> </span> &nbsp;
+                                                                    <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                                </div>
+                                                                <br>
+                                                                <br>
+                                                                <a href="adjunto.jpg">Adjunto1ejemplo.jpg</a>
+                                                                <a href="adjunto.jpg">Adjunto1ejemplo.jpg</a>
+                                                                <a href="adjunto.jpg">Adjunto1ejemplo.jpg</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="margin-top: 50px;">
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
+                                                                    <span class="caption-subject bold uppercase" style="font-size: 16px">Desde</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <select class="form-control" id="form_control_1">
+                                                                        <option value=""></option>
+                                                                        <option value="1">Interior</option>
+                                                                        <option value="2">Option 2</option>
+                                                                        <option value="3">Option 3</option>
+                                                                        <option value="4">Option 4</option>
+                                                                    </select>
+                                                                    <label for="form_control_1">Destino</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <select class="form-control" id="form_control_1">
+                                                                        <option value=""></option>
+                                                                        <option value="1">Interior</option>
+                                                                        <option value="2">Option 2</option>
+                                                                        <option value="3">Option 3</option>
+                                                                        <option value="4">Option 4</option>
+                                                                    </select>
+                                                                    <label for="form_control_1">Localidad</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <select class="form-control" id="form_control_1">
+                                                                        <option value=""></option>
+                                                                        <option value="1">Interior</option>
+                                                                        <option value="2">Option 2</option>
+                                                                        <option value="3">Option 3</option>
+                                                                        <option value="4">Option 4</option>
+                                                                    </select>
+                                                                    <label for="form_control_1">Calle</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <input type="text" class="form-control" id="form_control_1"
+                                                                           value="">
+                                                                    <label for="form_control_1">Altura</label>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <input type="text" class="form-control" id="form_control_1"
+                                                                           value="">
+                                                                    <label for="form_control_1">Entre</label>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
+                                                                    <span class="caption-subject bold uppercase" style="font-size: 16px">Hasta</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <select class="form-control" id="form_control_1">
+                                                                        <option value=""></option>
+                                                                        <option value="1">Interior</option>
+                                                                        <option value="2">Option 2</option>
+                                                                        <option value="3">Option 3</option>
+                                                                        <option value="4">Option 4</option>
+                                                                    </select>
+                                                                    <label for="form_control_1">Destino</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <select class="form-control" id="form_control_1">
+                                                                        <option value=""></option>
+                                                                        <option value="1">Interior</option>
+                                                                        <option value="2">Option 2</option>
+                                                                        <option value="3">Option 3</option>
+                                                                        <option value="4">Option 4</option>
+                                                                    </select>
+                                                                    <label for="form_control_1">Localidad</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <select class="form-control" id="form_control_1">
+                                                                        <option value=""></option>
+                                                                        <option value="1">Interior</option>
+                                                                        <option value="2">Option 2</option>
+                                                                        <option value="3">Option 3</option>
+                                                                        <option value="4">Option 4</option>
+                                                                    </select>
+                                                                    <label for="form_control_1">Calle</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <input type="text" class="form-control" id="form_control_1"
+                                                                           value="">
+                                                                    <label for="form_control_1">Altura</label>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <input type="text" class="form-control" id="form_control_1"
+                                                                           value="">
+                                                                    <label for="form_control_1">Entre</label>
+
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <p>Estado Actual: Nuevo</p>
-                                                        <p>Modificado por: Nombre de Usuario</p>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                        <span class="input-group-btn btn">
-                                                                            <button class="btn blue" type="button">Confirmar</button>
-                                                                        </span>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                        <span class="input-group-btn btn">
-                                                                            <button class="btn yellow" type="button">Cancelar Viaje</button>
-                                                                        </span>
+                                                    <div class="col-md-12">
+                                                        <div style="width:158px;margin:0 auto;padding-top: 40px;">
+                                                            <span class="input-group-btn btn">
+                                                                <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
+                                                            </span>
+                                                        </div>
+                                                        <!-- /.modal -->
+                                                        <div id="add_tramo" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                        <h4 class="modal-title" style="color:#888;">Agregar Tramo</h4>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible1="1">
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
+                                                                                                <span class="caption-subject bold uppercase" style="font-size: 16px">Desde</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group form-md-line-input">
+                                                                                                <select class="form-control" id="form_control_1">
+                                                                                                    <option value=""></option>
+                                                                                                    <option value="1">Interior</option>
+                                                                                                    <option value="2">Option 2</option>
+                                                                                                    <option value="3">Option 3</option>
+                                                                                                    <option value="4">Option 4</option>
+                                                                                                </select>
+                                                                                                <label for="form_control_1">Destino</label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group form-md-line-input">
+                                                                                                <select class="form-control" id="form_control_1">
+                                                                                                    <option value=""></option>
+                                                                                                    <option value="1">Interior</option>
+                                                                                                    <option value="2">Option 2</option>
+                                                                                                    <option value="3">Option 3</option>
+                                                                                                    <option value="4">Option 4</option>
+                                                                                                </select>
+                                                                                                <label for="form_control_1">Localidad</label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group form-md-line-input">
+                                                                                                <select class="form-control" id="form_control_1">
+                                                                                                    <option value=""></option>
+                                                                                                    <option value="1">Interior</option>
+                                                                                                    <option value="2">Option 2</option>
+                                                                                                    <option value="3">Option 3</option>
+                                                                                                    <option value="4">Option 4</option>
+                                                                                                </select>
+                                                                                                <label for="form_control_1">Calle</label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group form-md-line-input">
+                                                                                                <input type="text" class="form-control" id="form_control_1"
+                                                                                                       value="">
+                                                                                                <label for="form_control_1">Altura</label>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group form-md-line-input">
+                                                                                                <input type="text" class="form-control" id="form_control_1"
+                                                                                                       value="">
+                                                                                                <label for="form_control_1">Entre</label>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
+                                                                                                <span class="caption-subject bold uppercase" style="font-size: 16px">Hasta</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group form-md-line-input">
+                                                                                                <select class="form-control" id="form_control_1">
+                                                                                                    <option value=""></option>
+                                                                                                    <option value="1">Interior</option>
+                                                                                                    <option value="2">Option 2</option>
+                                                                                                    <option value="3">Option 3</option>
+                                                                                                    <option value="4">Option 4</option>
+                                                                                                </select>
+                                                                                                <label for="form_control_1">Destino</label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group form-md-line-input">
+                                                                                                <select class="form-control" id="form_control_1">
+                                                                                                    <option value=""></option>
+                                                                                                    <option value="1">Interior</option>
+                                                                                                    <option value="2">Option 2</option>
+                                                                                                    <option value="3">Option 3</option>
+                                                                                                    <option value="4">Option 4</option>
+                                                                                                </select>
+                                                                                                <label for="form_control_1">Localidad</label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group form-md-line-input">
+                                                                                                <select class="form-control" id="form_control_1">
+                                                                                                    <option value=""></option>
+                                                                                                    <option value="1">Interior</option>
+                                                                                                    <option value="2">Option 2</option>
+                                                                                                    <option value="3">Option 3</option>
+                                                                                                    <option value="4">Option 4</option>
+                                                                                                </select>
+                                                                                                <label for="form_control_1">Calle</label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group form-md-line-input">
+                                                                                                <input type="text" class="form-control" id="form_control_1"
+                                                                                                       value="">
+                                                                                                <label for="form_control_1">Altura</label>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group form-md-line-input">
+                                                                                                <input type="text" class="form-control" id="form_control_1"
+                                                                                                       value="">
+                                                                                                <label for="form_control_1">Entre</label>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Cerrar</button>
+                                                                        <button type="button" class="btn green">Agregar</button>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-12" style="margin-top: 20px">
+                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaClientes">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="all">Ver</th>
+                                                                    <th class="min-tablet">Desde destino</th>
+                                                                    <th class="min-phone-l">Desde localidad</th>
+                                                                    <th class="desktop">Hasta destino</th>
+                                                                    <th class="min-tablet">Hasta localidad</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="text-center"><a href=""><i class="fa fa-bullseye"></i></a></td>
+                                                                    <td>Capital Federal</td>
+                                                                    <td>Palermo</td>
+                                                                    <td>Capital Federal</td>
+                                                                    <td>Villa del Parque</td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                                 <div class="row" style="margin-bottom: 30px">
                                                     <div class="col-md-12">
-                                                                <span class="input-group-btn btn">
-                                                                    <button class="btn green-haze"
-                                                                            type="button">Guardar</button>
-                                                                </span>
+                                                        <span class="input-group-btn btn">
+                                                            <button class="btn green-haze"
+                                                                    type="button">Guardar</button>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="tab_15_2">
-                                        <p>Operaciones</p>
+                                        <form role="form" class="form-viaje-cliente">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <div class="form-group form-md-line-input">
+                                                            <input type="text" class="form-control" id="form_control_1"
+                                                                   value="15 min">
+                                                            <label for="form_control_1">Espera</label>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group form-md-line-input">
+                                                            <input type="text" class="form-control" id="form_control_1"
+                                                                   value="$100">
+                                                            <label for="form_control_1">Peajes</label>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group form-md-line-input">
+                                                            <input type="text" class="form-control" id="form_control_1"
+                                                                   value="$100">
+                                                            <label for="form_control_1">Estacionamiento</label>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group form-md-line-input">
+                                                            <input type="text" class="form-control" id="form_control_1"
+                                                                   value="$100">
+                                                            <label for="form_control_1">Otros</label>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group form-md-checkboxes">
+                                                            <div class="md-checkbox-list">
+                                                                <div class="md-checkbox">
+                                                                    <input type="checkbox" id="checkbox1" class="md-check">
+                                                                    <label for="checkbox1">
+                                                                        <span></span>
+                                                                        <span class="check"></span>
+                                                                        <span class="box"></span> Maletas </label>
+                                                                </div>
+                                                                <div class="md-checkbox">
+                                                                    <input type="checkbox" id="checkbox2" class="md-check" checked="">
+                                                                    <label for="checkbox2">
+                                                                        <span></span>
+                                                                        <span class="check"></span>
+                                                                        <span class="box"></span> Bilingue </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-md-line-input">
+                                                            <select class="form-control" id="form_control_1">
+                                                                <option value=""></option>
+                                                                <option value="1" selected="selected">Terminales -IN</option>
+                                                                <option value="2">Terminales -OUT</option>
+                                                                <option value="3">Dispo</option>
+                                                                <option value="4">Viaje con espera</option>
+                                                                <option value="4">Viaje no tarifado</option>
+                                                            </select>
+                                                            <label for="form_control_1">Tipo de viaje</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-md-line-input">
+                                                            <select class="form-control" id="form_control_1">
+                                                                <option value=""></option>
+                                                                <option value="1" selected="selected">Aterrizó</option>
+                                                                <option value="2">Contactó</option>
+                                                                <option value="3">Salió</option>
+                                                                <option value="4">Otro</option>
+                                                            </select>
+                                                            <label for="form_control_1">Detalle</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-md-line-input">
+                                                            <input type="text" class="form-control" id="form_control_1"
+                                                                   value="23:30">
+                                                            <label for="form_control_1">Hora</label>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-md-line-input">
+                                                            <textarea class="form-control" rows="3"
+                                                                      placeholder=""></textarea>
+                                                            <label for="form_control_1">Comentario</label>
+
+                                                        </div>
+                                                        <div class="form-group form-md-line-input">
+                                                            <button type="button" class="btn blue">Agregar Observación</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
+                                                                    <span class="caption-subject bold uppercase" style="font-size: 16px">Observaciones</span>
+                                                                </div>
+                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaClientes">
+                                            <thead>
+                                                <tr>
+                                                    <th class="all">Editar</th>
+                                                    <th class="min-tablet">Tipo</th>
+                                                    <th class="min-phone-l">Detalle</th>
+                                                    <th class="desktop">Hora</th>
+                                                    <th class="min-tablet">Comentario</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center"><a href=""><i class="fa fa-pencil"></i></a></td>
+                                                    <td>Dispo</td>
+                                                    <td>Llegó</td>
+                                                    <td>12:00 hs</td>
+                                                    <td>hubo demora por paro de docentes</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center"><a href=""><i class="fa fa-pencil"></i></a></td>
+                                                    <td>Dispo</td>
+                                                    <td>Llegó</td>
+                                                    <td>12:00 hs</td>
+                                                    <td>hubo demora por paro de docentes</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div class="tab-pane" id="tab_15_3">
                                         <p> Administración</p>
@@ -326,11 +759,17 @@
                                         <p> Historial</p>
                                         </p>
                                     </div>
+                                    <div class="tab-pane" id="tab_15_5">
+                                        <p> Pasajeros</p>
+                                        </p>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
+
                 </div>
             </div>
 
@@ -343,8 +782,6 @@
 </div>
 <!-- END CONTAINER -->
 {% include "sistema/footer.html" %}
-<script src="{% static 'js/jquery.repeater.js' %}" type="text/javascript"></script>
-<script src="{% static 'js/form-repeater.min.js' %}" type="text/javascript"></script>
 <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
 <script>
     $(document).ready(function () {

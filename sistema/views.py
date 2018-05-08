@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Partido, Provincia
+from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario
 
 @login_required
 def importar_calles(request):
@@ -83,7 +83,6 @@ def viaje(request):
 @login_required
 def altaPersona(request):
 	mensaje = ""
-
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/altaPersona.html', context)
 
@@ -111,9 +110,23 @@ def datosCliente(request):
 @login_required
 def altaCliente(request):
 	mensaje = ""
-
-	context = {'mensaje': mensaje}
+	tarifarios = Tarifario.objects.all()
+	categorias = CategoriaCliente.objects.all()
+	context = {'mensaje': mensaje, 'tarifarios':tarifarios, 'categorias':categorias}
 	return render(request, 'sistema/altaCliente.html', context)
+
+
+@login_required
+def guardarCliente(request):
+
+	print request.POST['razonSocial']
+	print request.POST['cuil']
+	print request.POST['direccion']
+	print request.POST['telefono']
+	print request.POST['categorias']
+	print request.POST['tarifarios']
+
+	return redirect('listadoCliente')
 
 @login_required
 def editaCliente(request):
@@ -135,6 +148,13 @@ def listadoProvedor(request):
 
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/listadoProvedor.html', context)
+
+@login_required
+def datosUnidad(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/datosUnidad.html', context)
 
 @login_required
 def altaContacto(request):
