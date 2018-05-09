@@ -33,6 +33,9 @@
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
+                                <form role="form" method="post" id="formEliminarCliente" action="/sistema/eliminarCliente/">{% csrf_token %}
+                                    <input type="hidden" id="idClienteEliminar" name="idClienteEliminar" >
+                                </form>
                                 <input type="hidden" id="mensajeSuccess" name="mensajeSuccess" value="{{ mensajeSuccess }}" >
                                 <div id="divSuccess" class="alert alert-success">
                                     <button class="close" data-close="alert"></button> 
@@ -55,8 +58,8 @@
                                         <tbody>
                                             {% for c in clientes %}
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
-                                                <td class="text-center"><a href="/sistema/datosCliente/"><i class="fa fa-times"></i></a></td>
+                                                <td class="text-center" ><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td class="text-center"><a style="color:red;" href="#" onclick="eliminarCliente({{ c.id }},'{{ c.razon_social }}');" ><i class="fa fa-times"></i></a></td>
                                                 <td>{{ c.id }}</td>
                                                 <td>{{ c.razon_social }}</td>
                                                 <td>{{ c.telefonoPrincipal }}</td>
@@ -107,6 +110,13 @@
                     }
 
                 });
+
+                function eliminarCliente(id, razon_social){
+                    if (confirm("Confirma eliminar el cliente " + razon_social)) {
+                        $('#idClienteEliminar').val(id)
+                        $('#formEliminarCliente').submit()
+                    }
+                }
             </script>
 
         </div>

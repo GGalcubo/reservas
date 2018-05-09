@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, viaje, altaPersona, listadoCliente, datosCliente, altaCliente, guardarCliente, datosProvedor, listadoProvedor, datosUnidad, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, importar_calles
+from sistema.views import dashboard, operaciones, viaje, altaPersona, listadoCliente, datosCliente, altaCliente, guardarCliente, datosProvedor, listadoProvedor, datosUnidad, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, importar_calles, eliminarCliente
 
 urlpatterns = [
     url(r'^dashboard/', dashboard, name='dashboard'),
@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^datosCliente/', datosCliente, name='datosCliente'),
     url(r'^altaCliente/', altaCliente, name='altaCliente'),
     url(r'^guardarCliente/', guardarCliente, name='guardarCliente'),
+    url(r'^eliminarCliente/', eliminarCliente, name='eliminarCliente'),
     url(r'^datosProvedor/', datosProvedor, name='datosProvedor'),
     url(r'^listadoProvedor/', listadoProvedor, name='listadoProvedor'),
     url(r'^datosUnidad/', datosUnidad, name='datosUnidad'),

@@ -95,16 +95,12 @@ def editaPersona(request):
 
 @login_required
 def listadoCliente(request, **kwargs):
-	razon_social = request.session.get('razon_social', '')
+	mensajeSuccess = request.session.get('mensajeSuccess', '')
 	try:
-		del request.session['razon_social']
+		del request.session['mensajeSuccess']
 	except KeyError:
 		pass
 	clientes = Cliente.objects.filter(baja=False)
-	if razon_social == '':
-		mensajeSuccess = ''
-	else:
-		mensajeSuccess = 'Se dio de alta el cliente ' + razon_social
 	context = {'clientes': clientes, 'mensajeSuccess':mensajeSuccess}
 	return render(request, 'sistema/listadoCliente.html', context)
 
@@ -145,7 +141,7 @@ def guardarCliente(request):
 	telcli.telefono = tel
 	telcli.save()
 
-	request.session['razon_social'] = cliente.razon_social
+	request.session['mensajeSuccess'] = 'Se dio de alta el cliente ' + cliente.razon_social
 
 	return redirect('listadoCliente')
 
@@ -155,6 +151,18 @@ def editaCliente(request):
 
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/altaCliente.html', context)
+
+@login_required
+def eliminarCliente(request):
+	idCliente = request.POST.get('idClienteEliminar', False)
+	print '--------------'
+	print idCliente
+	cliente = Cliente.objects.get(id=idCliente)
+	cliente.baja = True
+	cliente.save()
+	request.session['mensajeSuccess'] = 'Se elimino el cliente ' + cliente.razon_social
+
+	return redirect('listadoCliente')
 
 @login_required
 def datosProvedor(request):
