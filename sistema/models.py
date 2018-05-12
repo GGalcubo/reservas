@@ -223,7 +223,11 @@ class Tarifario(models.Model):
         
 class Cliente(models.Model):
     razon_social = models.CharField(max_length=100)
-    direccion = models.CharField(max_length=100, null=True, blank=True)
+    calle = models.CharField(max_length=100, null=True, blank=True)
+    altura = models.CharField(max_length=10, null=True, blank=True)
+    piso = models.CharField(max_length=10, null=True, blank=True)
+    depto = models.CharField(max_length=10, null=True, blank=True)
+    cp = models.CharField(max_length=10, null=True, blank=True)
     cuil = models.CharField(max_length=11, null=True, blank=True)
     categoria = models.ForeignKey(CategoriaCliente, null=True, blank=True)
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)

@@ -22,7 +22,7 @@
                     <h1 class="page-title">Cliente</h1>
                     <!-- END PAGE HEADER-->
                     <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2">
+                        <div class="col-sm-10 col-sm-offset-1">
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light ">
                                 <div class="portlet-title">
@@ -38,52 +38,95 @@
                                 </div>
                                 <div class="portlet-body">
                                     <form role="form" method="post" id="formGuardarCliente" action="/sistema/guardarCliente/">{% csrf_token %}
+                                        <input type="hidden" id="idCliente" name="idCliente" value="{{ cliente.id }}">
                                         <div class="form-body">
                                             <div class="row">
-                                                <div class="col-sm-7">
+                                                <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="razonSocial" name="razonSocial">
+                                                        <input type="text" class="form-control" id="razonSocial" name="razonSocial" value="{{ cliente.razon_social|default_if_none:"" }}">
                                                         <label for="form_control_1">Nombre o Razón Social</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-5">
+                                                <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="cuil" name="cuil" >
+                                                        <input type="text" class="form-control" id="cuil" name="cuil"  value="{{ cliente.cuil|default_if_none:"" }}">
                                                         <label for="form_control_2">CUIL/CUIT</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-7">
+                                                <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="direccion" name="direccion">
-                                                        <label for="form_control_3">Dirección</label>
+                                                        {% if cliente.id == 0 %}
+                                                            <input type="text" class="form-control" id="telefono" name="telefono"  value="">
+                                                        {% else %}
+                                                            <input type="text" class="form-control" id="telefono" name="telefono"  value="{{ cliente.telefonoPrincipal }}">
+                                                        {% endif %}
+                                                        <label for="form_control_3">Teléfono</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-5">
+                                                <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="telefono" name="telefono">
-                                                        <label for="form_control_4">Teléfono</label>
+                                                        <input type="text" class="form-control" id="calle" name="calle" value="{{ cliente.calle|default_if_none:"" }}">
+                                                        <label for="form_control_4">Calle</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6">
+
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="altura" name="altura" value="{{ cliente.altura|default_if_none:"" }}">
+                                                        <label for="form_control_5">Altura</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="piso" name="piso" value="{{ cliente.piso|default_if_none:"" }}">
+                                                        <label for="form_control_6">Piso</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="depto" name="depto" value="{{ cliente.depto|default_if_none:"" }}">
+                                                        <label for="form_control_7">Depto</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="cp" name="cp" value="{{ cliente.cp|default_if_none:"" }}">
+                                                        <label for="form_control_8">CP</label>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <select class="form-control" id="categorias" name="categorias">
                                                             <option value=""></option>
                                                             {% for c in categorias %}
-                                                                <option value="{{ c.id }}">{{ c.categoria }}</option>
+                                                                {% if c.id == cliente.categoria.id %}
+                                                                    <option selected="selected" value="{{ c.id }}">{{ c.categoria }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ c.id }}">{{ c.categoria }}</option>
+                                                                {% endif %}
                                                             {% endfor %}
                                                         </select>
-                                                        <label for="form_control_5">Categoría</label>
+                                                        <label for="form_control_9">Categoría</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <select class="form-control" id="tarifarios" name="tarifarios">
                                                             <option value=""></option>
                                                             {% for t in tarifarios %}
-                                                                <option value="{{ t.id }}">{{ t.nombre }}</option>
+                                                                {% if t.id == cliente.tarifario.id %}
+                                                                    <option selected="selected" value="{{ t.id }}">{{ t.nombre }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ t.id }}">{{ t.nombre }}</option>
+                                                                {% endif %}
                                                             {% endfor %}
                                                         </select>
-                                                        <label for="form_control_6">Tarifario</label>
+                                                        <label for="form_control_10">Tarifario</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -97,7 +140,7 @@
                             </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
-                        <div class="col-sm-12" style="display:none">
+                        <div id="clienteDetalle" class="col-sm-12">
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light ">
                                 <div class="portlet-body">
@@ -111,6 +154,9 @@
                                             </li>
                                             <li class="">
                                                 <a href="#tabDatosFacturacionCliente" data-toggle="tab" aria-expanded="false"> Datos de Facturación </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#tabDatosObservacionesCliente" data-toggle="tab" aria-expanded="false"> Observaciones </a>
                                             </li>
                                         </ul>
                                         <div class="tab-content">
@@ -359,6 +405,98 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                            <div class="tab-pane" id="tabDatosObservacionesCliente">
+                                                <form role="form" class="form-datos-cliente-facturacion">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption font-blue">
+                                                                            <i class="icon-folder-alt font-blue"></i>
+                                                                            <span class="caption-subject bold uppercase">Datos de Facturación</span>
+                                                                        </div>
+                                                                        <div class="tools"> </div>
+                                                                    </div>
+                                                                    <div class="portlet-body">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-3">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <input type="text" class="form-control" id="form_control_1" value="30-12345678-2">
+                                                                                    <label for="form_control_1">CUIT</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <select class="form-control" id="form_control_1">
+                                                                                        <option value=""></option>
+                                                                                        <option value="1" selected="selected">Responsable Inscripto</option>
+                                                                                        <option value="2">Option 2</option>
+                                                                                        <option value="3">Option 3</option>
+                                                                                        <option value="4">Option 4</option>
+                                                                                    </select>
+                                                                                    <label for="form_control_1">IVA</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <select class="form-control" id="form_control_1">
+                                                                                        <option value=""></option>
+                                                                                        <option value="1" selected="selected">Efectivo</option>
+                                                                                        <option value="2">Option 2</option>
+                                                                                        <option value="3">Option 3</option>
+                                                                                        <option value="4">Option 4</option>
+                                                                                    </select>
+                                                                                    <label for="form_control_1">Condición de Pago</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <select class="form-control" id="form_control_1">
+                                                                                        <option value=""></option>
+                                                                                        <option value="1" selected="selected">ASFDSF</option>
+                                                                                        <option value="2">Option 2</option>
+                                                                                        <option value="3">Option 3</option>
+                                                                                        <option value="4">Option 4</option>
+                                                                                    </select>
+                                                                                    <label for="form_control_1">Facturación</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-sm-4">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <input type="text" class="form-control" id="form_control_1" value="12345678910123456789012">
+                                                                                    <label for="form_control_1">CBU</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            
+                                                                            <div class="col-sm-4">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <input type="text" class="form-control" id="form_control_1" value="perro.caca.pis">
+                                                                                    <label for="form_control_1">Alias</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <textarea class="form-control" rows="1" placeholder=""></textarea>
+                                                                                    <label for="form_control_1">Observaciones de pago</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions noborder flex flex-j-between">
+                                                        <button type="button" class="btn green">Guardar</button>
+                                                        <button type="button" class="btn red">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -380,6 +518,13 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 $(document).ready(function(){
+                    var idCliente = $("#idCliente").val()
+                    if (idCliente == "0"){
+                        $("#clienteDetalle").hide()
+                    }else{
+                        $("#clienteDetalle").show()
+                    }
+
                     $("#mensajeValidacion").html("");
                     $("#clienteValidacion").hide();
                 });
@@ -396,8 +541,13 @@
                         $("#clienteValidacion").show()
                         return false;
                     }
-                    if ($("#direccion").val() == ""){
-                        $("#mensajeValidacion").html("El campo Direccion es obligatorio.");
+                    if ($("#calle").val() == ""){
+                        $("#mensajeValidacion").html("El campo Calle es obligatorio.");
+                        $("#clienteValidacion").show()
+                        return false;
+                    }
+                    if ($("#altura").val() == ""){
+                        $("#mensajeValidacion").html("El campo Altura es obligatorio.");
                         $("#clienteValidacion").show()
                         return false;
                     }
@@ -417,6 +567,7 @@
                         return false;
                     }
 
+                    alert($("#idCliente").val());
                     $("#formGuardarCliente").submit();
                     
                 }

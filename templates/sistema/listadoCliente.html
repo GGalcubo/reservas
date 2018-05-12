@@ -36,6 +36,9 @@
                                 <form role="form" method="post" id="formEliminarCliente" action="/sistema/eliminarCliente/">{% csrf_token %}
                                     <input type="hidden" id="idClienteEliminar" name="idClienteEliminar" >
                                 </form>
+                                <form role="form" method="post" id="formCliente" action="/sistema/cliente/">{% csrf_token %}
+                                    <input type="hidden" id="idCliente" name="idCliente" >
+                                </form>
                                 <input type="hidden" id="mensajeSuccess" name="mensajeSuccess" value="{{ mensajeSuccess }}" >
                                 <div id="divSuccess" class="alert alert-success">
                                     <button class="close" data-close="alert"></button> 
@@ -58,12 +61,12 @@
                                         <tbody>
                                             {% for c in clientes %}
                                             <tr>
-                                                <td class="text-center" ><a href="/sistema/datosCliente/"><i class="fa fa-pencil"></i></a></td>
+                                                <td class="text-center" ><a href="/sistema/cliente/?idCliente={{ c.id }}"><i class="fa fa-pencil"></i></a></td>
                                                 <td class="text-center"><a style="color:red;" href="#" onclick="eliminarCliente({{ c.id }},'{{ c.razon_social }}');" ><i class="fa fa-times"></i></a></td>
                                                 <td>{{ c.id }}</td>
                                                 <td>{{ c.razon_social }}</td>
                                                 <td>{{ c.telefonoPrincipal }}</td>
-                                                <td>{{ c.direccion }}</td>
+                                                <td>{{ c.calle }} {{ c.altura }} {{ c.piso|default_if_none:"" }} {{ c.depto|default_if_none:"" }}</td>
                                                 <td>{{ c.tarifario }}</td>
                                                 <td>{{ c.categoria }}</td>
                                             </tr>

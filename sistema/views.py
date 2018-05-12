@@ -105,43 +105,62 @@ def listadoCliente(request, **kwargs):
 	return render(request, 'sistema/listadoCliente.html', context)
 
 @login_required
-def datosCliente(request):
+def cliente(request):
 	mensaje = ""
+	idCliente = request.GET.get('idCliente', "")
+	cliente = Cliente.objects.get(id=idCliente)
+	tarifarios = Tarifario.objects.all()
+	categorias = CategoriaCliente.objects.all()
 
-	context = {'mensaje': mensaje}
-	return render(request, 'sistema/datosCliente.html', context)
+	context = {'mensaje': mensaje, 'cliente':cliente, 'tarifarios':tarifarios, 'categorias':categorias}
+	return render(request, 'sistema/cliente.html', context)
 
 @login_required
 def altaCliente(request):
 	mensaje = ""
+	cliente = Cliente()
+	cliente.id = 0
 	tarifarios = Tarifario.objects.all()
 	categorias = CategoriaCliente.objects.all()
-	context = {'mensaje': mensaje, 'tarifarios':tarifarios, 'categorias':categorias}
-	return render(request, 'sistema/altaCliente.html', context)
+	context = {'mensaje': mensaje, 'tarifarios':tarifarios, 'categorias':categorias, 'cliente': cliente}
+	return render(request, 'sistema/cliente.html', context)
 
 
 @login_required
 def guardarCliente(request):
+	idCliente = request.POST.get('idCliente', "")
+	if idCliente == "0":
+		cliente = Cliente()
+		tel = Telefono()
+		mensaje = 'Se dio de alta el cliente '
+	else:
+		cliente = Cliente.objects.get(id=idCliente)
+		tel = cliente.telefonocliente_set.all()[0].telefono
+		mensaje = 'Se actualizo el cliente '
 
-	cliente = Cliente()
-	cliente.razon_social = request.POST.get('razonSocial', False)
-	cliente.cuil = request.POST.get('cuil', False)
-	cliente.direccion = request.POST.get('direccion', False)
+	cliente.razon_social = request.POST.get('razonSocial', "")
+	cliente.cuil = request.POST.get('cuil', "")
+	cliente.calle = request.POST.get('calle', "")
+	cliente.altura = request.POST.get('altura',"")
+	cliente.piso = request.POST.get('piso', "")
+	cliente.depto = request.POST.get('depto', "")
+	cliente.cp = request.POST.get('cp', "")
 	cliente.categoria = CategoriaCliente.objects.get(id=request.POST.get('categorias', False))
 	cliente.tarifario = Tarifario.objects.get(id=request.POST.get('tarifarios', False))
 	cliente.save()
 
-	tel = Telefono()
+	
 	tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
 	tel.numero = request.POST.get('telefono', False)
 	tel.save()
 
-	telcli = TelefonoCliente()
-	telcli.cliente = cliente
-	telcli.telefono = tel
-	telcli.save()
+	if idCliente == "0":
+		telcli = TelefonoCliente()
+		telcli.cliente = cliente
+		telcli.telefono = tel
+		telcli.save()
 
-	request.session['mensajeSuccess'] = 'Se dio de alta el cliente ' + cliente.razon_social
+	request.session['mensajeSuccess'] = mensaje + cliente.razon_social
 
 	return redirect('listadoCliente')
 
@@ -150,7 +169,7 @@ def editaCliente(request):
 	mensaje = ""
 
 	context = {'mensaje': mensaje}
-	return render(request, 'sistema/altaCliente.html', context)
+	return render(request, 'sistema/cliente.html', context)
 
 @login_required
 def eliminarCliente(request):
