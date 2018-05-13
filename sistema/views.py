@@ -4,6 +4,9 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente
+from django.http import HttpResponse
+
+import json
 
 @login_required
 def importar_calles(request):
@@ -79,6 +82,17 @@ def viaje(request):
 
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/viaje.html', context)
+
+
+@login_required
+def guardarViaje(request):
+	data = {
+		'error': '0',
+		'msg': 'Los datos han sido guardados correctamente.'
+	}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
 
 @login_required
 def altaPersona(request):

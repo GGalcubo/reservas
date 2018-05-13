@@ -3,6 +3,11 @@
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
+<style>
+    .tabbable-line > .tab-content {
+            padding: 10px 0!important;
+    }
+</style>
 <html lang="en">
 <!--<![endif]-->
 {% include "sistema/cabecera.html" %}
@@ -177,7 +182,12 @@
                 </div>
                 <div class="col-md-12">
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                    <div class="portlet light ">
+                    <div class="portlet light" id="viaje-tab">
+
+                        <div id="viajeValidacion" class="alert alert-danger">
+                            <button class="close" data-close="alert"></button>
+                            <div></div> <div id="mensajeValidacion" ></div>
+                        </div>
                         <div class="portlet-body">
                             <div class="tabbable-line">
                                 <ul class="nav nav-tabs ">
@@ -199,19 +209,19 @@
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_15_1">
-                                        <form role="form" class="form-viaje-viaje">
+                                        <form role="form" class="form-viaje-viaje" id="form-viaje-viaje" method="post" action="/sistema/guardarViaje/">{% csrf_token %}
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <select class="form-control" id="form_control_1">
+                                                                    <select class="form-control" name="estado" id="estado">
                                                                         <option value=""></option>
-                                                                        <option value="1">Nuevo</option>
-                                                                        <option value="2">Confirmado</option>
-                                                                        <option value="3">Cancelado</option>
-                                                                        <option value="4">Aceptado</option>
+                                                                        <option value="Nuevo">Nuevo</option>
+                                                                        <option value="Confirmado">Confirmado</option>
+                                                                        <option value="Cancelado">Cancelado</option>
+                                                                        <option value="Aceptado">Aceptado</option>
                                                                     </select>
                                                                     <label for="form_control_1">Estado</label>
                                                                 </div>
@@ -608,8 +618,7 @@
                                                 <div class="row" style="margin-bottom: 30px">
                                                     <div class="col-md-12">
                                                         <span class="input-group-btn btn">
-                                                            <button class="btn green-haze"
-                                                                    type="button">Guardar</button>
+                                                            <button class="btn green-haze" type="submit">Guardar</button>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -617,7 +626,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="tab_15_2">
-                                        <form role="form" class="form-viaje-cliente">
+                                        <form role="form" class="form-viaje-observacion">
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-2">
@@ -722,8 +731,8 @@
                                             </div>
                                         </form>
                                         <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
-                                                                    <span class="caption-subject bold uppercase" style="font-size: 16px">Observaciones</span>
-                                                                </div>
+                                            <span class="caption-subject bold uppercase" style="font-size: 16px">Observaciones</span>
+                                        </div>
                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaClientes">
                                             <thead>
                                                 <tr>
@@ -785,10 +794,42 @@
 <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
 <script>
     $(document).ready(function () {
+        $("#mensajeValidacion").html("");
+        $("#viajeValidacion").hide();
+
+
+
+        $("#form-viaje-viaje").submit(function(e) {
+
+            if ($("#estado").val() == ""){
+                mostrarMsgValidacion("El campo estado es obligatorio.");
+                return false;
+            }
+
+            var url = "/sistema/guardarViaje/"; // the script where you handle the form input.
+            $.ajax({
+                   type: "POST",
+                   url: url,
+                   data: $("#form-viaje-viaje").serialize(), // serializes the form's elements.
+                   success: function(data)
+                   {
+                       //alert(data); // show response from the php script.
+                   }
+                 });
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+        });
+
+        function mostrarMsgValidacion(msg){
+            $("#mensajeValidacion").html(msg);
+            $("#viajeValidacion").show();
+            $('html, body').animate({
+                scrollTop: $("#viajeValidacion").offset().top - 100
+              }, 100);
+            return false;
+        }
     });
 </script>
-
-</div>
 </body>
 
 </html>
