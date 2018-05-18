@@ -80,7 +80,9 @@ def operaciones(request):
 def viaje(request):
 	mensaje = ""
 
-	context = {'mensaje': mensaje}
+	clientes = Cliente.objects.all()
+
+	context = {'mensaje': mensaje, 'clientes':clientes}
 	return render(request, 'sistema/viaje.html', context)
 
 
