@@ -62,7 +62,7 @@ class CategoriaCliente(models.Model):
     def __str__(self):
         return self.categoria
 
-class CategoriaUnidad(models.Model):
+class CategoriaViaje(models.Model):
     codigo = models.CharField(max_length=10, null=True, blank=True)
     categoria = models.CharField(max_length=50)
 
@@ -144,6 +144,7 @@ class Observacion(models.Model):
         verbose_name_plural = "Observaciones" 
 
 class Licencia(models.Model):
+    licencia = models.CharField(max_length=100, null=True, blank=True)
     tipo_licencia = models.ForeignKey(TipoLicencia, null=True, blank=True)
     fecha_vencimiento = models.CharField(max_length=8, null=True, blank=True)
     numero = models.CharField(max_length=50)
@@ -168,10 +169,8 @@ class Persona(models.Model):
     localidad = models.CharField(max_length=50, null=True, blank=True)
     cp = models.CharField(max_length=10, null=True, blank=True)
     mail = models.CharField(max_length=100, null=True, blank=True)
-    porcentaje_viaje = models.IntegerField(default=0)
     contacto_cliente = models.CharField(max_length=100, null=True, blank=True)
     puesto = models.CharField(max_length=100, null=True, blank=True)
-    licencia = models.ForeignKey(Licencia, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.nombre
@@ -202,6 +201,8 @@ class Unidad(models.Model):
     chofer = models.ForeignKey(Persona, related_name='chofer', null=True, blank=True)
     owner = models.ForeignKey(Persona, related_name='owner', null=True, blank=True)
     vehiculo = models.ForeignKey(Vehiculo, null=True, blank=True)
+    porcentaje_chofer = models.CharField(max_length=20, null=True, blank=True)
+    porcentaje_owner = models.CharField(max_length=20, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.identificacion
@@ -231,6 +232,14 @@ class Cliente(models.Model):
     cuil = models.CharField(max_length=11, null=True, blank=True)
     categoria = models.ForeignKey(CategoriaCliente, null=True, blank=True)
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
+    localidad = models.ForeignKey(Localidad, null=True, blank=True)
+    provincia = models.ForeignKey(Provincia, null=True, blank=True)
+    iva = models.CharField(max_length=100, null=True, blank=True)
+    condicion_pago = models.CharField(max_length=100, null=True, blank=True)
+    facturacion = models.CharField(max_length=100, null=True, blank=True)
+    cbu = models.CharField(max_length=50, null=True, blank=True)
+    alias = models.CharField(max_length=100, null=True, blank=True)
+    dias_fechas_facturas = models.CharField(max_length=20, null=True, blank=True)
     baja = models.BooleanField(default=False)
     
     def __unicode__(self):
@@ -247,6 +256,18 @@ class Cliente(models.Model):
                     retorno = tel.telefono.numero
         return retorno
 
+class CentroCosto(models.Model):
+    nombre = models.CharField(max_length=100)
+    fecha_inicio = models.CharField(max_length=8, null=True, blank=True)
+    fecha_fin = models.CharField(max_length=8, null=True, blank=True)
+    descripcion = models.TextField(null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
 
 class Viaje(models.Model):
     factura = models.CharField(max_length=30, null=True, blank=True)
@@ -261,6 +282,12 @@ class Viaje(models.Model):
     Otros_tot = models.IntegerField(default=0)
     maletas = models.BooleanField(default=False)
     bilingue = models.BooleanField(default=False)
+    hora = models.CharField(max_length=10, null=True, blank=True)
+    solicitante = models.CharField(max_length=50, null=True, blank=True)
+    pasajero = models.CharField(max_length=50, null=True, blank=True)
+    centro_costo = models.ForeignKey(CentroCosto, null=True, blank=True)
+    categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
+    hora_estimada = models.CharField(max_length=10, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.fecha
@@ -270,6 +297,19 @@ class Viaje(models.Model):
 
     class Meta:
         verbose_name_plural = "Viajes" 
+
+class ViajePasajero(models.Model):
+    viaje = models.ForeignKey(Viaje)
+    pasajero = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return u'%s' % self.pasajero
+
+    def __str__(self):
+        return self.pasajero
+
+    class Meta:
+        verbose_name_plural = "Pasajero Viaje" 
 
 class ViajeHistorial(models.Model):
     viaje = models.ForeignKey(Viaje, null=True, blank=True)
@@ -310,25 +350,13 @@ class Trayecto(models.Model):
     peaje_tot = models.CharField(max_length=30, null=True, blank=True)
     estacionamiento_tot = models.CharField(max_length=30, null=True, blank=True)
     otros_tot = models.CharField(max_length=30, null=True, blank=True)
+    comentario = models.TextField(null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.calle_desde
 
     def __str__(self):
         return self.calle_desde
-
-class CentroCosto(models.Model):
-    nombre = models.CharField(max_length=100)
-    fecha_inicio = models.CharField(max_length=8, null=True, blank=True)
-    fecha_fin = models.CharField(max_length=8, null=True, blank=True)
-    descripcion = models.TextField(null=True, blank=True)
-    cliente = models.ForeignKey(Cliente, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.nombre
-
-    def __str__(self):
-        return self.nombre
 
 class PersonaCliente(models.Model):
     persona = models.ForeignKey(Persona, null=True, blank=True)
@@ -412,14 +440,24 @@ class ObservacionLicencia(models.Model):
 
 
 class TelefonoPersona(models.Model):
-    Telefono = models.ForeignKey(Telefono, null=True, blank=True)
+    telefono = models.ForeignKey(Telefono, null=True, blank=True)
     persona = models.ForeignKey(Persona, null=True, blank=True)
 
     def __unicode__(self):
-        return u'%s' % self.observacion
+        return u'%s' % self.telefono
 
     def __str__(self):
-        return self.observacion
+        return self.telefono
+
+class MailPersona(models.Model):
+    mail = models.CharField(max_length=100)
+    persona = models.ForeignKey(Persona, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.mail
+
+    def __str__(self):
+        return self.mail 
 
 class TelefonoCliente(models.Model):
     telefono = models.ForeignKey(Telefono, null=True, blank=True)
@@ -431,6 +469,16 @@ class TelefonoCliente(models.Model):
     def __str__(self):
         return self.cliente
 
+class MailCliente(models.Model):
+    mail = models.CharField(max_length=100)
+    cliente = models.ForeignKey(Cliente, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.mail
+
+    def __str__(self):
+        return self.mail 
+
 class AdjuntoViaje(models.Model):
     adjunto = models.ForeignKey(Adjunto, null=True, blank=True)
     viaje = models.ForeignKey(Viaje, null=True, blank=True)
@@ -440,3 +488,23 @@ class AdjuntoViaje(models.Model):
 
     def __str__(self):
         return self.adjunto
+
+class LicenciaPersona(models.Model):
+    licencia = models.ForeignKey(Licencia, null=True, blank=True)
+    persona = models.ForeignKey(Persona, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.licencia
+
+    def __str__(self):
+        return self.licencia
+
+class LicenciaVehiculo(models.Model):
+    licencia = models.ForeignKey(Licencia, null=True, blank=True)
+    vehiculo = models.ForeignKey(Vehiculo, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.licencia
+
+    def __str__(self):
+        return self.licencia
