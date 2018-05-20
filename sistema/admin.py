@@ -8,6 +8,10 @@ class TrayectoInline(admin.TabularInline):
     model = Trayecto
     extra = 1
 
+class PersonaClienteInline(admin.TabularInline):
+    model = PersonaCliente
+    extra = 1
+
 class ObservacionViajeInline(admin.TabularInline):
     model = ObservacionViaje
     extra = 1
@@ -21,6 +25,12 @@ class ViajeAdmin(admin.ModelAdmin):
         TrayectoInline, ObservacionViajeInline, AdjuntoViajeInline,
     ]
     list_display = ('factura', 'proforma', 'estado', 'fecha', 'cliente', 'unidad', 'base_total')
+
+class ClienteAdmin(admin.ModelAdmin):
+    inlines = [
+        PersonaClienteInline,
+    ]
+    list_display = ('razon_social',)
 
 admin.site.register(Viaje,ViajeAdmin)
 admin.site.register(Provincia)
@@ -40,7 +50,7 @@ admin.site.register(Licencia)
 admin.site.register(Persona)
 admin.site.register(Vehiculo)
 admin.site.register(Unidad)
-admin.site.register(Cliente)
+admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(ViajeHistorial)
 admin.site.register(Trayecto)
 admin.site.register(CentroCosto)
