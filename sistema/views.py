@@ -266,3 +266,10 @@ def listadoTarifario(request):
 
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/listadoTarifario.html', context)
+
+@login_required
+def exportar(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/exportar.html', context)

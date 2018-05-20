@@ -22,7 +22,7 @@
                     <h1 class="page-title">Cliente</h1>
                     <!-- END PAGE HEADER-->
                     <div class="row">
-                        <div class="col-sm-10 col-sm-offset-1">
+                        <div class="col-sm-12">
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light ">
                                 <div class="portlet-title">
@@ -44,61 +44,25 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="razonSocial" name="razonSocial" value="{{ cliente.razon_social|default_if_none:"" }}">
-                                                        <label for="form_control_1">Nombre o Razón Social</label>
+                                                        <label for="razonSocial">Nombre o Razón Social</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="cuil" name="cuil"  value="{{ cliente.cuil|default_if_none:"" }}">
-                                                        <label for="form_control_2">CUIL/CUIT</label>
+                                                        <label for="cuil">CUIL/CUIT</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         {% if cliente.id == 0 %}
                                                             <input type="text" class="form-control" id="telefono" name="telefono"  value="">
                                                         {% else %}
                                                             <input type="text" class="form-control" id="telefono" name="telefono"  value="{{ cliente.telefonoPrincipal }}">
                                                         {% endif %}
-                                                        <label for="form_control_3">Teléfono</label>
+                                                        <label for="telefono">Teléfono</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="calle" name="calle" value="{{ cliente.calle|default_if_none:"" }}">
-                                                        <label for="form_control_4">Calle</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-1">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="altura" name="altura" value="{{ cliente.altura|default_if_none:"" }}">
-                                                        <label for="form_control_5">Altura</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-1">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="piso" name="piso" value="{{ cliente.piso|default_if_none:"" }}">
-                                                        <label for="form_control_6">Piso</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-1">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="depto" name="depto" value="{{ cliente.depto|default_if_none:"" }}">
-                                                        <label for="form_control_7">Depto</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-1">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="cp" name="cp" value="{{ cliente.cp|default_if_none:"" }}">
-                                                        <label for="form_control_8">CP</label>
-                                                    </div>
-                                                </div>
-
-
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <select class="form-control" id="categorias" name="categorias">
@@ -111,10 +75,60 @@
                                                                 {% endif %}
                                                             {% endfor %}
                                                         </select>
-                                                        <label for="form_control_9">Categoría</label>
+                                                        <label for="categorias">Categoría</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="calle" name="calle" value="{{ cliente.calle|default_if_none:"" }}">
+                                                        <label for="calle">Calle</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="altura" name="altura" value="{{ cliente.altura|default_if_none:"" }}">
+                                                        <label for="altura">Altura</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="piso" name="piso" value="{{ cliente.piso|default_if_none:"" }}">
+                                                        <label for="piso">Piso</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="depto" name="depto" value="{{ cliente.depto|default_if_none:"" }}">
+                                                        <label for="depto">Depto</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="cp" name="cp" value="{{ cliente.cp|default_if_none:"" }}">
+                                                        <label for="cp">CP</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="localidad" name="localidad" value="{{ cliente.localidad|default_if_none:"" }}">
+                                                        <label for="localidad">Localidad</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="provincia" name="provincia" value="{{ cliente.provincia|default_if_none:"" }}">
+                                                        <label for="localidad">Provincia</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="row"> -->
+                                                <!-- <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <select class="form-control" id="tarifarios" name="tarifarios">
                                                             <option value=""></option>
@@ -126,10 +140,25 @@
                                                                 {% endif %}
                                                             {% endfor %}
                                                         </select>
-                                                        <label for="form_control_10">Tarifario</label>
+                                                        <label for="tarifarios">Tarifario</label>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                </div> -->
+                                                <!-- <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <select class="form-control" id="personas" name="personas">
+                                                            <option value=""></option>
+                                                            {% for p in personas %}
+                                                                {% if p.id == cliente.persona.id %}
+                                                                    <option selected="selected" value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                        <label for="personas">Personas</label>
+                                                    </div>
+                                                </div> -->
+                                            <!-- </div> -->
                                         </div>
                                         <div class="form-actions noborder flex flex-j-between">
                                             <button type="button" onclick="guardarCliente();" class="btn green">Guardar</button>
@@ -153,7 +182,10 @@
                                                 <a href="#tabContactosCliente" data-toggle="tab" aria-expanded="true"> Contactos </a>
                                             </li>
                                             <li class="">
-                                                <a href="#tabDatosFacturacionCliente" data-toggle="tab" aria-expanded="false"> Datos de Facturación </a>
+                                                <a href="#tabPasajerosCliente" data-toggle="tab" aria-expanded="true"> Pasajeros </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#tabDatosFacturacionCliente" data-toggle="tab" aria-expanded="false"> Facturación </a>
                                             </li>
                                             <li class="">
                                                 <a href="#tabDatosObservacionesCliente" data-toggle="tab" aria-expanded="false"> Observaciones </a>
@@ -313,6 +345,75 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                            <div class="tab-pane" id="tabPasajerosCliente">
+                                                <form role="form" class="form-datos-cliente-pasajeros">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption font-blue">
+                                                                            <i class="icon-user font-blue mg-t-8"></i>
+                                                                            <span class="caption-subject bold uppercase">Pasajeros</span>
+                                                                            <a href="/sistema/altaContacto" role="button" class="btn green btn-outline mg-l-20">Agregar pasajero</a>
+                                                                        </div>
+                                                                        <div class="tools"> </div>
+                                                                    </div>
+                                                                    <div class="portlet-body">
+                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaPasajeroClientes">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="all">Editar</th>
+                                                                                    <th class="all">Nombre</th>
+                                                                                    <th class="all">Apellido</th>
+                                                                                    <th class="all">DNI</th>
+                                                                                    <th class="all">Teléfono</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href=""><i class="fa fa-pencil">
+                                                                                    <td>Juan</td>
+                                                                                    <td>Perez</td>
+                                                                                    <td>25874698</td>
+                                                                                    <td>4578-8978</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href=""><i class="fa fa-pencil">
+                                                                                    <td>Maria</td>
+                                                                                    <td>Duarte</td>
+                                                                                    <td>36875968</td>
+                                                                                    <td>5488-7848</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href=""><i class="fa fa-pencil">
+                                                                                    <td>Candelaria</td>
+                                                                                    <td>Duarte</td>
+                                                                                    <td>32555777</td>
+                                                                                    <td>4488-7848</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href=""><i class="fa fa-pencil">
+                                                                                    <td>Federico</td>
+                                                                                    <td>Perez</td>
+                                                                                    <td>24888999</td>
+                                                                                    <td>4678-6858</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions noborder flex flex-j-between">
+                                                        <button type="button" class="btn green">Guardar</button>
+                                                        <button type="button" class="btn red">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                             <div class="tab-pane" id="tabDatosFacturacionCliente">
                                                 <form role="form" class="form-datos-cliente-facturacion">
                                                     <div class="form-body">
@@ -337,62 +438,102 @@
                                                                             </div>
                                                                             <div class="col-sm-3">
                                                                                 <div class="form-group form-md-line-input">
-                                                                                    <select class="form-control" id="form_control_1">
+                                                                                    <select class="form-control" id="form_control_2">
                                                                                         <option value=""></option>
                                                                                         <option value="1" selected="selected">Responsable Inscripto</option>
                                                                                         <option value="2">Option 2</option>
                                                                                         <option value="3">Option 3</option>
                                                                                         <option value="4">Option 4</option>
                                                                                     </select>
-                                                                                    <label for="form_control_1">IVA</label>
+                                                                                    <label for="form_control_2">IVA</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-sm-3">
                                                                                 <div class="form-group form-md-line-input">
-                                                                                    <select class="form-control" id="form_control_1">
+                                                                                    <select class="form-control" id="form_control_3">
                                                                                         <option value=""></option>
                                                                                         <option value="1" selected="selected">Efectivo</option>
                                                                                         <option value="2">Option 2</option>
                                                                                         <option value="3">Option 3</option>
                                                                                         <option value="4">Option 4</option>
                                                                                     </select>
-                                                                                    <label for="form_control_1">Condición de Pago</label>
+                                                                                    <label for="form_control_3">Condición de Pago</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-sm-3">
                                                                                 <div class="form-group form-md-line-input">
-                                                                                    <select class="form-control" id="form_control_1">
-                                                                                        <option value=""></option>
-                                                                                        <option value="1" selected="selected">ASFDSF</option>
-                                                                                        <option value="2">Option 2</option>
-                                                                                        <option value="3">Option 3</option>
-                                                                                        <option value="4">Option 4</option>
-                                                                                    </select>
-                                                                                    <label for="form_control_1">Facturación</label>
+                                                                                    <input type="text" class="form-control" id="form_control_7" value="15 días">
+                                                                                    <label for="form_control_7">Días fecha factura</label>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-sm-4">
                                                                                 <div class="form-group form-md-line-input">
-                                                                                    <input type="text" class="form-control" id="form_control_1" value="12345678910123456789012">
-                                                                                    <label for="form_control_1">CBU</label>
+                                                                                    <input type="text" class="form-control" id="form_control_5" value="12345678910123456789012">
+                                                                                    <label for="form_control_5">CBU</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <div class="form-group form-md-line-input">
+                                                                                    <input type="text" class="form-control" id="form_control_6" value="perro.caca.pis">
+                                                                                    <label for="form_control_6">Alias</label>
                                                                                 </div>
                                                                             </div>
                                                                             
-                                                                            <div class="col-sm-4">
-                                                                                <div class="form-group form-md-line-input">
-                                                                                    <input type="text" class="form-control" id="form_control_1" value="perro.caca.pis">
-                                                                                    <label for="form_control_1">Alias</label>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-sm-4">
-                                                                                <div class="form-group form-md-line-input">
-                                                                                    <textarea class="form-control" rows="1" placeholder=""></textarea>
-                                                                                    <label for="form_control_1">Observaciones de pago</label>
-                                                                                </div>
-                                                                            </div>
                                                                         </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption font-blue">
+                                                                            <i class="icon-folder-alt font-blue"></i>
+                                                                            <span class="caption-subject bold uppercase">Listado de facturas</span>
+                                                                        </div>
+                                                                        <div class="tools"> </div>
+                                                                    </div>
+                                                                    <div class="portlet-body">
+                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoFacturasCliente">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="all">Ver</th>
+                                                                                    <th class="all">Número</th>
+                                                                                    <th class="all">Fecha</th>
+                                                                                    <th class="all">Importe</th>
+                                                                                    <th class="all">Estado</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href=""><i class="fa fa-eye">
+                                                                                    <td>0001-00000001</td>
+                                                                                    <td>10/05/2018</td>
+                                                                                    <td>$2.800</td>
+                                                                                    <td>Emitida</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href=""><i class="fa fa-eye">
+                                                                                    <td>0001-00000002</td>
+                                                                                    <td>15/05/2018</td>
+                                                                                    <td>$2.500</td>
+                                                                                    <td>Cobrada</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href=""><i class="fa fa-eye">
+                                                                                    <td>0001-00000003</td>
+                                                                                    <td>10/08/2018</td>
+                                                                                    <td>$12.800</td>
+                                                                                    <td>Emitida</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href=""><i class="fa fa-eye">
+                                                                                    <td>0001-00000004</td>
+                                                                                    <td>10/09/2018</td>
+                                                                                    <td>$22.800</td>
+                                                                                    <td>Emitida</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
                                                                     </div>
                                                                 </div>
                                                                 <!-- END EXAMPLE TABLE PORTLET-->
@@ -406,7 +547,7 @@
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="tabDatosObservacionesCliente">
-                                                <form role="form" class="form-datos-cliente-facturacion">
+                                                <form role="form" class="form-datos-cliente-observacion">
                                                     <div class="form-body">
                                                         <div class="row">
                                                             <div class="col-sm-12">
@@ -414,74 +555,77 @@
                                                                 <div class="portlet light ">
                                                                     <div class="portlet-title">
                                                                         <div class="caption font-blue">
-                                                                            <i class="icon-folder-alt font-blue"></i>
-                                                                            <span class="caption-subject bold uppercase">Datos de Facturación</span>
+                                                                            <i class="icon-notebook font-blue mg-t-8"></i>
+                                                                            <span class="caption-subject bold uppercase">Observaciones</span>
+                                                                            <a href="#add_observacion_cliente" role="button" data-toggle="modal" class="btn green btn-outline mg-l-20">Agregar observación</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
                                                                     <div class="portlet-body">
+                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaObservacionClientes">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="all">Fecha</th>
+                                                                                    <th class="all">Usuario</th>
+                                                                                    <th class="all">Observación</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>10/05/2018</td>
+                                                                                    <td>Eduardo</td>
+                                                                                    <td>Cobrarle los días 10</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>14/05/2018</td>
+                                                                                    <td>Maria</td>
+                                                                                    <td>Facturarle antes de pagar</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>16/05/2018</td>
+                                                                                    <td>Eduardo</td>
+                                                                                    <td>Cobrarle los días 15</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>18/05/2018</td>
+                                                                                    <td>Federico</td>
+                                                                                    <td>Próximo mes aumentarle 5%   </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
                                                                         <div class="row">
-                                                                            <div class="col-sm-3">
-                                                                                <div class="form-group form-md-line-input">
-                                                                                    <input type="text" class="form-control" id="form_control_1" value="30-12345678-2">
-                                                                                    <label for="form_control_1">CUIT</label>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-sm-3">
-                                                                                <div class="form-group form-md-line-input">
-                                                                                    <select class="form-control" id="form_control_1">
-                                                                                        <option value=""></option>
-                                                                                        <option value="1" selected="selected">Responsable Inscripto</option>
-                                                                                        <option value="2">Option 2</option>
-                                                                                        <option value="3">Option 3</option>
-                                                                                        <option value="4">Option 4</option>
-                                                                                    </select>
-                                                                                    <label for="form_control_1">IVA</label>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-sm-3">
-                                                                                <div class="form-group form-md-line-input">
-                                                                                    <select class="form-control" id="form_control_1">
-                                                                                        <option value=""></option>
-                                                                                        <option value="1" selected="selected">Efectivo</option>
-                                                                                        <option value="2">Option 2</option>
-                                                                                        <option value="3">Option 3</option>
-                                                                                        <option value="4">Option 4</option>
-                                                                                    </select>
-                                                                                    <label for="form_control_1">Condición de Pago</label>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-sm-3">
-                                                                                <div class="form-group form-md-line-input">
-                                                                                    <select class="form-control" id="form_control_1">
-                                                                                        <option value=""></option>
-                                                                                        <option value="1" selected="selected">ASFDSF</option>
-                                                                                        <option value="2">Option 2</option>
-                                                                                        <option value="3">Option 3</option>
-                                                                                        <option value="4">Option 4</option>
-                                                                                    </select>
-                                                                                    <label for="form_control_1">Facturación</label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-sm-4">
-                                                                                <div class="form-group form-md-line-input">
-                                                                                    <input type="text" class="form-control" id="form_control_1" value="12345678910123456789012">
-                                                                                    <label for="form_control_1">CBU</label>
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                            <div class="col-sm-4">
-                                                                                <div class="form-group form-md-line-input">
-                                                                                    <input type="text" class="form-control" id="form_control_1" value="perro.caca.pis">
-                                                                                    <label for="form_control_1">Alias</label>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-sm-4">
-                                                                                <div class="form-group form-md-line-input">
-                                                                                    <textarea class="form-control" rows="1" placeholder=""></textarea>
-                                                                                    <label for="form_control_1">Observaciones de pago</label>
+                                                                            <div class="col-md-12">
+                                                                                <!-- <div style="width:158px;margin:0 auto;padding-top: 40px;">
+                                                                                    <span class="input-group-btn btn">
+                                                                                        <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
+                                                                                    </span>
+                                                                                </div> -->
+                                                                                <!-- /.modal -->
+                                                                                <div id="add_observacion_cliente" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                                                    <div class="modal-dialog">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header">
+                                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                                                <h4 class="modal-title" style="color:#888;">Agregar Observación</h4>
+                                                                                            </div>
+                                                                                            <div class="modal-body">
+                                                                                                <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-sm-6 col-sm-offset-3">
+                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                <textarea class="form-control" rows="3" placeholder=""></textarea>
+                                                                                                                <label for="form_control_1">Observaciones del cliente</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="modal-footer noborder flex flex-j-between">
+                                                                                              <button type="button" class="btn green">Guardar</button>
+                                                                                              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -518,6 +662,72 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 $(document).ready(function(){
+
+                    $('#tablaContactoClientes').DataTable( {
+                        responsive: true,
+                        // scrollY: 200,
+                        order: [[ 1, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+
+                    $('#tablaPasajeroClientes').DataTable( {
+                        responsive: true,
+                        // scrollY: 200,
+                        order: [[ 1, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+
+                    $('#tablaCCClientes').DataTable( {
+                        responsive: true,
+                        // scrollY: 200,
+                        order: [[ 0, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+
+                    $('#tablaObservacionClientes').DataTable( {
+                        responsive: true,
+                        // scrollY: 200,
+                        order: [[ 0, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+
+                    $('#tablaListadoFacturasCliente').DataTable( {
+                        responsive: true,
+                        // scrollY: 200,
+                        order: [[ 1, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+
                     var idCliente = $("#idCliente").val()
                     if (idCliente == "0"){
                         $("#clienteDetalle").hide()
@@ -532,7 +742,7 @@
                 function guardarCliente(){
 
                     if ($("#razonSocial").val() == ""){
-                        $("#mensajeValidacion").html("El campo Razon Social es obligatorio.");
+                        $("#mensajeValidacion").html("El campo Razón Social es obligatorio.");
                         $("#clienteValidacion").show()
                         return false;
                     }
