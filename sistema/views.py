@@ -200,11 +200,11 @@ def eliminarCliente(request):
 	return redirect('listadoCliente')
 
 @login_required
-def datosProvedor(request):
+def provedor(request):
 	mensaje = ""
 
 	context = {'mensaje': mensaje}
-	return render(request, 'sistema/datosProvedor.html', context)
+	return render(request, 'sistema/provedor.html', context)
 
 @login_required
 def listadoProvedor(request):
@@ -214,11 +214,18 @@ def listadoProvedor(request):
 	return render(request, 'sistema/listadoProvedor.html', context)
 
 @login_required
-def datosUnidad(request):
+def unidad(request):
 	mensaje = ""
 
 	context = {'mensaje': mensaje}
-	return render(request, 'sistema/datosUnidad.html', context)
+	return render(request, 'sistema/unidad.html', context)
+
+@login_required
+def listadoUnidad(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/listadoUnidad.html', context)
 
 @login_required
 def altaContacto(request):
