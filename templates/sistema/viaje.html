@@ -840,7 +840,7 @@
         $("#razon_social").on("select2:select", function (e) { updateFills("select2:select", e); });
 
         $("#form-viaje-viaje").submit(function(e) {
-
+            //TODO AGREGAR ERRORES EN CAMPOS
             if ($("#estado").val() == ""){
                 mostrarMsgValidacion("El campo estado es obligatorio.");
                 return false;
