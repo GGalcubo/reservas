@@ -29,84 +29,64 @@
                                     <div class="caption font-blue">
                                         <i class="icon-speedometer font-blue mg-t-8"></i>
                                         <span class="caption-subject bold uppercase">Listado de provedores</span>
-                                        <a href="/sistema/altaProvedor/" role="button" class="btn green btn-outline mg-l-20">Agregar provedor</a>
+                                        <a href="#" role="button" class="btn green btn-outline mg-l-20">Agregar provedor</a>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaContactos">
+                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoProvedor">
                                         <thead>
                                             <tr>
                                                 <th class="all">Editar</th>
-                                                <th class="all">Provedor</th>
-                                                <th class="all">Dueño</th>
-                                                <th class="all">Chofer</th>
-                                                <th class="all">Dominio</th>
-                                                <th class="all">Modelo</th>
-                                                <th class="all">Marca</th>
-                                                <th class="all">Color</th>
-                                                <th class="all">Año</th>
-                                                <th class="all">Motor</th>
-                                                <th class="all">Chasis</th>
-                                                <th class="all">Observación</th>
+                                                <th class="all">ID</th>
+                                                <th class="all">Nombre</th>
+                                                <th class="all">CUIT/CUIL</th>
+                                                <th class="all">Domicilio</th>
+                                                <th class="all">Teléfono</th>
+                                                <th class="all">Mail</th>
+                                                <th class="all">Tipo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaProvedor/"><i class="fa fa-pencil">
-                                                <td>3 Monos</td>
-                                                <td>Juan</td>
-                                                <td>Perez</td>
-                                                <td>AV125AV</td>
-                                                <td>Focus</td>
-                                                <td>Ford</td>
-                                                <td>Rojo</td>
-                                                <td>2010</td>
-                                                <td>1.8</td>
-                                                <td>123456</td>
-                                                <td>Es impuntual</td>
+                                                <td class="text-center"><a href="#"><i class="fa fa-pencil">
+                                                <td>12</td>
+                                                <td>Juan "el chueco" Perez</td>
+                                                <td>20-25874869-5</td>
+                                                <td>Helguera 3456</td>
+                                                <td>4567-8910</td>
+                                                <td>mail@ejemplo.com</td>
+                                                <td>Dueño</td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaProvedor/"><i class="fa fa-pencil">
-                                                <td>Siemens</td>
-                                                <td>Maria</td>
-                                                <td>Duarte</td>
-                                                <td>GT457DF</td>
-                                                <td>Megane</td>
-                                                <td>Renault</td>
-                                                <td>Verde</td>
-                                                <td>2011</td>
-                                                <td>1.8</td>
-                                                <td>4674865</td>
-                                                <td>Choca seguido</td>
+                                                <td class="text-center"><a href="#"><i class="fa fa-pencil">
+                                                <td>23</td>
+                                                <td>Federico "el huevo" Acuña</td>
+                                                <td>20-25874869-5</td>
+                                                <td>Cuenca 3456</td>
+                                                <td>4567-8910</td>
+                                                <td>mail@ejemplo.com</td>
+                                                <td>Chofer</td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaProvedor/"><i class="fa fa-pencil">
-                                                <td>Pfizer</td>
-                                                <td>Candelaria</td>
-                                                <td>Duarte</td>
-                                                <td>AD123OL</td>
-                                                <td>Up</td>
-                                                <td>Volkswagen</td>
-                                                <td>Blanco</td>
-                                                <td>2015</td>
-                                                <td>1.2</td>
-                                                <td>7856489</td>
-                                                <td>Es chiquito</td>
+                                                <td class="text-center"><a href="#"><i class="fa fa-pencil">
+                                                <td>22</td>
+                                                <td>Pablo Perez</td>
+                                                <td>20-25874869-5</td>
+                                                <td>Aramburu 3456</td>
+                                                <td>4567-8910</td>
+                                                <td>mail@ejemplo.com</td>
+                                                <td>Dueño</td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaProvedor/"><i class="fa fa-pencil">
-                                                <td>SAP</td>
-                                                <td>Federico</td>
-                                                <td>Perez</td>
-                                                <td>RP798RA</td>
-                                                <td>Mondeo</td>
-                                                <td>Ford</td>
-                                                <td>Celeste</td>
-                                                <td>2005</td>
-                                                <td>1.8</td>
-                                                <td>74617</td>
-                                                <td>Es viejo</td>
+                                                <td class="text-center"><a href="#"><i class="fa fa-pencil">
+                                                <td>10</td>
+                                                <td>Facundo Rodriguez</td>
+                                                <td>20-25874869-5</td>
+                                                <td>Campana 3456</td>
+                                                <td>4567-8910</td>
+                                                <td>mail@ejemplo.com</td>
+                                                <td>Chofer</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -129,7 +109,7 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 $(document).ready(function(){
-                    $('#tablaContactos').DataTable( {
+                    $('#tablaListadoProvedor').DataTable( {
                         responsive: true,
                         // scrollY: 300,
                         order: [[ 1, "asc" ]],

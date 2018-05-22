@@ -1,0 +1,432 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    {% include "sistema/cabecera.html" %}
+    <body id="datosCliente" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+        {% include "sistema/barra_top.html" %}
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            {% include "sistema/barra_lat.html" %}
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEADER-->
+                    <h1 class="page-title">Unidad</h1>
+                    <!-- END PAGE HEADER-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-blue">
+                                        <i class="icon-star font-blue"></i>
+                                        <span class="caption-subject bold uppercase">Alta/Edición de Unidad</span>
+                                    </div>
+                                    <div class="tools"> </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <form role="form" class="form-datos-unidad">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_1" value="52">
+                                                        <label for="form_control_1">ID</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_2" value="Jorge 'El gordo' Rodríguez">
+                                                        <label for="form_control_2">Nombre de la unidad</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-radios">
+                                                        <label>Tiene chofer?</label>
+                                                        <div class="md-radio-inline">
+                                                            <div class="md-radio">
+                                                                <input type="radio" id="radio6" name="radio2" class="md-radiobtn" checked>
+                                                                <label for="radio6">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span> Sí </label>
+                                                            </div>
+                                                            <div class="md-radio">
+                                                                <input type="radio" id="radio7" name="radio2" class="md-radiobtn">
+                                                                <label for="radio7">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span> No </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control" id="form_control_4">
+                                                            <option value=""></option>
+                                                            <option value="1" selected="selected">Jorge Alberto Rodriguez</option>
+                                                            <option value="2">Ernesto Fabricio Fuentes</option>
+                                                            <option value="3">Flavio Omar Martinez</option>
+                                                        </select>
+                                                        <label for="form_control_4">Dueño</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 text-center">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <a href="#" role="button" class="btn green btn-outline">Agregar Dueño</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_5">
+                                                        <label for="form_control_5">% de Facturación</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control" id="form_control_6">
+                                                            <option value=""></option>
+                                                            <option value="1" selected="selected">Felipe Contreras</option>
+                                                            <option value="2">Gastón Acevedo</option>
+                                                            <option value="3">Rodrigo Bueno</option>
+                                                        </select>
+                                                        <label for="form_control_6">Chofer</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 text-center">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <a href="#" role="button" class="btn green btn-outline">Agregar Chofer</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_7">
+                                                        <label for="form_control_7">% de Facturación</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 text-center">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <a href="#" role="button" class="btn green btn-outline">Agregar Licencia</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="portlet-title">
+                                                <div class="caption font-blue">
+                                                    <i class="icon-star font-blue"></i>
+                                                    <span class="caption-subject bold uppercase">Vehículo</span>
+                                                </div>
+                                                <div class="tools"> </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_8">
+                                                        <label for="form_control_8">Patente</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_9">
+                                                        <label for="form_control_9">Modelo</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_10">
+                                                        <label for="form_control_10">Marca</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_11">
+                                                        <label for="form_control_11">Color</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_12">
+                                                        <label for="form_control_12">Año</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_13">
+                                                        <label for="form_control_13">Puertas</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_14">
+                                                        <label for="form_control_14">Nro. Motor</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_15">
+                                                        <label for="form_control_15">Nro. Chasis</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <textarea class="form-control" rows="1"></textarea>
+                                                        <label for="form_control_16">Comentario</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 text-center">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <a href="#" role="button" class="btn green btn-outline">Agregar Licencia</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions noborder flex flex-j-between mg-t-20">
+                                            <button type="button" class="btn green">Guardar</button>
+                                            <button type="button" class="btn red">Cancelar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                        <div class="col-sm-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light ">
+                                <div class="portlet-body">
+                                    <div class="tabbable-line">
+                                        <ul class="nav nav-tabs ">
+                                            <li class="active">
+                                                <a href="#tabLicenciasUnidad" data-toggle="tab" aria-expanded="true"> Licencias </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#tabObservacionesUnidad" data-toggle="tab" aria-expanded="true"> Observaciones </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tabLicenciasUnidad">
+                                                <form role="form" class="form-licencias-unidad">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption font-blue">
+                                                                            <i class="icon-lock font-blue mg-t-8"></i>
+                                                                            <span class="caption-subject bold uppercase">Licencias</span>
+                                                                            <a href="#" role="button" class="btn green btn-outline mg-l-20">Agregar licencia</a>
+                                                                        </div>
+                                                                        <div class="tools"> </div>
+                                                                    </div>
+                                                                    <div class="portlet-body">
+                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaLicenciasUnidad">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="all">Editar</th>
+                                                                                    <th class="all">Número</th>
+                                                                                    <th class="all">Licencia</th>
+                                                                                    <th class="all">Vencimiento</th>
+                                                                                    <th class="all">Comentario</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#"><i class="fa fa-pencil">
+                                                                                    <td>468415</td>
+                                                                                    <td>Profesional</td>
+                                                                                    <td>25/08/2022</td>
+                                                                                    <td>Avisar un mes antes</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#"><i class="fa fa-pencil">
+                                                                                    <td>8798465</td>
+                                                                                    <td>Permiso circulación centro</td>
+                                                                                    <td>15/10/2019</td>
+                                                                                    <td>Avisar un mes antes</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#"><i class="fa fa-pencil">
+                                                                                    <td>16845</td>
+                                                                                    <td>Aeropuerto</td>
+                                                                                    <td>26/08/2030</td>
+                                                                                    <td>Avisar dos meses antes</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions noborder flex flex-j-between">
+                                                        <button type="button" class="btn green">Guardar</button>
+                                                        <button type="button" class="btn red">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane" id="tabObservacionesUnidad">
+                                                <form role="form" class="form-observacion-unidad">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption font-blue">
+                                                                            <i class="icon-notebook font-blue mg-t-8"></i>
+                                                                            <span class="caption-subject bold uppercase">Observaciones</span>
+                                                                            <a href="#add_observacion_unidad" role="button" data-toggle="modal" class="btn green btn-outline mg-l-20">Agregar observación</a>
+                                                                        </div>
+                                                                        <div class="tools"> </div>
+                                                                    </div>
+                                                                    <div class="portlet-body">
+                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaObservacionUnidades">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="all">Fecha</th>
+                                                                                    <th class="all">Usuario</th>
+                                                                                    <th class="all">Observación</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>10/05/2018</td>
+                                                                                    <td>Eduardo</td>
+                                                                                    <td>Pagarle los días 10</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>14/05/2018</td>
+                                                                                    <td>Maria</td>
+                                                                                    <td>Pedir factura antes de pagar</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>16/05/2018</td>
+                                                                                    <td>Eduardo</td>
+                                                                                    <td>Pagarle los días 15</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>18/05/2018</td>
+                                                                                    <td>Federico</td>
+                                                                                    <td>Próximo mes aumentarle 5%</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <!-- <div style="width:158px;margin:0 auto;padding-top: 40px;">
+                                                                                    <span class="input-group-btn btn">
+                                                                                        <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
+                                                                                    </span>
+                                                                                </div> -->
+                                                                                <!-- /.modal -->
+                                                                                <div id="add_observacion_unidad" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                                                    <div class="modal-dialog">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header">
+                                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                                                <h4 class="modal-title" style="color:#888;">Agregar Observación</h4>
+                                                                                            </div>
+                                                                                            <div class="modal-body">
+                                                                                                <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-sm-6 col-sm-offset-3">
+                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                <textarea class="form-control" rows="3" placeholder=""></textarea>
+                                                                                                                <label for="form_control_1">Observaciones de la unidad</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="modal-footer noborder flex flex-j-between">
+                                                                                              <button type="button" class="btn green">Guardar</button>
+                                                                                              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions noborder flex flex-j-between">
+                                                        <button type="button" class="btn green">Guardar</button>
+                                                        <button type="button" class="btn red">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        {% include "sistema/footer.html" %}
+
+            <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
+            <script>
+                $(document).ready(function(){
+                    $('#tablaLicenciasUnidad').DataTable( {
+                        responsive: true,
+                        // scrollY: 200,
+                        order: [[ 3, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+
+                    $('#tablaObservacionUnidades').DataTable( {
+                        responsive: true,
+                        // scrollY: 200,
+                        order: [[ 0, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+
+                    
+                });
+            </script>
+
+        </div>
+    </body>
+
+</html>
