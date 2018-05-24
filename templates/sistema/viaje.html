@@ -11,6 +11,17 @@
     .tabbable-line > .tab-content {
             padding: 10px 0!important;
     }
+    .disabled-select {
+       background-color:#d5d5d5;
+       opacity:0.5;
+       border-radius:3px;
+       cursor:not-allowed;
+       position:absolute;
+       top:0;
+       bottom:0;
+       right:0;
+       left:0;
+    }
 </style>
 <html lang="en">
 <!--<![endif]-->
@@ -52,7 +63,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="id_cliente" name="id_cliente">
-                                                    <{% for c in clientes %}
+                                                    {% for c in clientes %}
                                                        <option value="{{ c.id }}">{{ c.id }}</option>
                                                     {% endfor %}
                                                 </select>
@@ -61,8 +72,8 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="razon_social" name="razon_social">
-                                                    <{% for c in clientes %}
+                                                <select class="form-control select2me" id="razon_social">
+                                                    {% for c in clientes %}
                                                        <option value="{{ c.id }}">{{ c.razon_social }}</option>
                                                     {% endfor %}
                                                 </select>
@@ -71,13 +82,13 @@
                                         </div>
                                         <div class="col-md-1">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cliente_tel" value="1212" name="cliente_tel" readonly>
-                                                <label>Cliente Tel</label>
+                                                <input type="text" class="form-control" id="cliente_tel" value="1212" readonly>
+                                                <label>Teléfono</label>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cliente_direccion" value="Balcarce 510 CAP. FED." name="cliente_direccion" readonly>
+                                                <input type="text" class="form-control" id="cliente_direccion" value="Balcarce 510 CAP. FED." readonly>
                                                 <label>Dirección</label>
                                             </div>
                                         </div>
@@ -112,7 +123,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="pasajeros" name="pasajeros"></select>
+                                                        <select class="form-control" id="pasajero" name="pasajero"></select>
                                                         <label>Pasajero</label>
                                                     </div>
                                                 </div>
@@ -152,45 +163,46 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" name="estado" id="estado">
-                                                            <option value=""></option>
-                                                            <option value="Nuevo">Nuevo</option>
-                                                            <option value="Confirmado">Confirmado</option>
-                                                            <option value="Cancelado">Cancelado</option>
-                                                            <option value="Aceptado">Aceptado</option>
+                                                        <select class="form-control select2me" name="estado" id="estado">
+                                                            {% for e in estados %}
+                                                               <option value="{{ e.id }}">{{ e.estado }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label>Estado</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="" value="">
+                                                        <input type="text" class="form-control" id="costo_provedor" name="costo_provedor" value="100">
                                                         <label>Costo Provedor</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="" value="">
+                                                        <input type="text" class="form-control" id="tarifa_pasada" name="tarifa_pasada" value="100">
                                                         <label>Tarifa pasada</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="">
-                                                            <option value=""></option>
-                                                            <option value="1">Remises</option>
-                                                            <option value="2">Option 2</option>
-                                                            <option value="3">Option 3</option>
-                                                            <option value="4">Option 4</option>
+                                                        <select class="form-control select2me" id="unidad_id" name="unidad_id">
+                                                            {% for u in unidades %}
+                                                               <option value="{{ u.id }}">{{ u.id }}</option>
+                                                            {% endfor %}
                                                         </select>
-                                                        <label>Unidad</label>
+                                                        <label>ID Unidad</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="" value="">
+                                                        <select class="form-control select2me" id="unidad_identificacion">
+                                                            {% for u in unidades %}
+                                                               <option value="{{ u.id }}">{{ u.identificacion }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                        <label>Unidad</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -199,7 +211,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group form-md-line-input">
-                                                        <textarea class="form-control" rows="3" placeholder=""></textarea>
+                                                        <textarea class="form-control" rows="3" placeholder="" name="comentario_chofer" id="comentario_chofer"></textarea>
                                                         <label>Comentario para el chofer</label>
                                                     </div>
                                                 </div>
@@ -215,19 +227,19 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="peaje" value="$100" name="peaje">
+                                                <input type="text" class="form-control" id="peaje" value="100" name="peaje">
                                                 <label>Peajes</label>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="estacionamiento" name="estacionamiento" value="$100">
+                                                <input type="text" class="form-control" id="estacionamiento" name="estacionamiento" value="100">
                                                 <label>Estacionamiento</label>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="otros" value="$100" name="otros">
+                                                <input type="text" class="form-control" id="otros" value="100" name="otros">
                                                 <label>Otros</label>
                                             </div>
                                         </div>
@@ -773,6 +785,24 @@
         clientes.push(obj);
     {% endfor %}
 
+    var unidades = [];
+    {% for unidad in unidades %}
+        var obj = {
+            id : {{ unidad.id }},
+            identificacion:'{{ unidad.identificacion }}'};
+        unidades.push(obj);
+    {% endfor %}
+
+    var estados = [];
+    {% for estado in estados %}
+        var obj = {
+            id : {{ estado.id }},
+            identificacion:'{{ estado.estado }}'};
+        estados.push(obj);
+    {% endfor %}
+
+    var es_nuevo = {{ es_nuevo }};
+
     function mostrarMsgValidacion(msg){
         $("#mensajeValidacion").html(msg);
         $("#viajeValidacion").show();
@@ -782,7 +812,7 @@
         return false;
     }
 
-    function updateFills(name, evt){
+    function updateFillsByCliente(name, evt){
         var option_selected = evt.params.data.id - 1;
         $('#id_cliente').select2('val',clientes[option_selected].id);
         $('#razon_social').select2('val',clientes[option_selected].id);
@@ -791,53 +821,55 @@
         $('#cliente_direccion').val(clientes[option_selected].direccion);
         $('#cliente_categoria').val(clientes[option_selected].categoria_id);
         $('#cliente_tel').val(clientes[option_selected].telefono);
+
         $('#centro_costos').empty();
         $('#solicitante').empty();
-        $('#pasajeros').empty();
+        $('#pasajero').empty();
+
         $.each(clientes[option_selected].centro_costos, function(i, value) {
-          $('#centro_costos').append($('<option>').text(value.nombre).attr('value', i));
+          $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
         });
         $.each(clientes[option_selected].personascliente, function(i, value) {
             if(value.tipo_persona == 'Solicitante'){
-                $('#solicitante').append($('<option>').text(value.nombre).attr('value', i));
+                $('#solicitante').append($('<option>').text(value.nombre).attr('value', value.id));
             }
         });
         $.each(clientes[option_selected].personascliente, function(i, value) {
             if(value.tipo_persona == 'Pasajeros'){
-                $('#pasajeros').append($('<option>').text(value.nombre).attr('value', i));
+                $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
             }
         });
+    }
+
+    function updateFillsByUnidad(name, evt){
+        var option_selected = evt.params.data.id - 1;
+        $('#unidad_id').select2('val',unidades[option_selected].id);
+        $('#unidad_identificacion').select2('val',unidades[option_selected].id);
+        $('#unidad_id').val(clientes[option_selected].id).trigger("change");
+        $('#unidad_identificacion').val(clientes[option_selected].id).trigger("change");
     }
 
     $(document).ready(function () {
         $("#viaje-tab").hide();
         $("#mensajeValidacion").html("");
         $("#viajeValidacion").hide();
-        $('#estado').val("Nuevo");
-        $('#estado').attr("disabled", true);
+
+        if(es_nuevo ==1){
+            $('#estado').attr("disabled", true);
+        }
 
         var cliente_inicial = clientes[0];
-        $('#cliente_direccion').val(cliente_inicial.direccion);
-        $('#cliente_categoria').val(cliente_inicial.categoria_id);
-        $('#cliente_tel').val(cliente_inicial.telefono);
+        var evt = {};
+        evt.params = {};
+        evt.params.data = {};
+        evt.params.data.id = 1;
 
-        $.each(cliente_inicial.centro_costos, function(i, value) {
-          $('#centro_costos').append($('<option>').text(value.nombre).attr('value', i));
-        });
+        updateFillsByCliente('', evt);
 
-        $.each(cliente_inicial.personascliente, function(i, value) {
-            if(value.tipo_persona == 'Solicitante'){
-                $('#solicitante').append($('<option>').text(value.nombre).attr('value', i));
-            }
-        });
-        $.each(cliente_inicial.personascliente, function(i, value) {
-            if(value.tipo_persona == 'Pasajeros'){
-                $('#pasajeros').append($('<option>').text(value.nombre).attr('value', i));
-            }
-        });
-
-        $("#id_cliente").on("select2:select", function (e) { updateFills("select2:select", e); });
-        $("#razon_social").on("select2:select", function (e) { updateFills("select2:select", e); });
+        $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
+        $("#razon_social").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
+        $("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
+        $("#unidad_identificacion").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
 
         $("#form-viaje-viaje").submit(function(e) {
             //TODO AGREGAR ERRORES EN CAMPOS
@@ -846,11 +878,31 @@
                 return false;
             }
 
+            var obj = {};
+            obj.estado            = $("#estado").val();
+            obj.cliente           = $("#id_cliente").val();
+            obj.solicitante       = $("#solicitante").val();
+            obj.centro_costos     = $("#centro_costos").val();
+            obj.pasajero          = $("#pasajero").val();
+            obj.fecha             = $("#fecha").val();
+            obj.hora              = $("#hora").val();
+            obj.costo_provedor    = $("#costo_provedor").val();
+            obj.tarifa_pasada     = $("#tarifa_pasada").val();
+            obj.comentario_chofer = $("#comentario_chofer").val();
+            obj.unidad            = $("#unidad_id").val();
+            obj.espera            = $("#espera").val();
+            obj.peaje             = $("#peaje").val();
+            obj.otros             = $("#otros").val();
+            obj.estacionamiento   = $("#estacionamiento").val();
+
+
+
             var url = "/sistema/guardarViaje/"; // the script where you handle the form input.
             $.ajax({
                    type: "POST",
                    url: url,
-                   data: $("#form-viaje-viaje").serialize(), // serializes the form's elements.
+                   headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                   data: obj, // serializes the form's elements.
                    success: function(data)
                    {
                        $("#viaje-tab").show();

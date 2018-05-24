@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente
+from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Persona, CentroCosto
 from django.http import HttpResponse
 
 import json
@@ -80,14 +80,56 @@ def operaciones(request):
 def viaje(request):
 	mensaje = ""
 
-	clientes = Cliente.objects.all()
+	es_nuevo = 1;
 
-	context = {'mensaje': mensaje, 'clientes':clientes}
+	clientes = Cliente.objects.all()
+	unidades = Unidad.objects.all()
+	estados = Estado.objects.all()
+
+	context = {'mensaje': mensaje, 'clientes':clientes, 'unidades':unidades, 'estados':estados, 'es_nuevo':es_nuevo}
 	return render(request, 'sistema/viaje.html', context)
 
 
 @login_required
 def guardarViaje(request):
+	# factura = models.CharField(max_length=30, null=True, blank=True)
+	# proforma = models.CharField(max_length=30, null=True, blank=True)
+	# estado = models.ForeignKey(Estado, null=True, blank=True)
+	# fecha = models.CharField(max_length=12)
+	# cliente = models.ForeignKey(Cliente, null=True, blank=True)
+	# unidad = models.ForeignKey(Unidad, null=True, blank=True)
+	# base_total = models.IntegerField(default=0)
+	# peaje_total = models.IntegerField(default=0)
+	# estacionamiento_total = models.IntegerField(default=0)
+	# Otros_tot = models.IntegerField(default=0)
+	# maletas = models.BooleanField(default=False)
+	# bilingue = models.BooleanField(default=False)
+	# hora = models.CharField(max_length=10, null=True, blank=True)
+	# solicitante = models.CharField(max_length=50, null=True, blank=True)
+	# pasajero = models.CharField(max_length=50, null=True, blank=True)
+	# centro_costo = models.ForeignKey(CentroCosto, null=True, blank=True)
+	# categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
+	# hora_estimada = models.CharField(max_length=10, null=True, blank=True)
+
+	viaje = Viaje()
+
+	viaje.estado = Estado.objects.get(id=request.POST.get('estado', False))
+	viaje.cliente = Cliente.objects.get(id=request.POST.get('cliente', False))
+	viaje.solicitante = Persona.objects.get(id=request.POST.get('solicitante', False))
+	viaje.centro_costo = CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
+	viaje.pasajero = Persona.objects.get(id=request.POST.get('pasajero', False))
+	viaje.fecha = request.POST.get('fecha', "")
+	viaje.hora = request.POST.get('hora', "")
+	#viaje.costo_provedor = request.POST.get('costo_provedor', "")
+	#viaje.tarifa_pasada = request.POST.get('tarifa_pasada', "")
+	#viaje.comentario_chofer = request.POST.get('comentario_chofer', "")
+	viaje.unidad = Unidad.objects.get(id=request.POST.get('unidad', False))
+	#viaje.espera = request.POST.get('espera', "")
+	viaje.peaje_total = request.POST.get('peaje', "")
+	viaje.Otros_tot = request.POST.get('otros', "")
+	viaje.estacionamiento_total = request.POST.get('estacionamiento', "")
+	viaje.save()
+
 	data = {
 		'error': '0',
 		'msg': 'Los datos han sido guardados correctamente.'
