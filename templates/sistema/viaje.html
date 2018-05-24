@@ -131,30 +131,28 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
                                                         <input type="text" class="form-control" id="fecha" value="06/4/2018" name="fecha">
                                                         <label>Fecha</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
                                                         <input type="text" class="form-control" id="hora" value="23:30" name="hora">
                                                         <label>Hora</label>
                                                     </div>
                                                 </div>
-                                                <!--<div class="col-md-4">
+                                                <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="tipo_servicio" name="tipo_servicio">
-                                                            <option value=""></option>
-                                                            <option value="1" selected="selected">Remises</option>
-                                                            <option value="2">Option 2</option>
-                                                            <option value="3">Option 3</option>
-                                                            <option value="4">Option 4</option>
+                                                        <select class="form-control" id="categoria_viaje" name="categoria_viaje">
+                                                            {% for cv in categoria_viajes %}
+                                                               <option value="{{ cv.id }}">{{ cv.categoria }}</option>
+                                                            {% endfor %}
                                                         </select>
-                                                        <label>Tipo de Servicio</label>
+                                                        <label>C. Viaje</label>
                                                     </div>
-                                                </div>-->
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -801,6 +799,15 @@
         estados.push(obj);
     {% endfor %}
 
+    var categoria_viajes = [];
+    {% for categoria_viaje in categoria_viajes %}
+        var obj = {
+            id : {{ categoria_viaje.id }},
+            codigo : {{ categoria_viaje.codigo }},
+            categoria:'{{ categoria_viaje.categoria }}'};
+        categoria_viajes.push(obj);
+    {% endfor %}
+
     var es_nuevo = {{ es_nuevo }};
 
     function mostrarMsgValidacion(msg){
@@ -894,7 +901,7 @@
             obj.peaje             = $("#peaje").val();
             obj.otros             = $("#otros").val();
             obj.estacionamiento   = $("#estacionamiento").val();
-
+            obj.categoria_viaje   = $("#categoria_viaje").val();
 
 
             var url = "/sistema/guardarViaje/"; // the script where you handle the form input.

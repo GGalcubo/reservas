@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Persona, CentroCosto
+from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Persona, CentroCosto, CategoriaViaje
 from django.http import HttpResponse
 
 import json
@@ -85,8 +85,9 @@ def viaje(request):
 	clientes = Cliente.objects.all()
 	unidades = Unidad.objects.all()
 	estados = Estado.objects.all()
+	categoria_viajes = CategoriaViaje.objects.all()
 
-	context = {'mensaje': mensaje, 'clientes':clientes, 'unidades':unidades, 'estados':estados, 'es_nuevo':es_nuevo}
+	context = {'mensaje': mensaje, 'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes, 'es_nuevo':es_nuevo}
 	return render(request, 'sistema/viaje.html', context)
 
 
@@ -115,6 +116,7 @@ def guardarViaje(request):
 
 	viaje.estado = Estado.objects.get(id=request.POST.get('estado', False))
 	viaje.cliente = Cliente.objects.get(id=request.POST.get('cliente', False))
+	viaje.categoria_viaje = CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
 	viaje.solicitante = Persona.objects.get(id=request.POST.get('solicitante', False))
 	viaje.centro_costo = CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
 	viaje.pasajero = Persona.objects.get(id=request.POST.get('pasajero', False))
