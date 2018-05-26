@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Persona, CentroCosto, CategoriaViaje
+from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo
 from django.http import HttpResponse
 
 import json
@@ -136,7 +136,7 @@ def guardarViaje(request):
 		'error': '0',
 		'msg': 'Los datos han sido guardados correctamente.'
 	}
-	dump = json.dumps(data)
+	#dump = json.dumps(data)
 	return HttpResponse(dump, content_type='application/json')
 
 
@@ -243,6 +243,29 @@ def eliminarCliente(request):
 
 	return redirect('listadoCliente')
 
+
+@login_required
+def guardarObservacionCliente(request):
+	mensaje = ""
+
+	idCliente = request.POST.get('idClienteObser', False)
+	observ = request.POST.get('textAreaObservacion', False)
+	observacion = Observacion()
+	observacion.fecha = fecha()
+	observacion.usuario = request.user
+	observacion.texto = observ
+	observacion.save()
+
+	cliente = Cliente.objects.get(id=idCliente)
+
+	obcl = ObservacionCliente()
+	obcl.observacion = observacion
+	obcl.cliente = cliente
+	obcl.save()
+
+	context = {'mensaje': mensaje, 'cliente':cliente}
+	return render(request, 'sistema/grillaObservaciones.html', context)
+
 @login_required
 def provedor(request):
 	mensaje = ""
@@ -265,11 +288,64 @@ def unidad(request):
 	return render(request, 'sistema/unidad.html', context)
 
 @login_required
+def altaUnidad(request):
+	mensaje = ""
+	unidad = Unidad()
+	unidad.id = 0	
+	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=1))
+	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=2))
+	context = {'mensaje': mensaje, 'owners':owners, 'choferes':choferes, 'unidad': unidad}
+	return render(request, 'sistema/unidad.html', context)
+
+@login_required
 def listadoUnidad(request):
 	mensaje = ""
-
-	context = {'mensaje': mensaje}
+	unidades = Unidad.objects.filter(baja=False)
+	context = {'mensaje': mensaje, 'unidades':unidades}
 	return render(request, 'sistema/listadoUnidad.html', context)
+
+@login_required
+def guardarUnidad(request):
+	idUnidad = request.POST.get('idUnidad', "")
+	if idUnidad == "0":
+		unidad = Unidad()
+		vehiculo = Vehiculo()
+		mensaje = 'Se dio de alta launidad '
+	else:
+		unidad = Unidad.objects.get(id=idUnidad)
+		vehiculo = unidad.vehiculo
+		mensaje = 'Se actualizo la unidad '
+
+	unidad.identificacion = request.POST.get('identificador', "")
+	unidad.owner = Persona.objects.get(id=request.POST.get('selectOwners', ""))
+	unidad.porcentaje_owner = request.POST.get('porcFacturacionOwner', "")
+	unidad.chofer = Persona.objects.get(id=request.POST.get('selectChoferes', ""))
+	unidad.porcentaje_chofer = request.POST.get('porcFacturacionChofer', "")
+	vehiculo.patente = request.POST.get('patente', "")
+	vehiculo.modelo = request.POST.get('modelo', "")
+	vehiculo.marca = request.POST.get('marca', "")
+	vehiculo.color = request.POST.get('color', "")
+	vehiculo.ano = request.POST.get('year', "")
+	vehiculo.puertas = request.POST.get('puertas', "")
+	vehiculo.nro_motor = request.POST.get('nro_motor', "")
+	vehiculo.nro_chasis = request.POST.get('nro_chasis', "")
+	vehiculo.save()
+	unidad.vehiculo = vehiculo
+	unidad.save()
+
+	request.session['mensajeSuccess'] = mensaje + unidad.identificador
+
+	return redirect('listadoUnidad')
+
+@login_required
+def eliminarUnidad(request):
+	idUnidad = request.POST.get('idUnidadEliminar', False)
+	unidad = Unidad.objects.get(id=idUnidad)
+	unidad.baja = True
+	unidad.save()
+	request.session['mensajeSuccess'] = 'Se elimino la unidad ' + unidad.identificacion
+
+	return redirect('listadoUnidad')
 
 @login_required
 def altaContacto(request):
@@ -326,3 +402,8 @@ def exportar(request):
 
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/exportar.html', context)
+
+# devuelve AAAAMMDD
+def fecha():
+	import time
+	return time.strftime("%Y%m%d%H%M")

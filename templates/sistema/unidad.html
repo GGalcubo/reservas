@@ -32,54 +32,59 @@
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
+                                <div id="unidadValidacion" class="alert alert-danger">
+                                    <button class="close" data-close="alert"></button> 
+                                    <div></div> <div id="mensajeValidacion" ></div> 
+                                </div>
                                 <div class="portlet-body">
-                                    <form role="form" class="form-datos-unidad">
+                                    <form role="form" method="post" id="formGuardarUnidad" action="/sistema/guardarUnidad/">{% csrf_token %}
+                                        <input type="hidden" id="idUnidad" name="idUnidad" value="{{ unidad.id }}">
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-sm-1">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_1" value="52">
-                                                        <label for="form_control_1">ID</label>
+                                                        <input type="text" disabled="disabled" class="form-control" id="unidadid" name="unidadid" value="{{ unidad.id }}">
+                                                        <label for="unidadid">ID</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_2" value="Jorge 'El gordo' Rodríguez">
-                                                        <label for="form_control_2">Nombre de la unidad</label>
+                                                        <input type="text" class="form-control" id="identificador" name="identificador" value="{{ unidad.identificador }}">
+                                                        <label for="identificador">Nombre de la unidad</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <!--div class="col-sm-4">
                                                     <div class="form-group form-md-radios">
                                                         <label>Tiene chofer?</label>
                                                         <div class="md-radio-inline">
                                                             <div class="md-radio">
-                                                                <input type="radio" id="radio6" name="radio2" class="md-radiobtn" checked>
-                                                                <label for="radio6">
+                                                                <input type="radio" id="tieneChoferSi" name="tieneChofer" class="md-radiobtn" checked>
+                                                                <label for="tieneChoferSi">
                                                                     <span></span>
                                                                     <span class="check"></span>
                                                                     <span class="box"></span> Sí </label>
                                                             </div>
                                                             <div class="md-radio">
-                                                                <input type="radio" id="radio7" name="radio2" class="md-radiobtn">
-                                                                <label for="radio7">
+                                                                <input type="radio" id="tieneChoferNo" name="tieneChofer" class="md-radiobtn">
+                                                                <label for="tieneChoferNo">
                                                                     <span></span>
                                                                     <span class="check"></span>
                                                                     <span class="box"></span> No </label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div -->
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="form_control_4">
+                                                        <select class="form-control" id="selectOwners" name="selectOwners">
                                                             <option value=""></option>
-                                                            <option value="1" selected="selected">Jorge Alberto Rodriguez</option>
-                                                            <option value="2">Ernesto Fabricio Fuentes</option>
-                                                            <option value="3">Flavio Omar Martinez</option>
+                                                            {% for o in owners %}
+                                                                <option value="{{ o.id }}" >{{ o.apellido }} {{ o.nombre }}</option>
+                                                            {% endfor %}
                                                         </select>
-                                                        <label for="form_control_4">Dueño</label>
+                                                        <label for="selectOwners">Dueño</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3 text-center">
@@ -89,21 +94,21 @@
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_5">
-                                                        <label for="form_control_5">% de Facturación</label>
+                                                        <input type="text" class="form-control" id="porcFacturacionOwner" name="porcFacturacionOwner">
+                                                        <label for="porcFacturacionOwner">% de Facturación</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="form_control_6">
+                                                        <select class="form-control" id="selectChoferes" name="selectChoferes">
                                                             <option value=""></option>
-                                                            <option value="1" selected="selected">Felipe Contreras</option>
-                                                            <option value="2">Gastón Acevedo</option>
-                                                            <option value="3">Rodrigo Bueno</option>
+                                                            {% for c in choferes %}
+                                                                <option value="{{ c.id }}" >{{ c.apellido }} {{ c.nombre }}</option>
+                                                            {% endfor %}
                                                         </select>
-                                                        <label for="form_control_6">Chofer</label>
+                                                        <label for="selectChoferes">Chofer</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3 text-center">
@@ -113,8 +118,8 @@
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_7">
-                                                        <label for="form_control_7">% de Facturación</label>
+                                                        <input type="text" class="form-control" id="porcFacturacionChofer" name="porcFacturacionChofer">
+                                                        <label for="porcFacturacionChofer">% de Facturación</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3 text-center">
@@ -134,58 +139,52 @@
                                             <div class="row">
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_8">
-                                                        <label for="form_control_8">Patente</label>
+                                                        <input type="text" class="form-control" id="patente" name="patente" value="{{ unidad.vehiculo.patente }}">
+                                                        <label for="patente">Patente</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_9">
-                                                        <label for="form_control_9">Modelo</label>
+                                                        <input type="text" class="form-control" id="modelo" name="modelo" value="{{ unidad.vehiculo.modelo }}">
+                                                        <label for="modelo">modelo</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_10">
-                                                        <label for="form_control_10">Marca</label>
+                                                        <input type="text" class="form-control" id="marca" name="marca" value="{{ unidad.vehiculo.marca }}">
+                                                        <label for="marca">Marca</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_11">
-                                                        <label for="form_control_11">Color</label>
+                                                        <input type="text" class="form-control" id="color" name="color" value="{{ unidad.vehiculo.color }}">
+                                                        <label for="color">Color</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_12">
-                                                        <label for="form_control_12">Año</label>
+                                                        <input type="text" class="form-control" id="year" name="year" value="{{ unidad.vehiculo.ano }}">
+                                                        <label for="year">Año</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_13">
-                                                        <label for="form_control_13">Puertas</label>
+                                                        <input type="text" class="form-control" id="puertas" name="puertas" value="{{ unidad.vehiculo.puertas }}">
+                                                        <label for="puertas">Puertas</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_14">
-                                                        <label for="form_control_14">Nro. Motor</label>
+                                                        <input type="text" class="form-control" id="nro_motor" name="nro_motor" value="{{ unidad.vehiculo.nro_motor }}">
+                                                        <label for="nro_motor">Nro. Motor</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_15">
-                                                        <label for="form_control_15">Nro. Chasis</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <textarea class="form-control" rows="1"></textarea>
-                                                        <label for="form_control_16">Comentario</label>
+                                                        <input type="text" class="form-control" id="nro_chasis" name="nro_chasis" value="{{ unidad.vehiculo.nro_chasis }}">
+                                                        <label for="nro_chasis">Nro. Chasis</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3 text-center">
@@ -196,7 +195,7 @@
                                             </div>
                                         </div>
                                         <div class="form-actions noborder flex flex-j-between mg-t-20">
-                                            <button type="button" class="btn green">Guardar</button>
+                                            <button type="button" onclick="guardarUnidad();" class="btn green">Guardar</button>
                                             <button type="button" class="btn red">Cancelar</button>
                                         </div>
                                     </form>
@@ -204,7 +203,7 @@
                             </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" id="unidadDetalle" >
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light ">
                                 <div class="portlet-body">
@@ -422,8 +421,38 @@
                         },
                     } );
 
-                    
+                    var idUnidad = $("#idUnidad").val()
+                    if (idUnidad == "0"){
+                        $("#unidadDetalle").hide()
+                    }else{
+                        $("#unidadDetalle").show()
+                    }
+
+                    $("#mensajeValidacion").html("");
+                    $("#unidadValidacion").hide();
                 });
+
+                function guardarUnidad(){
+
+                    if ($("#identificador").val() == ""){
+                        $("#mensajeValidacion").html("El campo Nombre Unidad es obligatorio.");
+                        $("#unidadValidacion").show()
+                        return false;
+                    }
+                    if ($("#selectOwners").val() == ""){
+                        $("#mensajeValidacion").html("El campo Dueño es obligatorio");
+                        $("#unidadValidacion").show()
+                        return false;
+                    }
+                    if ($("#patente").val() == ""){
+                        $("#mensajeValidacion").html("El campo Patente es obligatorio.");
+                        $("#unidadValidacion").show()
+                        return false;
+                    }
+                    
+                    $("#formGuardarUnidad").submit();
+
+                }
             </script>
 
         </div>

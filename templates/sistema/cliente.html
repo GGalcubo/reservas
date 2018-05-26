@@ -547,7 +547,7 @@
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="tabDatosObservacionesCliente">
-                                                <form role="form" class="form-datos-cliente-observacion">
+                                                <form role="form" id="form-datos-cliente-observacion" class="form-datos-cliente-observacion">{% csrf_token %}
                                                     <div class="form-body">
                                                         <div class="row">
                                                             <div class="col-sm-12">
@@ -562,37 +562,26 @@
                                                                         <div class="tools"> </div>
                                                                     </div>
                                                                     <div class="portlet-body">
-                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaObservacionClientes">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th class="all">Fecha</th>
-                                                                                    <th class="all">Usuario</th>
-                                                                                    <th class="all">Observación</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td>10/05/2018</td>
-                                                                                    <td>Eduardo</td>
-                                                                                    <td>Cobrarle los días 10</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>14/05/2018</td>
-                                                                                    <td>Maria</td>
-                                                                                    <td>Facturarle antes de pagar</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>16/05/2018</td>
-                                                                                    <td>Eduardo</td>
-                                                                                    <td>Cobrarle los días 15</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>18/05/2018</td>
-                                                                                    <td>Federico</td>
-                                                                                    <td>Próximo mes aumentarle 5%   </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
+                                                                        <div id="grillaObservaciones" >
+                                                                            <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaObservacionClientes">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th class="all">Fecha</th>
+                                                                                        <th class="all">Usuario</th>
+                                                                                        <th class="all">Observación</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    {% for o in cliente.getObservaciones %}
+                                                                                    <tr>
+                                                                                        <td>{{ o.getFechaHora }}</td>
+                                                                                        <td>{{ o.usuario }}</td>
+                                                                                        <td>{{ o.texto }}</td>
+                                                                                    </tr>
+                                                                                    {% endfor %}
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
                                                                         <div class="row">
                                                                             <div class="col-md-12">
                                                                                 <!-- <div style="width:158px;margin:0 auto;padding-top: 40px;">
@@ -601,6 +590,7 @@
                                                                                     </span>
                                                                                 </div> -->
                                                                                 <!-- /.modal -->
+                                                                                <input type="hidden" id="idClienteObser" name="idClienteObser" value="{{ cliente.id }}">
                                                                                 <div id="add_observacion_cliente" class="modal fade" tabindex="-1" aria-hidden="true">
                                                                                     <div class="modal-dialog">
                                                                                         <div class="modal-content">
@@ -613,7 +603,7 @@
                                                                                                     <div class="row">
                                                                                                         <div class="col-sm-6 col-sm-offset-3">
                                                                                                             <div class="form-group form-md-line-input">
-                                                                                                                <textarea class="form-control" rows="3" placeholder=""></textarea>
+                                                                                                                <textarea class="form-control" rows="3" name="textAreaObservacion" id="textAreaObservacion" placeholder=""></textarea>
                                                                                                                 <label for="form_control_1">Observaciones del cliente</label>
                                                                                                             </div>
                                                                                                         </div>
@@ -621,7 +611,7 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="modal-footer noborder flex flex-j-between">
-                                                                                              <button type="button" class="btn green">Guardar</button>
+                                                                                              <button type="button" onclick="agregarObservacion()" class="btn green">Guardar</button>
                                                                                               <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
                                                                                             </div>
                                                                                         </div>
@@ -779,6 +769,23 @@
 
                     $("#formGuardarCliente").submit();
                     
+                }
+
+                function agregarObservacion(){
+                    if ($('#textAreaObservacion').val() == ""){
+                        alert("Campo observacion es obligatorio");
+                    }else{
+                        var url = "/sistema/guardarObservacionCliente/";
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: $("#form-datos-cliente-observacion").serialize(),
+                            success: function(data){
+                                $("#grillaObservaciones").html(data);
+                            }
+                        });
+                        $('#add_observacion_cliente').modal('toggle');
+                    }
                 }
 
             </script>
