@@ -80,7 +80,7 @@ def operaciones(request):
 def viaje(request):
 	mensaje = ""
 
-	es_nuevo = 1;
+	es_nuevo = 1
 
 	clientes = Cliente.objects.all()
 	unidades = Unidad.objects.all()
