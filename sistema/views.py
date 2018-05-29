@@ -71,24 +71,30 @@ def dashboard(request):
 
 @login_required
 def operaciones(request):
-	mensaje = ""
+    mensaje = ""
 
-	context = { 'mensaje':mensaje }
-	return render(request, 'sistema/operaciones.html', context)
+    viajes = Viaje.objects.all()
+    clientes = Cliente.objects.all()
+    unidades = Unidad.objects.all()
+    estados = Estado.objects.all()
+    categoria_viajes = CategoriaViaje.objects.all()
+
+    context = {'mensaje': mensaje, 'viajes': viajes, 'clientes': clientes, 'unidades': unidades, 'estados': estados,'categoria_viajes': categoria_viajes}
+    return render(request, 'sistema/operaciones.html', context)
 
 @login_required
 def viaje(request):
-	mensaje = ""
+    mensaje = ""
 
-	es_nuevo = 1
+    es_nuevo = 1
 
-	clientes = Cliente.objects.all()
-	unidades = Unidad.objects.all()
-	estados = Estado.objects.all()
-	categoria_viajes = CategoriaViaje.objects.all()
+    clientes = Cliente.objects.all()
+    unidades = Unidad.objects.all()
+    estados = Estado.objects.all()
+    categoria_viajes = CategoriaViaje.objects.all()
 
-	context = {'mensaje': mensaje, 'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes, 'es_nuevo':es_nuevo}
-	return render(request, 'sistema/viaje.html', context)
+    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes, 'es_nuevo':es_nuevo}
+    return render(request, 'sistema/viaje.html', context)
 
 
 @login_required
