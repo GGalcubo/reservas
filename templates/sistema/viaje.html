@@ -171,14 +171,20 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="costo_provedor" name="costo_provedor" value="100">
-                                                        <label>Costo Provedor</label>
+                                                        <div class="input-group left-addon right-addon">
+                                                            <span class="input-group-addon">$</span>
+                                                            <input type="text" class="form-control" id="costo_provedor" name="costo_provedor" >
+                                                            <label for="form_control_1">Costo Provedor</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="tarifa_pasada" name="tarifa_pasada" value="100">
-                                                        <label>Tarifa pasada</label>
+                                                        <div class="input-group left-addon right-addon">
+                                                            <span class="input-group-addon">$</span>
+                                                            <input type="text" class="form-control"  id="tarifa_pasada" name="tarifa_pasada" >
+                                                            <label for="form_control_1">Tarifa pasada</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -225,41 +231,50 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="peaje" value="100" name="peaje">
-                                                <label>Peajes</label>
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" id="peaje" value="100" name="peaje">
+                                                    <label for="form_control_1">Peajes</label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="estacionamiento" name="estacionamiento" value="100">
-                                                <label>Estacionamiento</label>
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" id="estacionamiento" value="100" name="estacionamiento">
+                                                    <label for="form_control_1">Estacionamiento</label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="otros" value="100" name="otros">
-                                                <label>Otros</label>
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" id="otros" value="100" name="otros">
+                                                    <label for="form_control_1">Otros</label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-checkboxes">
-                                                <div class="md-checkbox-inline">
-                                                    <div class="md-checkbox">
-                                                        <input type="checkbox" id="maletas" name="maletas" class="md-check">
-                                                        <label for="checkbox1">
-                                                            <span></span>
-                                                            <span class="check"></span>
-                                                            <span class="box"></span> Maletas </label>
-                                                    </div>
-                                                    <div class="md-checkbox">
-                                                        <input type="checkbox" id="bilingue" name="bilingue" class="md-check" checked>
-                                                        <label for="checkbox2">
-                                                            <span></span>
-                                                            <span class="check"></span>
-                                                            <span class="box"></span> Bilingue </label>
-                                                    </div>
+                                            <div class="md-checkbox-inline">
+                                                <div class="md-checkbox">
+                                                    <input type="checkbox" id="maletas" class="md-check" name="maletas">
+                                                    <label for="maletas">
+                                                        <span></span>
+                                                        <span class="check"></span>
+                                                        <span class="box"></span> Maletas </label>
+                                                </div>
+                                                <div class="md-checkbox">
+                                                    <input type="checkbox" id="bilingue" class="md-check" name="bilingue">
+                                                    <label for="bilingue">
+                                                        <span></span>
+                                                        <span class="check"></span>
+                                                        <span class="box"></span> Bilingue </label>
                                                 </div>
                                             </div>
+                                        </div>
                                         </div>
                                         <div class="col-md-2">
                                             <span class="input-group-btn btn">
@@ -885,7 +900,7 @@
                 return false;
             }
 
-            var obj = {};
+            var obj               = {};
             obj.estado            = $("#estado").val();
             obj.cliente           = $("#id_cliente").val();
             obj.solicitante       = $("#solicitante").val();
@@ -902,6 +917,8 @@
             obj.otros             = $("#otros").val();
             obj.estacionamiento   = $("#estacionamiento").val();
             obj.categoria_viaje   = $("#categoria_viaje").val();
+            obj.maletas           = $("#maletas").val();
+            obj.bilingue          = $("#bilingue").val();
 
 
             var url = "/sistema/guardarViaje/"; // the script where you handle the form input.

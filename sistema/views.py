@@ -93,27 +93,8 @@ def viaje(request):
 
 @login_required
 def guardarViaje(request):
-	# factura = models.CharField(max_length=30, null=True, blank=True)
-	# proforma = models.CharField(max_length=30, null=True, blank=True)
-	# estado = models.ForeignKey(Estado, null=True, blank=True)
-	# fecha = models.CharField(max_length=12)
-	# cliente = models.ForeignKey(Cliente, null=True, blank=True)
-	# unidad = models.ForeignKey(Unidad, null=True, blank=True)
-	# base_total = models.IntegerField(default=0)
-	# peaje_total = models.IntegerField(default=0)
-	# estacionamiento_total = models.IntegerField(default=0)
-	# Otros_tot = models.IntegerField(default=0)
-	# maletas = models.BooleanField(default=False)
-	# bilingue = models.BooleanField(default=False)
-	# hora = models.CharField(max_length=10, null=True, blank=True)
-	# solicitante = models.CharField(max_length=50, null=True, blank=True)
-	# pasajero = models.CharField(max_length=50, null=True, blank=True)
-	# centro_costo = models.ForeignKey(CentroCosto, null=True, blank=True)
-	# categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
-	# hora_estimada = models.CharField(max_length=10, null=True, blank=True)
 
 	viaje = Viaje()
-
 	viaje.estado = Estado.objects.get(id=request.POST.get('estado', False))
 	viaje.cliente = Cliente.objects.get(id=request.POST.get('cliente', False))
 	viaje.categoria_viaje = CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
@@ -136,7 +117,7 @@ def guardarViaje(request):
 		'error': '0',
 		'msg': 'Los datos han sido guardados correctamente.'
 	}
-	#dump = json.dumps(data)
+	dump = json.dumps(data)
 	return HttpResponse(dump, content_type='application/json')
 
 
