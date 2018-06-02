@@ -113,7 +113,6 @@
                                                         <label for="cp">CP</label>
                                                     </div>
                                                 </div>
-
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="localidad" name="localidad" value="{{ cliente.localidad|default_if_none:"" }}">
@@ -186,6 +185,9 @@
                                             </li>
                                             <li class="">
                                                 <a href="#tabDatosFacturacionCliente" data-toggle="tab" aria-expanded="false"> Facturación </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#tabDatosMailsCliente" data-toggle="tab" aria-expanded="false"> Mails </a>
                                             </li>
                                             <li class="">
                                                 <a href="#tabDatosObservacionesCliente" data-toggle="tab" aria-expanded="false"> Observaciones </a>
@@ -546,6 +548,103 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                            <div class="tab-pane" id="tabDatosMailsCliente">
+                                                <form role="form" id="form-datos-cliente-mails" class="form-datos-cliente-mails">{% csrf_token %}
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption font-blue">
+                                                                            <i class="icon-notebook font-blue mg-t-8"></i>
+                                                                            <span class="caption-subject bold uppercase">Mails</span>
+                                                                            <a href="#add_mail_cliente" role="button" data-toggle="modal" class="btn green btn-outline mg-l-20">Agregar mail</a>
+                                                                        </div>
+                                                                        <div class="tools"> </div>
+                                                                    </div>
+                                                                    <div class="portlet-body">
+                                                                        <div id="grillaObservaciones" >
+                                                                            <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaMailClientes">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th class="all">Nombre</th>
+                                                                                        <th class="all">Comentario</th>
+                                                                                        <th class="all">Mail</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    {% for o in cliente.getObservaciones %}
+                                                                                    <tr>
+                                                                                        <td>{{ o.getFechaHora }}</td>
+                                                                                        <td>{{ o.usuario }}</td>
+                                                                                        <td>{{ o.texto }}</td>
+                                                                                    </tr>
+                                                                                    {% endfor %}
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <!-- <div style="width:158px;margin:0 auto;padding-top: 40px;">
+                                                                                    <span class="input-group-btn btn">
+                                                                                        <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
+                                                                                    </span>
+                                                                                </div> -->
+                                                                                <!-- /.modal -->
+                                                                                <input type="hidden" id="idClienteMail" name="idClienteMail" value="{{ cliente.id }}">
+                                                                                <div id="add_mail_cliente" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                                                    <div class="modal-dialog">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header">
+                                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                                                <h4 class="modal-title" style="color:#888;">Agregar Mail</h4>
+                                                                                            </div>
+                                                                                            <div class="modal-body">
+                                                                                                <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-sm-6    ">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="nombreMailCliente" name="nombreMailCliente">
+                                                                                                                <label for="nombreMailCliente">Nombre</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="email" class="form-control" id="mailCliente" name="mailCliente">
+                                                                                                                <label for="mailCliente">Mail</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="comentarioMailCliente" name="comentarioMailCliente">
+                                                                                                                <label for="comentarioMailCliente">Comentario</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="modal-footer noborder flex flex-j-between">
+                                                                                              <button type="button" onclick="agregarMail()" class="btn green">Guardar</button>
+                                                                                              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions noborder flex flex-j-between">
+                                                        <button type="button" class="btn green">Guardar</button>
+                                                        <button type="button" class="btn red">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                             <div class="tab-pane" id="tabDatosObservacionesCliente">
                                                 <form role="form" id="form-datos-cliente-observacion" class="form-datos-cliente-observacion">{% csrf_token %}
                                                     <div class="form-body">
@@ -680,6 +779,19 @@
                     } );
 
                     $('#tablaCCClientes').DataTable( {
+                        responsive: true,
+                        // scrollY: 200,
+                        order: [[ 0, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+
+                    $('#tablaMailClientes').DataTable( {
                         responsive: true,
                         // scrollY: 200,
                         order: [[ 0, "asc" ]],
