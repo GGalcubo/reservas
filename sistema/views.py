@@ -408,6 +408,13 @@ def listadoTarifario(request):
 	return render(request, 'sistema/listadoTarifario.html', context)
 
 @login_required
+def tarifario(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/tarifario.html', context)
+
+@login_required
 def exportar(request):
 	mensaje = ""
 

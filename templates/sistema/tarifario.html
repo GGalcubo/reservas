@@ -1,0 +1,565 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    {% include "sistema/cabecera.html" %}
+    <body id="clientes" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+        {% include "sistema/barra_top.html" %}
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            {% include "sistema/barra_lat.html" %}
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEADER-->
+                    <h1 class="page-title">Tarifario</h1>
+                    <!-- END PAGE HEADER-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-blue">
+                                        <i class="icon-list font-blue mg-t-8"></i>
+                                        <span class="caption-subject bold uppercase">Tarifario General</span>
+                                        <a href="/sistema/altaTarifario/" role="button" class="btn green btn-outline mg-l-20">Agregar tarifario</a>
+                                    </div>
+                                    <div class="tools"> </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <form role="form" class="form-datos-tarifario">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_1" value="22">
+                                                        <label for="form_control_1">ID</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_2" value="General">
+                                                        <label for="form_control_2">Nombre</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="form_control_3" value="Tarifario base">
+                                                        <label for="form_control_3">Descripción</label>
+                                                    </div>
+                                                </div>                                         
+                                            </div>
+                                        </div>
+                                        <div class="form-actions noborder flex flex-j-between">
+                                            <button type="button" class="btn green">Guardar</button>
+                                            <button type="button" class="btn red">Cancelar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                        <div class="col-md-12">
+                            <div class="portlet light ">
+                                <div class="portlet-body">
+                                    <div class="tabbable-line">
+                                        <ul class="nav nav-tabs ">
+                                            <li class="active">
+                                                <a href="#tabTramosTarifario" data-toggle="tab" aria-expanded="true"> Tramos </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#tabExtrasTarifario" data-toggle="tab" aria-expanded="false"> Extras </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tabTramosTarifario">
+                                                <form role="form" class="form-tramos-tarifario">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption font-blue">
+                                                                            <i class="icon-graph font-blue mg-t-8"></i>
+                                                                            <span class="caption-subject bold uppercase">Tramos</span>
+                                                                            <a href="#add_tramo_tarifario" role="button" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar tramo</a>
+                                                                            <a href="#" role="button" class="btn blue btn-outline mg-l-20">Modificación masiva</a>
+                                                                        </div>
+                                                                        <div class="tools"> </div>
+                                                                    </div>
+                                                                    <div class="portlet-body">
+                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaTramosTarifario">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="all">Editar</th>
+                                                                                    <th class="all">Desde</th>
+                                                                                    <th class="all">Hasta</th>
+                                                                                    <th class="all">STD</th>
+                                                                                    <th class="all">VIP</th>
+                                                                                    <th class="all">UTI</th>
+                                                                                    <th class="all">EJEC</th>
+                                                                                    <th class="min-phone-l">VAN-C</th>
+                                                                                    <th class="min-phone-l">VAN-L</th>
+                                                                                    <th class="min-phone-l">MINI</th>
+                                                                                    <th class="min-phone-l">BUS</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_tramo_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Centro</td>
+                                                                                    <td>Ezeiza</td>
+                                                                                    <td>850</td>
+                                                                                    <td>900</td>
+                                                                                    <td>950</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1200</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>2000</td>
+                                                                                    <td>4000</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_tramo_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Centro</td>
+                                                                                    <td>Aeroparque</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_tramo_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Centro</td>
+                                                                                    <td>Retiro-Buquebus</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_tramo_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Centro</td>
+                                                                                    <td>Cardales</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_tramo_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Centro</td>
+                                                                                    <td>Lujan</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_tramo_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Centro</td>
+                                                                                    <td>Pilar</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <!-- <div style="width:158px;margin:0 auto;padding-top: 40px;">
+                                                                                    <span class="input-group-btn btn">
+                                                                                        <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
+                                                                                    </span>
+                                                                                </div> -->
+                                                                                <!-- /.modal -->
+                                                                                <div id="add_tramo_tarifario" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                                                    <div class="modal-dialog">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header">
+                                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                                                <h4 class="modal-title" style="color:#888;">Agregar Tramo</h4>
+                                                                                            </div>
+                                                                                            <div class="modal-body">
+                                                                                                <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible1="1">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="tramoDesde" name="tramoDesde">
+                                                                                                                <label for="tramoDesde">Desde</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="email" class="form-control" id="tramoHasta" name="tramoHasta">
+                                                                                                                <label for="tramoHasta">Hasta</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="tramoSTD" name="tramoSTD">
+                                                                                                                <label for="tramoSTD">STD</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="tramoVIP" name="tramoVIP">
+                                                                                                                <label for="tramoVIP">VIP</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="tramoUTI" name="tramoUTI">
+                                                                                                                <label for="tramoUTI">UTI</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="tramoEJEC" name="tramoEJEC">
+                                                                                                                <label for="tramoEJEC">EJEC</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="tramoVAN-C" name="tramoVAN-C">
+                                                                                                                <label for="tramoVAN-C">VAN-C</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="tramoVAN-L" name="tramoVAN-L">
+                                                                                                                <label for="tramoVAN-L">VAN-L</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="tramoMINI" name="tramoMINI">
+                                                                                                                <label for="tramoMINI">MINI</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="tramoBUS" name="tramoBUS">
+                                                                                                                <label for="tramoBUS">BUS</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="modal-footer noborder flex flex-j-between">
+                                                                                              <button type="button" class="btn green">Guardar</button>
+                                                                                              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions noborder flex flex-j-between">
+                                                        <button type="button" class="btn green">Guardar</button>
+                                                        <button type="button" class="btn red">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane" id="tabExtrasTarifario">
+                                                <form role="form" class="form-extras-tarifario">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption font-blue">
+                                                                            <i class="icon-diamond font-blue mg-t-8"></i>
+                                                                            <span class="caption-subject bold uppercase">Extras</span>
+                                                                            <a href="#add_extra_tarifario" role="button" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar extra</a>
+                                                                            <a href="#" role="button" class="btn blue btn-outline mg-l-20">Modificación masiva</a>
+                                                                        </div>
+                                                                        <div class="tools"> </div>
+                                                                    </div>
+                                                                    <div class="portlet-body">
+                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaExtrasTarifario">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="all">Editar</th>
+                                                                                    <th class="all">Extra</th>
+                                                                                    <th class="all">STD</th>
+                                                                                    <th class="all">VIP</th>
+                                                                                    <th class="all">UTI</th>
+                                                                                    <th class="all">EJEC</th>
+                                                                                    <th class="all">VAN-C</th>
+                                                                                    <th class="all">VAN-L</th>
+                                                                                    <th class="all">MINI</th>
+                                                                                    <th class="all">BUS</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_extra_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Conexión</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_extra_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>City Tour - 3 Horas</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_extra_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Nocturna - 3 Horas</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_extra_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Tigre - 5 Horas</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_extra_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Hora Dispo</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_extra_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Hora espera</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="text-center"><a href="#add_extra_tarifario" data-toggle="modal" role="button"><i class="fa fa-pencil"></a></td>
+                                                                                    <td>Km</td>
+                                                                                    <td>500</td>
+                                                                                    <td>550</td>
+                                                                                    <td>600</td>
+                                                                                    <td>650</td>
+                                                                                    <td>800</td>
+                                                                                    <td>1000</td>
+                                                                                    <td>1500</td>
+                                                                                    <td>3000</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <!-- <div style="width:158px;margin:0 auto;padding-top: 40px;">
+                                                                                    <span class="input-group-btn btn">
+                                                                                        <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
+                                                                                    </span>
+                                                                                </div> -->
+                                                                                <!-- /.modal -->
+                                                                                <div id="add_extra_tarifario" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                                                    <div class="modal-dialog">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header">
+                                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                                                <h4 class="modal-title" style="color:#888;">Agregar Extra</h4>
+                                                                                            </div>
+                                                                                            <div class="modal-body">
+                                                                                                <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible1="1">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="extraName" name="extraName">
+                                                                                                                <label for="extraName">Extra</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="extraSTD" name="extraSTD">
+                                                                                                                <label for="extraSTD">STD</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="extraVIP" name="extraVIP">
+                                                                                                                <label for="extraVIP">VIP</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="extraUTI" name="extraUTI">
+                                                                                                                <label for="extraUTI">UTI</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="extraEJEC" name="extraEJEC">
+                                                                                                                <label for="extraEJEC">EJEC</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="extraVAN-C" name="extraVAN-C">
+                                                                                                                <label for="extraVAN-C">VAN-C</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="extraVAN-L" name="extraVAN-L">
+                                                                                                                <label for="extraVAN-L">VAN-L</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="extraMINI" name="extraMINI">
+                                                                                                                <label for="extraMINI">MINI</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-3">
+                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                                <input type="text" class="form-control" id="extraBUS" name="extraBUS">
+                                                                                                                <label for="extraBUS">BUS</label>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="modal-footer noborder flex flex-j-between">
+                                                                                              <button type="button" class="btn green">Guardar</button>
+                                                                                              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions noborder flex flex-j-between">
+                                                        <button type="button" class="btn green">Guardar</button>
+                                                        <button type="button" class="btn red">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        {% include "sistema/footer.html" %}
+            
+            <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
+            <script>
+                $(document).ready(function(){
+                    $('#tablaTramosTarifario').DataTable( {
+                        responsive: true,
+                        // scrollY: 300,
+                        order: [[ 1, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+
+                    $('#tablaExtrasTarifario').DataTable( {
+                        responsive: true,
+                        // scrollY: 300,
+                        order: [[ 1, "asc" ]],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+                    
+                });
+            </script>
+
+        </div>
+    </body>
+
+</html>
