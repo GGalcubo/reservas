@@ -123,7 +123,7 @@
                                         <tbody>
                                         {% for v in viajes %}
                                             <tr>
-                                                <td class="text-center"><a href="#!"><i class="fa fa-pencil"></i></a></td>
+                                                <td class="text-center"><a href="/sistema/editaViaje/?idViaje={{ v.id }}"><i class="fa fa-pencil"></i></a></td>
                                                 <td>{{ v.categoria_viaje }}</td>
                                                 <td>{{ v.hora }}</td>
                                                 <td>{{ v.unidad.id }}</td>

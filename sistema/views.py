@@ -83,17 +83,41 @@ def operaciones(request):
     return render(request, 'sistema/operaciones.html', context)
 
 @login_required
-def viaje(request):
+def altaViaje(request):
     mensaje = ""
 
     es_nuevo = 1
+
+    viaje = Viaje()
+    viaje.id = 0
 
     clientes = Cliente.objects.all()
     unidades = Unidad.objects.all()
     estados = Estado.objects.all()
     categoria_viajes = CategoriaViaje.objects.all()
+    localidades = Localidad.objects.all()
+    provincias = Provincia.objects.all()
 
-    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes, 'es_nuevo':es_nuevo}
+    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje}
+    return render(request, 'sistema/viaje.html', context)
+
+@login_required
+def editaViaje(request):
+    mensaje = ""
+
+    es_nuevo = 0
+
+    id_viaje = request.GET.get('idViaje', "")
+    viaje = Viaje.objects.get(id=id_viaje)
+
+    clientes = Cliente.objects.all()
+    unidades = Unidad.objects.all()
+    estados = Estado.objects.all()
+    categoria_viajes = CategoriaViaje.objects.all()
+    localidades = Localidad.objects.all()
+    provincias = Provincia.objects.all()
+
+    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'localidades':localidades,'provincias':provincias,  'es_nuevo':es_nuevo, 'viaje':viaje}
     return render(request, 'sistema/viaje.html', context)
 
 

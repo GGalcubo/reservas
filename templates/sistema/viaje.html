@@ -329,24 +329,20 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <select class="form-control" id="">
-                                                                        <option value=""></option>
-                                                                        <option value="1">Interior</option>
-                                                                        <option value="2">Option 2</option>
-                                                                        <option value="3">Option 3</option>
-                                                                        <option value="4">Option 4</option>
+                                                                    <select class="form-control" id="desde_destino" name="desde_destino">
+                                                                        {% for p in provincias %}
+                                                                           <option value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                        {% endfor %}
                                                                     </select>
                                                                     <label>Destino</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <select class="form-control" id="">
-                                                                        <option value=""></option>
-                                                                        <option value="1">Interior</option>
-                                                                        <option value="2">Option 2</option>
-                                                                        <option value="3">Option 3</option>
-                                                                        <option value="4">Option 4</option>
+                                                                    <select class="form-control" id="desde_localidad" name="desde_localidad">
+                                                                        {% for l in localidades %}
+                                                                           <option value="{{ l.id }}">{{ l.nombre }}</option>
+                                                                        {% endfor %}
                                                                     </select>
                                                                     <label>Localidad</label>
                                                                 </div>
@@ -355,19 +351,14 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <select class="form-control" id="">
-                                                                        <option value=""></option>
-                                                                        <option value="1">Interior</option>
-                                                                        <option value="2">Option 2</option>
-                                                                        <option value="3">Option 3</option>
-                                                                        <option value="4">Option 4</option>
-                                                                    </select>
+                                                                    <input type="text" class="form-control" id="desde_calle" name="desde_calle"
+                                                                           value="">
                                                                     <label>Calle</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <input type="text" class="form-control" id=""
+                                                                    <input type="text" class="form-control" id="desde_altura" name="desde_altura"
                                                                            value="">
                                                                     <label>Altura</label>
 
@@ -377,7 +368,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <input type="text" class="form-control" id=""
+                                                                    <input type="text" class="form-control" id="desde_entre" name="desde_entre"
                                                                            value="">
                                                                     <label>Entre</label>
 
@@ -396,24 +387,20 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <select class="form-control" id="">
-                                                                        <option value=""></option>
-                                                                        <option value="1">Interior</option>
-                                                                        <option value="2">Option 2</option>
-                                                                        <option value="3">Option 3</option>
-                                                                        <option value="4">Option 4</option>
+                                                                    <select class="form-control" id="hasta_destino" name="hasta_destino">
+                                                                        {% for p in provincias %}
+                                                                           <option value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                        {% endfor %}
                                                                     </select>
                                                                     <label>Destino</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <select class="form-control" id="">
-                                                                        <option value=""></option>
-                                                                        <option value="1">Interior</option>
-                                                                        <option value="2">Option 2</option>
-                                                                        <option value="3">Option 3</option>
-                                                                        <option value="4">Option 4</option>
+                                                                    <select class="form-control" id="hasta_localidad" name="hasta_localidad">
+                                                                        {% for l in localidades %}
+                                                                           <option value="{{ l.id }}">{{ l.nombre }}</option>
+                                                                        {% endfor %}
                                                                     </select>
                                                                     <label>Localidad</label>
                                                                 </div>
@@ -422,32 +409,22 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <select class="form-control" id="">
-                                                                        <option value=""></option>
-                                                                        <option value="1">Interior</option>
-                                                                        <option value="2">Option 2</option>
-                                                                        <option value="3">Option 3</option>
-                                                                        <option value="4">Option 4</option>
-                                                                    </select>
+                                                                    <input type="text" class="form-control" id="hasta_calle" name="hasta_calle" value="">
                                                                     <label>Calle</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <input type="text" class="form-control" id=""
-                                                                           value="">
+                                                                    <input type="text" class="form-control" id="hasta_altura" name="hasta_altura" value="">
                                                                     <label>Altura</label>
-
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <input type="text" class="form-control" id=""
-                                                                           value="">
+                                                                    <input type="text" class="form-control" id="hasta_entre" name="hasta_entre" value="">
                                                                     <label>Entre</label>
-
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -482,12 +459,10 @@
                                                                                     <div class="row">
                                                                                         <div class="col-md-6">
                                                                                             <div class="form-group form-md-line-input">
-                                                                                                <select class="form-control" id="">
-                                                                                                    <option value=""></option>
-                                                                                                    <option value="1">Interior</option>
-                                                                                                    <option value="2">Option 2</option>
-                                                                                                    <option value="3">Option 3</option>
-                                                                                                    <option value="4">Option 4</option>
+                                                                                                <select class="form-control" id="modal_desde_destino" name="modal_desde_destino">
+                                                                                                    {% for p in provincias %}
+                                                                                                       <option value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                                                    {% endfor %}
                                                                                                 </select>
                                                                                                 <label>Destino</label>
                                                                                             </div>
@@ -549,12 +524,10 @@
                                                                                     <div class="row">
                                                                                         <div class="col-md-6">
                                                                                             <div class="form-group form-md-line-input">
-                                                                                                <select class="form-control" id="">
-                                                                                                    <option value=""></option>
-                                                                                                    <option value="1">Interior</option>
-                                                                                                    <option value="2">Option 2</option>
-                                                                                                    <option value="3">Option 3</option>
-                                                                                                    <option value="4">Option 4</option>
+                                                                                                <select class="form-control" id="modal_hasta_destino" name="modal_hasta_destino">
+                                                                                                    {% for p in provincias %}
+                                                                                                       <option value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                                                    {% endfor %}
                                                                                                 </select>
                                                                                                 <label>Destino</label>
                                                                                             </div>
@@ -814,6 +787,23 @@
         estados.push(obj);
     {% endfor %}
 
+    var provincias = [];
+    {% for provincia in provincias %}
+        var obj = {
+            id : {{ provincia.id }},
+            nombre:'{{ provincia.nombre }}'};
+        provincias.push(obj);
+    {% endfor %}
+
+    var localidades = [];
+    {% for localidad in localidades %}
+        var obj = {
+            id : {{ localidad.id }},
+            provincia : '{{ localidad.provincia }}',
+            nombre:'{{ localidad.nombre }}'};
+        localidades.push(obj);
+    {% endfor %}
+
     var categoria_viajes = [];
     {% for categoria_viaje in categoria_viajes %}
         var obj = {
@@ -872,7 +862,10 @@
     }
 
     $(document).ready(function () {
-        $("#viaje-tab").hide();
+        if(es_nuevo == '1'){
+            $("#viaje-tab").hide();
+        }
+
         $("#mensajeValidacion").html("");
         $("#viajeValidacion").hide();
 

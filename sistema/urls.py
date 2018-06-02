@@ -1,10 +1,11 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, viaje, guardarViaje, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, altaUnidad, eliminarUnidad, guardarUnidad
+from sistema.views import dashboard, operaciones, altaViaje, editaViaje, guardarViaje, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, altaUnidad, eliminarUnidad, guardarUnidad
 
 urlpatterns = [
     url(r'^dashboard/', dashboard, name='dashboard'),
     url(r'^operaciones/', operaciones, name='operaciones'),
-    url(r'^viaje/', viaje, name='viaje'),
+    url(r'^altaViaje/', altaViaje, name='altaViaje'),
+    url(r'^editaViaje/', editaViaje, name='editaViaje'),
     url(r'^guardarViaje/', guardarViaje, name='guardarViaje'),
     url(r'^altaPersona/', altaPersona, name='altaPersona'),
     url(r'^listadoCliente/', listadoCliente, name='listadoCliente'),
