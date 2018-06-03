@@ -814,6 +814,7 @@
     {% endfor %}
 
     var es_nuevo = {{ es_nuevo }};
+    var id_viaje = '';
 
     function mostrarMsgValidacion(msg){
         $("#mensajeValidacion").html(msg);
@@ -864,6 +865,8 @@
     $(document).ready(function () {
         if(es_nuevo == '1'){
             $("#viaje-tab").hide();
+        }else{
+            viaje = {{ viaje.id }};
         }
 
         $("#mensajeValidacion").html("");
@@ -923,7 +926,39 @@
                    success: function(data)
                    {
                        $("#viaje-tab").show();
-                       //alert(data); // show response from the php script.
+                       //alert(data.msg); // show response from the php script.
+                   }
+                 });
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+        });
+
+        $("#form-viaje-trayecto").submit(function(e) {
+            //TODO AGREGAR ERRORES EN CAMPOS
+            if ($("#estado").val() == ""){
+                mostrarMsgValidacion("El campo estado es obligatorio.");
+                return false;
+            }
+
+            var obj               = {};
+            obj.desde_localidad   = $("#desde_localidad").val();
+            obj.desde_provincia   = $("#desde_destino").val();
+            obj.hasta_localidad   = $("#hasta_localidad").val();
+            obj.hasta_provincia   = $("#hasta_destino").val();
+            obj.principal         = 1;
+            obj.idViaje           = viaje;
+
+
+            var url = "/sistema/guardarTrayecto/"; // the script where you handle the form input.
+            $.ajax({
+                   type: "POST",
+                   url: url,
+                   headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                   data: obj, // serializes the form's elements.
+                   success: function(data)
+                   {
+                       //$("#viaje-tab").show();
+                       alert(data.msg); // show response from the php script.
                    }
                  });
 

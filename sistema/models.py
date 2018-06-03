@@ -314,6 +314,10 @@ class Viaje(models.Model):
     def __str__(self):
         return self.fecha
 
+    def getTrayectoPrincipal(self):
+        trayecto = self.trayecto_set.filter()[:1].get()
+        return trayecto
+
     class Meta:
         verbose_name_plural = "Viajes" 
 

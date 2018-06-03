@@ -1,12 +1,13 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, altaViaje, editaViaje, guardarViaje, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, altaUnidad, eliminarUnidad, guardarUnidad
+from sistema.views import dashboard, operaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, altaUnidad, eliminarUnidad, guardarUnidad
 
 urlpatterns = [
     url(r'^dashboard/', dashboard, name='dashboard'),
     url(r'^operaciones/', operaciones, name='operaciones'),
     url(r'^altaViaje/', altaViaje, name='altaViaje'),
-    url(r'^editaViaje/', editaViaje, name='editaViaje'),
+    url(r'^editaViaje/$', editaViaje, name='editaViaje'),
     url(r'^guardarViaje/', guardarViaje, name='guardarViaje'),
+    url(r'^guardarTrayecto/', guardarTrayecto, name='guardarTrayecto'),
     url(r'^altaPersona/', altaPersona, name='altaPersona'),
     url(r'^listadoCliente/', listadoCliente, name='listadoCliente'),
     url(r'^cliente/', cliente, name='cliente'),

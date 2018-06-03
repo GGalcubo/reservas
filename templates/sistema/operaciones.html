@@ -129,22 +129,11 @@
                                                 <td>{{ v.unidad.id }}</td>
                                                 <td>{{ v.unidad.identificacion }}</td>
                                                 <td class="text-center"><button type="button" class="btn grey-silver btn-xs"><i class="fa fa-plus"></i></button></td>
-                                                <td><span class="label label-sm label-danger">  </span></td>
-                                                <td><span class="label label-sm label-warning">  </span></td>
+                                                <td><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.localidad_desde }}</span></td>
+                                                <td><span class="label label-sm label-warning">{{ v.getTrayectoPrincipal.localidad_hasta }}</span></td>
                                                 <td>{{ v.pasajero }}</td>
                                             </tr>
                                         {% endfor %}
-                                            <!--<tr>
-                                                <td class="text-center"><a href="#!"><i class="fa fa-pencil"></i></a></td>
-                                                <td>S2</td>
-                                                <td>12:30</td>
-                                                <td>345</td>
-                                                <td>Rafa</td>
-                                                <td class="text-center"><button type="button" class="btn grey-silver btn-xs"><i class="fa fa-plus"></i></button></td>
-                                                <td><span class="label label-sm label-danger"> Palomar </span></td>
-                                                <td><span class="label label-sm label-warning"> Ezeiza </span></td>
-                                                <td>Guido</td>
-                                            </tr>-->
                                         </tbody>
                                     </table>
                                 </div>

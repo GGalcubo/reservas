@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo
+from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo
 from django.http import HttpResponse
 
 import json
@@ -117,7 +117,7 @@ def editaViaje(request):
     localidades = Localidad.objects.all()
     provincias = Provincia.objects.all()
 
-    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'localidades':localidades,'provincias':provincias,  'es_nuevo':es_nuevo, 'viaje':viaje}
+    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje}
     return render(request, 'sistema/viaje.html', context)
 
 
@@ -142,6 +142,25 @@ def guardarViaje(request):
 	viaje.Otros_tot = request.POST.get('otros', "")
 	viaje.estacionamiento_total = request.POST.get('estacionamiento', "")
 	viaje.save()
+
+	data = {
+		'error': '0',
+		'msg': 'Los datos han sido guardados correctamente.'
+	}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
+
+@login_required
+def guardarTrayecto(request):
+
+	trayecto = Trayecto()
+	trayecto.viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
+	trayecto.localidad_desde = Localidad.objects.get(id=request.POST.get('desde_localidad', False))
+	trayecto.provincia_desde = Provincia.objects.get(id=request.POST.get('desde_provincia', False))
+	trayecto.localidad_hasta = Localidad.objects.get(id=request.POST.get('hasta_localidad', False))
+	trayecto.provincia_hasta = Provincia.objects.get(id=request.POST.get('hasta_provincia', False))
+	trayecto.save()
 
 	data = {
 		'error': '0',
