@@ -63,21 +63,6 @@
                                                         <label for="telefono">Teléfono</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-2">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <select class="form-control" id="categorias" name="categorias">
-                                                            <option value=""></option>
-                                                            {% for c in categorias %}
-                                                                {% if c.id == cliente.categoria.id %}
-                                                                    <option selected="selected" value="{{ c.id }}">{{ c.categoria }}</option>
-                                                                {% else %}
-                                                                    <option value="{{ c.id }}">{{ c.categoria }}</option>
-                                                                {% endif %}
-                                                            {% endfor %}
-                                                        </select>
-                                                        <label for="categorias">Categoría</label>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
@@ -821,11 +806,6 @@
                     }
                     if ($("#telefono").val() == ""){
                         $("#mensajeValidacion").html("El campo Telefono es obligatorio.");
-                        $("#clienteValidacion").show()
-                        return false;
-                    }
-                    if ($("#categorias").val() == ""){
-                        $("#mensajeValidacion").html("El campo Categoria es obligatorio.");
                         $("#clienteValidacion").show()
                         return false;
                     }
