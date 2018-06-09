@@ -147,6 +147,17 @@ class Observacion(models.Model):
     class Meta:
         verbose_name_plural = "Observaciones" 
 
+class Mail(models.Model):
+    mail = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, null=True, blank=True)
+    comentario = models.TextField(null=True, blank=True)
+
+    def __unicode__(self):
+        return self.mail
+
+    def __str__(self):
+        return self.mail
+
 class Licencia(models.Model):
     licencia = models.CharField(max_length=100, null=True, blank=True)
     tipo_licencia = models.ForeignKey(TipoLicencia, null=True, blank=True)
@@ -224,6 +235,24 @@ class Unidad(models.Model):
     def __str__(self):
         return self.identificacion
 
+    def getIdChofer(self):
+        try:
+            return self.chofer.id
+        except Exception as inst:
+            return ""
+
+    def getIdOwner(self):
+        try:
+            return self.owner.id
+        except Exception as inst:
+            return ""
+
+    def getObservaciones(self):
+        observaciones = []
+        for obscli in self.observacionunidad_set.all():
+            observaciones.append(obscli.observacion)
+        return observaciones
+
     class Meta:
         verbose_name_plural = "Unidades" 
 
@@ -274,6 +303,12 @@ class Cliente(models.Model):
         for obscli in self.observacioncliente_set.all():
             observaciones.append(obscli.observacion)
         return observaciones
+
+    def getMails(self):
+        mails = []
+        for mailcli in self.mailcliente_set.all():
+            mails.append(mailcli.mail)
+        return mails
 
 class CentroCosto(models.Model):
     nombre = models.CharField(max_length=100)
@@ -492,8 +527,18 @@ class TelefonoPersona(models.Model):
         return self.telefono
 
 class MailPersona(models.Model):
-    mail = models.CharField(max_length=100)
+    mail = models.ForeignKey(Mail, null=True, blank=True)
     persona = models.ForeignKey(Persona, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.mail
+
+    def __str__(self):
+        return self.mail 
+
+class MailCliente(models.Model):
+    mail = models.ForeignKey(Mail, null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.mail
@@ -510,16 +555,6 @@ class TelefonoCliente(models.Model):
 
     def __str__(self):
         return self.cliente
-
-class MailCliente(models.Model):
-    mail = models.CharField(max_length=100)
-    cliente = models.ForeignKey(Cliente, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.mail
-
-    def __str__(self):
-        return self.mail 
 
 class AdjuntoViaje(models.Model):
     adjunto = models.ForeignKey(Adjunto, null=True, blank=True)

@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo
+from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, Mail, MailCliente
 from django.http import HttpResponse
 
 import json
@@ -185,9 +185,9 @@ def editaPersona(request):
 
 @login_required
 def listadoCliente(request, **kwargs):
-	mensajeSuccess = request.session.get('mensajeSuccess', '')
+	mensajeSuccess = request.session.get('mensajeSuccessCliente', '')
 	try:
-		del request.session['mensajeSuccess']
+		del request.session['mensajeSuccessCliente']
 	except KeyError:
 		pass
 	clientes = Cliente.objects.filter(baja=False)
@@ -235,8 +235,8 @@ def guardarCliente(request):
 	cliente.piso = request.POST.get('piso', "")
 	cliente.depto = request.POST.get('depto', "")
 	cliente.cp = request.POST.get('cp', "")
-	cliente.categoria = CategoriaCliente.objects.get(id=request.POST.get('categorias', False))
-	cliente.tarifario = Tarifario.objects.get(id=request.POST.get('tarifarios', False))
+	#cliente.categoria = CategoriaCliente.objects.get(id=request.POST.get('categorias', False))
+	#cliente.tarifario = Tarifario.objects.get(id=request.POST.get('tarifarios', False))
 	cliente.save()
 
 	
@@ -250,7 +250,7 @@ def guardarCliente(request):
 		telcli.telefono = tel
 		telcli.save()
 
-	request.session['mensajeSuccess'] = mensaje + cliente.razon_social
+	request.session['mensajeSuccessCliente'] = mensaje + cliente.razon_social
 
 	return redirect('listadoCliente')
 
@@ -264,12 +264,10 @@ def editaCliente(request):
 @login_required
 def eliminarCliente(request):
 	idCliente = request.POST.get('idClienteEliminar', False)
-	print '--------------'
-	print idCliente
 	cliente = Cliente.objects.get(id=idCliente)
 	cliente.baja = True
 	cliente.save()
-	request.session['mensajeSuccess'] = 'Se elimino el cliente ' + cliente.razon_social
+	request.session['mensajeSuccessCliente'] = 'Se elimino el cliente ' + cliente.razon_social
 
 	return redirect('listadoCliente')
 
@@ -293,8 +291,32 @@ def guardarObservacionCliente(request):
 	obcl.cliente = cliente
 	obcl.save()
 
-	context = {'mensaje': mensaje, 'cliente':cliente}
+	context = {'mensaje': mensaje, 'objeto':cliente}
 	return render(request, 'sistema/grillaObservaciones.html', context)
+
+@login_required
+def guardarMailCliente(request):
+	mensaje = ""
+
+	idCliente = request.POST.get('idClienteMail', False)
+	nombre = request.POST.get('nombreMailCliente', False)
+	mail_txt = request.POST.get('mailCliente', False)
+	comentario = request.POST.get('comentarioMailCliente', False)
+	mail = Mail()
+	mail.mail = mail_txt
+	mail.nombre = nombre
+	mail.comentario = comentario
+	mail.save()
+
+	cliente = Cliente.objects.get(id=idCliente)
+
+	mlcl = MailCliente()
+	mlcl.mail = mail
+	mlcl.cliente = cliente
+	mlcl.save()
+
+	context = {'mensaje': mensaje, 'objeto':cliente}
+	return render(request, 'sistema/grillaMails.html', context)
 
 @login_required
 def provedor(request):
@@ -313,8 +335,11 @@ def listadoProvedor(request):
 @login_required
 def unidad(request):
 	mensaje = ""
-
-	context = {'mensaje': mensaje}
+	idUnidad = request.GET.get('idUnidad', "")
+	unidad = Unidad.objects.get(id=idUnidad)
+	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=1))
+	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=2))
+	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes}
 	return render(request, 'sistema/unidad.html', context)
 
 @login_required
@@ -329,9 +354,13 @@ def altaUnidad(request):
 
 @login_required
 def listadoUnidad(request):
-	mensaje = ""
+	mensajeSuccess = request.session.get('mensajeSuccessUnidad', '')
+	try:
+		del request.session['mensajeSuccessUnidad']
+	except KeyError:
+		pass
 	unidades = Unidad.objects.filter(baja=False)
-	context = {'mensaje': mensaje, 'unidades':unidades}
+	context = {'unidades':unidades, 'mensajeSuccess':mensajeSuccess}
 	return render(request, 'sistema/listadoUnidad.html', context)
 
 @login_required
@@ -346,7 +375,7 @@ def guardarUnidad(request):
 		vehiculo = unidad.vehiculo
 		mensaje = 'Se actualizo la unidad '
 
-	unidad.identificacion = request.POST.get('identificador', "")
+	unidad.identificacion = request.POST.get('identificacion', "")
 	unidad.owner = Persona.objects.get(id=request.POST.get('selectOwners', ""))
 	unidad.porcentaje_owner = request.POST.get('porcFacturacionOwner', "")
 	unidad.chofer = Persona.objects.get(id=request.POST.get('selectChoferes', ""))
@@ -363,7 +392,7 @@ def guardarUnidad(request):
 	unidad.vehiculo = vehiculo
 	unidad.save()
 
-	request.session['mensajeSuccess'] = mensaje + unidad.identificador
+	request.session['mensajeSuccessUnidad'] = mensaje + unidad.identificacion
 
 	return redirect('listadoUnidad')
 
@@ -373,9 +402,31 @@ def eliminarUnidad(request):
 	unidad = Unidad.objects.get(id=idUnidad)
 	unidad.baja = True
 	unidad.save()
-	request.session['mensajeSuccess'] = 'Se elimino la unidad ' + unidad.identificacion
+	request.session['mensajeSuccessUnidad'] = 'Se elimino la unidad ' + unidad.identificacion
 
 	return redirect('listadoUnidad')
+
+@login_required
+def guardarObservacionUnidad(request):
+	mensaje = ""
+
+	idUnidad = request.POST.get('idUnidadObser', False)
+	observ = request.POST.get('textAreaObservacion', False)
+	observacion = Observacion()
+	observacion.fecha = fecha()
+	observacion.usuario = request.user
+	observacion.texto = observ
+	observacion.save()
+
+	unidad = Unidad.objects.get(id=idUnidad)
+
+	obcl = ObservacionUnidad()
+	obcl.observacion = observacion
+	obcl.unidad = unidad
+	obcl.save()
+
+	context = {'mensaje': mensaje, 'objeto':unidad}
+	return render(request, 'sistema/grillaObservaciones.html', context)
 
 @login_required
 def altaContacto(request):

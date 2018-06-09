@@ -178,7 +178,7 @@
                                                                         <div class="tools"> </div>
                                                                     </div>
                                                                     <div class="portlet-body">
-                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaCCClientes">
+                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaClientes">
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th class="all">Editar</th>
@@ -532,7 +532,7 @@
                                                                         <div class="tools"> </div>
                                                                     </div>
                                                                     <div class="portlet-body">
-                                                                        <div id="grillaObservaciones" >
+                                                                        <div id="grillaMail" >
                                                                             <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaMailClientes">
                                                                                 <thead>
                                                                                     <tr>
@@ -542,11 +542,11 @@
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>
-                                                                                    {% for o in cliente.getObservaciones %}
+                                                                                    {% for m in cliente.getMails %}
                                                                                     <tr>
-                                                                                        <td>{{ o.getFechaHora }}</td>
-                                                                                        <td>{{ o.usuario }}</td>
-                                                                                        <td>{{ o.texto }}</td>
+                                                                                        <td>{{ m.nombre }}</td>
+                                                                                        <td>{{ m.comentario }}</td>
+                                                                                        <td>{{ m.mail }}</td>
                                                                                     </tr>
                                                                                     {% endfor %}
                                                                                 </tbody>
@@ -554,12 +554,6 @@
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-12">
-                                                                                <!-- <div style="width:158px;margin:0 auto;padding-top: 40px;">
-                                                                                    <span class="input-group-btn btn">
-                                                                                        <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
-                                                                                    </span>
-                                                                                </div> -->
-                                                                                <!-- /.modal -->
                                                                                 <input type="hidden" id="idClienteMail" name="idClienteMail" value="{{ cliente.id }}">
                                                                                 <div id="add_mail_cliente" class="modal fade" tabindex="-1" aria-hidden="true">
                                                                                     <div class="modal-dialog">
@@ -571,10 +565,10 @@
                                                                                             <div class="modal-body">
                                                                                                 <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
                                                                                                     <div class="row">
-                                                                                                        <div class="col-sm-6    ">
+                                                                                                        <div class="col-sm-6">
                                                                                                             <div class="form-group form-md-line-input form-md-floating-label">
                                                                                                                 <input type="text" class="form-control" id="nombreMailCliente" name="nombreMailCliente">
-                                                                                                                <label for="nombreMailCliente">Nombre</label>
+                                                                                                                <label for="mailCliente">Nombre</label>
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <div class="col-sm-6">
@@ -651,12 +645,6 @@
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-12">
-                                                                                <!-- <div style="width:158px;margin:0 auto;padding-top: 40px;">
-                                                                                    <span class="input-group-btn btn">
-                                                                                        <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
-                                                                                    </span>
-                                                                                </div> -->
-                                                                                <!-- /.modal -->
                                                                                 <input type="hidden" id="idClienteObser" name="idClienteObser" value="{{ cliente.id }}">
                                                                                 <div id="add_observacion_cliente" class="modal fade" tabindex="-1" aria-hidden="true">
                                                                                     <div class="modal-dialog">
@@ -746,7 +734,7 @@
                         },
                     } );
 
-                    $('#tablaCCClientes').DataTable( {
+                    $('#tablaClientes').DataTable( {
                         responsive: true,
                         // scrollY: 200,
                         order: [[ 0, "asc" ]],
@@ -865,6 +853,23 @@
                             }
                         });
                         $('#add_observacion_cliente').modal('toggle');
+                    }
+                }
+
+                function agregarMail(){
+                    if ($('#mailCliente').val() == ""){
+                        alert("Campo mail es obligatorio");
+                    }else{
+                        var url = "/sistema/guardarMailCliente/";
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: $("#form-datos-cliente-mails").serialize(),
+                            success: function(data){
+                                $("#grillaMail").html(data);
+                            }
+                        });
+                        $('#add_mail_cliente').modal('toggle');
                     }
                 }
 

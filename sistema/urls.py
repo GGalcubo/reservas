@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, altaUnidad, eliminarUnidad, guardarUnidad
+from sistema.views import dashboard, operaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente
 
 urlpatterns = [
     url(r'^dashboard/', dashboard, name='dashboard'),
@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^guardarCliente/', guardarCliente, name='guardarCliente'),
     url(r'^eliminarCliente/', eliminarCliente, name='eliminarCliente'),
     url(r'^guardarObservacionCliente/', guardarObservacionCliente, name='guardarObservacionCliente'),
+    url(r'^guardarMailCliente/', guardarMailCliente, name='guardarMailCliente'),
     url(r'^provedor/', provedor, name='provedor'),
     url(r'^listadoProvedor/', listadoProvedor, name='listadoProvedor'),
     url(r'^unidad/', unidad, name='unidad'),
@@ -22,6 +23,7 @@ urlpatterns = [
     url(r'^listadoUnidad/', listadoUnidad, name='listadoUnidad'),
     url(r'^eliminarUnidad/', eliminarUnidad, name='eliminarUnidad'),
     url(r'^guardarUnidad/', guardarUnidad, name='guardarUnidad'),
+    url(r'^guardarObservacionUnidad/', guardarObservacionUnidad, name='guardarObservacionUnidad'),
     url(r'^altaContacto/', altaContacto, name='altaContacto'),
     url(r'^listadoContacto/', listadoContacto, name='listadoContacto'),
     url(r'^altaCentroDeCosto/', altaCentroDeCosto, name='altaCentroDeCosto'),
