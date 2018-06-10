@@ -53,15 +53,6 @@ class EstadoCivil(models.Model):
     def __str__(self):
         return self.estado_civil
 
-class CategoriaCliente(models.Model):
-    categoria = models.CharField(max_length=50)
-
-    def __unicode__(self):
-        return u'%s' % self.categoria
-
-    def __str__(self):
-        return self.categoria
-
 class CategoriaViaje(models.Model):
     codigo = models.CharField(max_length=10, null=True, blank=True)
     categoria = models.CharField(max_length=50)
@@ -273,7 +264,6 @@ class Cliente(models.Model):
     depto = models.CharField(max_length=10, null=True, blank=True)
     cp = models.CharField(max_length=10, null=True, blank=True)
     cuil = models.CharField(max_length=11, null=True, blank=True)
-    categoria = models.ForeignKey(CategoriaCliente, null=True, blank=True)
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
     localidad = models.ForeignKey(Localidad, null=True, blank=True)
     provincia = models.ForeignKey(Provincia, null=True, blank=True)
