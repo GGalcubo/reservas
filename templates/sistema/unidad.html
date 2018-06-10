@@ -70,7 +70,7 @@
                                                 </div>
                                                 <div class="col-sm-3 text-center">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <a href="#" role="button" class="btn green btn-outline">Agregar Dueño</a>
+                                                        <a href="#add_duenio" data-toggle="modal" role="button" class="btn green btn-outline">Agregar Dueño</a>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
@@ -94,18 +94,13 @@
                                                 </div>
                                                 <div class="col-sm-3 text-center">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <a href="#" role="button" class="btn green btn-outline">Agregar Chofer</a>
+                                                        <a href="#add_chofer" data-toggle="modal" role="button" class="btn green btn-outline">Agregar Chofer</a>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" value="{{unidad.porcentaje_chofer}}" id="porcFacturacionChofer" name="porcFacturacionChofer">
                                                         <label for="porcFacturacionChofer">% de Facturación</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3 text-center">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <a href="#" role="button" class="btn green btn-outline">Agregar Licencia</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -168,9 +163,139 @@
                                                         <label for="nro_chasis">Nro. Chasis</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3 text-center">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <a href="#" role="button" class="btn green btn-outline">Agregar Licencia</a>
+                                            </div>
+                                            <div id="add_duenio" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                            <h4 class="modal-title" style="color:#888;">Agregar Dueño</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="nombreDuenio" name="nombreDuenio">
+                                                                            <label for="nombreDuenio">Nombre</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="email" class="form-control" id="apellidoDuenio" name="apellidoDuenio">
+                                                                            <label for="apellidoDuenio">Apellido</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="telfonoDuenio" name="telfonoDuenio">
+                                                                            <label for="telfonoDuenio">Teléfono</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer noborder flex flex-j-between">
+                                                          <button type="button" onclick="agregarMail()" class="btn green">Guardar</button>
+                                                          <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="add_chofer" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                            <h4 class="modal-title" style="color:#888;">Agregar Chofer</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="nombreChofer" name="nombreChofer">
+                                                                            <label for="nombreChofer">Nombre</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="email" class="form-control" id="apellidoChofer" name="apellidoChofer">
+                                                                            <label for="apellidoChofer">Apellido</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="telfonoChofer" name="telfonoChofer">
+                                                                            <label for="telfonoChofer">Teléfono</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="porcentajeChofer" name="porcentajeChofer">
+                                                                            <label for="porcentajeChofer">% Facturación</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer noborder flex flex-j-between">
+                                                          <button type="button" onclick="agregarMail()" class="btn green">Guardar</button>
+                                                          <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="add_licencia" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                            <h4 class="modal-title" style="color:#888;">Agregar Licencia</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input">
+                                                                            <select class="form-control" id="personas" name="personas">
+                                                                                <option value="0">Jorgito dueño </option>
+                                                                                <option value="1">Alberto chofer</option>
+                                                                                <option value="2">Mondeo 2000</option>
+                                                                            </select>
+                                                                            <label for="personas">Asignar licencia a:</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input">
+                                                                            <select class="form-control" id="tipoLicencia" name="tipoLicencia">
+                                                                                <option value="0">Licencia de conducir </option>
+                                                                                <option value="1">Permiso microcentro </option>
+                                                                            </select>
+                                                                            <label for="tipoLicencia">Tipo de Licencia</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="descripcionLicencia" name="descripcionLicencia">
+                                                                            <label for="descripcionLicencia">Descripción</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="email" class="form-control" id="vencimientoLicencia" name="vencimientoLicencia">
+                                                                            <label for="vencimientoLicencia">Vencimiento</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer noborder flex flex-j-between">
+                                                          <button type="button" onclick="agregarMail()" class="btn green">Guardar</button>
+                                                          <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -209,7 +334,7 @@
                                                                         <div class="caption font-blue">
                                                                             <i class="icon-lock font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Licencias</span>
-                                                                            <a href="#" role="button" class="btn green btn-outline mg-l-20">Agregar licencia</a>
+                                                                            <a href="#add_licencia" data-toggle="modal" role="button" class="btn green btn-outline mg-l-20">Agregar licencia</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
