@@ -71,8 +71,15 @@
                         todayHighlight: true,
                         autoclose: true,
                     });
+                    $('#fechaDeHoy').datepicker('setDate', 'today');
 
-                    $('#fechaDeHoy').datepicker('setDate', 'today');   
+                     $('#vencimientoLicencia').datepicker({
+                        language: 'es',
+                        format: 'dd/mm/yyyy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true,
+                    }); 
                     
                 });
             </script>
