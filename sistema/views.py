@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Localidad, Provincia, CategoriaCliente, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, Mail, MailCliente
+from .models import Calle, Localidad, Provincia, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, Mail, MailCliente
 from django.http import HttpResponse
 
 import json
@@ -200,9 +200,8 @@ def cliente(request):
 	idCliente = request.GET.get('idCliente', "")
 	cliente = Cliente.objects.get(id=idCliente)
 	tarifarios = Tarifario.objects.all()
-	categorias = CategoriaCliente.objects.all()
 
-	context = {'mensaje': mensaje, 'cliente':cliente, 'tarifarios':tarifarios, 'categorias':categorias}
+	context = {'mensaje': mensaje, 'cliente':cliente, 'tarifarios':tarifarios}
 	return render(request, 'sistema/cliente.html', context)
 
 @login_required
@@ -211,8 +210,7 @@ def altaCliente(request):
 	cliente = Cliente()
 	cliente.id = 0
 	tarifarios = Tarifario.objects.all()
-	categorias = CategoriaCliente.objects.all()
-	context = {'mensaje': mensaje, 'tarifarios':tarifarios, 'categorias':categorias, 'cliente': cliente}
+	context = {'mensaje': mensaje, 'tarifarios':tarifarios, 'cliente': cliente}
 	return render(request, 'sistema/cliente.html', context)
 
 
@@ -235,8 +233,6 @@ def guardarCliente(request):
 	cliente.piso = request.POST.get('piso', "")
 	cliente.depto = request.POST.get('depto', "")
 	cliente.cp = request.POST.get('cp', "")
-	#cliente.categoria = CategoriaCliente.objects.get(id=request.POST.get('categorias', False))
-	#cliente.tarifario = Tarifario.objects.get(id=request.POST.get('tarifarios', False))
 	cliente.save()
 
 	
