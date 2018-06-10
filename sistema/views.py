@@ -124,16 +124,26 @@ def editaViaje(request):
 @login_required
 def guardarViaje(request):
 
-	viaje = Viaje()
+	es_nuevo = request.POST.get('es_nuevo', "1")
+
+	if es_nuevo == "1":
+		viaje = Viaje()
+		mensaje = 'Se dio de alta el viaje '
+	else:
+		viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
+		mensaje = 'Se actualizo el viaje '
+
 	viaje.estado = Estado.objects.get(id=request.POST.get('estado', False))
 	viaje.cliente = Cliente.objects.get(id=request.POST.get('cliente', False))
 	viaje.categoria_viaje = CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
-	viaje.solicitante = Persona.objects.get(id=request.POST.get('solicitante', False))
+	solicitante = Persona.objects.get(id=request.POST.get('solicitante', False))
+	viaje.solicitante = solicitante.nombre + '' + solicitante.apellido
 	viaje.centro_costo = CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
-	viaje.pasajero = Persona.objects.get(id=request.POST.get('pasajero', False))
+	pasajero = Persona.objects.get(id=request.POST.get('pasajero', False))
+	viaje.pasajero = pasajero.nombre + '' + pasajero.apellido
 	viaje.fecha = request.POST.get('fecha', "")
 	viaje.hora = request.POST.get('hora', "")
-	#viaje.costo_provedor = request.POST.get('costo_provedor', "")
+	#viaje.costo_proveedor = request.POST.get('costo_proveedor', "")
 	#viaje.tarifa_pasada = request.POST.get('tarifa_pasada', "")
 	#viaje.comentario_chofer = request.POST.get('comentario_chofer', "")
 	viaje.unidad = Unidad.objects.get(id=request.POST.get('unidad', False))
@@ -145,7 +155,7 @@ def guardarViaje(request):
 
 	data = {
 		'error': '0',
-		'msg': 'Los datos han sido guardados correctamente.'
+		'msg': mensaje
 	}
 	dump = json.dumps(data)
 	return HttpResponse(dump, content_type='application/json')

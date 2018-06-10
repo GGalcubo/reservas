@@ -52,7 +52,7 @@
                         <div class="portlet-title">
                             <div class="caption font-green">
                                 <i class="icon-rocket font-green"></i>
-                                <span class="caption-subject bold uppercase">Ingreso del Cliente y Datos del Viaje</span>
+                                <span class="caption-subject bold uppercase">Ingreso del Cliente y Datos del Viaje {{ viaje.id }}</span>
                             </div>
                             <div class="tools"></div>
                         </div>
@@ -63,8 +63,13 @@
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="id_cliente" name="id_cliente">
+                                                    <option value=""></option>
                                                     {% for c in clientes %}
-                                                       <option value="{{ c.id }}">{{ c.id }}</option>
+                                                        {% if c.id == viaje.cliente.id %}
+                                                            <option selected="selected" value="{{ c.id }}">{{ c.id }}</option>
+                                                        {% else %}
+                                                            <option value="{{ c.id }}">{{ c.id }}</option>
+                                                        {% endif %}
                                                     {% endfor %}
                                                 </select>
                                                 <label>ID Cliente</label>
@@ -73,40 +78,39 @@
                                         <div class="col-md-4">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="razon_social">
+                                                    <option value=""></option>
                                                     {% for c in clientes %}
-                                                       <option value="{{ c.id }}">{{ c.razon_social }}</option>
+                                                        {% if c.id == viaje.cliente.id %}
+                                                            <option selected="selected" value="{{ c.id }}">{{ c.razon_social }}</option>
+                                                        {% else %}
+                                                            <option value="{{ c.id }}">{{ c.razon_social }}</option>
+                                                        {% endif %}
                                                     {% endfor %}
                                                 </select>
                                                 <label>Razón Social</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-1">
+                                        <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cliente_tel" value="1212" readonly>
+                                                <input type="text" class="form-control" id="cliente_tel" value="" readonly>
                                                 <label>Teléfono</label>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cliente_direccion" value="Balcarce 510 CAP. FED." readonly>
+                                                <input type="text" class="form-control" id="cliente_direccion" value="" readonly>
                                                 <label>Dirección</label>
                                             </div>
                                         </div>
                                         <div class="col-md-1">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cliente_factura" value="CTA.CTE." name="cliente_factura" readonly>
+                                                <input type="text" class="form-control" id="cliente_factura" value="" name="cliente_factura" readonly>
                                                 <label>C. Fact.</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1">
-                                            <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cliente_categoria" value="A" name="cliente_categoria" readonly>
-                                                <label>Categ.</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
@@ -129,25 +133,36 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-5">
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="fecha" value="06/4/2018" name="fecha">
+                                                        <input type="text" class="form-control" id="fecha" value="{{ viaje.fecha }}" name="fecha">
                                                         <label>Fecha</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="hora" value="23:30" name="hora">
+                                                        <input type="text" class="form-control" id="hora" value="{{ viaje.hora }}" name="hora">
                                                         <label>Hora</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="text" class="form-control" id="hora_estimada" value="{{ viaje.hora_estimada }}" name="hora_estimada">
+                                                        <label>H. E.</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control" id="categoria_viaje" name="categoria_viaje">
+                                                            <option value=""></option>
                                                             {% for cv in categoria_viajes %}
-                                                               <option value="{{ cv.id }}">{{ cv.categoria }}</option>
+                                                                {% if cv.id == viaje.categoria_viaje.id %}
+                                                                    <option selected="selected" value="{{ cv.id }}">{{ cv.categoria }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ cv.id }}">{{ cv.categoria }}</option>
+                                                                {% endif %}
                                                             {% endfor %}
                                                         </select>
                                                         <label>C. Viaje</label>
@@ -162,8 +177,13 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" name="estado" id="estado">
+                                                            <option value=""></option>
                                                             {% for e in estados %}
-                                                               <option value="{{ e.id }}">{{ e.estado }}</option>
+                                                                {% if e.id == viaje.estado.id %}
+                                                                    <option selected="selected" value="{{ e.id }}">{{ e.estado }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ e.id }}">{{ e.estado }}</option>
+                                                                {% endif %}
                                                             {% endfor %}
                                                         </select>
                                                         <label>Estado</label>
@@ -173,8 +193,8 @@
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
                                                             <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="costo_provedor" name="costo_provedor" >
-                                                            <label for="form_control_1">Costo Provedor</label>
+                                                            <input type="text" class="form-control" id="costo_proveedor" name="costo_proveedor" value="{{ viaje.costo_proveedor }}">
+                                                            <label for="form_control_1">Costo Proveedor</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -192,8 +212,13 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" id="unidad_id" name="unidad_id">
+                                                            <option value=""></option>
                                                             {% for u in unidades %}
-                                                               <option value="{{ u.id }}">{{ u.id }}</option>
+                                                                {% if u.id == viaje.unidad.id %}
+                                                                    <option selected="selected" value="{{ u.id }}">{{ u.id }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ u.id }}">{{ u.id }}</option>
+                                                                {% endif %}
                                                             {% endfor %}
                                                         </select>
                                                         <label>ID Unidad</label>
@@ -202,8 +227,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" id="unidad_identificacion">
+                                                            <option value=""></option>
                                                             {% for u in unidades %}
-                                                               <option value="{{ u.id }}">{{ u.identificacion }}</option>
+                                                                {% if u.id == viaje.unidad.id %}
+                                                                    <option selected="selected" value="{{ u.id }}">{{ u.identificacion }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ u.id }}">{{ u.identificacion }}</option>
+                                                                {% endif %}
                                                             {% endfor %}
                                                         </select>
                                                         <label>Unidad</label>
@@ -215,7 +245,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group form-md-line-input">
-                                                        <textarea class="form-control" rows="3" placeholder="" name="comentario_chofer" id="comentario_chofer"></textarea>
+                                                        <textarea class="form-control" rows="3" placeholder="{{ viaje.comentario }}" name="comentario_chofer" id="comentario_chofer"></textarea>
                                                         <label>Comentario para el chofer</label>
                                                     </div>
                                                 </div>
@@ -225,7 +255,7 @@
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="espera" value="15 min" name="espera">
+                                                <input type="text" class="form-control" id="espera" value="{{ viaje.espera }}" name="espera">
                                                 <label>Espera</label>
                                             </div>
                                         </div>
@@ -233,7 +263,7 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="peaje" value="100" name="peaje">
+                                                    <input type="text" class="form-control" id="peaje" value="{{ viaje.peaje_total }}" name="peaje">
                                                     <label for="form_control_1">Peajes</label>
                                                 </div>
                                             </div>
@@ -242,7 +272,7 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="estacionamiento" value="100" name="estacionamiento">
+                                                    <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.estacionamiento_total }}" name="estacionamiento">
                                                     <label for="form_control_1">Estacionamiento</label>
                                                 </div>
                                             </div>
@@ -251,7 +281,7 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="otros" value="100" name="otros">
+                                                    <input type="text" class="form-control" id="otros" value="{{ viaje.Otros_tot }}" name="otros">
                                                     <label for="form_control_1">Otros</label>
                                                 </div>
                                             </div>
@@ -278,7 +308,7 @@
                                         </div>
                                         <div class="col-md-2">
                                             <span class="input-group-btn btn">
-                                                <button class="btn green-haze" type="submit">OK</button>
+                                                <button class="btn green-haze" type="submit">Guardar</button>
                                             </span>
                                         </div>
                                     </div>
@@ -863,26 +893,26 @@
     }
 
     $(document).ready(function () {
-        if(es_nuevo == '1'){
+        if(es_nuevo == 1){
             $("#viaje-tab").hide();
+            es_nuevo = 0;
         }else{
             viaje = {{ viaje.id }};
+            //HAGO ESTO PARA SIMULAR UN EVENTO QUE PIDE LA FUNCION DE SELECT2ME
+            var evt = {};
+            evt.params = {};
+            evt.params.data = {};
+            evt.params.data.id = {{ viaje.cliente.id }};
+
+            updateFillsByCliente('', evt);
         }
 
         $("#mensajeValidacion").html("");
         $("#viajeValidacion").hide();
 
-        if(es_nuevo ==1){
+        if(es_nuevo == 1){
             $('#estado').attr("disabled", true);
         }
-
-        var cliente_inicial = clientes[0];
-        var evt = {};
-        evt.params = {};
-        evt.params.data = {};
-        evt.params.data.id = 1;
-
-        updateFillsByCliente('', evt);
 
         $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
         $("#razon_social").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
@@ -904,7 +934,7 @@
             obj.pasajero          = $("#pasajero").val();
             obj.fecha             = $("#fecha").val();
             obj.hora              = $("#hora").val();
-            obj.costo_provedor    = $("#costo_provedor").val();
+            obj.costo_proveedor   = $("#costo_proveedor").val();
             obj.tarifa_pasada     = $("#tarifa_pasada").val();
             obj.comentario_chofer = $("#comentario_chofer").val();
             obj.unidad            = $("#unidad_id").val();
@@ -915,7 +945,11 @@
             obj.categoria_viaje   = $("#categoria_viaje").val();
             obj.maletas           = $("#maletas").val();
             obj.bilingue          = $("#bilingue").val();
+            obj.es_nuevo          = es_nuevo;
 
+            if(es_nuevo == 0){
+                obj.idViaje = viaje;
+            }
 
             var url = "/sistema/guardarViaje/"; // the script where you handle the form input.
             $.ajax({
@@ -926,7 +960,7 @@
                    success: function(data)
                    {
                        $("#viaje-tab").show();
-                       //alert(data.msg); // show response from the php script.
+                       alert(data.msg); // show response from the php script.
                    }
                  });
 
