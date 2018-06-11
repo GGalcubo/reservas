@@ -97,7 +97,7 @@
   cursor: pointer !important;
 }
 .no-pointer {
-  cursor: default;
+  cursor: default !important;
 }
 .no-events {
   pointer-events: none !important;
@@ -274,4 +274,39 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 // ELIMINO ESPACIO
 .tabbable-line>.tab-content {
   padding: 0 0;
+}
+
+/* DROPDOWN MENU */
+.dropdown-menu.dropdown-menu-default {
+  li {
+    position: relative;
+    height: 34px;
+    ul.sub-menu {
+      list-style: none;
+      display: none;
+      li.nav-item {
+        padding: 8px 0 7px 10px;
+        // background-color: #FFFFFF;
+        cursor: pointer;
+        a.nav-link {
+          text-decoration: none;
+          color: #555555;
+        }
+      }
+    }
+    &:hover {
+      ul.sub-menu {
+        display: block;
+        position: relative;
+        left: 195px;
+        top: -34px;
+        padding: 0;
+        background-color: #FFFFFF;
+        box-shadow: 3px 3px 6px rgba(0,0,0,.16),1px 1px 6px rgba(0,0,0,.22)!important;
+        li.nav-item:hover {
+          background-color: #F6F6F6;
+        }
+      }
+    }
+  }
 }

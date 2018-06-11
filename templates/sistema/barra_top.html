@@ -41,43 +41,80 @@
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-user">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <img alt="" class="img-circle" src="../../static/img/avatar3_small.jpg" />
-                                    <span class="username username-hide-on-mobile"> Usuario </span>
+                                    <!-- <img alt="" class="img-circle" src="../../static/img/avatar3_small.jpg" /> -->
+                                    <span class="username username-hide-on-mobile"> Menú </span>
                                     <i class="fa fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li>
-                                        <a href="/sistema/operaciones/">
+                                        <a href="/sistema/operaciones/" class="nav-link">
                                             <i class="icon-screen-desktop"></i> Operaciones </a>
                                     </li>
                                     <li>
-                                        <a href="/sistema/altaViaje/">
-                                            <i class="icon-calendar"></i> Nuevo Viaje </a>
+                                        <a href="/sistema/altaViaje/" class="nav-link">
+                                            <i class="icon-calendar"></i> Nuevo viaje</a>
                                     </li>
                                     <li>
-                                        <a href="#!">
+                                        <a class="no-pointer no-events">
+                                            <i class="icon-briefcase"></i> Clientes </a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item">
+                                                <a href="/sistema/listadoCliente/" class="nav-link">
+                                                    <i class="icon-briefcase"></i> Clientes</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/sistema/listadoCentroDeCosto/" class="nav-link">
+                                                    <i class="icon-flag"></i> Centros de Costo</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/sistema/listadoTarifario/" class="nav-link">
+                                                    <i class="icon-notebook"></i> Tarifarios</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="no-pointer no-events">
+                                            <i class="icon-rocket"></i> Provedores </a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item">
+                                                <a href="/sistema/listadoProvedor/" class="nav-link">
+                                                    <i class="icon-rocket"></i> Provedores</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/sistema/listadoUnidad/"" class="nav-link">
+                                                    <i class="icon-star"></i> Unidades</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/sistema/listadoChofer/"" class="nav-link">
+                                                    <i class="icon-moustache"></i> Choferes</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/sistema/listadoVehiculo/"" class="nav-link">
+                                                    <i class="icon-plane"></i> Vehículos</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/sistema/listadoLicencia/"" class="nav-link">
+                                                    <i class="icon-layers"></i> Licencias</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             <i class="icon-bar-chart"></i> Administración </a>
                                     </li>
                                     <li>
-                                        <a href="/sistema/listadoCliente/">
-                                            <i class="icon-briefcase"></i> Clientes
-                                            <!-- <span class="badge badge-danger"> 3 </span> -->
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!">
-                                            <i class="icon-rocket"></i> Proveedores
-                                            <!-- <span class="badge badge-success"> 7 </span> -->
-                                        </a>
-                                    </li>
-                                    <li class="divider"> </li>
-                                    <!-- <li>
-                                        <a href="page_user_lock_1.html">
-                                            <i class="icon-lock"></i> Lock Screen </a>
-                                    </li> -->
-                                    <li>
-                                        <a href="/accounts/login/">
-                                            <i class="icon-key"></i> Salir </a>
+                                        <a class="no-pointer no-events">
+                                            <i class="icon-user"></i> Usuario </a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">
+                                                    <i class="icon-settings"></i> Configuración</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/accounts/login/" class="nav-link">
+                                                    <i class="icon-key"></i> Salir</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </li>
