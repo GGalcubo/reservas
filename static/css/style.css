@@ -273,6 +273,38 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
     .dropdown-menu.dropdown-menu-default li:hover ul.sub-menu li.nav-item:hover {
       background-color: #F6F6F6; }
 
+/* PARA ESCONDER LA BARRA LATERAL EN MOBILE */
+@media (max-width: 991px) {
+  body .page-sidebar-wrapper {
+    display: none !important; }
+
+  body#operaciones .page-sidebar-wrapper {
+    display: block !important; }
+
+  body .page-header.navbar .menu-toggler.responsive-toggler {
+    display: none !important; }
+
+  body#operaciones .page-header.navbar .menu-toggler.responsive-toggler {
+    display: inline-block !important; } }
+/* PARA ESCONDER LA BARRA LATERAL EN DESKTOP */
+@media (min-width: 992px) {
+  body.page-sidebar-reversed .page-content-wrapper .page-content {
+    margin-right: 0 !important; }
+
+  body.page-sidebar-reversed.page-sidebar-fixed .page-footer {
+    margin-right: 0 !important; }
+
+  body#operaciones.page-sidebar-reversed .page-content-wrapper .page-content {
+    margin-right: 195px !important; }
+
+  body#operaciones.page-sidebar-reversed.page-sidebar-fixed .page-footer {
+    margin-right: 195px !important; }
+
+  body .slimScrollDiv {
+    display: none !important; }
+
+  body#operaciones .slimScrollDiv {
+    display: block !important; } }
 .top-0 {
   top: 0px !important; }
 
@@ -5089,38 +5121,5 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
   display: block !important; }
 #datosCliente .hide-on-datosCliente {
   display: none !important; }
-
-/* PARA ESCONDER LA BARRA LATERAL EN MOBILE */
-@media (max-width: 991px) {
-  body .page-sidebar-wrapper {
-    display: none !important; }
-
-  body#operaciones .page-sidebar-wrapper {
-    display: block !important; }
-
-  body .page-header.navbar .menu-toggler.responsive-toggler {
-    display: none !important; }
-
-  body#operaciones .page-header.navbar .menu-toggler.responsive-toggler {
-    display: inline-block !important; } }
-/* PARA ESCONDER LA BARRA LATERAL EN DESKTOP */
-@media (min-width: 992px) {
-  body.page-sidebar-reversed .page-content-wrapper .page-content {
-    margin-right: 0 !important; }
-
-  body.page-sidebar-reversed.page-sidebar-fixed .page-footer {
-    margin-right: 0 !important; }
-
-  body#operaciones.page-sidebar-reversed .page-content-wrapper .page-content {
-    margin-right: 195px !important; }
-
-  body#operaciones.page-sidebar-reversed.page-sidebar-fixed .page-footer {
-    margin-right: 195px !important; }
-
-  body .slimScrollDiv {
-    display: none !important; }
-
-  body#operaciones .slimScrollDiv {
-    display: block !important; } }
 
 /*# sourceMappingURL=style.css.map */
