@@ -143,13 +143,13 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="hora" value="{{ viaje.hora }}" name="hora">
+                                                        <input type="text" class="form-control" id="hora" value="{{ viaje.hora|default_if_none:"" }}" name="hora">
                                                         <label>Hora</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="hora_estimada" value="{{ viaje.hora_estimada }}" name="hora_estimada">
+                                                        <input type="text" class="form-control" id="hora_estimada" value="{{ viaje.hora_estimada|default_if_none:"" }}" name="hora_estimada">
                                                         <label>H. E.</label>
                                                     </div>
                                                 </div>
@@ -177,7 +177,6 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" name="estado" id="estado">
-                                                            <option value=""></option>
                                                             {% for e in estados %}
                                                                 {% if e.id == viaje.estado.id %}
                                                                     <option selected="selected" value="{{ e.id }}">{{ e.estado }}</option>
@@ -843,7 +842,7 @@
         categoria_viajes.push(obj);
     {% endfor %}
 
-    var es_nuevo = {{ es_nuevo }};
+    var es_nuevo = '{{ es_nuevo }}';
     var id_viaje = '';
 
     function mostrarMsgValidacion(msg){
@@ -893,26 +892,22 @@
     }
 
     $(document).ready(function () {
-        if(es_nuevo == 1){
+        if(es_nuevo == '1'){
             $("#viaje-tab").hide();
-            es_nuevo = 0;
+            $('#estado').attr("disabled", true);
         }else{
             viaje = {{ viaje.id }};
             //HAGO ESTO PARA SIMULAR UN EVENTO QUE PIDE LA FUNCION DE SELECT2ME
             var evt = {};
             evt.params = {};
             evt.params.data = {};
-            evt.params.data.id = {{ viaje.cliente.id }};
+            evt.params.data.id = '{{ viaje.cliente.id|default_if_none:"" }}';
 
             updateFillsByCliente('', evt);
         }
 
         $("#mensajeValidacion").html("");
         $("#viajeValidacion").hide();
-
-        if(es_nuevo == 1){
-            $('#estado').attr("disabled", true);
-        }
 
         $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
         $("#razon_social").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
@@ -921,6 +916,50 @@
 
         $("#form-viaje-viaje").submit(function(e) {
             //TODO AGREGAR ERRORES EN CAMPOS
+            if ($("#id_cliente").val() == ""){
+                mostrarMsgValidacion("El campo id cliente es obligatorio.");
+                return false;
+            }
+            if ($("#razon_social").val() == ""){
+                mostrarMsgValidacion("El campo razon social es obligatorio.");
+                return false;
+            }
+            if ($("#solicitante").val() == ""){
+                mostrarMsgValidacion("El campo solicitante es obligatorio.");
+                return false;
+            }
+            if ($("#centro_costos").val() == ""){
+                mostrarMsgValidacion("El campo centro de costo es obligatorio.");
+                return false;
+            }
+            if ($("#pasajero").val() == ""){
+                mostrarMsgValidacion("El campo pasajero es obligatorio.");
+                return false;
+            }
+            if ($("#fecha").val() == ""){
+                mostrarMsgValidacion("El campo fecha es obligatorio.");
+                return false;
+            }
+            if ($("#hora").val() == ""){
+                mostrarMsgValidacion("El campo hora es obligatorio.");
+                return false;
+            }
+            if ($("#hora_estimada").val() == ""){
+                mostrarMsgValidacion("El campo hora estimada es obligatorio.");
+                return false;
+            }
+            if ($("#categoria_viaje").val() == ""){
+                mostrarMsgValidacion("El campo categoria viaje es obligatorio.");
+                return false;
+            }
+            if ($("#unidad_id").val() == ""){
+                mostrarMsgValidacion("El campo unidad id es obligatorio.");
+                return false;
+            }
+            if ($("#unidad_identificacion").val() == ""){
+                mostrarMsgValidacion("El campo unidad identificacion es obligatorio.");
+                return false;
+            }
             if ($("#estado").val() == ""){
                 mostrarMsgValidacion("El campo estado es obligatorio.");
                 return false;
@@ -960,6 +999,8 @@
                    success: function(data)
                    {
                        $("#viaje-tab").show();
+                       $("#mensajeValidacion").html("");
+                       $("#viajeValidacion").hide();
                        alert(data.msg); // show response from the php script.
                    }
                  });
@@ -969,8 +1010,8 @@
 
         $("#form-viaje-trayecto").submit(function(e) {
             //TODO AGREGAR ERRORES EN CAMPOS
-            if ($("#estado").val() == ""){
-                mostrarMsgValidacion("El campo estado es obligatorio.");
+            if ($("#id_cliente").val() == ""){
+                mostrarMsgValidacion("El campo cliente id es obligatorio.");
                 return false;
             }
 
