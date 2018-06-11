@@ -300,10 +300,10 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
   body#operaciones.page-sidebar-reversed.page-sidebar-fixed .page-footer {
     margin-right: 195px !important; }
 
-  body .slimScrollDiv {
+  body > .page-container > .page-sidebar-wrapper > .page-sidebar.navbar-collapse.collapse > .slimScrollDiv {
     display: none !important; }
 
-  body#operaciones .slimScrollDiv {
+  body#operaciones > .page-container > .page-sidebar-wrapper > .page-sidebar.navbar-collapse.collapse > .slimScrollDiv {
     display: block !important; } }
 .top-0 {
   top: 0px !important; }

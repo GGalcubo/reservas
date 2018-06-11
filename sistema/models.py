@@ -193,6 +193,12 @@ class Persona(models.Model):
     def nombreCompleto(self):
         return self.nombre + " " + self.apellido
 
+    def getObservaciones(self):
+        observaciones = []
+        for obspe in self.observacionpersona_set.all():
+            observaciones.append(obspe.observacion)
+        return observaciones
+
 class Vehiculo(models.Model):
     marca = models.CharField(max_length=100)
     modelo = models.CharField(max_length=100)

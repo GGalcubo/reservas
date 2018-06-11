@@ -332,6 +332,28 @@ def provedor(request):
 	return render(request, 'sistema/provedor.html', context)
 
 @login_required
+def guardarObservacionPersona(request):
+	mensaje = ""
+
+	idPersona = request.POST.get('idPersonaObser', False)
+	observ = request.POST.get('textAreaObservacion', False)
+	observacion = Observacion()
+	observacion.fecha = fecha()
+	observacion.usuario = request.user
+	observacion.texto = observ
+	observacion.save()
+
+	persona = Persona.objects.get(id=idPersona)
+
+	obpe = ObservacionPersona()
+	obpe.observacion = observacion
+	obpe.persona = persona
+	obpe.save()
+
+	context = {'mensaje': mensaje, 'objeto':persona}
+	return render(request, 'sistema/grillaObservaciones.html', context)
+
+@login_required
 def listadoProvedor(request):
 	mensaje = ""
 
