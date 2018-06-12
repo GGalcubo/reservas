@@ -257,11 +257,13 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
     list-style: none;
     display: none; }
     .dropdown-menu.dropdown-menu-default li ul.sub-menu li.nav-item {
-      padding: 8px 0 7px 10px;
       cursor: pointer; }
       .dropdown-menu.dropdown-menu-default li ul.sub-menu li.nav-item a.nav-link {
+        padding-left: 10px;
         text-decoration: none;
-        color: #555555; }
+        color: #555555;
+        line-height: 2.5;
+        display: block; }
   .dropdown-menu.dropdown-menu-default li:hover ul.sub-menu {
     display: block;
     position: relative;

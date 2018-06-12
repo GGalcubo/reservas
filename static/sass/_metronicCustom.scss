@@ -285,12 +285,13 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
       list-style: none;
       display: none;
       li.nav-item {
-        padding: 8px 0 7px 10px;
-        // background-color: #FFFFFF;
         cursor: pointer;
         a.nav-link {
+          padding-left: 10px;
           text-decoration: none;
           color: #555555;
+          line-height: 2.5;
+          display: block;
         }
       }
     }
