@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Localidad, Provincia, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, Mail, MailCliente
+from .models import Calle, Localidad, Provincia, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, Mail, MailCliente, TelefonoPersona
 from django.http import HttpResponse
 
 import json
@@ -194,6 +194,63 @@ def editaPersona(request):
 	return render(request, 'sistema/altaPersona.html', context)
 
 @login_required
+def guardarOwnerProspect(request):
+	persona = Persona()
+	persona.nombre = request.POST.get('nombreDuenio', "")
+	persona.apellido = request.POST.get('apellidoDuenio', "")
+	persona.tipo_persona_id = 4
+	persona.save()
+
+	telefono = request.POST.get('telefonoDuenio', "")
+	if telefono != "":
+		tel = Telefono()
+		tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
+		tel.numero = telefono
+		tel.save()
+
+		telcli = TelefonoPersona()
+		telcli.persona = persona
+		telcli.telefono = tel
+		telcli.save()
+
+	data = {
+		'persona_id': persona.id,
+		'persona_nombre': persona.nombre,
+		'persona_apellido':persona.apellido
+	}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
+def guardarChoferProspect(request):
+	persona = Persona()
+	persona.nombre = request.POST.get('nombreChofer', "")
+	persona.apellido = request.POST.get('apellidoChofer', "")
+	persona.porcentaje_viaje = request.POST.get('porcentajeChofer', "")
+	persona.tipo_persona_id = 3
+	persona.save()
+
+	telefono = request.POST.get('telefonoChofer', "")
+	if telefono != "":
+		tel = Telefono()
+		tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
+		tel.numero = telefono
+		tel.save()
+
+		telcli = TelefonoPersona()
+		telcli.persona = persona
+		telcli.telefono = tel
+		telcli.save()
+
+	data = {
+		'persona_id': persona.id,
+		'persona_nombre': persona.nombre,
+		'persona_apellido':persona.apellido,
+		'persona_porcentaje':persona.porcentaje_viaje
+	}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
+@login_required
 def listadoCliente(request, **kwargs):
 	mensajeSuccess = request.session.get('mensajeSuccessCliente', '')
 	try:
@@ -365,8 +422,8 @@ def unidad(request):
 	mensaje = ""
 	idUnidad = request.GET.get('idUnidad', "")
 	unidad = Unidad.objects.get(id=idUnidad)
-	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=1))
-	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=2))
+	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4))
+	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3))
 	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes}
 	return render(request, 'sistema/unidad.html', context)
 
@@ -375,8 +432,8 @@ def altaUnidad(request):
 	mensaje = ""
 	unidad = Unidad()
 	unidad.id = 0	
-	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=1))
-	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=2))
+	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4))
+	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3))
 	context = {'mensaje': mensaje, 'owners':owners, 'choferes':choferes, 'unidad': unidad}
 	return render(request, 'sistema/unidad.html', context)
 

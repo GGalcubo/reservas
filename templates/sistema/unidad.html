@@ -75,7 +75,7 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" value="{{unidad.porcentaje_owner}}" id="porcFacturacionOwner" name="porcFacturacionOwner">
+                                                        <input type="text" class="form-control" onchange="balanceoOwnerFacturacion();" value="{{unidad.porcentaje_owner|default_if_none:""}}" id="porcFacturacionOwner" name="porcFacturacionOwner">
                                                         <label for="porcFacturacionOwner">% de Facturación</label>
                                                     </div>
                                                 </div>
@@ -99,7 +99,7 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" value="{{unidad.porcentaje_chofer}}" id="porcFacturacionChofer" name="porcFacturacionChofer">
+                                                        <input type="text" class="form-control" onchange="balanceoChoferFacturacion();" value="{{unidad.porcentaje_chofer|default_if_none:""}}" id="porcFacturacionChofer" name="porcFacturacionChofer">
                                                         <label for="porcFacturacionChofer">% de Facturación</label>
                                                     </div>
                                                 </div>
@@ -171,6 +171,7 @@
                                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                                                             <h4 class="modal-title" style="color:#888;">Agregar Dueño</h4>
                                                         </div>
+                                                        <form role="form" id="form-datos-unidad-owner" class="form-owner-unidad">
                                                         <div class="modal-body">
                                                             <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
                                                                 <div class="row">
@@ -188,7 +189,7 @@
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="telfonoDuenio" name="telfonoDuenio">
+                                                                            <input type="text" class="form-control" id="telefonoDuenio" name="telefonoDuenio">
                                                                             <label for="telfonoDuenio">Teléfono</label>
                                                                         </div>
                                                                     </div>
@@ -196,9 +197,10 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer noborder flex flex-j-between">
-                                                          <button type="button" onclick="agregarMail()" class="btn green">Guardar</button>
+                                                          <button type="button" onclick="agregarOwner()" class="btn green">Guardar</button>
                                                           <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
                                                         </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,8 +228,8 @@
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="telfonoChofer" name="telfonoChofer">
-                                                                            <label for="telfonoChofer">Teléfono</label>
+                                                                            <input type="text" class="form-control" id="telefonoChofer" name="telefonoChofer">
+                                                                            <label for="telefonoChofer">Teléfono</label>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-6">
@@ -240,7 +242,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer noborder flex flex-j-between">
-                                                          <button type="button" onclick="agregarMail()" class="btn green">Guardar</button>
+                                                          <button type="button" onclick="agregarChofer()" class="btn green">Guardar</button>
                                                           <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
                                                         </div>
                                                     </div>
@@ -563,6 +565,67 @@
                         $('#add_observacion_unidad').modal('toggle');
                     }
                 }
+
+                function agregarOwner(){
+                    if ($('#nombreDuenio').val() == ""){
+                        alert("Campo nombre es obligatorio.");
+                    }else if ($('#apellidoDuenio').val() == ""){
+                        alert("Campo apellido es obligatorio");
+                    }else{
+                        var url = "/sistema/guardarOwnerProspect/";
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: $("#formGuardarUnidad").serialize(),
+                            success: function(data){
+                                $('#selectOwners').append($("<option></option>").attr("value",data.persona_id).text(data.persona_apellido + " " + data.persona_nombre)); 
+                                $('#selectOwners').val(data.persona_id)
+                            }
+                        });
+                        $('#add_duenio').modal('toggle');
+                    }
+                }
+
+                function agregarChofer(){
+                    if ($('#nombreChofer').val() == ""){
+                        alert("Campo nombre es obligatorio.");
+                    }else if ($('#apellidoChofer').val() == ""){
+                        alert("Campo apellido es obligatorio");
+                    }else{
+                        var url = "/sistema/guardarChoferProspect/";
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: $("#formGuardarUnidad").serialize(),
+                            success: function(data){
+                                $('#selectChoferes').append($("<option></option>").attr("value",data.persona_id).text(data.persona_apellido + " " + data.persona_nombre)); 
+                                $('#selectChoferes').val(data.persona_id)
+                                $('#porcFacturacionChofer').val(data.persona_porcentaje)
+                                balancearPorcentaje();
+                            }
+                        });
+                        $('#add_chofer').modal('toggle');
+                    }
+                }
+
+                function balanceoChoferFacturacion(){
+                    var porcChofer = $('#porcFacturacionChofer').val();
+                    if (porcChofer != ""){
+                        $('#porcFacturacionOwner').val(100 - porcChofer);
+                    }else{
+                        $('#porcFacturacionOwner').val(100);
+                    }
+                }
+
+                function balanceoOwnerFacturacion(){
+                    var porcOwner = $('#porcFacturacionOwner').val();
+                    if (porcOwner != ""){
+                        $('#porcFacturacionChofer').val(100 - porcOwner);
+                    }else{
+                        $('#porcFacturacionChofer').val(100);
+                    }
+                }
+                
             </script>
 
         </div>

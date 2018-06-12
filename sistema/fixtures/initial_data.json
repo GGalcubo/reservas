@@ -1,0 +1,136 @@
+[
+    {
+      "model": "sistema.TipoPersona",
+      "pk": 1,
+      "fields": {
+        "tipo_persona": "Contacto"
+      }
+    },
+    {
+      "model": "sistema.TipoPersona",
+      "pk": 2,
+      "fields": {
+        "tipo_persona": "Pasajero"
+      }
+    },
+    {
+        "model": "sistema.TipoPersona",
+        "pk": 3,
+        "fields": {
+            "tipo_persona": "Chofer"
+        }
+    },
+    {
+        "model": "sistema.TipoPersona",
+        "pk": 4,
+        "fields": {
+            "tipo_persona": "Dueño"
+        }
+    },
+    {
+        "model": "sistema.TipoLicencia",
+        "pk": 1,
+        "fields": {
+            "tipo_licencia": "Conducir"
+        }
+    },
+    {
+        "model": "sistema.TipoLicencia",
+        "pk": 2,
+        "fields": {
+            "tipo_licencia": "Seguro"
+        }
+    },
+    {
+        "model": "sistema.TipoLicencia",
+        "pk": 3,
+        "fields": {
+            "tipo_licencia": "Circulacion"
+        }
+    },
+    {
+        "model": "sistema.TipoLicencia",
+        "pk": 4,
+        "fields": {
+            "tipo_licencia": "Otra"
+        }
+    },
+    {
+        "model": "sistema.Estado",
+        "pk": 1,
+        "fields": {
+            "estado": "Nuevo"
+        }
+    },
+    {
+        "model": "sistema.Estado",
+        "pk": 2,
+        "fields": {
+            "estado": "Pre-Asignado"
+        }
+    },
+    {
+        "model": "sistema.Estado",
+        "pk": 3,
+        "fields": {
+            "estado": "Asignado"
+        }
+    },
+    {
+        "model": "sistema.Estado",
+        "pk": 4,
+        "fields": {
+            "estado": "Confirmado"
+        }
+    },
+    {
+        "model": "sistema.Estado",
+        "pk": 5,
+        "fields": {
+            "estado": "En Progreso"
+        }
+    },
+    {
+        "model": "sistema.Estado",
+        "pk": 6,
+        "fields": {
+            "estado": "Finalizado"
+        }
+    },
+    {
+        "model": "sistema.Estado",
+        "pk": 7,
+        "fields": {
+            "estado": "Cerrado"
+        }
+    },
+    {
+        "model": "sistema.EstadoCivil",
+        "pk": 1,
+        "fields": {
+            "estado_civil": "Soltero"
+        }
+    },
+    {
+        "model": "sistema.EstadoCivil",
+        "pk": 2,
+        "fields": {
+            "estado_civil": "Casado"
+        }
+    },
+    {
+        "model": "sistema.EstadoCivil",
+        "pk": 3,
+        "fields": {
+            "estado_civil": "Viudo"
+        }
+    },
+    {
+        "model": "sistema.EstadoCivil",
+        "pk": 4,
+        "fields": {
+            "estado_civil": "Divorciado"
+        }
+    }
+
+]
