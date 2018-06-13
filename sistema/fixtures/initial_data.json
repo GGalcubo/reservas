@@ -1,136 +1,944 @@
 [
-    {
-      "model": "sistema.TipoPersona",
-      "pk": 1,
-      "fields": {
-        "tipo_persona": "Contacto"
-      }
+{
+        "model": "sistema.TipoPersona",
+        "pk": 1,
+        "fields": {
+            "tipo_persona": "Contacto"
+        }
     },
-    {
-      "model": "sistema.TipoPersona",
-      "pk": 2,
-      "fields": {
-        "tipo_persona": "Pasajero"
-      }
+{
+        "model": "sistema.TipoPersona",
+        "pk": 2,
+        "fields": {
+            "tipo_persona": "Pasajero"
+        }
     },
-    {
+{
         "model": "sistema.TipoPersona",
         "pk": 3,
         "fields": {
             "tipo_persona": "Chofer"
         }
     },
-    {
+{
         "model": "sistema.TipoPersona",
         "pk": 4,
         "fields": {
             "tipo_persona": "Dueño"
         }
     },
-    {
-        "model": "sistema.TipoLicencia",
+{
+        "model": "sistema.tipolicencia",
         "pk": 1,
         "fields": {
             "tipo_licencia": "Conducir"
         }
     },
-    {
-        "model": "sistema.TipoLicencia",
+{
+        "model": "sistema.tipolicencia",
         "pk": 2,
         "fields": {
             "tipo_licencia": "Seguro"
         }
     },
-    {
-        "model": "sistema.TipoLicencia",
+{
+        "model": "sistema.tipolicencia",
         "pk": 3,
         "fields": {
-            "tipo_licencia": "Circulacion"
+            "tipo_licencia": "Ciruculacion"
         }
     },
-    {
-        "model": "sistema.TipoLicencia",
+{
+        "model": "sistema.tipolicencia",
         "pk": 4,
         "fields": {
             "tipo_licencia": "Otra"
         }
     },
-    {
+{
+        "model": "sistema.TrayectoDestino",
+        "pk": 1,
+        "fields": {
+            "nombre": "Ezeiza"
+        }
+    },
+{
+        "model": "sistema.TrayectoDestino",
+        "pk": 2,
+        "fields": {
+            "nombre": "AEP"
+        }
+    },
+{
+        "model": "sistema.TrayectoDestino",
+        "pk": 3,
+        "fields": {
+            "nombre": "Buquebus"
+        }
+    },
+{
+        "model": "sistema.TrayectoDestino",
+        "pk": 4,
+        "fields": {
+            "nombre": "Retiro"
+        }
+    },
+{
+        "model": "sistema.TrayectoDestino",
+        "pk": 5,
+        "fields": {
+            "nombre": "Interior"
+        }
+    },
+{
+        "model": "sistema.TrayectoDestino",
+        "pk": 6,
+        "fields": {
+            "nombre": "CABA"
+        }
+    },
+{
+        "model": "sistema.TrayectoDestino",
+        "pk": 7,
+        "fields": {
+            "nombre": "Buenos Aires"
+        }
+    },
+{
         "model": "sistema.Estado",
         "pk": 1,
         "fields": {
             "estado": "Nuevo"
         }
     },
-    {
+{
         "model": "sistema.Estado",
         "pk": 2,
         "fields": {
             "estado": "Pre-Asignado"
         }
     },
-    {
+{
         "model": "sistema.Estado",
         "pk": 3,
         "fields": {
             "estado": "Asignado"
         }
     },
-    {
+{
         "model": "sistema.Estado",
         "pk": 4,
         "fields": {
             "estado": "Confirmado"
         }
     },
-    {
+{
         "model": "sistema.Estado",
         "pk": 5,
         "fields": {
             "estado": "En Progreso"
         }
     },
-    {
+{
         "model": "sistema.Estado",
         "pk": 6,
         "fields": {
             "estado": "Finalizado"
         }
     },
-    {
+{
         "model": "sistema.Estado",
         "pk": 7,
         "fields": {
             "estado": "Cerrado"
         }
     },
-    {
+{
         "model": "sistema.EstadoCivil",
         "pk": 1,
         "fields": {
             "estado_civil": "Soltero"
         }
     },
-    {
+{
         "model": "sistema.EstadoCivil",
         "pk": 2,
         "fields": {
             "estado_civil": "Casado"
         }
     },
-    {
+{
         "model": "sistema.EstadoCivil",
         "pk": 3,
         "fields": {
             "estado_civil": "Viudo"
         }
     },
-    {
+{
         "model": "sistema.EstadoCivil",
         "pk": 4,
         "fields": {
             "estado_civil": "Divorciado"
         }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 1,
+        "fields": {
+            "nombre": "Buenos Aires"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 2,
+        "fields": {
+            "nombre": "Catamarca"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 3,
+        "fields": {
+            "nombre": "Chaco"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 4,
+        "fields": {
+            "nombre": "Chubut"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 5,
+        "fields": {
+            "nombre": "Córdoba"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 6,
+        "fields": {
+            "nombre": "Corrientes"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 7,
+        "fields": {
+            "nombre": "Entre Ríos"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 8,
+        "fields": {
+            "nombre": "Formosa"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 9,
+        "fields": {
+            "nombre": "Jujuy"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 10,
+        "fields": {
+            "nombre": "La Pampa"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 11,
+        "fields": {
+            "nombre": "La Rioja"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 12,
+        "fields": {
+            "nombre": "Mendoza"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 13,
+        "fields": {
+            "nombre": "Misiones"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 14,
+        "fields": {
+            "nombre": "Neuquén"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 15,
+        "fields": {
+            "nombre": "Río Negro"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 16,
+        "fields": {
+            "nombre": "Salta"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 17,
+        "fields": {
+            "nombre": "San Juan"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 18,
+        "fields": {
+            "nombre": "San Luis"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 19,
+        "fields": {
+            "nombre": "Santa Cruz"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 20,
+        "fields": {
+            "nombre": "Santa Fe"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 21,
+        "fields": {
+            "nombre": "Santiago del Estero"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 22,
+        "fields": {
+            "nombre": "Tierra del Fuego, Antártida e Islas del Atlántico Sur"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 23,
+        "fields": {
+            "nombre": "Tucumán"
+        }
+    },
+{
+        "model": "sistema.Provincia",
+        "pk": 24,
+        "fields": {
+            "nombre": "CABA"
+        }
+    },
+	{
+        "model": "sistema.CategoriaViaje",
+        "pk": 1,
+        "fields": {
+            "codigo": "STD",
+            "categoria":"Auto Std"
+        }
+    },
+{
+        "model": "sistema.CategoriaViaje",
+        "pk": 2,
+        "fields": {
+            "codigo": "VIP",
+            "categoria":"Auto VIP"
+        }
+    },
+{
+        "model": "sistema.CategoriaViaje",
+        "pk": 3,
+        "fields": {
+            "codigo": "UTI",
+            "categoria":"Utilitario"
+        }
+    },
+{
+        "model": "sistema.CategoriaViaje",
+        "pk": 4,
+        "fields": {
+            "codigo": "EJEC",
+            "categoria":"Ejecutivo"
+        }
+    },
+{
+        "model": "sistema.CategoriaViaje",
+        "pk": 5,
+        "fields": {
+            "codigo": "VAN - C",
+            "categoria":"VAN Corta"
+        }
+    },
+{
+        "model": "sistema.CategoriaViaje",
+        "pk": 6,
+        "fields": {
+            "codigo": "VAN - L",
+            "categoria":"VAN Larga"
+        }
+    },
+{
+        "model": "sistema.CategoriaViaje",
+        "pk": 7,
+        "fields": {
+            "codigo": "MINI",
+            "categoria":"Mini Bus"
+        }
+    },
+{
+        "model": "sistema.CategoriaViaje",
+        "pk": 8,
+        "fields": {
+            "codigo": "BUS",
+            "categoria":"Bus"
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 1,
+        "fields": {
+            "nombre": "Zona A",
+            "provincia_id":24
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 2,
+        "fields": {
+            "nombre": "Zona B",
+            "provincia_id":24
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 3,
+        "fields": {
+            "nombre": "Centro",
+            "provincia_id":24
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 4,
+        "fields": {
+            "nombre": "AEP",
+            "provincia_id":24
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 5,
+        "fields": {
+            "nombre": "Buquebus",
+            "provincia_id":24
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 6,
+        "fields": {
+            "nombre": "Retiro",
+            "provincia_id":24
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 7,
+        "fields": {
+            "nombre": "Adrogue",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 8,
+        "fields": {
+            "nombre": "Areco",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 9,
+        "fields": {
+            "nombre": "Avellaneda",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 10,
+        "fields": {
+            "nombre": "Banfield",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 11,
+        "fields": {
+            "nombre": "Berazategui",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 12,
+        "fields": {
+            "nombre": "Bernal",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 13,
+        "fields": {
+            "nombre": "Cardales",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 14,
+        "fields": {
+            "nombre": "Caseros",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 15,
+        "fields": {
+            "nombre": "Castelar",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 16,
+        "fields": {
+            "nombre": "Chascomus",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 17,
+        "fields": {
+            "nombre": "Don Silvano",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 18,
+        "fields": {
+            "nombre": "Campana",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 19,
+        "fields": {
+            "nombre": "Ezeiza",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 20,
+        "fields": {
+            "nombre": "Guerrero",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 21,
+        "fields": {
+            "nombre": "Haedo",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 22,
+        "fields": {
+            "nombre": "Hudson",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 23,
+        "fields": {
+            "nombre": "Hurlingham",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 24,
+        "fields": {
+            "nombre": "Ituzaingo",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 25,
+        "fields": {
+            "nombre": "Jose L Suarez",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 26,
+        "fields": {
+            "nombre": "Kraft",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 27,
+        "fields": {
+            "nombre": "La Candelaria",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 28,
+        "fields": {
+            "nombre": "La Figura",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 29,
+        "fields": {
+            "nombre": "La Plata",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 30,
+        "fields": {
+            "nombre": "Lanus",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 31,
+        "fields": {
+            "nombre": "Lomas De Zamora",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 32,
+        "fields": {
+            "nombre": "Lujan",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 33,
+        "fields": {
+            "nombre": "Mar Del Plata",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 34,
+        "fields": {
+            "nombre": "Martinez",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 35,
+        "fields": {
+            "nombre": "Massalin",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 36,
+        "fields": {
+            "nombre": "Maximo Paz",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 37,
+        "fields": {
+            "nombre": "Merlo",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 38,
+        "fields": {
+            "nombre": "Montegrande",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 39,
+        "fields": {
+            "nombre": "Moreno",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 40,
+        "fields": {
+            "nombre": "Moron",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 41,
+        "fields": {
+            "nombre": "Munro",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 42,
+        "fields": {
+            "nombre": "Nordelta",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 43,
+        "fields": {
+            "nombre": "Olivos",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 44,
+        "fields": {
+            "nombre": "Palomar",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 45,
+        "fields": {
+            "nombre": "Peugeot",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 46,
+        "fields": {
+            "nombre": "Pilar",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 47,
+        "fields": {
+            "nombre": "Quilmes",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 48,
+        "fields": {
+            "nombre": "R De Escalada",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 49,
+        "fields": {
+            "nombre": "Ramos Mejia",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 50,
+        "fields": {
+            "nombre": "San Ceferino",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 51,
+        "fields": {
+            "nombre": "San Fernando",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 52,
+        "fields": {
+            "nombre": "San Isidro",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 53,
+        "fields": {
+            "nombre": "San Justo",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 54,
+        "fields": {
+            "nombre": "San Martin",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 55,
+        "fields": {
+            "nombre": "San Miguel",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 56,
+        "fields": {
+            "nombre": "Santa Susana",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 57,
+        "fields": {
+            "nombre": "Santos Lugares",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 58,
+        "fields": {
+            "nombre": "Siemens",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 59,
+        "fields": {
+            "nombre": "Temperley",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 60,
+        "fields": {
+            "nombre": "Tigre",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 61,
+        "fields": {
+            "nombre": "Tortuguitas",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 62,
+        "fields": {
+            "nombre": "Troncos Del Talar",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 63,
+        "fields": {
+            "nombre": "Vicente Lopez",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 64,
+        "fields": {
+            "nombre": "Villa Ballester",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 65,
+        "fields": {
+            "nombre": "Wilde",
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 66,
+        "fields": {
+            "nombre": "Zarate",
+            "provincia_id":1
+        }
     }
-
 ]
