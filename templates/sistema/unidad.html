@@ -260,10 +260,7 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group form-md-line-input">
-                                                                            <select class="form-control" id="personas" name="personas">
-                                                                                <option value="0">Jere Mías (dueño) </option>
-                                                                                <option value="1">Jorge Martin (chofer)</option>
-                                                                                <option value="2">Mondeo 2000 (vehículo)</option>
+                                                                            <select id="personaLicencia" class="form-control" name="personaLicencia">
                                                                             </select>
                                                                             <label for="personas">Asignar licencia a:</label>
                                                                         </div>
@@ -294,7 +291,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer noborder flex flex-j-between">
-                                                          <button type="button" onclick="agregarMail()" class="btn green">Guardar</button>
+                                                          <button type="button" onclick="agregarLicencia()" class="btn green">Guardar</button>
                                                           <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
                                                         </div>
                                                     </div>
@@ -524,6 +521,15 @@
 
                     $("#selectChoferes").val($("#idChofer").val())
                     $("#selectOwners").val($("#idOwner").val())
+
+
+
+                    $('#personaLicencia').append($("<option></option>").attr("value",'{{ unidad.chofer.id }}'+'chofer').text('{{ unidad.chofer.nombre }}' + " " + '{{ unidad.chofer.apellido }}' + " (chofer)")); 
+                    $('#personaLicencia').append($("<option></option>").attr("value",'{{ unidad.owner.id }}'+'owner').text('{{ unidad.owner.nombre }}' + " " + '{{ unidad.owner.apellido }}' + " (dueño)")); 
+                    $('#personaLicencia').append($("<option></option>").attr("value",'{{ unidad.vehiculo.id }}'+'vehiculo').text('{{ unidad.vehiculo.patente }}' + " (vehiculo)")); 
+
+
+
                 });
 
                 function guardarUnidad(){
