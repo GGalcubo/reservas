@@ -836,8 +836,8 @@
     var categoria_viajes = [];
     {% for categoria_viaje in categoria_viajes %}
         var obj = {
-            id : {{ categoria_viaje.id }},
-            codigo : {{ categoria_viaje.codigo }},
+            id : '{{ categoria_viaje.id }}',
+            codigo : '{{ categoria_viaje.codigo }}',
             categoria:'{{ categoria_viaje.categoria }}'};
         categoria_viajes.push(obj);
     {% endfor %}
