@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, altaContacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect
+from sistema.views import dashboard, operaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, centroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect
 
 urlpatterns = [
     url(r'^dashboard/', dashboard, name='dashboard'),
@@ -27,9 +27,9 @@ urlpatterns = [
     url(r'^eliminarUnidad/', eliminarUnidad, name='eliminarUnidad'),
     url(r'^guardarUnidad/', guardarUnidad, name='guardarUnidad'),
     url(r'^guardarObservacionUnidad/', guardarObservacionUnidad, name='guardarObservacionUnidad'),
-    url(r'^altaContacto/', altaContacto, name='altaContacto'),
+    url(r'^contacto/', contacto, name='contacto'),
     url(r'^listadoContacto/', listadoContacto, name='listadoContacto'),
-    url(r'^altaCentroDeCosto/', altaCentroDeCosto, name='altaCentroDeCosto'),
+    url(r'^centroDeCosto/', centroDeCosto, name='centroDeCosto'),
     url(r'^listadoCentroDeCosto/', listadoCentroDeCosto, name='listadoCentroDeCosto'),
     url(r'^listadoTarifario/', listadoTarifario, name='listadoTarifario'),
     url(r'^tarifario/', tarifario, name='tarifario'),

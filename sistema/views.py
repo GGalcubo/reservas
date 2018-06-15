@@ -514,18 +514,18 @@ def guardarObservacionUnidad(request):
 	return render(request, 'sistema/grillaObservaciones.html', context)
 
 @login_required
-def altaContacto(request):
+def contacto(request):
 	mensaje = ""
 
 	context = {'mensaje': mensaje}
-	return render(request, 'sistema/altaContacto.html', context)
+	return render(request, 'sistema/contacto.html', context)
 
 @login_required
 def editaContacto(request):
 	mensaje = ""
 
 	context = {'mensaje': mensaje}
-	return render(request, 'sistema/altaContacto.html', context)
+	return render(request, 'sistema/contacto.html', context)
 
 @login_required
 def listadoContacto(request):
@@ -535,18 +535,18 @@ def listadoContacto(request):
 	return render(request, 'sistema/listadoContacto.html', context)
 
 @login_required
-def altaCentroDeCosto(request):
+def centroDeCosto(request):
 	mensaje = ""
 
 	context = {'mensaje': mensaje}
-	return render(request, 'sistema/altaCentroDeCosto.html', context)
+	return render(request, 'sistema/centroDeCosto.html', context)
 
 @login_required
 def editaCentroDeCosto(request):
 	mensaje = ""
 
 	context = {'mensaje': mensaje}
-	return render(request, 'sistema/altaCentroDeCosto.html', context)
+	return render(request, 'sistema/centroDeCosto.html', context)
 
 @login_required
 def listadoCentroDeCosto(request):
