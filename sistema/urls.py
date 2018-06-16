@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, centroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect
+from sistema.views import dashboard, operaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, centroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia
 
 urlpatterns = [
     url(r'^dashboard/', dashboard, name='dashboard'),
@@ -33,6 +33,8 @@ urlpatterns = [
     url(r'^listadoCentroDeCosto/', listadoCentroDeCosto, name='listadoCentroDeCosto'),
     url(r'^listadoTarifario/', listadoTarifario, name='listadoTarifario'),
     url(r'^tarifario/', tarifario, name='tarifario'),
+    url(r'^listadoLicencia/', listadoLicencia, name='listadoLicencia'),
+    url(r'^licencia/', licencia, name='licencia'),
     url(r'^importarcalles/', importar_calles, name='importar_calles'),
     url(r'^exportar/', exportar, name='exportar'),
     

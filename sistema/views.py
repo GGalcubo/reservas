@@ -570,6 +570,20 @@ def tarifario(request):
 	return render(request, 'sistema/tarifario.html', context)
 
 @login_required
+def listadoLicencia(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/listadoLicencia.html', context)
+
+@login_required
+def licencia(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/licencia.html', context)
+
+@login_required
 def exportar(request):
 	mensaje = ""
 
