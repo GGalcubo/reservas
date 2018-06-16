@@ -18,9 +18,6 @@
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
-                    <!-- BEGIN PAGE HEADER-->
-                    <h1 class="page-title">Cliente</h1>
-                    <!-- END PAGE HEADER-->
                     <div class="row">
                         <div class="col-sm-12">
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -158,7 +155,7 @@
                                                                         <div class="caption font-blue">
                                                                             <i class="icon-flag font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Centros de Costo</span>
-                                                                            <a href="/sistema/altaCentroDeCosto" role="button" class="btn green btn-outline mg-l-20">Agregar centro de costo</a>
+                                                                            <a href="#add_cc_cliente" data-toggle="modal" role="button" class="btn green btn-outline mg-l-20">Agregar centro de costo</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -214,6 +211,53 @@
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <input type="hidden" id="idClienteCC" name="idClienteCC" value="{{ cliente.id }}">
+                                                                            <div id="add_cc_cliente" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                                                <div class="modal-dialog">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                                            <h4 class="modal-title" style="color:#888;">Agregar Centro de Costo</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-sm-6">
+                                                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                            <input type="text" class="form-control" id="codigoCCCliente" name="codigoCCCliente">
+                                                                                                            <label for="codigoCCCliente">Código Centro de Costo</label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-6">
+                                                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                            <input type="email" class="form-control" id="descripcionCCCliente" name="descripcionCCCliente">
+                                                                                                            <label for="descripcionCCCliente">Descripción</label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="row mg-t-20">
+                                                                                                    <div class="col-sm-6">
+                                                                                                        <label for="desdeCC font-12">Válido Desde</label>
+                                                                                                        <input class="form-control form-control-inline input-medium date-picker" id="desdeCC" name="desdeCC" size="16" type="text" value="" />
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-6">
+                                                                                                        <label for="hastaCC font-12">Válido Hasta</label>
+                                                                                                        <input class="form-control form-control-inline input-medium date-picker" id="hastaCC" name="hastaCC" size="16" type="text" value="" />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="modal-footer noborder flex flex-j-between">
+                                                                                          <button type="button" onclick="agregarCentroDeCosto()" class="btn green">Guardar</button>
+                                                                                          <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <!-- END EXAMPLE TABLE PORTLET-->
@@ -311,7 +355,7 @@
                                                                         <div class="caption font-blue">
                                                                             <i class="icon-user font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Pasajeros</span>
-                                                                            <a href="/sistema/altaContacto" role="button" class="btn green btn-outline mg-l-20">Agregar pasajero</a>
+                                                                            <a href="#add_pasajero_cliente" role="button" data-toggle="modal" class="btn green btn-outline mg-l-20">Agregar pasajero</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -357,6 +401,43 @@
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <input type="hidden" id="idCLientePasajero" name="idCLientePasajero" value="{{ cliente.id }}">
+                                                                            <div id="add_pasajero_cliente" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                                                <div class="modal-dialog">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                                            <h4 class="modal-title" style="color:#888;">Agregar Pasajero</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-sm-6">
+                                                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                            <input type="text" class="form-control" id="nombrePasajeroCliente" name="nombrePasajeroCliente">
+                                                                                                            <label for="nombrePasajeroCliente">Nombre</label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-6">
+                                                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                            <input type="email" class="form-control" id="telefonoPasajeroCliente" name="telefonoPasajeroCliente">
+                                                                                                            <label for="telefonoPasajeroCliente">Teléfono</label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="modal-footer noborder flex flex-j-between">
+                                                                                          <button type="button" onclick="agregarPasajero()" class="btn green">Guardar</button>
+                                                                                          <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <!-- END EXAMPLE TABLE PORTLET-->
@@ -562,6 +643,8 @@
                                                                                                                 <label for="mailCliente">Mail</label>
                                                                                                             </div>
                                                                                                         </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
                                                                                                         <div class="col-sm-12">
                                                                                                             <div class="form-group form-md-line-input form-md-floating-label">
                                                                                                                 <input type="text" class="form-control" id="comentarioMailCliente" name="comentarioMailCliente">

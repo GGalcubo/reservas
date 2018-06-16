@@ -18,9 +18,6 @@
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
-                    <!-- BEGIN PAGE HEADER-->
-                    <h1 class="page-title">Operaciones</h1>
-                    <!-- END PAGE HEADER-->
                     <div class="row">
                         <div class="col-md-12">
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -28,7 +25,7 @@
                                 <div class="portlet-title">
                                     <div class="caption font-green">
                                         <i class="icon-rocket font-green"></i>
-                                        <span class="caption-subject bold uppercase">Servicios en progreso</span>
+                                        <span class="caption-subject bold uppercase">Viajes en progreso</span>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -72,40 +69,29 @@
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light ">
                                 <div class="portlet-title">
-                                    <!-- <div class="caption font-green">
+                                    <div class="caption font-green">
                                         <i class="icon-rocket font-green"></i>
-                                        <span class="caption-subject bold uppercase">Servicios</span>
-                                    </div> -->
-                                    <div class="portlet box blue">
-                                        <div class="portlet-title">
-                                            <div class="caption">
-                                                <i class="fa fa-rocket"></i>Servicios</div>
-                                            <div class="tools">
-                                                <!-- <a href="javascript:;" class="collapse"> </a> -->
-                                                <!-- <a href="#portlet-config" data-toggle="modal" class="config"> </a> -->
-                                                <a href="javascript:;" class="reload"> </a>
-                                                <!-- <a href="javascript:;" class="remove"> </a> -->
-                                            </div>
-                                        </div>
-                                        <div class="portlet-body">
-                                            <h4>Filtrar por:</h4>
-                                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
-                                                <optgroup label="Nuevos" class="group-1">
-                                                    <option value="1-1">Sin asignar</option>
-                                                    <option value="1-2" selected="selected">Asignados</option>
-                                                    <option value="1-3" selected="selected">Confirmados</option>
-                                                    <option value="1-4" selected="selected">En progreso</option>
-                                                </optgroup>
-                                                <optgroup label="Finalizados" class="group-2">
-                                                    <option value="2-1">Cerrados</option>
-                                                    <option value="2-2">Cancelados</option>
-                                                </optgroup>
-                                            </select>
-                                        </div>
+                                        <span class="caption-subject bold uppercase">Viajes en progreso</span>
                                     </div>
-                                    <div class="tools"> </div>
+                                    <div class="inline-block width-50" style="float: right;">
+                                        <select class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
+                                            <optgroup label="Nuevos" class="group-1">
+                                                <option value="1-1">Sin asignar</option>
+                                                <option value="1-2" selected="selected">Asignados</option>
+                                                <option value="1-3" selected="selected">Confirmados</option>
+                                                <option value="1-4" selected="selected">En progreso</option>
+                                            </optgroup>
+                                            <optgroup label="Finalizados" class="group-2">
+                                                <option value="2-1">Cerrados</option>
+                                                <option value="2-2">Cancelados</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="portlet-body">
+                                    <div class="row mg-0">
+                                        
+                                    </div>
                                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="futurosViajes">
                                         <thead>
                                             <tr>
@@ -137,6 +123,8 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <!-- </div> -->
+                                <div class="tools"> </div>
                             </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>

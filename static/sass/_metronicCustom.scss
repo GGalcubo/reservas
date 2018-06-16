@@ -277,10 +277,21 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 }
 
 /* DROPDOWN MENU */
+
+.page-header.navbar .top-menu .navbar-nav>li.dropdown-user>.dropdown-menu {
+    width: 175px;
+    &>li>a {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      padding: 0 0 0 15px;
+    }
+}
+
 .dropdown-menu.dropdown-menu-default {
   li {
     position: relative;
-    height: 34px;
+    height: 50px;
     ul.sub-menu {
       list-style: none;
       display: none;
@@ -290,7 +301,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
           padding-left: 10px;
           text-decoration: none;
           color: #555555;
-          line-height: 2.5;
+          line-height: 3.5;
           display: block;
         }
       }
@@ -299,8 +310,9 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
       ul.sub-menu {
         display: block;
         position: relative;
-        left: 195px;
-        top: -34px;
+        left: 175px;
+        top: -50px;
+        width: 190px;
         padding: 0;
         background-color: #FFFFFF;
         box-shadow: 3px 3px 6px rgba(0,0,0,.16),1px 1px 6px rgba(0,0,0,.22)!important;
