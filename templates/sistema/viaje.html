@@ -52,7 +52,7 @@
                         <div class="portlet-title">
                             <div class="caption font-green">
                                 <i class="icon-rocket font-green"></i>
-                                <span class="caption-subject bold uppercase">Ingreso del Cliente y Datos del Viaje {{ viaje.id }}</span>
+                                <span class="caption-subject bold uppercase" id="viaje_titulo">Ingreso del Cliente y Datos del Viaje</span>
                             </div>
                             <div class="tools"></div>
                         </div>
@@ -114,7 +114,7 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="solicitante" name="solicitante"></select>
+                                                        <select class="form-control" id="contacto" name="contacto"></select>
                                                         <label>Solicitante</label>
                                                     </div>
                                                 </div>
@@ -345,6 +345,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_15_1">
                                         <form role="form" class="form-viaje-trayecto" id="form-viaje-trayecto" method="post">{% csrf_token %}
+                                            <input type="hidden" id="trayecto_principal" name="trayecto_principal" value="1">
                                             <div class="form-body">
                                                 <div class="row" style="margin-top: 50px;">
                                                     <div class="col-md-6">
@@ -359,8 +360,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <select class="form-control" id="desde_destino" name="desde_destino">
+                                                                        <option value=""></option>
                                                                         {% for p in provincias %}
-                                                                           <option value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                            {% if p.id == viaje.getTrayectoPrincipal.provincia_desde_id %}
+                                                                                <option selected="selected" value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                            {% else %}
+                                                                                <option value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                            {% endif %}
                                                                         {% endfor %}
                                                                     </select>
                                                                     <label>Destino</label>
@@ -369,8 +375,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <select class="form-control" id="desde_localidad" name="desde_localidad">
+                                                                        <option value=""></option>
                                                                         {% for l in localidades %}
-                                                                           <option value="{{ l.id }}">{{ l.nombre }}</option>
+                                                                            {% if l.id == viaje.getTrayectoPrincipal.localidad_desde_id %}
+                                                                                <option selected="selected" value="{{ l.id }}">{{ l.nombre }}</option>
+                                                                            {% else %}
+                                                                                <option value="{{ l.id }}">{{ l.nombre }}</option>
+                                                                            {% endif %}
                                                                         {% endfor %}
                                                                     </select>
                                                                     <label>Localidad</label>
@@ -380,8 +391,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <input type="text" class="form-control" id="desde_calle" name="desde_calle"
-                                                                           value="">
+                                                                    <input type="text" class="form-control" id="desde_calle" name="desde_calle" value="">
                                                                     <label>Calle</label>
                                                                 </div>
                                                             </div>
@@ -417,8 +427,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <select class="form-control" id="hasta_destino" name="hasta_destino">
+                                                                        <option value=""></option>
                                                                         {% for p in provincias %}
-                                                                           <option value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                            {% if p.id == viaje.getTrayectoPrincipal.provincia_hasta_id %}
+                                                                                <option selected="selected" value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                            {% else %}
+                                                                                <option value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                            {% endif %}
                                                                         {% endfor %}
                                                                     </select>
                                                                     <label>Destino</label>
@@ -427,8 +442,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <select class="form-control" id="hasta_localidad" name="hasta_localidad">
+                                                                        <option value=""></option>
                                                                         {% for l in localidades %}
-                                                                           <option value="{{ l.id }}">{{ l.nombre }}</option>
+                                                                            {% if l.id == viaje.getTrayectoPrincipal.localidad_hasta_id %}
+                                                                                <option selected="selected" value="{{ l.id }}">{{ l.nombre }}</option>
+                                                                            {% else %}
+                                                                                <option value="{{ l.id }}">{{ l.nombre }}</option>
+                                                                            {% endif %}
                                                                         {% endfor %}
                                                                     </select>
                                                                     <label>Localidad</label>
@@ -460,195 +480,203 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div style="width:158px;margin:0 auto;padding-top: 40px;">
+                                                    <div class="row" style="margin-bottom: 30px">
+                                                        <div class="col-md-12">
                                                             <span class="input-group-btn btn">
-                                                                <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
+                                                                <button class="btn green-haze" type="submit">Guardar Tramo Principal</button>
                                                             </span>
                                                         </div>
-                                                        <!-- /.modal -->
-                                                        <div id="add_tramo" class="modal fade" tabindex="-1" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                                        <h4 class="modal-title" style="color:#888;">Agregar Tramo</h4>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible1="1">
-                                                                            <div class="row">
-                                                                                <div class="col-md-6">
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-12">
-                                                                                            <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
-                                                                                                <span class="caption-subject bold uppercase" style="font-size: 16px">Desde</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group form-md-line-input">
-                                                                                                <select class="form-control" id="modal_desde_destino" name="modal_desde_destino">
-                                                                                                    {% for p in provincias %}
-                                                                                                       <option value="{{ p.id }}">{{ p.nombre }}</option>
-                                                                                                    {% endfor %}
-                                                                                                </select>
-                                                                                                <label>Destino</label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group form-md-line-input">
-                                                                                                <select class="form-control" id="">
-                                                                                                    <option value=""></option>
-                                                                                                    <option value="1">Interior</option>
-                                                                                                    <option value="2">Option 2</option>
-                                                                                                    <option value="3">Option 3</option>
-                                                                                                    <option value="4">Option 4</option>
-                                                                                                </select>
-                                                                                                <label>Localidad</label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group form-md-line-input">
-                                                                                                <select class="form-control" id="">
-                                                                                                    <option value=""></option>
-                                                                                                    <option value="1">Interior</option>
-                                                                                                    <option value="2">Option 2</option>
-                                                                                                    <option value="3">Option 3</option>
-                                                                                                    <option value="4">Option 4</option>
-                                                                                                </select>
-                                                                                                <label>Calle</label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group form-md-line-input">
-                                                                                                <input type="text" class="form-control" id=""
-                                                                                                       value="">
-                                                                                                <label>Altura</label>
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group form-md-line-input">
-                                                                                                <input type="text" class="form-control" id=""
-                                                                                                       value="">
-                                                                                                <label>Entre</label>
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <form role="form" id="form-datos-cliente-observacion" class="form-datos-cliente-observacion">{% csrf_token %}
+                                                            <div class="form-body">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                                        <div class="portlet light ">
+                                                                            <div class="portlet-title">
+                                                                                <div class="caption font-blue">
+                                                                                    <i class="icon-notebook font-blue mg-t-8"></i>
+                                                                                    <span class="caption-subject bold uppercase">Tramos</span>
+                                                                                    <a href="#add_tramo" role="button" data-toggle="modal" class="btn green btn-outline mg-l-20">Agregar tramo</a>
                                                                                 </div>
-                                                                                <div class="col-md-6">
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-12">
-                                                                                            <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
-                                                                                                <span class="caption-subject bold uppercase" style="font-size: 16px">Hasta</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group form-md-line-input">
-                                                                                                <select class="form-control" id="modal_hasta_destino" name="modal_hasta_destino">
-                                                                                                    {% for p in provincias %}
-                                                                                                       <option value="{{ p.id }}">{{ p.nombre }}</option>
-                                                                                                    {% endfor %}
-                                                                                                </select>
-                                                                                                <label>Destino</label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group form-md-line-input">
-                                                                                                <select class="form-control" id="">
-                                                                                                    <option value=""></option>
-                                                                                                    <option value="1">Interior</option>
-                                                                                                    <option value="2">Option 2</option>
-                                                                                                    <option value="3">Option 3</option>
-                                                                                                    <option value="4">Option 4</option>
-                                                                                                </select>
-                                                                                                <label>Localidad</label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group form-md-line-input">
-                                                                                                <select class="form-control" id="">
-                                                                                                    <option value=""></option>
-                                                                                                    <option value="1">Interior</option>
-                                                                                                    <option value="2">Option 2</option>
-                                                                                                    <option value="3">Option 3</option>
-                                                                                                    <option value="4">Option 4</option>
-                                                                                                </select>
-                                                                                                <label>Calle</label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group form-md-line-input">
-                                                                                                <input type="text" class="form-control" id=""
-                                                                                                       value="">
-                                                                                                <label>Altura</label>
+                                                                                <div class="tools"> </div>
+                                                                            </div>
+                                                                            <div class="portlet-body">
+                                                                                <div id="grillaTramos" >
+                                                                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaTramos">
+                                                                                        <thead>
+                                                                                            <tr>
+                                                                                                <th class="all">Ver</th>
+                                                                                                <th class="all">Id</th>
+                                                                                                <th class="all">Desde destino</th>
+                                                                                                <th class="all">Desde localidad</th>
+                                                                                                <th class="all">Hasta destino</th>
+                                                                                                <th class="all">Hasta localidad</th>
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                            {% for t in trayectos %}
+                                                                                                {% if t.id != trayectos.0.id %}
+                                                                                                    <tr>
+                                                                                                        <td class="text-center"><a href=""><i class="fa fa-bullseye"></i></a></td>
+                                                                                                        <td>{{ t.id }}</td>
+                                                                                                        <td>{{ t.provincia_desde }}</td>
+                                                                                                        <td>{{ t.localidad_desde }}</td>
+                                                                                                        <td>{{ t.provincia_hasta }}</td>
+                                                                                                        <td>{{ t.localidad_hasta }}</td>
+                                                                                                    </tr>
+                                                                                                {% else %}
+                                                                                                {% endif %}
+                                                                                            {% endfor %}
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <div id="add_tramo" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                                                            <div class="modal-dialog">
+                                                                                                <div class="modal-content">
+                                                                                                    <div class="modal-header">
+                                                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                                                        <h4 class="modal-title" style="color:#888;">Agregar Tramo</h4>
+                                                                                                    </div>
+                                                                                                    <div class="modal-body">
+                                                                                                        <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible1="1">
+                                                                                                            <div class="row">
+                                                                                                                <div class="col-md-6">
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-md-12">
+                                                                                                                            <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
+                                                                                                                                <span class="caption-subject bold uppercase" style="font-size: 16px">Desde</span>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-md-6">
+                                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                                <select class="form-control" id="modal_desde_destino" name="modal_desde_destino">
+                                                                                                                                    {% for p in provincias %}
+                                                                                                                                       <option value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                                                                                    {% endfor %}
+                                                                                                                                </select>
+                                                                                                                                <label>Destino</label>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="col-md-6">
+                                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                                <select class="form-control" id="modal_desde_localidad" name="modal_desde_localidad">
+                                                                                                                                    {% for l in localidades %}
+                                                                                                                                       <option value="{{ l.id }}">{{ l.nombre }}</option>
+                                                                                                                                    {% endfor %}
+                                                                                                                                </select>
+                                                                                                                                <label>Localidad</label>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-md-6">
+                                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                                <input type="text" class="form-control" id="" value="">
+                                                                                                                                <label>Calle</label>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="col-md-6">
+                                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                                <input type="text" class="form-control" id="" value="">
+                                                                                                                                <label>Altura</label>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-md-6">
+                                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                                <input type="text" class="form-control" id="" value="">
+                                                                                                                                <label>Entre</label>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="col-md-6">
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-md-12">
+                                                                                                                            <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
+                                                                                                                                <span class="caption-subject bold uppercase" style="font-size: 16px">Hasta</span>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-md-6">
+                                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                                <select class="form-control" id="modal_hasta_destino" name="modal_hasta_destino">
+                                                                                                                                    {% for p in provincias %}
+                                                                                                                                       <option value="{{ p.id }}">{{ p.nombre }}</option>
+                                                                                                                                    {% endfor %}
+                                                                                                                                </select>
+                                                                                                                                <label>Destino</label>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="col-md-6">
+                                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                                <select class="form-control" id="modal_hasta_localidad" name="modal_hasta_localidad">
+                                                                                                                                    {% for l in localidades %}
+                                                                                                                                       <option value="{{ l.id }}">{{ l.nombre }}</option>
+                                                                                                                                    {% endfor %}
+                                                                                                                                </select>
+                                                                                                                                <label>Localidad</label>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-md-6">
+                                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                                <input type="text" class="form-control" id="" value="">
+                                                                                                                                <label>Calle</label>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="col-md-6">
+                                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                                <input type="text" class="form-control" id="" value="">
+                                                                                                                                <label>Altura</label>
 
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group form-md-line-input">
-                                                                                                <input type="text" class="form-control" id=""
-                                                                                                       value="">
-                                                                                                <label>Entre</label>
-
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-md-6">
+                                                                                                                            <div class="form-group form-md-line-input">
+                                                                                                                                <input type="text" class="form-control" id="" value="">
+                                                                                                                                <label>Entre</label>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="modal-footer">
+                                                                                                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Cerrar</button>
+                                                                                                        <button type="button" onclick="agregarTramo()" class="btn green">Agregar</button>
+                                                                                                    </div>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Cerrar</button>
-                                                                        <button type="button" class="btn green">Agregar</button>
+                                                                        <!-- END EXAMPLE TABLE PORTLET-->
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                            <div class="form-actions noborder flex flex-j-between">
+                                                                <button type="button" class="btn green">Guardar</button>
+                                                                <button type="button" class="btn red">Cancelar</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
-                                                    <div class="col-md-12" style="margin-top: 20px">
-                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaClientes">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th class="all">Ver</th>
-                                                                    <th class="min-tablet">Desde destino</th>
-                                                                    <th class="min-phone-l">Desde localidad</th>
-                                                                    <th class="desktop">Hasta destino</th>
-                                                                    <th class="min-tablet">Hasta localidad</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="text-center"><a href=""><i class="fa fa-bullseye"></i></a></td>
-                                                                    <td>Capital Federal</td>
-                                                                    <td>Palermo</td>
-                                                                    <td>Capital Federal</td>
-                                                                    <td>Villa del Parque</td>
-                                                                </tr>
+                                                </div>
 
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="row" style="margin-bottom: 30px">
-                                                    <div class="col-md-12">
-                                                        <span class="input-group-btn btn">
-                                                            <button class="btn green-haze" type="submit">Guardar Viaje y Tramos</button>
-                                                        </span>
-                                                    </div>
-                                                </div>
                                             </div>
 
                                         </form>
@@ -843,7 +871,6 @@
     {% endfor %}
 
     var es_nuevo = '{{ es_nuevo }}';
-    var id_viaje = '';
 
     function mostrarMsgValidacion(msg){
         $("#mensajeValidacion").html(msg);
@@ -865,19 +892,19 @@
         $('#cliente_tel').val(clientes[option_selected].telefono);
 
         $('#centro_costos').empty();
-        $('#solicitante').empty();
+        $('#contacto').empty();
         $('#pasajero').empty();
 
         $.each(clientes[option_selected].centro_costos, function(i, value) {
           $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
         });
         $.each(clientes[option_selected].personascliente, function(i, value) {
-            if(value.tipo_persona == 'Solicitante'){
-                $('#solicitante').append($('<option>').text(value.nombre).attr('value', value.id));
+            if(value.tipo_persona == 'Contacto'){
+                $('#contacto').append($('<option>').text(value.nombre).attr('value', value.id));
             }
         });
         $.each(clientes[option_selected].personascliente, function(i, value) {
-            if(value.tipo_persona == 'Pasajeros'){
+            if(value.tipo_persona == 'Pasajero'){
                 $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
             }
         });
@@ -887,8 +914,55 @@
         var option_selected = evt.params.data.id - 1;
         $('#unidad_id').select2('val',unidades[option_selected].id);
         $('#unidad_identificacion').select2('val',unidades[option_selected].id);
-        $('#unidad_id').val(clientes[option_selected].id).trigger("change");
-        $('#unidad_identificacion').val(clientes[option_selected].id).trigger("change");
+        $('#unidad_id').val(unidades[option_selected].id).trigger("change");
+        $('#unidad_identificacion').val(unidades[option_selected].id).trigger("change");
+    }
+
+    function agregarTramo(){
+        if ($("#modal_desde_destino").val() == ""){
+            alert("El campo desde destino es obligatorio.");
+            return false;
+        }
+        if ($("#modal_desde_localidad").val() == ""){
+            alert("El campo desde localidad es obligatorio.");
+            return false;
+        }
+        if ($("#modal_hasta_destino").val() == ""){
+            alert("El campo hasta destino es obligatorio.");
+            return false;
+        }
+        if ($("#modal_hasta_localidad").val() == ""){
+            alert("El campo hasta localidad es obligatorio.");
+            return false;
+        }
+
+        var obj               = {};
+        obj.desde_localidad   = $("#modal_desde_localidad").val();
+        obj.desde_provincia   = $("#modal_desde_destino").val();
+        obj.desde_calle       = $("#modal_desde_calle").val();
+        obj.desde_altura      = $("#modal_desde_altura").val();
+        obj.desde_entre       = $("#modal_desde_entre").val();
+        obj.hasta_localidad   = $("#modal_hasta_localidad").val();
+        obj.hasta_provincia   = $("#modal_hasta_destino").val();
+        obj.hasta_altura      = $("#modal_hasta_altura").val();
+        obj.hasta_calle       = $("#modal_hasta_calle").val();
+        obj.hasta_entre       = $("#modal_hasta_entre").val();
+        obj.principal         = 0;
+        obj.idViaje           = viaje;
+
+
+        var url = "/sistema/guardarTrayecto/"; // the script where you handle the form input.
+        $.ajax({
+               type: "POST",
+               url: url,
+               headers: {'X-CSRFToken': '{{ csrf_token }}'},
+               data: obj, // serializes the form's elements.
+               success: function(data)
+               {
+                   $("#grillaTramos").html(data);
+                   $('#add_tramo').modal('toggle');
+               }
+             });
     }
 
     $(document).ready(function () {
@@ -897,6 +971,7 @@
             $('#estado').attr("disabled", true);
         }else{
             viaje = {{ viaje.id }};
+            $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
             //HAGO ESTO PARA SIMULAR UN EVENTO QUE PIDE LA FUNCION DE SELECT2ME
             var evt = {};
             evt.params = {};
@@ -915,7 +990,6 @@
         $("#unidad_identificacion").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
 
         $("#form-viaje-viaje").submit(function(e) {
-            //TODO AGREGAR ERRORES EN CAMPOS
             if ($("#id_cliente").val() == ""){
                 mostrarMsgValidacion("El campo id cliente es obligatorio.");
                 return false;
@@ -924,8 +998,8 @@
                 mostrarMsgValidacion("El campo razon social es obligatorio.");
                 return false;
             }
-            if ($("#solicitante").val() == ""){
-                mostrarMsgValidacion("El campo solicitante es obligatorio.");
+            if ($("#contacto").val() == ""){
+                mostrarMsgValidacion("El campo contacto es obligatorio.");
                 return false;
             }
             if ($("#centro_costos").val() == ""){
@@ -968,11 +1042,12 @@
             var obj               = {};
             obj.estado            = $("#estado").val();
             obj.cliente           = $("#id_cliente").val();
-            obj.solicitante       = $("#solicitante").val();
+            obj.contacto          = $("#contacto").val();
             obj.centro_costos     = $("#centro_costos").val();
             obj.pasajero          = $("#pasajero").val();
             obj.fecha             = $("#fecha").val();
             obj.hora              = $("#hora").val();
+            obj.hora_estimada     = $("#hora_estimada").val();
             obj.costo_proveedor   = $("#costo_proveedor").val();
             obj.tarifa_pasada     = $("#tarifa_pasada").val();
             obj.comentario_chofer = $("#comentario_chofer").val();
@@ -1002,6 +1077,8 @@
                        $("#mensajeValidacion").html("");
                        $("#viajeValidacion").hide();
                        alert(data.msg); // show response from the php script.
+                       viaje = id_viaje;
+                       $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
                    }
                  });
 
@@ -1009,17 +1086,34 @@
         });
 
         $("#form-viaje-trayecto").submit(function(e) {
-            //TODO AGREGAR ERRORES EN CAMPOS
-            if ($("#id_cliente").val() == ""){
-                mostrarMsgValidacion("El campo cliente id es obligatorio.");
+            if ($("#desde_destino").val() == ""){
+                alert("El campo desde destino es obligatorio.");
+                return false;
+            }
+            if ($("#desde_localidad").val() == ""){
+                alert("El campo desde localidad es obligatorio.");
+                return false;
+            }
+            if ($("#hasta_destino").val() == ""){
+                alert("El campo hasta destino es obligatorio.");
+                return false;
+            }
+            if ($("#hasta_localidad").val() == ""){
+                alert("El campo hasta localidad es obligatorio.");
                 return false;
             }
 
             var obj               = {};
             obj.desde_localidad   = $("#desde_localidad").val();
             obj.desde_provincia   = $("#desde_destino").val();
+            obj.desde_calle       = $("#desde_calle").val();
+            obj.desde_altura      = $("#desde_altura").val();
+            obj.desde_entre       = $("#desde_entre").val();
             obj.hasta_localidad   = $("#hasta_localidad").val();
             obj.hasta_provincia   = $("#hasta_destino").val();
+            obj.hasta_altura      = $("#hasta_altura").val();
+            obj.hasta_calle       = $("#hasta_calle").val();
+            obj.hasta_entre       = $("#hasta_entre").val();
             obj.principal         = 1;
             obj.idViaje           = viaje;
 
@@ -1039,6 +1133,19 @@
 
             e.preventDefault(); // avoid to execute the actual submit of the form.
         });
+
+        $('#tablaTramos').DataTable( {
+            responsive: true,
+            // scrollY: 200,
+            order: [[ 0, "asc" ]],
+            lengthMenu: [
+                            [ -1, 500, 100, 50, 25, 10 ],
+                            [ 'Todos', '500', '100', '50', '25', '10' ]
+                        ],
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+            },
+        } );
     });
 </script>
 </body>

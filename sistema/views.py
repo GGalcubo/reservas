@@ -117,68 +117,102 @@ def editaViaje(request):
     localidades = Localidad.objects.all()
     provincias = Provincia.objects.all()
 
-    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje}
+    trayectos = Trayecto.objects.filter(viaje_id=id_viaje)
+
+    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje, 'trayectos':trayectos}
     return render(request, 'sistema/viaje.html', context)
 
 
 @login_required
 def guardarViaje(request):
 
-	es_nuevo = request.POST.get('es_nuevo', "1")
+    es_nuevo = request.POST.get('es_nuevo', "1")
 
-	if es_nuevo == "1":
-		viaje = Viaje()
-		mensaje = 'Se dio de alta el viaje '
-	else:
+    if es_nuevo == "1":
+        viaje = Viaje()
+        mensaje = 'Se dio de alta el viaje '
+    else:
 		viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
 		mensaje = 'Se actualizo el viaje '
 
-	viaje.estado = Estado.objects.get(id=request.POST.get('estado', False))
-	viaje.cliente = Cliente.objects.get(id=request.POST.get('cliente', False))
-	viaje.categoria_viaje = CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
-	solicitante = Persona.objects.get(id=request.POST.get('solicitante', False))
-	viaje.solicitante = solicitante.nombre + '' + solicitante.apellido
-	viaje.centro_costo = CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
-	pasajero = Persona.objects.get(id=request.POST.get('pasajero', False))
-	viaje.pasajero = pasajero.nombre + '' + pasajero.apellido
-	viaje.fecha = request.POST.get('fecha', "")
-	viaje.hora = request.POST.get('hora', "")
-	#viaje.costo_proveedor = request.POST.get('costo_proveedor', "")
-	#viaje.tarifa_pasada = request.POST.get('tarifa_pasada', "")
-	#viaje.comentario_chofer = request.POST.get('comentario_chofer', "")
-	viaje.unidad = Unidad.objects.get(id=request.POST.get('unidad', False))
-	#viaje.espera = request.POST.get('espera', "")
-	viaje.peaje_total = request.POST.get('peaje', "")
-	viaje.Otros_tot = request.POST.get('otros', "")
-	viaje.estacionamiento_total = request.POST.get('estacionamiento', "")
-	viaje.save()
+    viaje.estado 				= Estado.objects.get(id=request.POST.get('estado', False))
+    viaje.cliente 				= Cliente.objects.get(id=request.POST.get('cliente', False))
+    viaje.categoria_viaje 		= CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
+    solicitante 				= Persona.objects.get(id=request.POST.get('contacto', False))
+    viaje.solicitante 			= solicitante.nombre + '' + solicitante.apellido
+    viaje.centro_costo 			= CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
+    pasajero 					= Persona.objects.get(id=request.POST.get('pasajero', False))
+    viaje.pasajero 				= pasajero.nombre + '' + pasajero.apellido
+    viaje.fecha 				= request.POST.get('fecha', "")
+    viaje.hora 					= request.POST.get('hora', "")
+    viaje.hora_estimada 		= request.POST.get('hora_estimada', "")
+    #viaje.costo_proveedor = request.POST.get('costo_proveedor', "")
+    #viaje.tarifa_pasada = request.POST.get('tarifa_pasada', "")
+    #viaje.comentario_chofer = request.POST.get('comentario_chofer', "")
+    viaje.unidad 				= Unidad.objects.get(id=request.POST.get('unidad', False))
+    #viaje.espera = request.POST.get('espera', "")
+    viaje.peaje_total 			= request.POST.get('peaje', "")
+    viaje.Otros_tot 			= request.POST.get('otros', "")
+    viaje.estacionamiento_total = request.POST.get('estacionamiento', "")
+    viaje.save()
 
-	data = {
-		'error': '0',
-		'msg': mensaje
-	}
-	dump = json.dumps(data)
-	return HttpResponse(dump, content_type='application/json')
+    data = {
+        'error': '0',
+        'msg': mensaje
+    }
+
+    if es_nuevo == "1":
+        data['id_viaje'] = Viaje.objects.latest('id')
+
+    dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
 
 
 @login_required
 def guardarTrayecto(request):
 
-	trayecto = Trayecto()
-	trayecto.viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
-	trayecto.localidad_desde = Localidad.objects.get(id=request.POST.get('desde_localidad', False))
-	trayecto.provincia_desde = Provincia.objects.get(id=request.POST.get('desde_provincia', False))
-	trayecto.localidad_hasta = Localidad.objects.get(id=request.POST.get('hasta_localidad', False))
-	trayecto.provincia_hasta = Provincia.objects.get(id=request.POST.get('hasta_provincia', False))
-	trayecto.save()
+    trayectos = Trayecto.objects.filter(viaje_id=request.POST.get('idViaje', False))
+    principal = request.POST.get('principal', '')
 
-	data = {
-		'error': '0',
-		'msg': 'Los datos han sido guardados correctamente.'
-	}
-	dump = json.dumps(data)
-	return HttpResponse(dump, content_type='application/json')
+    if principal != '1' and trayectos.count() == 0:
+        data = {
+            'error': '1',
+            'msg': 'Debes crear un trayecto principal antes de agregar trayectos secundarios.'
+        }
+        dump = json.dumps(data)
+        return HttpResponse(dump, content_type='application/json')
+    else:
+        viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
 
+        if trayectos.count() >= 1 and principal == '1':
+            trayecto = viaje.getTrayectoPrincipal()
+        else:
+            trayecto = Trayecto()
+
+        trayecto.viaje = viaje
+        trayecto.localidad_desde = Localidad.objects.get(id=request.POST.get('desde_localidad', False))
+        trayecto.provincia_desde = Provincia.objects.get(id=request.POST.get('desde_provincia', False))
+        trayecto.desde_altura    = request.POST.get('desde_altura', '')
+        trayecto.desde_calle     = request.POST.get('desde_calle', '')
+        trayecto.desde_entre     = request.POST.get('desde_entre', '')
+        trayecto.localidad_hasta = Localidad.objects.get(id=request.POST.get('hasta_localidad', False))
+        trayecto.provincia_hasta = Provincia.objects.get(id=request.POST.get('hasta_provincia', False))
+        trayecto.hasta_altura    = request.POST.get('hasta_altura', '')
+        trayecto.hasta_calle     = request.POST.get('hasta_calle', '')
+        trayecto.hasta_entre     = request.POST.get('hasta_entre', '')
+        trayecto.save()
+
+        if principal == '1':
+            data = {
+                'error': '0',
+                'msg': 'Los datos han sido guardados correctamente.'
+            }
+            dump = json.dumps(data)
+            return HttpResponse(dump, content_type='application/json')
+        else:
+            mensaje = ''
+            context = {'mensaje': mensaje, 'trayectos': trayectos}
+            return render(request, 'sistema/grillaTramos.html', context)
 
 @login_required
 def altaPersona(request):
