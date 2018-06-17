@@ -162,7 +162,7 @@ def guardarViaje(request):
     }
 
     if es_nuevo == "1":
-        data['id_viaje'] = Viaje.objects.latest('id')
+        data['id_viaje'] = Viaje.objects.latest('id').id
 
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
@@ -192,14 +192,14 @@ def guardarTrayecto(request):
         trayecto.viaje = viaje
         trayecto.localidad_desde = Localidad.objects.get(id=request.POST.get('desde_localidad', False))
         trayecto.provincia_desde = Provincia.objects.get(id=request.POST.get('desde_provincia', False))
-        trayecto.desde_altura    = request.POST.get('desde_altura', '')
-        trayecto.desde_calle     = request.POST.get('desde_calle', '')
+        trayecto.altura_desde    = request.POST.get('desde_altura', '')
+        trayecto.calle_desde     = request.POST.get('desde_calle', '')
         trayecto.desde_entre     = request.POST.get('desde_entre', '')
         trayecto.localidad_hasta = Localidad.objects.get(id=request.POST.get('hasta_localidad', False))
         trayecto.provincia_hasta = Provincia.objects.get(id=request.POST.get('hasta_provincia', False))
-        trayecto.hasta_altura    = request.POST.get('hasta_altura', '')
-        trayecto.hasta_calle     = request.POST.get('hasta_calle', '')
-        trayecto.hasta_entre     = request.POST.get('hasta_entre', '')
+        trayecto.altura_hasta    = request.POST.get('hasta_altura', '')
+        trayecto.calle_hasta     = request.POST.get('hasta_calle', '')
+        trayecto.entre_hasta     = request.POST.get('hasta_entre', '')
         trayecto.save()
 
         if principal == '1':

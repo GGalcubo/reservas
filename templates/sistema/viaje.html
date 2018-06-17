@@ -391,14 +391,13 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <input type="text" class="form-control" id="desde_calle" name="desde_calle" value="">
+                                                                    <input type="text" class="form-control" id="desde_calle" name="desde_calle" value="{{ viaje.getTrayectoPrincipal.calle_desde }}">
                                                                     <label>Calle</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <input type="text" class="form-control" id="desde_altura" name="desde_altura"
-                                                                           value="">
+                                                                    <input type="text" class="form-control" id="desde_altura" name="desde_altura" value="{{ viaje.getTrayectoPrincipal.altura_desde }}">
                                                                     <label>Altura</label>
 
                                                                 </div>
@@ -407,8 +406,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <input type="text" class="form-control" id="desde_entre" name="desde_entre"
-                                                                           value="">
+                                                                    <input type="text" class="form-control" id="desde_entre" name="desde_entre" value="{{ viaje.getTrayectoPrincipal.entre_desde }}">
                                                                     <label>Entre</label>
 
                                                                 </div>
@@ -458,13 +456,13 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <input type="text" class="form-control" id="hasta_calle" name="hasta_calle" value="">
+                                                                    <input type="text" class="form-control" id="hasta_calle" name="hasta_calle" value="{{ viaje.getTrayectoPrincipal.calle_hasta }}">
                                                                     <label>Calle</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <input type="text" class="form-control" id="hasta_altura" name="hasta_altura" value="">
+                                                                    <input type="text" class="form-control" id="hasta_altura" name="hasta_altura" value="{{ viaje.getTrayectoPrincipal.altura_hasta }}">
                                                                     <label>Altura</label>
                                                                 </div>
                                                             </div>
@@ -472,7 +470,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <input type="text" class="form-control" id="hasta_entre" name="hasta_entre" value="">
+                                                                    <input type="text" class="form-control" id="hasta_entre" name="hasta_entre" value="{{ viaje.getTrayectoPrincipal.entre_hasta }}">
                                                                     <label>Entre</label>
                                                                 </div>
                                                             </div>
@@ -959,8 +957,13 @@
                data: obj, // serializes the form's elements.
                success: function(data)
                {
-                   $("#grillaTramos").html(data);
-                   $('#add_tramo').modal('toggle');
+                   if(data.error == '1'){
+                       alert(data.msg);
+                   }else{
+                       $("#grillaTramos").html(data);
+                       $('#add_tramo').modal('toggle');
+                   }
+
                }
              });
     }
@@ -1077,7 +1080,7 @@
                        $("#mensajeValidacion").html("");
                        $("#viajeValidacion").hide();
                        alert(data.msg); // show response from the php script.
-                       viaje = id_viaje;
+                       viaje = data.id_viaje;
                        $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
                    }
                  });
