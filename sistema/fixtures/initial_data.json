@@ -940,5 +940,26 @@
             "nombre": "Zarate",
             "provincia_id":1
         }
+    },
+{
+        "model": "sistema.TipoTelefono",
+        "pk": 1,
+        "fields": {
+            "tipo_telefono": "Principal"
+        }
+    },
+{
+        "model": "sistema.TipoTelefono",
+        "pk": 2,
+        "fields": {
+            "tipo_telefono": "Celular"
+        }
+    },
+{
+        "model": "sistema.TipoTelefono",
+        "pk": 3,
+        "fields": {
+            "tipo_telefono": "Trabajo"
+        }
     }
 ]
