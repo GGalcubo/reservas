@@ -29,15 +29,12 @@
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
-                                <div id="unidadValidacion" class="alert alert-danger">
-                                    <button class="close" data-close="alert"></button> 
-                                    <div></div> <div id="mensajeValidacion" ></div> 
-                                </div>
                                 <div class="portlet-body">
                                     <form role="form" method="post" id="formGuardarUnidad" action="/sistema/guardarUnidad/">{% csrf_token %}
                                         <input type="hidden" id="idUnidad" name="idUnidad" value="{{ unidad.id }}">
                                         <input type="hidden" id="idChofer" name="idChofer" value="{{ unidad.getIdChofer }}">
                                         <input type="hidden" id="idOwner" name="idOwner" value="{{ unidad.getIdOwner }}">
+                                        <input type="hidden" id="idVehiculo" name="idVehiculo" value="{{ unidad.getIdVehiculo }}">
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-sm-1">
@@ -265,9 +262,9 @@
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group form-md-line-input">
                                                                             <select class="form-control" id="tipoLicencia" name="tipoLicencia">
-                                                                                <option value="0">Licencia de conducir</option>
-                                                                                <option value="1">Permiso microcentro</option>
-                                                                                <option value="2">Otra</option>
+                                                                                {% for tl in tipo_licencias %}
+                                                                                <option value="{{ tl.id }}">{{ tl.tipo_licencia }}</option>
+                                                                                {% endfor %}
                                                                             </select>
                                                                             <label for="tipoLicencia">Tipo de Licencia</label>
                                                                         </div>
@@ -334,40 +331,26 @@
                                                                         <div class="tools"> </div>
                                                                     </div>
                                                                     <div class="portlet-body">
-                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaLicenciasUnidad">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th class="all">Editar</th>
-                                                                                    <th class="all">Número</th>
-                                                                                    <th class="all">Licencia</th>
-                                                                                    <th class="all">Vencimiento</th>
-                                                                                    <th class="all">Comentario</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href="#"><i class="fa fa-pencil">
-                                                                                    <td>468415</td>
-                                                                                    <td>Profesional</td>
-                                                                                    <td>25/08/2022</td>
-                                                                                    <td>Avisar un mes antes</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href="#"><i class="fa fa-pencil">
-                                                                                    <td>8798465</td>
-                                                                                    <td>Permiso circulación centro</td>
-                                                                                    <td>15/10/2019</td>
-                                                                                    <td>Avisar un mes antes</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href="#"><i class="fa fa-pencil">
-                                                                                    <td>16845</td>
-                                                                                    <td>Aeropuerto</td>
-                                                                                    <td>26/08/2030</td>
-                                                                                    <td>Avisar dos meses antes</td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
+                                                                        <div id="grillaLicencias" >
+                                                                            <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaLicenciasUnidad">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th class="all">Licencia</th>
+                                                                                        <th class="all">Vencimiento</th>
+                                                                                        <th class="all">Comentario</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    {% for l in unidad.getLicencias %}
+                                                                                    <tr>
+                                                                                        <td>{{ l.tipo_licencia.tipo_licencia }}</td>
+                                                                                        <td>{{ l.getFechaVencimiento }}</td>
+                                                                                        <td>{{ l.comentario }}</td>
+                                                                                    </tr>
+                                                                                    {% endfor %}
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <!-- END EXAMPLE TABLE PORTLET-->
@@ -483,7 +466,7 @@
                     $('#tablaLicenciasUnidad').DataTable( {
                         responsive: true,
                         // scrollY: 200,
-                        order: [[ 3, "asc" ]],
+                        order: [[ 1, "asc" ]],
                         lengthMenu: [
                                         [ -1, 500, 100, 50, 25, 10 ],
                                         [ 'Todos', '500', '100', '50', '25', '10' ]
@@ -513,37 +496,28 @@
                         $("#unidadDetalle").show()
                     }
 
-                    $("#mensajeValidacion").html("");
-                    $("#unidadValidacion").hide();
-
                     $("#selectChoferes").val($("#idChofer").val())
                     $("#selectOwners").val($("#idOwner").val())
 
-
-
-                    $('#personaLicencia').append($("<option></option>").attr("value",'{{ unidad.chofer.id }}'+'chofer').text('{{ unidad.chofer.nombre }}' + " " + '{{ unidad.chofer.apellido }}' + " (chofer)")); 
-                    $('#personaLicencia').append($("<option></option>").attr("value",'{{ unidad.owner.id }}'+'owner').text('{{ unidad.owner.nombre }}' + " " + '{{ unidad.owner.apellido }}' + " (dueño)")); 
-                    $('#personaLicencia').append($("<option></option>").attr("value",'{{ unidad.vehiculo.id }}'+'vehiculo').text('{{ unidad.vehiculo.patente }}' + " (vehiculo)")); 
-
-
-
+                    if ($("#idChofer").val() != ""){
+                        $('#personaLicencia').append($("<option></option>").attr("value",'chofer').text('{{ unidad.chofer.nombre }}' + " " + '{{ unidad.chofer.apellido }}' + " (chofer)")); 
+                    }
+                    if ($("#idOwner").val() != ""){
+                        $('#personaLicencia').append($("<option></option>").attr("value",'owner').text('{{ unidad.owner.nombre }}' + " " + '{{ unidad.owner.apellido }}' + " (dueño)")); 
+                    }
+                    if ($("#idVehiculo").val() != ""){
+                        $('#personaLicencia').append($("<option></option>").attr("value",'vehiculo').text('{{ unidad.vehiculo.patente }}' + " (vehiculo)")); 
+                    }
                 });
 
                 function guardarUnidad(){
 
                     if ($("#identificacion").val() == ""){
-                        $("#mensajeValidacion").html("El campo Nombre Unidad es obligatorio.");
-                        $("#unidadValidacion").show()
+                        alert("El campo Nombre Unidad es obligatorio.");
                         return false;
                     }
                     if ($("#selectOwners").val() == ""){
-                        $("#mensajeValidacion").html("El campo Dueño es obligatorio");
-                        $("#unidadValidacion").show()
-                        return false;
-                    }
-                    if ($("#patente").val() == ""){
-                        $("#mensajeValidacion").html("El campo Patente es obligatorio.");
-                        $("#unidadValidacion").show()
+                        alert("El campo Dueño es obligatorio");
                         return false;
                     }
                     
@@ -567,6 +541,21 @@
                         });
                         $('#add_observacion_unidad').modal('toggle');
                     }
+                }
+
+                function agregarLicencia(){
+                    var url = "/sistema/guardarLicenciaUnidad/";
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: $("#formGuardarUnidad").serialize(),
+                        success: function(data){
+                            $("#grillaLicencias").html(data);
+                            $('#descripcionLicencia').val("");
+                            $('#vencimientoLicencia').val("");
+                        }
+                    });
+                    $('#add_licencia').modal('toggle');
                 }
 
                 function agregarOwner(){

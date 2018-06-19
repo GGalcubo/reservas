@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Localidad, Provincia, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, Mail, MailCliente, TelefonoPersona
+from .models import Calle, Localidad, Provincia, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, Mail, MailCliente, TelefonoPersona, TipoLicencia, Licencia, LicenciaPersona, LicenciaVehiculo
 from django.http import HttpResponse
 
 import json
@@ -286,13 +286,8 @@ def guardarChoferProspect(request):
 
 @login_required
 def listadoCliente(request, **kwargs):
-	mensajeSuccess = request.session.get('mensajeSuccessCliente', '')
-	try:
-		del request.session['mensajeSuccessCliente']
-	except KeyError:
-		pass
 	clientes = Cliente.objects.filter(baja=False)
-	context = {'clientes': clientes, 'mensajeSuccess':mensajeSuccess}
+	context = {'clientes': clientes}
 	return render(request, 'sistema/listadoCliente.html', context)
 
 @login_required
@@ -314,18 +309,15 @@ def altaCliente(request):
 	context = {'mensaje': mensaje, 'tarifarios':tarifarios, 'cliente': cliente}
 	return render(request, 'sistema/cliente.html', context)
 
-
 @login_required
 def guardarCliente(request):
 	idCliente = request.POST.get('idCliente', "")
 	if idCliente == "0":
 		cliente = Cliente()
 		tel = Telefono()
-		mensaje = 'Se dio de alta el cliente '
 	else:
 		cliente = Cliente.objects.get(id=idCliente)
 		tel = cliente.telefonocliente_set.all()[0].telefono
-		mensaje = 'Se actualizo el cliente '
 
 	cliente.razon_social = request.POST.get('razonSocial', "")
 	cliente.cuil = request.POST.get('cuil', "")
@@ -336,7 +328,6 @@ def guardarCliente(request):
 	cliente.cp = request.POST.get('cp', "")
 	cliente.save()
 
-	
 	tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
 	tel.numero = request.POST.get('telefono', False)
 	tel.save()
@@ -346,8 +337,6 @@ def guardarCliente(request):
 		telcli.cliente = cliente
 		telcli.telefono = tel
 		telcli.save()
-
-	request.session['mensajeSuccessCliente'] = mensaje + cliente.razon_social
 
 	return redirect('listadoCliente')
 
@@ -364,7 +353,6 @@ def eliminarCliente(request):
 	cliente = Cliente.objects.get(id=idCliente)
 	cliente.baja = True
 	cliente.save()
-	request.session['mensajeSuccessCliente'] = 'Se elimino el cliente ' + cliente.razon_social
 
 	return redirect('listadoCliente')
 
@@ -458,7 +446,8 @@ def unidad(request):
 	unidad = Unidad.objects.get(id=idUnidad)
 	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4))
 	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3))
-	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes}
+	tipo_licencias = TipoLicencia.objects.all()
+	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes, 'tipo_licencias':tipo_licencias}
 	return render(request, 'sistema/unidad.html', context)
 
 @login_required
@@ -473,13 +462,8 @@ def altaUnidad(request):
 
 @login_required
 def listadoUnidad(request):
-	mensajeSuccess = request.session.get('mensajeSuccessUnidad', '')
-	try:
-		del request.session['mensajeSuccessUnidad']
-	except KeyError:
-		pass
 	unidades = Unidad.objects.filter(baja=False)
-	context = {'unidades':unidades, 'mensajeSuccess':mensajeSuccess}
+	context = {'unidades':unidades}
 	return render(request, 'sistema/listadoUnidad.html', context)
 
 @login_required
@@ -488,31 +472,30 @@ def guardarUnidad(request):
 	if idUnidad == "0":
 		unidad = Unidad()
 		vehiculo = Vehiculo()
-		mensaje = 'Se dio de alta launidad '
 	else:
 		unidad = Unidad.objects.get(id=idUnidad)
-		vehiculo = unidad.vehiculo
-		mensaje = 'Se actualizo la unidad '
+		if unidad.vehiculo:
+			vehiculo = unidad.vehiculo
+		else:
+			vehiculo = Vehiculo()
 
 	unidad.identificacion = request.POST.get('identificacion', "")
 	unidad.owner = Persona.objects.get(id=request.POST.get('selectOwners', ""))
 	unidad.porcentaje_owner = request.POST.get('porcFacturacionOwner', "")
 	unidad.chofer = Persona.objects.get(id=request.POST.get('selectChoferes', ""))
 	unidad.porcentaje_chofer = request.POST.get('porcFacturacionChofer', "")
-	vehiculo.patente = request.POST.get('patente', "")
-	vehiculo.modelo = request.POST.get('modelo', "")
-	vehiculo.marca = request.POST.get('marca', "")
-	vehiculo.color = request.POST.get('color', "")
-	vehiculo.ano = request.POST.get('year', "")
-	vehiculo.puertas = request.POST.get('puertas', "")
-	vehiculo.nro_motor = request.POST.get('nro_motor', "")
-	vehiculo.nro_chasis = request.POST.get('nro_chasis', "")
-	vehiculo.save()
-	unidad.vehiculo = vehiculo
+	if request.POST.get('patente', "") != "":
+		vehiculo.patente = request.POST.get('patente', "")
+		vehiculo.modelo = request.POST.get('modelo', "")
+		vehiculo.marca = request.POST.get('marca', "")
+		vehiculo.color = request.POST.get('color', "")
+		vehiculo.ano = request.POST.get('year', "")
+		vehiculo.puertas = request.POST.get('puertas', "")
+		vehiculo.nro_motor = request.POST.get('nro_motor', "")
+		vehiculo.nro_chasis = request.POST.get('nro_chasis', "")
+		vehiculo.save()
+		unidad.vehiculo = vehiculo
 	unidad.save()
-
-	request.session['mensajeSuccessUnidad'] = mensaje + unidad.identificacion
-
 	return redirect('listadoUnidad')
 
 @login_required
@@ -521,8 +504,6 @@ def eliminarUnidad(request):
 	unidad = Unidad.objects.get(id=idUnidad)
 	unidad.baja = True
 	unidad.save()
-	request.session['mensajeSuccessUnidad'] = 'Se elimino la unidad ' + unidad.identificacion
-
 	return redirect('listadoUnidad')
 
 @login_required
@@ -546,6 +527,35 @@ def guardarObservacionUnidad(request):
 
 	context = {'mensaje': mensaje, 'objeto':unidad}
 	return render(request, 'sistema/grillaObservaciones.html', context)
+
+@login_required
+def guardarLicenciaUnidad(request):
+	personaLicencia = request.POST.get('personaLicencia', False)
+	licencia = Licencia()
+	licencia.comentario = request.POST.get('descripcionLicencia', False)
+	licencia.tipo_licencia = TipoLicencia.objects.get(id=request.POST.get('tipoLicencia', False))
+	fv = request.POST.get('vencimientoLicencia', False)
+	licencia.fecha_vencimiento = fv[6:10] + fv[3:5] + fv[0:2]
+	licencia.save()
+	if personaLicencia == "chofer":
+		lp = LicenciaPersona()
+		lp.persona = Persona.objects.get(id=request.POST.get('idChofer', False))
+		lp.licencia = licencia
+		lp.save()
+	elif personaLicencia == "owner":
+		lp = LicenciaPersona()
+		lp.persona = Persona.objects.get(id=request.POST.get('idOwner', False))
+		lp.licencia = licencia
+		lp.save()
+	else:
+		lv = LicenciaVehiculo()
+		lv.vehiculo = Vehiculo.objects.get(id=request.POST.get('idVehiculo', False))
+		lv.licencia = licencia
+		lv.save()
+
+	unidad = Unidad.objects.get(id=request.POST.get('idUnidad', False))
+	context = {'unidad':unidad}
+	return render(request, 'sistema/grillaLicencias.html', context)
 
 @login_required
 def contacto(request):

@@ -36,11 +36,6 @@
                                 <form role="form" method="post" id="formUnidad" action="/sistema/unidad/">{% csrf_token %}
                                     <input type="hidden" id="idUnidad" name="idUnidad" >
                                 </form>
-                                <input type="hidden" id="mensajeSuccess" name="mensajeSuccess" value="{{ mensajeSuccess }}" >
-                                <div id="divSuccess" class="alert alert-success">
-                                    <button class="close" data-close="alert"></button> 
-                                    <div></div> <div id="mensajeDivSuccess" ></div> 
-                                </div>
                                 <div class="portlet-body">
                                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoUnidades">
                                         <thead>
@@ -49,15 +44,11 @@
                                                 <th class="all" style="width: 40px;" >Eliminar</th>
                                                 <th class="all">ID</th>
                                                 <th class="all">Nombre</th>
-                                                <th class="all">Provedor</th>
-                                                <th class="all">Patente</th>
+                                                <th class="all">Chofer</th>
+                                                <th class="all">Dueño</th>
                                                 <th class="all">Modelo</th>
                                                 <th class="all">Marca</th>
                                                 <th class="all">Color</th>
-                                                <th class="all">Año</th>
-                                                <th class="all">Puertas</th>
-                                                <th class="">Motor</th>
-                                                <th class="">Chasis</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -68,14 +59,11 @@
                                                     <td>{{ unidad.id }}</td>
                                                     <td>{{ unidad.identificacion }}</td>
                                                     <td>{{ unidad.chofer.nombreCompleto }}</td>
+                                                    <td>{{ unidad.owner.nombreCompleto }}</td>
                                                     <td>{{ unidad.vehiculo.patente }}</td>
                                                     <td>{{ unidad.vehiculo.modelo }}</td>
                                                     <td>{{ unidad.vehiculo.marca }}</td>
                                                     <td>{{ unidad.vehiculo.color }}</td>
-                                                    <td>{{ unidad.vehiculo.ano }}</td>
-                                                    <td>{{ unidad.vehiculo.puertas }}</td>
-                                                    <td>{{ unidad.vehiculo.nro_motor }}</td>
-                                                    <td>{{ unidad.vehiculo.nro_chasis }}</td>
                                                 </tr>
                                             {% endfor %}
                                         </tbody>
@@ -111,13 +99,6 @@
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
                         },
                     } );
-                    
-                    if ($('#mensajeSuccess').val() == ''){
-                        $('#divSuccess').hide() 
-                    }else{
-                        $('#mensajeDivSuccess').html($('#mensajeSuccess').val());
-                        $('#divSuccess').show() 
-                    }
 
                 });
 

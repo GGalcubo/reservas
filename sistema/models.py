@@ -16,7 +16,8 @@ class Provincia(models.Model):
 class Localidad(models.Model):
     nombre = models.CharField(max_length=100)
     provincia = models.ForeignKey(Provincia, null=True, blank=True)
-    
+    id_externo = models.CharField(max_length=100, null=True, blank=True)
+
     def __unicode__(self):
         return u'%s' % self.nombre
 
@@ -150,16 +151,18 @@ class Mail(models.Model):
         return self.mail
 
 class Licencia(models.Model):
-    licencia = models.CharField(max_length=100, null=True, blank=True)
+    comentario = models.CharField(max_length=200, null=True, blank=True)
     tipo_licencia = models.ForeignKey(TipoLicencia, null=True, blank=True)
     fecha_vencimiento = models.CharField(max_length=8, null=True, blank=True)
-    numero = models.CharField(max_length=50)
 
     def __unicode__(self):
-        return u'%s' % self.numero
+        return u'%s' % self.fecha_vencimiento
 
     def __str__(self):
-        return self.numero
+        return self.fecha_vencimiento
+
+    def getFechaVencimiento(self):
+        return getFecha(self.fecha_vencimiento)
 
 class Persona(models.Model):
     nombre = models.CharField(max_length=100)
@@ -199,6 +202,12 @@ class Persona(models.Model):
             observaciones.append(obspe.observacion)
         return observaciones
 
+    def getLicencias(self):
+        licencias = []
+        for licper in self.licenciapersona_set.all():
+            licencias.append(licper.licencia)
+        return licencias
+
 class Vehiculo(models.Model):
     marca = models.CharField(max_length=100)
     modelo = models.CharField(max_length=100)
@@ -216,6 +225,12 @@ class Vehiculo(models.Model):
     
     def __str__(self):
         return self.nro_motor
+
+    def getLicencias(self):
+        licencias = []
+        for licveh in self.licenciavehiculo_set.all():
+            licencias.append(licveh.licencia)
+        return licencias
 
 class Unidad(models.Model):
     identificacion = models.CharField(max_length=100)
@@ -244,11 +259,27 @@ class Unidad(models.Model):
         except Exception as inst:
             return ""
 
+    def getIdVehiculo(self):
+        try:
+            return self.vehiculo.id
+        except Exception as inst:
+            return ""
+
     def getObservaciones(self):
         observaciones = []
         for obscli in self.observacionunidad_set.all():
             observaciones.append(obscli.observacion)
         return observaciones
+
+    def getLicencias(self):
+        licencias = []
+        if self.chofer:
+            licencias.extend(self.chofer.getLicencias())
+        if self.owner:
+            licencias.extend(self.owner.getLicencias())
+        if self.vehiculo:
+            licencias.extend(self.vehiculo.getLicencias())
+        return licencias
 
     class Meta:
         verbose_name_plural = "Unidades" 
@@ -312,6 +343,7 @@ class CentroCosto(models.Model):
     fecha_fin = models.CharField(max_length=8, null=True, blank=True)
     descripcion = models.TextField(null=True, blank=True)
     cliente = models.ForeignKey(Cliente, null=True, blank=True)
+    tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.nombre
@@ -338,6 +370,9 @@ class Viaje(models.Model):
     centro_costo = models.ForeignKey(CentroCosto, null=True, blank=True)
     categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
     hora_estimada = models.CharField(max_length=10, null=True, blank=True)
+    costo_prov = models.IntegerField(default=0)
+    tarifapasada = models.IntegerField(default=0)
+    espera = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.fecha
@@ -419,11 +454,8 @@ class Trayecto(models.Model):
     compania_hasta = models.CharField(max_length=30, null=True, blank=True)
     vuelo_hasta = models.CharField(max_length=30, null=True, blank=True)
     destino_hasta = models.ForeignKey(TrayectoDestino, null=True, blank=True, related_name='destino_hasta')
-    base_tot = models.CharField(max_length=30, null=True, blank=True)
-    peaje_tot = models.CharField(max_length=30, null=True, blank=True)
-    estacionamiento_tot = models.CharField(max_length=30, null=True, blank=True)
-    otros_tot = models.CharField(max_length=30, null=True, blank=True)
     comentario = models.TextField(null=True, blank=True)
+    tramoppalflag = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s' % self.calle_desde
@@ -501,17 +533,6 @@ class ObservacionCentroCosto(models.Model):
     def __str__(self):
         return self.observacion
 
-class ObservacionLicencia(models.Model):
-    observacion = models.ForeignKey(Observacion, null=True, blank=True)
-    licencia = models.ForeignKey(Licencia, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.observacion
-
-    def __str__(self):
-        return self.observacion
-
-
 class TelefonoPersona(models.Model):
     telefono = models.ForeignKey(Telefono, null=True, blank=True)
     persona = models.ForeignKey(Persona, null=True, blank=True)
@@ -585,3 +606,6 @@ class LicenciaVehiculo(models.Model):
 # devuelve hh:mm dd/mm/aaaa
 def getFechaHora(aaaammddhhmm):
     return aaaammddhhmm[8:10] + ":" + aaaammddhhmm[10:12] + " " + aaaammddhhmm[6:8] + "/" + aaaammddhhmm[4:6] + "/" + aaaammddhhmm[0:4]
+
+def getFecha(aaaammdd):
+    return aaaammdd[6:8] + "/" + aaaammdd[4:6] + "/" + aaaammdd[0:4]
