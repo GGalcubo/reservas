@@ -1,9 +1,11 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, centroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad
+from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, centroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad
+
 
 urlpatterns = [
     url(r'^dashboard/', dashboard, name='dashboard'),
     url(r'^operaciones/', operaciones, name='operaciones'),
+    url(r'^asignaciones/', asignaciones, name='asignaciones'),
     url(r'^altaViaje/', altaViaje, name='altaViaje'),
     url(r'^editaViaje/$', editaViaje, name='editaViaje'),
     url(r'^guardarViaje/', guardarViaje, name='guardarViaje'),
@@ -36,6 +38,8 @@ urlpatterns = [
     url(r'^tarifario/', tarifario, name='tarifario'),
     url(r'^listadoLicencia/', listadoLicencia, name='listadoLicencia'),
     url(r'^licencia/', licencia, name='licencia'),
+    url(r'^cargarLocalidad/', cargarLocalidad, name='cargarLocalidad'),
+    url(r'^cargarProvincia/', cargarProvincia, name='cargarProvincia'),
     url(r'^importarcalles/', importar_calles, name='importar_calles'),
     url(r'^exportar/', exportar, name='exportar'),
     

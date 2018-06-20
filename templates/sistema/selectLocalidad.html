@@ -1,0 +1,7 @@
+<select class="form-control" id="localidad" name="localidad" onchange="cargarProvincia();">
+    <option value="">Seleccione localidad</option>
+    {% for l in localidades %}
+        <option selected value="{{ l.id }}" >{{ l.nombre }}</option>
+    {% endfor %}
+</select>
+<label for="localidad">Localidad</label>

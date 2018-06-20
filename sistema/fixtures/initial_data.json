@@ -1,965 +1,3496 @@
 [
 {
-        "model": "sistema.TipoPersona",
-        "pk": 1,
-        "fields": {
-            "tipo_persona": "Contacto"
-        }
-    },
-{
-        "model": "sistema.TipoPersona",
-        "pk": 2,
-        "fields": {
-            "tipo_persona": "Pasajero"
-        }
-    },
-{
-        "model": "sistema.TipoPersona",
-        "pk": 3,
-        "fields": {
-            "tipo_persona": "Chofer"
-        }
-    },
-{
-        "model": "sistema.TipoPersona",
-        "pk": 4,
-        "fields": {
-            "tipo_persona": "Dueño"
-        }
-    },
-{
-        "model": "sistema.tipolicencia",
-        "pk": 1,
-        "fields": {
-            "tipo_licencia": "Conducir"
-        }
-    },
-{
-        "model": "sistema.tipolicencia",
-        "pk": 2,
-        "fields": {
-            "tipo_licencia": "Seguro"
-        }
-    },
-{
-        "model": "sistema.tipolicencia",
-        "pk": 3,
-        "fields": {
-            "tipo_licencia": "Ciruculacion"
-        }
-    },
-{
-        "model": "sistema.tipolicencia",
-        "pk": 4,
-        "fields": {
-            "tipo_licencia": "Otra"
-        }
-    },
-{
-        "model": "sistema.TrayectoDestino",
-        "pk": 1,
-        "fields": {
-            "nombre": "Ezeiza"
-        }
-    },
-{
-        "model": "sistema.TrayectoDestino",
-        "pk": 2,
-        "fields": {
-            "nombre": "AEP"
-        }
-    },
-{
-        "model": "sistema.TrayectoDestino",
-        "pk": 3,
-        "fields": {
-            "nombre": "Buquebus"
-        }
-    },
-{
-        "model": "sistema.TrayectoDestino",
-        "pk": 4,
-        "fields": {
-            "nombre": "Retiro"
-        }
-    },
-{
-        "model": "sistema.TrayectoDestino",
-        "pk": 5,
-        "fields": {
-            "nombre": "Interior"
-        }
-    },
-{
-        "model": "sistema.TrayectoDestino",
-        "pk": 6,
-        "fields": {
-            "nombre": "CABA"
-        }
-    },
-{
-        "model": "sistema.TrayectoDestino",
-        "pk": 7,
-        "fields": {
-            "nombre": "Buenos Aires"
-        }
-    },
-{
-        "model": "sistema.Estado",
-        "pk": 1,
-        "fields": {
-            "estado": "Nuevo"
-        }
-    },
-{
-        "model": "sistema.Estado",
-        "pk": 2,
-        "fields": {
-            "estado": "Pre-Asignado"
-        }
-    },
-{
-        "model": "sistema.Estado",
-        "pk": 3,
-        "fields": {
-            "estado": "Asignado"
-        }
-    },
-{
-        "model": "sistema.Estado",
-        "pk": 4,
-        "fields": {
-            "estado": "Confirmado"
-        }
-    },
-{
-        "model": "sistema.Estado",
-        "pk": 5,
-        "fields": {
-            "estado": "En Progreso"
-        }
-    },
-{
-        "model": "sistema.Estado",
-        "pk": 6,
-        "fields": {
-            "estado": "Finalizado"
-        }
-    },
-{
-        "model": "sistema.Estado",
-        "pk": 7,
-        "fields": {
-            "estado": "Cerrado"
-        }
-    },
-{
-        "model": "sistema.EstadoCivil",
-        "pk": 1,
-        "fields": {
-            "estado_civil": "Soltero"
-        }
-    },
-{
-        "model": "sistema.EstadoCivil",
-        "pk": 2,
-        "fields": {
-            "estado_civil": "Casado"
-        }
-    },
-{
-        "model": "sistema.EstadoCivil",
-        "pk": 3,
-        "fields": {
-            "estado_civil": "Viudo"
-        }
-    },
-{
-        "model": "sistema.EstadoCivil",
-        "pk": 4,
-        "fields": {
-            "estado_civil": "Divorciado"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 1,
-        "fields": {
-            "nombre": "Buenos Aires"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 2,
-        "fields": {
-            "nombre": "Catamarca"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 3,
-        "fields": {
-            "nombre": "Chaco"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 4,
-        "fields": {
-            "nombre": "Chubut"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 5,
-        "fields": {
-            "nombre": "Córdoba"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 6,
-        "fields": {
-            "nombre": "Corrientes"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 7,
-        "fields": {
-            "nombre": "Entre Ríos"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 8,
-        "fields": {
-            "nombre": "Formosa"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 9,
-        "fields": {
-            "nombre": "Jujuy"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 10,
-        "fields": {
-            "nombre": "La Pampa"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 11,
-        "fields": {
-            "nombre": "La Rioja"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 12,
-        "fields": {
-            "nombre": "Mendoza"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 13,
-        "fields": {
-            "nombre": "Misiones"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 14,
-        "fields": {
-            "nombre": "Neuquén"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 15,
-        "fields": {
-            "nombre": "Río Negro"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 16,
-        "fields": {
-            "nombre": "Salta"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 17,
-        "fields": {
-            "nombre": "San Juan"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 18,
-        "fields": {
-            "nombre": "San Luis"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 19,
-        "fields": {
-            "nombre": "Santa Cruz"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 20,
-        "fields": {
-            "nombre": "Santa Fe"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 21,
-        "fields": {
-            "nombre": "Santiago del Estero"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 22,
-        "fields": {
-            "nombre": "Tierra del Fuego, Antártida e Islas del Atlántico Sur"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 23,
-        "fields": {
-            "nombre": "Tucumán"
-        }
-    },
-{
-        "model": "sistema.Provincia",
-        "pk": 24,
-        "fields": {
-            "nombre": "CABA"
-        }
-    },
-	{
-        "model": "sistema.CategoriaViaje",
-        "pk": 1,
-        "fields": {
-            "codigo": "STD",
-            "categoria":"Auto Std"
-        }
-    },
-{
-        "model": "sistema.CategoriaViaje",
-        "pk": 2,
-        "fields": {
-            "codigo": "VIP",
-            "categoria":"Auto VIP"
-        }
-    },
-{
-        "model": "sistema.CategoriaViaje",
-        "pk": 3,
-        "fields": {
-            "codigo": "UTI",
-            "categoria":"Utilitario"
-        }
-    },
-{
-        "model": "sistema.CategoriaViaje",
-        "pk": 4,
-        "fields": {
-            "codigo": "EJEC",
-            "categoria":"Ejecutivo"
-        }
-    },
-{
-        "model": "sistema.CategoriaViaje",
-        "pk": 5,
-        "fields": {
-            "codigo": "VAN - C",
-            "categoria":"VAN Corta"
-        }
-    },
-{
-        "model": "sistema.CategoriaViaje",
-        "pk": 6,
-        "fields": {
-            "codigo": "VAN - L",
-            "categoria":"VAN Larga"
-        }
-    },
-{
-        "model": "sistema.CategoriaViaje",
-        "pk": 7,
-        "fields": {
-            "codigo": "MINI",
-            "categoria":"Mini Bus"
-        }
-    },
-{
-        "model": "sistema.CategoriaViaje",
-        "pk": 8,
-        "fields": {
-            "codigo": "BUS",
-            "categoria":"Bus"
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 1,
-        "fields": {
-            "nombre": "Zona A",
-            "provincia_id":24
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 2,
-        "fields": {
-            "nombre": "Zona B",
-            "provincia_id":24
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 3,
-        "fields": {
-            "nombre": "Centro",
-            "provincia_id":24
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 4,
-        "fields": {
-            "nombre": "AEP",
-            "provincia_id":24
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 5,
-        "fields": {
-            "nombre": "Buquebus",
-            "provincia_id":24
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 6,
-        "fields": {
-            "nombre": "Retiro",
-            "provincia_id":24
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 7,
-        "fields": {
-            "nombre": "Adrogue",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 8,
-        "fields": {
-            "nombre": "Areco",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 9,
-        "fields": {
-            "nombre": "Avellaneda",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 10,
-        "fields": {
-            "nombre": "Banfield",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 11,
-        "fields": {
-            "nombre": "Berazategui",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 12,
-        "fields": {
-            "nombre": "Bernal",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 13,
-        "fields": {
-            "nombre": "Cardales",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 14,
-        "fields": {
-            "nombre": "Caseros",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 15,
-        "fields": {
-            "nombre": "Castelar",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 16,
-        "fields": {
-            "nombre": "Chascomus",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 17,
-        "fields": {
-            "nombre": "Don Silvano",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 18,
-        "fields": {
-            "nombre": "Campana",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 19,
-        "fields": {
-            "nombre": "Ezeiza",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 20,
-        "fields": {
-            "nombre": "Guerrero",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 21,
-        "fields": {
-            "nombre": "Haedo",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 22,
-        "fields": {
-            "nombre": "Hudson",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 23,
-        "fields": {
-            "nombre": "Hurlingham",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 24,
-        "fields": {
-            "nombre": "Ituzaingo",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 25,
-        "fields": {
-            "nombre": "Jose L Suarez",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 26,
-        "fields": {
-            "nombre": "Kraft",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 27,
-        "fields": {
-            "nombre": "La Candelaria",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 28,
-        "fields": {
-            "nombre": "La Figura",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 29,
-        "fields": {
-            "nombre": "La Plata",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 30,
-        "fields": {
-            "nombre": "Lanus",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 31,
-        "fields": {
-            "nombre": "Lomas De Zamora",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 32,
-        "fields": {
-            "nombre": "Lujan",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 33,
-        "fields": {
-            "nombre": "Mar Del Plata",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 34,
-        "fields": {
-            "nombre": "Martinez",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 35,
-        "fields": {
-            "nombre": "Massalin",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 36,
-        "fields": {
-            "nombre": "Maximo Paz",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 37,
-        "fields": {
-            "nombre": "Merlo",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 38,
-        "fields": {
-            "nombre": "Montegrande",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 39,
-        "fields": {
-            "nombre": "Moreno",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 40,
-        "fields": {
-            "nombre": "Moron",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 41,
-        "fields": {
-            "nombre": "Munro",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 42,
-        "fields": {
-            "nombre": "Nordelta",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 43,
-        "fields": {
-            "nombre": "Olivos",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 44,
-        "fields": {
-            "nombre": "Palomar",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 45,
-        "fields": {
-            "nombre": "Peugeot",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 46,
-        "fields": {
-            "nombre": "Pilar",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 47,
-        "fields": {
-            "nombre": "Quilmes",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 48,
-        "fields": {
-            "nombre": "R De Escalada",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 49,
-        "fields": {
-            "nombre": "Ramos Mejia",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 50,
-        "fields": {
-            "nombre": "San Ceferino",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 51,
-        "fields": {
-            "nombre": "San Fernando",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 52,
-        "fields": {
-            "nombre": "San Isidro",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 53,
-        "fields": {
-            "nombre": "San Justo",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 54,
-        "fields": {
-            "nombre": "San Martin",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 55,
-        "fields": {
-            "nombre": "San Miguel",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 56,
-        "fields": {
-            "nombre": "Santa Susana",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 57,
-        "fields": {
-            "nombre": "Santos Lugares",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 58,
-        "fields": {
-            "nombre": "Siemens",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 59,
-        "fields": {
-            "nombre": "Temperley",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 60,
-        "fields": {
-            "nombre": "Tigre",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 61,
-        "fields": {
-            "nombre": "Tortuguitas",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 62,
-        "fields": {
-            "nombre": "Troncos Del Talar",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 63,
-        "fields": {
-            "nombre": "Vicente Lopez",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 64,
-        "fields": {
-            "nombre": "Villa Ballester",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 65,
-        "fields": {
-            "nombre": "Wilde",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 66,
-        "fields": {
-            "nombre": "Zarate",
-            "provincia_id":1
-        }
-    },
-{
-        "model": "sistema.TipoTelefono",
-        "pk": 1,
-        "fields": {
-            "tipo_telefono": "Principal"
-        }
-    },
-{
-        "model": "sistema.TipoTelefono",
-        "pk": 2,
-        "fields": {
-            "tipo_telefono": "Celular"
-        }
-    },
-{
-        "model": "sistema.TipoTelefono",
-        "pk": 3,
-        "fields": {
-            "tipo_telefono": "Trabajo"
-        }
-    }
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "sistema",
+    "model": "provincia"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "sistema",
+    "model": "localidad"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "sistema",
+    "model": "calle"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "sistema",
+    "model": "estado"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "sistema",
+    "model": "estadocivil"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "sistema",
+    "model": "categoriacliente"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "sistema",
+    "model": "categoriaviaje"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "sistema",
+    "model": "tipopersona"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "sistema",
+    "model": "tipoobservacion"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "sistema",
+    "model": "tipolicencia"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "sistema",
+    "model": "adjunto"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 18,
+  "fields": {
+    "app_label": "sistema",
+    "model": "tipotelefono"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 19,
+  "fields": {
+    "app_label": "sistema",
+    "model": "telefono"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 20,
+  "fields": {
+    "app_label": "sistema",
+    "model": "observacion"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 21,
+  "fields": {
+    "app_label": "sistema",
+    "model": "licencia"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 22,
+  "fields": {
+    "app_label": "sistema",
+    "model": "persona"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 23,
+  "fields": {
+    "app_label": "sistema",
+    "model": "vehiculo"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 24,
+  "fields": {
+    "app_label": "sistema",
+    "model": "unidad"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 25,
+  "fields": {
+    "app_label": "sistema",
+    "model": "tarifario"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 26,
+  "fields": {
+    "app_label": "sistema",
+    "model": "cliente"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 27,
+  "fields": {
+    "app_label": "sistema",
+    "model": "centrocosto"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 28,
+  "fields": {
+    "app_label": "sistema",
+    "model": "viaje"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 29,
+  "fields": {
+    "app_label": "sistema",
+    "model": "viajepasajero"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 30,
+  "fields": {
+    "app_label": "sistema",
+    "model": "viajehistorial"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 31,
+  "fields": {
+    "app_label": "sistema",
+    "model": "tipotrayectodestino"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 32,
+  "fields": {
+    "app_label": "sistema",
+    "model": "trayectodestino"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 33,
+  "fields": {
+    "app_label": "sistema",
+    "model": "trayecto"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 34,
+  "fields": {
+    "app_label": "sistema",
+    "model": "personacliente"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 35,
+  "fields": {
+    "app_label": "sistema",
+    "model": "observacionpersona"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 36,
+  "fields": {
+    "app_label": "sistema",
+    "model": "observacionunidad"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 37,
+  "fields": {
+    "app_label": "sistema",
+    "model": "observacionvehiculo"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 38,
+  "fields": {
+    "app_label": "sistema",
+    "model": "observacioncliente"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 39,
+  "fields": {
+    "app_label": "sistema",
+    "model": "observacionviaje"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 40,
+  "fields": {
+    "app_label": "sistema",
+    "model": "observacioncentrocosto"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 41,
+  "fields": {
+    "app_label": "sistema",
+    "model": "observacionlicencia"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 42,
+  "fields": {
+    "app_label": "sistema",
+    "model": "telefonopersona"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 43,
+  "fields": {
+    "app_label": "sistema",
+    "model": "mailpersona"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 44,
+  "fields": {
+    "app_label": "sistema",
+    "model": "telefonocliente"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 45,
+  "fields": {
+    "app_label": "sistema",
+    "model": "mailcliente"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 46,
+  "fields": {
+    "app_label": "sistema",
+    "model": "adjuntoviaje"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 47,
+  "fields": {
+    "app_label": "sistema",
+    "model": "licenciapersona"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 48,
+  "fields": {
+    "app_label": "sistema",
+    "model": "licenciavehiculo"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 49,
+  "fields": {
+    "app_label": "sistema",
+    "model": "mail"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ok8a771bdxjflv68liumimq5wgw85wr6",
+  "fields": {
+    "session_data": "NWMwOTE4YzA0ZDk2Mjk5NjJmNzY1YzIzYTRkZDdjOTU1NDRiODQ2Yjp7Il9hdXRoX3VzZXJfaGFzaCI6ImIwZjU3ZmFjY2NkMGEyNzZkYjBhZThlMjE4ZWRlMmFiNzkwOWU4YWUiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+    "expire_date": "2018-06-30T00:53:09Z"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 1,
+  "fields": {
+    "nombre": "Buenos Aires"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 2,
+  "fields": {
+    "nombre": "Catamarca"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 3,
+  "fields": {
+    "nombre": "Chaco"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 4,
+  "fields": {
+    "nombre": "Chubut"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 5,
+  "fields": {
+    "nombre": "C\u00f3rdoba"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 6,
+  "fields": {
+    "nombre": "Corrientes"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 7,
+  "fields": {
+    "nombre": "Entre R\u00edos"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 8,
+  "fields": {
+    "nombre": "Formosa"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 9,
+  "fields": {
+    "nombre": "Jujuy"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 10,
+  "fields": {
+    "nombre": "La Pampa"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 11,
+  "fields": {
+    "nombre": "La Rioja"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 12,
+  "fields": {
+    "nombre": "Mendoza"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 13,
+  "fields": {
+    "nombre": "Misiones"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 14,
+  "fields": {
+    "nombre": "Neuqu\u00e9n"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 15,
+  "fields": {
+    "nombre": "R\u00edo Negro"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 16,
+  "fields": {
+    "nombre": "Salta"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 17,
+  "fields": {
+    "nombre": "San Juan"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 18,
+  "fields": {
+    "nombre": "San Luis"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 19,
+  "fields": {
+    "nombre": "Santa Cruz"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 20,
+  "fields": {
+    "nombre": "Santa Fe"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 21,
+  "fields": {
+    "nombre": "Santiago del Estero"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 22,
+  "fields": {
+    "nombre": "Tierra del Fuego"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 23,
+  "fields": {
+    "nombre": "Tucum\u00e1n"
+  }
+},
+{
+  "model": "sistema.provincia",
+  "pk": 24,
+  "fields": {
+    "nombre": "CABA"
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 1,
+  "fields": {
+    "nombre": "Zona A",
+    "provincia": 24,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 2,
+  "fields": {
+    "nombre": "Zona B",
+    "provincia": 24,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 3,
+  "fields": {
+    "nombre": "Centro",
+    "provincia": 24,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 4,
+  "fields": {
+    "nombre": "AEP",
+    "provincia": 24,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 5,
+  "fields": {
+    "nombre": "Buquebus",
+    "provincia": 24,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 6,
+  "fields": {
+    "nombre": "Retiro",
+    "provincia": 24,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 7,
+  "fields": {
+    "nombre": "Adrogue",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 8,
+  "fields": {
+    "nombre": "Areco",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 9,
+  "fields": {
+    "nombre": "Avellaneda",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 10,
+  "fields": {
+    "nombre": "Banfield",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 11,
+  "fields": {
+    "nombre": "Berazategui",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 12,
+  "fields": {
+    "nombre": "Bernal",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 13,
+  "fields": {
+    "nombre": "Cardales",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 14,
+  "fields": {
+    "nombre": "Caseros",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 15,
+  "fields": {
+    "nombre": "Castelar",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 16,
+  "fields": {
+    "nombre": "Chascomus",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 17,
+  "fields": {
+    "nombre": "Don Silvano",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 18,
+  "fields": {
+    "nombre": "Campana",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 19,
+  "fields": {
+    "nombre": "Ezeiza",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 20,
+  "fields": {
+    "nombre": "Guerrero",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 21,
+  "fields": {
+    "nombre": "Haedo",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 22,
+  "fields": {
+    "nombre": "Hudson",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 23,
+  "fields": {
+    "nombre": "Hurlingham",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 24,
+  "fields": {
+    "nombre": "Ituzaingo",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 25,
+  "fields": {
+    "nombre": "Jose L Suarez",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 26,
+  "fields": {
+    "nombre": "Kraft",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 27,
+  "fields": {
+    "nombre": "La Candelaria",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 28,
+  "fields": {
+    "nombre": "La Figura",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 29,
+  "fields": {
+    "nombre": "La Plata",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 30,
+  "fields": {
+    "nombre": "Lanus",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 31,
+  "fields": {
+    "nombre": "Lomas De Zamora",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 32,
+  "fields": {
+    "nombre": "Lujan",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 33,
+  "fields": {
+    "nombre": "Mar Del Plata",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 34,
+  "fields": {
+    "nombre": "Martinez",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 35,
+  "fields": {
+    "nombre": "Massalin",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 36,
+  "fields": {
+    "nombre": "Maximo Paz",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 37,
+  "fields": {
+    "nombre": "Merlo",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 38,
+  "fields": {
+    "nombre": "Montegrande",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 39,
+  "fields": {
+    "nombre": "Moreno",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 40,
+  "fields": {
+    "nombre": "Moron",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 41,
+  "fields": {
+    "nombre": "Munro",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 42,
+  "fields": {
+    "nombre": "Nordelta",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 43,
+  "fields": {
+    "nombre": "Olivos",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 44,
+  "fields": {
+    "nombre": "Palomar",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 45,
+  "fields": {
+    "nombre": "Peugeot",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 46,
+  "fields": {
+    "nombre": "Pilar",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 47,
+  "fields": {
+    "nombre": "Quilmes",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 48,
+  "fields": {
+    "nombre": "R De Escalada",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 49,
+  "fields": {
+    "nombre": "Ramos Mejia",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 50,
+  "fields": {
+    "nombre": "San Ceferino",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 51,
+  "fields": {
+    "nombre": "San Fernando",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 52,
+  "fields": {
+    "nombre": "San Isidro",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 53,
+  "fields": {
+    "nombre": "San Justo",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 54,
+  "fields": {
+    "nombre": "San Martin",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 55,
+  "fields": {
+    "nombre": "San Miguel",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 56,
+  "fields": {
+    "nombre": "Santa Susana",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 57,
+  "fields": {
+    "nombre": "Santos Lugares",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 58,
+  "fields": {
+    "nombre": "Siemens",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 59,
+  "fields": {
+    "nombre": "Temperley",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 60,
+  "fields": {
+    "nombre": "Tigre",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 61,
+  "fields": {
+    "nombre": "Tortuguitas",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 62,
+  "fields": {
+    "nombre": "Troncos Del Talar",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 63,
+  "fields": {
+    "nombre": "Vicente Lopez",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 64,
+  "fields": {
+    "nombre": "Villa Ballester",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 65,
+  "fields": {
+    "nombre": "Wilde",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.localidad",
+  "pk": 66,
+  "fields": {
+    "nombre": "Zarate",
+    "provincia": 1,
+    "id_externo": null
+  }
+},
+{
+  "model": "sistema.estado",
+  "pk": 1,
+  "fields": {
+    "estado": "Nuevo"
+  }
+},
+{
+  "model": "sistema.estado",
+  "pk": 2,
+  "fields": {
+    "estado": "Pre-Asignado"
+  }
+},
+{
+  "model": "sistema.estado",
+  "pk": 3,
+  "fields": {
+    "estado": "Asignado"
+  }
+},
+{
+  "model": "sistema.estado",
+  "pk": 4,
+  "fields": {
+    "estado": "Confirmado"
+  }
+},
+{
+  "model": "sistema.estado",
+  "pk": 5,
+  "fields": {
+    "estado": "En Progreso"
+  }
+},
+{
+  "model": "sistema.estado",
+  "pk": 6,
+  "fields": {
+    "estado": "Finalizado"
+  }
+},
+{
+  "model": "sistema.estado",
+  "pk": 7,
+  "fields": {
+    "estado": "Cerrado"
+  }
+},
+{
+  "model": "sistema.estadocivil",
+  "pk": 1,
+  "fields": {
+    "estado_civil": "Soltero"
+  }
+},
+{
+  "model": "sistema.estadocivil",
+  "pk": 2,
+  "fields": {
+    "estado_civil": "Casado"
+  }
+},
+{
+  "model": "sistema.estadocivil",
+  "pk": 3,
+  "fields": {
+    "estado_civil": "Viudo"
+  }
+},
+{
+  "model": "sistema.estadocivil",
+  "pk": 4,
+  "fields": {
+    "estado_civil": "Divorciado"
+  }
+},
+{
+  "model": "sistema.categoriaviaje",
+  "pk": 1,
+  "fields": {
+    "codigo": "STD",
+    "categoria": "Auto Std"
+  }
+},
+{
+  "model": "sistema.categoriaviaje",
+  "pk": 2,
+  "fields": {
+    "codigo": "VIP",
+    "categoria": "Auto VIP"
+  }
+},
+{
+  "model": "sistema.categoriaviaje",
+  "pk": 3,
+  "fields": {
+    "codigo": "UTI",
+    "categoria": "Utilitario"
+  }
+},
+{
+  "model": "sistema.categoriaviaje",
+  "pk": 4,
+  "fields": {
+    "codigo": "EJEC",
+    "categoria": "Ejecutivo"
+  }
+},
+{
+  "model": "sistema.categoriaviaje",
+  "pk": 5,
+  "fields": {
+    "codigo": "VAN - C",
+    "categoria": "VAN Corta"
+  }
+},
+{
+  "model": "sistema.categoriaviaje",
+  "pk": 6,
+  "fields": {
+    "codigo": "VAN - L",
+    "categoria": "VAN Larga"
+  }
+},
+{
+  "model": "sistema.categoriaviaje",
+  "pk": 7,
+  "fields": {
+    "codigo": "MINI",
+    "categoria": "Mini Bus"
+  }
+},
+{
+  "model": "sistema.categoriaviaje",
+  "pk": 8,
+  "fields": {
+    "codigo": "BUS",
+    "categoria": "Bus"
+  }
+},
+{
+  "model": "sistema.tipopersona",
+  "pk": 1,
+  "fields": {
+    "tipo_persona": "Contacto"
+  }
+},
+{
+  "model": "sistema.tipopersona",
+  "pk": 2,
+  "fields": {
+    "tipo_persona": "Pasajero"
+  }
+},
+{
+  "model": "sistema.tipopersona",
+  "pk": 3,
+  "fields": {
+    "tipo_persona": "Chofer"
+  }
+},
+{
+  "model": "sistema.tipopersona",
+  "pk": 4,
+  "fields": {
+    "tipo_persona": "Due\u00f1o"
+  }
+},
+{
+  "model": "sistema.tipolicencia",
+  "pk": 1,
+  "fields": {
+    "tipo_licencia": "Conducir"
+  }
+},
+{
+  "model": "sistema.tipolicencia",
+  "pk": 2,
+  "fields": {
+    "tipo_licencia": "Seguro"
+  }
+},
+{
+  "model": "sistema.tipolicencia",
+  "pk": 3,
+  "fields": {
+    "tipo_licencia": "Ciruculacion"
+  }
+},
+{
+  "model": "sistema.tipolicencia",
+  "pk": 4,
+  "fields": {
+    "tipo_licencia": "Otra"
+  }
+},
+{
+  "model": "sistema.tipotelefono",
+  "pk": 1,
+  "fields": {
+    "tipo_telefono": "Principal"
+  }
+},
+{
+  "model": "sistema.tipotelefono",
+  "pk": 2,
+  "fields": {
+    "tipo_telefono": "Celular"
+  }
+},
+{
+  "model": "sistema.tipotelefono",
+  "pk": 3,
+  "fields": {
+    "tipo_telefono": "Trabajo"
+  }
+},
+{
+  "model": "sistema.telefono",
+  "pk": 1,
+  "fields": {
+    "tipo_telefono": 1,
+    "numero": "51324131"
+  }
+},
+{
+  "model": "sistema.telefono",
+  "pk": 2,
+  "fields": {
+    "tipo_telefono": 1,
+    "numero": "1"
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 1,
+  "fields": {
+    "comentario": null,
+    "tipo_licencia": 1,
+    "fecha_vencimiento": "11042016"
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 2,
+  "fields": {
+    "comentario": "se vence",
+    "tipo_licencia": 1,
+    "fecha_vencimiento": "20182807"
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 3,
+  "fields": {
+    "comentario": "seguridad",
+    "tipo_licencia": 2,
+    "fecha_vencimiento": "20183006"
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 4,
+  "fields": {
+    "comentario": "",
+    "tipo_licencia": 3,
+    "fecha_vencimiento": ""
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 5,
+  "fields": {
+    "comentario": "test",
+    "tipo_licencia": 1,
+    "fecha_vencimiento": "11042016"
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 1,
+  "fields": {
+    "nombre": "Contacto (nuevocliente)",
+    "apellido": "CARLOS",
+    "fecha_nacimiento": null,
+    "documento": null,
+    "tipo_persona": 1,
+    "porcentaje_viaje": null,
+    "estado_civil": null,
+    "calle": null,
+    "altura": null,
+    "piso": null,
+    "localidad": null,
+    "cp": null,
+    "mail": null,
+    "contacto_cliente": null,
+    "puesto": null,
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": null,
+    "baja": false
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 2,
+  "fields": {
+    "nombre": "owner guido conduce",
+    "apellido": "tony",
+    "fecha_nacimiento": null,
+    "documento": null,
+    "tipo_persona": 4,
+    "porcentaje_viaje": "80",
+    "estado_civil": null,
+    "calle": null,
+    "altura": null,
+    "piso": null,
+    "localidad": null,
+    "cp": null,
+    "mail": null,
+    "contacto_cliente": null,
+    "puesto": null,
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": null,
+    "baja": false
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 3,
+  "fields": {
+    "nombre": "Contacto 2 (otro cliente)",
+    "apellido": "numero",
+    "fecha_nacimiento": null,
+    "documento": null,
+    "tipo_persona": 1,
+    "porcentaje_viaje": null,
+    "estado_civil": 1,
+    "calle": null,
+    "altura": null,
+    "piso": null,
+    "localidad": null,
+    "cp": null,
+    "mail": null,
+    "contacto_cliente": null,
+    "puesto": null,
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": null,
+    "baja": false
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 4,
+  "fields": {
+    "nombre": "due\u00f1o pirulo",
+    "apellido": "pirulo",
+    "fecha_nacimiento": null,
+    "documento": null,
+    "tipo_persona": 4,
+    "porcentaje_viaje": null,
+    "estado_civil": null,
+    "calle": null,
+    "altura": null,
+    "piso": null,
+    "localidad": null,
+    "cp": null,
+    "mail": null,
+    "contacto_cliente": null,
+    "puesto": null,
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": null,
+    "baja": false
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 5,
+  "fields": {
+    "nombre": "Contact (viajes ya)",
+    "apellido": "Perez",
+    "fecha_nacimiento": null,
+    "documento": null,
+    "tipo_persona": 1,
+    "porcentaje_viaje": null,
+    "estado_civil": 3,
+    "calle": null,
+    "altura": null,
+    "piso": null,
+    "localidad": null,
+    "cp": null,
+    "mail": null,
+    "contacto_cliente": null,
+    "puesto": "CEO",
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": null,
+    "baja": false
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 6,
+  "fields": {
+    "nombre": "PEPE Due\u00f1o",
+    "apellido": "argento",
+    "fecha_nacimiento": null,
+    "documento": null,
+    "tipo_persona": 4,
+    "porcentaje_viaje": "100",
+    "estado_civil": 2,
+    "calle": null,
+    "altura": null,
+    "piso": null,
+    "localidad": null,
+    "cp": null,
+    "mail": null,
+    "contacto_cliente": null,
+    "puesto": null,
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": "1",
+    "baja": false
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 7,
+  "fields": {
+    "nombre": "Chofer Guido",
+    "apellido": "conduce",
+    "fecha_nacimiento": "11042018",
+    "documento": "31322133",
+    "tipo_persona": 3,
+    "porcentaje_viaje": "80",
+    "estado_civil": 2,
+    "calle": "nueva",
+    "altura": "123",
+    "piso": "5",
+    "localidad": "CABA",
+    "cp": "1407",
+    "mail": "guido.mail@gmial.com",
+    "contacto_cliente": null,
+    "puesto": "CEO",
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": null,
+    "baja": false
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 8,
+  "fields": {
+    "nombre": "Pasajero (nuevo cliente)",
+    "apellido": "roque",
+    "fecha_nacimiento": null,
+    "documento": null,
+    "tipo_persona": 2,
+    "porcentaje_viaje": null,
+    "estado_civil": 1,
+    "calle": null,
+    "altura": null,
+    "piso": null,
+    "localidad": null,
+    "cp": null,
+    "mail": null,
+    "contacto_cliente": null,
+    "puesto": null,
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": null,
+    "baja": false
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 9,
+  "fields": {
+    "nombre": "Pasajer (viajes ya)",
+    "apellido": "messi",
+    "fecha_nacimiento": null,
+    "documento": null,
+    "tipo_persona": 2,
+    "porcentaje_viaje": null,
+    "estado_civil": 1,
+    "calle": null,
+    "altura": null,
+    "piso": null,
+    "localidad": null,
+    "cp": null,
+    "mail": null,
+    "contacto_cliente": null,
+    "puesto": null,
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": null,
+    "baja": false
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 10,
+  "fields": {
+    "nombre": "contact (otro cliente)",
+    "apellido": "estevanez",
+    "fecha_nacimiento": null,
+    "documento": null,
+    "tipo_persona": 1,
+    "porcentaje_viaje": null,
+    "estado_civil": 1,
+    "calle": null,
+    "altura": null,
+    "piso": null,
+    "localidad": null,
+    "cp": null,
+    "mail": null,
+    "contacto_cliente": null,
+    "puesto": null,
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": null,
+    "baja": false
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 11,
+  "fields": {
+    "nombre": "Pasajero (otro cliente)",
+    "apellido": "passanger",
+    "fecha_nacimiento": null,
+    "documento": null,
+    "tipo_persona": 2,
+    "porcentaje_viaje": null,
+    "estado_civil": 4,
+    "calle": null,
+    "altura": null,
+    "piso": null,
+    "localidad": null,
+    "cp": null,
+    "mail": null,
+    "contacto_cliente": null,
+    "puesto": null,
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": null,
+    "baja": false
+  }
+},
+{
+  "model": "sistema.persona",
+  "pk": 12,
+  "fields": {
+    "nombre": "pasajero 2 (otro cliente)",
+    "apellido": "quique",
+    "fecha_nacimiento": null,
+    "documento": null,
+    "tipo_persona": 2,
+    "porcentaje_viaje": null,
+    "estado_civil": 1,
+    "calle": null,
+    "altura": null,
+    "piso": null,
+    "localidad": null,
+    "cp": null,
+    "mail": null,
+    "contacto_cliente": null,
+    "puesto": null,
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": null,
+    "baja": false
+  }
+},
+{
+  "model": "sistema.vehiculo",
+  "pk": 1,
+  "fields": {
+    "marca": "ford",
+    "modelo": "escort",
+    "ano": "1233",
+    "color": "rojito",
+    "puertas": null,
+    "patente": "aa1234fd",
+    "nro_motor": "ford escort",
+    "nro_chasis": null,
+    "licencia": 1,
+    "dueno": 4
+  }
+},
+{
+  "model": "sistema.vehiculo",
+  "pk": 2,
+  "fields": {
+    "marca": "Ford",
+    "modelo": "KA",
+    "ano": "2016",
+    "color": "1",
+    "puertas": "2",
+    "patente": "OAO676",
+    "nro_motor": "OAO676",
+    "nro_chasis": "4",
+    "licencia": 1,
+    "dueno": 4
+  }
+},
+{
+  "model": "sistema.vehiculo",
+  "pk": 3,
+  "fields": {
+    "marca": "ford",
+    "modelo": "123",
+    "ano": "1233",
+    "color": null,
+    "puertas": null,
+    "patente": "OAO676",
+    "nro_motor": "Bus",
+    "nro_chasis": null,
+    "licencia": null,
+    "dueno": null
+  }
+},
+{
+  "model": "sistema.unidad",
+  "pk": 1,
+  "fields": {
+    "identificacion": "Gordo Oscar",
+    "chofer": 2,
+    "owner": 4,
+    "vehiculo": 1,
+    "porcentaje_chofer": "80",
+    "porcentaje_owner": "20",
+    "baja": false
+  }
+},
+{
+  "model": "sistema.unidad",
+  "pk": 2,
+  "fields": {
+    "identificacion": "Due\u00f1o Solo",
+    "chofer": null,
+    "owner": 6,
+    "vehiculo": null,
+    "porcentaje_chofer": null,
+    "porcentaje_owner": "100",
+    "baja": false
+  }
+},
+{
+  "model": "sistema.unidad",
+  "pk": 3,
+  "fields": {
+    "identificacion": "Guido Conduce",
+    "chofer": 7,
+    "owner": 2,
+    "vehiculo": 3,
+    "porcentaje_chofer": "80",
+    "porcentaje_owner": "20",
+    "baja": false
+  }
+},
+{
+  "model": "sistema.tarifario",
+  "pk": 1,
+  "fields": {
+    "nombre": "Normal"
+  }
+},
+{
+  "model": "sistema.tarifario",
+  "pk": 2,
+  "fields": {
+    "nombre": "Tarifa +15%"
+  }
+},
+{
+  "model": "sistema.cliente",
+  "pk": 1,
+  "fields": {
+    "razon_social": "Otro Cliente",
+    "calle": "libertadores",
+    "altura": "1234",
+    "piso": null,
+    "depto": null,
+    "cp": null,
+    "cuil": null,
+    "tarifario": 2,
+    "localidad": 1,
+    "provincia": 1,
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": "11",
+    "baja": true
+  }
+},
+{
+  "model": "sistema.cliente",
+  "pk": 2,
+  "fields": {
+    "razon_social": "ViajesYa",
+    "calle": "calle falsa",
+    "altura": "1234",
+    "piso": "1",
+    "depto": "4",
+    "cp": "1407",
+    "cuil": "12341423",
+    "tarifario": 2,
+    "localidad": 7,
+    "provincia": 1,
+    "iva": "21%",
+    "condicion_pago": "cuando puede",
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": "15",
+    "baja": false
+  }
+},
+{
+  "model": "sistema.cliente",
+  "pk": 3,
+  "fields": {
+    "razon_social": "NuevoCliente",
+    "calle": "habana y segurola",
+    "altura": "4100",
+    "piso": "7",
+    "depto": "E",
+    "cp": "123",
+    "cuil": "12313123",
+    "tarifario": 1,
+    "localidad": 9,
+    "provincia": 1,
+    "iva": "21",
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": "11",
+    "baja": false
+  }
+},
+{
+  "model": "sistema.centrocosto",
+  "pk": 1,
+  "fields": {
+    "nombre": "CC otro cliente",
+    "fecha_inicio": null,
+    "fecha_fin": null,
+    "descripcion": "",
+    "cliente": 1,
+    "tarifario": 1
+  }
+},
+{
+  "model": "sistema.centrocosto",
+  "pk": 2,
+  "fields": {
+    "nombre": "CC viajesya",
+    "fecha_inicio": null,
+    "fecha_fin": null,
+    "descripcion": "",
+    "cliente": 2,
+    "tarifario": 2
+  }
+},
+{
+  "model": "sistema.centrocosto",
+  "pk": 3,
+  "fields": {
+    "nombre": "CC nuevo cliente",
+    "fecha_inicio": null,
+    "fecha_fin": null,
+    "descripcion": "",
+    "cliente": 3,
+    "tarifario": 1
+  }
+},
+{
+  "model": "sistema.tipotrayectodestino",
+  "pk": 1,
+  "fields": {
+    "nombre": "TipoTrayecto"
+  }
+},
+{
+  "model": "sistema.trayectodestino",
+  "pk": 1,
+  "fields": {
+    "nombre": "Ezeiza",
+    "tipo_trayecto_destino": null
+  }
+},
+{
+  "model": "sistema.trayectodestino",
+  "pk": 2,
+  "fields": {
+    "nombre": "AEP",
+    "tipo_trayecto_destino": null
+  }
+},
+{
+  "model": "sistema.trayectodestino",
+  "pk": 3,
+  "fields": {
+    "nombre": "Buquebus",
+    "tipo_trayecto_destino": null
+  }
+},
+{
+  "model": "sistema.trayectodestino",
+  "pk": 4,
+  "fields": {
+    "nombre": "Retiro",
+    "tipo_trayecto_destino": null
+  }
+},
+{
+  "model": "sistema.trayectodestino",
+  "pk": 5,
+  "fields": {
+    "nombre": "Interior",
+    "tipo_trayecto_destino": null
+  }
+},
+{
+  "model": "sistema.trayectodestino",
+  "pk": 6,
+  "fields": {
+    "nombre": "CABA",
+    "tipo_trayecto_destino": null
+  }
+},
+{
+  "model": "sistema.trayectodestino",
+  "pk": 7,
+  "fields": {
+    "nombre": "Buenos Aires",
+    "tipo_trayecto_destino": null
+  }
+},
+{
+  "model": "sistema.personacliente",
+  "pk": 1,
+  "fields": {
+    "persona": 10,
+    "cliente": 1
+  }
+},
+{
+  "model": "sistema.personacliente",
+  "pk": 2,
+  "fields": {
+    "persona": 3,
+    "cliente": 1
+  }
+},
+{
+  "model": "sistema.personacliente",
+  "pk": 3,
+  "fields": {
+    "persona": 8,
+    "cliente": 3
+  }
+},
+{
+  "model": "sistema.personacliente",
+  "pk": 4,
+  "fields": {
+    "persona": 1,
+    "cliente": 3
+  }
+},
+{
+  "model": "sistema.personacliente",
+  "pk": 5,
+  "fields": {
+    "persona": 5,
+    "cliente": 2
+  }
+},
+{
+  "model": "sistema.personacliente",
+  "pk": 6,
+  "fields": {
+    "persona": 9,
+    "cliente": 2
+  }
+},
+{
+  "model": "sistema.personacliente",
+  "pk": 7,
+  "fields": {
+    "persona": 11,
+    "cliente": 1
+  }
+},
+{
+  "model": "sistema.personacliente",
+  "pk": 8,
+  "fields": {
+    "persona": 12,
+    "cliente": 1
+  }
+},
+{
+  "model": "sistema.observacionunidad",
+  "pk": 1,
+  "fields": {
+    "observacion": 1,
+    "unidad": 2
+  }
+},
+{
+  "model": "sistema.telefonopersona",
+  "pk": 1,
+  "fields": {
+    "telefono": 2,
+    "persona": 7
+  }
+},
+{
+  "model": "sistema.telefonocliente",
+  "pk": 1,
+  "fields": {
+    "telefono": 1,
+    "cliente": 3
+  }
+},
+{
+  "model": "sistema.licenciapersona",
+  "pk": 1,
+  "fields": {
+    "licencia": 2,
+    "persona": 6
+  }
+},
+{
+  "model": "sistema.licenciapersona",
+  "pk": 2,
+  "fields": {
+    "licencia": 3,
+    "persona": 6
+  }
+},
+{
+  "model": "sistema.licenciapersona",
+  "pk": 3,
+  "fields": {
+    "licencia": 5,
+    "persona": 6
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 2,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 2,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 2,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 3,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 3,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 3,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can add provincia",
+    "content_type": 7,
+    "codename": "add_provincia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can change provincia",
+    "content_type": 7,
+    "codename": "change_provincia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can delete provincia",
+    "content_type": 7,
+    "codename": "delete_provincia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can add localidad",
+    "content_type": 8,
+    "codename": "add_localidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can change localidad",
+    "content_type": 8,
+    "codename": "change_localidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can delete localidad",
+    "content_type": 8,
+    "codename": "delete_localidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add calle",
+    "content_type": 9,
+    "codename": "add_calle"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change calle",
+    "content_type": 9,
+    "codename": "change_calle"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete calle",
+    "content_type": 9,
+    "codename": "delete_calle"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can add estado",
+    "content_type": 10,
+    "codename": "add_estado"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can change estado",
+    "content_type": 10,
+    "codename": "change_estado"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can delete estado",
+    "content_type": 10,
+    "codename": "delete_estado"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can add estado civil",
+    "content_type": 11,
+    "codename": "add_estadocivil"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can change estado civil",
+    "content_type": 11,
+    "codename": "change_estadocivil"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can delete estado civil",
+    "content_type": 11,
+    "codename": "delete_estadocivil"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can add categoria cliente",
+    "content_type": 12,
+    "codename": "add_categoriacliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can change categoria cliente",
+    "content_type": 12,
+    "codename": "change_categoriacliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can delete categoria cliente",
+    "content_type": 12,
+    "codename": "delete_categoriacliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add categoria viaje",
+    "content_type": 13,
+    "codename": "add_categoriaviaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change categoria viaje",
+    "content_type": 13,
+    "codename": "change_categoriaviaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete categoria viaje",
+    "content_type": 13,
+    "codename": "delete_categoriaviaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can add tipo persona",
+    "content_type": 14,
+    "codename": "add_tipopersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can change tipo persona",
+    "content_type": 14,
+    "codename": "change_tipopersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can delete tipo persona",
+    "content_type": 14,
+    "codename": "delete_tipopersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can add tipo observacion",
+    "content_type": 15,
+    "codename": "add_tipoobservacion"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can change tipo observacion",
+    "content_type": 15,
+    "codename": "change_tipoobservacion"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can delete tipo observacion",
+    "content_type": 15,
+    "codename": "delete_tipoobservacion"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can add tipo licencia",
+    "content_type": 16,
+    "codename": "add_tipolicencia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can change tipo licencia",
+    "content_type": 16,
+    "codename": "change_tipolicencia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can delete tipo licencia",
+    "content_type": 16,
+    "codename": "delete_tipolicencia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add adjunto",
+    "content_type": 17,
+    "codename": "add_adjunto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change adjunto",
+    "content_type": 17,
+    "codename": "change_adjunto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete adjunto",
+    "content_type": 17,
+    "codename": "delete_adjunto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can add tipo telefono",
+    "content_type": 18,
+    "codename": "add_tipotelefono"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can change tipo telefono",
+    "content_type": 18,
+    "codename": "change_tipotelefono"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can delete tipo telefono",
+    "content_type": 18,
+    "codename": "delete_tipotelefono"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can add telefono",
+    "content_type": 19,
+    "codename": "add_telefono"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can change telefono",
+    "content_type": 19,
+    "codename": "change_telefono"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can delete telefono",
+    "content_type": 19,
+    "codename": "delete_telefono"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can add observacion",
+    "content_type": 20,
+    "codename": "add_observacion"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can change observacion",
+    "content_type": 20,
+    "codename": "change_observacion"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can delete observacion",
+    "content_type": 20,
+    "codename": "delete_observacion"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add licencia",
+    "content_type": 21,
+    "codename": "add_licencia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change licencia",
+    "content_type": 21,
+    "codename": "change_licencia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete licencia",
+    "content_type": 21,
+    "codename": "delete_licencia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can add persona",
+    "content_type": 22,
+    "codename": "add_persona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can change persona",
+    "content_type": 22,
+    "codename": "change_persona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can delete persona",
+    "content_type": 22,
+    "codename": "delete_persona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can add vehiculo",
+    "content_type": 23,
+    "codename": "add_vehiculo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can change vehiculo",
+    "content_type": 23,
+    "codename": "change_vehiculo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 69,
+  "fields": {
+    "name": "Can delete vehiculo",
+    "content_type": 23,
+    "codename": "delete_vehiculo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 70,
+  "fields": {
+    "name": "Can add unidad",
+    "content_type": 24,
+    "codename": "add_unidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 71,
+  "fields": {
+    "name": "Can change unidad",
+    "content_type": 24,
+    "codename": "change_unidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 72,
+  "fields": {
+    "name": "Can delete unidad",
+    "content_type": 24,
+    "codename": "delete_unidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 73,
+  "fields": {
+    "name": "Can add tarifario",
+    "content_type": 25,
+    "codename": "add_tarifario"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 74,
+  "fields": {
+    "name": "Can change tarifario",
+    "content_type": 25,
+    "codename": "change_tarifario"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 75,
+  "fields": {
+    "name": "Can delete tarifario",
+    "content_type": 25,
+    "codename": "delete_tarifario"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 76,
+  "fields": {
+    "name": "Can add cliente",
+    "content_type": 26,
+    "codename": "add_cliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 77,
+  "fields": {
+    "name": "Can change cliente",
+    "content_type": 26,
+    "codename": "change_cliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 78,
+  "fields": {
+    "name": "Can delete cliente",
+    "content_type": 26,
+    "codename": "delete_cliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 79,
+  "fields": {
+    "name": "Can add centro costo",
+    "content_type": 27,
+    "codename": "add_centrocosto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 80,
+  "fields": {
+    "name": "Can change centro costo",
+    "content_type": 27,
+    "codename": "change_centrocosto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 81,
+  "fields": {
+    "name": "Can delete centro costo",
+    "content_type": 27,
+    "codename": "delete_centrocosto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 82,
+  "fields": {
+    "name": "Can add viaje",
+    "content_type": 28,
+    "codename": "add_viaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 83,
+  "fields": {
+    "name": "Can change viaje",
+    "content_type": 28,
+    "codename": "change_viaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 84,
+  "fields": {
+    "name": "Can delete viaje",
+    "content_type": 28,
+    "codename": "delete_viaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 85,
+  "fields": {
+    "name": "Can add viaje pasajero",
+    "content_type": 29,
+    "codename": "add_viajepasajero"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 86,
+  "fields": {
+    "name": "Can change viaje pasajero",
+    "content_type": 29,
+    "codename": "change_viajepasajero"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 87,
+  "fields": {
+    "name": "Can delete viaje pasajero",
+    "content_type": 29,
+    "codename": "delete_viajepasajero"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 88,
+  "fields": {
+    "name": "Can add viaje historial",
+    "content_type": 30,
+    "codename": "add_viajehistorial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 89,
+  "fields": {
+    "name": "Can change viaje historial",
+    "content_type": 30,
+    "codename": "change_viajehistorial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 90,
+  "fields": {
+    "name": "Can delete viaje historial",
+    "content_type": 30,
+    "codename": "delete_viajehistorial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 91,
+  "fields": {
+    "name": "Can add tipo trayecto destino",
+    "content_type": 31,
+    "codename": "add_tipotrayectodestino"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 92,
+  "fields": {
+    "name": "Can change tipo trayecto destino",
+    "content_type": 31,
+    "codename": "change_tipotrayectodestino"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 93,
+  "fields": {
+    "name": "Can delete tipo trayecto destino",
+    "content_type": 31,
+    "codename": "delete_tipotrayectodestino"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 94,
+  "fields": {
+    "name": "Can add trayecto destino",
+    "content_type": 32,
+    "codename": "add_trayectodestino"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 95,
+  "fields": {
+    "name": "Can change trayecto destino",
+    "content_type": 32,
+    "codename": "change_trayectodestino"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 96,
+  "fields": {
+    "name": "Can delete trayecto destino",
+    "content_type": 32,
+    "codename": "delete_trayectodestino"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 97,
+  "fields": {
+    "name": "Can add trayecto",
+    "content_type": 33,
+    "codename": "add_trayecto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 98,
+  "fields": {
+    "name": "Can change trayecto",
+    "content_type": 33,
+    "codename": "change_trayecto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 99,
+  "fields": {
+    "name": "Can delete trayecto",
+    "content_type": 33,
+    "codename": "delete_trayecto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 100,
+  "fields": {
+    "name": "Can add persona cliente",
+    "content_type": 34,
+    "codename": "add_personacliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 101,
+  "fields": {
+    "name": "Can change persona cliente",
+    "content_type": 34,
+    "codename": "change_personacliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 102,
+  "fields": {
+    "name": "Can delete persona cliente",
+    "content_type": 34,
+    "codename": "delete_personacliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 103,
+  "fields": {
+    "name": "Can add observacion persona",
+    "content_type": 35,
+    "codename": "add_observacionpersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 104,
+  "fields": {
+    "name": "Can change observacion persona",
+    "content_type": 35,
+    "codename": "change_observacionpersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 105,
+  "fields": {
+    "name": "Can delete observacion persona",
+    "content_type": 35,
+    "codename": "delete_observacionpersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 106,
+  "fields": {
+    "name": "Can add observacion unidad",
+    "content_type": 36,
+    "codename": "add_observacionunidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 107,
+  "fields": {
+    "name": "Can change observacion unidad",
+    "content_type": 36,
+    "codename": "change_observacionunidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 108,
+  "fields": {
+    "name": "Can delete observacion unidad",
+    "content_type": 36,
+    "codename": "delete_observacionunidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 109,
+  "fields": {
+    "name": "Can add observacion vehiculo",
+    "content_type": 37,
+    "codename": "add_observacionvehiculo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 110,
+  "fields": {
+    "name": "Can change observacion vehiculo",
+    "content_type": 37,
+    "codename": "change_observacionvehiculo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 111,
+  "fields": {
+    "name": "Can delete observacion vehiculo",
+    "content_type": 37,
+    "codename": "delete_observacionvehiculo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 112,
+  "fields": {
+    "name": "Can add observacion cliente",
+    "content_type": 38,
+    "codename": "add_observacioncliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 113,
+  "fields": {
+    "name": "Can change observacion cliente",
+    "content_type": 38,
+    "codename": "change_observacioncliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 114,
+  "fields": {
+    "name": "Can delete observacion cliente",
+    "content_type": 38,
+    "codename": "delete_observacioncliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 115,
+  "fields": {
+    "name": "Can add observacion viaje",
+    "content_type": 39,
+    "codename": "add_observacionviaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 116,
+  "fields": {
+    "name": "Can change observacion viaje",
+    "content_type": 39,
+    "codename": "change_observacionviaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 117,
+  "fields": {
+    "name": "Can delete observacion viaje",
+    "content_type": 39,
+    "codename": "delete_observacionviaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 118,
+  "fields": {
+    "name": "Can add observacion centro costo",
+    "content_type": 40,
+    "codename": "add_observacioncentrocosto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 119,
+  "fields": {
+    "name": "Can change observacion centro costo",
+    "content_type": 40,
+    "codename": "change_observacioncentrocosto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 120,
+  "fields": {
+    "name": "Can delete observacion centro costo",
+    "content_type": 40,
+    "codename": "delete_observacioncentrocosto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 121,
+  "fields": {
+    "name": "Can add observacion licencia",
+    "content_type": 41,
+    "codename": "add_observacionlicencia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 122,
+  "fields": {
+    "name": "Can change observacion licencia",
+    "content_type": 41,
+    "codename": "change_observacionlicencia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 123,
+  "fields": {
+    "name": "Can delete observacion licencia",
+    "content_type": 41,
+    "codename": "delete_observacionlicencia"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 124,
+  "fields": {
+    "name": "Can add telefono persona",
+    "content_type": 42,
+    "codename": "add_telefonopersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 125,
+  "fields": {
+    "name": "Can change telefono persona",
+    "content_type": 42,
+    "codename": "change_telefonopersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 126,
+  "fields": {
+    "name": "Can delete telefono persona",
+    "content_type": 42,
+    "codename": "delete_telefonopersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 127,
+  "fields": {
+    "name": "Can add mail persona",
+    "content_type": 43,
+    "codename": "add_mailpersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 128,
+  "fields": {
+    "name": "Can change mail persona",
+    "content_type": 43,
+    "codename": "change_mailpersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 129,
+  "fields": {
+    "name": "Can delete mail persona",
+    "content_type": 43,
+    "codename": "delete_mailpersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 130,
+  "fields": {
+    "name": "Can add telefono cliente",
+    "content_type": 44,
+    "codename": "add_telefonocliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 131,
+  "fields": {
+    "name": "Can change telefono cliente",
+    "content_type": 44,
+    "codename": "change_telefonocliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 132,
+  "fields": {
+    "name": "Can delete telefono cliente",
+    "content_type": 44,
+    "codename": "delete_telefonocliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 133,
+  "fields": {
+    "name": "Can add mail cliente",
+    "content_type": 45,
+    "codename": "add_mailcliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 134,
+  "fields": {
+    "name": "Can change mail cliente",
+    "content_type": 45,
+    "codename": "change_mailcliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 135,
+  "fields": {
+    "name": "Can delete mail cliente",
+    "content_type": 45,
+    "codename": "delete_mailcliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 136,
+  "fields": {
+    "name": "Can add adjunto viaje",
+    "content_type": 46,
+    "codename": "add_adjuntoviaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 137,
+  "fields": {
+    "name": "Can change adjunto viaje",
+    "content_type": 46,
+    "codename": "change_adjuntoviaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 138,
+  "fields": {
+    "name": "Can delete adjunto viaje",
+    "content_type": 46,
+    "codename": "delete_adjuntoviaje"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 139,
+  "fields": {
+    "name": "Can add licencia persona",
+    "content_type": 47,
+    "codename": "add_licenciapersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 140,
+  "fields": {
+    "name": "Can change licencia persona",
+    "content_type": 47,
+    "codename": "change_licenciapersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 141,
+  "fields": {
+    "name": "Can delete licencia persona",
+    "content_type": 47,
+    "codename": "delete_licenciapersona"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 142,
+  "fields": {
+    "name": "Can add licencia vehiculo",
+    "content_type": 48,
+    "codename": "add_licenciavehiculo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 143,
+  "fields": {
+    "name": "Can change licencia vehiculo",
+    "content_type": 48,
+    "codename": "change_licenciavehiculo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 144,
+  "fields": {
+    "name": "Can delete licencia vehiculo",
+    "content_type": 48,
+    "codename": "delete_licenciavehiculo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 145,
+  "fields": {
+    "name": "Can add mail",
+    "content_type": 49,
+    "codename": "add_mail"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 146,
+  "fields": {
+    "name": "Can change mail",
+    "content_type": 49,
+    "codename": "change_mail"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 147,
+  "fields": {
+    "name": "Can delete mail",
+    "content_type": 49,
+    "codename": "delete_mail"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$36000$w6ttvB5G6g8r$JD28INkVCIOvJMtVildp3S408U9I6ORqnf3GuQ3WaYg=",
+    "last_login": "2018-06-04T22:50:01Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@admin.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2018-05-26T22:16:36Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sistema.observacion",
+  "pk": 1,
+  "fields": {
+    "fecha": "201806201242",
+    "texto": "anda barbaro",
+    "tipo_observacion": null,
+    "usuario": 1
+  }
+
 ]

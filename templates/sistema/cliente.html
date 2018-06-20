@@ -91,20 +91,30 @@
 
                                                 <div class="col-sm-1">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="cp" name="cp" value="{{ cliente.cp|default_if_none:"" }}">
+                                                        <input type="text" class="form-control" id="cp" name="cp" value="{{ cliente.cp|default_if_none:"" }}" onchange="cargarLocalidad();">
                                                         <label for="cp">CP</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="localidad" name="localidad" value="{{ cliente.localidad|default_if_none:"" }}">
+                                                    <div class="form-group form-md-line-input" id="selectLocalidad">
+                                                        <select class="form-control" id="localidad" name="localidad" onchange="cargarProvincia();">
+                                                            <option value="">Seleccione localidad</option>
+                                                            {% for l in localidades %}
+                                                                <option value="{{ l.id }}" >{{ l.nombre }}</option>
+                                                            {% endfor %}
+                                                        </select>
                                                         <label for="localidad">Localidad</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="provincia" name="provincia" value="{{ cliente.provincia|default_if_none:"" }}">
-                                                        <label for="localidad">Provincia</label>
+                                                    <div class="form-group form-md-line-input" id="selectProvincia">
+                                                        <select class="form-control" id="provincia" name="provincia">
+                                                            <option value="">Seleccione provincia</option>
+                                                            {% for p in provincias %}
+                                                                <option value="{{ p.id }}" >{{ p.nombre }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                        <label for="provincia">Provincia</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -934,6 +944,35 @@
                         });
                         $('#add_mail_cliente').modal('toggle');
                     }
+                }
+
+                function cargarLocalidad(){
+                    var url = "/sistema/cargarLocalidad/";
+                    param = 'codigoPostal='+$("#cp").val();
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: param,
+                        success: function(data){
+                            $("#selectLocalidad").html(data);
+                            cargarProvincia()
+                        }
+                    });
+                }
+
+                function cargarProvincia(){
+                    var url = "/sistema/cargarProvincia/";
+                    param = 'idLocalidad='+$("#localidad").val();
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: param,
+                        success: function(data){
+                            $("#selectProvincia").html(data);
+                        }
+                    });
                 }
 
             </script>

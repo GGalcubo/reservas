@@ -67,7 +67,7 @@ def dashboard(request):
 	mensaje = ""
 
 	context = { 'mensaje':mensaje }
-	return render(request, 'sistema/operaciones.html', context)
+	return render(request, 'sistema/dashboard.html', context)
 
 @login_required
 def operaciones(request):
@@ -81,6 +81,13 @@ def operaciones(request):
 
     context = {'mensaje': mensaje, 'viajes': viajes, 'clientes': clientes, 'unidades': unidades, 'estados': estados,'categoria_viajes': categoria_viajes}
     return render(request, 'sistema/operaciones.html', context)
+
+@login_required
+def asignaciones(request):
+	mensaje = ""
+
+	context = { 'mensaje':mensaje }
+	return render(request, 'sistema/asignaciones.html', context)
 
 @login_required
 def altaViaje(request):
@@ -295,9 +302,8 @@ def cliente(request):
 	mensaje = ""
 	idCliente = request.GET.get('idCliente', "")
 	cliente = Cliente.objects.get(id=idCliente)
-	tarifarios = Tarifario.objects.all()
 
-	context = {'mensaje': mensaje, 'cliente':cliente, 'tarifarios':tarifarios}
+	context = {'mensaje': mensaje, 'cliente':cliente}
 	return render(request, 'sistema/cliente.html', context)
 
 @login_required
@@ -306,7 +312,9 @@ def altaCliente(request):
 	cliente = Cliente()
 	cliente.id = 0
 	tarifarios = Tarifario.objects.all()
-	context = {'mensaje': mensaje, 'tarifarios':tarifarios, 'cliente': cliente}
+	localidades = Localidad.objects.all()
+	provincias = Provincia.objects.all()
+	context = {'mensaje': mensaje, 'tarifarios':tarifarios, 'cliente': cliente, 'localidades':localidades, 'provincias':provincias }
 	return render(request, 'sistema/cliente.html', context)
 
 @login_required
@@ -317,7 +325,11 @@ def guardarCliente(request):
 		tel = Telefono()
 	else:
 		cliente = Cliente.objects.get(id=idCliente)
-		tel = cliente.telefonocliente_set.all()[0].telefono
+		if len(cliente.telefonocliente_set.all()) > 0:
+			tel = cliente.telefonocliente_set.all()[0].telefono
+		else:
+			tel = Telefono()
+		
 
 	cliente.razon_social = request.POST.get('razonSocial', "")
 	cliente.cuil = request.POST.get('cuil', "")
@@ -328,17 +340,19 @@ def guardarCliente(request):
 	cliente.cp = request.POST.get('cp', "")
 	cliente.save()
 
-	tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
-	tel.numero = request.POST.get('telefono', False)
-	tel.save()
+	if request.POST.get('telefono', False) != "":
+		tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
+		tel.numero = request.POST.get('telefono', False)
+		tel.save()
 
-	if idCliente == "0":
-		telcli = TelefonoCliente()
-		telcli.cliente = cliente
-		telcli.telefono = tel
-		telcli.save()
+		if idCliente == "0":
+			telcli = TelefonoCliente()
+			telcli.cliente = cliente
+			telcli.telefono = tel
+			telcli.save()
 
-	return redirect('listadoCliente')
+	url = '/sistema/cliente/?idCliente='+str(cliente.id)
+	return redirect(url)
 
 @login_required
 def editaCliente(request):
@@ -496,7 +510,8 @@ def guardarUnidad(request):
 		vehiculo.save()
 		unidad.vehiculo = vehiculo
 	unidad.save()
-	return redirect('listadoUnidad')
+	url = '/sistema/unidad/?idUnidad='+str(unidad.id)
+	return redirect(url)
 
 @login_required
 def eliminarUnidad(request):
@@ -626,6 +641,24 @@ def licencia(request):
 
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/licencia.html', context)
+
+@login_required
+def cargarLocalidad(request):
+	cp = request.POST.get('codigoPostal', False)
+	localidades = Localidad.objects.filter(codigo_postal=cp)
+	context = {'localidades': localidades}
+	return render(request, 'sistema/selectLocalidad.html', context)
+
+@login_required
+def cargarProvincia(request):
+	idLocalidad = request.POST.get('idLocalidad', False)
+	print idLocalidad
+	localidad = Localidad.objects.get(id=idLocalidad)
+	print localidad.provincia.id
+	provincias = Provincia.objects.filter(id=localidad.provincia.id)
+	print provincias
+	context = {'provincias':provincias}
+	return render(request, 'sistema/selectProvincia.html', context)
 
 @login_required
 def exportar(request):

@@ -26,8 +26,7 @@
                                     <div class="caption font-blue">
                                         <i class="icon-user font-blue mg-t-8"></i>
                                         <span class="caption-subject bold uppercase">Listado de contactos</span>
-                                        <a href="/sistema/c
-                                        ontacto/" role="button" class="btn green btn-outline mg-l-20">Agregar contacto</a>
+                                        <a href="/sistema/contacto/" role="button" class="btn green btn-outline mg-l-20">Agregar contacto</a>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -46,7 +45,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaContacto/"><i class="fa fa-pencil">
+                                                <td class="text-center"><a href="/sistema/contacto/"><i class="fa fa-pencil">
                                                 <td>Juan</td>
                                                 <td>Perez</td>
                                                 <td>3 Monos</td>
@@ -55,7 +54,7 @@
                                                 <td>ejemplo@mail.com</td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaContacto/"><i class="fa fa-pencil">
+                                                <td class="text-center"><a href="/sistema/contacto/"><i class="fa fa-pencil">
                                                 <td>Maria</td>
                                                 <td>Duarte</td>
                                                 <td>Siemens</td>
@@ -64,7 +63,7 @@
                                                 <td>ejemplo@mail.com</td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaContacto/"><i class="fa fa-pencil">
+                                                <td class="text-center"><a href="/sistema/contacto/"><i class="fa fa-pencil">
                                                 <td>Candelaria</td>
                                                 <td>Duarte</td>
                                                 <td>Pfizer</td>
@@ -73,7 +72,7 @@
                                                 <td>ejemplo@mail.com</td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/editaContacto/"><i class="fa fa-pencil">
+                                                <td class="text-center"><a href="/sistema/contacto/"><i class="fa fa-pencil">
                                                 <td>Federico</td>
                                                 <td>Perez</td>
                                                 <td>SAP</td>
@@ -104,6 +103,7 @@
                 $(document).ready(function(){
                     $('#tablaContactos').DataTable( {
                         responsive: true,
+                        select: true,
                         // scrollY: 300,
                         order: [[ 1, "asc" ]],
                         lengthMenu: [
