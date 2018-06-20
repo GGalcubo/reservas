@@ -1,0 +1,7 @@
+<select class="form-control" id="provincia" name="provincia">
+    <option value="">Seleccione provincia</option>
+    {% for p in provincias %}
+        <option selected value="{{ p.id }}" >{{ p.nombre }}</option>
+    {% endfor %}
+</select>
+<label for="provincia">Provincia</label>

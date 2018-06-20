@@ -17,6 +17,7 @@ class Localidad(models.Model):
     nombre = models.CharField(max_length=100)
     provincia = models.ForeignKey(Provincia, null=True, blank=True)
     id_externo = models.CharField(max_length=100, null=True, blank=True)
+    codigo_postal = models.CharField(max_length=10, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.nombre
