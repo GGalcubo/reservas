@@ -44,71 +44,40 @@
                                 <div class="portlet-body">
                                     <table id="table"
                                            data-toggle="table"
-                                           data-pagination="true"
-                                           data-click-to-select="true">
+                                           data-pagination="true">
                                         <thead>
                                             <tr>
-                                                <th data-field="state" data-checkbox="true"></th>
-                                                <th data-field="tipoServicio" data-editable="true" class="desktop">TS</th>
-                                                <th data-field="fecha" data-editable="false" class="desktop">Fecha</th>
-                                                <th data-field="hora" data-editable="false" class="desktop">Hora</th>
-                                                <th data-field="cliente" data-editable="true" class="desktop">Cliente</th>
-                                                <th data-field="solicitante" data-editable="true" class="desktop">Solicitante</th>
-                                                <th data-field="pasajero" data-editable="true" class="desktop">Pasajero</th>
-                                                <th data-field="origen" data-editable="false" class="desktop">Origen</th>
-                                                <th data-field="destino" data-editable="false" class="desktop">Destino</th>
-                                                <th data-field="nroUnidad" data-editable="true" class="desktop">Unidad</th>
-                                                <th data-field="chofer" data-editable="true" class="desktop">Chofer</th>
-                                                <th data-field="cc" data-editable="true" class="desktop">C. Costo</th>
-                                                <th data-field="unidadHabilitada" data-editable="false" class="desktop">Unidad Habilitada</th>
+                                                <th data-checkbox="true"></th>
+                                                <th class="desktop">TS</th>
+                                                <th class="desktop">Fecha</th>
+                                                <th class="desktop">Hora</th>
+                                                <th class="desktop">Cliente</th>
+                                                <th class="desktop">Solicitante</th>
+                                                <th class="desktop">Pasajero</th>
+                                                <th class="desktop">Origen</th>
+                                                <th class="desktop">Destino</th>
+                                                <th class="desktop">Unidad</th>
+                                                <th class="desktop">Chofer</th>
+                                                <th class="desktop">C. Costo</th>
+                                                <th class="desktop">Unidad Habilitada</th>
                                                 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td></td>
-                                                <td>Vip</td>
-                                                <td>25/08/2018</td>
-                                                <td>15:30</td>
+                                                <td><a id="tipoServicio"></a></td>
+                                                <td><a id="fecha" data-type="combodate" data-value="25-08-2018" data-format="DD-MM-YYYY" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1" data-title="Fecha" class="editable editable-click"></a></td>
+                                                <td><a id="hora" data-type="combodate" data-value="15:30" data-template="HH:mm" data-format="HH:mm" data-viewformat="HH:mm" data-pk="1" data-title="Hora" class="editable editable-click editable-open"></a></td>
                                                 <td>Galcubo</td>
-                                                <td>Guido</td>
+                                                <td><a id="solicitante">Guido</a></td>
                                                 <td>Susana Gimenez</td>
                                                 <td>Ezeiza</td>
                                                 <td>Centro</td>
-                                                <td>323</td>
-                                                <td>Jorge Martín</td>
-                                                <td>G3SUSANA</td>
-                                                <td>????</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>STD</td>
-                                                <td>25/08/2018</td>
-                                                <td>16:30</td>
-                                                <td>Pfizer</td>
-                                                <td>Juan</td>
-                                                <td>Patricia Gimenez</td>
-                                                <td>Centro</td>
-                                                <td>Cardales</td>
-                                                <td>222</td>
-                                                <td>Alberto Fonzi</td>
-                                                <td>PFZLARURAL</td>
-                                                <td>????</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>VIP</td>
-                                                <td>25/08/2018</td>
-                                                <td>11:30</td>
-                                                <td>SIEMENS</td>
-                                                <td>José</td>
-                                                <td>Ivana Nadal</td>
-                                                <td>Zona A</td>
-                                                <td>Zona B</td>
-                                                <td>123</td>
-                                                <td>Federico Modric</td>
-                                                <td>SIEMTENIS</td>
-                                                <td>????</td>
+                                                <td><a id="unidad"></a></td>
+                                                <td><a id="chofer"></a></td>
+                                                <td><a id="centroDeCosto"></a></td>
+                                                <td><a id="estado"></a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -130,8 +99,90 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 $(document).ready(function(){
-                    
-                    
+                    //toggle `popup` / `inline` mode
+                    $.fn.editable.defaults.mode = 'popup';     
+
+                    $('#tipoServicio').editable({
+                        type: 'select',
+                        title: 'Tipo de Servicio:',
+                        placement: 'top',
+                        value: 1,
+                        source: [
+                            {value: 1, text: 'STD'},
+                            {value: 2, text: 'VIP'},
+                            {value: 3, text: 'VAN-C'},
+                            {value: 4, text: 'VAN-L'}
+                        ]
+                    });
+
+                    $('#fecha').editable();
+
+                    $('#hora').editable(); 
+
+                    $('#solicitante').editable({
+                        type: 'select',
+                        title: 'Solicitante',
+                        placement: 'top',
+                        value: 3,
+                        source: [
+                            {value: 1, text: 'Guido'},
+                            {value: 2, text: 'Jere'},
+                            {value: 3, text: 'Cris'},
+                            {value: 4, text: 'Toto'}
+                        ]
+                    });
+
+                    $('#unidad').editable({
+                        type: 'select',
+                        title: 'Unidad',
+                        placement: 'top',
+                        value: 4,
+                        source: [
+                            {value: 1, text: '325'},
+                            {value: 2, text: '258'},
+                            {value: 3, text: '123'},
+                            {value: 4, text: '222'}
+                        ]
+                    });
+
+                    $('#chofer').editable({
+                        type: 'select',
+                        title: 'Chofer',
+                        placement: 'top',
+                        value: 1,
+                        source: [
+                            {value: 1, text: 'Jorge Martín'},
+                            {value: 2, text: 'Federico Fazio'},
+                            {value: 3, text: 'Jorge Sampaoli'},
+                            {value: 4, text: 'Hernán Cattaneo'}
+                        ]
+                    });
+
+                    $('#centroDeCosto').editable({
+                        type: 'select',
+                        title: 'Centro de Costo',
+                        placement: 'top',
+                        value: 2,
+                        source: [
+                            {value: 1, text: 'G3FERIA'},
+                            {value: 2, text: 'G3RURAL'},
+                            {value: 3, text: 'G3FINDEANIO'},
+                            {value: 4, text: 'G3VARIOS'}
+                        ]
+                    });
+
+                    $('#estado').editable({
+                        type: 'select',
+                        title: 'Estado:',
+                        placement: 'top',
+                        value: 1,
+                        source: [
+                            {value: 1, text: 'Nuevo'},
+                            {value: 2, text: 'Asignado'},
+                            {value: 3, text: 'Confirmado'},
+                            {value: 4, text: 'Cancelado'}
+                        ]
+                    });
                 });
             </script>
 
