@@ -191,7 +191,9 @@ def guardarTrayecto(request):
     else:
         viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
 
-        if trayectos.count() >= 1 and principal == '1':
+        if trayectos.count() == 0 and principal == '1':
+            trayecto = Trayecto()
+        elif trayectos.count() >= 1 and principal == '1':
             trayecto = viaje.getTrayectoPrincipal()
         else:
             id = request.POST.get('id', '')
