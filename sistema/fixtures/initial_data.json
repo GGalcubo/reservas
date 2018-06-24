@@ -1695,6 +1695,23 @@
   }
 },
 {
+  "model": "sistema.tipoobservacion",
+  "pk": 1,
+  "fields": {
+    "tipo_observacion": "Tipo"
+  }
+},
+{
+  "model": "sistema.observacion",
+  "pk": 1,
+  "fields": {
+    "fecha": "201806241216",
+    "texto": "Observacion traida desde initial.json",
+    "tipo_observacion": 1,
+    "usuario": 1
+  }
+},
+{
   "model": "sistema.observacionunidad",
   "pk": 1,
   "fields": {
