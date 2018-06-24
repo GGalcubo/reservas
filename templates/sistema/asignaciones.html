@@ -43,11 +43,14 @@
                                 </div>
                                 <div class="portlet-body">
                                     <table id="table"
-                                           data-toggle="table"
-                                           data-pagination="true">
+                                            data-toolbar="#toolbar"
+                                            data-search="true"
+                                            data-toggle="table"
+                                            data-pagination="true">
                                         <thead>
                                             <tr>
                                                 <th data-checkbox="true"></th>
+                                                <th class="desktop">Ver</th>
                                                 <th class="desktop">TS</th>
                                                 <th class="desktop">Fecha</th>
                                                 <th class="desktop">Hora</th>
@@ -56,16 +59,17 @@
                                                 <th class="desktop">Pasajero</th>
                                                 <th class="desktop">Origen</th>
                                                 <th class="desktop">Destino</th>
+                                                <th class="desktop">Nro.</th>
                                                 <th class="desktop">Unidad</th>
-                                                <th class="desktop">Chofer</th>
                                                 <th class="desktop">C. Costo</th>
-                                                <th class="desktop">Unidad Habilitada</th>
+                                                <th class="desktop">Estado</th>
                                                 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td></td>
+                                                <td><a href="#"><i class="fa fa-eye"></i></a></td>
                                                 <td><a id="tipoServicio"></a></td>
                                                 <td><a id="fecha" data-type="combodate" data-value="25-08-2018" data-format="DD-MM-YYYY" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1" data-title="Fecha" class="editable editable-click"></a></td>
                                                 <td><a id="hora" data-type="combodate" data-value="15:30" data-template="HH:mm" data-format="HH:mm" data-viewformat="HH:mm" data-pk="1" data-title="Hora" class="editable editable-click editable-open"></a></td>
@@ -74,8 +78,8 @@
                                                 <td>Susana Gimenez</td>
                                                 <td>Ezeiza</td>
                                                 <td>Centro</td>
-                                                <td><a id="unidad"></a></td>
-                                                <td><a id="chofer"></a></td>
+                                                <td><a id="nro"></a></td>
+                                                <td><a id="unidad" data-type="select2" data-pk="1" data-value="222" data-title="Unidad" class="editable editable-click"></a></td>
                                                 <td><a id="centroDeCosto"></a></td>
                                                 <td><a id="estado"></a></td>
                                             </tr>
@@ -132,9 +136,9 @@
                         ]
                     });
 
-                    $('#unidad').editable({
+                    $('#nro').editable({
                         type: 'select',
-                        title: 'Unidad',
+                        title: 'Nro. Unidad',
                         placement: 'top',
                         value: 4,
                         source: [
@@ -145,17 +149,30 @@
                         ]
                     });
 
-                    $('#chofer').editable({
-                        type: 'select',
-                        title: 'Chofer',
-                        placement: 'top',
-                        value: 1,
-                        source: [
-                            {value: 1, text: 'Jorge Martín'},
-                            {value: 2, text: 'Federico Fazio'},
-                            {value: 3, text: 'Jorge Sampaoli'},
-                            {value: 4, text: 'Hernán Cattaneo'}
-                        ]
+                    // $('#chofer').editable({
+                    //     type: 'select',
+                    //     title: 'Chofer',
+                    //     placement: 'top',
+                    //     value: 1,
+                    //     source: [
+                    //         {value: 1, text: 'Jorge Martín'},
+                    //         {value: 2, text: 'Federico Fazio'},
+                    //         {value: 3, text: 'Jorge Sampaoli'},
+                    //         {value: 4, text: 'Hernán Cattaneo'}
+                    //     ]
+                    // });
+
+                    var unidades = [];
+                    $.each({"325": "Jorge Martín Siena", "258": "Jorge Sampaoli Fitito", "123": "Federico Fazio Mondeo", "222": "Martin Bossi Vento"}, function(k, v) {
+                        unidades.push({id: k, text: v});
+                    }); 
+                    $('#unidad').editable({
+                        source: unidades,
+                        select2: {
+                            width: 200,
+                            placeholder: 'Elegir unidad',
+                            allowClear: true
+                        } 
                     });
 
                     $('#centroDeCosto').editable({
