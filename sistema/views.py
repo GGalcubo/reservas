@@ -153,11 +153,11 @@ def guardarViaje(request):
     viaje.fecha 				= request.POST.get('fecha', "")
     viaje.hora 					= request.POST.get('hora', "")
     viaje.hora_estimada 		= request.POST.get('hora_estimada', "")
-    #viaje.costo_proveedor = request.POST.get('costo_proveedor', "")
-    #viaje.tarifa_pasada = request.POST.get('tarifa_pasada', "")
+    viaje.costo_prov 			= request.POST.get('costo_proveedor', "")
+    viaje.tarifapasada 			= request.POST.get('tarifa_pasada', "")
     #viaje.comentario_chofer = request.POST.get('comentario_chofer', "")
     viaje.unidad 				= Unidad.objects.get(id=request.POST.get('unidad', False))
-    #viaje.espera = request.POST.get('espera', "")
+    viaje.espera 				= request.POST.get('espera', "")
     viaje.peaje_total 			= request.POST.get('peaje', "")
     viaje.Otros_tot 			= request.POST.get('otros', "")
     viaje.estacionamiento_total = request.POST.get('estacionamiento', "")
@@ -194,14 +194,19 @@ def guardarTrayecto(request):
         if trayectos.count() >= 1 and principal == '1':
             trayecto = viaje.getTrayectoPrincipal()
         else:
-            trayecto = Trayecto()
+            id = request.POST.get('id', '')
+            if id == '0':
+                trayecto = Trayecto()
+            else:
+				trayecto = Trayecto.objects.get(id=id)
+
 
         trayecto.viaje = viaje
         trayecto.localidad_desde = Localidad.objects.get(id=request.POST.get('desde_localidad', False))
         trayecto.provincia_desde = Provincia.objects.get(id=request.POST.get('desde_provincia', False))
         trayecto.altura_desde    = request.POST.get('desde_altura', '')
         trayecto.calle_desde     = request.POST.get('desde_calle', '')
-        trayecto.desde_entre     = request.POST.get('desde_entre', '')
+        trayecto.entre_desde     = request.POST.get('desde_entre', '')
         trayecto.localidad_hasta = Localidad.objects.get(id=request.POST.get('hasta_localidad', False))
         trayecto.provincia_hasta = Provincia.objects.get(id=request.POST.get('hasta_provincia', False))
         trayecto.altura_hasta    = request.POST.get('hasta_altura', '')
@@ -220,6 +225,18 @@ def guardarTrayecto(request):
             mensaje = ''
             context = {'mensaje': mensaje, 'trayectos': trayectos}
             return render(request, 'sistema/grillaTramos.html', context)
+
+@login_required
+def borrarTrayecto(request):
+    id = request.POST.get('id', '')
+    trayecto = Trayecto.objects.get(id=id)
+    trayecto.delete()
+
+    trayectos = Trayecto.objects.filter(viaje_id=request.POST.get('idViaje', False))
+    mensaje = ''
+    context = {'mensaje': mensaje, 'trayectos': trayectos}
+    return render(request, 'sistema/grillaTramos.html', context)
+
 
 @login_required
 def altaPersona(request):
