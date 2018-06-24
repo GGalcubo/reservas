@@ -46,7 +46,8 @@
                                             data-toolbar="#toolbar"
                                             data-search="true"
                                             data-toggle="table"
-                                            data-pagination="true">
+                                            data-pagination="true"
+                                            data-locale="es-ES">
                                         <thead>
                                             <tr>
                                                 <th data-checkbox="true"></th>
@@ -63,15 +64,14 @@
                                                 <th class="desktop">Unidad</th>
                                                 <th class="desktop">C. Costo</th>
                                                 <th class="desktop">Estado</th>
-                                                
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td></td>
-                                                <td><a href="#"><i class="fa fa-eye"></i></a></td>
+                                                <td class="text-center"><a href="#"><i class="fa fa-eye"></i></a></td>
                                                 <td><a id="tipoServicio"></a></td>
-                                                <td><a id="fecha" data-type="combodate" data-value="25-08-2018" data-format="DD-MM-YYYY" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1" data-title="Fecha" class="editable editable-click"></a></td>
+                                                <td><a id="fecha" data-type="date" data-pk="1" data-title="Fecha" class="editable editable-click">25/08/2018</a></td>
                                                 <td><a id="hora" data-type="combodate" data-value="15:30" data-template="HH:mm" data-format="HH:mm" data-viewformat="HH:mm" data-pk="1" data-title="Hora" class="editable editable-click editable-open"></a></td>
                                                 <td>Galcubo</td>
                                                 <td><a id="solicitante">Guido</a></td>
@@ -89,7 +89,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <!-- END CONTENT BODY -->
             </div>
@@ -119,7 +118,25 @@
                         ]
                     });
 
-                    $('#fecha').editable();
+                    $.fn.bdatepicker.dates['es'] = {
+                        days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+                        daysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"],
+                        daysMin: ["D", "L", "Ma", "Me", "J", "V", "S", "D"],
+                        months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+                        monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+                        today: "Hoy",
+                        weekStart: 1
+                    };
+
+                    $('#fecha').editable({
+                        placement: 'right',
+                        format: 'dd-mm-yyyy',    
+                        viewformat: 'dd/mm/yyyy',    
+                        datepicker: {
+                                weekStart: 1,
+                                language: 'es'
+                           }
+                    });
 
                     $('#hora').editable(); 
 
@@ -135,6 +152,17 @@
                             {value: 4, text: 'Toto'}
                         ]
                     });
+
+                    // $(function(){
+                    //     $('#dob').editable({
+                    //         placement: 'bottom',
+                    //         format: 'dd-mm-yyyy',    
+                    //         viewformat: 'dd/mm/yyyy',    
+                    //         datepicker: {
+                    //                 weekStart: 1
+                    //            }
+                    //         });
+                    // });
 
                     $('#nro').editable({
                         type: 'select',
