@@ -1113,8 +1113,11 @@
                        $("#mensajeValidacion").html("");
                        $("#viajeValidacion").hide();
                        alert(data.msg); // show response from the php script.
-                       viaje = data.id_viaje;
-                       $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
+                       if(es_nuevo == 1){
+                        viaje = data.id_viaje;
+                        $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
+                       }
+                       es_nuevo = 0;
                    }
                  });
 
