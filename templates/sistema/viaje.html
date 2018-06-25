@@ -991,6 +991,16 @@
     }
 
     $(document).ready(function () {
+
+        $('#fecha').datepicker({
+            language: 'es',
+            dateFormat: 'dd/mm/yy',
+            // todayBtn: true,
+            todayHighlight: true,
+            autoclose: true
+        });
+
+
         if(es_nuevo == '1'){
             $('#fecha').datepicker('setDate', 'today');
             $("#viaje-tab").hide();
@@ -1247,14 +1257,6 @@
 
         $('#hora').timepicker();
         $('#hora_estimada').timepicker();
-
-        $('#fecha').datepicker({
-            language: 'es',
-            dateFormat: 'dd/mm/yy',
-            // todayBtn: true,
-            todayHighlight: true,
-            autoclose: true
-        });
     });
 </script>
 </body>
