@@ -109,25 +109,25 @@
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="patente" name="patente" value="{{ unidad.vehiculo.patente }}">
+                                                        <input type="text" class="form-control" id="patente" name="patente" value="{{ unidad.vehiculo.patente|default_if_none:"" }}">
                                                         <label for="patente">Patente</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="modelo" name="modelo" value="{{ unidad.vehiculo.modelo }}">
+                                                        <input type="text" class="form-control" id="modelo" name="modelo" value="{{ unidad.vehiculo.modelo|default_if_none:"" }}">
                                                         <label for="modelo">Modelo</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="marca" name="marca" value="{{ unidad.vehiculo.marca }}">
+                                                        <input type="text" class="form-control" id="marca" name="marca" value="{{ unidad.vehiculo.marca|default_if_none:"" }}">
                                                         <label for="marca">Marca</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="color" name="color" value="{{ unidad.vehiculo.color }}">
+                                                        <input type="text" class="form-control" id="color" name="color" value="{{ unidad.vehiculo.color|default_if_none:"" }}">
                                                         <label for="color">Color</label>
                                                     </div>
                                                 </div>
@@ -135,25 +135,25 @@
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="year" name="year" value="{{ unidad.vehiculo.ano }}">
+                                                        <input type="text" class="form-control" id="year" name="year" value="{{ unidad.vehiculo.ano|default_if_none:"" }}">
                                                         <label for="year">Año</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="puertas" name="puertas" value="{{ unidad.vehiculo.puertas }}">
+                                                        <input type="text" class="form-control" id="puertas" name="puertas" value="{{ unidad.vehiculo.puertas|default_if_none:"" }}">
                                                         <label for="puertas">Puertas</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="nro_motor" name="nro_motor" value="{{ unidad.vehiculo.nro_motor }}">
+                                                        <input type="text" class="form-control" id="nro_motor" name="nro_motor" value="{{ unidad.vehiculo.nro_motor|default_if_none:"" }}">
                                                         <label for="nro_motor">Nro. Motor</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="nro_chasis" name="nro_chasis" value="{{ unidad.vehiculo.nro_chasis }}">
+                                                        <input type="text" class="form-control" id="nro_chasis" name="nro_chasis" value="{{ unidad.vehiculo.nro_chasis|default_if_none:"" }}">
                                                         <label for="nro_chasis">Nro. Chasis</label>
                                                     </div>
                                                 </div>
@@ -335,6 +335,8 @@
                                                                             <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaLicenciasUnidad">
                                                                                 <thead>
                                                                                     <tr>
+                                                                                        <th class="all">Editar</th>
+                                                                                        <th class="all">Eliminar</th>
                                                                                         <th class="all">Licencia</th>
                                                                                         <th class="all">Vencimiento</th>
                                                                                         <th class="all">Comentario</th>
@@ -343,6 +345,8 @@
                                                                                 <tbody>
                                                                                     {% for l in unidad.getLicencias %}
                                                                                     <tr>
+                                                                                        <td class="text-center"><a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');"><i class="fa fa-pencil"></i></a></td>
+                                                                                        <td class="text-center"><a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');"><i class="fa fa-minus-circle"></i></a></td>
                                                                                         <td>{{ l.tipo_licencia.tipo_licencia }}</td>
                                                                                         <td>{{ l.getFechaVencimiento }}</td>
                                                                                         <td>{{ l.comentario }}</td>
@@ -617,6 +621,40 @@
                         $('#porcFacturacionChofer').val(100);
                     }
                 }
+
+                function editarLicenciaPropect(idLicencia, idUnidad){
+                    var url = "/sistema/editarLicenciaPropect/";
+                    param = 'idLicencia='+idLicencia+'&idUnidad='+idUnidad;
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: param,
+                        success: function(data){
+                            $("#grillaLicencias").html(data);
+                            $('#descripcionLicencia').val("");
+                            $('#vencimientoLicencia').val("");
+                        }
+                    });
+                }    
+
+                function eliminarLicenciaPropect(idLicencia, idUnidad){
+                    var r = confirm("Desea eliminar la Licencia ??");
+                    if (r == true) {
+                        var url = "/sistema/eliminarLicenciaPropect/";
+                        param = 'idLicencia='+idLicencia+'&idUnidad='+idUnidad;
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                            data: param,
+                            success: function(data){
+                                $("#grillaLicencias").html(data);
+                            }
+                        });
+                    }
+                    
+                } 
                 
             </script>
 

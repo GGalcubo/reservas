@@ -592,6 +592,17 @@ def guardarLicenciaUnidad(request):
 	return render(request, 'sistema/grillaLicencias.html', context)
 
 @login_required
+def eliminarLicenciaPropect(request):
+	idLicencia = request.POST.get('idLicencia', False)
+	idUnidad = request.POST.get('idUnidad', False)
+	LicenciaPersona.objects.filter(licencia_id=idLicencia).delete()
+	LicenciaVehiculo.objects.filter(licencia_id=idLicencia).delete()
+	Licencia.objects.get(id=idLicencia).delete()
+	unidad = Unidad.objects.get(id=idUnidad)
+	context = {'unidad':unidad}
+	return render(request, 'sistema/grillaLicencias.html', context)
+
+@login_required
 def contacto(request):
 	mensaje = ""
 

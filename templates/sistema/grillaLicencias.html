@@ -1,29 +1,33 @@
 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaLicenciasUnidad">
-<thead>
-    <tr>
-        <th class="all">Licencia</th>
-        <th class="all">Vencimiento</th>
-        <th class="all">Comentario</th>
-    </tr>
-</thead>
-<tbody>
-    {% for l in unidad.getLicencias %}
-    <tr>
-        <td>{{ l.tipo_licencia.tipo_licencia }}</td>
-        <td>{{ l.getFechaVencimiento }}</td>
-        <td>{{ l.comentario }}</td>
-    </tr>
-    {% endfor %}
-</tbody>
+    <thead>
+        <tr>
+            <th class="all">Editar</th>
+            <th class="all">Eliminar</th>
+            <th class="all">Licencia</th>
+            <th class="all">Vencimiento</th>
+            <th class="all">Comentario</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for l in unidad.getLicencias %}
+        <tr>
+            <td class="text-center"><a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');"><i class="fa fa-pencil"></i></a></td>
+            <td class="text-center"><a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');"><i class="fa fa-minus-circle"></i></a></td>
+            <td>{{ l.tipo_licencia.tipo_licencia }}</td>
+            <td>{{ l.getFechaVencimiento }}</td>
+            <td>{{ l.comentario }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 <script>
     $(document).ready(function(){
-        var table = $('#tablaObservacionClientes').DataTable();
+        var table = $('#tablaLicenciasUnidad').DataTable();
         table.destroy();
-        $('#tablaObservacionClientes').DataTable( {
+        $('#tablaLicenciasUnidad').DataTable( {
             responsive: true,
             // scrollY: 200,
-            order: [[ 0, "asc" ]],
+            order: [[ 4, "asc" ]],
             lengthMenu: [
                             [ -1, 500, 100, 50, 25, 10 ],
                             [ 'Todos', '500', '100', '50', '25', '10' ]
