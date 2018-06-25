@@ -165,6 +165,18 @@ class Licencia(models.Model):
     def getFechaVencimiento(self):
         return getFecha(self.fecha_vencimiento)
 
+    def getAsignadoTipo(self):
+        if len(self.licenciapersona_set.all()) > 0:
+            return self.licenciapersona_set.all()[0].persona.tipo_persona.tipo_persona
+        elif len(self.licenciavehiculo_set.all()) > 0:
+            return 'Vehiculo'
+
+    def getAsignadoNombre(self):
+        if len(self.licenciapersona_set.all()) > 0:
+            return self.licenciapersona_set.all()[0].persona.nombre + " " + self.licenciapersona_set.all()[0].persona.apellido
+        elif len(self.licenciavehiculo_set.all()) > 0:
+            return self.licenciavehiculo_set.all()[0].vehiculo.patente
+
 class Persona(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)

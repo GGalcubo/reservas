@@ -3,6 +3,7 @@
         <tr>
             <th class="all">Editar</th>
             <th class="all">Eliminar</th>
+            <th class="all">Asignada</th>
             <th class="all">Licencia</th>
             <th class="all">Vencimiento</th>
             <th class="all">Comentario</th>
@@ -11,8 +12,9 @@
     <tbody>
         {% for l in unidad.getLicencias %}
         <tr>
-            <td class="text-center"><a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');"><i class="fa fa-pencil"></i></a></td>
+            <td class="text-center"><a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}','{{ l.getAsignadoTipo }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');"><i class="fa fa-pencil"></i></a></td>
             <td class="text-center"><a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');"><i class="fa fa-minus-circle"></i></a></td>
+            <td>{{ l.getAsignadoNombre }} ({{ l.getAsignadoTipo }})</td>
             <td>{{ l.tipo_licencia.tipo_licencia }}</td>
             <td>{{ l.getFechaVencimiento }}</td>
             <td>{{ l.comentario }}</td>

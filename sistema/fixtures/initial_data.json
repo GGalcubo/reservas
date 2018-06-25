@@ -173,7 +173,7 @@
   "fields": {
     "nombre": "Zona A",
     "provincia": 24,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -182,7 +182,7 @@
   "fields": {
     "nombre": "Zona B",
     "provincia": 24,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -191,7 +191,7 @@
   "fields": {
     "nombre": "Centro",
     "provincia": 24,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -200,7 +200,7 @@
   "fields": {
     "nombre": "AEP",
     "provincia": 24,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -209,7 +209,7 @@
   "fields": {
     "nombre": "Buquebus",
     "provincia": 24,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -218,7 +218,7 @@
   "fields": {
     "nombre": "Retiro",
     "provincia": 24,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -227,7 +227,7 @@
   "fields": {
     "nombre": "Adrogue",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -236,7 +236,7 @@
   "fields": {
     "nombre": "Areco",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -245,7 +245,7 @@
   "fields": {
     "nombre": "Avellaneda",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -254,7 +254,7 @@
   "fields": {
     "nombre": "Banfield",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -263,7 +263,7 @@
   "fields": {
     "nombre": "Berazategui",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -272,7 +272,7 @@
   "fields": {
     "nombre": "Bernal",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -281,7 +281,7 @@
   "fields": {
     "nombre": "Cardales",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -290,7 +290,7 @@
   "fields": {
     "nombre": "Caseros",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -299,7 +299,7 @@
   "fields": {
     "nombre": "Castelar",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -308,7 +308,7 @@
   "fields": {
     "nombre": "Chascomus",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -317,7 +317,7 @@
   "fields": {
     "nombre": "Don Silvano",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -326,7 +326,7 @@
   "fields": {
     "nombre": "Campana",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -335,7 +335,7 @@
   "fields": {
     "nombre": "Ezeiza",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -344,7 +344,7 @@
   "fields": {
     "nombre": "Guerrero",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -353,7 +353,7 @@
   "fields": {
     "nombre": "Haedo",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -362,7 +362,7 @@
   "fields": {
     "nombre": "Hudson",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -371,7 +371,7 @@
   "fields": {
     "nombre": "Hurlingham",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -380,7 +380,7 @@
   "fields": {
     "nombre": "Ituzaingo",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -389,7 +389,7 @@
   "fields": {
     "nombre": "Jose L Suarez",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -398,7 +398,7 @@
   "fields": {
     "nombre": "Kraft",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -407,7 +407,7 @@
   "fields": {
     "nombre": "La Candelaria",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -416,7 +416,7 @@
   "fields": {
     "nombre": "La Figura",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -425,7 +425,7 @@
   "fields": {
     "nombre": "La Plata",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -434,7 +434,7 @@
   "fields": {
     "nombre": "Lanus",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -443,7 +443,7 @@
   "fields": {
     "nombre": "Lomas De Zamora",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -452,7 +452,7 @@
   "fields": {
     "nombre": "Lujan",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -461,7 +461,7 @@
   "fields": {
     "nombre": "Mar Del Plata",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -470,7 +470,7 @@
   "fields": {
     "nombre": "Martinez",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -479,7 +479,7 @@
   "fields": {
     "nombre": "Massalin",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -488,7 +488,7 @@
   "fields": {
     "nombre": "Maximo Paz",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -497,7 +497,7 @@
   "fields": {
     "nombre": "Merlo",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -506,7 +506,7 @@
   "fields": {
     "nombre": "Montegrande",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -515,7 +515,7 @@
   "fields": {
     "nombre": "Moreno",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -524,7 +524,7 @@
   "fields": {
     "nombre": "Moron",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -533,7 +533,7 @@
   "fields": {
     "nombre": "Munro",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -542,7 +542,7 @@
   "fields": {
     "nombre": "Nordelta",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -551,7 +551,7 @@
   "fields": {
     "nombre": "Olivos",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -560,7 +560,7 @@
   "fields": {
     "nombre": "Palomar",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -569,7 +569,7 @@
   "fields": {
     "nombre": "Peugeot",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -578,7 +578,7 @@
   "fields": {
     "nombre": "Pilar",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -587,7 +587,7 @@
   "fields": {
     "nombre": "Quilmes",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -596,7 +596,7 @@
   "fields": {
     "nombre": "R De Escalada",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -605,7 +605,7 @@
   "fields": {
     "nombre": "Ramos Mejia",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -614,7 +614,7 @@
   "fields": {
     "nombre": "San Ceferino",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -623,7 +623,7 @@
   "fields": {
     "nombre": "San Fernando",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -632,7 +632,7 @@
   "fields": {
     "nombre": "San Isidro",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -641,7 +641,7 @@
   "fields": {
     "nombre": "San Justo",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -650,7 +650,7 @@
   "fields": {
     "nombre": "San Martin",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -659,7 +659,7 @@
   "fields": {
     "nombre": "San Miguel",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -668,7 +668,7 @@
   "fields": {
     "nombre": "Santa Susana",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -677,7 +677,7 @@
   "fields": {
     "nombre": "Santos Lugares",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -686,7 +686,7 @@
   "fields": {
     "nombre": "Siemens",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -695,7 +695,7 @@
   "fields": {
     "nombre": "Temperley",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -704,7 +704,7 @@
   "fields": {
     "nombre": "Tigre",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -713,7 +713,7 @@
   "fields": {
     "nombre": "Tortuguitas",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -722,7 +722,7 @@
   "fields": {
     "nombre": "Troncos Del Talar",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -731,7 +731,7 @@
   "fields": {
     "nombre": "Vicente Lopez",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -740,7 +740,7 @@
   "fields": {
     "nombre": "Villa Ballester",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -749,7 +749,7 @@
   "fields": {
     "nombre": "Wilde",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
@@ -758,7 +758,7 @@
   "fields": {
     "nombre": "Zarate",
     "provincia": 1,
-    "id_externo": null
+    "id_externo": ""
   }
 },
 {
