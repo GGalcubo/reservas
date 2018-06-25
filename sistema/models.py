@@ -397,8 +397,11 @@ class Viaje(models.Model):
         trayecto = self.trayecto_set.filter()[:1].get()
         return trayecto
 
+    def getFecha(self):
+        return getFecha(self.fecha)
+
     class Meta:
-        verbose_name_plural = "Viajes" 
+        verbose_name_plural = "Viajes"
 
 class ViajePasajero(models.Model):
     viaje = models.ForeignKey(Viaje)
