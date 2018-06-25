@@ -150,7 +150,8 @@ def guardarViaje(request):
     viaje.centro_costo 			= CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
     pasajero 					= Persona.objects.get(id=request.POST.get('pasajero', False))
     viaje.pasajero 				= pasajero.nombre + '' + pasajero.apellido
-    viaje.fecha 				= request.POST.get('fecha', "")
+    fecha 						= request.POST.get('fecha', "")
+    viaje.fecha 				= fecha[6:10] + fecha[3:5] + fecha[0:2]
     viaje.hora 					= request.POST.get('hora', "")
     viaje.hora_estimada 		= request.POST.get('hora_estimada', "")
     viaje.costo_prov 			= request.POST.get('costo_proveedor', "")

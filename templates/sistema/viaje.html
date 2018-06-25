@@ -137,19 +137,19 @@
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="fecha" value="{{ viaje.fecha }}" name="fecha">
+                                                        <input type="text" class="form-control" id="fecha" value="{{ viaje.fecha|slice:'6:8'}}/{{ viaje.fecha|slice:'4:6'}}/{{ viaje.fecha|slice:'0:4'}}" name="fecha">
                                                         <label>Fecha</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="hora" value="{{ viaje.hora|default_if_none:"" }}" name="hora">
+                                                        <input type="text" class="form-control timepicker timepicker-24" id="hora" value="{{ viaje.hora|default_if_none:"" }}" name="hora">
                                                         <label>Hora</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="hora_estimada" value="{{ viaje.hora_estimada|default_if_none:"" }}" name="hora_estimada">
+                                                        <input type="text" class="form-control timepicker timepicker-24" id="hora_estimada" value="{{ viaje.hora_estimada|default_if_none:"" }}" name="hora_estimada">
                                                         <label>H. E.</label>
                                                     </div>
                                                 </div>
@@ -992,6 +992,7 @@
 
     $(document).ready(function () {
         if(es_nuevo == '1'){
+            $('#fecha').datepicker('setDate', 'today');
             $("#viaje-tab").hide();
             $('#estado').attr("disabled", true);
         }else{
@@ -1241,8 +1242,19 @@
                         ],
             language: {
                 url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
-            },
+            }
         } );
+
+        $('#hora').timepicker();
+        $('#hora_estimada').timepicker();
+
+        $('#fecha').datepicker({
+            language: 'es',
+            dateFormat: 'dd/mm/yy',
+            // todayBtn: true,
+            todayHighlight: true,
+            autoclose: true
+        });
     });
 </script>
 </body>
