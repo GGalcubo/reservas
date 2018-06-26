@@ -63,14 +63,14 @@
                                                         <label for="selectOwners">Dueño</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4 text-center">
+                                                <div class="col-sm-2 text-center">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <a href="#add_duenio" data-toggle="modal" role="button" class="btn green btn-outline">Agregar Dueño</a>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" onchange="balanceoOwnerFacturacion();" value="{{unidad.porcentaje_owner|default_if_none:""}}" id="porcFacturacionOwner" name="porcFacturacionOwner">
+                                                        <input type="number" min="0" max="100" class="form-control" onchange="balanceoOwnerFacturacion();" value="{{unidad.porcentaje_owner|default_if_none:""}}" id="porcFacturacionOwner" name="porcFacturacionOwner">
                                                         <label for="porcFacturacionOwner">% de Facturación</label>
                                                     </div>
                                                 </div>
@@ -87,14 +87,14 @@
                                                         <label for="selectChoferes">Chofer</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4 text-center">
+                                                <div class="col-sm-2 text-center">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <a href="#add_chofer" data-toggle="modal" role="button" class="btn green btn-outline">Agregar Chofer</a>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" onchange="balanceoChoferFacturacion();" value="{{unidad.porcentaje_chofer|default_if_none:""}}" id="porcFacturacionChofer" name="porcFacturacionChofer">
+                                                        <input type="number" min="0" max="100" class="form-control" onchange="balanceoChoferFacturacion();" value="{{unidad.porcentaje_chofer|default_if_none:""}}" id="porcFacturacionChofer" name="porcFacturacionChofer">
                                                         <label for="porcFacturacionChofer">% de Facturación</label>
                                                     </div>
                                                 </div>
@@ -273,8 +273,8 @@
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
-                                                                        <label for="vencimientoLicencia font-12">Vencimiento</label>
-                                                                        <input class="form-control form-control-inline input-medium date-picker" id="vencimientoLicencia" name="vencimientoLicencia" size="16" type="text" value="" />
+                                                                        <label for="vencimientoLicencia">Vencimiento</label>
+                                                                        <input class="form-control" id="vencimientoLicencia" name="vencimientoLicencia" size="12" type="text" />
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group form-md-line-input form-md-floating-label">
@@ -473,7 +473,7 @@
                     $('#tablaLicenciasUnidad').DataTable( {
                         responsive: true,
                         // scrollY: 200,
-                        order: [[ 1, "asc" ]],
+                        order: [[ 4, "asc" ]],
                         lengthMenu: [
                                         [ -1, 500, 100, 50, 25, 10 ],
                                         [ 'Todos', '500', '100', '50', '25', '10' ]
@@ -495,6 +495,14 @@
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
                         },
                     } );
+
+                    $('#vencimientoLicencia').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
 
                     var idUnidad = $("#idUnidad").val()
                     if (idUnidad == "0"){
@@ -561,7 +569,6 @@
                             cerrarModalLicencia();
                         }
                     });
-                    $('#add_licencia').modal('toggle');
                 }
 
                 function agregarOwner(){
@@ -609,6 +616,10 @@
                 function balanceoChoferFacturacion(){
                     var porcChofer = $('#porcFacturacionChofer').val();
                     if (porcChofer != ""){
+                        if (porcChofer > 100){
+                            porcChofer = 100;
+                            $('#porcFacturacionChofer').val(100);
+                        }
                         $('#porcFacturacionOwner').val(100 - porcChofer);
                     }else{
                         $('#porcFacturacionOwner').val(100);
@@ -618,6 +629,10 @@
                 function balanceoOwnerFacturacion(){
                     var porcOwner = $('#porcFacturacionOwner').val();
                     if (porcOwner != ""){
+                        if (porcOwner > 100){
+                            porcOwner = 100;
+                            $('#porcFacturacionOwner').val(100);
+                        }
                         $('#porcFacturacionChofer').val(100 - porcOwner);
                     }else{
                         $('#porcFacturacionChofer').val(100);

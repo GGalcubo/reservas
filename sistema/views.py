@@ -565,13 +565,25 @@ def guardarObservacionUnidad(request):
 
 @login_required
 def guardarLicenciaUnidad(request):
+	idLicencia = request.POST.get('idLicencia', False)
 	personaLicencia = request.POST.get('personaLicencia', False)
-	licencia = Licencia()
-	licencia.comentario = request.POST.get('descripcionLicencia', False)
-	licencia.tipo_licencia = TipoLicencia.objects.get(id=request.POST.get('tipoLicencia', False))
+	descripcion = request.POST.get('descripcionLicencia', False)
+	tipo = TipoLicencia.objects.get(id=request.POST.get('tipoLicencia', False))
 	fv = request.POST.get('vencimientoLicencia', False)
-	licencia.fecha_vencimiento = fv[6:10] + fv[3:5] + fv[0:2]
+	fecha = fv[6:10] + fv[3:5] + fv[0:2]
+
+	if idLicencia == "0":
+		licencia = Licencia()
+	else:
+		LicenciaPersona.objects.filter(licencia_id=idLicencia).delete()
+		LicenciaVehiculo.objects.filter(licencia_id=idLicencia).delete()
+		licencia = Licencia.objects.get(id=idLicencia)
+
+	licencia.comentario = descripcion
+	licencia.tipo_licencia = tipo
+	licencia.fecha_vencimiento = fecha
 	licencia.save()
+
 	if personaLicencia == "chofer":
 		lp = LicenciaPersona()
 		lp.persona = Persona.objects.get(id=request.POST.get('idChofer', False))
