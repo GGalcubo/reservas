@@ -359,7 +359,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <select class="form-control" id="desde_destino" name="desde_destino">
+                                                                    <select class="form-control select2me" id="desde_destino" name="desde_destino">
                                                                         <option value=""></option>
                                                                         {% for p in provincias %}
                                                                             {% if p.id == viaje.getTrayectoPrincipal.provincia_desde_id %}
@@ -374,7 +374,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <select class="form-control" id="desde_localidad" name="desde_localidad">
+                                                                    <select class="form-control select2me" id="desde_localidad" name="desde_localidad">
                                                                         <option value=""></option>
                                                                         {% for l in localidades %}
                                                                             {% if l.id == viaje.getTrayectoPrincipal.localidad_desde_id %}
@@ -424,7 +424,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <select class="form-control" id="hasta_destino" name="hasta_destino">
+                                                                    <select class="form-control select2me" id="hasta_destino" name="hasta_destino">
                                                                         <option value=""></option>
                                                                         {% for p in provincias %}
                                                                             {% if p.id == viaje.getTrayectoPrincipal.provincia_hasta_id %}
@@ -439,7 +439,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input">
-                                                                    <select class="form-control" id="hasta_localidad" name="hasta_localidad">
+                                                                    <select class="form-control select2me" id="hasta_localidad" name="hasta_localidad">
                                                                         <option value=""></option>
                                                                         {% for l in localidades %}
                                                                             {% if l.id == viaje.getTrayectoPrincipal.localidad_hasta_id %}
@@ -706,7 +706,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="modal_desde_destino" name="modal_desde_destino">
+                                        <select class="form-control select2me" id="modal_desde_destino" name="modal_desde_destino">
                                             {% for p in provincias %}
                                                <option value="{{ p.id }}">{{ p.nombre }}</option>
                                             {% endfor %}
@@ -716,7 +716,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="modal_desde_localidad" name="modal_desde_localidad">
+                                        <select class="form-control select2me" id="modal_desde_localidad" name="modal_desde_localidad">
                                             {% for l in localidades %}
                                                <option value="{{ l.id }}">{{ l.nombre }}</option>
                                             {% endfor %}
@@ -759,7 +759,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="modal_hasta_destino" name="modal_hasta_destino">
+                                        <select class="form-control select2me" id="modal_hasta_destino" name="modal_hasta_destino">
                                             {% for p in provincias %}
                                                <option value="{{ p.id }}">{{ p.nombre }}</option>
                                             {% endfor %}
@@ -769,7 +769,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="modal_hasta_localidad" name="modal_hasta_localidad">
+                                        <select class="form-control select2me" id="modal_hasta_localidad" name="modal_hasta_localidad">
                                             {% for l in localidades %}
                                                <option value="{{ l.id }}">{{ l.nombre }}</option>
                                             {% endfor %}
@@ -891,6 +891,7 @@
     {% endfor %}
 
     var es_nuevo = '{{ es_nuevo }}';
+    var html_select = '';
 
     function mostrarMsgValidacion(msg){
         $("#mensajeValidacion").html(msg);
@@ -936,6 +937,42 @@
         $('#unidad_identificacion').select2('val',unidades[option_selected].id);
         $('#unidad_id').val(unidades[option_selected].id).trigger("change");
         $('#unidad_identificacion').val(unidades[option_selected].id).trigger("change");
+    }
+
+    function updateFillsByDestino(name, evt){
+        var provincia_id = evt.params.data.id;
+        var localidad_select_id = evt.params.data.localidad_select_id;
+        var html_select = evt.currentTarget.id;
+        var html_to_change = '';
+
+        switch(html_select) {
+            case 'desde_destino':
+                html_to_change = 'desde_localidad';
+                break;
+            case 'hasta_destino':
+                html_to_change = 'hasta_localidad';
+                break;
+            case 'modal_desde_destino':
+                html_to_change = 'modal_desde_localidad';
+                break;
+            case 'modal_hasta_destino':
+                html_to_change = 'modal_hasta_localidad';
+                break;
+        }
+
+        var url = "/sistema/cargarLocalidadByProvincia/";
+        var param = {};
+        param.provincia_id = provincia_id;
+        param.localidad_select_id = localidad_select_id;
+        $.ajax({
+            type: "POST",
+            url: url,
+            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+            data: param,
+            success: function(data){
+                $('#' + html_to_change).html(data);
+            }
+        });
     }
 
     function agregarTramo(){
@@ -1000,7 +1037,6 @@
             autoclose: true
         });
 
-
         if(es_nuevo == '1'){
             $('#fecha').datepicker('setDate', 'today');
             $("#viaje-tab").hide();
@@ -1015,6 +1051,20 @@
             evt.params.data.id = '{{ viaje.cliente.id|default_if_none:"" }}';
 
             updateFillsByCliente('', evt);
+
+            evt.params.data.id = '{{ viaje.getTrayectoPrincipal.provincia_desde_id|default_if_none:"" }}';
+            evt.params.data.localidad_select_id = '{{ viaje.getTrayectoPrincipal.localidad_desde_id|default_if_none:"" }}';
+            evt.currentTarget = {};
+            evt.currentTarget.id = 'desde_localidad';
+
+            updateFillsByDestino('', evt);
+
+            evt.params.data.id = '{{ viaje.getTrayectoPrincipal.provincia_hasta_id|default_if_none:"" }}';
+            evt.params.data.localidad_select_id = '{{ viaje.getTrayectoPrincipal.localidad_hasta_id|default_if_none:"" }}';
+            evt.currentTarget = {};
+            evt.currentTarget.id = 'hasta_localidad';
+
+            updateFillsByDestino('', evt);
         }
 
         $("#mensajeValidacion").html("");
@@ -1024,6 +1074,13 @@
         $("#razon_social").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
         $("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
         $("#unidad_identificacion").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
+
+
+        $("#desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
+        $("#hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
+        $("#modal_desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
+        $("#modal_hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
+
 
         $("#form-viaje-viaje").submit(function(e) {
             if ($("#id_cliente").val() == ""){

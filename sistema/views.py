@@ -693,6 +693,14 @@ def cargarLocalidad(request):
 	return render(request, 'sistema/selectLocalidad.html', context)
 
 @login_required
+def cargarLocalidadByProvincia(request):
+	provincia_id = request.POST.get('provincia_id', False)
+	localidad_select_id = request.POST.get('localidad_select_id', '')
+	localidades = Localidad.objects.filter(provincia_id=provincia_id)
+	context = {'localidades': localidades, 'localidad_select_id':localidad_select_id}
+	return render(request, 'sistema/selectLocalidadViaje.html', context)
+
+@login_required
 def cargarProvincia(request):
 	idLocalidad = request.POST.get('idLocalidad', False)
 	print idLocalidad
