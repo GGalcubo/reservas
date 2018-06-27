@@ -479,6 +479,14 @@ class Trayecto(models.Model):
     def __str__(self):
         return self.calle_desde
 
+    def desdeConcat(self):
+        desde = self.destino_desde.nombre+" ,"+self.provincia_desde.nombre+" ,"+self.localidad_desde.nombre+" ,"+self.calle_desde+" ,"+self.altura_desde+" ,"+self.compania_desde+" ,"+self.vuelo_desde 
+        return desde.replace("null", "")
+
+    def hastaConcat(self):
+        hasta = self.destino_hasta.nombre+" ,"+self.provincia_hasta.nombre+" ,"+self.localidad_hasta.nombre+" ,"+self.calle_hasta+" ,"+self.altura_hasta+" ,"+self.compania_hasta+" ,"+self.vuelo_hasta
+        return hasta.replace("null", "")
+
 class PersonaCliente(models.Model):
     persona = models.ForeignKey(Persona, null=True, blank=True)
     cliente = models.ForeignKey(Cliente, null=True, blank=True)
