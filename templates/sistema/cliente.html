@@ -146,16 +146,16 @@
                                             <li class="">
                                                 <a href="#tabDatosFacturacionCliente" data-toggle="tab" aria-expanded="false"> Facturación </a>
                                             </li>
-                                            <li class="">
+                                            <!--li class="">
                                                 <a href="#tabDatosMailsCliente" data-toggle="tab" aria-expanded="false"> Mails </a>
-                                            </li>
+                                            </li-->
                                             <li class="">
                                                 <a href="#tabDatosObservacionesCliente" data-toggle="tab" aria-expanded="false"> Observaciones </a>
                                             </li>
                                         </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tabCCCliente">
-                                                <form role="form" class="form-datos-cliente-cc">
+                                                <form role="form" id="form-datos-cliente-cc" class="form-datos-cliente-cc">{% csrf_token %}
                                                     <div class="form-body">
                                                         <div class="row">
                                                             <div class="col-sm-12">
@@ -174,6 +174,7 @@
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th class="all">Editar</th>
+                                                                                    <th class="all">Eliminar</th>
                                                                                     <th class="all">ID</th>
                                                                                     <th class="all">Código CC</th>
                                                                                     <th class="all">Descripción</th>
@@ -183,48 +184,24 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
+                                                                                {% for cc in cliente.getCentroCostos %}
                                                                                 <tr>
-                                                                                    <td class="text-center"><a href="/sistema/editaCentroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>456789</td>
-                                                                                    <td>3MFERIA</td>
-                                                                                    <td>Feria del Libro</td>
-                                                                                    <td>General</td>
-                                                                                    <td>15/01/2018</td>
-                                                                                    <td>15/03/2018</td>
+                                                                                    <td class="text-center"><a href="#" onclick="editarCCPropect('{{ cc.id }}','{{ cliente.id }}','{{ cc.nombre }}','{{ cc.descripcion }}','{{ cc.getFechaInicio }}','{{ cc.getFechaFin }}','{{ cc.tarifario.id }}');"><i class="fa fa-pencil"></i></a></td>
+                                                                                    <td class="text-center"><a href="#" onclick="eliminarCCPropect('{{ cc.id }}','{{ cliente.id }}');"><i class="fa fa-minus-circle"></i></a></td>
+                                                                                    <td>{{ cc.id }}</td>
+                                                                                    <td>{{ cc.nombre }}</td>
+                                                                                    <td>{{ cc.descripcion }}</td>
+                                                                                    <td>{{ cc.tarifario.nombre }}</td>
+                                                                                    <td>{{ cc.getFechaInicio }}</td>
+                                                                                    <td>{{ cc.getFechaFin }}</td>   
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href="/sistema/editaCentroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>789456</td>
-                                                                                    <td>3MRURAL</td>
-                                                                                    <td>La Rural</td>
-                                                                                    <td>Especial</td>
-                                                                                    <td>01/01/2018</td>
-                                                                                    <td>31/12/2018</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href="/sistema/editaCentroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>123456</td>
-                                                                                    <td>3MNDLM</td>
-                                                                                    <td>Noche de los Museos</td>
-                                                                                    <td>Gral + 10%</td>
-                                                                                    <td>01/10/2018</td>
-                                                                                    <td>31/03/2019</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href="/sistema/editaCentroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>456123</td>
-                                                                                    <td>3MNDLL</td>
-                                                                                    <td>Noche de las Librerías</td>
-                                                                                    <td>General</td>
-                                                                                    <td>01/05/2018</td>
-                                                                                    <td>31/12/2018</td>
-                                                                                </tr>
+                                                                                {% endfor %}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <input type="hidden" id="idClienteCC" name="idClienteCC" value="{{ cliente.id }}">
+                                                                            <input type="hidden" id="idClienteCC" name="idClienteCC" value="0">
                                                                             <div id="add_cc_cliente" class="modal fade" tabindex="-1" aria-hidden="true">
                                                                                 <div class="modal-dialog">
                                                                                     <div class="modal-content">
@@ -235,16 +212,26 @@
                                                                                         <div class="modal-body">
                                                                                             <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
                                                                                                 <div class="row">
-                                                                                                    <div class="col-sm-6">
+                                                                                                    <div class="col-sm-4">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                                                                             <input type="text" class="form-control" id="codigoCCCliente" name="codigoCCCliente">
                                                                                                             <label for="codigoCCCliente">Código Centro de Costo</label>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="col-sm-6">
+                                                                                                    <div class="col-sm-4">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                                                                             <input type="email" class="form-control" id="descripcionCCCliente" name="descripcionCCCliente">
                                                                                                             <label for="descripcionCCCliente">Descripción</label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-4">
+                                                                                                        <div class="form-group form-md-line-input">
+                                                                                                            <select class="form-control" id="selectTarifariosCCCliente" name="selectTarifariosCCCliente" >
+                                                                                                                {% for t in tarifarios %}
+                                                                                                                    <option value="{{ t.id }}">{{ t.nombre }}</option>
+                                                                                                                {% endfor %}
+                                                                                                            </select>
+                                                                                                            <label for="selectTarifariosCCCliente">Tarifarios</label>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
@@ -261,7 +248,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="modal-footer noborder flex flex-j-between">
-                                                                                          <button type="button" onclick="agregarCentroDeCosto()" class="btn green">Guardar</button>
+                                                                                          <button type="button" onclick="guardarCentroCosto();" class="btn green">Guardar</button>
                                                                                           <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
                                                                                         </div>
                                                                                     </div>
@@ -864,6 +851,22 @@
                         },
                     } );
 
+                    $('#desdeCC').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+
+                    $('#hastaCC').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+
                     var idCliente = $("#idCliente").val()
                     if (idCliente == "0"){
                         $("#clienteDetalle").hide()
@@ -973,7 +976,34 @@
                             $("#selectProvincia").html(data);
                         }
                     });
+                    
                 }
+
+                function editarCCPropect(ccid,clienteid,nombre,descripcion,fechaInicio,fechaFin,tarifa){
+                    $('#idClienteCC').val(ccid);
+                    $('#codigoCCCliente').val(nombre);
+                    $('#descripcionCCCliente').val(descripcion);
+                    $('#selectTarifariosCCCliente').val(tarifa);
+                    $('#desdeCC').val(fechaInicio);
+                    $('#hastaCC').val(fechaFin);
+                    $('#add_cc_cliente').modal('toggle');
+                }
+
+                function guardarCentroCosto(){
+                    form-datos-cliente-cc
+                    var url = "/sistema/guardarCentroCosto/";
+                    param = 'idLocalidad='+$("#localidad").val();
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: param,
+                        success: function(data){
+                            $("#selectProvincia").html(data);
+                        }
+                    });
+                }
+                
 
             </script>
 

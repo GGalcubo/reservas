@@ -322,8 +322,8 @@ def cliente(request):
 	mensaje = ""
 	idCliente = request.GET.get('idCliente', "")
 	cliente = Cliente.objects.get(id=idCliente)
-
-	context = {'mensaje': mensaje, 'cliente':cliente}
+	tarifarios = Tarifario.objects.all()
+	context = {'mensaje': mensaje, 'cliente':cliente, 'tarifarios':tarifarios}
 	return render(request, 'sistema/cliente.html', context)
 
 @login_required
@@ -516,7 +516,8 @@ def guardarUnidad(request):
 	unidad.identificacion = request.POST.get('identificacion', "")
 	unidad.owner = Persona.objects.get(id=request.POST.get('selectOwners', ""))
 	unidad.porcentaje_owner = request.POST.get('porcFacturacionOwner', "")
-	unidad.chofer = Persona.objects.get(id=request.POST.get('selectChoferes', ""))
+	if request.POST.get('selectChoferes', "") != "":
+		unidad.chofer = Persona.objects.get(id=request.POST.get('selectChoferes', ""))
 	unidad.porcentaje_chofer = request.POST.get('porcFacturacionChofer', "")
 	if request.POST.get('patente', "") != "":
 		vehiculo.patente = request.POST.get('patente', "")

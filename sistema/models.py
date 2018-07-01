@@ -350,6 +350,12 @@ class Cliente(models.Model):
             mails.append(mailcli.mail)
         return mails
 
+    def getCentroCostos(self):
+        cc = []
+        for c in self.centrocosto_set.all():
+            cc.append(c)
+        return cc
+
 class CentroCosto(models.Model):
     nombre = models.CharField(max_length=100)
     fecha_inicio = models.CharField(max_length=8, null=True, blank=True)
@@ -363,6 +369,12 @@ class CentroCosto(models.Model):
 
     def __str__(self):
         return self.nombre
+
+    def getFechaInicio(self):
+        return getFecha(self.fecha_inicio)
+
+    def getFechaFin(self):
+        return getFecha(self.fecha_fin)
 
 class Viaje(models.Model):
     factura = models.CharField(max_length=30, null=True, blank=True)
