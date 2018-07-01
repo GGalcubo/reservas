@@ -289,13 +289,15 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
   body .page-sidebar-wrapper {
     display: none !important; }
 
-  body#operaciones .page-sidebar-wrapper {
+  body#operaciones .page-sidebar-wrapper,
+  body#asignaciones .page-sidebar-wrapper {
     display: block !important; }
 
   body .page-header.navbar .menu-toggler.responsive-toggler {
     display: none !important; }
 
-  body#operaciones .page-header.navbar .menu-toggler.responsive-toggler {
+  body#operaciones .page-header.navbar .menu-toggler.responsive-toggler,
+  body#asignaciones .page-header.navbar .menu-toggler.responsive-toggler {
     display: inline-block !important; } }
 /* PARA ESCONDER LA BARRA LATERAL EN DESKTOP */
 @media (min-width: 992px) {
@@ -305,16 +307,19 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
   body.page-sidebar-reversed.page-sidebar-fixed .page-footer {
     margin-right: 0 !important; }
 
-  body#operaciones.page-sidebar-reversed .page-content-wrapper .page-content {
+  body#operaciones.page-sidebar-reversed .page-content-wrapper .page-content,
+  body#asignaciones.page-sidebar-reversed .page-content-wrapper .page-content {
     margin-right: 195px !important; }
 
-  body#operaciones.page-sidebar-reversed.page-sidebar-fixed .page-footer {
+  body#operaciones.page-sidebar-reversed.page-sidebar-fixed .page-footer,
+  body#asignaciones.page-sidebar-reversed.page-sidebar-fixed .page-footer {
     margin-right: 195px !important; }
 
   body > .page-container > .page-sidebar-wrapper > .page-sidebar.navbar-collapse.collapse > .slimScrollDiv {
     display: none !important; }
 
-  body#operaciones > .page-container > .page-sidebar-wrapper > .page-sidebar.navbar-collapse.collapse > .slimScrollDiv {
+  body#operaciones > .page-container > .page-sidebar-wrapper > .page-sidebar.navbar-collapse.collapse > .slimScrollDiv,
+  body#asignaciones > .page-container > .page-sidebar-wrapper > .page-sidebar.navbar-collapse.collapse > .slimScrollDiv {
     display: block !important; } }
 .top-0 {
   top: 0px !important; }
