@@ -644,4 +644,6 @@ def getFechaHora(aaaammddhhmm):
     return aaaammddhhmm[8:10] + ":" + aaaammddhhmm[10:12] + " " + aaaammddhhmm[6:8] + "/" + aaaammddhhmm[4:6] + "/" + aaaammddhhmm[0:4]
 
 def getFecha(aaaammdd):
+    if aaaammdd == None:
+        return ""
     return aaaammdd[6:8] + "/" + aaaammdd[4:6] + "/" + aaaammdd[0:4]
