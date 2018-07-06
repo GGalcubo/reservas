@@ -76,7 +76,7 @@ class TipoPersona(models.Model):
 
 class TipoObservacion(models.Model):
     tipo_observacion = models.CharField(max_length=50)
-
+    detalle_tipo_obs = models.CharField(max_length=50,null=True, blank=True)
     def __unicode__(self):
         return u'%s' % self.tipo_observacion
 
@@ -198,6 +198,7 @@ class Persona(models.Model):
     cbu = models.CharField(max_length=50, null=True, blank=True)
     alias = models.CharField(max_length=100, null=True, blank=True)
     dias_fechas_facturas = models.CharField(max_length=20, null=True, blank=True)
+    nacionalidad = models.CharField(max_length=50, null=True, blank=True)
     baja = models.BooleanField(default=False)
 
     def __unicode__(self):
@@ -641,6 +642,8 @@ class LicenciaVehiculo(models.Model):
 
 # devuelve hh:mm dd/mm/aaaa
 def getFechaHora(aaaammddhhmm):
+    if aaaammddhhmm == None:
+        return ""
     return aaaammddhhmm[8:10] + ":" + aaaammddhhmm[10:12] + " " + aaaammddhhmm[6:8] + "/" + aaaammddhhmm[4:6] + "/" + aaaammddhhmm[0:4]
 
 def getFecha(aaaammdd):

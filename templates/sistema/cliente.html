@@ -170,7 +170,8 @@
                                                                         <div class="tools"> </div>
                                                                     </div>
                                                                     <div class="portlet-body">
-                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaClientes">
+                                                                        <div id="grillaCentroCostos" >
+                                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaCentroCostos">
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th class="all">Editar</th>
@@ -198,10 +199,12 @@
                                                                                 {% endfor %}
                                                                             </tbody>
                                                                         </table>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <input type="hidden" id="idClienteCC" name="idClienteCC" value="0">
+                                                                            <input type="hidden" id="idClienteEnCC" name="idClienteEnCC" value="{{ cliente.id }}">
                                                                             <div id="add_cc_cliente" class="modal fade" tabindex="-1" aria-hidden="true">
                                                                                 <div class="modal-dialog">
                                                                                     <div class="modal-content">
@@ -1039,16 +1042,30 @@
                 }
 
                 function guardarCentroCosto(){
-                    form-datos-cliente-cc
-                    var url = "/sistema/guardarCentroCosto/";
-                    param = 'idLocalidad='+$("#localidad").val();
+                    if ($('#codigoCCCliente').val() == ""){
+                        alert("El Codigo es obligatorio.")
+                        return false;
+                    }
+                    if ($('#desdeCC').val() == ""){
+                        alert("La fecha desde es obligatoria.")
+                        return false;
+                    }
+
+                    var url = "/sistema/guardarCentroCostoProspect/";
                     $.ajax({
                         type: "POST",
                         url: url,
                         headers: {'X-CSRFToken': '{{ csrf_token }}'},
-                        data: param,
+                        data: $("#form-datos-cliente-cc").serialize(),
                         success: function(data){
-                            $("#selectProvincia").html(data);
+                            $('#idClienteCC').val("0");
+                            $('#codigoCCCliente').val("");
+                            $('#descripcionCCCliente').val("");
+                            $('#selectTarifariosCCCliente').val("");
+                            $('#desdeCC').val("");
+                            $('#hastaCC').val("");
+                            $("#grillaCentroCostos").html(data);
+                            $('#add_cc_cliente').modal('toggle');
                         }
                     });
                 }

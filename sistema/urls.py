@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, borrarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, centroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByProvincia
+from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, borrarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, centroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByProvincia, guardarCentroCostoProspect
 
 
 urlpatterns = [
@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^guardarObservacionPersona/', guardarObservacionPersona, name='guardarObservacionPersona'),
     url(r'^guardarOwnerProspect/', guardarOwnerProspect, name='guardarOwnerProspect'),
     url(r'^guardarChoferProspect/', guardarChoferProspect, name='guardarChoferProspect'),
+    url(r'^guardarCentroCostoProspect/', guardarCentroCostoProspect, name='guardarCentroCostoProspect'),
     url(r'^guardarMailCliente/', guardarMailCliente, name='guardarMailCliente'),
     url(r'^provedor/', provedor, name='provedor'),
     url(r'^listadoProvedor/', listadoProvedor, name='listadoProvedor'),
