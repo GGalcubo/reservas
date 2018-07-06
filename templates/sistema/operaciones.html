@@ -48,20 +48,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="text-center"><a href="/sistema/viaje/">1</a></td>
-                                                <td>VIP</td>
-                                                <td>25/08/2018</td>
-                                                <td>12:30</td>
-                                                <td>???</td>
-                                                <td>325</td>
-                                                <td>Rafael Duna</td>
-                                                <td><span class="label label-sm label-danger"> Palomar </span></td>
-                                                <td><span class="label label-sm label-warning"> Ezeiza </span></td>
-                                                <td>Guido</td>
-                                                <td>Cristiano</td>
-                                                <td>3MLARURAL</td>
-                                            </tr>
+                                            {% for v in viajes %}
+                                                {% if v.estado_id == 5 %}
+                                                    <tr>
+                                                        <td class="all text-center"><a href="/sistema/editaViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>
+                                                        <td class="all">{{ v.categoria_viaje }}</td>
+                                                        <td class="all">{{ v.fecha }}</td>
+                                                        <td class="all">{{ v.hora }}</td>
+                                                        <td class="all">{{ v.hora_estimada }}</td>
+                                                        <td class="all">{{ v.unidad.id }}</td>
+                                                        <td class="all">{{ v.unidad.identificacion }}</td>
+                                                        <td class="all"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.localidad_desde }}</span></td>
+                                                        <td class="all"><span class="label label-sm label-warning">{{ v.getTrayectoPrincipal.localidad_hasta }}</span></td>
+                                                        <td class="all">{{ v.pasajero }}</td>
+                                                        <td class="all">{{ v.solicitante }}</td>
+                                                        <td class="all">{{ v.centro_costo }}</td>
+                                                    </tr>
+                                                {% endif %}
+                                        {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>
@@ -79,7 +83,7 @@
                                         <span class="caption-subject bold uppercase">Viajes</span>
                                     </div>
                                     <div class="inline-block width-50" style="float: right;">
-                                        <select class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
+                                        <select id="multiselect_estado" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
                                             <optgroup label="Nuevos" class="group-1">
                                                 <option value="1-1">Sin asignar</option>
                                                 <option value="1-2" selected="selected">Asignados</option>
@@ -119,15 +123,15 @@
                                                 <td class="all">{{ v.categoria_viaje }}</td>
                                                 <td class="all">{{ v.fecha }}</td>
                                                 <td class="all">{{ v.hora }}</td>
-                                                <td class="all">???</td>
-                                                <td class="all"><span class="label label-primary"> Asignado </span></td>
+                                                <td class="all">{{ v.hora_estimada }}</td>
+                                                <td class="all"><span class="label label-primary"> {{ v.estado }} </span></td>
                                                 <td class="all">{{ v.unidad.id }}</td>
                                                 <td class="all">{{ v.unidad.identificacion }}</td>
                                                 <td class="all"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.localidad_desde }}</span></td>
                                                 <td class="all"><span class="label label-sm label-warning">{{ v.getTrayectoPrincipal.localidad_hasta }}</span></td>
                                                 <td class="all">{{ v.pasajero }}</td>
-                                                <td class="all">falta conectar</td>
-                                                <td class="all">falta conectar</td>
+                                                <td class="all">{{ v.solicitante }}</td>
+                                                <td class="all">{{ v.centro_costo }}</td>
                                             </tr>
                                         {% endfor %}
                                         </tbody>
@@ -178,6 +182,17 @@
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
                         }
                     } );
+                    $('#multiselect_estado').multiselect({
+                        onChange: function (option, checked, select) {
+                            alert(option + checked)
+                        },
+                        onSelectAll: function() {
+                            alert("ALL")
+                        },
+                        onDeselectAll: function() {
+                            alert("NONE")
+                        }
+                    });
                     
                 });
             </script>
