@@ -1,5 +1,151 @@
 [
+
+ {
+        "model": "sistema.tipoobservacion",
+        "pk": 1,
+        "fields": {
+            "tipo_observacion": "In",
+            "detalle_tipo_obs":"Aterrizó"
+        }
+    },
 {
+        "model": "sistema.tipoobservacion",
+        "pk": 2,
+        "fields": {
+            "tipo_observacion": "In",
+            "detalle_tipo_obs":"Contactó"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 3,
+        "fields": {
+            "tipo_observacion": "In",
+            "detalle_tipo_obs":"Salió"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 4,
+        "fields": {
+            "tipo_observacion": "Out",
+            "detalle_tipo_obs":"Llegó"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 5,
+        "fields": {
+            "tipo_observacion": "Out",
+            "detalle_tipo_obs":"Contactó"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 6,
+        "fields": {
+            "tipo_observacion": "Out",
+            "detalle_tipo_obs":"Salió"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 7,
+        "fields": {
+            "tipo_observacion": "Dispo",
+            "detalle_tipo_obs":"Llegó"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 8,
+        "fields": {
+            "tipo_observacion": "Dispo",
+            "detalle_tipo_obs":"Inició"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 9,
+        "fields": {
+            "tipo_observacion": "Dispo",
+            "detalle_tipo_obs":"Terminó"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 10,
+        "fields": {
+            "tipo_observacion": "Viaje Con Espera",
+            "detalle_tipo_obs":"Llegó"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 11,
+        "fields": {
+            "tipo_observacion": "Viaje Con Espera",
+            "detalle_tipo_obs":"Salió"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 12,
+        "fields": {
+            "tipo_observacion": "Viaje Con Espera",
+            "detalle_tipo_obs":"Total Espera"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 13,
+        "fields": {
+            "tipo_observacion": "Viaje No Tarifado",
+            "detalle_tipo_obs":"Km Recorridos (Sólo Ida)"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 14,
+        "fields": {
+            "tipo_observacion": "Viaje No Tarifado",
+            "detalle_tipo_obs":"Tiempo De Espera"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 15,
+        "fields": {
+            "tipo_observacion": "Viaje No Tarifado",
+            "detalle_tipo_obs":"Peajes"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 16,
+        "fields": {
+            "tipo_observacion": "Otro",
+            "detalle_tipo_obs":"Otro"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 17,
+        "fields": {
+            "tipo_observacion": "Chofer",
+            "detalle_tipo_obs":"Chofer"
+        }
+    },
+{
+        "model": "sistema.tipoobservacion",
+        "pk": 18,
+        "fields": {
+            "tipo_observacion": "Cancelado",
+            "detalle_tipo_obs":"Cancelado"
+        }
+    },
+  
+  {
   "model": "sistema.provincia",
   "pk": 1,
   "fields": {
