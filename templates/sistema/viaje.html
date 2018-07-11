@@ -96,18 +96,18 @@
                                                 <label>Teléfono</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <div class="form-group form-md-line-input">
                                                 <input type="text" class="form-control" id="cliente_direccion" value="" readonly>
                                                 <label>Dirección</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-1">
+                                        <!--<div class="col-md-1">
                                             <div class="form-group form-md-line-input">
                                                 <input type="text" class="form-control" id="cliente_factura" value="" name="cliente_factura" readonly>
                                                 <label>C. Fact.</label>
                                             </div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class="row">
                                         <div class="col-md-7">
@@ -254,7 +254,7 @@
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="espera" value="{{ viaje.espera }}" name="espera">
+                                                <input type="text" class="form-control" id="espera" value="{{ viaje.espera|default_if_none:"" }}" name="espera">
                                                 <label>Espera</label>
                                             </div>
                                         </div>
@@ -960,19 +960,22 @@
                 break;
         }
 
-        var url = "/sistema/cargarLocalidadByProvincia/";
-        var param = {};
-        param.provincia_id = provincia_id;
-        param.localidad_select_id = localidad_select_id;
-        $.ajax({
-            type: "POST",
-            url: url,
-            headers: {'X-CSRFToken': '{{ csrf_token }}'},
-            data: param,
-            success: function(data){
-                $('#' + html_to_change).html(data);
-            }
-        });
+        if(provincia_id != '' && localidad_select_id != ''){
+
+            var url = "/sistema/cargarLocalidadByProvincia/";
+            var param = {};
+            param.provincia_id = provincia_id;
+            param.localidad_select_id = localidad_select_id;
+            $.ajax({
+                type: "POST",
+                url: url,
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                data: param,
+                success: function(data){
+                    $('#' + html_to_change).html(data);
+                }
+            });
+        }
     }
 
     function agregarTramo(){
@@ -1034,7 +1037,13 @@
             dateFormat: 'dd/mm/yy',
             // todayBtn: true,
             todayHighlight: true,
-            autoclose: true
+            autoclose: true,
+            beforeShow: function() {
+                setTimeout(function(){
+                    $('.ui-datepicker').css('z-index', 99999999999999);
+                }, 0);
+            }
+
         });
 
         if(es_nuevo == '1'){
@@ -1119,13 +1128,15 @@
                 mostrarMsgValidacion("El campo categoria viaje es obligatorio.");
                 return false;
             }
-            if ($("#unidad_id").val() == ""){
-                mostrarMsgValidacion("El campo unidad id es obligatorio.");
-                return false;
-            }
-            if ($("#unidad_identificacion").val() == ""){
-                mostrarMsgValidacion("El campo unidad identificacion es obligatorio.");
-                return false;
+            if(es_nuevo != '1'){
+                if ($("#unidad_id").val() == ""){
+                    mostrarMsgValidacion("El campo unidad id es obligatorio.");
+                    return false;
+                }
+                if ($("#unidad_identificacion").val() == ""){
+                    mostrarMsgValidacion("El campo unidad identificacion es obligatorio.");
+                    return false;
+                }
             }
             if ($("#estado").val() == ""){
                 mostrarMsgValidacion("El campo estado es obligatorio.");

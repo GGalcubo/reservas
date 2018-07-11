@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, Localidad, Provincia, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, Mail, MailCliente, TelefonoPersona, TipoLicencia, Licencia, LicenciaPersona, LicenciaVehiculo
+from .models import Calle, TrayectoDestino, Localidad, Provincia, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, Mail, MailCliente, TelefonoPersona, TipoLicencia, Licencia, LicenciaPersona, LicenciaVehiculo
 from django.http import HttpResponse
 
 import json
@@ -104,8 +104,9 @@ def altaViaje(request):
     categoria_viajes = CategoriaViaje.objects.all()
     localidades = Localidad.objects.all()
     provincias = Provincia.objects.all()
+    destinos = TrayectoDestino.objects.all()
 
-    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje}
+    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje}
     return render(request, 'sistema/viaje.html', context)
 
 @login_required
@@ -121,12 +122,13 @@ def editaViaje(request):
     unidades = Unidad.objects.all()
     estados = Estado.objects.all()
     categoria_viajes = CategoriaViaje.objects.all()
+    destinos = TrayectoDestino.objects.all()
     localidades = Localidad.objects.all()
     provincias = Provincia.objects.all()
 
     trayectos = Trayecto.objects.filter(viaje_id=id_viaje)
 
-    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje, 'trayectos':trayectos}
+    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje, 'trayectos':trayectos}
     return render(request, 'sistema/viaje.html', context)
 
 
@@ -157,7 +159,9 @@ def guardarViaje(request):
     viaje.costo_prov 			= request.POST.get('costo_proveedor', "")
     viaje.tarifapasada 			= request.POST.get('tarifa_pasada', "")
     #viaje.comentario_chofer = request.POST.get('comentario_chofer', "")
-    viaje.unidad 				= Unidad.objects.get(id=request.POST.get('unidad', False))
+    unidad 						= id=request.POST.get('unidad', '')
+    if unidad != '':
+        viaje.unidad 			= Unidad.objects.get(id=request.POST.get('unidad', ''))
     viaje.espera 				= request.POST.get('espera', "")
     viaje.peaje_total 			= request.POST.get('peaje', "")
     viaje.Otros_tot 			= request.POST.get('otros', "")
