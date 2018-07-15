@@ -385,6 +385,7 @@ class CentroCosto(models.Model):
     descripcion = models.TextField(null=True, blank=True)
     cliente = models.ForeignKey(Cliente, null=True, blank=True)
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
+    baja = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s' % self.nombre
@@ -437,6 +438,27 @@ class Viaje(models.Model):
     class Meta:
         verbose_name_plural = "Viajes"
 
+class ViajeAdm(models.Model):
+    viaje = models.ForeignKey(Viaje)
+    espera_min = models.CharField(max_length=50, null=True, blank=True)
+    espera_total = models.CharField(max_length=50, null=True, blank=True)
+    base_total = models.IntegerField(default=0)
+    peaje_total = models.IntegerField(default=0)
+    estacionamiento_total = models.IntegerField(default=0)
+    otros_tot = models.IntegerField(default=0)
+    maletas = models.BooleanField(default=False)
+    bilingue = models.BooleanField(default=False)
+    maletas_tot = models.IntegerField(default=0)
+    bilingue_tot = models.IntegerField(default=0)
+    #factura = models.ForeignKey(Factura, null=True, blank=True)
+    cliente_o_prov = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return u'%s' % self.viaje.fecha
+
+    def __str__(self):
+        return self.viaje.fecha
+
 class ViajePasajero(models.Model):
     viaje = models.ForeignKey(Viaje)
     pasajero = models.CharField(max_length=100)
@@ -479,6 +501,7 @@ class TipoTrayectoDestino(models.Model):
 class TrayectoDestino(models.Model):
     nombre = models.CharField(max_length=100, null=True, blank=True)
     tipo_trayecto_destino = models.ForeignKey(Persona, null=True, blank=True)
+    terminal_flag = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s' % self.nombre
