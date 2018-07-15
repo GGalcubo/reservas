@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, borrarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, centroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByProvincia, guardarCentroCostoProspect
+from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, borrarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, centroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByProvincia, guardarCentroCostoProspect, getSelectAsignoLicencia, guardarLicencia, altaLicencia
 
 
 urlpatterns = [
@@ -41,6 +41,9 @@ urlpatterns = [
     url(r'^tarifario/', tarifario, name='tarifario'),
     url(r'^listadoLicencia/', listadoLicencia, name='listadoLicencia'),
     url(r'^licencia/', licencia, name='licencia'),
+    url(r'^altaLicencia/', altaLicencia, name='altaLicencia'),
+    url(r'^guardarLicencia/', guardarLicencia, name='guardarLicencia'),
+    url(r'^getSelectAsignoLicencia/', getSelectAsignoLicencia, name='getSelectAsignoLicencia'),
     url(r'^cargarLocalidad/', cargarLocalidad, name='cargarLocalidad'),
     url(r'^cargarLocalidadByProvincia/', cargarLocalidadByProvincia, name='cargarLocalidadByProvincia'),
     url(r'^cargarProvincia/', cargarProvincia, name='cargarProvincia'),

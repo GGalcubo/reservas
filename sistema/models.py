@@ -171,11 +171,26 @@ class Licencia(models.Model):
         elif len(self.licenciavehiculo_set.all()) > 0:
             return 'Vehiculo'
 
+    def getAsignadoTipoId(self):
+        if len(self.licenciapersona_set.all()) > 0:
+            if self.licenciapersona_set.all()[0].persona.tipo_persona.id == 3:
+                return 0
+            elif self.licenciapersona_set.all()[0].persona.tipo_persona.id == 4:
+                return 1
+        elif len(self.licenciavehiculo_set.all()) > 0:
+            return 2
+
     def getAsignadoNombre(self):
         if len(self.licenciapersona_set.all()) > 0:
             return self.licenciapersona_set.all()[0].persona.nombre + " " + self.licenciapersona_set.all()[0].persona.apellido
         elif len(self.licenciavehiculo_set.all()) > 0:
             return self.licenciavehiculo_set.all()[0].vehiculo.patente
+
+    def getAsignado(self):
+        if len(self.licenciapersona_set.all()) > 0:
+            return self.licenciapersona_set.all()[0].persona
+        elif len(self.licenciavehiculo_set.all()) > 0:
+            return self.licenciavehiculo_set.all()[0].vehiculo
 
 class Persona(models.Model):
     nombre = models.CharField(max_length=100)
@@ -208,6 +223,9 @@ class Persona(models.Model):
         return self.nombre
 
     def nombreCompleto(self):
+        return self.nombre + " " + self.apellido
+    
+    def getIdentificacion(self):
         return self.nombre + " " + self.apellido
 
     def getObservaciones(self):
@@ -245,6 +263,9 @@ class Vehiculo(models.Model):
         for licveh in self.licenciavehiculo_set.all():
             licencias.append(licveh.licencia)
         return licencias
+
+    def getIdentificacion(self):
+        return self.patente
 
 class Unidad(models.Model):
     identificacion = models.CharField(max_length=100)

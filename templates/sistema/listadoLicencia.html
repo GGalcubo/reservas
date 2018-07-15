@@ -26,7 +26,7 @@
                                     <div class="caption font-blue">
                                         <i class="icon-flag font-blue mg-t-8"></i>
                                         <span class="caption-subject bold uppercase">Listado de licencias</span>
-                                        <a href="/sistema/licencia/" role="button" class="btn green btn-outline mg-l-20">Agregar licencia</a>
+                                        <a href="/sistema/altaLicencia/" role="button" class="btn green btn-outline mg-l-20">Agregar licencia</a>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -42,34 +42,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for l in licencias %}
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/licencia/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>Jorge Martin</td>
-                                                <td>Licencia Profesional</td>
-                                                <td>25/08/2020</td>
-                                                <td>Licencia para manejar limusinas</td>
+                                                <td class="text-center"><a href="/sistema/licencia/?idLicencia={{ l.id }}"><i class="fa fa-pencil"></i></a></td>
+                                                <td>{{ l.getAsignadoNombre }}</td>
+                                                <td>{{ l.tipo_licencia.tipo_licencia }}</td>
+                                                <td>{{ l.getFechaVencimiento }}</td>
+                                                <td>{{ l.comentario }}</td>
                                             </tr>
-                                            <tr>
-                                                <td class="text-center"><a href="/sistema/licencia/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>Alberto Rodrgiuez</td>
-                                                <td>Circulación microcentro</td>
-                                                <td>15/04/2021</td>
-                                                <td>Solo para circular en microcentro</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center"><a href="/sistema/licencia/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>Jorge Fidalgo</td>
-                                                <td>Licencia Profesional</td>
-                                                <td>25/08/2020</td>
-                                                <td>Licencia para manejar limusinas</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center"><a href="/sistema/licencia/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>Alberto Fernandez</td>
-                                                <td>Circulación microcentro</td>
-                                                <td>15/04/2031</td>
-                                                <td>Solo para circular en microcentro</td>
-                                            </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>

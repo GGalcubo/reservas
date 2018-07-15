@@ -30,12 +30,13 @@
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <form role="form">
+                                    <form role="form" method="post" id="formGuardarLicencia" action="/sistema/guardarLicencia/">{% csrf_token %}
+                                        <input type="hidden" id="idLicencia" name="idLicencia" value="{{ licencia.id }}">
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select id="tipoPersonaLicencia" class="form-control" name="tipoPersonaLicencia">
+                                                        <select id="tipoPersonaLicencia" class="form-control" name="tipoPersonaLicencia" onchange="getLicenciaAdjudicado();">
                                                             <option value="0">Chofer</option>
                                                             <option value="1">Dueño</option>
                                                             <option value="2">Vehículo</option>
@@ -44,32 +45,32 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
-                                                    <div class="form-group form-md-line-input">
+                                                    <div class="form-group form-md-line-input" id="divPersonaLicencia">
                                                         <select class="form-control" id="personaLicencia" name="personaLicencia">
-                                                            <option value="0">Jorge Rodriguez</option>
-                                                            <option value="1">Alberto Martin</option>
-                                                            <option value="2">Mauro Fidalgo</option>
+                                                            {% for l in listaAsignoLicencia %}
+                                                                <option value="{{ l.id }}">{{ l.getIdentificacion }}</option>
+                                                            {% endfor %}
                                                         </select>
-                                                        <label for="personaLicencia">Choferes</label>
+                                                        <label for="personaLicencia" id="personaLicenciaId" >Choferes</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control" id="tipoLicencia" name="tipoLicencia">
-                                                            <option value="0">Licencia profesional</option>
-                                                            <option value="1">Permiso microcentro</option>
-                                                            <option value="2">Otra</option>
+                                                            {% for tl in tipo_licencias %}
+                                                                <option value="{{ tl.id }}">{{ tl.tipo_licencia }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="tipoLicencia">Tipo de licencia</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label for="vencimientoLicencia font-12">Vencimiento</label>
-                                                    <input class="form-control form-control-inline input-medium date-picker" id="vencimientoLicencia" name="vencimientoLicencia" size="16" type="text" value="" />
+                                                    <input class="form-control form-control-inline input-medium date-picker" id="vencimientoLicencia" name="vencimientoLicencia" size="10" type="text" value="{{ licencia.getFechaVencimiento }}" />
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="descripcionLicencia" name="descripcionLicencia">
+                                                        <input type="text" class="form-control" id="descripcionLicencia" name="descripcionLicencia" value="{{ licencia.comentario }}">
                                                         <label for="descripcionLicencia">Descripción</label>
                                                     </div>
                                                 </div>
@@ -99,8 +100,40 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 $(document).ready(function(){
-                    
+                    $('#vencimientoLicencia').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+
+                    idLicencia = $("#idLicencia").val()
+                    if (idLicencia != "0"){
+                        $("#tipoPersonaLicencia").val('{{ tipoAsignadoId }}')
+                        $('#tipoPersonaLicencia').prop('disabled', 'disabled');
+                        $('#personaLicencia').prop('disabled', 'disabled');
+                        $('#personaLicenciaId').html('{{ tipoAsignado }}');
+                        $('#tipoLicencia').val('{{ licencia.tipo_licencia.id }}');
+                    }else{
+                        $('#descripcionLicencia').val('');
+                    }
                 });
+
+                function getLicenciaAdjudicado(){
+
+                    var url = "/sistema/getSelectAsignoLicencia/";
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: $("#formGuardarLicencia").serialize(),
+                        success: function(data){
+                            $("#divPersonaLicencia").html(data);
+                        }
+                    });
+                    
+                }
             </script>
 
         </div>

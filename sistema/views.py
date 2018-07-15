@@ -701,17 +701,84 @@ def tarifario(request):
 
 @login_required
 def listadoLicencia(request):
-	mensaje = ""
-
-	context = {'mensaje': mensaje}
+	licencias = Licencia.objects.all()
+	
+	context = {'licencias': licencias}
 	return render(request, 'sistema/listadoLicencia.html', context)
 
 @login_required
-def licencia(request):
-	mensaje = ""
-
-	context = {'mensaje': mensaje}
+def altaLicencia(request):
+	listaAsignoLicencia = Persona.objects.filter(tipo_persona=3)
+	tipo_licencias = TipoLicencia.objects.all()
+	licencia = Licencia()
+	licencia.id = 0
+	context = {'licencia': licencia, 'listaAsignoLicencia': listaAsignoLicencia, 'tipo_licencias':tipo_licencias}
 	return render(request, 'sistema/licencia.html', context)
+
+@login_required
+def licencia(request):
+	idLicencia = request.GET.get('idLicencia', "")
+	licencia = Licencia.objects.get(id=idLicencia)
+	tipo_licencias = TipoLicencia.objects.all()
+	asignoLicencia = []
+	asignoLicencia.append(licencia.getAsignado())
+	tipoAsignadoId = licencia.getAsignadoTipoId()
+	tipoAsignado = licencia.getAsignadoTipo()
+	context = {'tipo_licencias':tipo_licencias,'licencia':licencia, 'listaAsignoLicencia':asignoLicencia, 'tipoAsignadoId':tipoAsignadoId, 'tipoAsignado':tipoAsignado}
+	return render(request, 'sistema/licencia.html', context)
+
+@login_required
+def guardarLicencia(request):
+	idLicencia = request.POST.get('idLicencia', False)
+	tipoPersonaLicencia = request.POST.get('tipoPersonaLicencia', False)
+	personaLicencia = request.POST.get('personaLicencia', False)
+	tipoLicencia = request.POST.get('tipoLicencia', False)
+	vencimientoLicencia = request.POST.get('vencimientoLicencia', False)
+	descripcionLicencia = request.POST.get('descripcionLicencia', False)
+
+	if idLicencia == "0":
+		licencia = Licencia()
+	else:
+		licencia = Licencia.objects.get(id=idLicencia)
+
+	licencia.comentario = descripcionLicencia
+	licencia.tipo_licencia = TipoLicencia.objects.get(id=tipoLicencia)
+	licencia.fecha_vencimiento = getAAAAMMDD(vencimientoLicencia)
+	licencia.save()
+
+	if idLicencia == "0":
+		if tipoPersonaLicencia == "0":
+			lp = LicenciaPersona()
+			lp.persona = Persona.objects.get(id=personaLicencia)
+		elif tipoPersonaLicencia == "1":
+			lp = LicenciaPersona()
+			lp.persona = Persona.objects.get(id=personaLicencia)
+		elif tipoPersonaLicencia == "2":
+			lp = LicenciaVehiculo()
+			lp.vehiculo = Vehiculo.objects.get(id=personaLicencia)
+
+		lp.licencia = licencia
+		lp.save()
+
+	url = '/sistema/licencia/?idLicencia='+str(licencia.id)
+	return redirect(url)
+
+@login_required
+def getSelectAsignoLicencia(request):
+	listaAsignoLicencia = []
+	tpl = request.POST.get('tipoPersonaLicencia', False)
+	titulo = ""
+	if tpl == "0":
+		listaAsignoLicencia = Persona.objects.filter(tipo_persona=3)
+		titulo = "Chofer"
+	elif tpl == "1":
+		listaAsignoLicencia = Persona.objects.filter(tipo_persona=4)
+		titulo = "Dueño"
+	elif tpl == "2":
+		listaAsignoLicencia = Vehiculo.objects.all()
+		titulo = "Vehículo"
+	context = {'listaAsignoLicencia': listaAsignoLicencia, 'titulo':titulo}
+	return render(request, 'sistema/selectAsignoLicencia.html', context)
 
 @login_required
 def cargarLocalidad(request):
