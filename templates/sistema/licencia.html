@@ -32,6 +32,8 @@
                                 <div class="portlet-body">
                                     <form role="form" method="post" id="formGuardarLicencia" action="/sistema/guardarLicencia/">{% csrf_token %}
                                         <input type="hidden" id="idLicencia" name="idLicencia" value="{{ licencia.id }}">
+                                        <input type="hidden" id="estado" name="estado" value="{{ estado }}">
+                                        
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-sm-4">
@@ -78,7 +80,7 @@
                                         </div>
                                         <div class="form-actions noborder flex flex-j-between">
                                             <button type="submit" class="btn green">Guardar</button>
-                                            <button type="button" class="btn red">Cancelar</button>
+                                            <button type="button" onclick="location.href='/sistema/listadoLicencia/';" class="btn red">Cancelar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -109,7 +111,11 @@
                     });
 
                     idLicencia = $("#idLicencia").val()
+                    estado = $("#estado").val()
                     if (idLicencia != "0"){
+                        if (estado == 'nuevo'){
+                            alert("Se guardo la licencia correctamente.");
+                        }
                         $("#tipoPersonaLicencia").val('{{ tipoAsignadoId }}')
                         $('#tipoPersonaLicencia').prop('disabled', 'disabled');
                         $('#personaLicencia').prop('disabled', 'disabled');
@@ -121,7 +127,6 @@
                 });
 
                 function getLicenciaAdjudicado(){
-
                     var url = "/sistema/getSelectAsignoLicencia/";
                     $.ajax({
                         type: "POST",
@@ -132,7 +137,6 @@
                             $("#divPersonaLicencia").html(data);
                         }
                     });
-                    
                 }
             </script>
 

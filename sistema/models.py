@@ -249,7 +249,6 @@ class Vehiculo(models.Model):
     patente = models.CharField(max_length=100, null=True, blank=True)
     nro_motor = models.CharField(max_length=100, null=True, blank=True)
     nro_chasis = models.CharField(max_length=100, null=True, blank=True)
-    licencia = models.ForeignKey(Licencia, null=True, blank=True)
     dueno = models.ForeignKey(Persona, null=True, blank=True)
 
     def __unicode__(self):
@@ -337,8 +336,8 @@ class Cliente(models.Model):
     cp = models.CharField(max_length=10, null=True, blank=True)
     cuil = models.CharField(max_length=11, null=True, blank=True)
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
-    localidad = models.ForeignKey(Localidad, null=True, blank=True)
-    provincia = models.ForeignKey(Provincia, null=True, blank=True)
+    localidad = models.CharField(max_length=50, null=True, blank=True)
+    provincia = models.CharField(max_length=50, null=True, blank=True)
     iva = models.CharField(max_length=100, null=True, blank=True)
     condicion_pago = models.CharField(max_length=100, null=True, blank=True)
     cbu = models.CharField(max_length=50, null=True, blank=True)

@@ -35,6 +35,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="all">Editar</th>
+                                                <th class="all">Eliminar</th>
                                                 <th class="all">Asignada a</th>
                                                 <th class="all">Tipo</th>
                                                 <th class="all">Vencimiento</th>
@@ -45,6 +46,7 @@
                                             {% for l in licencias %}
                                             <tr>
                                                 <td class="text-center"><a href="/sistema/licencia/?idLicencia={{ l.id }}"><i class="fa fa-pencil"></i></a></td>
+                                                <td class="text-center"><a href="#" onclick="eliminarLicencia({{ l.id }});" ><i class="fa fa-minus-circle"></i></a></td>
                                                 <td>{{ l.getAsignadoNombre }}</td>
                                                 <td>{{ l.tipo_licencia.tipo_licencia }}</td>
                                                 <td>{{ l.getFechaVencimiento }}</td>
@@ -85,6 +87,14 @@
                     } );
                     
                 });
+                function eliminarLicencia(idLicencia){
+                    var r = confirm("Desea eliminar la licencia ?");
+                    if (r == true) {
+                        alert(idLicencia);
+                        location.href='/sistema/eliminarLicencia/?idLicencia='+idLicencia;
+                    }
+                    
+                }
             </script>
 
         </div>

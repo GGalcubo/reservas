@@ -96,24 +96,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
-                                                    <div class="form-group form-md-line-input" id="selectLocalidad">
-                                                        <select class="form-control" id="localidad" name="localidad" onchange="cargarProvincia();">
-                                                            <option value="">Seleccione localidad</option>
-                                                            {% for l in localidades %}
-                                                                <option value="{{ l.id }}" >{{ l.nombre }}</option>
-                                                            {% endfor %}
-                                                        </select>
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="localidad" name="localidad" value="{{ cliente.localidad|default_if_none:"" }}">
                                                         <label for="localidad">Localidad</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
-                                                    <div class="form-group form-md-line-input" id="selectProvincia">
-                                                        <select class="form-control" id="provincia" name="provincia">
-                                                            <option value="">Seleccione provincia</option>
-                                                            {% for p in provincias %}
-                                                                <option value="{{ p.id }}" >{{ p.nombre }}</option>
-                                                            {% endfor %}
-                                                        </select>
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="provincia" name="provincia" value="{{ cliente.provincia|default_if_none:"" }}">
                                                         <label for="provincia">Provincia</label>
                                                     </div>
                                                 </div>
@@ -175,7 +165,7 @@
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th class="all">Editar</th>
-                                                                                    <th class="all">Eliminar</th>
+                                                                                    <!--th class="all">Eliminar</th-->
                                                                                     <th class="all">ID</th>
                                                                                     <th class="all">Código CC</th>
                                                                                     <th class="all">Descripción</th>
@@ -188,7 +178,7 @@
                                                                                 {% for cc in cliente.getCentroCostos %}
                                                                                 <tr>
                                                                                     <td class="text-center"><a href="#" onclick="editarCCPropect('{{ cc.id }}','{{ cliente.id }}','{{ cc.nombre }}','{{ cc.descripcion }}','{{ cc.getFechaInicio }}','{{ cc.getFechaFin }}','{{ cc.tarifario.id }}');"><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td class="text-center"><a href="#" onclick="eliminarCCPropect('{{ cc.id }}','{{ cliente.id }}');"><i class="fa fa-minus-circle"></i></a></td>
+                                                                                    <!--td class="text-center"><a href="#" onclick="eliminarCCPropect('{{ cc.id }}','{{ cliente.id }}');"><i class="fa fa-minus-circle"></i></a></td -->
                                                                                     <td>{{ cc.id }}</td>
                                                                                     <td>{{ cc.nombre }}</td>
                                                                                     <td>{{ cc.descripcion }}</td>

@@ -359,9 +359,7 @@ def altaCliente(request):
 	cliente = Cliente()
 	cliente.id = 0
 	tarifarios = Tarifario.objects.all()
-	localidades = Localidad.objects.all()
-	provincias = Provincia.objects.all()
-	context = {'mensaje': mensaje, 'tarifarios':tarifarios, 'cliente': cliente, 'localidades':localidades, 'provincias':provincias }
+	context = {'mensaje': mensaje, 'tarifarios':tarifarios, 'cliente': cliente }
 	return render(request, 'sistema/cliente.html', context)
 
 @login_required
@@ -385,6 +383,8 @@ def guardarCliente(request):
 	cliente.piso = request.POST.get('piso', "")
 	cliente.depto = request.POST.get('depto', "")
 	cliente.cp = request.POST.get('cp', "")
+	cliente.localidad = request.POST.get('localidad', "")
+	cliente.provincia = request.POST.get('provincia', "")
 	cliente.save()
 
 	if request.POST.get('telefono', False) != "":
@@ -633,6 +633,14 @@ def guardarLicenciaUnidad(request):
 	return render(request, 'sistema/grillaLicencias.html', context)
 
 @login_required
+def eliminarLicencia(request):
+	idLicencia = request.GET.get('idLicencia', False)
+	LicenciaPersona.objects.filter(licencia_id=idLicencia).delete()
+	LicenciaVehiculo.objects.filter(licencia_id=idLicencia).delete()
+	Licencia.objects.get(id=idLicencia).delete()
+	return redirect('listadoLicencia')
+
+@login_required
 def eliminarLicenciaPropect(request):
 	idLicencia = request.POST.get('idLicencia', False)
 	idUnidad = request.POST.get('idUnidad', False)
@@ -717,6 +725,7 @@ def altaLicencia(request):
 
 @login_required
 def licencia(request):
+	estado = request.session.get('estadoLicencia', 'editado')
 	idLicencia = request.GET.get('idLicencia', "")
 	licencia = Licencia.objects.get(id=idLicencia)
 	tipo_licencias = TipoLicencia.objects.all()
@@ -724,7 +733,11 @@ def licencia(request):
 	asignoLicencia.append(licencia.getAsignado())
 	tipoAsignadoId = licencia.getAsignadoTipoId()
 	tipoAsignado = licencia.getAsignadoTipo()
-	context = {'tipo_licencias':tipo_licencias,'licencia':licencia, 'listaAsignoLicencia':asignoLicencia, 'tipoAsignadoId':tipoAsignadoId, 'tipoAsignado':tipoAsignado}
+	try:
+		del request.session['estadoLicencia']
+	except:
+		pass
+	context = {'tipo_licencias':tipo_licencias, 'estado':estado, 'licencia':licencia, 'listaAsignoLicencia':asignoLicencia, 'tipoAsignadoId':tipoAsignadoId, 'tipoAsignado':tipoAsignado}
 	return render(request, 'sistema/licencia.html', context)
 
 @login_required
@@ -738,8 +751,10 @@ def guardarLicencia(request):
 
 	if idLicencia == "0":
 		licencia = Licencia()
+		request.session['estadoLicencia'] = 'nuevo'
 	else:
 		licencia = Licencia.objects.get(id=idLicencia)
+		request.session['estadoLicencia'] = 'editado'
 
 	licencia.comentario = descripcionLicencia
 	licencia.tipo_licencia = TipoLicencia.objects.get(id=tipoLicencia)
