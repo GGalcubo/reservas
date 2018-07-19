@@ -288,38 +288,16 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
+                                                                                {% for c in cliente.getContactos %}
                                                                                 <tr>
-                                                                                    <td class="text-center"><a href="/sistema/contacto/"><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>Juan</td>
-                                                                                    <td>Perez</td>
-                                                                                    <td>Comercial</td>
-                                                                                    <td>4578-8978</td>
-                                                                                    <td>ejemplo@mail.com</td>
+                                                                                    <td class="text-center"><a href="/sistema/contacto/?idContacto={{ c.id }}"><i class="fa fa-pencil">
+                                                                                    <td>{{ c.nombre|default_if_none:"" }}</td>
+                                                                                    <td>{{ c.apellido|default_if_none:"" }}</td>
+                                                                                    <td>{{ c.puesto|default_if_none:"" }}</td>
+                                                                                    <td>{{ c.getTelefono }}</td>
+                                                                                    <td>{{ c.getMail }}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href="/sistema/contacto/"><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>Maria</td>
-                                                                                    <td>Duarte</td>
-                                                                                    <td>Comercial</td>
-                                                                                    <td>5488-7848</td>
-                                                                                    <td>ejemplo@mail.com</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href="/sistema/contacto/"><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>Candelaria</td>
-                                                                                    <td>Duarte</td>
-                                                                                    <td>Asistente</td>
-                                                                                    <td>4488-7848</td>
-                                                                                    <td>ejemplo@mail.com</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href="/sistema/contacto/"><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>Federico</td>
-                                                                                    <td>Perez</td>
-                                                                                    <td>Asistente</td>
-                                                                                    <td>4678-6858</td>
-                                                                                    <td>ejemplo@mail.com</td>
-                                                                                </tr>
+                                                                                {% endfor %}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>

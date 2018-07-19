@@ -240,6 +240,25 @@ class Persona(models.Model):
             licencias.append(licper.licencia)
         return licencias
 
+    def getCliente(self):
+        if len(self.personacliente_set.all()) > 0:
+            return self.personacliente_set.all()[0].cliente.razon_social
+        else:
+            return 'Sin cliente'
+    
+    def getTelefono(self):
+        if len(self.telefonopersona_set.all()) > 0:
+            return self.telefonopersona_set.all()[0].telefono.numero
+        else:
+            return 'Sin telefono'
+
+    def getMail(self):
+        if len(self.mailpersona_set.all()) > 0:
+            return self.mailpersona_set.all()[0].mail.mail
+        else:
+            return 'Sin mail'
+        
+
 class Vehiculo(models.Model):
     marca = models.CharField(max_length=100)
     modelo = models.CharField(max_length=100)
@@ -320,6 +339,8 @@ class Unidad(models.Model):
 
 class Tarifario(models.Model):
     nombre = models.CharField(max_length=100)
+    default = models.BooleanField(default=False)
+    baja = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s' % self.nombre
@@ -370,6 +391,13 @@ class Cliente(models.Model):
         for mailcli in self.mailcliente_set.all():
             mails.append(mailcli.mail)
         return mails
+
+    def getContactos(self):
+        contacto = []
+        for percli in self.personacliente_set.all():
+            if percli.persona.tipo_persona.id == 1:
+                contacto.append(percli.persona)
+        return contacto
 
     def getCentroCostos(self):
         cc = []

@@ -505,8 +505,8 @@ def unidad(request):
 	mensaje = ""
 	idUnidad = request.GET.get('idUnidad', "")
 	unidad = Unidad.objects.get(id=idUnidad)
-	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4))
-	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3))
+	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
+	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
 	tipo_licencias = TipoLicencia.objects.all()
 	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes, 'tipo_licencias':tipo_licencias}
 	return render(request, 'sistema/unidad.html', context)
@@ -516,8 +516,8 @@ def altaUnidad(request):
 	mensaje = ""
 	unidad = Unidad()
 	unidad.id = 0	
-	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4))
-	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3))
+	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
+	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
 	context = {'mensaje': mensaje, 'owners':owners, 'choferes':choferes, 'unidad': unidad}
 	return render(request, 'sistema/unidad.html', context)
 
@@ -667,16 +667,16 @@ def editaContacto(request):
 
 @login_required
 def listadoContacto(request):
-	mensaje = ""
-
-	context = {'mensaje': mensaje}
+	contactos = Persona.objects.filter(tipo_persona_id=1, baja=False)
+	context = {'contactos': contactos}
 	return render(request, 'sistema/listadoContacto.html', context)
 
 @login_required
-def centroDeCosto(request):
-	mensaje = ""
+def altaCentroDeCosto(request):
+	clientes = Cliente.objects.filter(baja=False)
+	tarifarios = Tarifario.objects.filter(baja=False)
 
-	context = {'mensaje': mensaje}
+	context = {'clientes': clientes, 'tarifarios':tarifarios}
 	return render(request, 'sistema/centroDeCosto.html', context)
 
 @login_required
@@ -688,9 +688,9 @@ def editaCentroDeCosto(request):
 
 @login_required
 def listadoCentroDeCosto(request):
-	mensaje = ""
+	centroCostos = CentroCosto.objects.filter(baja=False)
 
-	context = {'mensaje': mensaje}
+	context = {'centroCostos': centroCostos}
 	return render(request, 'sistema/listadoCentroDeCosto.html', context)
 
 @login_required
@@ -716,7 +716,7 @@ def listadoLicencia(request):
 
 @login_required
 def altaLicencia(request):
-	listaAsignoLicencia = Persona.objects.filter(tipo_persona=3)
+	listaAsignoLicencia = Persona.objects.filter(tipo_persona=3,baja=False)
 	tipo_licencias = TipoLicencia.objects.all()
 	licencia = Licencia()
 	licencia.id = 0
@@ -784,10 +784,10 @@ def getSelectAsignoLicencia(request):
 	tpl = request.POST.get('tipoPersonaLicencia', False)
 	titulo = ""
 	if tpl == "0":
-		listaAsignoLicencia = Persona.objects.filter(tipo_persona=3)
+		listaAsignoLicencia = Persona.objects.filter(tipo_persona=3,baja=False)
 		titulo = "Chofer"
 	elif tpl == "1":
-		listaAsignoLicencia = Persona.objects.filter(tipo_persona=4)
+		listaAsignoLicencia = Persona.objects.filter(tipo_persona=4,baja=False)
 		titulo = "Dueño"
 	elif tpl == "2":
 		listaAsignoLicencia = Vehiculo.objects.all()

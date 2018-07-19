@@ -26,7 +26,7 @@
                                     <div class="caption font-blue">
                                         <i class="icon-flag font-blue mg-t-8"></i>
                                         <span class="caption-subject bold uppercase">Listado de centros de costo</span>
-                                        <a href="/sistema/centroDeCosto/" role="button" class="btn green btn-outline mg-l-20">Agregar centro de costo</a>
+                                        <a href="/sistema/altaCentroDeCosto/" role="button" class="btn green btn-outline mg-l-20">Agregar centro de costo</a>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -44,42 +44,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for cc in centroCostos %}
                                             <tr>
-                                                <td class="text-center"><a href="/sistema/centroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>1</td>
-                                                <td>3MONOSRURAL</td>
-                                                <td>La Rural</td>
-                                                <td>General</td>
-                                                <td>01/01/2018</td>
-                                                <td>25/05/2019</td>
+                                                <td class="text-center"><a href="#" onclick="editarCCPropect('{{ cc.id }}','{{ cliente.id }}','{{ cc.nombre }}','{{ cc.descripcion }}','{{ cc.getFechaInicio }}','{{ cc.getFechaFin }}','{{ cc.tarifario.id }}');"><i class="fa fa-pencil"></i></a></td>
+                                                <td>{{ cc.id }}</td>
+                                                <td>{{ cc.nombre }}</td>
+                                                <td>{{ cc.descripcion }}</td>
+                                                <td>{{ cc.tarifario.nombre }}</td>
+                                                <td>{{ cc.getFechaInicio }}</td>
+                                                <td>{{ cc.getFechaFin }}</td>   
                                             </tr>
-                                            <tr>
-                                                <td class="text-center"><a href="/sistema/centroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>2</td>
-                                                <td>SIEMENSCONGRESO</td>
-                                                <td>Congreso Tecnópolis</td>
-                                                <td>Especial</td>
-                                                <td>01/01/2018</td>
-                                                <td>26/08/2018</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center"><a href="/sistema/centroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>3</td>
-                                                <td>SIMMONSFERIA</td>
-                                                <td>Simmons</td>
-                                                <td>488-7848</td>
-                                                <td>01/01/2018</td>
-                                                <td>26/08/2018</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center"><a href="/sistema/centroDeCosto/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>4</td>
-                                                <td>SAPTESTPETER</td>
-                                                <td>SAP</td>
-                                                <td>Premium</td>
-                                                <td>01/01/2018</td>
-                                                <td>26/08/2018</td>
-                                            </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>

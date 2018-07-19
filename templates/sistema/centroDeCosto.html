@@ -35,44 +35,46 @@
                                             <div class="row mg-b-20">
                                                 <div class="col-sm-5">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <select class="form-control" id="form_control_1">
+                                                        <select class="form-control" id="clientes" name="clientes">
                                                             <option value=""></option>
-                                                            <option value="1">Cliente 1</option>
-                                                            <option value="2">Cliente 2</option>
-                                                            <option value="3">Cliente 3</option>
-                                                            <option value="4">Cliente 4</option>
+                                                            {% for c in clientes %}
+                                                                <option value="{{ c.id }}">{{ c.razon_social }}</option>
+                                                            {% endfor %}
                                                         </select>
-                                                        <label for="form_control_1">Cliente</label>
+                                                        <label for="clientes">Cliente</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <select class="form-control" id="form_control_2">
+                                                        <select class="form-control" id="tarifarios" name="tarifarios" >
                                                             <option value=""></option>
-                                                            <option value="1">General</option>
-                                                            <option value="2">Especial 1</option>
-                                                            <option value="3">Gral + 10%</option>
-                                                            <option value="4">Especial 2</option>
+                                                            {% for t in tarifarios %}
+                                                                {% if t.default %}
+                                                                    <option value="{{ t.id }}" selected="selected" >{{ t.nombre }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ t.id }}" >{{ t.nombre }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
                                                         </select>
-                                                        <label for="form_control_2">Tarifario</label>
+                                                        <label for="tarifarios">Tarifario</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3 text-center">
+                                                <!--div class="col-sm-3 text-center">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <a href="/sistema/altaTarifario/" role="button" class="btn green"><i class="icon-plus font-white"></i> Tarifario</a>
                                                     </div>
-                                                </div>
+                                                </div-->
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_3">
-                                                        <label for="form_control_3">Código del Centro de Costo</label>
+                                                        <input type="text" class="form-control" id="codigo" name="codigo">
+                                                        <label for="codigo">Código del Centro de Costo</label>
                                                         <span class="help-block">Código Cliente + Área + Detalle (Ej: PFZVACUJOSE)</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_4">
-                                                        <label for="form_control_4">Descripción</label>
+                                                        <input type="text" class="form-control" id="descripcion" name="descripcion">
+                                                        <label for="descripcion">Descripción</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
@@ -109,8 +111,32 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 $(document).ready(function(){
-                    
+                    $('#desdeCC').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+                    $('#hastaCC').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
                 });
+
+                function guardarCC(){
+
+                    if ($("#codigo").val() == ""){
+                        alert("El campo Cidogo es obligatorio.");
+                        return false;
+                    }
+
+                    $("#formGuardarUnidad").submit();
+
+                }
             </script>
 
         </div>
