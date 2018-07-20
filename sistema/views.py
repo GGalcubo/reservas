@@ -209,16 +209,26 @@ def guardarTrayecto(request):
 
 
         trayecto.viaje = viaje
-        trayecto.localidad_desde = Localidad.objects.get(id=request.POST.get('desde_localidad', False))
-        trayecto.provincia_desde = Provincia.objects.get(id=request.POST.get('desde_provincia', False))
-        trayecto.altura_desde    = request.POST.get('desde_altura', '')
-        trayecto.calle_desde     = request.POST.get('desde_calle', '')
-        trayecto.entre_desde     = request.POST.get('desde_entre', '')
-        trayecto.localidad_hasta = Localidad.objects.get(id=request.POST.get('hasta_localidad', False))
-        trayecto.provincia_hasta = Provincia.objects.get(id=request.POST.get('hasta_provincia', False))
-        trayecto.altura_hasta    = request.POST.get('hasta_altura', '')
-        trayecto.calle_hasta     = request.POST.get('hasta_calle', '')
-        trayecto.entre_hasta     = request.POST.get('hasta_entre', '')
+        trayecto.destino_desde = TrayectoDestino.objects.get(id=request.POST.get('desde_destino', False))
+        if request.POST.get('desde_localidad', '') != '':
+            trayecto.localidad_desde = Localidad.objects.get(id=request.POST.get('desde_localidad', False))
+        if request.POST.get('desde_provincia', '') != '':
+            trayecto.provincia_desde = Provincia.objects.get(id=request.POST.get('desde_provincia', False))
+        trayecto.altura_desde = request.POST.get('desde_altura', '')
+        trayecto.calle_desde = request.POST.get('desde_calle', '')
+        trayecto.entre_desde = request.POST.get('desde_entre', '')
+        trayecto.compania_desde = request.POST.get('desde_compania', '')
+        trayecto.vuelo_desde = request.POST.get('desde_vuelo', '')
+        trayecto.destino_hasta = TrayectoDestino.objects.get(id=request.POST.get('hasta_destino', False))
+        if request.POST.get('hasta_localidad', '') != '':
+            trayecto.localidad_hasta = Localidad.objects.get(id=request.POST.get('hasta_localidad', False))
+        if request.POST.get('hasta_provincia', '') != '':
+            trayecto.provincia_hasta = Provincia.objects.get(id=request.POST.get('hasta_provincia', False))
+        trayecto.altura_hasta = request.POST.get('hasta_altura', '')
+        trayecto.calle_hasta = request.POST.get('hasta_calle', '')
+        trayecto.entre_hasta = request.POST.get('hasta_entre', '')
+        trayecto.compania_hasta = request.POST.get('hasta_compania', '')
+        trayecto.vuelo_hasta = request.POST.get('hasta_vuelo', '')
         trayecto.save()
 
         if principal == '1':
