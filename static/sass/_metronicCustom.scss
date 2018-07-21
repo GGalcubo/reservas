@@ -376,3 +376,15 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
     }
   }
 }
+
+/* UBICAR LOS BOTONES DE EXPORTAR DE LAS DATATABLES */
+.portlet.light {
+  .dataTables_wrapper {
+    .dt-buttons {
+      margin-top: -1px;
+      margin-right: 0;
+      margin-left: 20px;
+    }
+  }
+}
+  

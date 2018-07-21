@@ -321,6 +321,12 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
   body#operaciones > .page-container > .page-sidebar-wrapper > .page-sidebar.navbar-collapse.collapse > .slimScrollDiv,
   body#asignaciones > .page-container > .page-sidebar-wrapper > .page-sidebar.navbar-collapse.collapse > .slimScrollDiv {
     display: block !important; } }
+/* UBICAR LOS BOTONES DE EXPORTAR DE LAS DATATABLES */
+.portlet.light .dataTables_wrapper .dt-buttons {
+  margin-top: -1px;
+  margin-right: 0;
+  margin-left: 20px; }
+
 .top-0 {
   top: 0px !important; }
 
