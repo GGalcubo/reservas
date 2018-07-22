@@ -82,7 +82,7 @@
                                         <i class="icon-rocket font-green"></i>
                                         <span class="caption-subject bold uppercase">Viajes</span>
                                     </div>
-                                    <div class="inline-block width-50" style="float: right;">
+                                    <!--<div class="inline-block width-50" style="float: right;">
                                         <select id="multiselect_estado" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
                                             <optgroup label="Nuevos" class="group-1">
                                                 <option value="1-1">Sin asignar</option>
@@ -95,7 +95,7 @@
                                                 <option value="2-2">Cancelados</option>
                                             </optgroup>
                                         </select>
-                                    </div>
+                                    </div>-->
                                 </div>
                                 <div class="portlet-body">
                                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="futurosViajes">
@@ -168,7 +168,7 @@
                                     ],
                         language: {
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
-                        },
+                        }
                     } );
 
                     $('#futurosViajes').DataTable( {
@@ -182,6 +182,23 @@
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
                         }
                     } );
+
+                    var tablefuturosViajes = $('#futurosViajes').DataTable();
+
+                    $('#futurosViajes tbody').on( 'click', 'tr', function () {
+                        if ( $(this).hasClass('selected') ) {
+                            $(this).removeClass('selected');
+                        }
+                        else {
+                            tablefuturosViajes.$('tr.selected').removeClass('selected');
+                            $(this).addClass('selected');
+                            console.log($(this).context.childNodes[1].innerText );
+                            console.log($(this).context.childNodes[11].innerText );
+                            $('#estado_actual').text($(this).context.childNodes[11].innerText)
+                        }
+                    } );
+
+
                     $('#multiselect_estado').multiselect({
                         onChange: function (option, checked, select) {
                             alert(option + checked)

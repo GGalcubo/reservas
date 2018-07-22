@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, TrayectoDestino, Localidad, Provincia, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, Mail, MailCliente, TelefonoPersona, TipoLicencia, Licencia, LicenciaPersona, LicenciaVehiculo
+from .models import Calle, TrayectoDestino, TipoObservacion, Localidad, Provincia, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, ObservacionViaje, Mail, MailCliente, TelefonoPersona, TipoLicencia, Licencia, LicenciaPersona, LicenciaVehiculo
 from django.http import HttpResponse
 
 import json
@@ -105,8 +105,10 @@ def altaViaje(request):
     localidades = Localidad.objects.all()
     provincias = Provincia.objects.all()
     destinos = TrayectoDestino.objects.all()
+    observaciones = Observacion.objects.all()
+    tipoobservacion = TipoObservacion.objects.all()
 
-    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje}
+    context = {'mensaje': mensaje,'clientes':clientes, 'tipoobservacion':tipoobservacion, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje}
     return render(request, 'sistema/viaje.html', context)
 
 @login_required
@@ -125,10 +127,11 @@ def editaViaje(request):
     destinos = TrayectoDestino.objects.all()
     localidades = Localidad.objects.all()
     provincias = Provincia.objects.all()
-
+    observaciones = Observacion.objects.all()
+    tipoobservacion = TipoObservacion.objects.all()
     trayectos = Trayecto.objects.filter(viaje_id=id_viaje)
 
-    context = {'mensaje': mensaje,'clientes':clientes, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje, 'trayectos':trayectos}
+    context = {'mensaje': mensaje,'clientes':clientes, 'tipoobservacion':tipoobservacion, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje, 'trayectos':trayectos}
     return render(request, 'sistema/viaje.html', context)
 
 
@@ -426,6 +429,31 @@ def eliminarCliente(request):
 	cliente.save()
 
 	return redirect('listadoCliente')
+
+
+@login_required
+def guardarObservacionViaje(request):
+	mensaje = ""
+
+	idViaje = request.POST.get('idViajeObser', False)
+	text_obs = request.POST.get('text_obs', False)
+	detalle_obs = request.POST.get('detalle_obs', False)
+	observacion = Observacion()
+	observacion.fecha = fecha()
+	observacion.usuario = request.user
+	observacion.texto = text_obs
+	observacion.tipo_observacion = TipoObservacion.objects.get(id=detalle_obs)
+	observacion.save()
+
+	viaje = Viaje.objects.get(id=idViaje)
+
+	obcl = ObservacionViaje()
+	obcl.observacion = observacion
+	obcl.viaje = viaje
+	obcl.save()
+
+	context = {'mensaje': mensaje, 'viaje':viaje}
+	return render(request, 'sistema/grillaObservacionesViaje.html', context)
 
 
 @login_required
@@ -813,10 +841,10 @@ def cargarLocalidad(request):
 	return render(request, 'sistema/selectLocalidad.html', context)
 
 @login_required
-def cargarLocalidadByProvincia(request):
-	provincia_id = request.POST.get('provincia_id', False)
+def cargarLocalidadByDestino(request):
+	destino_id = request.POST.get('destino_id', False)
 	localidad_select_id = request.POST.get('localidad_select_id', '')
-	localidades = Localidad.objects.filter(provincia_id=provincia_id)
+	localidades = Localidad.objects.filter(provincia_id=destino_id)
 	context = {'localidades': localidades, 'localidad_select_id':localidad_select_id}
 	return render(request, 'sistema/selectLocalidadViaje.html', context)
 

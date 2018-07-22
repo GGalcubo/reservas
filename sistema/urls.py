@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, borrarTrayecto, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByProvincia, guardarCentroCostoProspect, getSelectAsignoLicencia, guardarLicencia, altaLicencia, eliminarLicencia
+from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, guardarTrayecto, borrarTrayecto, guardarObservacionViaje, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByDestino, guardarCentroCostoProspect, getSelectAsignoLicencia, guardarLicencia, altaLicencia, eliminarLicencia
 
 
 urlpatterns = [
@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^altaViaje/', altaViaje, name='altaViaje'),
     url(r'^editaViaje/$', editaViaje, name='editaViaje'),
     url(r'^guardarViaje/', guardarViaje, name='guardarViaje'),
+    url(r'^guardarObservacionViaje/', guardarObservacionViaje, name='guardarObservacionViaje'),
     url(r'^guardarTrayecto/', guardarTrayecto, name='guardarTrayecto'),
     url(r'^borrarTrayecto/', borrarTrayecto, name='borrarTrayecto'),
     url(r'^altaPersona/', altaPersona, name='altaPersona'),
@@ -46,7 +47,7 @@ urlpatterns = [
     url(r'^guardarLicencia/', guardarLicencia, name='guardarLicencia'),
     url(r'^getSelectAsignoLicencia/', getSelectAsignoLicencia, name='getSelectAsignoLicencia'),
     url(r'^cargarLocalidad/', cargarLocalidad, name='cargarLocalidad'),
-    url(r'^cargarLocalidadByProvincia/', cargarLocalidadByProvincia, name='cargarLocalidadByProvincia'),
+    url(r'^cargarLocalidadByDestino/', cargarLocalidadByDestino, name='cargarLocalidadByDestino'),
     url(r'^cargarProvincia/', cargarProvincia, name='cargarProvincia'),
     url(r'^importarcalles/', importar_calles, name='importar_calles'),
     url(r'^exportar/', exportar, name='exportar'),

@@ -455,6 +455,12 @@ class Viaje(models.Model):
     def __str__(self):
         return self.fecha
 
+    def getObservaciones(self):
+        observaciones = []
+        for obsviaje in self.observacionviaje_set.all():
+            observaciones.append(obsviaje.observacion)
+        return observaciones
+
     def getTrayectoPrincipal(self):
         trayecto = self.trayecto_set.filter()[:1].get()
         return trayecto
