@@ -478,6 +478,25 @@ def guardarObservacionCliente(request):
 	context = {'mensaje': mensaje, 'objeto':cliente}
 	return render(request, 'sistema/grillaObservaciones.html', context)
 
+
+@login_required
+def getViajesFuturosPorFecha(request):
+    mensaje = ""
+    date = getAAAAMMDD(request.POST.get('date', False))
+    viajes = Viaje.objects.filter(fecha=date)
+
+    context = {'mensaje': mensaje, 'viajes':viajes}
+    return render(request, 'sistema/grillaViajesFuturos.html', context)
+
+@login_required
+def getViajesEnProgresoPorFecha(request):
+    mensaje = ""
+
+    date = getAAAAMMDD(request.POST.get('date', False))
+    viajes = Viaje.objects.filter(fecha=date)
+    context = {'mensaje': mensaje, 'viajes':viajes}
+    return render(request, 'sistema/grillaViajesEnProgreso.html', context)
+
 @login_required
 def guardarMailCliente(request):
 	mensaje = ""
