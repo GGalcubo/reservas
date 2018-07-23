@@ -18,6 +18,22 @@
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
+                    <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <i class="icon-home"></i>
+                                <a href="index.html"></a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="#">Blank Page</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <span>Page Layouts</span>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -80,6 +96,10 @@
                         responsive: true,
                         scrollY: 300,
                         order: [[ 1, "asc" ]],
+                        dom: 'Bfrtip',
+                        buttons: [
+                            'copy', 'excel', 'pdf', 'print'
+                        ],
                         lengthMenu: [
                                         [ -1, 500, 100, 50, 25, 10 ],
                                         [ 'Todos', '500', '100', '50', '25', '10' ]

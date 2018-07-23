@@ -18,6 +18,22 @@
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
+                    <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <i class="icon-home"></i>
+                                <a href="index.html"></a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="#">Blank Page</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <span>Page Layouts</span>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="portlet light ">
@@ -42,7 +58,15 @@
                                     </div>
                                 </div>
                                 <div class="portlet-body">
+                                    <!-- <div id="toolbar">
+                                        <select class="form-control">
+                                            <option value="">Export Basic</option>
+                                            <option value="all">Export All</option>
+                                            <option value="selected">Export Selected</option>
+                                        </select>
+                                    </div> -->
                                     <table id="table"
+                                            data-show-export="true"
                                             data-toolbar="#toolbar"
                                             data-search="true"
                                             data-toggle="table"
@@ -101,6 +125,14 @@
             
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
+                var $table = $('#table');
+                $(function () {
+                    $('#toolbar').find('select').change(function () {
+                        $table.bootstrapTable('destroy').bootstrapTable({
+                            exportDataType: $(this).val()
+                        });
+                    });
+                })
                 $(document).ready(function(){
                     //toggle `popup` / `inline` mode
                     $.fn.editable.defaults.mode = 'popup';     
