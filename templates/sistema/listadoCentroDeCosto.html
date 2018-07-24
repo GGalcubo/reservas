@@ -62,7 +62,7 @@
                                         <tbody>
                                             {% for cc in centroCostos %}
                                             <tr>
-                                                <td class="text-center"><a href="#" onclick="editarCCPropect('{{ cc.id }}','{{ cliente.id }}','{{ cc.nombre }}','{{ cc.descripcion }}','{{ cc.getFechaInicio }}','{{ cc.getFechaFin }}','{{ cc.tarifario.id }}');"><i class="fa fa-pencil"></i></a></td>
+                                                <td class="text-center"><a href="/sistema/centroCosto/?idCC={{ cc.id }}"><i class="fa fa-pencil"></i></a></td>
                                                 <td>{{ cc.id }}</td>
                                                 <td>{{ cc.nombre }}</td>
                                                 <td>{{ cc.descripcion }}</td>

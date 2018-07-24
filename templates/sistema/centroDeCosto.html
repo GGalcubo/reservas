@@ -46,7 +46,9 @@
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <form role="form">
+                                    <form role="form" method="post" id="formGuardarCC" action="/sistema/guardarCC/">{% csrf_token %}
+                                        <input type="hidden" id="idCC" name="idCC" value="{{ cc.id }}">
+                                        <input type="hidden" id="estado" name="estado" value="{{ estado }}">
                                         <div class="form-body">
                                             <div class="row mg-b-20">
                                                 <div class="col-sm-5">
@@ -54,7 +56,11 @@
                                                         <select class="form-control" id="clientes" name="clientes">
                                                             <option value=""></option>
                                                             {% for c in clientes %}
-                                                                <option value="{{ c.id }}">{{ c.razon_social }}</option>
+                                                                {% if c.id == cc.cliente.id %}
+                                                                    <option value="{{ c.id }}" selected="selected">{{ c.razon_social }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ c.id }}">{{ c.razon_social }}</option>
+                                                                {% endif %}
                                                             {% endfor %}
                                                         </select>
                                                         <label for="clientes">Cliente</label>
@@ -82,29 +88,29 @@
                                                 </div-->
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="codigo" name="codigo">
+                                                        <input type="text" class="form-control" id="codigo" name="codigo" value="{{ cc.nombre }}">
                                                         <label for="codigo">Código del Centro de Costo</label>
                                                         <span class="help-block">Código Cliente + Área + Detalle (Ej: PFZVACUJOSE)</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="descripcion" name="descripcion">
+                                                        <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ cc.descripcion }}">
                                                         <label for="descripcion">Descripción</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label for="desdeCC font-12">Válido Desde</label>
-                                                    <input class="form-control form-control-inline input-medium date-picker" id="desdeCC" name="desdeCC" size="16" type="text" value="" />
+                                                    <input class="form-control form-control-inline input-medium date-picker" id="desdeCC" name="desdeCC" size="16" type="text" value="{{ cc.getFechaInicio }}" />
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label for="hastaCC font-12">Válido Hasta</label>
-                                                    <input class="form-control form-control-inline input-medium date-picker" id="hastaCC" name="hastaCC" size="16" type="text" value="" />
+                                                    <input class="form-control form-control-inline input-medium date-picker" id="hastaCC" name="hastaCC" size="16" type="text" value="{{ cc.getFechaFin }}" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-actions noborder flex flex-j-between">
-                                            <button type="submit" class="btn green">Guardar</button>
+                                            <button type="button" onclick="guardarCC()" class="btn green">Guardar</button>
                                             <button type="button" class="btn red">Cancelar</button>
                                         </div>
                                     </form>
@@ -141,16 +147,26 @@
                         todayHighlight: true,
                         autoclose: true
                     });
+
+                    idCC = $("#idCC").val()
+                    estado = $("#estado").val()
+                    if (idCC != "0"){
+                        if (estado != ''){
+                            alert("Se guardo el centro de costos correctamente.");
+                        }
+                        $("#tarifarios").val('{{ cc.tarifario.id }}')
+                        $('#clientes').val('{{ cc.cliente.id }}')
+                    }
                 });
 
                 function guardarCC(){
 
                     if ($("#codigo").val() == ""){
-                        alert("El campo Cidogo es obligatorio.");
+                        alert("El campo Codigo es obligatorio.");
                         return false;
                     }
 
-                    $("#formGuardarUnidad").submit();
+                    $("#formGuardarCC").submit();
 
                 }
             </script>
