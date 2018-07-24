@@ -2406,13 +2406,6 @@
   }
 },
 {
-  "model": "sistema.tipoobservacion",
-  "pk": 1,
-  "fields": {
-    "tipo_observacion": "Tipo"
-  }
-},
-{
   "model": "sistema.observacion",
   "pk": 1,
   "fields": {
