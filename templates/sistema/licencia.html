@@ -129,7 +129,7 @@
                     idLicencia = $("#idLicencia").val()
                     estado = $("#estado").val()
                     if (idLicencia != "0"){
-                        if (estado == 'nuevo'){
+                        if (estado != ''){
                             alert("Se guardo la licencia correctamente.");
                         }
                         $("#tipoPersonaLicencia").val('{{ tipoAsignadoId }}')

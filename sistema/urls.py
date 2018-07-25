@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, getViajesFuturosPorFecha, getViajesEnProgresoPorFecha, guardarTrayecto, borrarTrayecto, guardarObservacionViaje, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByDestino, guardarCentroCostoProspect, getSelectAsignoLicencia, guardarLicencia, altaLicencia, eliminarLicencia
+from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, getViajesFuturosPorFecha, getViajesEnProgresoPorFecha, guardarTrayecto, borrarTrayecto, guardarObservacionViaje, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByDestino, guardarCentroCostoProspect, getSelectAsignoLicencia, guardarLicencia, altaLicencia, eliminarLicencia, guardarCC, centroCosto
 
 
 urlpatterns = [
@@ -39,6 +39,8 @@ urlpatterns = [
     url(r'^contacto/', contacto, name='contacto'),
     url(r'^listadoContacto/', listadoContacto, name='listadoContacto'),
     url(r'^altaCentroDeCosto/', altaCentroDeCosto, name='altaCentroDeCosto'),
+    url(r'^guardarCC/', guardarCC, name='guardarCC'),
+    url(r'^centroCosto/', centroCosto, name='centroCosto'),
     url(r'^listadoCentroDeCosto/', listadoCentroDeCosto, name='listadoCentroDeCosto'),
     url(r'^listadoTarifario/', listadoTarifario, name='listadoTarifario'),
     url(r'^tarifario/', tarifario, name='tarifario'),

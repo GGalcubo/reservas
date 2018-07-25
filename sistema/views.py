@@ -732,8 +732,49 @@ def listadoContacto(request):
 def altaCentroDeCosto(request):
 	clientes = Cliente.objects.filter(baja=False)
 	tarifarios = Tarifario.objects.filter(baja=False)
+	cc = CentroCosto()
+	cc.id = 0
+	context = {'clientes': clientes, 'tarifarios':tarifarios, 'cc':cc}
+	return render(request, 'sistema/centroDeCosto.html', context)
 
-	context = {'clientes': clientes, 'tarifarios':tarifarios}
+@login_required
+def guardarCC(request):
+	idCC = request.POST.get('idCC', False)
+	cliente_id = request.POST.get('clientes', False)
+	tarifario_id = request.POST.get('tarifarios', False)
+	codigo = request.POST.get('codigo', False)
+	descripcion = request.POST.get('descripcion', False)
+	desdeCC = request.POST.get('desdeCC', False)
+	hastaCC = request.POST.get('hastaCC', False)
+
+	if idCC == "0":
+		cc = CentroCosto()
+		request.session['estadoCC'] = 'nuevo'
+	else:
+		cc = CentroCosto.objects.get(id=idCC)
+		request.session['estadoCC'] = 'editado'
+
+	cc.nombre = codigo
+	cc.descripcion = descripcion
+	cc.cliente = Cliente.objects.get(id=cliente_id)
+	cc.tarifario = Tarifario.objects.get(id=tarifario_id)
+	cc.fecha_inicio = getAAAAMMDD(desdeCC)
+	cc.fecha_fin = getAAAAMMDD(hastaCC)
+	cc.save()
+
+	url = '/sistema/centroCosto/?idCC='+str(cc.id)
+	return redirect(url)
+
+@login_required
+def centroCosto(request):
+	estado = request.session.get('estadoCC', '')
+	idCC = request.GET.get('idCC', "")
+	cc = CentroCosto.objects.get(id=idCC)
+	clientes = Cliente.objects.all()
+	tarifarios = Tarifario.objects.all()
+	request.session['estadoCC'] = ''
+
+	context = {'clientes':clientes, 'estado':estado, 'cc':cc, 'clientes':clientes, 'tarifarios':tarifarios}
 	return render(request, 'sistema/centroDeCosto.html', context)
 
 @login_required
@@ -782,7 +823,7 @@ def altaLicencia(request):
 
 @login_required
 def licencia(request):
-	estado = request.session.get('estadoLicencia', 'editado')
+	estado = request.session.get('estadoLicencia', '')
 	idLicencia = request.GET.get('idLicencia', "")
 	licencia = Licencia.objects.get(id=idLicencia)
 	tipo_licencias = TipoLicencia.objects.all()
@@ -790,10 +831,7 @@ def licencia(request):
 	asignoLicencia.append(licencia.getAsignado())
 	tipoAsignadoId = licencia.getAsignadoTipoId()
 	tipoAsignado = licencia.getAsignadoTipo()
-	try:
-		del request.session['estadoLicencia']
-	except:
-		pass
+	request.session['estadoLicencia'] = ''
 	context = {'tipo_licencias':tipo_licencias, 'estado':estado, 'licencia':licencia, 'listaAsignoLicencia':asignoLicencia, 'tipoAsignadoId':tipoAsignadoId, 'tipoAsignado':tipoAsignado}
 	return render(request, 'sistema/licencia.html', context)
 
