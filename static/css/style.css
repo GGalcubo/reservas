@@ -327,6 +327,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
   margin-right: 0;
   margin-left: 20px; }
 
+.bootstrap-table .fixed-table-toolbar .bs-bars.pull-left {
+  float: right !important; }
+
 .top-0 {
   top: 0px !important; }
 

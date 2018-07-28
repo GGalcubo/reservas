@@ -287,7 +287,7 @@
                                                                         <div class="caption font-blue">
                                                                             <i class="icon-user font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Solicitante</span>
-                                                                            <a href="/sistema/contacto/" role="button" class="btn green btn-outline mg-l-20">Agregar solicitante</a>
+                                                                            <a href="#add_solicitante_cliente" role="button" data-toggle="modal" class="btn green btn-outline mg-l-20">Agregar solicitante</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -316,6 +316,75 @@
                                                                                 {% endfor %}
                                                                             </tbody>
                                                                         </table>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <input type="hidden" id="idClienteSolicitante" name="idClienteSolicitante" value="{{ cliente.id }}">
+                                                                            <div id="add_solicitante_cliente" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                                                <div class="modal-dialog">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                                            <h4 class="modal-title" style="color:#888;">Agregar Solicitante</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-sm-4">
+                                                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                            <input type="text" class="form-control" id="nombrePasajeroCliente" name="nombrePasajeroCliente">
+                                                                                                            <label for="nombrePasajeroCliente">Nombre</label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-4">
+                                                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                            <input type="text" class="form-control" id="apellidoPasajeroCliente" name="apellidoPasajeroCliente">
+                                                                                                            <label for="apellidoPasajeroCliente">Apellido</label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-4">
+                                                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                            <select class="form-control" id="form_control_3">
+                                                                                                                <option value=""></option>
+                                                                                                                <option value="1">3 Monos</option>
+                                                                                                                <option value="2">Galcubo</option>
+                                                                                                                <option value="3">Pfizer</option>
+                                                                                                                <option value="4">TyC Sports</option>
+                                                                                                            </select>
+                                                                                                            <label for="form_control_3">Cliente</label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="row">
+                                                                                                    <div class="col-sm-4">
+                                                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                            <input type="text" class="form-control" id="form_control_4">
+                                                                                                            <label for="form_control_4">Puesto</label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-4">
+                                                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                            <input type="email" class="form-control" id="form_control_5">
+                                                                                                            <label for="form_control_5">Mail</label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-4">
+                                                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                                                            <input type="text" class="form-control" id="form_control_6">
+                                                                                                            <label for="form_control_6">Teléfono</label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="modal-footer noborder flex flex-j-between">
+                                                                                          <button type="button" onclick="agregarSolicitante()" class="btn green">Guardar</button>
+                                                                                          <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <!-- END EXAMPLE TABLE PORTLET-->

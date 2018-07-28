@@ -54,13 +54,10 @@
                                     </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <!-- <div id="toolbar">
-                                        <select class="form-control">
-                                            <option value="">Export Basic</option>
-                                            <option value="all">Export All</option>
-                                            <option value="selected">Export Selected</option>
-                                        </select>
-                                    </div> -->
+                                    <div id="toolbar">
+                                        <button id="exportExcel" class="btn btn-default pull-right mg-l-20">Excel</button>
+                                        <!-- <button id="exportPDF" class="btn btn-default">Export PDF</button> -->
+                                    </div>
                                     <table id="table"
                                             data-show-export="true"
                                             data-toolbar="#toolbar"
@@ -123,11 +120,13 @@
             <script>
                 var $table = $('#table');
                 $(function () {
-                    $('#toolbar').find('select').change(function () {
-                        $table.bootstrapTable('destroy').bootstrapTable({
-                            exportDataType: $(this).val()
+                    $('#exportExcel').click(function () {
+                        $table.tableExport({
+                            type: 'excel',
+                            ignoreColumn: [0,1],
+                            escape: false
                         });
-                    });
+                      });
                 })
                 $(document).ready(function(){
                     //toggle `popup` / `inline` mode

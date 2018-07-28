@@ -168,7 +168,30 @@
                         order: [[ 3, "asc" ]],
                         dom: 'Bfrtip',
                         buttons: [
-                            'copy', 'excel', 'pdf', 'print'
+                            {
+                                extend: 'copy',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
+                            {
+                                extend: 'excel',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
+                            {
+                                extend: 'pdf',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
+                            {
+                                extend: 'print',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
                         ],
                         lengthMenu: [
                                         [ -1, 500, 100, 50, 25, 10 ],
@@ -176,6 +199,12 @@
                                     ],
                         language: {
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                        language: {
+                            buttons: {
+                                copy: "Copiar",
+                                print: "Imprimir"
+                            }
                         }
                     } );
 
@@ -184,7 +213,30 @@
                         colReorder: true,
                         dom: 'Bfrtip',
                         buttons: [
-                            'copy', 'excel', 'pdf', 'print'
+                            {
+                                extend: 'copy',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
+                            {
+                                extend: 'excel',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
+                            {
+                                extend: 'pdf',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
+                            {
+                                extend: 'print',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
                         ],
                         lengthMenu: [
                                         [ -1, 500, 100, 50, 25, 10 ],
@@ -192,6 +244,12 @@
                                     ],
                         language: {
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                        language: {
+                            buttons: {
+                                copy: "Copiar",
+                                print: "Imprimir"
+                            }
                         }
                     } );
 

@@ -387,4 +387,11 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
     }
   }
 }
-  
+
+.bootstrap-table {
+  .fixed-table-toolbar {
+    .bs-bars.pull-left {
+      float: right !important;
+    }
+  }
+}
