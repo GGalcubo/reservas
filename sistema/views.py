@@ -566,9 +566,8 @@ def guardarObservacionPersona(request):
 
 @login_required
 def listadoProvedor(request):
-	mensaje = ""
-
-	context = {'mensaje': mensaje}
+	provedores = Persona.objects.filter(tipo_persona__id__in=[3,4])
+	context = {'provedores': provedores}
 	return render(request, 'sistema/listadoProvedor.html', context)
 
 @login_required

@@ -59,54 +59,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for p in provedores %}
                                             <tr>
                                                 <td class="text-center"><a href="/sistema/provedor/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>12</td>
-                                                <td>Juan Perez</td>
-                                                <td>20-25874869-5</td>
-                                                <td>Helguera 3456</td>
-                                                <td>4567-8910</td>
-                                                <td>mail@ejemplo.com</td>
-                                                <td>Dueño</td>
-                                                <td>251</td>
-                                                <td>"El chueco" Perez</td>
+                                                <td>{{ p.id }}</td>
+                                                <td>{{ p.nombreCompleto }}</td>
+                                                <td>{{ p.documento }}</td>
+                                                <td>{{ p.getDomicilio }}</td>
+                                                <td>{{ p.getTelefono }}</td>
+                                                <td>{{ p.getMail }}</td>
+                                                <td>{{ p.tipo_persona.tipo_persona }}</td>
+                                                <td>{{ p.getUnidad.id }}</td>
+                                                <td>{{ p.getUnidad.identificacion }}</td>
                                             </tr>
-                                            <tr>
-                                                <td class="text-center"><a href="/sistema/provedor/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>23</td>
-                                                <td>Federico Acuña</td>
-                                                <td>20-25874869-5</td>
-                                                <td>Cuenca 3456</td>
-                                                <td>4567-8910</td>
-                                                <td>mail@ejemplo.com</td>
-                                                <td>Chofer</td>
-                                                <td>241</td>
-                                                <td>"El huevo" Acuña</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center"><a href="/sistema/provedor/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>22</td>
-                                                <td>Pablo Perez</td>
-                                                <td>20-25874869-5</td>
-                                                <td>Aramburu 3456</td>
-                                                <td>4567-8910</td>
-                                                <td>mail@ejemplo.com</td>
-                                                <td>Dueño</td>
-                                                <td>281</td>
-                                                <td>Pol Perez Mondeo</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center"><a href="/sistema/provedor/"><i class="fa fa-pencil"></i></a></td>
-                                                <td>10</td>
-                                                <td>Facundo Rodriguez</td>
-                                                <td>20-25874869-5</td>
-                                                <td>Campana 3456</td>
-                                                <td>4567-8910</td>
-                                                <td>mail@ejemplo.com</td>
-                                                <td>Chofer</td>
-                                                <td>451</td>
-                                                <td>Facu Ford Ka</td>
-                                            </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>

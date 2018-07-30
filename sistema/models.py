@@ -257,6 +257,24 @@ class Persona(models.Model):
             return self.mailpersona_set.all()[0].mail.mail
         else:
             return 'Sin mail'
+
+    def getDomicilio(self):
+        retorno = ""
+        if self.calle != None:
+            retorno = retorno + self.calle
+            if self.altura != None:
+                retorno = retorno + " "+ self.altura
+        return retorno
+
+    def getUnidad(self):
+        unidad = Unidad()
+        if self.tipo_persona.id == 3:
+            unidades = Unidad.objects.filter(chofer__id=self.id)
+        elif self.tipo_persona.id == 4:
+            unidades = Unidad.objects.filter(owner__id=self.id)
+        if len(unidades) > 0:
+            unidad = unidades[0]
+        return unidad
         
 
 class Vehiculo(models.Model):
