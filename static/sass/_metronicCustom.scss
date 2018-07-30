@@ -278,7 +278,11 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 
 /* DROPDOWN MENU */
 .page-header.navbar .top-menu .navbar-nav>li.dropdown-user {
-    padding: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-menu>li>a i {
+  margin-right: 5px;
 }
 
 .page-header.navbar .top-menu .navbar-nav>li.dropdown-user>.dropdown-menu {
@@ -287,7 +291,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
       height: 50px;
       display: flex;
       align-items: center;
-      padding: 0 0 0 15px;
+      padding: 0 0 0 5px;
     }
 }
 
@@ -326,6 +330,17 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
     }
   }
 }
+
+//Margins y paddings de los iconos en el menú mobile
+@media (max-width: 767px) {
+  .page-header.navbar .top-menu .navbar-nav>li.dropdown-user {
+    margin-right: 0;
+  }
+  .page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle {
+    padding: 24px 15px;
+  }
+}
+
 
 /* PARA ESCONDER LA BARRA LATERAL EN MOBILE */
 @media (max-width: 991px) {
@@ -398,3 +413,4 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
     }
   }
 }
+

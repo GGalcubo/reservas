@@ -253,13 +253,16 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
 .page-header.navbar .top-menu .navbar-nav > li.dropdown-user {
   padding: 0 0 0 0; }
 
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-menu > li > a i {
+  margin-right: 5px; }
+
 .page-header.navbar .top-menu .navbar-nav > li.dropdown-user > .dropdown-menu {
   width: 195px; }
   .page-header.navbar .top-menu .navbar-nav > li.dropdown-user > .dropdown-menu > li > a {
     height: 50px;
     display: flex;
     align-items: center;
-    padding: 0 0 0 15px; }
+    padding: 0 0 0 5px; }
 
 .dropdown-menu.dropdown-menu-default li {
   position: relative;
@@ -287,6 +290,12 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
     .dropdown-menu.dropdown-menu-default li:hover ul.sub-menu li.nav-item:hover {
       background-color: #F6F6F6; }
 
+@media (max-width: 767px) {
+  .page-header.navbar .top-menu .navbar-nav > li.dropdown-user {
+    margin-right: 0; }
+
+  .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
+    padding: 24px 15px; } }
 /* PARA ESCONDER LA BARRA LATERAL EN MOBILE */
 @media (max-width: 991px) {
   body .page-sidebar-wrapper {
