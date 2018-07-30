@@ -1525,6 +1525,13 @@
   }
 },
 {
+  "model": "sistema.estado",
+  "pk": 8,
+  "fields": {
+    "estado": "Cancelado"
+  }
+},
+{
   "model": "sistema.estadocivil",
   "pk": 1,
   "fields": {
