@@ -166,7 +166,6 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control" id="categoria_viaje" name="categoria_viaje">
-                                                            <option value=""></option>
                                                             {% for cv in categoria_viajes %}
                                                                 {% if cv.id == viaje.categoria_viaje.id %}
                                                                     <option selected="selected" value="{{ cv.id }}">{{ cv.categoria }}</option>
@@ -697,7 +696,7 @@
                                                                                         <h4 class="modal-title" style="color:#888;">Agregar Observación</h4>
                                                                                     </div>
                                                                                     <div class="modal-body">
-                                                                                        <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                                                                                        <div class="scroller" style="height:250px;width: 600px" data-always-visible="1" data-rail-visible1="1">
                                                                                             <div class="row">
                                                                                                 <div class="col-md-6">
                                                                                                     <div class="form-group form-md-line-input">
@@ -1594,7 +1593,7 @@
     }
 
     function agregarTramo(){
-        if ($("#modal_desde_destino").val() == ""){
+        /*if ($("#modal_desde_destino").val() == ""){
             alert("El campo desde destino es obligatorio.");
             return false;
         }
@@ -1609,7 +1608,7 @@
         if ($("#modal_hasta_localidad").val() == ""){
             alert("El campo hasta localidad es obligatorio.");
             return false;
-        }
+        }*/
 
         var obj               = {};
         obj.desde_destino     = $("#modal_desde_destino").val();
@@ -1661,9 +1660,10 @@
                 data: $("#form-datos-viaje-observacion").serialize(),
                 success: function(data){
                     $("#grillaObservaciones").html(data);
+                    $('#add_observacion_viaje').modal('toggle');
+                    $('#texto_obs').val('')
                 }
             });
-            $('#add_observacion_viaje').modal('toggle');
         }
     }
 </script>

@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, getViajesFuturosPorFecha, getViajesEnProgresoPorFecha, guardarTrayecto, borrarTrayecto, guardarObservacionViaje, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByDestino, guardarCentroCostoProspect, getSelectAsignoLicencia, guardarLicencia, altaLicencia, eliminarLicencia, guardarCC, centroCosto
+from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, getViajesFuturosPorFecha, editEstadoViaje, getViajesEnProgresoPorFecha, guardarTrayecto, borrarTrayecto, guardarObservacionViaje, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByDestino, guardarCentroCostoProspect, getSelectAsignoLicencia, guardarLicencia, altaLicencia, eliminarLicencia, guardarCC, centroCosto
 
 
 urlpatterns = [
@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^guardarViaje/', guardarViaje, name='guardarViaje'),
     url(r'^getViajesFuturosPorFecha/', getViajesFuturosPorFecha, name='getViajesFuturosPorFecha'),
     url(r'^getViajesEnProgresoPorFecha/', getViajesEnProgresoPorFecha, name='getViajesEnProgresoPorFecha'),
+    url(r'^editEstadoViaje/', editEstadoViaje, name='editEstadoViaje'),
     url(r'^guardarObservacionViaje/', guardarObservacionViaje, name='guardarObservacionViaje'),
     url(r'^guardarTrayecto/', guardarTrayecto, name='guardarTrayecto'),
     url(r'^borrarTrayecto/', borrarTrayecto, name='borrarTrayecto'),

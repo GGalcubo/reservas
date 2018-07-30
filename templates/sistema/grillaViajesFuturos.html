@@ -41,14 +41,61 @@
     $('#futurosViajes').DataTable( {
         responsive: true,
         colReorder: true,
-        select: true,
-        order: [[ 3, "asc" ]],
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'copy',
+                exportOptions: {
+                    columns: ':visible:not(:eq(0))'
+                }
+            },
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: ':visible:not(:eq(0))'
+                }
+            },
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: ':visible:not(:eq(0))'
+                }
+            },
+            {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible:not(:eq(0))'
+                }
+            },
+        ],
         lengthMenu: [
                         [ -1, 500, 100, 50, 25, 10 ],
                         [ 'Todos', '500', '100', '50', '25', '10' ]
                     ],
         language: {
             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+        },
+        language: {
+            buttons: {
+                copy: "Copiar",
+                print: "Imprimir"
+            }
         }
     } );
+
+    var tablefuturosViajes = $('#futurosViajes').DataTable();
+
+    $('#futurosViajes tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            tablefuturosViajes.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+            viaje_seleccionado = $(this).context.childNodes[1].innerText;
+            console.log($(this).context.childNodes[1].innerText );
+            console.log($(this).context.childNodes[11].innerText );
+            $('#estado_actual').text($(this).context.childNodes[11].innerText)
+        }
+    });
 </script>

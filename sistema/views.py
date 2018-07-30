@@ -498,6 +498,20 @@ def getViajesEnProgresoPorFecha(request):
     return render(request, 'sistema/grillaViajesEnProgreso.html', context)
 
 @login_required
+def editEstadoViaje(request):
+    mensaje = ""
+    viaje = Viaje.objects.get(id=request.POST.get('viaje_seleccionado', False))
+    viaje.estado = Estado.objects.get(id=request.POST.get('estado_seleccionado', False))
+    viaje.save()
+    data = {
+		'error': '0',
+		'msg': mensaje
+	}
+
+    dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
+
+@login_required
 def guardarMailCliente(request):
 	mensaje = ""
 
