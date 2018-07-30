@@ -24,7 +24,7 @@ class ViajeAdmin(admin.ModelAdmin):
     inlines = [
         TrayectoInline, ObservacionViajeInline, AdjuntoViajeInline,
     ]
-    list_display = ('factura', 'proforma', 'estado', 'fecha', 'cliente', 'unidad', 'base_total')
+    list_display = ('estado', 'fecha', 'cliente', 'unidad')
 
 class ClienteAdmin(admin.ModelAdmin):
     inlines = [

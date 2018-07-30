@@ -4,39 +4,6 @@ from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
-class Provincia(models.Model):
-    nombre = models.CharField(max_length=100)
-
-    def __unicode__(self):
-        return u'%s' % self.nombre
-
-    def __str__(self):
-        return self.nombre
-
-class Localidad(models.Model):
-    nombre = models.CharField(max_length=100)
-    provincia = models.ForeignKey(Provincia, null=True, blank=True)
-    id_externo = models.CharField(max_length=100, null=True, blank=True)
-    codigo_postal = models.CharField(max_length=10, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.nombre
-
-    def __str__(self):
-        return self.nombre
-
-class Calle(models.Model):
-    nombre = models.CharField(max_length=100)
-    altura_desde = models.CharField(max_length=10, null=True, blank=True)
-    altura_hasta  = models.CharField(max_length=10, null=True, blank=True)
-    localidad = models.ForeignKey(Localidad, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.nombre
-
-    def __str__(self):
-        return self.nombre
-
 class Estado(models.Model):
     estado = models.CharField(max_length=50)
 
@@ -197,8 +164,8 @@ class Persona(models.Model):
     apellido = models.CharField(max_length=100)
     fecha_nacimiento = models.CharField(max_length=8, null=True, blank=True)
     documento = models.CharField(max_length=8, null=True, blank=True)
+    cuil = models.CharField(max_length=20, null=True, blank=True)
     tipo_persona = models.ForeignKey(TipoPersona, null=True, blank=True)
-    porcentaje_viaje = models.CharField(max_length=3, null=True, blank=True)
     estado_civil = models.ForeignKey(EstadoCivil, null=True, blank=True)
     calle = models.CharField(max_length=100, null=True, blank=True)
     altura = models.CharField(max_length=10, null=True, blank=True)
@@ -445,18 +412,10 @@ class CentroCosto(models.Model):
         return getFecha(self.fecha_fin)
 
 class Viaje(models.Model):
-    factura = models.CharField(max_length=30, null=True, blank=True)
-    proforma = models.CharField(max_length=30, null=True, blank=True)
     estado = models.ForeignKey(Estado, null=True, blank=True)
     fecha = models.CharField(max_length=12)
     cliente = models.ForeignKey(Cliente, null=True, blank=True)
     unidad = models.ForeignKey(Unidad, null=True, blank=True)
-    base_total = models.IntegerField(default=0)
-    peaje_total = models.IntegerField(default=0)
-    estacionamiento_total = models.IntegerField(default=0)
-    Otros_tot = models.IntegerField(default=0)
-    maletas = models.BooleanField(default=False)
-    bilingue = models.BooleanField(default=False)
     hora = models.CharField(max_length=10, null=True, blank=True)
     solicitante = models.CharField(max_length=50, null=True, blank=True)
     pasajero = models.CharField(max_length=50, null=True, blank=True)
@@ -465,7 +424,6 @@ class Viaje(models.Model):
     hora_estimada = models.CharField(max_length=10, null=True, blank=True)
     costo_prov = models.IntegerField(default=0)
     tarifapasada = models.IntegerField(default=0)
-    espera = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.fecha
@@ -560,6 +518,42 @@ class TrayectoDestino(models.Model):
     def __str__(self):
         return self.nombre
 
+class Provincia(models.Model):
+    nombre = models.CharField(max_length=100)
+    trayectodestino = models.ForeignKey(TrayectoDestino, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
+class Localidad(models.Model):
+    nombre = models.CharField(max_length=100)
+    provincia = models.ForeignKey(Provincia, null=True, blank=True)
+    id_externo = models.CharField(max_length=100, null=True, blank=True)
+    codigo_postal = models.CharField(max_length=10, null=True, blank=True)
+    trayectodestino = models.ForeignKey(TrayectoDestino, null=True, blank=True)
+    terminal_flag = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
+class Calle(models.Model):
+    nombre = models.CharField(max_length=100)
+    altura_desde = models.CharField(max_length=10, null=True, blank=True)
+    altura_hasta  = models.CharField(max_length=10, null=True, blank=True)
+    localidad = models.ForeignKey(Localidad, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
 class Trayecto(models.Model):
     viaje = models.ForeignKey(Viaje, null=True, blank=True)
     calle_desde = models.CharField(max_length=100, null=True, blank=True)
@@ -594,6 +588,18 @@ class Trayecto(models.Model):
     def hastaConcat(self):
         hasta = self.destino_hasta.nombre+" ,"+self.provincia_hasta.nombre+" ,"+self.localidad_hasta.nombre+" ,"+self.calle_hasta+" ,"+self.altura_hasta+" ,"+self.compania_hasta+" ,"+self.vuelo_hasta
         return hasta.replace("null", "")
+
+class OperacionesConfCol(models.Model):
+    user = models.ForeignKey(User, null=True, blank=True)
+    orden = models.CharField(max_length=10, null=True, blank=True)
+    col_name = models.CharField(max_length=50, null=True, blank=True)
+    vista = models.CharField(max_length=50, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.col_name
+
+    def __str__(self):
+        return self.col_name
 
 class PersonaCliente(models.Model):
     persona = models.ForeignKey(Persona, null=True, blank=True)
