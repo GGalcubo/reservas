@@ -42,7 +42,6 @@
     $('#viajesEnProgreso').DataTable( {
         responsive: true,
         colReorder: true,
-        select: true,
         order: [[ 3, "asc" ]],
         dom: 'Bfrtip',
         buttons: [
@@ -83,4 +82,19 @@
             }
         }
     } );
+    var tableviajesEnProgreso = $('#viajesEnProgreso').DataTable();
+
+    $('#viajesEnProgreso tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            row_seleccionado = $(this);
+            tableviajesEnProgreso.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+            console.log($(this).context.childNodes[1].innerText);
+            viaje_seleccionado = $(this).context.childNodes[1].innerText;
+            $('#estado_actual').text('EN PROGRESO')
+        }
+    });
 </script>

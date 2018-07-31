@@ -25,7 +25,7 @@
                 <td class="all">{{ v.fecha }}</td>
                 <td class="all">{{ v.hora }}</td>
                 <td class="all">{{ v.hora_estimada }}</td>
-                <td class="all"><span class="label label-primary"> {{ v.estado }} </span></td>
+                <td class="all"><span class="label label-primary" style="background-color: {{ v.estado.color }}!important;"> {{ v.estado }} </span></td>
                 <td class="all">{{ v.unidad.id }}</td>
                 <td class="all">{{ v.unidad.identificacion }}</td>
                 <td class="all"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.localidad_desde }}</span></td>
@@ -90,11 +90,10 @@
             $(this).removeClass('selected');
         }
         else {
+            row_seleccionado = $(this);
             tablefuturosViajes.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
             viaje_seleccionado = $(this).context.childNodes[1].innerText;
-            console.log($(this).context.childNodes[1].innerText );
-            console.log($(this).context.childNodes[11].innerText );
             $('#estado_actual').text($(this).context.childNodes[11].innerText)
         }
     });

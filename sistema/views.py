@@ -177,12 +177,9 @@ def guardarViaje(request):
     }
 
     if es_nuevo == "1":
-		url = '/sistema/cliente/?idViaje=' + data['id_viaje']
-		return redirect(url)
-        # data['id_viaje'] = Viaje.objects.latest('id').id
+		data = {'url': '/sistema/editaViaje/?idViaje=' + str(Viaje.objects.latest('id').id)}
 
     dump = json.dumps(data)
-
     return HttpResponse(dump, content_type='application/json')
 
 

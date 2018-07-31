@@ -88,6 +88,7 @@
             <script>
 
                 var viaje_seleccionado = '';
+                var row_seleccionado = '';
 
                 $(document).ready(function(){
                     $('#viajesEnProgreso').DataTable( {
@@ -184,10 +185,12 @@
 
 
 
-                    getGrillasViajes($('#fechaDeHoy').val());
+                    getGrillasViajesFuturos($('#fechaDeHoy').val());
+                    getGrillasViajesEnProgreso($('#fechaDeHoy').val());
 
                     $('#fechaDeHoy').change(function () {
-                        getGrillasViajes($('#fechaDeHoy').val());
+                        getGrillasViajesFuturos($('#fechaDeHoy').val());
+                        getGrillasViajesEnProgreso($('#fechaDeHoy').val());
                     });
                 });
 
@@ -199,32 +202,26 @@
                 $('#estado_cancelado').css( 'cursor', 'pointer' );
 
                 $('#estado_asignado').click(function () {
-                    //console.log('viaje_seleccionado: '+ viaje_seleccionado);
                     editEstadoViaje('1');
                 });
 
                 $('#estado_confirmado').click(function () {
-                    //console.log('viaje_seleccionado: '+ viaje_seleccionado);
                     editEstadoViaje('4');
                 });
 
                 $('#estado_en_progreso').click(function () {
-                    //console.log('viaje_seleccionado: '+ viaje_seleccionado);
                     editEstadoViaje('5');
                 });
 
                 $('#estado_cerrado').click(function () {
-                    //console.log('viaje_seleccionado: '+ viaje_seleccionado);
                     editEstadoViaje('7');
                 });
 
                 $('#estado_cancelado').click(function () {
-                    //console.log('viaje_seleccionado: '+ viaje_seleccionado);
-                    //editEstadoViaje('1');
+                    editEstadoViaje('8');
                 });
 
                 function editEstadoViaje(estado_seleccionado){
-
                     var url = "/sistema/editEstadoViaje/";
                     $.ajax({
                        type: "POST",
@@ -233,12 +230,15 @@
                        data: {viaje_seleccionado:viaje_seleccionado, estado_seleccionado:estado_seleccionado},
                        success: function(data)
                        {
-                           getGrillasViajes($('#fechaDeHoy').val());
+                           getGrillasViajesFuturos($('#fechaDeHoy').val());
+                           getGrillasViajesEnProgreso($('#fechaDeHoy').val());
+                           /*row_seleccionado.context.childNodes[11].innerHTML = '<span class="label label-primary"> Confirmado </span>';
+                           row_seleccionado.addClass('selected');*/
                        }
                      });
                 }
 
-                function getGrillasViajes(fecha) {
+                function getGrillasViajesFuturos(fecha) {
                     var url = "/sistema/getViajesFuturosPorFecha/";
                     $.ajax({
                        type: "POST",
@@ -250,7 +250,8 @@
                            $('#cont_futurosViajes').html(data);
                        }
                      });
-
+                }
+                function getGrillasViajesEnProgreso(fecha) {
                     var url = "/sistema/getViajesEnProgresoPorFecha/";
                     $.ajax({
                        type: "POST",
