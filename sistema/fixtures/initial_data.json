@@ -2372,7 +2372,8 @@
   "model": "sistema.tarifario",
   "pk": 1,
   "fields": {
-    "nombre": "Normal"
+    "nombre": "Normal",
+	"default":1
   }
 },
 {
