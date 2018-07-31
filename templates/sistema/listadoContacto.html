@@ -43,32 +43,34 @@
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaContactos">
-                                        <thead>
-                                            <tr>
-                                                <th class="all">Editar</th>
-                                                <th class="all">Nombre</th>
-                                                <th class="all">Apellido</th>
-                                                <th class="all">Cliente/Empresa</th>
-                                                <th class="all">Puesto</th>
-                                                <th class="all">Teléfono</th>
-                                                <th class="all">Mail</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for c in contactos %}
-                                            <tr>
-                                                <td class="text-center"><a href="/sistema/contacto/?idContacto={{ c.id }}"><i class="fa fa-pencil">
-                                                <td>{{ c.nombre|default_if_none:"" }}</td>
-                                                <td>{{ c.apellido|default_if_none:"" }}</td>
-                                                <td>{{ c.getCliente }}</td>
-                                                <td>{{ c.puesto|default_if_none:"" }}</td>
-                                                <td>{{ c.getTelefono }}</td>
-                                                <td>{{ c.getMail }}</td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive pd-t-5">
+                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaContactos">
+                                            <thead>
+                                                <tr>
+                                                    <th class="all">Editar</th>
+                                                    <th class="all">Nombre</th>
+                                                    <th class="all">Apellido</th>
+                                                    <th class="all">Cliente/Empresa</th>
+                                                    <th class="all">Puesto</th>
+                                                    <th class="all">Teléfono</th>
+                                                    <th class="all">Mail</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for c in contactos %}
+                                                <tr>
+                                                    <td class="text-center"><a href="/sistema/contacto/?idContacto={{ c.id }}"><i class="fa fa-pencil">
+                                                    <td>{{ c.nombre|default_if_none:"" }}</td>
+                                                    <td>{{ c.apellido|default_if_none:"" }}</td>
+                                                    <td>{{ c.getCliente }}</td>
+                                                    <td>{{ c.puesto|default_if_none:"" }}</td>
+                                                    <td>{{ c.getTelefono }}</td>
+                                                    <td>{{ c.getMail }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
@@ -125,9 +127,7 @@
                                         [ 'Todos', '500', '100', '50', '25', '10' ]
                                     ],
                         language: {
-                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
-                        },
-                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json',
                             buttons: {
                                 copy: "Copiar",
                                 print: "Imprimir"
