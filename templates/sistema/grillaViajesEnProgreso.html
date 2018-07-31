@@ -7,6 +7,7 @@
                 <th class="all">Fecha</th>
                 <th class="all">Hora</th>
                 <th class="all">H.E</th>
+                <th class="all">Estado</th>
                 <th class="all">Unidad</th>
                 <th class="all">Nombre Unidad</th>
                 <th class="all">Origen</th>
@@ -25,6 +26,7 @@
                         <td class="all">{{ v.fecha }}</td>
                         <td class="all">{{ v.hora }}</td>
                         <td class="all">{{ v.hora_estimada }}</td>
+                        <td class="all"><span class="label label-primary" style="background-color: {{ v.estado.color }}!important;"> {{ v.estado }} </span></td>
                         <td class="all">{{ v.unidad.id }}</td>
                         <td class="all">{{ v.unidad.identificacion }}</td>
                         <td class="all"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.localidad_desde }}</span></td>
