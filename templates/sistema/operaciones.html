@@ -48,16 +48,16 @@
                                         <span class="caption-subject bold uppercase">Viajes</span>
                                     </div>
                                     <div class="inline-block" style="float: right;">
-                                        <select id="multiselect_estado" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
+                                        <select id="multiselect_estado" name="multiselect_estado[]" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
                                             <optgroup label="Nuevos" class="group-1">
-                                                <option value="1-1">Sin asignar</option>
-                                                <option value="1-2" selected="selected">Asignados</option>
-                                                <option value="1-3" selected="selected">Confirmados</option>
-                                                <option value="1-4" selected="selected">En progreso</option>
+                                                <option value="1" selected="selected">Sin asignar</option>
+                                                <option value="3" selected="selected">Asignados</option>
+                                                <option value="4" selected="selected">Confirmados</option>
+                                                <option value="5">En progreso</option>
                                             </optgroup>
                                             <optgroup label="Finalizados" class="group-2">
-                                                <option value="2-1">Cerrados</option>
-                                                <option value="2-2">Cancelados</option>
+                                                <option value="7">Cerrados</option>
+                                                <option value="8">Cancelados</option>
                                             </optgroup>
                                         </select>
                                     </div>
@@ -89,9 +89,21 @@
 
                 var viaje_seleccionado = '';
                 var row_seleccionado = '';
+                var estados_selecionados = ['1', '2', '4'];
 
                 $(document).ready(function(){
-                    $('#multiselect_estado').multiselect();
+                    $('#multiselect_estado').multiselect({
+                        onChange: function(option, checked, select) {
+                            var opselected = $(option).val();
+                            if(checked == true) {
+                                estados_selecionados.push(opselected)
+                            }else{
+                                estados_selecionados.splice( estados_selecionados.indexOf(opselected), 1 );
+                            }
+                            console.log(estados_selecionados)
+                            getGrillasViajes($('#fechaDeHoy').val());
+                        }
+                    });
                     $('#viajesEnProgreso').DataTable( {
                         responsive: true,
                         colReorder: true,
@@ -184,14 +196,10 @@
                         }
                     } );
 
-
-
-                    getGrillasViajesFuturos($('#fechaDeHoy').val());
-                    getGrillasViajesEnProgreso($('#fechaDeHoy').val());
+                    getGrillasViajes($('#fechaDeHoy').val());
 
                     $('#fechaDeHoy').change(function () {
-                        getGrillasViajesFuturos($('#fechaDeHoy').val());
-                        getGrillasViajesEnProgreso($('#fechaDeHoy').val());
+                        getGrillasViajes($('#fechaDeHoy').val());
                     });
                 });
 
@@ -239,13 +247,18 @@
                      });
                 }
 
+                function getGrillasViajes(fecha) {
+                    getGrillasViajesFuturos(fecha);
+                    getGrillasViajesEnProgreso(fecha);
+                }
+
                 function getGrillasViajesFuturos(fecha) {
                     var url = "/sistema/getViajesFuturosPorFecha/";
                     $.ajax({
                        type: "POST",
                        url: url,
                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
-                       data: {date:fecha},
+                       data: {date:fecha,estados_selecionados:estados_selecionados},
                        success: function(data)
                        {
                            $('#cont_futurosViajes').html(data);
@@ -258,7 +271,7 @@
                        type: "POST",
                        url: url,
                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
-                       data: {date:fecha},
+                       data: {date:fecha,estados_selecionados:estados_selecionados},
                        success: function(data)
                        {
                            $('#cont_viajesEnProgreso').html(data);

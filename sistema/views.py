@@ -483,7 +483,16 @@ def guardarObservacionCliente(request):
 def getViajesFuturosPorFecha(request):
     mensaje = ""
     date = getAAAAMMDD(request.POST.get('date', False))
-    viajes = Viaje.objects.filter(fecha=date)
+
+    estados_get_seleccionados = request.POST.getlist('estados_selecionados[]', False)
+    estados_seleccionados = []
+    if estados_get_seleccionados == False:
+		estados_seleccionados = [1, 2, 4]
+    else:
+        for i in estados_get_seleccionados:
+			estados_seleccionados.append(i)
+
+    viajes = Viaje.objects.filter(fecha=date).filter(estado__in=estados_seleccionados)
 
     context = {'mensaje': mensaje, 'viajes':viajes}
     return render(request, 'sistema/grillaViajesFuturos.html', context)
