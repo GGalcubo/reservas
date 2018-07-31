@@ -3,17 +3,17 @@
         <thead>
             <tr>
                 <th class="all">N° Res</th>
-                <th class="tablet-l">Categ.</th>
-                <th class="tablet-p">Fecha</th>
+                <th class="all">Categ.</th>
+                <th class="all">Fecha</th>
                 <th class="all">Hora</th>
                 <th class="all">H.E</th>
                 <th class="all">Unidad</th>
-                <th class="tablet-l">Nombre Unidad</th>
-                <th class="tablet-p">Origen</th>
-                <th class="mobile-l">Destino</th>
+                <th class="all">Nombre Unidad</th>
+                <th class="all">Origen</th>
+                <th class="all">Destino</th>
                 <th class="all">Pasajero</th>
                 <th class="all">Solicitante</th>
-                <th class="mobile-p">Centro de Costo</th>
+                <th class="all">Centro de Costo</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +21,17 @@
                 {% if v.estado_id == 5 %}
                     <tr>
                         <td class="all text-center"><a href="/sistema/editaViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>
-                        <td class="tablet-l">{{ v.categoria_viaje }}</td>
-                        <td class="tablet-p">{{ v.fecha }}</td>
+                        <td class="all">{{ v.categoria_viaje }}</td>
+                        <td class="all">{{ v.fecha }}</td>
                         <td class="all">{{ v.hora }}</td>
                         <td class="all">{{ v.hora_estimada }}</td>
                         <td class="all">{{ v.unidad.id }}</td>
-                        <td class="tablet-l">{{ v.unidad.identificacion }}</td>
-                        <td class="tablet-p"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.localidad_desde }}</span></td>
-                        <td class="mobile-l"><span class="label label-sm label-warning">{{ v.getTrayectoPrincipal.localidad_hasta }}</span></td>
+                        <td class="all">{{ v.unidad.identificacion }}</td>
+                        <td class="all"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.localidad_desde }}</span></td>
+                        <td class="all"><span class="label label-sm label-warning">{{ v.getTrayectoPrincipal.localidad_hasta }}</span></td>
                         <td class="all">{{ v.pasajero }}</td>
                         <td class="all">{{ v.solicitante }}</td>
-                        <td class="mobile-p">{{ v.centro_costo }}</td>
+                        <td class="all">{{ v.centro_costo }}</td>
                     </tr>
                 {% endif %}
         {% endfor %}
