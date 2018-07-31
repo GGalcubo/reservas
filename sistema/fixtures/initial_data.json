@@ -402,17 +402,17 @@
             "nombre": "Buquebus",
             "trayectodestino_id":1,
             "provincia_id":24,
-			"terminal_flag":1
+	    "terminal_flag":1
         }
     },
 {
         "model": "sistema.Localidad",
         "pk": 8,
         "fields": {
-            "nombre": "Ezeiza",
+            "nombre": "EZE",
             "trayectodestino_id":2,
             "provincia_id":1,
-			"terminal_flag":1
+	    "terminal_flag":1
         }
     },
 {
