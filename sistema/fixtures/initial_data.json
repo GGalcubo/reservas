@@ -149,169 +149,194 @@
   "model": "sistema.provincia",
   "pk": 1,
   "fields": {
-    "nombre": "Buenos Aires"
+    "nombre": "Buenos Aires",
+	"trayectodestino_id":2
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 2,
   "fields": {
-    "nombre": "Catamarca"
+    "nombre": "Catamarca",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 3,
   "fields": {
-    "nombre": "Chaco"
+    "nombre": "Chaco",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 4,
   "fields": {
-    "nombre": "Chubut"
+    "nombre": "Chubut",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 5,
   "fields": {
-    "nombre": "C\u00f3rdoba"
+    "nombre": "C\u00f3rdoba",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 6,
   "fields": {
-    "nombre": "Corrientes"
+    "nombre": "Corrientes",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 7,
   "fields": {
-    "nombre": "Entre R\u00edos"
+    "nombre": "Entre R\u00edos",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 8,
   "fields": {
-    "nombre": "Formosa"
+    "nombre": "Formosa",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 9,
   "fields": {
-    "nombre": "Jujuy"
+    "nombre": "Jujuy",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 10,
   "fields": {
-    "nombre": "La Pampa"
+    "nombre": "La Pampa",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 11,
   "fields": {
-    "nombre": "La Rioja"
+    "nombre": "La Rioja",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 12,
   "fields": {
-    "nombre": "Mendoza"
+    "nombre": "Mendoza",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 13,
   "fields": {
-    "nombre": "Misiones"
+    "nombre": "Misiones",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 14,
   "fields": {
-    "nombre": "Neuqu\u00e9n"
+    "nombre": "Neuqu\u00e9n",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 15,
   "fields": {
-    "nombre": "R\u00edo Negro"
+    "nombre": "R\u00edo Negro",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 16,
   "fields": {
-    "nombre": "Salta"
+    "nombre": "Salta",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 17,
   "fields": {
-    "nombre": "San Juan"
+    "nombre": "San Juan",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 18,
   "fields": {
-    "nombre": "San Luis"
+    "nombre": "San Luis",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 19,
   "fields": {
-    "nombre": "Santa Cruz"
+    "nombre": "Santa Cruz",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 20,
   "fields": {
-    "nombre": "Santa Fe"
+    "nombre": "Santa Fe",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 21,
   "fields": {
-    "nombre": "Santiago del Estero"
+    "nombre": "Santiago del Estero",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 22,
   "fields": {
-    "nombre": "Tierra del Fuego"
+    "nombre": "Tierra del Fuego",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 23,
   "fields": {
-    "nombre": "Tucum\u00e1n"
+    "nombre": "Tucum\u00e1n",
+	"trayectodestino_id":3
   }
 },
 {
   "model": "sistema.provincia",
   "pk": 24,
   "fields": {
-    "nombre": "CABA"
+    "nombre": "CABA",
+	"trayectodestino_id":1
   }
+
 },
 
 {
@@ -319,6 +344,7 @@
         "pk": 1,
         "fields": {
             "nombre": "Zona A",
+            "trayectodestino_id":1,
             "provincia_id":24
         }
     },
@@ -327,6 +353,7 @@
         "pk": 2,
         "fields": {
             "nombre": "Zona B",
+            "trayectodestino_id":1,
             "provincia_id":24
         }
     },
@@ -335,6 +362,7 @@
         "pk": 3,
         "fields": {
             "nombre": "Zona C",
+            "trayectodestino_id":1,
             "provincia_id":24
         }
     },
@@ -343,6 +371,7 @@
         "pk": 4,
         "fields": {
             "nombre": "Zona D",
+            "trayectodestino_id":1,
             "provincia_id":24
         }
     },
@@ -350,39 +379,48 @@
         "model": "sistema.Localidad",
         "pk": 5,
         "fields": {
-            "nombre": "Tres Lomas",
-            "provincia_id":1
+            "nombre": "AEP",
+            "trayectodestino_id":1,
+            "provincia_id":24,
+			"terminal_flag":1
         }
     },
 {
         "model": "sistema.Localidad",
         "pk": 6,
         "fields": {
-            "nombre": "Saavedra",
-            "provincia_id":2
+            "nombre": "Retiro",
+            "trayectodestino_id":1,
+            "provincia_id":24,
+			"terminal_flag":1
         }
     },
 {
         "model": "sistema.Localidad",
         "pk": 7,
         "fields": {
-            "nombre": "General Villegas",
-            "provincia_id":1
+            "nombre": "Buquebus",
+            "trayectodestino_id":1,
+            "provincia_id":24,
+			"terminal_flag":1
         }
     },
 {
         "model": "sistema.Localidad",
         "pk": 8,
         "fields": {
-            "nombre": "Coronel Pringles",
-            "provincia_id":1
+            "nombre": "Ezeiza",
+            "trayectodestino_id":2,
+            "provincia_id":1,
+			"terminal_flag":1
         }
     },
 {
         "model": "sistema.Localidad",
         "pk": 9,
         "fields": {
-            "nombre": "Gral. Belgrano",
+            "nombre": "Tres Lomas",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -390,7 +428,8 @@
         "model": "sistema.Localidad",
         "pk": 10,
         "fields": {
-            "nombre": "San Isidro",
+            "nombre": "Saavedra",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -398,7 +437,8 @@
         "model": "sistema.Localidad",
         "pk": 11,
         "fields": {
-            "nombre": "Chascomus",
+            "nombre": "General Villegas",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -406,7 +446,8 @@
         "model": "sistema.Localidad",
         "pk": 12,
         "fields": {
-            "nombre": "San Nicolas",
+            "nombre": "Coronel Pringles",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -414,7 +455,8 @@
         "model": "sistema.Localidad",
         "pk": 13,
         "fields": {
-            "nombre": "General Rodriguez",
+            "nombre": "Gral. Belgrano",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -422,7 +464,8 @@
         "model": "sistema.Localidad",
         "pk": 14,
         "fields": {
-            "nombre": "Villarino",
+            "nombre": "San Isidro",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -430,7 +473,8 @@
         "model": "sistema.Localidad",
         "pk": 15,
         "fields": {
-            "nombre": "Tres Arroyos",
+            "nombre": "Chascomus",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -438,7 +482,8 @@
         "model": "sistema.Localidad",
         "pk": 16,
         "fields": {
-            "nombre": "San Pedro",
+            "nombre": "San Nicolas",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -446,7 +491,8 @@
         "model": "sistema.Localidad",
         "pk": 17,
         "fields": {
-            "nombre": "Loberia",
+            "nombre": "General Rodriguez",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -454,7 +500,8 @@
         "model": "sistema.Localidad",
         "pk": 18,
         "fields": {
-            "nombre": "Pergamino",
+            "nombre": "Villarino",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -462,7 +509,8 @@
         "model": "sistema.Localidad",
         "pk": 19,
         "fields": {
-            "nombre": "Mercedes",
+            "nombre": "Tres Arroyos",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -470,7 +518,8 @@
         "model": "sistema.Localidad",
         "pk": 20,
         "fields": {
-            "nombre": "Rojas",
+            "nombre": "San Pedro",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -478,7 +527,8 @@
         "model": "sistema.Localidad",
         "pk": 21,
         "fields": {
-            "nombre": "Tornquist",
+            "nombre": "Loberia",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -486,7 +536,8 @@
         "model": "sistema.Localidad",
         "pk": 22,
         "fields": {
-            "nombre": "Avellaneda",
+            "nombre": "Pergamino",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -494,7 +545,8 @@
         "model": "sistema.Localidad",
         "pk": 23,
         "fields": {
-            "nombre": "Tandil",
+            "nombre": "Mercedes",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -502,7 +554,8 @@
         "model": "sistema.Localidad",
         "pk": 24,
         "fields": {
-            "nombre": "Lanus",
+            "nombre": "Rojas",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -510,7 +563,8 @@
         "model": "sistema.Localidad",
         "pk": 25,
         "fields": {
-            "nombre": "Esteban Echeverria",
+            "nombre": "Tornquist",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -518,7 +572,8 @@
         "model": "sistema.Localidad",
         "pk": 26,
         "fields": {
-            "nombre": "Olavarria",
+            "nombre": "Avellaneda",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -526,7 +581,8 @@
         "model": "sistema.Localidad",
         "pk": 27,
         "fields": {
-            "nombre": "General San Martin",
+            "nombre": "Tandil",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -534,7 +590,8 @@
         "model": "sistema.Localidad",
         "pk": 28,
         "fields": {
-            "nombre": "Lomas de Zamora",
+            "nombre": "Lanus",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -542,7 +599,8 @@
         "model": "sistema.Localidad",
         "pk": 29,
         "fields": {
-            "nombre": "Tres de Febrero",
+            "nombre": "Esteban Echeverria",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -550,7 +608,8 @@
         "model": "sistema.Localidad",
         "pk": 30,
         "fields": {
-            "nombre": "Marcos Paz",
+            "nombre": "Olavarria",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -558,7 +617,8 @@
         "model": "sistema.Localidad",
         "pk": 31,
         "fields": {
-            "nombre": "La Matanza",
+            "nombre": "General San Martin",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -566,7 +626,8 @@
         "model": "sistema.Localidad",
         "pk": 32,
         "fields": {
-            "nombre": "Moreno",
+            "nombre": "Lomas de Zamora",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -574,7 +635,8 @@
         "model": "sistema.Localidad",
         "pk": 33,
         "fields": {
-            "nombre": "Pilar",
+            "nombre": "Tres de Febrero",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -582,7 +644,8 @@
         "model": "sistema.Localidad",
         "pk": 34,
         "fields": {
-            "nombre": "Punta Indio",
+            "nombre": "Marcos Paz",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -590,7 +653,8 @@
         "model": "sistema.Localidad",
         "pk": 35,
         "fields": {
-            "nombre": "Quilmes",
+            "nombre": "La Matanza",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -598,7 +662,8 @@
         "model": "sistema.Localidad",
         "pk": 36,
         "fields": {
-            "nombre": "San Fernando",
+            "nombre": "Moreno",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -606,7 +671,8 @@
         "model": "sistema.Localidad",
         "pk": 37,
         "fields": {
-            "nombre": "San Vicente",
+            "nombre": "Pilar",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -614,7 +680,8 @@
         "model": "sistema.Localidad",
         "pk": 38,
         "fields": {
-            "nombre": "Moron",
+            "nombre": "Punta Indio",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -622,7 +689,8 @@
         "model": "sistema.Localidad",
         "pk": 39,
         "fields": {
-            "nombre": "Ezeiza",
+            "nombre": "Quilmes",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -630,7 +698,8 @@
         "model": "sistema.Localidad",
         "pk": 40,
         "fields": {
-            "nombre": "Berazategui",
+            "nombre": "San Fernando",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -638,7 +707,8 @@
         "model": "sistema.Localidad",
         "pk": 41,
         "fields": {
-            "nombre": "San Miguel",
+            "nombre": "San Vicente",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -646,7 +716,8 @@
         "model": "sistema.Localidad",
         "pk": 42,
         "fields": {
-            "nombre": "Jose C. Paz",
+            "nombre": "Moron",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -654,7 +725,8 @@
         "model": "sistema.Localidad",
         "pk": 43,
         "fields": {
-            "nombre": "Malvinas Argentinas",
+            "nombre": "Ezeiza",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -662,7 +734,8 @@
         "model": "sistema.Localidad",
         "pk": 44,
         "fields": {
-            "nombre": "Hurlingham",
+            "nombre": "Berazategui",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -670,7 +743,8 @@
         "model": "sistema.Localidad",
         "pk": 45,
         "fields": {
-            "nombre": "Ituzaingo",
+            "nombre": "San Miguel",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -678,7 +752,8 @@
         "model": "sistema.Localidad",
         "pk": 46,
         "fields": {
-            "nombre": "Azul",
+            "nombre": "Jose C. Paz",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -686,7 +761,8 @@
         "model": "sistema.Localidad",
         "pk": 47,
         "fields": {
-            "nombre": "Bahia Blanca",
+            "nombre": "Malvinas Argentinas",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -694,7 +770,8 @@
         "model": "sistema.Localidad",
         "pk": 48,
         "fields": {
-            "nombre": "Balcarce",
+            "nombre": "Hurlingham",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -702,7 +779,8 @@
         "model": "sistema.Localidad",
         "pk": 49,
         "fields": {
-            "nombre": "Escobar",
+            "nombre": "Ituzaingo",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -710,7 +788,8 @@
         "model": "sistema.Localidad",
         "pk": 50,
         "fields": {
-            "nombre": "Necochea",
+            "nombre": "Azul",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -718,7 +797,8 @@
         "model": "sistema.Localidad",
         "pk": 51,
         "fields": {
-            "nombre": "Carmen de Areco",
+            "nombre": "Bahia Blanca",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -726,7 +806,8 @@
         "model": "sistema.Localidad",
         "pk": 52,
         "fields": {
-            "nombre": "Carlos Casares",
+            "nombre": "Balcarce",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -734,7 +815,8 @@
         "model": "sistema.Localidad",
         "pk": 53,
         "fields": {
-            "nombre": "General Alvarado",
+            "nombre": "Escobar",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -742,7 +824,8 @@
         "model": "sistema.Localidad",
         "pk": 54,
         "fields": {
-            "nombre": "Villa Gesell",
+            "nombre": "Necochea",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -750,7 +833,8 @@
         "model": "sistema.Localidad",
         "pk": 55,
         "fields": {
-            "nombre": "Monte Hermoso",
+            "nombre": "Carmen de Areco",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -758,7 +842,8 @@
         "model": "sistema.Localidad",
         "pk": 56,
         "fields": {
-            "nombre": "Saladillo",
+            "nombre": "Carlos Casares",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -766,7 +851,8 @@
         "model": "sistema.Localidad",
         "pk": 57,
         "fields": {
-            "nombre": "Vicente Lopez",
+            "nombre": "General Alvarado",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -774,7 +860,8 @@
         "model": "sistema.Localidad",
         "pk": 58,
         "fields": {
-            "nombre": "Tigre",
+            "nombre": "Villa Gesell",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -782,7 +869,8 @@
         "model": "sistema.Localidad",
         "pk": 59,
         "fields": {
-            "nombre": "Chivilcoy",
+            "nombre": "Monte Hermoso",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -790,7 +878,8 @@
         "model": "sistema.Localidad",
         "pk": 60,
         "fields": {
-            "nombre": "Monte",
+            "nombre": "Saladillo",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -798,7 +887,8 @@
         "model": "sistema.Localidad",
         "pk": 61,
         "fields": {
-            "nombre": "Ayacucho",
+            "nombre": "Vicente Lopez",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -806,7 +896,8 @@
         "model": "sistema.Localidad",
         "pk": 62,
         "fields": {
-            "nombre": "Ramallo",
+            "nombre": "Tigre",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -814,7 +905,8 @@
         "model": "sistema.Localidad",
         "pk": 63,
         "fields": {
-            "nombre": "Presidente Peron",
+            "nombre": "Chivilcoy",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -822,7 +914,8 @@
         "model": "sistema.Localidad",
         "pk": 64,
         "fields": {
-            "nombre": "Coronel Dorrego",
+            "nombre": "Monte",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -830,7 +923,8 @@
         "model": "sistema.Localidad",
         "pk": 65,
         "fields": {
-            "nombre": "Berisso",
+            "nombre": "Ayacucho",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -838,7 +932,8 @@
         "model": "sistema.Localidad",
         "pk": 66,
         "fields": {
-            "nombre": "General Paz",
+            "nombre": "Ramallo",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -846,7 +941,8 @@
         "model": "sistema.Localidad",
         "pk": 67,
         "fields": {
-            "nombre": "Leandro N. Alem",
+            "nombre": "Presidente Peron",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -854,7 +950,8 @@
         "model": "sistema.Localidad",
         "pk": 68,
         "fields": {
-            "nombre": "Veinticinco de Mayo",
+            "nombre": "Coronel Dorrego",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -862,7 +959,8 @@
         "model": "sistema.Localidad",
         "pk": 69,
         "fields": {
-            "nombre": "Pila",
+            "nombre": "Berisso",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -870,7 +968,8 @@
         "model": "sistema.Localidad",
         "pk": 70,
         "fields": {
-            "nombre": "San Cayetano",
+            "nombre": "General Paz",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -878,7 +977,8 @@
         "model": "sistema.Localidad",
         "pk": 71,
         "fields": {
-            "nombre": "Capitan Sarmiento",
+            "nombre": "Leandro N. Alem",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -886,7 +986,8 @@
         "model": "sistema.Localidad",
         "pk": 72,
         "fields": {
-            "nombre": "Laprida",
+            "nombre": "Veinticinco de Mayo",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -894,7 +995,8 @@
         "model": "sistema.Localidad",
         "pk": 73,
         "fields": {
-            "nombre": "Mar Chiquita",
+            "nombre": "Pila",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -902,7 +1004,8 @@
         "model": "sistema.Localidad",
         "pk": 74,
         "fields": {
-            "nombre": "Almirante Brown",
+            "nombre": "San Cayetano",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -910,7 +1013,8 @@
         "model": "sistema.Localidad",
         "pk": 75,
         "fields": {
-            "nombre": "Maipu",
+            "nombre": "Capitan Sarmiento",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -918,7 +1022,8 @@
         "model": "sistema.Localidad",
         "pk": 76,
         "fields": {
-            "nombre": "General Pinto",
+            "nombre": "Laprida",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -926,7 +1031,8 @@
         "model": "sistema.Localidad",
         "pk": 77,
         "fields": {
-            "nombre": "Salliquelo",
+            "nombre": "Mar Chiquita",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -934,7 +1040,8 @@
         "model": "sistema.Localidad",
         "pk": 78,
         "fields": {
-            "nombre": "Roque Perez",
+            "nombre": "Almirante Brown",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -942,7 +1049,8 @@
         "model": "sistema.Localidad",
         "pk": 79,
         "fields": {
-            "nombre": "Rivadavia",
+            "nombre": "Maipu",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -950,7 +1058,8 @@
         "model": "sistema.Localidad",
         "pk": 80,
         "fields": {
-            "nombre": "Tordillo",
+            "nombre": "General Pinto",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -958,7 +1067,8 @@
         "model": "sistema.Localidad",
         "pk": 81,
         "fields": {
-            "nombre": "General Viamonte",
+            "nombre": "Salliquelo",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -966,7 +1076,8 @@
         "model": "sistema.Localidad",
         "pk": 82,
         "fields": {
-            "nombre": "Guamini",
+            "nombre": "Roque Perez",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -974,7 +1085,8 @@
         "model": "sistema.Localidad",
         "pk": 83,
         "fields": {
-            "nombre": "Salto",
+            "nombre": "Rivadavia",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -982,7 +1094,8 @@
         "model": "sistema.Localidad",
         "pk": 84,
         "fields": {
-            "nombre": "Chacabuco",
+            "nombre": "Tordillo",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -990,7 +1103,8 @@
         "model": "sistema.Localidad",
         "pk": 85,
         "fields": {
-            "nombre": "General Arenales",
+            "nombre": "General Viamonte",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -998,7 +1112,8 @@
         "model": "sistema.Localidad",
         "pk": 86,
         "fields": {
-            "nombre": "San Antonio de Areco",
+            "nombre": "Guamini",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1006,7 +1121,8 @@
         "model": "sistema.Localidad",
         "pk": 87,
         "fields": {
-            "nombre": "General La Madrid",
+            "nombre": "Salto",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1014,7 +1130,8 @@
         "model": "sistema.Localidad",
         "pk": 88,
         "fields": {
-            "nombre": "Suipacha",
+            "nombre": "Chacabuco",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1022,7 +1139,8 @@
         "model": "sistema.Localidad",
         "pk": 89,
         "fields": {
-            "nombre": "Castelli",
+            "nombre": "General Arenales",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1030,7 +1148,8 @@
         "model": "sistema.Localidad",
         "pk": 90,
         "fields": {
-            "nombre": "Pinamar",
+            "nombre": "San Antonio de Areco",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1038,7 +1157,8 @@
         "model": "sistema.Localidad",
         "pk": 91,
         "fields": {
-            "nombre": "Patagones",
+            "nombre": "General La Madrid",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1046,7 +1166,8 @@
         "model": "sistema.Localidad",
         "pk": 92,
         "fields": {
-            "nombre": "San Andres de Giles",
+            "nombre": "Suipacha",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1054,7 +1175,8 @@
         "model": "sistema.Localidad",
         "pk": 93,
         "fields": {
-            "nombre": "General Guido",
+            "nombre": "Castelli",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1062,7 +1184,8 @@
         "model": "sistema.Localidad",
         "pk": 94,
         "fields": {
-            "nombre": "General Alvear",
+            "nombre": "Pinamar",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1070,7 +1193,8 @@
         "model": "sistema.Localidad",
         "pk": 95,
         "fields": {
-            "nombre": "General Madariaga",
+            "nombre": "Patagones",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1078,7 +1202,8 @@
         "model": "sistema.Localidad",
         "pk": 96,
         "fields": {
-            "nombre": "General Lavalle",
+            "nombre": "San Andres de Giles",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1086,7 +1211,8 @@
         "model": "sistema.Localidad",
         "pk": 97,
         "fields": {
-            "nombre": "Benito Juarez",
+            "nombre": "General Guido",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1094,7 +1220,8 @@
         "model": "sistema.Localidad",
         "pk": 98,
         "fields": {
-            "nombre": "Las Flores",
+            "nombre": "General Alvear",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1102,7 +1229,8 @@
         "model": "sistema.Localidad",
         "pk": 99,
         "fields": {
-            "nombre": "Navarro",
+            "nombre": "General Madariaga",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1110,7 +1238,8 @@
         "model": "sistema.Localidad",
         "pk": 100,
         "fields": {
-            "nombre": "Rauch",
+            "nombre": "General Lavalle",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1118,7 +1247,8 @@
         "model": "sistema.Localidad",
         "pk": 101,
         "fields": {
-            "nombre": "Tapalque",
+            "nombre": "Benito Juarez",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1126,7 +1256,8 @@
         "model": "sistema.Localidad",
         "pk": 102,
         "fields": {
-            "nombre": "Trenque Lauquen",
+            "nombre": "Las Flores",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1134,7 +1265,8 @@
         "model": "sistema.Localidad",
         "pk": 103,
         "fields": {
-            "nombre": "Baradero",
+            "nombre": "Navarro",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1142,7 +1274,8 @@
         "model": "sistema.Localidad",
         "pk": 104,
         "fields": {
-            "nombre": "Magdalena",
+            "nombre": "Rauch",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1150,7 +1283,8 @@
         "model": "sistema.Localidad",
         "pk": 105,
         "fields": {
-            "nombre": "Nueve de Julio",
+            "nombre": "Tapalque",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1158,7 +1292,8 @@
         "model": "sistema.Localidad",
         "pk": 106,
         "fields": {
-            "nombre": "Arrecifes",
+            "nombre": "Trenque Lauquen",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1166,7 +1301,8 @@
         "model": "sistema.Localidad",
         "pk": 107,
         "fields": {
-            "nombre": "Coronel Suarez",
+            "nombre": "Baradero",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1174,7 +1310,8 @@
         "model": "sistema.Localidad",
         "pk": 108,
         "fields": {
-            "nombre": "Brandsen",
+            "nombre": "Magdalena",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1182,7 +1319,8 @@
         "model": "sistema.Localidad",
         "pk": 109,
         "fields": {
-            "nombre": "Daireaux",
+            "nombre": "Nueve de Julio",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1190,7 +1328,8 @@
         "model": "sistema.Localidad",
         "pk": 110,
         "fields": {
-            "nombre": "Zarate",
+            "nombre": "Arrecifes",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1198,7 +1337,8 @@
         "model": "sistema.Localidad",
         "pk": 111,
         "fields": {
-            "nombre": "Adolfo Gonzales Chaves",
+            "nombre": "Coronel Suarez",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1206,7 +1346,8 @@
         "model": "sistema.Localidad",
         "pk": 112,
         "fields": {
-            "nombre": "Adolfo Alsina",
+            "nombre": "Brandsen",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1214,7 +1355,8 @@
         "model": "sistema.Localidad",
         "pk": 113,
         "fields": {
-            "nombre": "Lujan",
+            "nombre": "Daireaux",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1222,7 +1364,8 @@
         "model": "sistema.Localidad",
         "pk": 114,
         "fields": {
-            "nombre": "Puan",
+            "nombre": "Zarate",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1230,7 +1373,8 @@
         "model": "sistema.Localidad",
         "pk": 115,
         "fields": {
-            "nombre": "Pehuajo",
+            "nombre": "Adolfo Gonzales Chaves",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1238,7 +1382,8 @@
         "model": "sistema.Localidad",
         "pk": 116,
         "fields": {
-            "nombre": "Pellegrini",
+            "nombre": "Adolfo Alsina",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1246,7 +1391,8 @@
         "model": "sistema.Localidad",
         "pk": 117,
         "fields": {
-            "nombre": "Alberti",
+            "nombre": "Lujan",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1254,7 +1400,8 @@
         "model": "sistema.Localidad",
         "pk": 118,
         "fields": {
-            "nombre": "Florentino Ameghino",
+            "nombre": "Puan",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1262,7 +1409,8 @@
         "model": "sistema.Localidad",
         "pk": 119,
         "fields": {
-            "nombre": "Colon",
+            "nombre": "Pehuajo",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1270,7 +1418,8 @@
         "model": "sistema.Localidad",
         "pk": 120,
         "fields": {
-            "nombre": "Carlos Tejedor",
+            "nombre": "Pellegrini",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1278,7 +1427,8 @@
         "model": "sistema.Localidad",
         "pk": 121,
         "fields": {
-            "nombre": "Bolivar",
+            "nombre": "Alberti",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1286,7 +1436,8 @@
         "model": "sistema.Localidad",
         "pk": 122,
         "fields": {
-            "nombre": "Lezama",
+            "nombre": "Florentino Ameghino",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1294,7 +1445,8 @@
         "model": "sistema.Localidad",
         "pk": 123,
         "fields": {
-            "nombre": "Hipolito Yrigoyen",
+            "nombre": "Colon",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1302,7 +1454,8 @@
         "model": "sistema.Localidad",
         "pk": 124,
         "fields": {
-            "nombre": "Lincoln",
+            "nombre": "Carlos Tejedor",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1310,7 +1463,8 @@
         "model": "sistema.Localidad",
         "pk": 125,
         "fields": {
-            "nombre": "Lobos",
+            "nombre": "Bolivar",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1318,7 +1472,8 @@
         "model": "sistema.Localidad",
         "pk": 126,
         "fields": {
-            "nombre": "General Las Heras",
+            "nombre": "Lezama",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1326,7 +1481,8 @@
         "model": "sistema.Localidad",
         "pk": 127,
         "fields": {
-            "nombre": "Coronel Rosales",
+            "nombre": "Hipolito Yrigoyen",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1334,7 +1490,8 @@
         "model": "sistema.Localidad",
         "pk": 128,
         "fields": {
-            "nombre": "Canuelas",
+            "nombre": "Lincoln",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1342,7 +1499,8 @@
         "model": "sistema.Localidad",
         "pk": 129,
         "fields": {
-            "nombre": "Exaltacion de la Cruz",
+            "nombre": "Lobos",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1350,7 +1508,8 @@
         "model": "sistema.Localidad",
         "pk": 130,
         "fields": {
-            "nombre": "La Costa",
+            "nombre": "General Las Heras",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1358,7 +1517,8 @@
         "model": "sistema.Localidad",
         "pk": 131,
         "fields": {
-            "nombre": "Islas Campana",
+            "nombre": "Coronel Rosales",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1366,7 +1526,8 @@
         "model": "sistema.Localidad",
         "pk": 132,
         "fields": {
-            "nombre": "Islas Baradero",
+            "nombre": "Canuelas",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1374,7 +1535,8 @@
         "model": "sistema.Localidad",
         "pk": 133,
         "fields": {
-            "nombre": "Islas Tigre",
+            "nombre": "Exaltacion de la Cruz",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1382,7 +1544,8 @@
         "model": "sistema.Localidad",
         "pk": 134,
         "fields": {
-            "nombre": "Florencio Varela",
+            "nombre": "La Costa",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1390,7 +1553,8 @@
         "model": "sistema.Localidad",
         "pk": 135,
         "fields": {
-            "nombre": "Islas San Fernando",
+            "nombre": "Islas Campana",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1398,7 +1562,8 @@
         "model": "sistema.Localidad",
         "pk": 136,
         "fields": {
-            "nombre": "Islas de Zarate",
+            "nombre": "Islas Baradero",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1406,7 +1571,8 @@
         "model": "sistema.Localidad",
         "pk": 137,
         "fields": {
-            "nombre": "Islas San Pedro",
+            "nombre": "Islas Tigre",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1414,7 +1580,8 @@
         "model": "sistema.Localidad",
         "pk": 138,
         "fields": {
-            "nombre": "Bragado",
+            "nombre": "Florencio Varela",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1422,7 +1589,8 @@
         "model": "sistema.Localidad",
         "pk": 139,
         "fields": {
-            "nombre": "Campana",
+            "nombre": "Islas San Fernando",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1430,7 +1598,8 @@
         "model": "sistema.Localidad",
         "pk": 140,
         "fields": {
-            "nombre": "Merlo",
+            "nombre": "Islas de Zarate",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1438,7 +1607,8 @@
         "model": "sistema.Localidad",
         "pk": 141,
         "fields": {
-            "nombre": "General Pueyrredon",
+            "nombre": "Islas San Pedro",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1446,7 +1616,8 @@
         "model": "sistema.Localidad",
         "pk": 142,
         "fields": {
-            "nombre": "Junin",
+            "nombre": "Bragado",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1454,7 +1625,8 @@
         "model": "sistema.Localidad",
         "pk": 143,
         "fields": {
-            "nombre": "La Plata",
+            "nombre": "Campana",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1462,7 +1634,8 @@
         "model": "sistema.Localidad",
         "pk": 144,
         "fields": {
-            "nombre": "Ensenada",
+            "nombre": "Merlo",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
@@ -1470,11 +1643,47 @@
         "model": "sistema.Localidad",
         "pk": 145,
         "fields": {
-            "nombre": "Dolores",
+            "nombre": "General Pueyrredon",
+            "trayectodestino_id":2,
             "provincia_id":1
         }
     },
-
+{
+        "model": "sistema.Localidad",
+        "pk": 146,
+        "fields": {
+            "nombre": "Junin",
+            "trayectodestino_id":2,
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 147,
+        "fields": {
+            "nombre": "La Plata",
+            "trayectodestino_id":2,
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 148,
+        "fields": {
+            "nombre": "Ensenada",
+            "trayectodestino_id":2,
+            "provincia_id":1
+        }
+    },
+{
+        "model": "sistema.Localidad",
+        "pk": 149,
+        "fields": {
+            "nombre": "Dolores",
+            "trayectodestino_id":2,
+            "provincia_id":1
+        }
+    },
 {
   "model": "sistema.estado",
   "pk": 1,
@@ -2286,7 +2495,7 @@
   "model": "sistema.trayectodestino",
   "pk": 1,
   "fields": {
-    "nombre": "Ezeiza",
+    "nombre": "CABA",
     "tipo_trayecto_destino": null
   }
 },
@@ -2294,7 +2503,7 @@
   "model": "sistema.trayectodestino",
   "pk": 2,
   "fields": {
-    "nombre": "AEP",
+    "nombre": "BA",
     "tipo_trayecto_destino": null
   }
 },
@@ -2302,39 +2511,7 @@
   "model": "sistema.trayectodestino",
   "pk": 3,
   "fields": {
-    "nombre": "Buquebus",
-    "tipo_trayecto_destino": null
-  }
-},
-{
-  "model": "sistema.trayectodestino",
-  "pk": 4,
-  "fields": {
-    "nombre": "Retiro",
-    "tipo_trayecto_destino": null
-  }
-},
-{
-  "model": "sistema.trayectodestino",
-  "pk": 5,
-  "fields": {
     "nombre": "Interior",
-    "tipo_trayecto_destino": null
-  }
-},
-{
-  "model": "sistema.trayectodestino",
-  "pk": 6,
-  "fields": {
-    "nombre": "CABA",
-    "tipo_trayecto_destino": null
-  }
-},
-{
-  "model": "sistema.trayectodestino",
-  "pk": 7,
-  "fields": {
-    "nombre": "Buenos Aires",
     "tipo_trayecto_destino": null
   }
 },
