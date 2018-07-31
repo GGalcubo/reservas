@@ -93,7 +93,7 @@ class Observacion(models.Model):
     fecha = models.CharField(max_length=12)
     texto = models.TextField()
     tipo_observacion = models.ForeignKey(TipoObservacion, null=True, blank=True)
-    usuario = models.ForeignKey(User, null=True, blank=True)
+    usuario = models.OneToOneField(User)
 
     def __unicode__(self):
         return self.fecha
@@ -459,7 +459,6 @@ class ViajeAdm(models.Model):
     bilingue = models.BooleanField(default=False)
     maletas_tot = models.IntegerField(default=0)
     bilingue_tot = models.IntegerField(default=0)
-    #factura = models.ForeignKey(Factura, null=True, blank=True)
     cliente_o_prov = models.BooleanField(default=False)
 
     def __unicode__(self):
@@ -509,7 +508,7 @@ class TipoTrayectoDestino(models.Model):
 
 class TrayectoDestino(models.Model):
     nombre = models.CharField(max_length=100, null=True, blank=True)
-    tipo_trayecto_destino = models.ForeignKey(Persona, null=True, blank=True)
+    tipo_trayecto_destino = models.ForeignKey(TipoTrayectoDestino, null=True, blank=True)
     terminal_flag = models.BooleanField(default=False)
 
     def __unicode__(self):
@@ -554,6 +553,34 @@ class Calle(models.Model):
     def __str__(self):
         return self.nombre
 
+class TarifaExtra(models.Model):
+    tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
+    extra_descripcion = models.CharField(max_length=250, null=True, blank=True)
+    extra_precio = models.CharField(max_length=20, null=True, blank=True)
+    categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.extra_descripcion
+
+    def __str__(self):
+        return self.extra_descripcion
+
+class TarifaViaje(models.Model):
+    descripcion = models.CharField(max_length=250)
+    localidad_desde = models.ForeignKey(Localidad, related_name='desde_loc', null=True, blank=True)
+    localidad_hasta = models.ForeignKey(Localidad, related_name='hasta_loc', null=True, blank=True)
+    precio_cliente = models.CharField(max_length=50, null=True, blank=True)
+    precio_prov = models.CharField(max_length=50, null=True, blank=True)
+    categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
+    tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
+    baja = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return u'%s' % self.descripcion
+
+    def __str__(self):
+        return self.descripcion
+
 class Trayecto(models.Model):
     viaje = models.ForeignKey(Viaje, null=True, blank=True)
     calle_desde = models.CharField(max_length=100, null=True, blank=True)
@@ -590,7 +617,7 @@ class Trayecto(models.Model):
         return hasta.replace("null", "")
 
 class OperacionesConfCol(models.Model):
-    user = models.ForeignKey(User, null=True, blank=True)
+    usuario = models.OneToOneField(User)
     orden = models.CharField(max_length=10, null=True, blank=True)
     col_name = models.CharField(max_length=50, null=True, blank=True)
     vista = models.CharField(max_length=50, null=True, blank=True)
