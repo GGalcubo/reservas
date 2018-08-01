@@ -623,7 +623,7 @@ class Trayecto(models.Model):
         if self.calle_desde:
             retorno += self.calle_desde + " " + self.altura_desde + ", " 
         if self.compania_desde:
-            retorno += self.altura_desde + ", " 
+            retorno += self.compania_desde + ", " 
         if self.vuelo_desde:
             retorno += self.vuelo_desde + ", " 
         return retorno[:-2]
