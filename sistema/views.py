@@ -352,6 +352,29 @@ def guardarCentroCostoProspect(request):
 	return render(request, 'sistema/grillaCentroCostos.html', context)
 
 @login_required
+def guardarSolicitanteProspect(request):
+	mensaje = ""
+	trayectos = ""
+	idCC = request.POST.get('idClienteCC', "")
+	if idCC == "0":
+		cc = CentroCosto()
+		cliente = Cliente.objects.get(id=request.POST.get('idClienteEnCC', ""))
+		cc.cliente = cliente
+	else:
+		cc = CentroCosto.objects.get(id=idCC)
+		cliente = cc.cliente
+
+	cc.nombre = request.POST.get('codigoCCCliente', "")
+	cc.fecha_inicio = getAAAAMMDD(request.POST.get('desdeCC', ""))
+	cc.fecha_fin = getAAAAMMDD(request.POST.get('hastaCC', ""))
+	cc.descripcion = request.POST.get('descripcionCCCliente', "")
+	cc.tarifario = Tarifario.objects.get(id=request.POST.get('selectTarifariosCCCliente', ""))
+	cc.save()
+
+	context = {'mensaje': mensaje, 'trayectos': trayectos, 'cliente':cliente}
+	return render(request, 'sistema/grillaCentroCostos.html', context)
+
+@login_required
 def listadoCliente(request, **kwargs):
 	clientes = Cliente.objects.filter(baja=False)
 	context = {'clientes': clientes}
@@ -923,7 +946,7 @@ def cargarLocalidad(request):
 def cargarLocalidadByDestino(request):
 	destino_id = request.POST.get('destino_id', False)
 	localidad_select_id = request.POST.get('localidad_select_id', '')
-	localidades = Localidad.objects.filter(provincia_id=destino_id)
+	localidades = Localidad.objects.filter(trayectodestino_id=destino_id)
 	context = {'localidades': localidades, 'localidad_select_id':localidad_select_id}
 	return render(request, 'sistema/selectLocalidadViaje.html', context)
 
@@ -944,6 +967,13 @@ def exportar(request):
 
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/exportar.html', context)
+
+@login_required
+def usuario(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/usuario.html', context)
 
 # devuelve AAAAMMDD
 def fecha():

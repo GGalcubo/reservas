@@ -1096,10 +1096,11 @@
             $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
             //HAGO ESTO PARA SIMULAR UN EVENTO QUE PIDE LA FUNCION DE SELECT2ME
             var evt = {};
+
+
             evt.params = {};
             evt.params.data = {};
             evt.params.data.id = '{{ viaje.cliente.id|default_if_none:"" }}';
-
             updateFillsByCliente('', evt);
 
             evt.params.data.id = '{{ viaje.getTrayectoPrincipal.destino_desde_id|default_if_none:"" }}';
@@ -1108,8 +1109,11 @@
             evt.params.data.init = true;
             evt.currentTarget = {};
             evt.currentTarget.id = 'desde_destino';
-
             updateFillsByDestino('', evt);
+
+            evt.currentTarget.id = 'desde_localidad';
+            evt.params.data.id = '{{ viaje.getTrayectoPrincipal.localidad_desde_id|default_if_none:"" }}';
+            updateFillsByLocalidad('', evt);
 
             evt.params.data.id = '{{ viaje.getTrayectoPrincipal.destino_hasta_id|default_if_none:"" }}';
             evt.params.data.provincia_select_id = '{{ viaje.getTrayectoPrincipal.provincia_hasta_id|default_if_none:"" }}';
@@ -1117,8 +1121,11 @@
             evt.params.data.init = true;
             evt.currentTarget = {};
             evt.currentTarget.id = 'hasta_destino';
-
             updateFillsByDestino('', evt);
+
+            evt.params.data.id = '{{ viaje.getTrayectoPrincipal.localidad_hasta_id|default_if_none:"" }}';
+            evt.currentTarget.id = 'hasta_localidad';
+            updateFillsByLocalidad('', evt);
         }
 
 
@@ -1132,6 +1139,10 @@
         $("#hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
         $("#modal_desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
         $("#modal_hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
+        $("#desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
+        $("#hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
+        $("#modal_desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
+        $("#modal_hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
 
         var tmp_tipo_observacion;
         $.each(tipo_observaciones, function(i, value) {
@@ -1368,8 +1379,8 @@
             var calle_desde     = $(this).data('calle_desde');
             var altura_desde    = $(this).data('altura_desde');
             var entre_desde     = $(this).data('entre_desde');
-            var compania_desde  = $(this).data('entre_compania');
-            var vuelo_desde     = $(this).data('entre_vuelo');
+            var compania_desde  = $(this).data('compania_desde');
+            var vuelo_desde     = $(this).data('vuelo_desde');
             var calle_hasta     = $(this).data('calle_hasta');
             var altura_hasta    = $(this).data('altura_hasta');
             var entre_hasta     = $(this).data('entre_hasta');
@@ -1476,6 +1487,73 @@
         $('#unidad_identificacion').val(unidades[option_selected].id).trigger("change");
     }
 
+    function updateFillsByLocalidad(name, evt) {
+        var localidad_id = evt.params.data.id;
+        var init = evt.params.data.init;
+        var html_select = evt.currentTarget.id;
+        var html_direccion = '';
+        var html_vuelo = '';
+
+        console.log(html_select)
+
+        switch(html_select) {
+            case 'desde_localidad':
+                html_direccion = 'desde_direccion';
+                html_vuelo = 'desde_vuelo';
+                if(!init){
+                    $('#desde_calle').val('');
+                    $('#desde_entre').val('');
+                    $('#desde_altura').val('');
+                    $('#desde_compania').val('');
+                    $('#desde_vuelo').val('');
+                }
+                break;
+            case 'hasta_localidad':
+                html_direccion = 'hasta_direccion';
+                html_vuelo = 'hasta_vuelo';
+                if(!init) {
+                    $('#hasta_calle').val('');
+                    $('#hasta_entre').val('');
+                    $('#hasta_altura').val('');
+                    $('#hasta_compania').val('');
+                    $('#hasta_vuelo').val('');
+                }
+                break;
+            case 'modal_desde_localidad':
+                html_direccion = 'modal_desde_direccion';
+                html_vuelo = 'modal_desde_vuelo';
+                if(!init) {
+                    $('#modal_desde_calle').val('');
+                    $('#modal_desde_entre').val('');
+                    $('#modal_desde_altura').val('');
+                    $('#modal_desde_compania').val('');
+                    $('#modal_desde_vuelo').val('');
+                }
+                break;
+            case 'modal_desde_localidad':
+                html_direccion = 'modal_hasta_direccion';
+                html_vuelo = 'modal_hasta_vuelo';
+                if(!init) {
+                    $('#modal_hasta_calle').val('');
+                    $('#modal_hasta_entre').val('');
+                    $('#modal_hasta_altura').val('');
+                    $('#modal_hasta_compania').val('');
+                    $('#modal_hasta_vuelo').val('');
+                }
+                break;
+        }
+
+        console.log('localidad_id: '+localidad_id);
+
+        if(localidad_id == 5 || localidad_id == 6 || localidad_id == 7){
+            $("." + html_direccion).hide();
+            $("." + html_vuelo).show();
+        }else{
+            $('.' + html_direccion).show();
+            $("." + html_vuelo).hide();
+        }
+    }
+
     function updateFillsByDestino(name, evt){
         var destino_id = evt.params.data.id;
         var localidad_select_id = evt.params.data.localidad_select_id;
@@ -1555,27 +1633,26 @@
                 break;
         }
 
-        if(destino_id == 6 || destino_id == 7){
+        console.log('destino_id: '+destino_id);
+
+        if(destino_id == 1 || destino_id == 2){
             $('.' + html_direccion).show();
             $("." + html_vuelo).hide();
             $("." + html_cont_localidad).show();
             $("." + html_cont_provincia).hide();
-        }else if(destino_id == 1 || destino_id == 2 || destino_id == 3 || destino_id == 4 ){
-            $("." + html_direccion).hide();
-            $("." + html_vuelo).show();
-            $("." + html_cont_localidad).hide();
-            $("." + html_cont_provincia).hide();
-        }else if(destino_id == 5 ){
+        }else if(destino_id == 3 ){
             $("." + html_direccion).show();
             $("." + html_vuelo).hide();
             $("." + html_cont_localidad).hide();
             $("." + html_cont_provincia).show();
+        }else if(destino_id == 9/* || destino_id == 2 || destino_id == 3 || destino_id == 4 */){
+            $("." + html_direccion).hide();
+            $("." + html_vuelo).show();
+            $("." + html_cont_localidad).hide();
+            $("." + html_cont_provincia).hide();
         }
 
-
-
         if(destino_id != '' && destino_id != ''){
-
             var url = "/sistema/cargarLocalidadByDestino/";
             var param = {};
             param.destino_id = destino_id;
@@ -1613,7 +1690,7 @@
         var obj               = {};
         obj.desde_destino     = $("#modal_desde_destino").val();
         obj.desde_localidad   = $("#modal_desde_localidad").val();
-        obj.desde_provincia   = $("#modal_desde_destino").val();
+        obj.desde_provincia   = $("#modal_desde_provincia").val();
         obj.desde_calle       = $("#modal_desde_calle").val();
         obj.desde_altura      = $("#modal_desde_altura").val();
         obj.desde_entre       = $("#modal_desde_entre").val();
@@ -1621,7 +1698,7 @@
         obj.desde_vuelo       = $("#modal_desde_vuelo").val();
         obj.hasta_destino     = $("#modal_hasta_destino").val();
         obj.hasta_localidad   = $("#modal_hasta_localidad").val();
-        obj.hasta_provincia   = $("#modal_hasta_destino").val();
+        obj.hasta_provincia   = $("#modal_hasta_provincia").val();
         obj.hasta_altura      = $("#modal_hasta_altura").val();
         obj.hasta_calle       = $("#modal_hasta_calle").val();
         obj.hasta_entre       = $("#modal_hasta_entre").val();
