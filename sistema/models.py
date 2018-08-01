@@ -94,7 +94,7 @@ class Observacion(models.Model):
     fecha = models.CharField(max_length=12)
     texto = models.TextField()
     tipo_observacion = models.ForeignKey(TipoObservacion, null=True, blank=True)
-    usuario = models.OneToOneField(User)
+    usuario = models.ForeignKey(User, null=True, blank=True)
 
     def __unicode__(self):
         return self.fecha
@@ -483,7 +483,7 @@ class ViajePasajero(models.Model):
 
 class ViajeHistorial(models.Model):
     viaje = models.ForeignKey(Viaje, null=True, blank=True)
-    usuario = models.OneToOneField(User)
+    usuario = models.ForeignKey(User, null=True, blank=True)
     fecha = models.CharField(max_length=12)
     valor_anterior = models.CharField(max_length=100)
     valor_actual = models.CharField(max_length=100)
@@ -620,7 +620,7 @@ class Trayecto(models.Model):
         return hasta.replace("null", "")
 
 class OperacionesConfCol(models.Model):
-    usuario = models.OneToOneField(User)
+    usuario = models.ForeignKey(User, null=True, blank=True)
     orden = models.CharField(max_length=10, null=True, blank=True)
     col_name = models.CharField(max_length=50, null=True, blank=True)
     vista = models.CharField(max_length=50, null=True, blank=True)
