@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, getViajesFuturosPorFecha, editEstadoViaje, getViajesEnProgresoPorFecha, guardarTrayecto, borrarTrayecto, guardarObservacionViaje, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByDestino, guardarCentroCostoProspect, getSelectAsignoLicencia, guardarLicencia, altaLicencia, eliminarLicencia, guardarCC, centroCosto
+from sistema.views import *
 
 
 urlpatterns = [
@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^guardarOwnerProspect/', guardarOwnerProspect, name='guardarOwnerProspect'),
     url(r'^guardarChoferProspect/', guardarChoferProspect, name='guardarChoferProspect'),
     url(r'^guardarCentroCostoProspect/', guardarCentroCostoProspect, name='guardarCentroCostoProspect'),
+    url(r'^guardarSolicitanteProspect/', guardarSolicitanteProspect, name='guardarSolicitanteProspect'),
     url(r'^guardarMailCliente/', guardarMailCliente, name='guardarMailCliente'),
     url(r'^provedor/', provedor, name='provedor'),
     url(r'^listadoProvedor/', listadoProvedor, name='listadoProvedor'),
