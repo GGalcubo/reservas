@@ -1748,7 +1748,7 @@
   "pk": 4,
   "fields": {
     "estado": "Confirmado",
-	"Color":"#5DADE2"
+	"color":"#5DADE2"
   }
 },
 {
