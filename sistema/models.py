@@ -6,7 +6,7 @@ from django.db import models
 # Create your models here.
 class Estado(models.Model):
     estado = models.CharField(max_length=50)
-    color = models.CharField(max_length=50)
+    color = models.CharField(max_length=50, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.estado

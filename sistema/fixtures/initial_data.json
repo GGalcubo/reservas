@@ -1747,7 +1747,7 @@
   "model": "sistema.estado",
   "pk": 4,
   "fields": {
-    "estado": "Confirmado"
+    "estado": "Confirmado",
 	"Color":"#5DADE2"
   }
 },
@@ -1763,7 +1763,7 @@
   "model": "sistema.estado",
   "pk": 6,
   "fields": {
-    "estado": "Finalizado"
+    "estado": "Finalizado",
 	"color":"#58D68D"
   }
 },
@@ -1771,7 +1771,7 @@
   "model": "sistema.estado",
   "pk": 7,
   "fields": {
-    "estado": "Cerrado"
+    "estado": "Cerrado",
 	"color":"#273746"
   }
 },
@@ -1779,7 +1779,7 @@
   "model": "sistema.estado",
   "pk": 8,
   "fields": {
-    "estado": "Cancelado"
+    "estado": "Cancelado",
 	"color":"#C0392B"
   }
 },
