@@ -612,25 +612,8 @@ class Trayecto(models.Model):
         return self.calle_desde
 
     def desdeConcat(self):
-        retorno = ""
-        if self.destino_desde:
-            retorno = self.destino_desde.nombre + ", "
-        if self.provincia_desde:
-            retorno += self.provincia_desde.nombre + ", "
-        if self.localidad_desde:
-            retorno += self.localidad_desde.nombre + ", "    
-        if self.calle_desde:
-            retorno += self.calle_desde + ", " 
-        if self.altura_desde:
-            retorno += self.altura_desde + ", " 
-        if self.altura_desde:
-            retorno += self.altura_desde + ", " 
-        if self.compania_desde:
-            retorno += self.altura_desde + ", " 
-        if self.vuelo_desde:
-            retorno += self.vuelo_desde + ", " 
-        return retorno
-
+        desde = str(self.destino_desde)+" ,"+str(self.provincia_desde)+" ,"+str(self.localidad_desde)+" ,"+self.calle_desde+" ,"+self.altura_desde+" ,"+self.compania_desde+" ,"+self.vuelo_desde
+        return desde.replace("null", "")
 
     def hastaConcat(self):
         hasta = str(self.destino_hasta)+" ,"+str(self.provincia_hasta)+" ,"+str(self.localidad_hasta)+" ,"+self.calle_hasta+" ,"+self.altura_hasta+" ,"+self.compania_hasta+" ,"+self.vuelo_hasta
