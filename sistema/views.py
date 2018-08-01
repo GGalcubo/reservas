@@ -946,7 +946,7 @@ def cargarLocalidad(request):
 def cargarLocalidadByDestino(request):
 	destino_id = request.POST.get('destino_id', False)
 	localidad_select_id = request.POST.get('localidad_select_id', '')
-	localidades = Localidad.objects.filter(provincia_id=destino_id)
+	localidades = Localidad.objects.filter(trayectodestino_id=destino_id)
 	context = {'localidades': localidades, 'localidad_select_id':localidad_select_id}
 	return render(request, 'sistema/selectLocalidadViaje.html', context)
 
