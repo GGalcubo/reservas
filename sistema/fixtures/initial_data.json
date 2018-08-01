@@ -382,7 +382,8 @@
             "nombre": "AEP",
             "trayectodestino_id":1,
             "provincia_id":24,
-			"terminal_flag":1
+			"terminal_flag":1,
+			"Color":"#BB8FCE"
         }
     },
 {
@@ -392,7 +393,10 @@
             "nombre": "Retiro",
             "trayectodestino_id":1,
             "provincia_id":24,
-			"terminal_flag":1
+			"terminal_flag":1,
+			"Color":"#99A3A4"
+			
+			
         }
     },
 {
@@ -402,7 +406,8 @@
             "nombre": "Buquebus",
             "trayectodestino_id":1,
             "provincia_id":24,
-	    "terminal_flag":1
+	        "terminal_flag":1,
+			"color":"#AED6F1"
         }
     },
 {
@@ -412,7 +417,9 @@
             "nombre": "EZE",
             "trayectodestino_id":2,
             "provincia_id":1,
-	    "terminal_flag":1
+	        "terminal_flag":1,
+			"Color":"#45B39D"
+			
         }
     },
 {
@@ -1715,21 +1722,25 @@
   "model": "sistema.estado",
   "pk": 1,
   "fields": {
-    "estado": "Nuevo"
+    "estado": "Nuevo",
+	"color":"#FDFEFE"
   }
 },
 {
   "model": "sistema.estado",
   "pk": 2,
   "fields": {
-    "estado": "Pre-Asignado"
+    "estado": "Pre-Asignado",
+	"color":"#E5E7E9"
+	
   }
 },
 {
   "model": "sistema.estado",
   "pk": 3,
   "fields": {
-    "estado": "Asignado"
+    "estado": "Asignado",
+	"color":"#F5B041"
   }
 },
 {
@@ -1737,13 +1748,15 @@
   "pk": 4,
   "fields": {
     "estado": "Confirmado"
+	"Color":"#5DADE2"
   }
 },
 {
   "model": "sistema.estado",
   "pk": 5,
   "fields": {
-    "estado": "En Progreso"
+    "estado": "En Progreso",
+	"color":"#F7DC6F"
   }
 },
 {
@@ -1751,6 +1764,7 @@
   "pk": 6,
   "fields": {
     "estado": "Finalizado"
+	"color":"#58D68D"
   }
 },
 {
@@ -1758,6 +1772,7 @@
   "pk": 7,
   "fields": {
     "estado": "Cerrado"
+	"color":"#273746"
   }
 },
 {
@@ -1765,6 +1780,7 @@
   "pk": 8,
   "fields": {
     "estado": "Cancelado"
+	"color":"#C0392B"
   }
 },
 {
@@ -2540,7 +2556,8 @@
   "pk": 3,
   "fields": {
     "nombre": "Interior",
-    "tipo_trayecto_destino": null
+    "tipo_trayecto_destino": null,
+	"Color":"#F1C40F"
   }
 },
 {
