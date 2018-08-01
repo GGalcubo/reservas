@@ -511,7 +511,8 @@ class TrayectoDestino(models.Model):
     nombre = models.CharField(max_length=100, null=True, blank=True)
     tipo_trayecto_destino = models.ForeignKey(TipoTrayectoDestino, null=True, blank=True)
     terminal_flag = models.BooleanField(default=False)
-  
+    color = models.CharField(max_length=50, null=True)
+    
     def __unicode__(self):
         return u'%s' % self.nombre
 
