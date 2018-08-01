@@ -1,5 +1,6 @@
 from django.conf.urls import url
-from sistema.views import dashboard, operaciones, asignaciones, altaViaje, editaViaje, guardarViaje, getViajesFuturosPorFecha, editEstadoViaje, getViajesEnProgresoPorFecha, guardarTrayecto, borrarTrayecto, guardarObservacionViaje, altaPersona, listadoCliente, cliente, altaCliente, guardarCliente, provedor, listadoProvedor, unidad, listadoUnidad, contacto, listadoContacto, altaCentroDeCosto, listadoCentroDeCosto, listadoTarifario, tarifario, importar_calles, eliminarCliente, exportar, guardarObservacionCliente, guardarObservacionPersona, altaUnidad, eliminarUnidad, guardarUnidad, guardarObservacionUnidad, guardarMailCliente, guardarOwnerProspect, guardarChoferProspect, licencia, listadoLicencia, guardarLicenciaUnidad, cargarLocalidad, cargarProvincia, eliminarLicenciaPropect, cargarLocalidadByDestino, guardarCentroCostoProspect, getSelectAsignoLicencia, guardarLicencia, altaLicencia, eliminarLicencia, guardarCC, centroCosto, usuario
+
+from sistema.views import *
 
 
 urlpatterns = [
