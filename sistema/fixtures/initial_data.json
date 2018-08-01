@@ -383,7 +383,7 @@
             "trayectodestino_id":1,
             "provincia_id":24,
 			"terminal_flag":1,
-			"Color":"#BB8FCE"
+			"color":"#BB8FCE"
         }
     },
 {
@@ -394,7 +394,7 @@
             "trayectodestino_id":1,
             "provincia_id":24,
 			"terminal_flag":1,
-			"Color":"#99A3A4"
+			"color":"#99A3A4"
 			
 			
         }
@@ -418,7 +418,7 @@
             "trayectodestino_id":2,
             "provincia_id":1,
 	        "terminal_flag":1,
-			"Color":"#45B39D"
+			"color":"#45B39D"
 			
         }
     },
@@ -2557,7 +2557,7 @@
   "fields": {
     "nombre": "Interior",
     "tipo_trayecto_destino": null,
-	"Color":"#F1C40F"
+	"color":"#F1C40F"
   }
 },
 {
