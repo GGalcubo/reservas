@@ -630,8 +630,21 @@ class Trayecto(models.Model):
 
 
     def hastaConcat(self):
-        hasta = str(self.destino_hasta)+" ,"+str(self.provincia_hasta)+" ,"+str(self.localidad_hasta)+" ,"+self.calle_hasta+" ,"+self.altura_hasta+" ,"+self.compania_hasta+" ,"+self.vuelo_hasta
-        return hasta.replace("null", "")
+        retorno = ""
+
+        if self.destino_hasta:
+            retorno = self.destino_hasta.nombre + ", "
+        if self.provincia_hasta:
+            retorno += self.provincia_hasta.nombre + ", "
+        if self.localidad_hasta:
+            retorno += self.localidad_hasta.nombre + ", "
+        if self.calle_hasta:
+            retorno += self.calle_hasta + " " + self.altura_hasta + ", "
+        if self.compania_hasta:
+            retorno += self.compania_hasta + ", "
+        if self.vuelo_hasta:
+            retorno += self.vuelo_hasta + ", "
+        return retorno[:-2]
 
 class OperacionesConfCol(models.Model):
     usuario = models.ForeignKey(User, null=True, blank=True)

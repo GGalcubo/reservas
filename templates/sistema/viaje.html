@@ -1141,6 +1141,7 @@
         $("#modal_hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
 
         var tmp_tipo_observacion;
+        $('#tipo_viaje_obs').append($('<option>').text('').attr('value', ''));
         $.each(tipo_observaciones, function(i, value) {
             if(tmp_tipo_observacion != value.tipo_observacion){
                 $('#tipo_viaje_obs').append($('<option>').text(value.tipo_observacion).attr('value', value.tipo_observacion));
