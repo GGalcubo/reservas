@@ -1723,7 +1723,7 @@
   "pk": 1,
   "fields": {
     "estado": "Nuevo",
-	"color":"#FDFEFE"
+	"color":"#F5B041"
   }
 },
 {
@@ -1731,7 +1731,7 @@
   "pk": 2,
   "fields": {
     "estado": "Pre-Asignado",
-	"color":"#E5E7E9"
+	"color":"#F5B041"
 	
   }
 },
@@ -1783,6 +1783,14 @@
 	"color":"#C0392B"
   }
 },
+{
+  "model": "sistema.estado",
+  "pk": 9,
+  "fields": {
+    "estado": "No-Show",
+	"color":"#C0392B"
+  }
+},	
 {
   "model": "sistema.estadocivil",
   "pk": 1,
