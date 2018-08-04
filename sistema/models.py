@@ -391,6 +391,13 @@ class Cliente(models.Model):
             cc.append(c)
         return cc
 
+    def getTelefonos(self):
+        telefono = []
+        for telcli in self.telefonocliente_set.all():
+            if telcli.telefono.tipo_telefono.id == 1:
+                telefono.append(telcli.telefono)
+        return telefono
+
 class CentroCosto(models.Model):
     nombre = models.CharField(max_length=100)
     fecha_inicio = models.CharField(max_length=8, null=True, blank=True)

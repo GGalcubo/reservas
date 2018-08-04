@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Calle, TrayectoDestino, TipoObservacion, Localidad, Provincia, Tarifario, Cliente, Telefono, TipoTelefono, TelefonoCliente, Unidad, Estado, Viaje, Trayecto, Persona, CentroCosto, CategoriaViaje, Observacion, ObservacionCliente, TipoPersona, Vehiculo, ObservacionUnidad, ObservacionViaje, Mail, MailCliente, TelefonoPersona, TipoLicencia, Licencia, LicenciaPersona, LicenciaVehiculo
+from .models import *
 from django.http import HttpResponse
 
 import json
@@ -354,25 +354,46 @@ def guardarCentroCostoProspect(request):
 @login_required
 def guardarSolicitanteProspect(request):
 	mensaje = ""
-	trayectos = ""
-	idCC = request.POST.get('idClienteCC', "")
-	if idCC == "0":
-		cc = CentroCosto()
-		cliente = Cliente.objects.get(id=request.POST.get('idClienteEnCC', ""))
-		cc.cliente = cliente
+	idClienteEnSol = request.POST.get('idClienteEnSol', "")
+	cliente = Cliente.objects.get(id=idClienteEnSol)
+	idSol = request.POST.get('idSolicitante', "")
+	if idSol == "0":
+		persona = Persona()
+		persona.tipo_persona = TipoPersona.objects.get(id=1)
 	else:
-		cc = CentroCosto.objects.get(id=idCC)
-		cliente = cc.cliente
+		persona = Persona.objects.get(id=idSol)
 
-	cc.nombre = request.POST.get('codigoCCCliente', "")
-	cc.fecha_inicio = getAAAAMMDD(request.POST.get('desdeCC', ""))
-	cc.fecha_fin = getAAAAMMDD(request.POST.get('hastaCC', ""))
-	cc.descripcion = request.POST.get('descripcionCCCliente', "")
-	cc.tarifario = Tarifario.objects.get(id=request.POST.get('selectTarifariosCCCliente', ""))
-	cc.save()
+	persona.nombre = request.POST.get('nombrePasajeroCliente', "")
+	persona.apellido = request.POST.get('apellidoPasajeroCliente', "")
+	persona.puesto = request.POST.get('puestoSol', "")
+	persona.mail = request.POST.get('mailSol', "")
+	persona.save()
+	telefono = request.POST.get('telefonoSol', "")
 
-	context = {'mensaje': mensaje, 'trayectos': trayectos, 'cliente':cliente}
-	return render(request, 'sistema/grillaCentroCostos.html', context)
+	if idSol == "0":
+		perCli = PersonaCliente()
+		perCli.persona = persona
+		perCli.cliente = cliente
+		perCli.save()
+	
+	if telefono != "" and telefono != "Sin telefono":
+		if len(persona.telefonopersona_set.all()) > 0:
+			tel = persona.telefonopersona_set.all()[0].telefono
+			telcli = persona.telefonopersona_set.all()[0]
+		else:
+			telcli = TelefonoPersona()
+			tel = Telefono()
+			tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
+
+		tel.numero = telefono
+		tel.save()
+
+		telcli.persona = persona
+		telcli.telefono = tel
+		telcli.save()
+
+	context = {'mensaje': mensaje, 'cliente':cliente}
+	return render(request, 'sistema/grillaSolicitantes.html', context)
 
 @login_required
 def listadoCliente(request, **kwargs):
