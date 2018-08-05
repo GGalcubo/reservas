@@ -39,7 +39,7 @@
                                         <span class="caption-subject bold uppercase">Viajes a asignar</span>
                                     </div>
                                     <div class="inline-block width-50" style="float: right;">
-                                        <select class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
+                                        <select id="multiselect_estado" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
                                             <optgroup label="Nuevos" class="group-1">
                                                 <option value="1-1">Sin asignar</option>
                                                 <option value="1-2" selected="selected">Asignados</option>
@@ -129,6 +129,20 @@
                       });
                 })
                 $(document).ready(function(){
+                    $('#multiselect_estado').multiselect({
+                        onChange: function(option, checked, select) {
+                            var opselected = $(option).val();
+                            if(checked == true) {
+                                estados_selecionados.push(opselected)
+                            }else{
+                                estados_selecionados.splice( estados_selecionados.indexOf(opselected), 1 );
+                            }
+                            console.log(estados_selecionados)
+                            getGrillasViajes($('#fechaDeHoy').val());
+                        }
+                    });
+
+
                     //toggle `popup` / `inline` mode
                     $.fn.editable.defaults.mode = 'popup';     
 
