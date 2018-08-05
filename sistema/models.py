@@ -385,6 +385,13 @@ class Cliente(models.Model):
                 contacto.append(percli.persona)
         return contacto
 
+    def getPasajeros(self):
+        pasajeros = []
+        for percli in self.personacliente_set.all():
+            if percli.persona.tipo_persona.id == 2:
+                pasajeros.append(percli.persona)
+        return pasajeros
+
     def getCentroCostos(self):
         cc = []
         for c in self.centrocosto_set.all():
