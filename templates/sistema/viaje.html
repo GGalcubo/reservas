@@ -578,10 +578,8 @@
                                                                                         <thead>
                                                                                             <tr>
                                                                                                 <th class="all">Id</th>
-                                                                                                <th class="all">Desde destino</th>
-                                                                                                <th class="all">Desde localidad</th>
-                                                                                                <th class="all">Hasta destino</th>
-                                                                                                <th class="all">Hasta localidad</th>
+                                                                                                <th class="all">Origen</th>
+                                                                                                <th class="all">Destino</th>
                                                                                                 <th class="all">Opciones</th>
                                                                                             </tr>
                                                                                         </thead>
@@ -590,10 +588,8 @@
                                                                                                 {% if t.id != trayectos.0.id %}
                                                                                                     <tr>
                                                                                                         <td>{{ t.id }}</td>
-                                                                                                        <td>{{ t.provincia_desde }}</td>
-                                                                                                        <td>{{ t.localidad_desde }}</td>
-                                                                                                        <td>{{ t.provincia_hasta }}</td>
-                                                                                                        <td>{{ t.localidad_hasta }}</td>
+                                                                                                        <td>{{ t.desdeConcat }}</td>
+                                                                                                        <td>{{ t.hastaConcat }}</td>
                                                                                                         <td class="text-center">
                                                                                                             <a href="#add_tramo" data-toggle="modal" class="edit_button"
                                                                                                                data-id="{{ t.id }}"
@@ -1145,6 +1141,7 @@
         $("#modal_hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
 
         var tmp_tipo_observacion;
+        $('#tipo_viaje_obs').append($('<option>').text('').attr('value', ''));
         $.each(tipo_observaciones, function(i, value) {
             if(tmp_tipo_observacion != value.tipo_observacion){
                 $('#tipo_viaje_obs').append($('<option>').text(value.tipo_observacion).attr('value', value.tipo_observacion));

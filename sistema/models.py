@@ -6,7 +6,7 @@ from django.db import models
 # Create your models here.
 class Estado(models.Model):
     estado = models.CharField(max_length=50)
-    color = models.CharField(max_length=50)
+    color = models.CharField(max_length=50, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.estado
@@ -94,7 +94,7 @@ class Observacion(models.Model):
     fecha = models.CharField(max_length=12)
     texto = models.TextField()
     tipo_observacion = models.ForeignKey(TipoObservacion, null=True, blank=True)
-    usuario = models.OneToOneField(User)
+    usuario = models.ForeignKey(User, null=True, blank=True)
 
     def __unicode__(self):
         return self.fecha
@@ -391,6 +391,13 @@ class Cliente(models.Model):
             cc.append(c)
         return cc
 
+    def getTelefonos(self):
+        telefono = []
+        for telcli in self.telefonocliente_set.all():
+            if telcli.telefono.tipo_telefono.id == 1:
+                telefono.append(telcli.telefono)
+        return telefono
+
 class CentroCosto(models.Model):
     nombre = models.CharField(max_length=100)
     fecha_inicio = models.CharField(max_length=8, null=True, blank=True)
@@ -483,7 +490,7 @@ class ViajePasajero(models.Model):
 
 class ViajeHistorial(models.Model):
     viaje = models.ForeignKey(Viaje, null=True, blank=True)
-    usuario = models.OneToOneField(User)
+    usuario = models.ForeignKey(User, null=True, blank=True)
     fecha = models.CharField(max_length=12)
     valor_anterior = models.CharField(max_length=100)
     valor_actual = models.CharField(max_length=100)
@@ -511,7 +518,8 @@ class TrayectoDestino(models.Model):
     nombre = models.CharField(max_length=100, null=True, blank=True)
     tipo_trayecto_destino = models.ForeignKey(TipoTrayectoDestino, null=True, blank=True)
     terminal_flag = models.BooleanField(default=False)
-    color = models.CharField(max_length=50)
+    color = models.CharField(max_length=50, null=True)
+    
     def __unicode__(self):
         return u'%s' % self.nombre
 
@@ -535,6 +543,7 @@ class Localidad(models.Model):
     codigo_postal = models.CharField(max_length=10, null=True, blank=True)
     trayectodestino = models.ForeignKey(TrayectoDestino, null=True, blank=True)
     terminal_flag = models.BooleanField(default=False)
+    color = models.CharField(max_length=50, null=True)
 
     def __unicode__(self):
         return u'%s' % self.nombre
@@ -558,7 +567,9 @@ class TarifaExtra(models.Model):
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
     extra_descripcion = models.CharField(max_length=250, null=True, blank=True)
     extra_precio = models.CharField(max_length=20, null=True, blank=True)
+    extra_precio_prov= models.CharField(max_length=50, null=True, blank=True)
     categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
+    
 
     def __unicode__(self):
         return u'%s' % self.extra_descripcion
@@ -610,15 +621,42 @@ class Trayecto(models.Model):
         return self.calle_desde
 
     def desdeConcat(self):
-        desde = str(self.destino_desde)+" ,"+str(self.provincia_desde)+" ,"+str(self.localidad_desde)+" ,"+self.calle_desde+" ,"+self.altura_desde+" ,"+self.compania_desde+" ,"+self.vuelo_desde
-        return desde.replace("null", "")
+        retorno = ""
+
+        if self.destino_desde:
+            retorno = self.destino_desde.nombre + ", "
+        if self.provincia_desde:
+            retorno += self.provincia_desde.nombre + ", "
+        if self.localidad_desde:
+            retorno += self.localidad_desde.nombre + ", "    
+        if self.calle_desde:
+            retorno += self.calle_desde + " " + self.altura_desde + ", " 
+        if self.compania_desde:
+            retorno += self.compania_desde + ", " 
+        if self.vuelo_desde:
+            retorno += self.vuelo_desde + ", " 
+        return retorno[:-2]
+
 
     def hastaConcat(self):
-        hasta = str(self.destino_hasta)+" ,"+str(self.provincia_hasta)+" ,"+str(self.localidad_hasta)+" ,"+self.calle_hasta+" ,"+self.altura_hasta+" ,"+self.compania_hasta+" ,"+self.vuelo_hasta
-        return hasta.replace("null", "")
+        retorno = ""
+
+        if self.destino_hasta:
+            retorno = self.destino_hasta.nombre + ", "
+        if self.provincia_hasta:
+            retorno += self.provincia_hasta.nombre + ", "
+        if self.localidad_hasta:
+            retorno += self.localidad_hasta.nombre + ", "
+        if self.calle_hasta:
+            retorno += self.calle_hasta + " " + self.altura_hasta + ", "
+        if self.compania_hasta:
+            retorno += self.compania_hasta + ", "
+        if self.vuelo_hasta:
+            retorno += self.vuelo_hasta + ", "
+        return retorno[:-2]
 
 class OperacionesConfCol(models.Model):
-    usuario = models.OneToOneField(User)
+    usuario = models.ForeignKey(User, null=True, blank=True)
     orden = models.CharField(max_length=10, null=True, blank=True)
     col_name = models.CharField(max_length=50, null=True, blank=True)
     vista = models.CharField(max_length=50, null=True, blank=True)

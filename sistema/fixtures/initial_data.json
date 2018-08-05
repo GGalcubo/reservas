@@ -382,7 +382,8 @@
             "nombre": "AEP",
             "trayectodestino_id":1,
             "provincia_id":24,
-			"terminal_flag":1
+			"terminal_flag":1,
+			"color":"#BB8FCE"
         }
     },
 {
@@ -392,7 +393,10 @@
             "nombre": "Retiro",
             "trayectodestino_id":1,
             "provincia_id":24,
-			"terminal_flag":1
+			"terminal_flag":1,
+			"color":"#99A3A4"
+			
+			
         }
     },
 {
@@ -402,7 +406,8 @@
             "nombre": "Buquebus",
             "trayectodestino_id":1,
             "provincia_id":24,
-	    "terminal_flag":1
+	        "terminal_flag":1,
+			"color":"#AED6F1"
         }
     },
 {
@@ -412,7 +417,9 @@
             "nombre": "EZE",
             "trayectodestino_id":2,
             "provincia_id":1,
-	    "terminal_flag":1
+	        "terminal_flag":1,
+			"color":"#45B39D"
+			
         }
     },
 {
@@ -1715,58 +1722,75 @@
   "model": "sistema.estado",
   "pk": 1,
   "fields": {
-    "estado": "Nuevo"
+    "estado": "Nuevo",
+	"color":"#F5B041"
   }
 },
 {
   "model": "sistema.estado",
   "pk": 2,
   "fields": {
-    "estado": "Pre-Asignado"
+    "estado": "Pre-Asignado",
+	"color":"#F5B041"
+	
   }
 },
 {
   "model": "sistema.estado",
   "pk": 3,
   "fields": {
-    "estado": "Asignado"
+    "estado": "Asignado",
+	"color":"#F5B041"
   }
 },
 {
   "model": "sistema.estado",
   "pk": 4,
   "fields": {
-    "estado": "Confirmado"
+    "estado": "Confirmado",
+	"color":"#5DADE2"
   }
 },
 {
   "model": "sistema.estado",
   "pk": 5,
   "fields": {
-    "estado": "En Progreso"
+    "estado": "En Progreso",
+	"color":"#F7DC6F"
   }
 },
 {
   "model": "sistema.estado",
   "pk": 6,
   "fields": {
-    "estado": "Finalizado"
+    "estado": "Finalizado",
+	"color":"#58D68D"
   }
 },
 {
   "model": "sistema.estado",
   "pk": 7,
   "fields": {
-    "estado": "Cerrado"
+    "estado": "Cerrado",
+	"color":"#273746"
   }
 },
 {
   "model": "sistema.estado",
   "pk": 8,
   "fields": {
-    "estado": "Cancelado"
+    "estado": "Cancelado",
+	"color":"#C0392B"
   }
 },
+{
+  "model": "sistema.estado",
+  "pk": 9,
+  "fields": {
+    "estado": "No-Show",
+	"color":"#C0392B"
+  }
+},	
 {
   "model": "sistema.estadocivil",
   "pk": 1,
@@ -2540,7 +2564,8 @@
   "pk": 3,
   "fields": {
     "nombre": "Interior",
-    "tipo_trayecto_destino": null
+    "tipo_trayecto_destino": null,
+	"color":"#F1C40F"
   }
 },
 {
@@ -2664,5 +2689,3682 @@
     "licencia": 5,
     "persona": 6
   }
+},
+{
+        "model": "sistema.tarifaviaje","pk":1,
+         "fields": {          
+                       "descripcion":"Zona A - Zona B",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":2,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":2,
+         "fields": {          
+                       "descripcion":"Zona A - Zona C",
+                       "precio_cliente":1425,
+                       "precio_prov":712.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":3,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":3,
+         "fields": {          
+                       "descripcion":"Zona A - Zona D",
+                       "precio_cliente":1425,
+                       "precio_prov":712.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":4,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":4,
+         "fields": {          
+                       "descripcion":"Zona A - AEP",
+                       "precio_cliente":2375,
+                       "precio_prov":1187.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":5,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":5,
+         "fields": {          
+                       "descripcion":"Zona A - Buquebus",
+                       "precio_cliente":475,
+                       "precio_prov":237.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":7,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":6,
+         "fields": {          
+                       "descripcion":"Zona A - Retiro",
+                       "precio_cliente":437,
+                       "precio_prov":218.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":6,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":7,
+         "fields": {          
+                       "descripcion":"Zona A - EZE",
+                       "precio_cliente":23.75,
+                       "precio_prov":11.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":8,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":8,
+         "fields": {          
+                       "descripcion":"Zona A - Tres Lomas",
+                       "precio_cliente":1710,
+                       "precio_prov":855,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":9,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":9,
+         "fields": {          
+                       "descripcion":"Zona A - Saavedra",
+                       "precio_cliente":1824,
+                       "precio_prov":912,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":10,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":10,
+         "fields": {          
+                       "descripcion":"Zona A - General Villegas",
+                       "precio_cliente":1881,
+                       "precio_prov":940.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":11,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":11,
+         "fields": {          
+                       "descripcion":"Zona A - Coronel Pringles",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":12,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":12,
+         "fields": {          
+                       "descripcion":"Zona A - Gral. Belgrano",
+                       "precio_cliente":1710,
+                       "precio_prov":855,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":13,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":13,
+         "fields": {          
+                       "descripcion":"Zona A - San Isidro",
+                       "precio_cliente":940.5,
+                       "precio_prov":470.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":14,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":14,
+         "fields": {          
+                       "descripcion":"Zona A - Chascomus",
+                       "precio_cliente":769.5,
+                       "precio_prov":384.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":15,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":15,
+         "fields": {          
+                       "descripcion":"Zona A - San Nicolas",
+                       "precio_cliente":665,
+                       "precio_prov":332.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":16,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":16,
+         "fields": {          
+                       "descripcion":"Zona A - General Rodriguez",
+                       "precio_cliente":7362.5,
+                       "precio_prov":3681.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":17,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":17,
+         "fields": {          
+                       "descripcion":"Zona A - Villarino",
+                       "precio_cliente":9975,
+                       "precio_prov":4987.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":18,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":18,
+         "fields": {          
+                       "descripcion":"Zona A - Tres Arroyos",
+                       "precio_cliente":11875,
+                       "precio_prov":5937.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":19,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":19,
+         "fields": {          
+                       "descripcion":"Zona A - San Pedro",
+                       "precio_cliente":665,
+                       "precio_prov":332.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":20,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":20,
+         "fields": {          
+                       "descripcion":"Zona A - Loberia",
+                       "precio_cliente":1491.5,
+                       "precio_prov":745.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":21,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":21,
+         "fields": {          
+                       "descripcion":"Zona A - Pergamino",
+                       "precio_cliente":617.5,
+                       "precio_prov":308.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":22,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":22,
+         "fields": {          
+                       "descripcion":"Zona A - Mercedes",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":23,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":23,
+         "fields": {          
+                       "descripcion":"Zona A - Rojas",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":24,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":24,
+         "fields": {          
+                       "descripcion":"Zona A - Tornquist",
+                       "precio_cliente":1710,
+                       "precio_prov":855,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":25,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":25,
+         "fields": {          
+                       "descripcion":"Zona A - Avellaneda",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":26,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":26,
+         "fields": {          
+                       "descripcion":"Zona A - Tandil",
+                       "precio_cliente":1980.75,
+                       "precio_prov":990.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":27,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":27,
+         "fields": {          
+                       "descripcion":"Zona A - Lanus",
+                       "precio_cliente":2299,
+                       "precio_prov":1149.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":28,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":28,
+         "fields": {          
+                       "descripcion":"Zona A - Esteban Echeverria",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":29,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":29,
+         "fields": {          
+                       "descripcion":"Zona A - Olavarria",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":30,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":30,
+         "fields": {          
+                       "descripcion":"Zona A - General San Martin",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":31,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":31,
+         "fields": {          
+                       "descripcion":"Zona A - Lomas de Zamora",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":32,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":32,
+         "fields": {          
+                       "descripcion":"Zona A - Tres de Febrero",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":33,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":33,
+         "fields": {          
+                       "descripcion":"Zona A - Marcos Paz",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":34,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":34,
+         "fields": {          
+                       "descripcion":"Zona A - La Matanza",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":35,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":35,
+         "fields": {          
+                       "descripcion":"Zona A - Moreno",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":36,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":36,
+         "fields": {          
+                       "descripcion":"Zona A - Pilar",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":37,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":37,
+         "fields": {          
+                       "descripcion":"Zona A - Punta Indio",
+                       "precio_cliente":470.25,
+                       "precio_prov":235.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":38,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":38,
+         "fields": {          
+                       "descripcion":"Zona A - Quilmes",
+                       "precio_cliente":513,
+                       "precio_prov":256.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":39,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":39,
+         "fields": {          
+                       "descripcion":"Zona A - San Fernando",
+                       "precio_cliente":427.5,
+                       "precio_prov":213.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":40,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":40,
+         "fields": {          
+                       "descripcion":"Zona A - San Vicente",
+                       "precio_cliente":551,
+                       "precio_prov":275.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":41,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":41,
+         "fields": {          
+                       "descripcion":"Zona A - Moron",
+                       "precio_cliente":627,
+                       "precio_prov":313.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":42,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":42,
+         "fields": {          
+                       "descripcion":"Zona A - Ezeiza",
+                       "precio_cliente":532,
+                       "precio_prov":266,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":43,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":43,
+         "fields": {          
+                       "descripcion":"Zona A - Berazategui",
+                       "precio_cliente":1149.5,
+                       "precio_prov":574.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":44,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":44,
+         "fields": {          
+                       "descripcion":"Zona A - San Miguel",
+                       "precio_cliente":1254,
+                       "precio_prov":627,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":45,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":45,
+         "fields": {          
+                       "descripcion":"Zona A - Jose C. Paz",
+                       "precio_cliente":1363.25,
+                       "precio_prov":681.625,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":46,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":46,
+         "fields": {          
+                       "descripcion":"Zona A - Malvinas Argentinas",
+                       "precio_cliente":1543.75,
+                       "precio_prov":771.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":47,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":47,
+         "fields": {          
+                       "descripcion":"Zona A - Hurlingham",
+                       "precio_cliente":2023.5,
+                       "precio_prov":1011.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":48,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":48,
+         "fields": {          
+                       "descripcion":"Zona A - Ituzaingo",
+                       "precio_cliente":2185,
+                       "precio_prov":1092.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":49,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":49,
+         "fields": {          
+                       "descripcion":"Zona A - Azul",
+                       "precio_cliente":1149.5,
+                       "precio_prov":574.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":50,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":50,
+         "fields": {          
+                       "descripcion":"Zona A - Bahia Blanca",
+                       "precio_cliente":1182.75,
+                       "precio_prov":591.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":51,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":51,
+         "fields": {          
+                       "descripcion":"Zona A - Balcarce",
+                       "precio_cliente":1277.75,
+                       "precio_prov":638.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":52,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":52,
+         "fields": {          
+                       "descripcion":"Zona A - Escobar",
+                       "precio_cliente":1382.25,
+                       "precio_prov":691.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":53,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":53,
+         "fields": {          
+                       "descripcion":"Zona A - Necochea",
+                       "precio_cliente":1491.5,
+                       "precio_prov":745.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":54,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":54,
+         "fields": {          
+                       "descripcion":"Zona A - Carmen de Areco",
+                       "precio_cliente":1596,
+                       "precio_prov":798,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":55,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":55,
+         "fields": {          
+                       "descripcion":"Zona A - Carlos Casares",
+                       "precio_cliente":1700.5,
+                       "precio_prov":850.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":56,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":56,
+         "fields": {          
+                       "descripcion":"Zona A - General Alvarado",
+                       "precio_cliente":2023.5,
+                       "precio_prov":1011.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":57,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":57,
+         "fields": {          
+                       "descripcion":"Zona A - Villa Gesell",
+                       "precio_cliente":2660,
+                       "precio_prov":1330,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":58,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":58,
+         "fields": {          
+                       "descripcion":"Zona A - Monte Hermoso",
+                       "precio_cliente":1182.75,
+                       "precio_prov":591.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":59,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":59,
+         "fields": {          
+                       "descripcion":"Zona A - Saladillo",
+                       "precio_cliente":1182.75,
+                       "precio_prov":591.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":60,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":60,
+         "fields": {          
+                       "descripcion":"Zona A - Vicente Lopez",
+                       "precio_cliente":1382.25,
+                       "precio_prov":691.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":61,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":61,
+         "fields": {          
+                       "descripcion":"Zona A - Tigre",
+                       "precio_cliente":1700.5,
+                       "precio_prov":850.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":62,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":62,
+         "fields": {          
+                       "descripcion":"Zona A - Chivilcoy",
+                       "precio_cliente":1182.75,
+                       "precio_prov":591.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":63,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":63,
+         "fields": {          
+                       "descripcion":"Zona A - Monte",
+                       "precio_cliente":1277.75,
+                       "precio_prov":638.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":64,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":64,
+         "fields": {          
+                       "descripcion":"Zona A - Ayacucho",
+                       "precio_cliente":1382.25,
+                       "precio_prov":691.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":65,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":65,
+         "fields": {          
+                       "descripcion":"Zona A - Ramallo",
+                       "precio_cliente":2128,
+                       "precio_prov":1064,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":66,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":66,
+         "fields": {          
+                       "descripcion":"Zona A - Presidente Peron",
+                       "precio_cliente":959.5,
+                       "precio_prov":479.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":67,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":67,
+         "fields": {          
+                       "descripcion":"Zona A - Coronel Dorrego",
+                       "precio_cliente":1116.25,
+                       "precio_prov":558.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":68,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":68,
+         "fields": {          
+                       "descripcion":"Zona A - Berisso",
+                       "precio_cliente":1168.5,
+                       "precio_prov":584.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":69,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":69,
+         "fields": {          
+                       "descripcion":"Zona A - General Paz",
+                       "precio_cliente":1225.5,
+                       "precio_prov":612.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":70,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":70,
+         "fields": {          
+                       "descripcion":"Zona A - Leandro N. Alem",
+                       "precio_cliente":1330,
+                       "precio_prov":665,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":71,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":71,
+         "fields": {          
+                       "descripcion":"Zona A - Veinticinco de Mayo",
+                       "precio_cliente":1434.5,
+                       "precio_prov":717.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":72,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":72,
+         "fields": {          
+                       "descripcion":"Zona A - Pila",
+                       "precio_cliente":1543.75,
+                       "precio_prov":771.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":73,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":73,
+         "fields": {          
+                       "descripcion":"Zona A - San Cayetano",
+                       "precio_cliente":1434.5,
+                       "precio_prov":717.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":74,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":74,
+         "fields": {          
+                       "descripcion":"Zona A - Capitan Sarmiento",
+                       "precio_cliente":1543.75,
+                       "precio_prov":771.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":75,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":75,
+         "fields": {          
+                       "descripcion":"Zona A - Laprida",
+                       "precio_cliente":1700.5,
+                       "precio_prov":850.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":76,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":76,
+         "fields": {          
+                       "descripcion":"Zona A - Mar Chiquita",
+                       "precio_cliente":1862,
+                       "precio_prov":931,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":77,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":77,
+         "fields": {          
+                       "descripcion":"Zona A - Almirante Brown",
+                       "precio_cliente":1966.5,
+                       "precio_prov":983.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":78,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":78,
+         "fields": {          
+                       "descripcion":"Zona A - Maipu",
+                       "precio_cliente":2555.5,
+                       "precio_prov":1277.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":79,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":79,
+         "fields": {          
+                       "descripcion":"Zona A - General Pinto",
+                       "precio_cliente":2660,
+                       "precio_prov":1330,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":80,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":80,
+         "fields": {          
+                       "descripcion":"Zona A - Salliquelo",
+                       "precio_cliente":2764.5,
+                       "precio_prov":1382.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":81,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":81,
+         "fields": {          
+                       "descripcion":"Zona A - Roque Perez",
+                       "precio_cliente":1966.5,
+                       "precio_prov":983.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":82,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":82,
+         "fields": {          
+                       "descripcion":"Zona A - Rivadavia",
+                       "precio_cliente":617.5,
+                       "precio_prov":308.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":83,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":83,
+         "fields": {          
+                       "descripcion":"Zona A - Tordillo",
+                       "precio_cliente":665,
+                       "precio_prov":332.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":84,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":84,
+         "fields": {          
+                       "descripcion":"Zona A - General Viamonte",
+                       "precio_cliente":722,
+                       "precio_prov":361,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":85,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":85,
+         "fields": {          
+                       "descripcion":"Zona A - Guamini",
+                       "precio_cliente":769.5,
+                       "precio_prov":384.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":86,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":86,
+         "fields": {          
+                       "descripcion":"Zona A - Salto",
+                       "precio_cliente":893,
+                       "precio_prov":446.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":87,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":87,
+         "fields": {          
+                       "descripcion":"Zona A - Chacabuco",
+                       "precio_cliente":940.5,
+                       "precio_prov":470.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":88,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":88,
+         "fields": {          
+                       "descripcion":"Zona A - General Arenales",
+                       "precio_cliente":959.5,
+                       "precio_prov":479.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":89,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":89,
+         "fields": {          
+                       "descripcion":"Zona A - San Antonio de Areco",
+                       "precio_cliente":893,
+                       "precio_prov":446.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":90,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":90,
+         "fields": {          
+                       "descripcion":"Zona A - General La Madrid",
+                       "precio_cliente":959.5,
+                       "precio_prov":479.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":91,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":91,
+         "fields": {          
+                       "descripcion":"Zona A - Suipacha",
+                       "precio_cliente":1168.5,
+                       "precio_prov":584.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":92,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":92,
+         "fields": {          
+                       "descripcion":"Zona A - Castelli",
+                       "precio_cliente":1277.75,
+                       "precio_prov":638.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":93,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":93,
+         "fields": {          
+                       "descripcion":"Zona A - Pinamar",
+                       "precio_cliente":1382.25,
+                       "precio_prov":691.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":94,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":94,
+         "fields": {          
+                       "descripcion":"Zona A - Patagones",
+                       "precio_cliente":1491.5,
+                       "precio_prov":745.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":95,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":95,
+         "fields": {          
+                       "descripcion":"Zona A - San Andres de Giles",
+                       "precio_cliente":1596,
+                       "precio_prov":798,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":96,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":96,
+         "fields": {          
+                       "descripcion":"Zona A - General Guido",
+                       "precio_cliente":2075.75,
+                       "precio_prov":1037.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":97,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":97,
+         "fields": {          
+                       "descripcion":"Zona A - General Alvear",
+                       "precio_cliente":764.75,
+                       "precio_prov":382.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":98,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":98,
+         "fields": {          
+                       "descripcion":"Zona A - General Madariaga",
+                       "precio_cliente":764.75,
+                       "precio_prov":382.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":99,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":99,
+         "fields": {          
+                       "descripcion":"Zona A - General Lavalle",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":100,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":100,
+         "fields": {          
+                       "descripcion":"Zona A - Benito Juarez",
+                       "precio_cliente":959.5,
+                       "precio_prov":479.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":101,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":101,
+         "fields": {          
+                       "descripcion":"Zona A - Las Flores",
+                       "precio_cliente":893,
+                       "precio_prov":446.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":102,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":102,
+         "fields": {          
+                       "descripcion":"Zona A - Navarro",
+                       "precio_cliente":1116.25,
+                       "precio_prov":558.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":103,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":103,
+         "fields": {          
+                       "descripcion":"Zona A - Rauch",
+                       "precio_cliente":1225.5,
+                       "precio_prov":612.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":104,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":104,
+         "fields": {          
+                       "descripcion":"Zona A - Tapalque",
+                       "precio_cliente":1330,
+                       "precio_prov":665,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":105,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":105,
+         "fields": {          
+                       "descripcion":"Zona A - Trenque Lauquen",
+                       "precio_cliente":574.75,
+                       "precio_prov":287.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":106,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":106,
+         "fields": {          
+                       "descripcion":"Zona A - Baradero",
+                       "precio_cliente":769.5,
+                       "precio_prov":384.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":107,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":107,
+         "fields": {          
+                       "descripcion":"Zona A - Magdalena",
+                       "precio_cliente":831.25,
+                       "precio_prov":415.625,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":108,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":108,
+         "fields": {          
+                       "descripcion":"Zona A - Nueve de Julio",
+                       "precio_cliente":935.75,
+                       "precio_prov":467.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":109,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":109,
+         "fields": {          
+                       "descripcion":"Zona A - Arrecifes",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":110,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":110,
+         "fields": {          
+                       "descripcion":"Zona A - Coronel Suarez",
+                       "precio_cliente":1116.25,
+                       "precio_prov":558.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":111,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":111,
+         "fields": {          
+                       "descripcion":"Zona A - Brandsen",
+                       "precio_cliente":1182.75,
+                       "precio_prov":591.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":112,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":112,
+         "fields": {          
+                       "descripcion":"Zona A - Daireaux",
+                       "precio_cliente":935.75,
+                       "precio_prov":467.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":113,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":113,
+         "fields": {          
+                       "descripcion":"Zona A - Zarate",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":114,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":114,
+         "fields": {          
+                       "descripcion":"Zona A - Adolfo Gonzales Chaves",
+                       "precio_cliente":1116.25,
+                       "precio_prov":558.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":115,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":115,
+         "fields": {          
+                       "descripcion":"Zona A - Adolfo Alsina",
+                       "precio_cliente":1187.5,
+                       "precio_prov":593.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":116,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":116,
+         "fields": {          
+                       "descripcion":"Zona A - Lujan",
+                       "precio_cliente":1330,
+                       "precio_prov":665,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":117,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":117,
+         "fields": {          
+                       "descripcion":"Zona A - Puan",
+                       "precio_cliente":1966.5,
+                       "precio_prov":983.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":118,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":118,
+         "fields": {          
+                       "descripcion":"Zona A - Pehuajo",
+                       "precio_cliente":1714.75,
+                       "precio_prov":857.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":119,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":119,
+         "fields": {          
+                       "descripcion":"Zona A - Pellegrini",
+                       "precio_cliente":1828.75,
+                       "precio_prov":914.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":120,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":120,
+         "fields": {          
+                       "descripcion":"Zona A - Alberti",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":121,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":121,
+         "fields": {          
+                       "descripcion":"Zona A - Florentino Ameghino",
+                       "precio_cliente":3192,
+                       "precio_prov":1596,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":122,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":122,
+         "fields": {          
+                       "descripcion":"Zona A - Colon",
+                       "precio_cliente":2660,
+                       "precio_prov":1330,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":123,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":123,
+         "fields": {          
+                       "descripcion":"Zona A - Carlos Tejedor",
+                       "precio_cliente":3192,
+                       "precio_prov":1596,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":124,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":124,
+         "fields": {          
+                       "descripcion":"Zona A - Bolivar",
+                       "precio_cliente":2341.75,
+                       "precio_prov":1170.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":125,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":125,
+         "fields": {          
+                       "descripcion":"Zona A - Lezama",
+                       "precio_cliente":3828.5,
+                       "precio_prov":1914.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":126,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":126,
+         "fields": {          
+                       "descripcion":"Zona A - Hipolito Yrigoyen",
+                       "precio_cliente":2873.75,
+                       "precio_prov":1436.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":127,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":127,
+         "fields": {          
+                       "descripcion":"Zona A - Lincoln",
+                       "precio_cliente":4465,
+                       "precio_prov":2232.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":128,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":128,
+         "fields": {          
+                       "descripcion":"Zona A - Lobos",
+                       "precio_cliente":2128,
+                       "precio_prov":1064,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":129,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":129,
+         "fields": {          
+                       "descripcion":"Zona A - General Las Heras",
+                       "precio_cliente":1596,
+                       "precio_prov":798,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":130,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":130,
+         "fields": {          
+                       "descripcion":"Zona A - Coronel Rosales",
+                       "precio_cliente":2660,
+                       "precio_prov":1330,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":131,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":131,
+         "fields": {          
+                       "descripcion":"Zona A - Canuelas",
+                       "precio_cliente":470.25,
+                       "precio_prov":235.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":132,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":132,
+         "fields": {          
+                       "descripcion":"Zona A - Exaltacion de la Cruz",
+                       "precio_cliente":608,
+                       "precio_prov":304,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":133,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":133,
+         "fields": {          
+                       "descripcion":"Zona A - La Costa",
+                       "precio_cliente":427.5,
+                       "precio_prov":213.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":134,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":134,
+         "fields": {          
+                       "descripcion":"Zona A - Islas Campana",
+                       "precio_cliente":636.5,
+                       "precio_prov":318.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":135,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":135,
+         "fields": {          
+                       "descripcion":"Zona A - Islas Baradero",
+                       "precio_cliente":617.5,
+                       "precio_prov":308.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":136,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":136,
+         "fields": {          
+                       "descripcion":"Zona A - Islas Tigre",
+                       "precio_cliente":4037.5,
+                       "precio_prov":2018.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":137,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":137,
+         "fields": {          
+                       "descripcion":"Zona A - Florencio Varela",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":138,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":138,
+         "fields": {          
+                       "descripcion":"Zona A - Islas San Fernando",
+                       "precio_cliente":883.5,
+                       "precio_prov":441.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":139,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":139,
+         "fields": {          
+                       "descripcion":"Zona A - Islas de Zarate",
+                       "precio_cliente":427.5,
+                       "precio_prov":213.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":140,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":140,
+         "fields": {          
+                       "descripcion":"Zona A - Islas San Pedro",
+                       "precio_cliente":427.5,
+                       "precio_prov":213.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":141,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":141,
+         "fields": {          
+                       "descripcion":"Zona A - Bragado",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":142,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":142,
+         "fields": {          
+                       "descripcion":"Zona A - Campana",
+                       "precio_cliente":1425,
+                       "precio_prov":712.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":143,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":143,
+         "fields": {          
+                       "descripcion":"Zona A - Merlo",
+                       "precio_cliente":1425,
+                       "precio_prov":712.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":144,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":144,
+         "fields": {          
+                       "descripcion":"Zona A - General Pueyrredon",
+                       "precio_cliente":2375,
+                       "precio_prov":1187.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":145,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":145,
+         "fields": {          
+                       "descripcion":"Zona A - Junin",
+                       "precio_cliente":475,
+                       "precio_prov":237.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":146,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":146,
+         "fields": {          
+                       "descripcion":"Zona A - La Plata",
+                       "precio_cliente":437,
+                       "precio_prov":218.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":147,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":147,
+         "fields": {          
+                       "descripcion":"Zona A - Ensenada",
+                       "precio_cliente":23.75,
+                       "precio_prov":11.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":148,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":148,
+         "fields": {          
+                       "descripcion":"Zona A - Dolores",
+                       "precio_cliente":1710,
+                       "precio_prov":855,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":1,
+                       "localidad_hasta":149,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":149,
+         "fields": {          
+                       "descripcion":"Zona B - Zona C",
+                       "precio_cliente":1824,
+                       "precio_prov":912,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":2,
+                       "localidad_hasta":3,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":150,
+         "fields": {          
+                       "descripcion":"Zona C - Zona D",
+                       "precio_cliente":1881,
+                       "precio_prov":940.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":3,
+                       "localidad_hasta":4,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":151,
+         "fields": {          
+                       "descripcion":"Zona D - AEP",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":4,
+                       "localidad_hasta":5,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":152,
+         "fields": {          
+                       "descripcion":"AEP - Buquebus",
+                       "precio_cliente":1710,
+                       "precio_prov":855,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":5,
+                       "localidad_hasta":7,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":153,
+         "fields": {          
+                       "descripcion":"Buquebus - Retiro",
+                       "precio_cliente":940.5,
+                       "precio_prov":470.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":7,
+                       "localidad_hasta":6,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":154,
+         "fields": {          
+                       "descripcion":"Retiro - EZE",
+                       "precio_cliente":769.5,
+                       "precio_prov":384.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":6,
+                       "localidad_hasta":8,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":155,
+         "fields": {          
+                       "descripcion":"EZE - Tres Lomas",
+                       "precio_cliente":665,
+                       "precio_prov":332.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":8,
+                       "localidad_hasta":9,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":156,
+         "fields": {          
+                       "descripcion":"Tres Lomas - Saavedra",
+                       "precio_cliente":7362.5,
+                       "precio_prov":3681.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":9,
+                       "localidad_hasta":10,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":157,
+         "fields": {          
+                       "descripcion":"Saavedra - General Villegas",
+                       "precio_cliente":9975,
+                       "precio_prov":4987.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":10,
+                       "localidad_hasta":11,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":158,
+         "fields": {          
+                       "descripcion":"General Villegas - Coronel Pringles",
+                       "precio_cliente":11875,
+                       "precio_prov":5937.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":11,
+                       "localidad_hasta":12,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":159,
+         "fields": {          
+                       "descripcion":"Coronel Pringles - Gral. Belgrano",
+                       "precio_cliente":665,
+                       "precio_prov":332.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":12,
+                       "localidad_hasta":13,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":160,
+         "fields": {          
+                       "descripcion":"Gral. Belgrano - San Isidro",
+                       "precio_cliente":1491.5,
+                       "precio_prov":745.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":13,
+                       "localidad_hasta":14,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":161,
+         "fields": {          
+                       "descripcion":"San Isidro - Chascomus",
+                       "precio_cliente":617.5,
+                       "precio_prov":308.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":14,
+                       "localidad_hasta":15,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":162,
+         "fields": {          
+                       "descripcion":"Chascomus - San Nicolas",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":15,
+                       "localidad_hasta":16,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":163,
+         "fields": {          
+                       "descripcion":"San Nicolas - General Rodriguez",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":16,
+                       "localidad_hasta":17,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":164,
+         "fields": {          
+                       "descripcion":"General Rodriguez - Villarino",
+                       "precio_cliente":1710,
+                       "precio_prov":855,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":17,
+                       "localidad_hasta":18,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":165,
+         "fields": {          
+                       "descripcion":"Villarino - Tres Arroyos",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":18,
+                       "localidad_hasta":19,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":166,
+         "fields": {          
+                       "descripcion":"Tres Arroyos - San Pedro",
+                       "precio_cliente":1980.75,
+                       "precio_prov":990.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":19,
+                       "localidad_hasta":20,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":167,
+         "fields": {          
+                       "descripcion":"San Pedro - Loberia",
+                       "precio_cliente":2299,
+                       "precio_prov":1149.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":20,
+                       "localidad_hasta":21,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":168,
+         "fields": {          
+                       "descripcion":"Loberia - Pergamino",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":21,
+                       "localidad_hasta":22,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":169,
+         "fields": {          
+                       "descripcion":"Pergamino - Mercedes",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":22,
+                       "localidad_hasta":23,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":170,
+         "fields": {          
+                       "descripcion":"Mercedes - Rojas",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":23,
+                       "localidad_hasta":24,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":171,
+         "fields": {          
+                       "descripcion":"Rojas - Tornquist",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":24,
+                       "localidad_hasta":25,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":172,
+         "fields": {          
+                       "descripcion":"Tornquist - Avellaneda",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":25,
+                       "localidad_hasta":26,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":173,
+         "fields": {          
+                       "descripcion":"Avellaneda - Tandil",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":26,
+                       "localidad_hasta":27,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":174,
+         "fields": {          
+                       "descripcion":"Tandil - Lanus",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":27,
+                       "localidad_hasta":28,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":175,
+         "fields": {          
+                       "descripcion":"Lanus - Esteban Echeverria",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":28,
+                       "localidad_hasta":29,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":176,
+         "fields": {          
+                       "descripcion":"Esteban Echeverria - Olavarria",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":29,
+                       "localidad_hasta":30,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":177,
+         "fields": {          
+                       "descripcion":"Olavarria - General San Martin",
+                       "precio_cliente":470.25,
+                       "precio_prov":235.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":30,
+                       "localidad_hasta":31,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":178,
+         "fields": {          
+                       "descripcion":"General San Martin - Lomas de Zamora",
+                       "precio_cliente":513,
+                       "precio_prov":256.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":31,
+                       "localidad_hasta":32,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":179,
+         "fields": {          
+                       "descripcion":"Lomas de Zamora - Tres de Febrero",
+                       "precio_cliente":427.5,
+                       "precio_prov":213.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":32,
+                       "localidad_hasta":33,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":180,
+         "fields": {          
+                       "descripcion":"Tres de Febrero - Marcos Paz",
+                       "precio_cliente":551,
+                       "precio_prov":275.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":33,
+                       "localidad_hasta":34,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":181,
+         "fields": {          
+                       "descripcion":"Marcos Paz - La Matanza",
+                       "precio_cliente":627,
+                       "precio_prov":313.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":34,
+                       "localidad_hasta":35,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":182,
+         "fields": {          
+                       "descripcion":"La Matanza - Moreno",
+                       "precio_cliente":532,
+                       "precio_prov":266,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":35,
+                       "localidad_hasta":36,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":183,
+         "fields": {          
+                       "descripcion":"Moreno - Pilar",
+                       "precio_cliente":1149.5,
+                       "precio_prov":574.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":36,
+                       "localidad_hasta":37,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":184,
+         "fields": {          
+                       "descripcion":"Pilar - Punta Indio",
+                       "precio_cliente":1254,
+                       "precio_prov":627,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":37,
+                       "localidad_hasta":38,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":185,
+         "fields": {          
+                       "descripcion":"Punta Indio - Quilmes",
+                       "precio_cliente":1363.25,
+                       "precio_prov":681.625,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":38,
+                       "localidad_hasta":39,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":186,
+         "fields": {          
+                       "descripcion":"Quilmes - San Fernando",
+                       "precio_cliente":1543.75,
+                       "precio_prov":771.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":39,
+                       "localidad_hasta":40,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":187,
+         "fields": {          
+                       "descripcion":"San Fernando - San Vicente",
+                       "precio_cliente":2023.5,
+                       "precio_prov":1011.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":40,
+                       "localidad_hasta":41,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":188,
+         "fields": {          
+                       "descripcion":"San Vicente - Moron",
+                       "precio_cliente":2185,
+                       "precio_prov":1092.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":41,
+                       "localidad_hasta":42,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":189,
+         "fields": {          
+                       "descripcion":"Moron - Ezeiza",
+                       "precio_cliente":1149.5,
+                       "precio_prov":574.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":42,
+                       "localidad_hasta":43,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":190,
+         "fields": {          
+                       "descripcion":"Ezeiza - Berazategui",
+                       "precio_cliente":1182.75,
+                       "precio_prov":591.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":43,
+                       "localidad_hasta":44,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":191,
+         "fields": {          
+                       "descripcion":"Berazategui - San Miguel",
+                       "precio_cliente":1277.75,
+                       "precio_prov":638.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":44,
+                       "localidad_hasta":45,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":192,
+         "fields": {          
+                       "descripcion":"San Miguel - Jose C. Paz",
+                       "precio_cliente":1382.25,
+                       "precio_prov":691.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":45,
+                       "localidad_hasta":46,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":193,
+         "fields": {          
+                       "descripcion":"Jose C. Paz - Malvinas Argentinas",
+                       "precio_cliente":1491.5,
+                       "precio_prov":745.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":46,
+                       "localidad_hasta":47,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":194,
+         "fields": {          
+                       "descripcion":"Malvinas Argentinas - Hurlingham",
+                       "precio_cliente":1596,
+                       "precio_prov":798,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":47,
+                       "localidad_hasta":48,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":195,
+         "fields": {          
+                       "descripcion":"Hurlingham - Ituzaingo",
+                       "precio_cliente":1700.5,
+                       "precio_prov":850.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":48,
+                       "localidad_hasta":49,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":196,
+         "fields": {          
+                       "descripcion":"Ituzaingo - Azul",
+                       "precio_cliente":2023.5,
+                       "precio_prov":1011.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":49,
+                       "localidad_hasta":50,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":197,
+         "fields": {          
+                       "descripcion":"Azul - Bahia Blanca",
+                       "precio_cliente":2660,
+                       "precio_prov":1330,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":50,
+                       "localidad_hasta":51,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":198,
+         "fields": {          
+                       "descripcion":"Bahia Blanca - Balcarce",
+                       "precio_cliente":1182.75,
+                       "precio_prov":591.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":51,
+                       "localidad_hasta":52,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":199,
+         "fields": {          
+                       "descripcion":"Balcarce - Escobar",
+                       "precio_cliente":1182.75,
+                       "precio_prov":591.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":52,
+                       "localidad_hasta":53,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":200,
+         "fields": {          
+                       "descripcion":"Escobar - Necochea",
+                       "precio_cliente":1382.25,
+                       "precio_prov":691.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":53,
+                       "localidad_hasta":54,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":201,
+         "fields": {          
+                       "descripcion":"Necochea - Carmen de Areco",
+                       "precio_cliente":1700.5,
+                       "precio_prov":850.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":54,
+                       "localidad_hasta":55,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":202,
+         "fields": {          
+                       "descripcion":"Carmen de Areco - Carlos Casares",
+                       "precio_cliente":1182.75,
+                       "precio_prov":591.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":55,
+                       "localidad_hasta":56,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":203,
+         "fields": {          
+                       "descripcion":"Carlos Casares - General Alvarado",
+                       "precio_cliente":1277.75,
+                       "precio_prov":638.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":56,
+                       "localidad_hasta":57,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":204,
+         "fields": {          
+                       "descripcion":"General Alvarado - Villa Gesell",
+                       "precio_cliente":1382.25,
+                       "precio_prov":691.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":57,
+                       "localidad_hasta":58,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":205,
+         "fields": {          
+                       "descripcion":"Villa Gesell - Monte Hermoso",
+                       "precio_cliente":2128,
+                       "precio_prov":1064,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":58,
+                       "localidad_hasta":59,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":206,
+         "fields": {          
+                       "descripcion":"Monte Hermoso - Saladillo",
+                       "precio_cliente":959.5,
+                       "precio_prov":479.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":59,
+                       "localidad_hasta":60,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":207,
+         "fields": {          
+                       "descripcion":"Saladillo - Vicente Lopez",
+                       "precio_cliente":1116.25,
+                       "precio_prov":558.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":60,
+                       "localidad_hasta":61,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":208,
+         "fields": {          
+                       "descripcion":"Vicente Lopez - Tigre",
+                       "precio_cliente":1168.5,
+                       "precio_prov":584.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":61,
+                       "localidad_hasta":62,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":209,
+         "fields": {          
+                       "descripcion":"Tigre - Chivilcoy",
+                       "precio_cliente":1225.5,
+                       "precio_prov":612.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":62,
+                       "localidad_hasta":63,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":210,
+         "fields": {          
+                       "descripcion":"Chivilcoy - Monte",
+                       "precio_cliente":1330,
+                       "precio_prov":665,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":63,
+                       "localidad_hasta":64,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":211,
+         "fields": {          
+                       "descripcion":"Monte - Ayacucho",
+                       "precio_cliente":1434.5,
+                       "precio_prov":717.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":64,
+                       "localidad_hasta":65,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":212,
+         "fields": {          
+                       "descripcion":"Ayacucho - Ramallo",
+                       "precio_cliente":1543.75,
+                       "precio_prov":771.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":65,
+                       "localidad_hasta":66,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":213,
+         "fields": {          
+                       "descripcion":"Ramallo - Presidente Peron",
+                       "precio_cliente":1434.5,
+                       "precio_prov":717.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":66,
+                       "localidad_hasta":67,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":214,
+         "fields": {          
+                       "descripcion":"Presidente Peron - Coronel Dorrego",
+                       "precio_cliente":1543.75,
+                       "precio_prov":771.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":67,
+                       "localidad_hasta":68,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":215,
+         "fields": {          
+                       "descripcion":"Coronel Dorrego - Berisso",
+                       "precio_cliente":1700.5,
+                       "precio_prov":850.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":68,
+                       "localidad_hasta":69,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":216,
+         "fields": {          
+                       "descripcion":"Berisso - General Paz",
+                       "precio_cliente":1862,
+                       "precio_prov":931,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":69,
+                       "localidad_hasta":70,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":217,
+         "fields": {          
+                       "descripcion":"General Paz - Leandro N. Alem",
+                       "precio_cliente":1966.5,
+                       "precio_prov":983.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":70,
+                       "localidad_hasta":71,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":218,
+         "fields": {          
+                       "descripcion":"Leandro N. Alem - Veinticinco de Mayo",
+                       "precio_cliente":2555.5,
+                       "precio_prov":1277.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":71,
+                       "localidad_hasta":72,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":219,
+         "fields": {          
+                       "descripcion":"Veinticinco de Mayo - Pila",
+                       "precio_cliente":2660,
+                       "precio_prov":1330,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":72,
+                       "localidad_hasta":73,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":220,
+         "fields": {          
+                       "descripcion":"Pila - San Cayetano",
+                       "precio_cliente":2764.5,
+                       "precio_prov":1382.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":73,
+                       "localidad_hasta":74,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":221,
+         "fields": {          
+                       "descripcion":"San Cayetano - Capitan Sarmiento",
+                       "precio_cliente":1966.5,
+                       "precio_prov":983.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":74,
+                       "localidad_hasta":75,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":222,
+         "fields": {          
+                       "descripcion":"Capitan Sarmiento - Laprida",
+                       "precio_cliente":617.5,
+                       "precio_prov":308.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":75,
+                       "localidad_hasta":76,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":223,
+         "fields": {          
+                       "descripcion":"Laprida - Mar Chiquita",
+                       "precio_cliente":665,
+                       "precio_prov":332.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":76,
+                       "localidad_hasta":77,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":224,
+         "fields": {          
+                       "descripcion":"Mar Chiquita - Almirante Brown",
+                       "precio_cliente":722,
+                       "precio_prov":361,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":77,
+                       "localidad_hasta":78,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":225,
+         "fields": {          
+                       "descripcion":"Almirante Brown - Maipu",
+                       "precio_cliente":769.5,
+                       "precio_prov":384.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":78,
+                       "localidad_hasta":79,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":226,
+         "fields": {          
+                       "descripcion":"Maipu - General Pinto",
+                       "precio_cliente":893,
+                       "precio_prov":446.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":79,
+                       "localidad_hasta":80,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":227,
+         "fields": {          
+                       "descripcion":"General Pinto - Salliquelo",
+                       "precio_cliente":940.5,
+                       "precio_prov":470.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":80,
+                       "localidad_hasta":81,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":228,
+         "fields": {          
+                       "descripcion":"Salliquelo - Roque Perez",
+                       "precio_cliente":959.5,
+                       "precio_prov":479.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":81,
+                       "localidad_hasta":82,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":229,
+         "fields": {          
+                       "descripcion":"Roque Perez - Rivadavia",
+                       "precio_cliente":893,
+                       "precio_prov":446.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":82,
+                       "localidad_hasta":83,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":230,
+         "fields": {          
+                       "descripcion":"Rivadavia - Tordillo",
+                       "precio_cliente":959.5,
+                       "precio_prov":479.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":83,
+                       "localidad_hasta":84,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":231,
+         "fields": {          
+                       "descripcion":"Tordillo - General Viamonte",
+                       "precio_cliente":1168.5,
+                       "precio_prov":584.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":84,
+                       "localidad_hasta":85,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":232,
+         "fields": {          
+                       "descripcion":"General Viamonte - Guamini",
+                       "precio_cliente":1277.75,
+                       "precio_prov":638.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":85,
+                       "localidad_hasta":86,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":233,
+         "fields": {          
+                       "descripcion":"Guamini - Salto",
+                       "precio_cliente":1382.25,
+                       "precio_prov":691.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":86,
+                       "localidad_hasta":87,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":234,
+         "fields": {          
+                       "descripcion":"Salto - Chacabuco",
+                       "precio_cliente":1491.5,
+                       "precio_prov":745.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":87,
+                       "localidad_hasta":88,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":235,
+         "fields": {          
+                       "descripcion":"Chacabuco - General Arenales",
+                       "precio_cliente":1596,
+                       "precio_prov":798,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":88,
+                       "localidad_hasta":89,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":236,
+         "fields": {          
+                       "descripcion":"General Arenales - San Antonio de Areco",
+                       "precio_cliente":2075.75,
+                       "precio_prov":1037.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":89,
+                       "localidad_hasta":90,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":237,
+         "fields": {          
+                       "descripcion":"San Antonio de Areco - General La Madrid",
+                       "precio_cliente":764.75,
+                       "precio_prov":382.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":90,
+                       "localidad_hasta":91,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":238,
+         "fields": {          
+                       "descripcion":"General La Madrid - Suipacha",
+                       "precio_cliente":764.75,
+                       "precio_prov":382.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":91,
+                       "localidad_hasta":92,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":239,
+         "fields": {          
+                       "descripcion":"Suipacha - Castelli",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":92,
+                       "localidad_hasta":93,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":240,
+         "fields": {          
+                       "descripcion":"Castelli - Pinamar",
+                       "precio_cliente":959.5,
+                       "precio_prov":479.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":93,
+                       "localidad_hasta":94,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":241,
+         "fields": {          
+                       "descripcion":"Pinamar - Patagones",
+                       "precio_cliente":893,
+                       "precio_prov":446.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":94,
+                       "localidad_hasta":95,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":242,
+         "fields": {          
+                       "descripcion":"Patagones - San Andres de Giles",
+                       "precio_cliente":1116.25,
+                       "precio_prov":558.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":95,
+                       "localidad_hasta":96,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":243,
+         "fields": {          
+                       "descripcion":"San Andres de Giles - General Guido",
+                       "precio_cliente":1225.5,
+                       "precio_prov":612.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":96,
+                       "localidad_hasta":97,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":244,
+         "fields": {          
+                       "descripcion":"General Guido - General Alvear",
+                       "precio_cliente":1330,
+                       "precio_prov":665,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":97,
+                       "localidad_hasta":98,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":245,
+         "fields": {          
+                       "descripcion":"General Alvear - General Madariaga",
+                       "precio_cliente":574.75,
+                       "precio_prov":287.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":98,
+                       "localidad_hasta":99,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":246,
+         "fields": {          
+                       "descripcion":"General Madariaga - General Lavalle",
+                       "precio_cliente":769.5,
+                       "precio_prov":384.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":99,
+                       "localidad_hasta":100,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":247,
+         "fields": {          
+                       "descripcion":"General Lavalle - Benito Juarez",
+                       "precio_cliente":831.25,
+                       "precio_prov":415.625,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":100,
+                       "localidad_hasta":101,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":248,
+         "fields": {          
+                       "descripcion":"Benito Juarez - Las Flores",
+                       "precio_cliente":935.75,
+                       "precio_prov":467.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":101,
+                       "localidad_hasta":102,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":249,
+         "fields": {          
+                       "descripcion":"Las Flores - Navarro",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":102,
+                       "localidad_hasta":103,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":250,
+         "fields": {          
+                       "descripcion":"Navarro - Rauch",
+                       "precio_cliente":1116.25,
+                       "precio_prov":558.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":103,
+                       "localidad_hasta":104,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":251,
+         "fields": {          
+                       "descripcion":"Rauch - Tapalque",
+                       "precio_cliente":1182.75,
+                       "precio_prov":591.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":104,
+                       "localidad_hasta":105,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":252,
+         "fields": {          
+                       "descripcion":"Tapalque - Trenque Lauquen",
+                       "precio_cliente":935.75,
+                       "precio_prov":467.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":105,
+                       "localidad_hasta":106,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":253,
+         "fields": {          
+                       "descripcion":"Trenque Lauquen - Baradero",
+                       "precio_cliente":1045,
+                       "precio_prov":522.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":106,
+                       "localidad_hasta":107,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":254,
+         "fields": {          
+                       "descripcion":"Baradero - Magdalena",
+                       "precio_cliente":1116.25,
+                       "precio_prov":558.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":107,
+                       "localidad_hasta":108,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":255,
+         "fields": {          
+                       "descripcion":"Magdalena - Nueve de Julio",
+                       "precio_cliente":1187.5,
+                       "precio_prov":593.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":108,
+                       "localidad_hasta":109,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":256,
+         "fields": {          
+                       "descripcion":"Nueve de Julio - Arrecifes",
+                       "precio_cliente":1330,
+                       "precio_prov":665,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":109,
+                       "localidad_hasta":110,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":257,
+         "fields": {          
+                       "descripcion":"Arrecifes - Coronel Suarez",
+                       "precio_cliente":1966.5,
+                       "precio_prov":983.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":110,
+                       "localidad_hasta":111,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":258,
+         "fields": {          
+                       "descripcion":"Coronel Suarez - Brandsen",
+                       "precio_cliente":1714.75,
+                       "precio_prov":857.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":111,
+                       "localidad_hasta":112,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":259,
+         "fields": {          
+                       "descripcion":"Brandsen - Daireaux",
+                       "precio_cliente":1828.75,
+                       "precio_prov":914.375,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":112,
+                       "localidad_hasta":113,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":260,
+         "fields": {          
+                       "descripcion":"Daireaux - Zarate",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":113,
+                       "localidad_hasta":114,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":261,
+         "fields": {          
+                       "descripcion":"Zarate - Adolfo Gonzales Chaves",
+                       "precio_cliente":3192,
+                       "precio_prov":1596,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":114,
+                       "localidad_hasta":115,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":262,
+         "fields": {          
+                       "descripcion":"Adolfo Gonzales Chaves - Adolfo Alsina",
+                       "precio_cliente":2660,
+                       "precio_prov":1330,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":115,
+                       "localidad_hasta":116,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":263,
+         "fields": {          
+                       "descripcion":"Adolfo Alsina - Lujan",
+                       "precio_cliente":3192,
+                       "precio_prov":1596,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":116,
+                       "localidad_hasta":117,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":264,
+         "fields": {          
+                       "descripcion":"Lujan - Puan",
+                       "precio_cliente":2341.75,
+                       "precio_prov":1170.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":117,
+                       "localidad_hasta":118,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":265,
+         "fields": {          
+                       "descripcion":"Puan - Pehuajo",
+                       "precio_cliente":3828.5,
+                       "precio_prov":1914.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":118,
+                       "localidad_hasta":119,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":266,
+         "fields": {          
+                       "descripcion":"Pehuajo - Pellegrini",
+                       "precio_cliente":2873.75,
+                       "precio_prov":1436.875,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":119,
+                       "localidad_hasta":120,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":267,
+         "fields": {          
+                       "descripcion":"Pellegrini - Alberti",
+                       "precio_cliente":4465,
+                       "precio_prov":2232.5,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":120,
+                       "localidad_hasta":121,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":268,
+         "fields": {          
+                       "descripcion":"Alberti - Florentino Ameghino",
+                       "precio_cliente":2128,
+                       "precio_prov":1064,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":121,
+                       "localidad_hasta":122,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":269,
+         "fields": {          
+                       "descripcion":"Florentino Ameghino - Colon",
+                       "precio_cliente":1596,
+                       "precio_prov":798,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":122,
+                       "localidad_hasta":123,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":270,
+         "fields": {          
+                       "descripcion":"Colon - Carlos Tejedor",
+                       "precio_cliente":2660,
+                       "precio_prov":1330,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":123,
+                       "localidad_hasta":124,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":271,
+         "fields": {          
+                       "descripcion":"Carlos Tejedor - Bolivar",
+                       "precio_cliente":470.25,
+                       "precio_prov":235.125,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":124,
+                       "localidad_hasta":125,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":272,
+         "fields": {          
+                       "descripcion":"Bolivar - Lezama",
+                       "precio_cliente":608,
+                       "precio_prov":304,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":125,
+                       "localidad_hasta":126,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":273,
+         "fields": {          
+                       "descripcion":"Lezama - Hipolito Yrigoyen",
+                       "precio_cliente":427.5,
+                       "precio_prov":213.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":126,
+                       "localidad_hasta":127,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":274,
+         "fields": {          
+                       "descripcion":"Hipolito Yrigoyen - Lincoln",
+                       "precio_cliente":636.5,
+                       "precio_prov":318.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":127,
+                       "localidad_hasta":128,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":275,
+         "fields": {          
+                       "descripcion":"Lincoln - Lobos",
+                       "precio_cliente":617.5,
+                       "precio_prov":308.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":128,
+                       "localidad_hasta":129,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":276,
+         "fields": {          
+                       "descripcion":"Lobos - General Las Heras",
+                       "precio_cliente":4037.5,
+                       "precio_prov":2018.75,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":129,
+                       "localidad_hasta":130,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":277,
+         "fields": {          
+                       "descripcion":"General Las Heras - Coronel Rosales",
+                       "precio_cliente":1130.5,
+                       "precio_prov":565.25,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":130,
+                       "localidad_hasta":131,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":278,
+         "fields": {          
+                       "descripcion":"Coronel Rosales - Canuelas",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":131,
+                       "localidad_hasta":132,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":279,
+         "fields": {          
+                       "descripcion":"Canuelas - Exaltacion de la Cruz",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":132,
+                       "localidad_hasta":133,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":280,
+         "fields": {          
+                       "descripcion":"Exaltacion de la Cruz - La Costa",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":133,
+                       "localidad_hasta":134,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":281,
+         "fields": {          
+                       "descripcion":"La Costa - Islas Campana",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":134,
+                       "localidad_hasta":135,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":282,
+         "fields": {          
+                       "descripcion":"Islas Campana - Islas Baradero",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":135,
+                       "localidad_hasta":136,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":283,
+         "fields": {          
+                       "descripcion":"Islas Baradero - Islas Tigre",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":136,
+                       "localidad_hasta":137,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":284,
+         "fields": {          
+                       "descripcion":"Islas Tigre - Florencio Varela",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":137,
+                       "localidad_hasta":138,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":285,
+         "fields": {          
+                       "descripcion":"Florencio Varela - Islas San Fernando",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":138,
+                       "localidad_hasta":139,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":286,
+         "fields": {          
+                       "descripcion":"Islas San Fernando - Islas de Zarate",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":139,
+                       "localidad_hasta":140,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":287,
+         "fields": {          
+                       "descripcion":"Islas de Zarate - Islas San Pedro",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":140,
+                       "localidad_hasta":141,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":288,
+         "fields": {          
+                       "descripcion":"Islas San Pedro - Bragado",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":141,
+                       "localidad_hasta":142,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":289,
+         "fields": {          
+                       "descripcion":"Bragado - Campana",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":142,
+                       "localidad_hasta":143,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":290,
+         "fields": {          
+                       "descripcion":"Campana - Merlo",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":143,
+                       "localidad_hasta":144,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":291,
+         "fields": {          
+                       "descripcion":"Merlo - General Pueyrredon",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":144,
+                       "localidad_hasta":145,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":292,
+         "fields": {          
+                       "descripcion":"General Pueyrredon - Junin",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":145,
+                       "localidad_hasta":146,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":293,
+         "fields": {          
+                       "descripcion":"Junin - La Plata",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":146,
+                       "localidad_hasta":147,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":294,
+         "fields": {          
+                       "descripcion":"La Plata - Ensenada",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":147,
+                       "localidad_hasta":148,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.tarifaviaje","pk":295,
+         "fields": {          
+                       "descripcion":"Ensenada - Dolores",
+                       "precio_cliente":0,
+                       "precio_prov":0,
+                       "categoria_viaje_id":1,
+                       "localidad_desde":148,
+                       "localidad_hasta":149,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":1,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":1,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":2,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":1,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":3,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":1,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":4,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":2,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":5,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":2,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":6,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":2,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":7,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":3,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":8,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":3,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":9,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":3,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":10,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":4,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":11,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":4,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":12,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":4,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":13,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":5,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":14,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":5,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":15,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":5,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":16,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":6,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":17,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":6,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":18,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":6,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":19,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":7,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":20,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":7,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":21,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":7,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":22,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":8,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":23,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":8,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":24,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":8,
+                       "tarifario_id":1 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":25,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":1,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":26,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":1,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":27,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":1,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":28,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":2,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":29,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":2,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":30,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":2,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":31,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":3,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":32,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":3,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":33,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":3,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":34,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":4,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":35,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":4,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":36,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":4,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":37,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":5,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":38,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":5,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":39,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":5,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":40,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":6,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":41,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":6,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":42,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":6,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":43,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":7,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":44,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":7,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":45,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":7,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":46,
+         "fields": {          
+                       "extra_descripcion":"bilingüe",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":8,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":47,
+         "fields": {          
+                       "extra_descripcion":"espera",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":8,
+                       "tarifario_id":2 }
+},
+{
+        "model": "sistema.TarifaExtra","pk":48,
+         "fields": {          
+                       "extra_descripcion":"extra",
+                       "extra_precio":101,
+                       "extra_precio_prov":61,
+                       "categoria_viaje_id":8,
+                       "tarifario_id":2 }
 }
 ]
