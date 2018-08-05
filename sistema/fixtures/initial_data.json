@@ -22289,26 +22289,17 @@
   }
 },
 {
-  "model": "sistema.tipotrayectodestino",
-  "pk": 1,
-  "fields": {
-    "nombre": "TipoTrayecto"
-  }
-},
-{
   "model": "sistema.trayectodestino",
   "pk": 1,
   "fields": {
-    "nombre": "CABA",
-    "tipo_trayecto_destino": null
+    "nombre": "CABA"
   }
 },
 {
   "model": "sistema.trayectodestino",
   "pk": 2,
   "fields": {
-    "nombre": "BA",
-    "tipo_trayecto_destino": null
+    "nombre": "BA"
   }
 },
 {
@@ -22316,8 +22307,7 @@
   "pk": 3,
   "fields": {
     "nombre": "Interior",
-    "tipo_trayecto_destino": null,
-	"color":"#F1C40F"
+	  "color":"#F1C40F"
   }
 },
 {
