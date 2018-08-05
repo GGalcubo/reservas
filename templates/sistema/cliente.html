@@ -418,46 +418,18 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
+                                                                                {% for p in cliente.getPasajeros %}
                                                                                 <tr>
                                                                                     <td class="text-center"><a href=""><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>Juan</td>
-                                                                                    <td>Perez</td>
-                                                                                    <td>25874698</td>
-                                                                                    <td>Argentino</td>
-                                                                                    <td>Av. Nazca 2500</td>
-                                                                                    <td>4578-8978</td>
-                                                                                    <td>Rompe huevos</td>
+                                                                                    <td>{{ p.nombre|default_if_none:"" }}</td>
+                                                                                    <td>{{ p.apellido|default_if_none:"" }}</td>
+                                                                                    <td>{{ p.documento|default_if_none:"" }}</td>
+                                                                                    <td>{{ p.nacionalidad|default_if_none:"" }}</td>
+                                                                                    <td>{{ p.getDomicilio }}</td>
+                                                                                    <td>{{ p.getTelefono }}</td>
+                                                                                    <td>{{ p.getDomicilio }}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href=""><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>Maria</td>
-                                                                                    <td>Duarte</td>
-                                                                                    <td>36875968</td>
-                                                                                    <td>Checoslovaca</td>
-                                                                                    <td>Calle Falsa 123</td>
-                                                                                    <td>5488-7848</td>
-                                                                                    <td>No le gustan los Simpsons</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href=""><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>Candelaria</td>
-                                                                                    <td>Duarte</td>
-                                                                                    <td>32555777</td>
-                                                                                    <td>Uruguaya</td>
-                                                                                    <td>Artigas 2345</td>
-                                                                                    <td>4488-7848</td>
-                                                                                    <td>Simpática</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center"><a href=""><i class="fa fa-pencil"></i></a></td>
-                                                                                    <td>Federico</td>
-                                                                                    <td>Perez</td>
-                                                                                    <td>24888999</td>
-                                                                                    <td>Argentino</td>
-                                                                                    <td>Corriente 1234</td>
-                                                                                    <td>4678-6858</td>
-                                                                                    <td>Mala onda</td>
-                                                                                </tr>
+                                                                                {% endfor %}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>

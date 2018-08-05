@@ -385,6 +385,13 @@ class Cliente(models.Model):
                 contacto.append(percli.persona)
         return contacto
 
+    def getPasajeros(self):
+        pasajeros = []
+        for percli in self.personacliente_set.all():
+            if percli.persona.tipo_persona.id == 2:
+                pasajeros.append(percli.persona)
+        return pasajeros
+
     def getCentroCostos(self):
         cc = []
         for c in self.centrocosto_set.all():
@@ -467,6 +474,8 @@ class ViajeAdm(models.Model):
     bilingue = models.BooleanField(default=False)
     maletas_tot = models.IntegerField(default=0)
     bilingue_tot = models.IntegerField(default=0)
+    factura = models.CharField(max_length=50, null=True, blank=True)
+    proforma = models.IntegerField(default=0)
     cliente_o_prov = models.BooleanField(default=False)
 
     def __unicode__(self):
@@ -503,20 +512,10 @@ class ViajeHistorial(models.Model):
         return self.campo_modificado
 
     class Meta:
-        verbose_name_plural = "Historial de viajes" 
-
-class TipoTrayectoDestino(models.Model):
-    nombre = models.CharField(max_length=100, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.nombre
-
-    def __str__(self):
-        return self.nombre
+        verbose_name_plural = "Historial de viajes"
 
 class TrayectoDestino(models.Model):
     nombre = models.CharField(max_length=100, null=True, blank=True)
-    tipo_trayecto_destino = models.ForeignKey(TipoTrayectoDestino, null=True, blank=True)
     terminal_flag = models.BooleanField(default=False)
     color = models.CharField(max_length=50, null=True)
     
