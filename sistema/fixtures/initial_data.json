@@ -1783,6 +1783,14 @@
 	"color":"#C0392B"
   }
 },
+	{
+  "model": "sistema.estado",
+  "pk": 9,
+  "fields": {
+    "estado": "No Show",
+	"color":"#C0392B"
+  }
+},
 {
   "model": "sistema.estadocivil",
   "pk": 1,
