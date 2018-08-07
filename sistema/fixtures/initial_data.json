@@ -394,7 +394,7 @@
             "trayectodestino_id":1,
             "provincia_id":24,
 			"terminal_flag":1,
-			"color":"#99A3A4"
+			"color":"#F5B041"
 			
 			
         }
@@ -1691,31 +1691,16 @@
             "provincia_id":1
         }
     },
-{
-        "model": "sistema.Localidad",
-        "pk": 150,
-        "fields": {
-            "nombre": "CITY TOUR - 3 HORAS",
-            "trayectodestino_id":1,
-            "provincia_id":24
-        }
-    },
+
 {
         "model": "sistema.Localidad",
         "pk": 151,
         "fields": {
-            "nombre": "NOCTURNA - 3 HORAS",
+            "nombre": "Terminal de Cruceros",
             "trayectodestino_id":1,
-            "provincia_id":24
-        }
-    },
-{
-        "model": "sistema.Localidad",
-        "pk": 152,
-        "fields": {
-            "nombre": "TIGRE - 5 HORAS",
-            "trayectodestino_id":2,
-            "provincia_id":1
+            "provincia_id":24,
+	    "terminal_flag":1,
+	     "color":"#99A3A4"
         }
     },
 {
