@@ -1704,6 +1704,17 @@
         }
     },
 {
+        "model": "sistema.Localidad",
+        "pk": 152,
+        "fields": {
+            "nombre": "Terminal de Cruceros",
+            "trayectodestino_id":1,
+            "provincia_id":1,
+	    "terminal_flag":1,
+	     "color":"#b858d6"
+        }
+    },
+{
   "model": "sistema.estado",
   "pk": 1,
   "fields": {
