@@ -383,7 +383,7 @@
             "trayectodestino_id":1,
             "provincia_id":24,
 			"terminal_flag":1,
-			"color":"#BB8FCE"
+			"color":"#C0392B"
         }
     },
 {
@@ -407,7 +407,7 @@
             "trayectodestino_id":1,
             "provincia_id":24,
 	        "terminal_flag":1,
-			"color":"#AED6F1"
+			"color":"#58D68D"
         }
     },
 {
@@ -418,7 +418,7 @@
             "trayectodestino_id":2,
             "provincia_id":1,
 	        "terminal_flag":1,
-			"color":"#45B39D"
+			"color":"#AED6F1"
 			
         }
     },
@@ -1723,7 +1723,7 @@
   "pk": 1,
   "fields": {
     "estado": "Nuevo",
-	"color":"#FDFEFE"
+	"color":"#273740"
   }
 },
 {
@@ -1731,7 +1731,7 @@
   "pk": 2,
   "fields": {
     "estado": "Pre-Asignado",
-	"color":"#E5E7E9"
+	"color":"#273740"
 	
   }
 },
@@ -1740,7 +1740,7 @@
   "pk": 3,
   "fields": {
     "estado": "Asignado",
-	"color":"#F5B041"
+	"color":"#273740"
   }
 },
 {
@@ -1748,7 +1748,7 @@
   "pk": 4,
   "fields": {
     "estado": "Confirmado",
-	"color":"#5DADE2"
+	"color":"#273740"
   }
 },
 {
@@ -1756,7 +1756,7 @@
   "pk": 5,
   "fields": {
     "estado": "En Progreso",
-	"color":"#F7DC6F"
+	"color":"#273740"
   }
 },
 {
@@ -1764,7 +1764,7 @@
   "pk": 6,
   "fields": {
     "estado": "Finalizado",
-	"color":"#58D68D"
+	"color":"#273740"
   }
 },
 {
@@ -1772,7 +1772,7 @@
   "pk": 7,
   "fields": {
     "estado": "Cerrado",
-	"color":"#273746"
+	"color":"#273740"
   }
 },
 {
@@ -1780,7 +1780,7 @@
   "pk": 8,
   "fields": {
     "estado": "Cancelado",
-	"color":"#C0392B"
+	"color":"#F5B041"
   }
 },
 	{
@@ -1788,7 +1788,7 @@
   "pk": 9,
   "fields": {
     "estado": "No Show",
-	"color":"#C0392B"
+	"color":"#F5B041"
   }
 },
 {
