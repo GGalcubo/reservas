@@ -1448,28 +1448,36 @@
     }
 
     function updateFillsByCliente(name, evt){
-        var option_selected = evt.params.data.id - 1;
-        $('#id_cliente').select2('val',clientes[option_selected].id);
-        $('#razon_social').select2('val',clientes[option_selected].id);
-        $('#id_cliente').val(clientes[option_selected].id).trigger("change");
-        $('#razon_social').val(clientes[option_selected].id).trigger("change");
-        $('#cliente_direccion').val(clientes[option_selected].direccion);
-        $('#cliente_categoria').val(clientes[option_selected].categoria_id);
-        $('#cliente_tel').val(clientes[option_selected].telefono);
+        var option_selected = evt.params.data.id;
+        var cliente_selected;
+
+        $.each(clientes, function(i, value) {
+            if(value.id == option_selected){
+                cliente_selected = value;
+            }
+        });
+
+        $('#id_cliente').select2('val',cliente_selected.id);
+        $('#razon_social').select2('val',cliente_selected.id);
+        $('#id_cliente').val(cliente_selected.id).trigger("change");
+        $('#razon_social').val(cliente_selected.id).trigger("change");
+        $('#cliente_direccion').val(cliente_selected.direccion);
+        $('#cliente_categoria').val(cliente_selected.categoria_id);
+        $('#cliente_tel').val(cliente_selected.telefono);
 
         $('#centro_costos').empty();
         $('#contacto').empty();
         $('#pasajero').empty();
 
-        $.each(clientes[option_selected].centro_costos, function(i, value) {
+        $.each(cliente_selected.centro_costos, function(i, value) {
           $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
         });
-        $.each(clientes[option_selected].personascliente, function(i, value) {
+        $.each(cliente_selected.personascliente, function(i, value) {
             if(value.tipo_persona == 'Contacto'){
                 $('#contacto').append($('<option>').text(value.nombre).attr('value', value.id));
             }
         });
-        $.each(clientes[option_selected].personascliente, function(i, value) {
+        $.each(cliente_selected.personascliente, function(i, value) {
             if(value.tipo_persona == 'Pasajero'){
                 $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
             }

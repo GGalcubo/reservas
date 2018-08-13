@@ -49,16 +49,13 @@
                                     </div>
                                     <div class="inline-block" style="float: right;">
                                         <select id="multiselect_estado" name="multiselect_estado[]" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
-                                            <optgroup label="Nuevos" class="group-1">
-                                                <option value="1" selected="selected">Sin asignar</option>
-                                                <option value="3" selected="selected">Asignados</option>
-                                                <option value="4" selected="selected">Confirmados</option>
-                                                <option value="5">En progreso</option>
-                                            </optgroup>
-                                            <optgroup label="Finalizados" class="group-2">
-                                                <option value="7">Cerrados</option>
-                                                <option value="8">Cancelados</option>
-                                            </optgroup>
+                                            {% for e in estados %}
+                                                {% if e.id == 1 or e.id == 2 or e.id == 3 or e.id == 4 %}
+                                                    <option selected="selected" value="{{ e.id }}">{{ e.estado }}</option>
+                                                {% else %}
+                                                    <option value="{{ e.id }}">{{ e.estado }}</option>
+                                                {% endif %}
+                                            {% endfor %}
                                         </select>
                                     </div>
                                 </div>
