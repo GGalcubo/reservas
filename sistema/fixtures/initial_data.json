@@ -1883,7 +1883,7 @@
   "model": "sistema.tipopersona",
   "pk": 1,
   "fields": {
-    "tipo_persona": "Contacto"
+    "tipo_persona": "Solicitante"
   }
 },
 {
@@ -11247,6 +11247,59 @@
         "cuil":"",
        "baja":false }
 },
+{
+        "model": "sistema.persona","pk":9998,
+         "fields": {          
+       "nombre":"Solicitante",
+       "apellido":"Generico",
+       "fecha_nacimiento":"",
+       "documento":"",
+       "tipo_persona":2,
+       "estado_civil":1,
+       "calle":"",
+       "altura":"",
+       "piso":"",
+       "localidad":"",
+     "cp":"",
+     "mail":"",
+       "contacto_cliente":null,
+       "puesto":null,
+       "iva":"",
+       "condicion_pago":"",
+       "cbu":"",
+       "alias":"",
+       "dias_fechas_facturas":"",
+       "nacionalidad":"ARGENTINO",
+        "cuil":"",
+       "baja":false }
+},
+{
+        "model": "sistema.persona","pk":9999,
+         "fields": {          
+       "nombre":"Pasajero",
+       "apellido":"Generico",
+       "fecha_nacimiento":"",
+       "documento":"",
+       "tipo_persona":2,
+       "estado_civil":1,
+       "calle":"",
+       "altura":"",
+       "piso":"",
+       "localidad":"",
+     "cp":"",
+     "mail":"",
+       "contacto_cliente":null,
+       "puesto":null,
+       "iva":"",
+       "condicion_pago":"",
+       "cbu":"",
+       "alias":"",
+       "dias_fechas_facturas":"",
+       "nacionalidad":"ARGENTINO",
+        "cuil":"",
+       "baja":false }
+},
+
 
 {
         "model": "sistema.vehiculo","pk":1,
@@ -12380,72 +12433,6 @@
   "pk": 2,
   "fields": {
     "nombre": "Tarifa +15%"
-  }
-},
-{
-  "model": "sistema.cliente",
-  "pk": 1,
-  "fields": {
-    "razon_social": "Otro Cliente",
-    "calle": "libertadores",
-    "altura": "1234",
-    "piso": null,
-    "depto": null,
-    "cp": null,
-    "cuil": null,
-    "tarifario": 2,
-    "localidad": 1,
-    "provincia": 1,
-    "iva": null,
-    "condicion_pago": null,
-    "cbu": null,
-    "alias": null,
-    "dias_fechas_facturas": "11",
-    "baja": true
-  }
-},
-{
-  "model": "sistema.cliente",
-  "pk": 2,
-  "fields": {
-    "razon_social": "ViajesYa",
-    "calle": "calle falsa",
-    "altura": "1234",
-    "piso": "1",
-    "depto": "4",
-    "cp": "1407",
-    "cuil": "12341423",
-    "tarifario": 2,
-    "localidad": 7,
-    "provincia": 1,
-    "iva": "21%",
-    "condicion_pago": "cuando puede",
-    "cbu": null,
-    "alias": null,
-    "dias_fechas_facturas": "15",
-    "baja": false
-  }
-},
-{
-  "model": "sistema.cliente",
-  "pk": 3,
-  "fields": {
-    "razon_social": "NuevoCliente",
-    "calle": "habana y segurola",
-    "altura": "4100",
-    "piso": "7",
-    "depto": "E",
-    "cp": "123",
-    "cuil": "12313123",
-    "tarifario": 1,
-    "localidad": 9,
-    "provincia": 1,
-    "iva": "21",
-    "condicion_pago": null,
-    "cbu": null,
-    "alias": null,
-    "dias_fechas_facturas": "11",
-    "baja": false
   }
 },
 {
@@ -26112,5 +26099,5610 @@
                        "extra_precio_prov":61,
                        "categoria_viaje_id":8,
                        "tarifario_id":2 }
+},
+{
+        "model": "sistema.personacliente","pk":100,
+         "fields": {          
+       "cliente_id":10000,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":101,
+         "fields": {          
+       "cliente_id":10001,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":102,
+         "fields": {          
+       "cliente_id":10002,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":103,
+         "fields": {          
+       "cliente_id":10003,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":104,
+         "fields": {          
+       "cliente_id":10004,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":105,
+         "fields": {          
+       "cliente_id":10005,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":106,
+         "fields": {          
+       "cliente_id":10006,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":107,
+         "fields": {          
+       "cliente_id":10007,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":108,
+         "fields": {          
+       "cliente_id":10008,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":109,
+         "fields": {          
+       "cliente_id":10009,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":110,
+         "fields": {          
+       "cliente_id":10010,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":111,
+         "fields": {          
+       "cliente_id":10011,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":112,
+         "fields": {          
+       "cliente_id":10012,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":113,
+         "fields": {          
+       "cliente_id":10013,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":114,
+         "fields": {          
+       "cliente_id":10014,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":115,
+         "fields": {          
+       "cliente_id":10015,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":116,
+         "fields": {          
+       "cliente_id":10016,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":117,
+         "fields": {          
+       "cliente_id":10017,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":118,
+         "fields": {          
+       "cliente_id":10018,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":119,
+         "fields": {          
+       "cliente_id":10019,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":120,
+         "fields": {          
+       "cliente_id":10020,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":121,
+         "fields": {          
+       "cliente_id":10021,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":122,
+         "fields": {          
+       "cliente_id":10022,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":123,
+         "fields": {          
+       "cliente_id":10023,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":124,
+         "fields": {          
+       "cliente_id":10024,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":125,
+         "fields": {          
+       "cliente_id":10025,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":126,
+         "fields": {          
+       "cliente_id":10026,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":127,
+         "fields": {          
+       "cliente_id":10027,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":128,
+         "fields": {          
+       "cliente_id":10028,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":129,
+         "fields": {          
+       "cliente_id":10029,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":130,
+         "fields": {          
+       "cliente_id":10030,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":131,
+         "fields": {          
+       "cliente_id":10031,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":132,
+         "fields": {          
+       "cliente_id":10032,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":133,
+         "fields": {          
+       "cliente_id":10033,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":134,
+         "fields": {          
+       "cliente_id":10034,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":135,
+         "fields": {          
+       "cliente_id":10035,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":136,
+         "fields": {          
+       "cliente_id":10036,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":137,
+         "fields": {          
+       "cliente_id":10037,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":138,
+         "fields": {          
+       "cliente_id":10038,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":139,
+         "fields": {          
+       "cliente_id":10039,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":140,
+         "fields": {          
+       "cliente_id":10040,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":141,
+         "fields": {          
+       "cliente_id":10041,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":142,
+         "fields": {          
+       "cliente_id":10042,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":143,
+         "fields": {          
+       "cliente_id":10043,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":144,
+         "fields": {          
+       "cliente_id":10044,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":145,
+         "fields": {          
+       "cliente_id":10045,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":146,
+         "fields": {          
+       "cliente_id":10046,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":147,
+         "fields": {          
+       "cliente_id":10047,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":148,
+         "fields": {          
+       "cliente_id":10048,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":149,
+         "fields": {          
+       "cliente_id":10049,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":150,
+         "fields": {          
+       "cliente_id":10050,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":151,
+         "fields": {          
+       "cliente_id":10051,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":152,
+         "fields": {          
+       "cliente_id":10052,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":153,
+         "fields": {          
+       "cliente_id":10053,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":154,
+         "fields": {          
+       "cliente_id":10054,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":155,
+         "fields": {          
+       "cliente_id":10055,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":156,
+         "fields": {          
+       "cliente_id":10056,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":157,
+         "fields": {          
+       "cliente_id":10057,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":158,
+         "fields": {          
+       "cliente_id":10058,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":159,
+         "fields": {          
+       "cliente_id":10059,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":160,
+         "fields": {          
+       "cliente_id":10060,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":161,
+         "fields": {          
+       "cliente_id":10061,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":162,
+         "fields": {          
+       "cliente_id":10062,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":163,
+         "fields": {          
+       "cliente_id":10063,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":164,
+         "fields": {          
+       "cliente_id":10064,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":165,
+         "fields": {          
+       "cliente_id":10065,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":166,
+         "fields": {          
+       "cliente_id":10066,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":167,
+         "fields": {          
+       "cliente_id":10067,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":168,
+         "fields": {          
+       "cliente_id":10068,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":169,
+         "fields": {          
+       "cliente_id":10069,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":170,
+         "fields": {          
+       "cliente_id":10070,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":171,
+         "fields": {          
+       "cliente_id":10071,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":172,
+         "fields": {          
+       "cliente_id":10072,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":173,
+         "fields": {          
+       "cliente_id":10073,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":174,
+         "fields": {          
+       "cliente_id":10074,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":175,
+         "fields": {          
+       "cliente_id":10075,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":176,
+         "fields": {          
+       "cliente_id":10076,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":177,
+         "fields": {          
+       "cliente_id":10077,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":178,
+         "fields": {          
+       "cliente_id":10078,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":179,
+         "fields": {          
+       "cliente_id":10079,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":180,
+         "fields": {          
+       "cliente_id":10080,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":181,
+         "fields": {          
+       "cliente_id":10081,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":182,
+         "fields": {          
+       "cliente_id":10082,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":183,
+         "fields": {          
+       "cliente_id":10083,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":184,
+         "fields": {          
+       "cliente_id":10084,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":185,
+         "fields": {          
+       "cliente_id":10085,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":186,
+         "fields": {          
+       "cliente_id":10086,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":187,
+         "fields": {          
+       "cliente_id":10087,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":188,
+         "fields": {          
+       "cliente_id":10088,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":189,
+         "fields": {          
+       "cliente_id":10089,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":190,
+         "fields": {          
+       "cliente_id":10090,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":191,
+         "fields": {          
+       "cliente_id":10091,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":192,
+         "fields": {          
+       "cliente_id":10092,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":193,
+         "fields": {          
+       "cliente_id":10094,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":194,
+         "fields": {          
+       "cliente_id":10095,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":195,
+         "fields": {          
+       "cliente_id":10096,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":196,
+         "fields": {          
+       "cliente_id":10097,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":197,
+         "fields": {          
+       "cliente_id":10098,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":198,
+         "fields": {          
+       "cliente_id":10099,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":199,
+         "fields": {          
+       "cliente_id":10100,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":200,
+         "fields": {          
+       "cliente_id":10101,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":201,
+         "fields": {          
+       "cliente_id":10102,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":202,
+         "fields": {          
+       "cliente_id":10103,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":203,
+         "fields": {          
+       "cliente_id":10104,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":204,
+         "fields": {          
+       "cliente_id":10105,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":205,
+         "fields": {          
+       "cliente_id":10106,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":206,
+         "fields": {          
+       "cliente_id":10107,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":207,
+         "fields": {          
+       "cliente_id":10108,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":208,
+         "fields": {          
+       "cliente_id":10110,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":209,
+         "fields": {          
+       "cliente_id":10111,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":210,
+         "fields": {          
+       "cliente_id":10112,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":211,
+         "fields": {          
+       "cliente_id":10113,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":212,
+         "fields": {          
+       "cliente_id":10114,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":213,
+         "fields": {          
+       "cliente_id":10115,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":214,
+         "fields": {          
+       "cliente_id":10116,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":215,
+         "fields": {          
+       "cliente_id":10117,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":216,
+         "fields": {          
+       "cliente_id":10118,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":217,
+         "fields": {          
+       "cliente_id":10119,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":218,
+         "fields": {          
+       "cliente_id":10120,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":219,
+         "fields": {          
+       "cliente_id":10121,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":220,
+         "fields": {          
+       "cliente_id":10122,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":221,
+         "fields": {          
+       "cliente_id":10123,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":222,
+         "fields": {          
+       "cliente_id":10124,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":223,
+         "fields": {          
+       "cliente_id":10125,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":224,
+         "fields": {          
+       "cliente_id":10126,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":225,
+         "fields": {          
+       "cliente_id":10127,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":226,
+         "fields": {          
+       "cliente_id":10128,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":227,
+         "fields": {          
+       "cliente_id":10129,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":228,
+         "fields": {          
+       "cliente_id":10130,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":229,
+         "fields": {          
+       "cliente_id":10131,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":230,
+         "fields": {          
+       "cliente_id":10132,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":231,
+         "fields": {          
+       "cliente_id":10133,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":232,
+         "fields": {          
+       "cliente_id":10134,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":233,
+         "fields": {          
+       "cliente_id":10135,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":234,
+         "fields": {          
+       "cliente_id":10136,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":235,
+         "fields": {          
+       "cliente_id":10137,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":236,
+         "fields": {          
+       "cliente_id":10138,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":237,
+         "fields": {          
+       "cliente_id":10139,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":238,
+         "fields": {          
+       "cliente_id":10140,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":239,
+         "fields": {          
+       "cliente_id":10141,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":240,
+         "fields": {          
+       "cliente_id":10142,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":241,
+         "fields": {          
+       "cliente_id":10143,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":242,
+         "fields": {          
+       "cliente_id":10144,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":243,
+         "fields": {          
+       "cliente_id":10145,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":244,
+         "fields": {          
+       "cliente_id":10146,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":245,
+         "fields": {          
+       "cliente_id":10147,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":246,
+         "fields": {          
+       "cliente_id":10148,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":247,
+         "fields": {          
+       "cliente_id":10149,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":248,
+         "fields": {          
+       "cliente_id":10150,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":249,
+         "fields": {          
+       "cliente_id":10151,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":250,
+         "fields": {          
+       "cliente_id":10152,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":251,
+         "fields": {          
+       "cliente_id":10153,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":252,
+         "fields": {          
+       "cliente_id":10154,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":253,
+         "fields": {          
+       "cliente_id":10155,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":254,
+         "fields": {          
+       "cliente_id":10156,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":255,
+         "fields": {          
+       "cliente_id":10157,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":256,
+         "fields": {          
+       "cliente_id":10158,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":257,
+         "fields": {          
+       "cliente_id":10159,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":258,
+         "fields": {          
+       "cliente_id":10160,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":259,
+         "fields": {          
+       "cliente_id":10161,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":260,
+         "fields": {          
+       "cliente_id":10162,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":261,
+         "fields": {          
+       "cliente_id":10163,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":262,
+         "fields": {          
+       "cliente_id":10164,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":263,
+         "fields": {          
+       "cliente_id":10165,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":264,
+         "fields": {          
+       "cliente_id":10166,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":265,
+         "fields": {          
+       "cliente_id":10167,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":266,
+         "fields": {          
+       "cliente_id":10168,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":267,
+         "fields": {          
+       "cliente_id":10169,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":268,
+         "fields": {          
+       "cliente_id":10170,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":269,
+         "fields": {          
+       "cliente_id":10171,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":270,
+         "fields": {          
+       "cliente_id":10172,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":271,
+         "fields": {          
+       "cliente_id":10173,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":272,
+         "fields": {          
+       "cliente_id":10174,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":273,
+         "fields": {          
+       "cliente_id":10175,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":274,
+         "fields": {          
+       "cliente_id":10176,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":275,
+         "fields": {          
+       "cliente_id":10177,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":276,
+         "fields": {          
+       "cliente_id":10178,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":277,
+         "fields": {          
+       "cliente_id":10179,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":278,
+         "fields": {          
+       "cliente_id":10180,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":279,
+         "fields": {          
+       "cliente_id":10181,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":280,
+         "fields": {          
+       "cliente_id":10182,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":281,
+         "fields": {          
+       "cliente_id":10183,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":282,
+         "fields": {          
+       "cliente_id":10184,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":283,
+         "fields": {          
+       "cliente_id":10185,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":284,
+         "fields": {          
+       "cliente_id":10186,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":285,
+         "fields": {          
+       "cliente_id":10187,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":286,
+         "fields": {          
+       "cliente_id":10188,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":287,
+         "fields": {          
+       "cliente_id":10189,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":288,
+         "fields": {          
+       "cliente_id":10190,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":289,
+         "fields": {          
+       "cliente_id":10191,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":290,
+         "fields": {          
+       "cliente_id":10192,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":291,
+         "fields": {          
+       "cliente_id":10193,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":292,
+         "fields": {          
+       "cliente_id":10194,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":293,
+         "fields": {          
+       "cliente_id":10195,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":294,
+         "fields": {          
+       "cliente_id":10196,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":295,
+         "fields": {          
+       "cliente_id":10197,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":296,
+         "fields": {          
+       "cliente_id":10198,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":297,
+         "fields": {          
+       "cliente_id":10199,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":298,
+         "fields": {          
+       "cliente_id":10200,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":299,
+         "fields": {          
+       "cliente_id":10201,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":300,
+         "fields": {          
+       "cliente_id":10202,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":301,
+         "fields": {          
+       "cliente_id":10203,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":302,
+         "fields": {          
+       "cliente_id":10204,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":303,
+         "fields": {          
+       "cliente_id":10205,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":304,
+         "fields": {          
+       "cliente_id":10206,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":305,
+         "fields": {          
+       "cliente_id":10207,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":306,
+         "fields": {          
+       "cliente_id":10208,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":307,
+         "fields": {          
+       "cliente_id":10209,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":308,
+         "fields": {          
+       "cliente_id":10210,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":309,
+         "fields": {          
+       "cliente_id":10211,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":310,
+         "fields": {          
+       "cliente_id":10212,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":311,
+         "fields": {          
+       "cliente_id":10213,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":312,
+         "fields": {          
+       "cliente_id":10214,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":313,
+         "fields": {          
+       "cliente_id":10215,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":314,
+         "fields": {          
+       "cliente_id":10216,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":315,
+         "fields": {          
+       "cliente_id":10217,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":316,
+         "fields": {          
+       "cliente_id":10218,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":317,
+         "fields": {          
+       "cliente_id":10219,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":318,
+         "fields": {          
+       "cliente_id":10220,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":319,
+         "fields": {          
+       "cliente_id":10221,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":320,
+         "fields": {          
+       "cliente_id":10222,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":321,
+         "fields": {          
+       "cliente_id":10223,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":322,
+         "fields": {          
+       "cliente_id":10224,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":323,
+         "fields": {          
+       "cliente_id":10225,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":324,
+         "fields": {          
+       "cliente_id":10226,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":325,
+         "fields": {          
+       "cliente_id":10227,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":326,
+         "fields": {          
+       "cliente_id":10228,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":327,
+         "fields": {          
+       "cliente_id":10229,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":328,
+         "fields": {          
+       "cliente_id":10230,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":329,
+         "fields": {          
+       "cliente_id":10231,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":330,
+         "fields": {          
+       "cliente_id":10233,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":331,
+         "fields": {          
+       "cliente_id":10234,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":332,
+         "fields": {          
+       "cliente_id":10235,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":333,
+         "fields": {          
+       "cliente_id":10236,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":334,
+         "fields": {          
+       "cliente_id":10237,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":335,
+         "fields": {          
+       "cliente_id":10238,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":336,
+         "fields": {          
+       "cliente_id":10239,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":337,
+         "fields": {          
+       "cliente_id":10240,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":338,
+         "fields": {          
+       "cliente_id":10241,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":339,
+         "fields": {          
+       "cliente_id":10242,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":340,
+         "fields": {          
+       "cliente_id":10243,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":341,
+         "fields": {          
+       "cliente_id":10244,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":342,
+         "fields": {          
+       "cliente_id":10245,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":343,
+         "fields": {          
+       "cliente_id":10246,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":344,
+         "fields": {          
+       "cliente_id":10247,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":345,
+         "fields": {          
+       "cliente_id":10248,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":346,
+         "fields": {          
+       "cliente_id":10249,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":347,
+         "fields": {          
+       "cliente_id":10250,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":348,
+         "fields": {          
+       "cliente_id":10251,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":349,
+         "fields": {          
+       "cliente_id":10252,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":350,
+         "fields": {          
+       "cliente_id":10253,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":351,
+         "fields": {          
+       "cliente_id":10254,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":352,
+         "fields": {          
+       "cliente_id":10255,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":353,
+         "fields": {          
+       "cliente_id":10256,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":354,
+         "fields": {          
+       "cliente_id":10257,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":355,
+         "fields": {          
+       "cliente_id":10258,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":356,
+         "fields": {          
+       "cliente_id":10259,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":357,
+         "fields": {          
+       "cliente_id":10260,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":358,
+         "fields": {          
+       "cliente_id":10262,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":359,
+         "fields": {          
+       "cliente_id":10263,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":360,
+         "fields": {          
+       "cliente_id":10264,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":361,
+         "fields": {          
+       "cliente_id":10265,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":362,
+         "fields": {          
+       "cliente_id":10266,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":363,
+         "fields": {          
+       "cliente_id":10267,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":364,
+         "fields": {          
+       "cliente_id":10268,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":365,
+         "fields": {          
+       "cliente_id":10269,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":366,
+         "fields": {          
+       "cliente_id":10270,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":367,
+         "fields": {          
+       "cliente_id":10271,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":368,
+         "fields": {          
+       "cliente_id":10272,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":369,
+         "fields": {          
+       "cliente_id":10273,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":370,
+         "fields": {          
+       "cliente_id":10274,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":371,
+         "fields": {          
+       "cliente_id":10275,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":372,
+         "fields": {          
+       "cliente_id":10276,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":373,
+         "fields": {          
+       "cliente_id":10277,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":374,
+         "fields": {          
+       "cliente_id":10278,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":375,
+         "fields": {          
+       "cliente_id":10279,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":376,
+         "fields": {          
+       "cliente_id":10280,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":377,
+         "fields": {          
+       "cliente_id":10281,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":378,
+         "fields": {          
+       "cliente_id":10282,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":379,
+         "fields": {          
+       "cliente_id":10284,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":380,
+         "fields": {          
+       "cliente_id":10285,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":381,
+         "fields": {          
+       "cliente_id":10286,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":382,
+         "fields": {          
+       "cliente_id":10287,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":383,
+         "fields": {          
+       "cliente_id":10288,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":384,
+         "fields": {          
+       "cliente_id":10289,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":385,
+         "fields": {          
+       "cliente_id":10291,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":386,
+         "fields": {          
+       "cliente_id":10292,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":387,
+         "fields": {          
+       "cliente_id":10293,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":388,
+         "fields": {          
+       "cliente_id":10294,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":389,
+         "fields": {          
+       "cliente_id":10295,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":390,
+         "fields": {          
+       "cliente_id":10297,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":391,
+         "fields": {          
+       "cliente_id":10298,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":392,
+         "fields": {          
+       "cliente_id":10299,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":393,
+         "fields": {          
+       "cliente_id":10300,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":394,
+         "fields": {          
+       "cliente_id":10301,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":395,
+         "fields": {          
+       "cliente_id":10302,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":396,
+         "fields": {          
+       "cliente_id":10303,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":397,
+         "fields": {          
+       "cliente_id":10304,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":398,
+         "fields": {          
+       "cliente_id":10305,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":399,
+         "fields": {          
+       "cliente_id":10306,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":400,
+         "fields": {          
+       "cliente_id":10307,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":401,
+         "fields": {          
+       "cliente_id":10308,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":402,
+         "fields": {          
+       "cliente_id":10309,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":403,
+         "fields": {          
+       "cliente_id":10310,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":404,
+         "fields": {          
+       "cliente_id":10311,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":405,
+         "fields": {          
+       "cliente_id":10312,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":406,
+         "fields": {          
+       "cliente_id":10313,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":407,
+         "fields": {          
+       "cliente_id":10314,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":408,
+         "fields": {          
+       "cliente_id":10315,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":409,
+         "fields": {          
+       "cliente_id":10316,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":410,
+         "fields": {          
+       "cliente_id":10317,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":411,
+         "fields": {          
+       "cliente_id":10318,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":412,
+         "fields": {          
+       "cliente_id":10319,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":413,
+         "fields": {          
+       "cliente_id":10320,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":414,
+         "fields": {          
+       "cliente_id":10321,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":415,
+         "fields": {          
+       "cliente_id":10322,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":416,
+         "fields": {          
+       "cliente_id":10323,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":417,
+         "fields": {          
+       "cliente_id":10324,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":418,
+         "fields": {          
+       "cliente_id":10325,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":419,
+         "fields": {          
+       "cliente_id":10326,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":420,
+         "fields": {          
+       "cliente_id":10327,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":421,
+         "fields": {          
+       "cliente_id":10328,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":422,
+         "fields": {          
+       "cliente_id":10329,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":423,
+         "fields": {          
+       "cliente_id":10330,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":424,
+         "fields": {          
+       "cliente_id":10331,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":425,
+         "fields": {          
+       "cliente_id":10332,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":426,
+         "fields": {          
+       "cliente_id":10333,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":427,
+         "fields": {          
+       "cliente_id":10334,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":428,
+         "fields": {          
+       "cliente_id":10335,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":429,
+         "fields": {          
+       "cliente_id":10336,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":430,
+         "fields": {          
+       "cliente_id":10337,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":431,
+         "fields": {          
+       "cliente_id":10338,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":432,
+         "fields": {          
+       "cliente_id":10339,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":433,
+         "fields": {          
+       "cliente_id":10340,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":434,
+         "fields": {          
+       "cliente_id":10341,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":435,
+         "fields": {          
+       "cliente_id":10342,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":436,
+         "fields": {          
+       "cliente_id":10343,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":437,
+         "fields": {          
+       "cliente_id":10344,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":438,
+         "fields": {          
+       "cliente_id":10345,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":439,
+         "fields": {          
+       "cliente_id":10346,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":440,
+         "fields": {          
+       "cliente_id":10347,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":441,
+         "fields": {          
+       "cliente_id":10348,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":442,
+         "fields": {          
+       "cliente_id":10349,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":443,
+         "fields": {          
+       "cliente_id":10350,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":444,
+         "fields": {          
+       "cliente_id":10351,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":445,
+         "fields": {          
+       "cliente_id":10352,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":446,
+         "fields": {          
+       "cliente_id":10353,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":447,
+         "fields": {          
+       "cliente_id":10354,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":448,
+         "fields": {          
+       "cliente_id":10355,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":449,
+         "fields": {          
+       "cliente_id":10356,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":450,
+         "fields": {          
+       "cliente_id":10357,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":451,
+         "fields": {          
+       "cliente_id":10358,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":452,
+         "fields": {          
+       "cliente_id":10359,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":453,
+         "fields": {          
+       "cliente_id":10360,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":454,
+         "fields": {          
+       "cliente_id":10361,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":455,
+         "fields": {          
+       "cliente_id":10362,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":456,
+         "fields": {          
+       "cliente_id":10363,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":457,
+         "fields": {          
+       "cliente_id":10364,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":458,
+         "fields": {          
+       "cliente_id":10365,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":459,
+         "fields": {          
+       "cliente_id":10366,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":460,
+         "fields": {          
+       "cliente_id":10367,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":461,
+         "fields": {          
+       "cliente_id":10368,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":462,
+         "fields": {          
+       "cliente_id":10369,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":463,
+         "fields": {          
+       "cliente_id":10370,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":464,
+         "fields": {          
+       "cliente_id":10371,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":465,
+         "fields": {          
+       "cliente_id":10372,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":466,
+         "fields": {          
+       "cliente_id":10373,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":467,
+         "fields": {          
+       "cliente_id":10374,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":468,
+         "fields": {          
+       "cliente_id":10375,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":469,
+         "fields": {          
+       "cliente_id":10376,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":470,
+         "fields": {          
+       "cliente_id":10377,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":471,
+         "fields": {          
+       "cliente_id":10378,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":472,
+         "fields": {          
+       "cliente_id":10379,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":473,
+         "fields": {          
+       "cliente_id":10380,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":474,
+         "fields": {          
+       "cliente_id":10381,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":475,
+         "fields": {          
+       "cliente_id":10382,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":476,
+         "fields": {          
+       "cliente_id":10383,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":477,
+         "fields": {          
+       "cliente_id":10384,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":478,
+         "fields": {          
+       "cliente_id":10385,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":479,
+         "fields": {          
+       "cliente_id":10386,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":480,
+         "fields": {          
+       "cliente_id":10387,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":481,
+         "fields": {          
+       "cliente_id":10388,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":482,
+         "fields": {          
+       "cliente_id":10389,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":483,
+         "fields": {          
+       "cliente_id":10390,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":484,
+         "fields": {          
+       "cliente_id":10391,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":485,
+         "fields": {          
+       "cliente_id":10392,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":486,
+         "fields": {          
+       "cliente_id":10393,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":487,
+         "fields": {          
+       "cliente_id":10394,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":488,
+         "fields": {          
+       "cliente_id":10395,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":489,
+         "fields": {          
+       "cliente_id":10396,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":490,
+         "fields": {          
+       "cliente_id":10397,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":491,
+         "fields": {          
+       "cliente_id":10398,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":492,
+         "fields": {          
+       "cliente_id":10399,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":493,
+         "fields": {          
+       "cliente_id":10400,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":494,
+         "fields": {          
+       "cliente_id":10401,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":495,
+         "fields": {          
+       "cliente_id":10402,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":496,
+         "fields": {          
+       "cliente_id":10403,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":497,
+         "fields": {          
+       "cliente_id":10404,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":498,
+         "fields": {          
+       "cliente_id":10405,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":499,
+         "fields": {          
+       "cliente_id":10406,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":500,
+         "fields": {          
+       "cliente_id":10407,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":501,
+         "fields": {          
+       "cliente_id":10408,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":502,
+         "fields": {          
+       "cliente_id":10409,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":503,
+         "fields": {          
+       "cliente_id":10410,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":504,
+         "fields": {          
+       "cliente_id":10411,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":505,
+         "fields": {          
+       "cliente_id":10412,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":506,
+         "fields": {          
+       "cliente_id":10413,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":507,
+         "fields": {          
+       "cliente_id":10414,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":508,
+         "fields": {          
+       "cliente_id":10415,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":509,
+         "fields": {          
+       "cliente_id":10416,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":510,
+         "fields": {          
+       "cliente_id":10417,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":511,
+         "fields": {          
+       "cliente_id":10418,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":512,
+         "fields": {          
+       "cliente_id":10419,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":513,
+         "fields": {          
+       "cliente_id":10420,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":514,
+         "fields": {          
+       "cliente_id":10421,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":515,
+         "fields": {          
+       "cliente_id":10422,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":516,
+         "fields": {          
+       "cliente_id":10423,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":517,
+         "fields": {          
+       "cliente_id":10424,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":518,
+         "fields": {          
+       "cliente_id":10425,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":519,
+         "fields": {          
+       "cliente_id":10426,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":520,
+         "fields": {          
+       "cliente_id":10427,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":521,
+         "fields": {          
+       "cliente_id":10428,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":522,
+         "fields": {          
+       "cliente_id":10429,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":523,
+         "fields": {          
+       "cliente_id":10430,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":524,
+         "fields": {          
+       "cliente_id":10431,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":525,
+         "fields": {          
+       "cliente_id":10432,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":526,
+         "fields": {          
+       "cliente_id":10433,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":527,
+         "fields": {          
+       "cliente_id":10434,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":528,
+         "fields": {          
+       "cliente_id":10435,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":529,
+         "fields": {          
+       "cliente_id":10436,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":530,
+         "fields": {          
+       "cliente_id":10437,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":531,
+         "fields": {          
+       "cliente_id":10438,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":532,
+         "fields": {          
+       "cliente_id":10439,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":533,
+         "fields": {          
+       "cliente_id":10440,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":534,
+         "fields": {          
+       "cliente_id":10441,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":535,
+         "fields": {          
+       "cliente_id":10442,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":536,
+         "fields": {          
+       "cliente_id":10443,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":537,
+         "fields": {          
+       "cliente_id":10444,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":538,
+         "fields": {          
+       "cliente_id":10445,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":539,
+         "fields": {          
+       "cliente_id":10446,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":540,
+         "fields": {          
+       "cliente_id":10447,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":541,
+         "fields": {          
+       "cliente_id":10448,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":542,
+         "fields": {          
+       "cliente_id":10449,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":543,
+         "fields": {          
+       "cliente_id":10450,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":544,
+         "fields": {          
+       "cliente_id":10451,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":545,
+         "fields": {          
+       "cliente_id":10452,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":546,
+         "fields": {          
+       "cliente_id":10453,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":547,
+         "fields": {          
+       "cliente_id":10454,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":548,
+         "fields": {          
+       "cliente_id":10455,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":549,
+         "fields": {          
+       "cliente_id":10456,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":550,
+         "fields": {          
+       "cliente_id":10457,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":551,
+         "fields": {          
+       "cliente_id":10458,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":552,
+         "fields": {          
+       "cliente_id":10459,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":553,
+         "fields": {          
+       "cliente_id":10460,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":554,
+         "fields": {          
+       "cliente_id":10461,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":555,
+         "fields": {          
+       "cliente_id":10462,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":556,
+         "fields": {          
+       "cliente_id":10463,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":557,
+         "fields": {          
+       "cliente_id":10464,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":558,
+         "fields": {          
+       "cliente_id":10465,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":559,
+         "fields": {          
+       "cliente_id":10466,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":560,
+         "fields": {          
+       "cliente_id":10467,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":561,
+         "fields": {          
+       "cliente_id":10468,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":562,
+         "fields": {          
+       "cliente_id":10469,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":563,
+         "fields": {          
+       "cliente_id":10470,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":564,
+         "fields": {          
+       "cliente_id":10471,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":565,
+         "fields": {          
+       "cliente_id":10472,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":566,
+         "fields": {          
+       "cliente_id":10473,
+       "persona_id":9999 }
+},
+{
+        "model": "sistema.personacliente","pk":567,
+         "fields": {          
+       "cliente_id":10000,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":568,
+         "fields": {          
+       "cliente_id":10001,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":569,
+         "fields": {          
+       "cliente_id":10002,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":570,
+         "fields": {          
+       "cliente_id":10003,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":571,
+         "fields": {          
+       "cliente_id":10004,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":572,
+         "fields": {          
+       "cliente_id":10005,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":573,
+         "fields": {          
+       "cliente_id":10006,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":574,
+         "fields": {          
+       "cliente_id":10007,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":575,
+         "fields": {          
+       "cliente_id":10008,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":576,
+         "fields": {          
+       "cliente_id":10009,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":577,
+         "fields": {          
+       "cliente_id":10010,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":578,
+         "fields": {          
+       "cliente_id":10011,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":579,
+         "fields": {          
+       "cliente_id":10012,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":580,
+         "fields": {          
+       "cliente_id":10013,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":581,
+         "fields": {          
+       "cliente_id":10014,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":582,
+         "fields": {          
+       "cliente_id":10015,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":583,
+         "fields": {          
+       "cliente_id":10016,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":584,
+         "fields": {          
+       "cliente_id":10017,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":585,
+         "fields": {          
+       "cliente_id":10018,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":586,
+         "fields": {          
+       "cliente_id":10019,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":587,
+         "fields": {          
+       "cliente_id":10020,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":588,
+         "fields": {          
+       "cliente_id":10021,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":589,
+         "fields": {          
+       "cliente_id":10022,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":590,
+         "fields": {          
+       "cliente_id":10023,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":591,
+         "fields": {          
+       "cliente_id":10024,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":592,
+         "fields": {          
+       "cliente_id":10025,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":593,
+         "fields": {          
+       "cliente_id":10026,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":594,
+         "fields": {          
+       "cliente_id":10027,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":595,
+         "fields": {          
+       "cliente_id":10028,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":596,
+         "fields": {          
+       "cliente_id":10029,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":597,
+         "fields": {          
+       "cliente_id":10030,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":598,
+         "fields": {          
+       "cliente_id":10031,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":599,
+         "fields": {          
+       "cliente_id":10032,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":600,
+         "fields": {          
+       "cliente_id":10033,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":601,
+         "fields": {          
+       "cliente_id":10034,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":602,
+         "fields": {          
+       "cliente_id":10035,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":603,
+         "fields": {          
+       "cliente_id":10036,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":604,
+         "fields": {          
+       "cliente_id":10037,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":605,
+         "fields": {          
+       "cliente_id":10038,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":606,
+         "fields": {          
+       "cliente_id":10039,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":607,
+         "fields": {          
+       "cliente_id":10040,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":608,
+         "fields": {          
+       "cliente_id":10041,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":609,
+         "fields": {          
+       "cliente_id":10042,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":610,
+         "fields": {          
+       "cliente_id":10043,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":611,
+         "fields": {          
+       "cliente_id":10044,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":612,
+         "fields": {          
+       "cliente_id":10045,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":613,
+         "fields": {          
+       "cliente_id":10046,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":614,
+         "fields": {          
+       "cliente_id":10047,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":615,
+         "fields": {          
+       "cliente_id":10048,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":616,
+         "fields": {          
+       "cliente_id":10049,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":617,
+         "fields": {          
+       "cliente_id":10050,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":618,
+         "fields": {          
+       "cliente_id":10051,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":619,
+         "fields": {          
+       "cliente_id":10052,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":620,
+         "fields": {          
+       "cliente_id":10053,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":621,
+         "fields": {          
+       "cliente_id":10054,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":622,
+         "fields": {          
+       "cliente_id":10055,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":623,
+         "fields": {          
+       "cliente_id":10056,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":624,
+         "fields": {          
+       "cliente_id":10057,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":625,
+         "fields": {          
+       "cliente_id":10058,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":626,
+         "fields": {          
+       "cliente_id":10059,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":627,
+         "fields": {          
+       "cliente_id":10060,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":628,
+         "fields": {          
+       "cliente_id":10061,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":629,
+         "fields": {          
+       "cliente_id":10062,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":630,
+         "fields": {          
+       "cliente_id":10063,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":631,
+         "fields": {          
+       "cliente_id":10064,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":632,
+         "fields": {          
+       "cliente_id":10065,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":633,
+         "fields": {          
+       "cliente_id":10066,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":634,
+         "fields": {          
+       "cliente_id":10067,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":635,
+         "fields": {          
+       "cliente_id":10068,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":636,
+         "fields": {          
+       "cliente_id":10069,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":637,
+         "fields": {          
+       "cliente_id":10070,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":638,
+         "fields": {          
+       "cliente_id":10071,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":639,
+         "fields": {          
+       "cliente_id":10072,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":640,
+         "fields": {          
+       "cliente_id":10073,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":641,
+         "fields": {          
+       "cliente_id":10074,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":642,
+         "fields": {          
+       "cliente_id":10075,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":643,
+         "fields": {          
+       "cliente_id":10076,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":644,
+         "fields": {          
+       "cliente_id":10077,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":645,
+         "fields": {          
+       "cliente_id":10078,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":646,
+         "fields": {          
+       "cliente_id":10079,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":647,
+         "fields": {          
+       "cliente_id":10080,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":648,
+         "fields": {          
+       "cliente_id":10081,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":649,
+         "fields": {          
+       "cliente_id":10082,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":650,
+         "fields": {          
+       "cliente_id":10083,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":651,
+         "fields": {          
+       "cliente_id":10084,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":652,
+         "fields": {          
+       "cliente_id":10085,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":653,
+         "fields": {          
+       "cliente_id":10086,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":654,
+         "fields": {          
+       "cliente_id":10087,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":655,
+         "fields": {          
+       "cliente_id":10088,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":656,
+         "fields": {          
+       "cliente_id":10089,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":657,
+         "fields": {          
+       "cliente_id":10090,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":658,
+         "fields": {          
+       "cliente_id":10091,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":659,
+         "fields": {          
+       "cliente_id":10092,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":660,
+         "fields": {          
+       "cliente_id":10094,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":661,
+         "fields": {          
+       "cliente_id":10095,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":662,
+         "fields": {          
+       "cliente_id":10096,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":663,
+         "fields": {          
+       "cliente_id":10097,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":664,
+         "fields": {          
+       "cliente_id":10098,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":665,
+         "fields": {          
+       "cliente_id":10099,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":666,
+         "fields": {          
+       "cliente_id":10100,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":667,
+         "fields": {          
+       "cliente_id":10101,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":668,
+         "fields": {          
+       "cliente_id":10102,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":669,
+         "fields": {          
+       "cliente_id":10103,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":670,
+         "fields": {          
+       "cliente_id":10104,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":671,
+         "fields": {          
+       "cliente_id":10105,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":672,
+         "fields": {          
+       "cliente_id":10106,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":673,
+         "fields": {          
+       "cliente_id":10107,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":674,
+         "fields": {          
+       "cliente_id":10108,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":675,
+         "fields": {          
+       "cliente_id":10110,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":676,
+         "fields": {          
+       "cliente_id":10111,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":677,
+         "fields": {          
+       "cliente_id":10112,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":678,
+         "fields": {          
+       "cliente_id":10113,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":679,
+         "fields": {          
+       "cliente_id":10114,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":680,
+         "fields": {          
+       "cliente_id":10115,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":681,
+         "fields": {          
+       "cliente_id":10116,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":682,
+         "fields": {          
+       "cliente_id":10117,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":683,
+         "fields": {          
+       "cliente_id":10118,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":684,
+         "fields": {          
+       "cliente_id":10119,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":685,
+         "fields": {          
+       "cliente_id":10120,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":686,
+         "fields": {          
+       "cliente_id":10121,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":687,
+         "fields": {          
+       "cliente_id":10122,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":688,
+         "fields": {          
+       "cliente_id":10123,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":689,
+         "fields": {          
+       "cliente_id":10124,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":690,
+         "fields": {          
+       "cliente_id":10125,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":691,
+         "fields": {          
+       "cliente_id":10126,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":692,
+         "fields": {          
+       "cliente_id":10127,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":693,
+         "fields": {          
+       "cliente_id":10128,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":694,
+         "fields": {          
+       "cliente_id":10129,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":695,
+         "fields": {          
+       "cliente_id":10130,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":696,
+         "fields": {          
+       "cliente_id":10131,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":697,
+         "fields": {          
+       "cliente_id":10132,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":698,
+         "fields": {          
+       "cliente_id":10133,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":699,
+         "fields": {          
+       "cliente_id":10134,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":700,
+         "fields": {          
+       "cliente_id":10135,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":701,
+         "fields": {          
+       "cliente_id":10136,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":702,
+         "fields": {          
+       "cliente_id":10137,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":703,
+         "fields": {          
+       "cliente_id":10138,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":704,
+         "fields": {          
+       "cliente_id":10139,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":705,
+         "fields": {          
+       "cliente_id":10140,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":706,
+         "fields": {          
+       "cliente_id":10141,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":707,
+         "fields": {          
+       "cliente_id":10142,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":708,
+         "fields": {          
+       "cliente_id":10143,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":709,
+         "fields": {          
+       "cliente_id":10144,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":710,
+         "fields": {          
+       "cliente_id":10145,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":711,
+         "fields": {          
+       "cliente_id":10146,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":712,
+         "fields": {          
+       "cliente_id":10147,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":713,
+         "fields": {          
+       "cliente_id":10148,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":714,
+         "fields": {          
+       "cliente_id":10149,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":715,
+         "fields": {          
+       "cliente_id":10150,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":716,
+         "fields": {          
+       "cliente_id":10151,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":717,
+         "fields": {          
+       "cliente_id":10152,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":718,
+         "fields": {          
+       "cliente_id":10153,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":719,
+         "fields": {          
+       "cliente_id":10154,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":720,
+         "fields": {          
+       "cliente_id":10155,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":721,
+         "fields": {          
+       "cliente_id":10156,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":722,
+         "fields": {          
+       "cliente_id":10157,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":723,
+         "fields": {          
+       "cliente_id":10158,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":724,
+         "fields": {          
+       "cliente_id":10159,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":725,
+         "fields": {          
+       "cliente_id":10160,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":726,
+         "fields": {          
+       "cliente_id":10161,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":727,
+         "fields": {          
+       "cliente_id":10162,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":728,
+         "fields": {          
+       "cliente_id":10163,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":729,
+         "fields": {          
+       "cliente_id":10164,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":730,
+         "fields": {          
+       "cliente_id":10165,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":731,
+         "fields": {          
+       "cliente_id":10166,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":732,
+         "fields": {          
+       "cliente_id":10167,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":733,
+         "fields": {          
+       "cliente_id":10168,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":734,
+         "fields": {          
+       "cliente_id":10169,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":735,
+         "fields": {          
+       "cliente_id":10170,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":736,
+         "fields": {          
+       "cliente_id":10171,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":737,
+         "fields": {          
+       "cliente_id":10172,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":738,
+         "fields": {          
+       "cliente_id":10173,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":739,
+         "fields": {          
+       "cliente_id":10174,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":740,
+         "fields": {          
+       "cliente_id":10175,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":741,
+         "fields": {          
+       "cliente_id":10176,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":742,
+         "fields": {          
+       "cliente_id":10177,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":743,
+         "fields": {          
+       "cliente_id":10178,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":744,
+         "fields": {          
+       "cliente_id":10179,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":745,
+         "fields": {          
+       "cliente_id":10180,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":746,
+         "fields": {          
+       "cliente_id":10181,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":747,
+         "fields": {          
+       "cliente_id":10182,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":748,
+         "fields": {          
+       "cliente_id":10183,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":749,
+         "fields": {          
+       "cliente_id":10184,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":750,
+         "fields": {          
+       "cliente_id":10185,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":751,
+         "fields": {          
+       "cliente_id":10186,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":752,
+         "fields": {          
+       "cliente_id":10187,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":753,
+         "fields": {          
+       "cliente_id":10188,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":754,
+         "fields": {          
+       "cliente_id":10189,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":755,
+         "fields": {          
+       "cliente_id":10190,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":756,
+         "fields": {          
+       "cliente_id":10191,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":757,
+         "fields": {          
+       "cliente_id":10192,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":758,
+         "fields": {          
+       "cliente_id":10193,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":759,
+         "fields": {          
+       "cliente_id":10194,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":760,
+         "fields": {          
+       "cliente_id":10195,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":761,
+         "fields": {          
+       "cliente_id":10196,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":762,
+         "fields": {          
+       "cliente_id":10197,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":763,
+         "fields": {          
+       "cliente_id":10198,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":764,
+         "fields": {          
+       "cliente_id":10199,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":765,
+         "fields": {          
+       "cliente_id":10200,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":766,
+         "fields": {          
+       "cliente_id":10201,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":767,
+         "fields": {          
+       "cliente_id":10202,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":768,
+         "fields": {          
+       "cliente_id":10203,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":769,
+         "fields": {          
+       "cliente_id":10204,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":770,
+         "fields": {          
+       "cliente_id":10205,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":771,
+         "fields": {          
+       "cliente_id":10206,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":772,
+         "fields": {          
+       "cliente_id":10207,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":773,
+         "fields": {          
+       "cliente_id":10208,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":774,
+         "fields": {          
+       "cliente_id":10209,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":775,
+         "fields": {          
+       "cliente_id":10210,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":776,
+         "fields": {          
+       "cliente_id":10211,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":777,
+         "fields": {          
+       "cliente_id":10212,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":778,
+         "fields": {          
+       "cliente_id":10213,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":779,
+         "fields": {          
+       "cliente_id":10214,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":780,
+         "fields": {          
+       "cliente_id":10215,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":781,
+         "fields": {          
+       "cliente_id":10216,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":782,
+         "fields": {          
+       "cliente_id":10217,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":783,
+         "fields": {          
+       "cliente_id":10218,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":784,
+         "fields": {          
+       "cliente_id":10219,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":785,
+         "fields": {          
+       "cliente_id":10220,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":786,
+         "fields": {          
+       "cliente_id":10221,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":787,
+         "fields": {          
+       "cliente_id":10222,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":788,
+         "fields": {          
+       "cliente_id":10223,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":789,
+         "fields": {          
+       "cliente_id":10224,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":790,
+         "fields": {          
+       "cliente_id":10225,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":791,
+         "fields": {          
+       "cliente_id":10226,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":792,
+         "fields": {          
+       "cliente_id":10227,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":793,
+         "fields": {          
+       "cliente_id":10228,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":794,
+         "fields": {          
+       "cliente_id":10229,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":795,
+         "fields": {          
+       "cliente_id":10230,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":796,
+         "fields": {          
+       "cliente_id":10231,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":797,
+         "fields": {          
+       "cliente_id":10233,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":798,
+         "fields": {          
+       "cliente_id":10234,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":799,
+         "fields": {          
+       "cliente_id":10235,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":800,
+         "fields": {          
+       "cliente_id":10236,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":801,
+         "fields": {          
+       "cliente_id":10237,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":802,
+         "fields": {          
+       "cliente_id":10238,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":803,
+         "fields": {          
+       "cliente_id":10239,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":804,
+         "fields": {          
+       "cliente_id":10240,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":805,
+         "fields": {          
+       "cliente_id":10241,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":806,
+         "fields": {          
+       "cliente_id":10242,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":807,
+         "fields": {          
+       "cliente_id":10243,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":808,
+         "fields": {          
+       "cliente_id":10244,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":809,
+         "fields": {          
+       "cliente_id":10245,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":810,
+         "fields": {          
+       "cliente_id":10246,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":811,
+         "fields": {          
+       "cliente_id":10247,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":812,
+         "fields": {          
+       "cliente_id":10248,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":813,
+         "fields": {          
+       "cliente_id":10249,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":814,
+         "fields": {          
+       "cliente_id":10250,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":815,
+         "fields": {          
+       "cliente_id":10251,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":816,
+         "fields": {          
+       "cliente_id":10252,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":817,
+         "fields": {          
+       "cliente_id":10253,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":818,
+         "fields": {          
+       "cliente_id":10254,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":819,
+         "fields": {          
+       "cliente_id":10255,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":820,
+         "fields": {          
+       "cliente_id":10256,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":821,
+         "fields": {          
+       "cliente_id":10257,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":822,
+         "fields": {          
+       "cliente_id":10258,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":823,
+         "fields": {          
+       "cliente_id":10259,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":824,
+         "fields": {          
+       "cliente_id":10260,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":825,
+         "fields": {          
+       "cliente_id":10262,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":826,
+         "fields": {          
+       "cliente_id":10263,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":827,
+         "fields": {          
+       "cliente_id":10264,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":828,
+         "fields": {          
+       "cliente_id":10265,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":829,
+         "fields": {          
+       "cliente_id":10266,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":830,
+         "fields": {          
+       "cliente_id":10267,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":831,
+         "fields": {          
+       "cliente_id":10268,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":832,
+         "fields": {          
+       "cliente_id":10269,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":833,
+         "fields": {          
+       "cliente_id":10270,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":834,
+         "fields": {          
+       "cliente_id":10271,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":835,
+         "fields": {          
+       "cliente_id":10272,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":836,
+         "fields": {          
+       "cliente_id":10273,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":837,
+         "fields": {          
+       "cliente_id":10274,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":838,
+         "fields": {          
+       "cliente_id":10275,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":839,
+         "fields": {          
+       "cliente_id":10276,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":840,
+         "fields": {          
+       "cliente_id":10277,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":841,
+         "fields": {          
+       "cliente_id":10278,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":842,
+         "fields": {          
+       "cliente_id":10279,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":843,
+         "fields": {          
+       "cliente_id":10280,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":844,
+         "fields": {          
+       "cliente_id":10281,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":845,
+         "fields": {          
+       "cliente_id":10282,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":846,
+         "fields": {          
+       "cliente_id":10284,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":847,
+         "fields": {          
+       "cliente_id":10285,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":848,
+         "fields": {          
+       "cliente_id":10286,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":849,
+         "fields": {          
+       "cliente_id":10287,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":850,
+         "fields": {          
+       "cliente_id":10288,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":851,
+         "fields": {          
+       "cliente_id":10289,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":852,
+         "fields": {          
+       "cliente_id":10291,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":853,
+         "fields": {          
+       "cliente_id":10292,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":854,
+         "fields": {          
+       "cliente_id":10293,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":855,
+         "fields": {          
+       "cliente_id":10294,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":856,
+         "fields": {          
+       "cliente_id":10295,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":857,
+         "fields": {          
+       "cliente_id":10297,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":858,
+         "fields": {          
+       "cliente_id":10298,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":859,
+         "fields": {          
+       "cliente_id":10299,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":860,
+         "fields": {          
+       "cliente_id":10300,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":861,
+         "fields": {          
+       "cliente_id":10301,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":862,
+         "fields": {          
+       "cliente_id":10302,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":863,
+         "fields": {          
+       "cliente_id":10303,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":864,
+         "fields": {          
+       "cliente_id":10304,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":865,
+         "fields": {          
+       "cliente_id":10305,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":866,
+         "fields": {          
+       "cliente_id":10306,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":867,
+         "fields": {          
+       "cliente_id":10307,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":868,
+         "fields": {          
+       "cliente_id":10308,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":869,
+         "fields": {          
+       "cliente_id":10309,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":870,
+         "fields": {          
+       "cliente_id":10310,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":871,
+         "fields": {          
+       "cliente_id":10311,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":872,
+         "fields": {          
+       "cliente_id":10312,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":873,
+         "fields": {          
+       "cliente_id":10313,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":874,
+         "fields": {          
+       "cliente_id":10314,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":875,
+         "fields": {          
+       "cliente_id":10315,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":876,
+         "fields": {          
+       "cliente_id":10316,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":877,
+         "fields": {          
+       "cliente_id":10317,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":878,
+         "fields": {          
+       "cliente_id":10318,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":879,
+         "fields": {          
+       "cliente_id":10319,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":880,
+         "fields": {          
+       "cliente_id":10320,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":881,
+         "fields": {          
+       "cliente_id":10321,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":882,
+         "fields": {          
+       "cliente_id":10322,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":883,
+         "fields": {          
+       "cliente_id":10323,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":884,
+         "fields": {          
+       "cliente_id":10324,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":885,
+         "fields": {          
+       "cliente_id":10325,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":886,
+         "fields": {          
+       "cliente_id":10326,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":887,
+         "fields": {          
+       "cliente_id":10327,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":888,
+         "fields": {          
+       "cliente_id":10328,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":889,
+         "fields": {          
+       "cliente_id":10329,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":890,
+         "fields": {          
+       "cliente_id":10330,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":891,
+         "fields": {          
+       "cliente_id":10331,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":892,
+         "fields": {          
+       "cliente_id":10332,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":893,
+         "fields": {          
+       "cliente_id":10333,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":894,
+         "fields": {          
+       "cliente_id":10334,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":895,
+         "fields": {          
+       "cliente_id":10335,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":896,
+         "fields": {          
+       "cliente_id":10336,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":897,
+         "fields": {          
+       "cliente_id":10337,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":898,
+         "fields": {          
+       "cliente_id":10338,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":899,
+         "fields": {          
+       "cliente_id":10339,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":900,
+         "fields": {          
+       "cliente_id":10340,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":901,
+         "fields": {          
+       "cliente_id":10341,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":902,
+         "fields": {          
+       "cliente_id":10342,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":903,
+         "fields": {          
+       "cliente_id":10343,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":904,
+         "fields": {          
+       "cliente_id":10344,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":905,
+         "fields": {          
+       "cliente_id":10345,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":906,
+         "fields": {          
+       "cliente_id":10346,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":907,
+         "fields": {          
+       "cliente_id":10347,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":908,
+         "fields": {          
+       "cliente_id":10348,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":909,
+         "fields": {          
+       "cliente_id":10349,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":910,
+         "fields": {          
+       "cliente_id":10350,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":911,
+         "fields": {          
+       "cliente_id":10351,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":912,
+         "fields": {          
+       "cliente_id":10352,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":913,
+         "fields": {          
+       "cliente_id":10353,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":914,
+         "fields": {          
+       "cliente_id":10354,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":915,
+         "fields": {          
+       "cliente_id":10355,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":916,
+         "fields": {          
+       "cliente_id":10356,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":917,
+         "fields": {          
+       "cliente_id":10357,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":918,
+         "fields": {          
+       "cliente_id":10358,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":919,
+         "fields": {          
+       "cliente_id":10359,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":920,
+         "fields": {          
+       "cliente_id":10360,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":921,
+         "fields": {          
+       "cliente_id":10361,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":922,
+         "fields": {          
+       "cliente_id":10362,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":923,
+         "fields": {          
+       "cliente_id":10363,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":924,
+         "fields": {          
+       "cliente_id":10364,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":925,
+         "fields": {          
+       "cliente_id":10365,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":926,
+         "fields": {          
+       "cliente_id":10366,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":927,
+         "fields": {          
+       "cliente_id":10367,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":928,
+         "fields": {          
+       "cliente_id":10368,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":929,
+         "fields": {          
+       "cliente_id":10369,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":930,
+         "fields": {          
+       "cliente_id":10370,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":931,
+         "fields": {          
+       "cliente_id":10371,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":932,
+         "fields": {          
+       "cliente_id":10372,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":933,
+         "fields": {          
+       "cliente_id":10373,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":934,
+         "fields": {          
+       "cliente_id":10374,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":935,
+         "fields": {          
+       "cliente_id":10375,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":936,
+         "fields": {          
+       "cliente_id":10376,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":937,
+         "fields": {          
+       "cliente_id":10377,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":938,
+         "fields": {          
+       "cliente_id":10378,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":939,
+         "fields": {          
+       "cliente_id":10379,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":940,
+         "fields": {          
+       "cliente_id":10380,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":941,
+         "fields": {          
+       "cliente_id":10381,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":942,
+         "fields": {          
+       "cliente_id":10382,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":943,
+         "fields": {          
+       "cliente_id":10383,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":944,
+         "fields": {          
+       "cliente_id":10384,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":945,
+         "fields": {          
+       "cliente_id":10385,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":946,
+         "fields": {          
+       "cliente_id":10386,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":947,
+         "fields": {          
+       "cliente_id":10387,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":948,
+         "fields": {          
+       "cliente_id":10388,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":949,
+         "fields": {          
+       "cliente_id":10389,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":950,
+         "fields": {          
+       "cliente_id":10390,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":951,
+         "fields": {          
+       "cliente_id":10391,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":952,
+         "fields": {          
+       "cliente_id":10392,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":953,
+         "fields": {          
+       "cliente_id":10393,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":954,
+         "fields": {          
+       "cliente_id":10394,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":955,
+         "fields": {          
+       "cliente_id":10395,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":956,
+         "fields": {          
+       "cliente_id":10396,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":957,
+         "fields": {          
+       "cliente_id":10397,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":958,
+         "fields": {          
+       "cliente_id":10398,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":959,
+         "fields": {          
+       "cliente_id":10399,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":960,
+         "fields": {          
+       "cliente_id":10400,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":961,
+         "fields": {          
+       "cliente_id":10401,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":962,
+         "fields": {          
+       "cliente_id":10402,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":963,
+         "fields": {          
+       "cliente_id":10403,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":964,
+         "fields": {          
+       "cliente_id":10404,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":965,
+         "fields": {          
+       "cliente_id":10405,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":966,
+         "fields": {          
+       "cliente_id":10406,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":967,
+         "fields": {          
+       "cliente_id":10407,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":968,
+         "fields": {          
+       "cliente_id":10408,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":969,
+         "fields": {          
+       "cliente_id":10409,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":970,
+         "fields": {          
+       "cliente_id":10410,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":971,
+         "fields": {          
+       "cliente_id":10411,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":972,
+         "fields": {          
+       "cliente_id":10412,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":973,
+         "fields": {          
+       "cliente_id":10413,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":974,
+         "fields": {          
+       "cliente_id":10414,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":975,
+         "fields": {          
+       "cliente_id":10415,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":976,
+         "fields": {          
+       "cliente_id":10416,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":977,
+         "fields": {          
+       "cliente_id":10417,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":978,
+         "fields": {          
+       "cliente_id":10418,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":979,
+         "fields": {          
+       "cliente_id":10419,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":980,
+         "fields": {          
+       "cliente_id":10420,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":981,
+         "fields": {          
+       "cliente_id":10421,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":982,
+         "fields": {          
+       "cliente_id":10422,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":983,
+         "fields": {          
+       "cliente_id":10423,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":984,
+         "fields": {          
+       "cliente_id":10424,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":985,
+         "fields": {          
+       "cliente_id":10425,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":986,
+         "fields": {          
+       "cliente_id":10426,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":987,
+         "fields": {          
+       "cliente_id":10427,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":988,
+         "fields": {          
+       "cliente_id":10428,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":989,
+         "fields": {          
+       "cliente_id":10429,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":990,
+         "fields": {          
+       "cliente_id":10430,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":991,
+         "fields": {          
+       "cliente_id":10431,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":992,
+         "fields": {          
+       "cliente_id":10432,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":993,
+         "fields": {          
+       "cliente_id":10433,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":994,
+         "fields": {          
+       "cliente_id":10434,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":995,
+         "fields": {          
+       "cliente_id":10435,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":996,
+         "fields": {          
+       "cliente_id":10436,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":997,
+         "fields": {          
+       "cliente_id":10437,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":998,
+         "fields": {          
+       "cliente_id":10438,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":999,
+         "fields": {          
+       "cliente_id":10439,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1000,
+         "fields": {          
+       "cliente_id":10440,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1001,
+         "fields": {          
+       "cliente_id":10441,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1002,
+         "fields": {          
+       "cliente_id":10442,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1003,
+         "fields": {          
+       "cliente_id":10443,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1004,
+         "fields": {          
+       "cliente_id":10444,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1005,
+         "fields": {          
+       "cliente_id":10445,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1006,
+         "fields": {          
+       "cliente_id":10446,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1007,
+         "fields": {          
+       "cliente_id":10447,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1008,
+         "fields": {          
+       "cliente_id":10448,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1009,
+         "fields": {          
+       "cliente_id":10449,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1010,
+         "fields": {          
+       "cliente_id":10450,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1011,
+         "fields": {          
+       "cliente_id":10451,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1012,
+         "fields": {          
+       "cliente_id":10452,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1013,
+         "fields": {          
+       "cliente_id":10453,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1014,
+         "fields": {          
+       "cliente_id":10454,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1015,
+         "fields": {          
+       "cliente_id":10455,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1016,
+         "fields": {          
+       "cliente_id":10456,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1017,
+         "fields": {          
+       "cliente_id":10457,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1018,
+         "fields": {          
+       "cliente_id":10458,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1019,
+         "fields": {          
+       "cliente_id":10459,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1020,
+         "fields": {          
+       "cliente_id":10460,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1021,
+         "fields": {          
+       "cliente_id":10461,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1022,
+         "fields": {          
+       "cliente_id":10462,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1023,
+         "fields": {          
+       "cliente_id":10463,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1024,
+         "fields": {          
+       "cliente_id":10464,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1025,
+         "fields": {          
+       "cliente_id":10465,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1026,
+         "fields": {          
+       "cliente_id":10466,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1027,
+         "fields": {          
+       "cliente_id":10467,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1028,
+         "fields": {          
+       "cliente_id":10468,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1029,
+         "fields": {          
+       "cliente_id":10469,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1030,
+         "fields": {          
+       "cliente_id":10470,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1031,
+         "fields": {          
+       "cliente_id":10471,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1032,
+         "fields": {          
+       "cliente_id":10472,
+       "persona_id":9998 }
+},
+{
+        "model": "sistema.personacliente","pk":1033,
+         "fields": {          
+       "cliente_id":10473,
+       "persona_id":9998 }
 }
+
 ]
