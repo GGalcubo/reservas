@@ -202,6 +202,12 @@ class Persona(models.Model):
             observaciones.append(obspe.observacion)
         return observaciones
 
+    def getObservacion(self):
+        observaciones = []
+        for obspe in self.observacionpersona_set.all():
+            return obspe.observacion.texto
+        return ""
+
     def getLicencias(self):
         licencias = []
         for licper in self.licenciapersona_set.all():
