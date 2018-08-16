@@ -396,6 +396,76 @@ def guardarSolicitanteProspect(request):
 	return render(request, 'sistema/grillaSolicitantes.html', context)
 
 @login_required
+def guardarPasajeroProspect(request):
+	mensaje = ""
+	idClientePasajero = request.POST.get('idClientePasajero', "")
+	print idClientePasajero
+	cliente = Cliente.objects.get(id=idClientePasajero)
+	idPasajero = request.POST.get('idPasajero', "")
+	if idPasajero == "0":
+		persona = Persona()
+		persona.tipo_persona = TipoPersona.objects.get(id=2)
+	else:
+		persona = Persona.objects.get(id=idPasajero)
+
+	persona.nombre = request.POST.get('nombrePasCliente', "")
+	persona.apellido = request.POST.get('apellidoPasCliente', "")
+	persona.documento = request.POST.get('documentoPasajeroCliente', "")
+	persona.mail = request.POST.get('mailPasajeroCliente', "")
+	persona.nacionalidad = request.POST.get('nacionalidadPasajeroCliente', "")
+	persona.calle = request.POST.get('callePasajeroCliente', "")
+	persona.altura = request.POST.get('alturaPasajeroCliente', "")
+	persona.piso = request.POST.get('pisoPasajeroCliente', "")
+	persona.cp = request.POST.get('cpPasajeroCliente', "")
+	persona.save()
+
+	telefono = request.POST.get('telefonoPasajeroCliente', "")
+	comentario = request.POST.get('comentarioPasajeroCliente', "")
+
+	if idPasajero == "0":
+		perCli = PersonaCliente()
+		perCli.persona = persona
+		perCli.cliente = cliente
+		perCli.save()
+
+	if telefono != "" and telefono != "Sin telefono":
+		if len(persona.telefonopersona_set.all()) > 0:
+			tel = persona.telefonopersona_set.all()[0].telefono
+			telcli = persona.telefonopersona_set.all()[0]
+		else:
+			telcli = TelefonoPersona()
+			tel = Telefono()
+			tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
+
+		tel.numero = telefono
+		tel.save()
+
+		telcli.persona = persona
+		telcli.telefono = tel
+		telcli.save()
+
+	if comentario != "":
+		if len(persona.observacionpersona_set.all()) > 0:
+			obs = persona.observacionpersona_set.all()[0].observacion
+			obsper = persona.observacionpersona_set.all()[0]
+		else:
+			obsper = ObservacionPersona()
+			obs = Observacion()
+			obs.tipo_observacion = TipoObservacion.objects.get(id=16)
+
+		obs.fecha = fecha()
+		obs.usuario = request.user
+		obs.texto = comentario
+		obs.save()
+
+		obsper.persona = persona
+		obsper.observacion = obs
+		obsper.save()
+
+	context = {'mensaje': mensaje, 'cliente':cliente}
+	return render(request, 'sistema/grillaPasajeros.html', context)
+
+@login_required
 def listadoCliente(request, **kwargs):
 	clientes = Cliente.objects.filter(baja=False)
 	context = {'clientes': clientes}

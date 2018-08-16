@@ -203,7 +203,6 @@ class Persona(models.Model):
         return observaciones
 
     def getObservacion(self):
-        observaciones = []
         for obspe in self.observacionpersona_set.all():
             return obspe.observacion.texto
         return ""

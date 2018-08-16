@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^guardarChoferProspect/', guardarChoferProspect, name='guardarChoferProspect'),
     url(r'^guardarCentroCostoProspect/', guardarCentroCostoProspect, name='guardarCentroCostoProspect'),
     url(r'^guardarSolicitanteProspect/', guardarSolicitanteProspect, name='guardarSolicitanteProspect'),
+    url(r'^guardarPasajeroProspect/', guardarPasajeroProspect, name='guardarPasajeroProspect'),
     url(r'^guardarMailCliente/', guardarMailCliente, name='guardarMailCliente'),
     url(r'^provedor/', provedor, name='provedor'),
     url(r'^listadoProvedor/', listadoProvedor, name='listadoProvedor'),
