@@ -15127,6 +15127,72 @@
   }
 },
 {
+  "model": "sistema.cliente",
+  "pk": 1,
+  "fields": {
+    "razon_social": "Otro Cliente",
+    "calle": "libertadores",
+    "altura": "1234",
+    "piso": null,
+    "depto": null,
+    "cp": null,
+    "cuil": null,
+    "tarifario": 2,
+    "localidad": "1",
+    "provincia": "1",
+    "iva": null,
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": "11",
+    "baja": true
+  }
+},
+{
+  "model": "sistema.cliente",
+  "pk": 2,
+  "fields": {
+    "razon_social": "ViajesYa",
+    "calle": "calle falsa",
+    "altura": "1234",
+    "piso": "1",
+    "depto": "4",
+    "cp": "1407",
+    "cuil": "12341423",
+    "tarifario": 2,
+    "localidad": "7",
+    "provincia": "1",
+    "iva": "21%",
+    "condicion_pago": "cuando puede",
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": "15",
+    "baja": false
+  }
+},
+{
+  "model": "sistema.cliente",
+  "pk": 3,
+  "fields": {
+    "razon_social": "NuevoCliente",
+    "calle": "habana y segurola",
+    "altura": "4100",
+    "piso": "7",
+    "depto": "E",
+    "cp": "123",
+    "cuil": "12313123",
+    "tarifario": 1,
+    "localidad": "9",
+    "provincia": "1",
+    "iva": "21",
+    "condicion_pago": null,
+    "cbu": null,
+    "alias": null,
+    "dias_fechas_facturas": "11",
+    "baja": false
+  }
+},
+{
         "model": "sistema.cliente",
   "pk":10000,
           "fields": {          
