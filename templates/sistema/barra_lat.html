@@ -20,71 +20,54 @@
                     </div>
                 </a>
             </li>
-            <!-- <li class="nav-item start">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-calendar"></i>
-                    <span class="title">Viajes</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="nav-item start">
-                        <a href="/sistema/altaViaje/" class="nav-link ">
-                            <i class="fa fa-plus"></i>
-                            <span class="title">Nuevo Viaje</span>
-                        </a>
-                    </li>
-                    <li class="nav-item start">
-                        <a href="/sistema/exportar/" class="nav-link ">
-                            <i class="fa fa-share"></i>
-                            <span class="title">Exportar Viaje</span>
-                        </a>
-                    </li>
-                    <li class="nav-item start">
-                        <a href="/sistema/asignaciones/" class="nav-link ">
-                            <i class="fa fa-tasks"></i>
-                            <span class="title">Asignar viajes</span>
-                        </a>
-                    </li>
-                </ul>
-            </li> -->
             <li class="nav-item">
                 <div class="portlet-body">
                     <table class="table mg-b-0">
                         <tbody>
-                            <tr style="background-color: #FFFFFF;">
-                                <td><p style="font-size: 13px; margin: 0;">Estado Actual:</p></td>
-                                <td>
-                                    <span class="label label-default" id="estado_actual"> Nuevo </span>
+                            <caption class="text-center pd-b-0"><b style="color: white;">Estado actual:</b></caption>
+                            <tr style="">
+                                <td class="text-center">
+                                    <span class="label label-info" id="estado_actual"> Nuevo </span>
                                 </td>
                             </tr>
-                            <tr style="background-color: #bac3d0;">
-                                <td><p style="font-size: 13px; margin: 0;">Cambiar:</p></td>
-                                <td>
-                                    <span class="label label-primary" id="estado_asignado"> Asignado </span>
+                        </tbody>
+                    </table>
+                    <table class="table mg-b-0">
+                        <tbody>
+                            <caption class="text-center pd-b-0"><b style="color: white;">Cambiar a:</b></caption>
+                            <tr style="background-color: #839595;">
+                                <td class="text-center">
+                                    <span class="label label-default" id="estado_pre_asignado"> Pre-Asignado </span>
                                 </td>
                             </tr>
-                            <tr style="background-color: #bac3d0;">
-                                <td> </td>
-                                <td>
-                                    <span class="label label-info" id="estado_confirmado"> Confirmado </span>
+                            <tr style="background-color: #839595;">
+                                <td class="text-center">
+                                    <span class="label label-default" id="estado_asignado"> Asignado </span>
                                 </td>
                             </tr>
-                            <tr style="background-color: #bac3d0;">
-                                <td> </td>
-                                <td>
-                                    <span class="label label-success" id="estado_en_progreso"> En progreso </span>
+                            <tr style="background-color: #839595;">
+                                <td class="text-center">
+                                    <span class="label label-default" id="estado_confirmado"> Confirmado </span>
                                 </td>
                             </tr>
-                            <tr style="background-color: #bac3d0;">
-                                <td> </td>
-                                <td>
-                                    <span class="label label-warning" id="estado_cerrado"> Cerrado </span>
+                            <tr style="background-color: #839595;">
+                                <td class="text-center">
+                                    <span class="label label-default" id="estado_en_progreso"> En progreso </span>
                                 </td>
                             </tr>
-                            <tr style="background-color: #bac3d0;">
-                                <td> </td>
-                                <td>
-                                    <span class="label label-danger" id="estado_cancelado"> Cancelado </span>
+                            <tr style="background-color: #839595;">
+                                <td class="text-center">
+                                    <span class="label label-default" id="estado_en_finalizado"> Finalizado </span>
+                                </td>
+                            </tr>
+                            <tr style="background-color: #839595;">
+                                <td class="text-center">
+                                    <span class="label label-default" id="estado_cerrado"> Cerrado </span>
+                                </td>
+                            </tr>
+                            <tr style="background-color: #839595;">
+                                <td class="text-center">
+                                    <span class="label label-default" id="estado_cancelado"> Cancelado </span>
                                 </td>
                             </tr>
                         </tbody>
