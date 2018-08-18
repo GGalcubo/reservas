@@ -928,8 +928,57 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab_15_4">
-                                        <p> Historial</p>
-                                        </p>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                <div class="portlet light ">
+                                                    <div class="portlet-title">
+                                                        <div class="caption font-blue">
+                                                            <i class="icon-folfer font-blue"></i>
+                                                            <span class="caption-subject bold uppercase">Historial</span>
+                                                        </div>
+                                                        <div class="tools"> </div>
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaHistorialViaje">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="all">Fecha</th>
+                                                                    <th class="all">Dato</th>
+                                                                    <th class="all">Valor Anterior</th>
+                                                                    <th class="all">Valor Actual</th>
+                                                                    <th class="all">Usuario</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>15/08/2018</td>
+                                                                    <td>Estado</td>
+                                                                    <td>En progreso</td>
+                                                                    <td>Finalizado</td>
+                                                                    <td>juancito</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>17/08/2018</td>
+                                                                    <td>Pasajero</td>
+                                                                    <td>José</td>
+                                                                    <td>María</td>
+                                                                    <td>juancito</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>18/08/2018</td>
+                                                                    <td>Estado</td>
+                                                                    <td>Finzalizado</td>
+                                                                    <td>Cerrazo</td>
+                                                                    <td>juancito</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane" id="tab_15_5">
                                         <form role="form" class="form-viaje-pasajeros" id="form-viaje-pasajeros">
@@ -1007,7 +1056,7 @@
                                                                                     <h4 class="modal-title" style="color:#888;">Agregar Pasajero al Cliente</h4>
                                                                                 </div>
                                                                                 <div class="modal-body">
-                                                                                    <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible1="1">
+                                                                                    <div class="scroller" style="height:400px" data-always-visible="1" data-rail-visible1="1">
                                                                                         <div class="row">
                                                                                             <div class="col-sm-4">
                                                                                                 <div class="form-group form-md-line-input form-md-floating-label">
@@ -1055,7 +1104,7 @@
                                                                                                     <label for="callePasajeroCliente">Calle</label>
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div class="col-sm-2">
+                                                                                            <div class="col-sm-3">
                                                                                                 <div class="form-group form-md-line-input">
                                                                                                     <input type="text" class="form-control" name="alturaPasajeroCliente" id="alturaPasajeroCliente" >
                                                                                                     <label for="alturaPasajeroCliente">Altura</label>
@@ -1067,7 +1116,7 @@
                                                                                                     <label for="pisoPasajeroCliente">Piso</label>
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div class="col-sm-2">
+                                                                                            <div class="col-sm-3">
                                                                                                 <div class="form-group form-md-line-input">
                                                                                                     <input type="text" class="form-control" name="cpPasajeroCliente" id="cpPasajeroCliente" >
                                                                                                     <label for="cpPasajeroCliente">CP</label>
@@ -1842,6 +1891,19 @@
             responsive: true,
             // scrollY: 200,
             order: [[ 1, "asc" ]],
+            lengthMenu: [
+                            [ -1, 500, 100, 50, 25, 10 ],
+                            [ 'Todos', '500', '100', '50', '25', '10' ]
+                        ],
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+            },
+        } );
+
+        $('#tablaHistorialViaje').DataTable( {
+            responsive: true,
+            // scrollY: 200,
+            order: [[ 0, "asc" ]],
             lengthMenu: [
                             [ -1, 500, 100, 50, 25, 10 ],
                             [ 'Todos', '500', '100', '50', '25', '10' ]
