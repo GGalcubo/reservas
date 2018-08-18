@@ -9812,7 +9812,7 @@
        "apellido":"Generico",
        "fecha_nacimiento":"",
        "documento":"",
-       "tipo_persona":2,
+       "tipo_persona":1,
        "estado_civil":1,
        "calle":"",
        "altura":"",
@@ -13150,9 +13150,6 @@
                        "porcentaje_chofer":0,
                        "porcentaje_owner":100 }
 },
-
-
-
 {
   "model": "sistema.tarifario",
   "pk": 1,
@@ -13166,72 +13163,6 @@
   "pk": 2,
   "fields": {
     "nombre": "Tarifa +15%"
-  }
-},
-{
-  "model": "sistema.cliente",
-  "pk": 1,
-  "fields": {
-    "razon_social": "Otro Cliente",
-    "calle": "libertadores",
-    "altura": "1234",
-    "piso": null,
-    "depto": null,
-    "cp": null,
-    "cuil": null,
-    "tarifario": 2,
-    "localidad": "1",
-    "provincia": "1",
-    "iva": null,
-    "condicion_pago": null,
-    "cbu": null,
-    "alias": null,
-    "dias_fechas_facturas": "11",
-    "baja": true
-  }
-},
-{
-  "model": "sistema.cliente",
-  "pk": 2,
-  "fields": {
-    "razon_social": "ViajesYa",
-    "calle": "calle falsa",
-    "altura": "1234",
-    "piso": "1",
-    "depto": "4",
-    "cp": "1407",
-    "cuil": "12341423",
-    "tarifario": 2,
-    "localidad": "7",
-    "provincia": "1",
-    "iva": "21%",
-    "condicion_pago": "cuando puede",
-    "cbu": null,
-    "alias": null,
-    "dias_fechas_facturas": "15",
-    "baja": false
-  }
-},
-{
-  "model": "sistema.cliente",
-  "pk": 3,
-  "fields": {
-    "razon_social": "NuevoCliente",
-    "calle": "habana y segurola",
-    "altura": "4100",
-    "piso": "7",
-    "depto": "E",
-    "cp": "123",
-    "cuil": "12313123",
-    "tarifario": 1,
-    "localidad": "9",
-    "provincia": "1",
-    "iva": "21",
-    "condicion_pago": null,
-    "cbu": null,
-    "alias": null,
-    "dias_fechas_facturas": "11",
-    "baja": false
   }
 },
 {
@@ -17582,43 +17513,6 @@
        "baja":false }
 },
 
-
-{
-  "model": "sistema.centrocosto",
-  "pk": 1,
-  "fields": {
-    "nombre": "CC otro cliente",
-    "fecha_inicio": null,
-    "fecha_fin": null,
-    "descripcion": "",
-    "cliente": 1,
-    "tarifario": 1
-  }
-},
-{
-  "model": "sistema.centrocosto",
-  "pk": 2,
-  "fields": {
-    "nombre": "CC viajesya",
-    "fecha_inicio": null,
-    "fecha_fin": null,
-    "descripcion": "",
-    "cliente": 2,
-    "tarifario": 2
-  }
-},
-{
-  "model": "sistema.centrocosto",
-  "pk": 3,
-  "fields": {
-    "nombre": "CC nuevo cliente",
-    "fecha_inicio": null,
-    "fecha_fin": null,
-    "descripcion": "",
-    "cliente": 3,
-    "tarifario": 1
-  }
-},
 {
   "model": "sistema.trayectodestino",
   "pk": 1,
