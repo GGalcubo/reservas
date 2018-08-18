@@ -100,7 +100,7 @@
     right: 164px; }
   .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-menu:after {
     /* Flechita del Desplegable del menú de usuario tirada a la izquierda */
-    right: 165px; }
+    right: 133px; }
 .page-header.navbar .page-logo {
   /* Sin padding para que entre el logo y fondo acorde */
   padding-left: 0;
@@ -258,12 +258,13 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
   top: 0; }
 
 .page-header.navbar .top-menu .navbar-nav > li.dropdown-user > .dropdown-menu {
-  width: 195px; }
+  max-width: 195px;
+  width: auto; }
   .page-header.navbar .top-menu .navbar-nav > li.dropdown-user > .dropdown-menu > li > a {
     height: 50px;
     display: flex;
     align-items: center;
-    padding: 0 0 0 5px; }
+    padding: 0 0 0 10px; }
 
 .dropdown-menu.dropdown-menu-default li {
   position: relative;
@@ -296,7 +297,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
     margin-right: 0; }
 
   .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
-    padding: 24px 15px; } }
+    padding: 24px 13px; } }
 /* PARA ESCONDER LA BARRA LATERAL EN MOBILE */
 @media (max-width: 991px) {
   body .page-sidebar-wrapper {

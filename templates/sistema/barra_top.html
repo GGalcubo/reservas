@@ -25,7 +25,7 @@
                     <!-- END HEADER SEARCH BOX -->
                     <!-- BEGIN TOP NAVIGATION MENU -->
                     <div class="top-menu">
-                        <ul class="nav navbar-nav pull-right">
+                        <ul class="nav navbar-nav pull-left">
                             <!-- BEGIN NOTIFICATION DROPDOWN -->
                             <!-- DOC: Apply "dropdown-dark" class below "dropdown-extended" to change the dropdown styte -->
                             <!-- DOC: Apply "dropdown-hoverable" class after below "dropdown" and remove data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to enable hover dropdown mode -->
@@ -39,25 +39,24 @@
                             <!-- END TODO DROPDOWN -->
                             <!-- BEGIN USER LOGIN DROPDOWN -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                            <li class="dropdown dropdown-user">
+                                <a href="/sistema/operaciones/" class="dropdown-toggle pd-r-12">
+                                    <i class="icon-directions"></i><span class="pd-l-5 username username-hide-on-mobile">Operaciones</span>
+                                </a>
+                            </li>
                             <li class="dropdown dropdown-dark dropdown-extended dropdown-hoverable dropdown-user">
                                 <a href="javascript:;" class="dropdown-toggle pd-r-12">
                                     <i class="icon-calendar"></i><span class="pd-l-5 username username-hide-on-mobile">Viajes</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li>
-                                        <a href="/sistema/altaViaje/" class="nav-link">
-                                            <i class="icon-pointer"></i> Nuevo viaje
-                                        </a>
+                                        <a href="/sistema/altaViaje/" class="nav-link">Nuevo viaje</a>
                                     </li>
                                     <li>
-                                        <a href="/sistema/exportar/" class="nav-link">
-                                            <i class="icon-share-alt"></i> Exportar viajes
-                                        </a>
+                                        <a href="/sistema/exportar/" class="nav-link">Exportar viajes</a>
                                     </li>
                                     <li>
-                                        <a href="/sistema/asignaciones/" class="nav-link">
-                                            <i class="icon-pin"></i> Asignar viajes
-                                        </a>
+                                        <a href="/sistema/asignaciones/" class="nav-link">Asignar viajes</a>
                                     </li>
                                 </ul>
                             </li>
@@ -67,24 +66,16 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li>
-                                        <a href="/sistema/listadoCliente/" class="nav-link">
-                                            <i class="icon-briefcase"></i> Listado de Clientes
-                                        </a>
+                                        <a href="/sistema/listadoCliente/" class="nav-link">Listado de Clientes</a>
                                     </li>
                                     <li>
-                                        <a href="/sistema/listadoCentroDeCosto/" class="nav-link">
-                                            <i class="icon-flag"></i> Centros de Costo
-                                        </a>
+                                        <a href="/sistema/listadoCentroDeCosto/" class="nav-link">Centros de Costo</a>
                                     </li>
                                     <li>
-                                        <a href="/sistema/listadoTarifario/" class="nav-link">
-                                            <i class="icon-notebook"></i> Tarifarios
-                                        </a>
+                                        <a href="/sistema/listadoTarifario/" class="nav-link">Tarifarios</a>
                                     </li>
                                     <li>
-                                        <a href="/sistema/listadoContacto/" class="nav-link">
-                                            <i class="icon-users"></i> Solicitantes
-                                        </a>
+                                        <a href="/sistema/listadoContacto/" class="nav-link">Solicitantes</a>
                                     </li>
                                 </ul>
                             </li>
@@ -94,19 +85,13 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li>
-                                        <a href="/sistema/listadoProvedor/" class="nav-link">
-                                            <i class="icon-rocket"></i> Listado de Provedores
-                                        </a>
+                                        <a href="/sistema/listadoProvedor/" class="nav-link">Listado de Provedores</a>
                                     </li>
                                     <li>
-                                        <a href="/sistema/listadoUnidad/" class="nav-link">
-                                            <i class="icon-star"></i> Unidades
-                                        </a>
+                                        <a href="/sistema/listadoUnidad/" class="nav-link">Unidades</a>
                                     </li>
                                     <li>
-                                        <a href="/sistema/listadoLicencia/" class="nav-link">
-                                            <i class="icon-layers"></i> Licencias
-                                        </a>
+                                        <a href="/sistema/listadoLicencia/" class="nav-link">Licencias</a>
                                     </li>
                                 </ul>
                             </li>
@@ -117,9 +102,7 @@
                                     <!-- <i class="fa fa-angle-down"></i> -->
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
-                                    <li>
-                                        <a href="#">
-                                            <i class="icon-bar-chart"></i> Administración</a>
+                                    <li><a href="#" class="nav-link">Administración</a>
                                     </li>
                                 </ul>
                             </li>
@@ -131,14 +114,10 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li>
-                                        <a href="/sistema/usuario/" class="nav-link">
-                                            <i class="icon-settings"></i> Configuración
-                                        </a>
+                                        <a href="/sistema/usuario/" class="nav-link">Configuración</a>
                                     </li>
                                     <li>
-                                        <a href="/accounts/login/" class="nav-link">
-                                            <i class="icon-key"></i> Salir
-                                        </a>
+                                        <a href="/accounts/login/" class="nav-link">Salir</a>
                                     </li>
                                 </ul>
                             </li>
@@ -151,6 +130,7 @@
                             </li> -->
                             <!-- END QUICK SIDEBAR TOGGLER -->
                         </ul>
+                        <!-- <button type="button" class="btn green btn-outline">Green</button> -->
                     </div>
                     <!-- END TOP NAVIGATION MENU -->
                 </div>

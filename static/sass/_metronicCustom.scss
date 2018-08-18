@@ -128,7 +128,7 @@
       right: 164px;
     }
     .navbar-nav>li.dropdown .dropdown-menu:after {/* Flechita del Desplegable del menú de usuario tirada a la izquierda */
-      right: 165px;
+      right: 133px;
     }
   }
   .page-logo {/* Sin padding para que entre el logo y fondo acorde */
@@ -287,12 +287,13 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 }
 
 .page-header.navbar .top-menu .navbar-nav>li.dropdown-user>.dropdown-menu {
-    width: 195px;
+    max-width: 195px;
+    width: auto;
     &>li>a {
       height: 50px;
       display: flex;
       align-items: center;
-      padding: 0 0 0 5px;
+      padding: 0 0 0 10px;
     }
 }
 
@@ -338,7 +339,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
     margin-right: 0;
   }
   .page-header.navbar .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle {
-    padding: 24px 15px;
+    padding: 24px 13px;
   }
 }
 
