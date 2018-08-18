@@ -404,6 +404,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
       margin-top: -1px;
       margin-right: 0;
       margin-left: 20px;
+      clear: both;
     }
   }
 }
@@ -416,3 +417,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   }
 }
 
+
+
+// div.floatright {
+//   display: inline;
+//   float: right;
+//   padding-left: 5px;
+// }

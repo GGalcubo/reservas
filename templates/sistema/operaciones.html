@@ -103,10 +103,13 @@
                     });
                     $('#viajesEnProgreso').DataTable( {
                         responsive: true,
-                        colReorder: true,
                         select: true,
                         order: [[ 3, "asc" ]],
-                        dom: 'Bfrtip',
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        dom: 'lfBrtip',
                         buttons: [
                             {
                                 extend: 'copy',
@@ -133,14 +136,8 @@
                                 }
                             },
                         ],
-                        lengthMenu: [
-                                        [ -1, 500, 100, 50, 25, 10 ],
-                                        [ 'Todos', '500', '100', '50', '25', '10' ]
-                                    ],
                         language: {
-                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
-                        },
-                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json',
                             buttons: {
                                 copy: "Copiar",
                                 print: "Imprimir"
@@ -150,8 +147,11 @@
 
                     $('#futurosViajes').DataTable( {
                         responsive: true,
-                        colReorder: true,
-                        dom: 'Bfrtip',
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        dom: 'lfBrtip',
                         buttons: [
                             {
                                 extend: 'copy',
@@ -178,14 +178,8 @@
                                 }
                             },
                         ],
-                        lengthMenu: [
-                                        [ -1, 500, 100, 50, 25, 10 ],
-                                        [ 'Todos', '500', '100', '50', '25', '10' ]
-                                    ],
                         language: {
-                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
-                        },
-                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json',
                             buttons: {
                                 copy: "Copiar",
                                 print: "Imprimir"

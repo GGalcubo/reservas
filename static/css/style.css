@@ -339,7 +339,8 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
 .portlet.light .dataTables_wrapper .dt-buttons {
   margin-top: -1px;
   margin-right: 0;
-  margin-left: 20px; }
+  margin-left: 20px;
+  clear: both; }
 
 .bootstrap-table .fixed-table-toolbar .bs-bars.pull-left {
   float: right !important; }
