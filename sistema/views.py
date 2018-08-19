@@ -477,7 +477,9 @@ def cliente(request):
 	idCliente = request.GET.get('idCliente', "")
 	cliente = Cliente.objects.get(id=idCliente)
 	tarifarios = Tarifario.objects.all()
-	context = {'mensaje': mensaje, 'cliente':cliente, 'tarifarios':tarifarios}
+	ivas = Iva.objects.all()
+	condiciones = CondicionPago.objects.all()
+	context = {'mensaje': mensaje, 'cliente':cliente, 'tarifarios':tarifarios,"ivas":ivas, "condiciones": condiciones }
 	return render(request, 'sistema/cliente.html', context)
 
 @login_required
@@ -502,7 +504,6 @@ def guardarCliente(request):
 		else:
 			tel = Telefono()
 		
-
 	cliente.razon_social = request.POST.get('razonSocial', "")
 	cliente.cuil = request.POST.get('cuil', "")
 	cliente.calle = request.POST.get('calle', "")
@@ -512,6 +513,16 @@ def guardarCliente(request):
 	cliente.cp = request.POST.get('cp', "")
 	cliente.localidad = request.POST.get('localidad', "")
 	cliente.provincia = request.POST.get('provincia', "")
+	iva = request.POST.get('iva', "")
+	if iva != "":
+		cliente.iva = Iva.objects.get(id=iva)
+	cond = request.POST.get('condicionPago', "")
+	if cond != "":
+		cliente.condicion_pago = CondicionPago.objects.get(id=cond)
+	cliente.dias_fechas_facturas = request.POST.get('diasFechaFactura', "")
+	cliente.alias = request.POST.get('alias', "")
+	cliente.cbu = request.POST.get('cbu', "")
+
 	cliente.save()
 
 	if request.POST.get('telefono', False) != "":

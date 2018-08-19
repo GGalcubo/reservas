@@ -4,6 +4,24 @@ from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
+class Iva(models.Model):
+    iva = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return u'%s' % self.iva
+
+    def __str__(self):
+        return self.iva
+
+class CondicionPago(models.Model):
+    condicion_pago = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return u'%s' % self.condicion_pago
+
+    def __str__(self):
+        return self.condicion_pago
+
 class Estado(models.Model):
     estado = models.CharField(max_length=50)
     color = models.CharField(max_length=50, null=True, blank=True)
@@ -164,7 +182,7 @@ class Persona(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     fecha_nacimiento = models.CharField(max_length=8, null=True, blank=True)
-    documento = models.CharField(max_length=8, null=True, blank=True)
+    documento = models.CharField(max_length=20, null=True, blank=True)
     cuil = models.CharField(max_length=20, null=True, blank=True)
     tipo_persona = models.ForeignKey(TipoPersona, null=True, blank=True)
     estado_civil = models.ForeignKey(EstadoCivil, null=True, blank=True)
@@ -350,8 +368,8 @@ class Cliente(models.Model):
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
     localidad = models.CharField(max_length=50, null=True, blank=True)
     provincia = models.CharField(max_length=50, null=True, blank=True)
-    iva = models.CharField(max_length=100, null=True, blank=True)
-    condicion_pago = models.CharField(max_length=100, null=True, blank=True)
+    iva = models.ForeignKey(Iva, null=True, blank=True)
+    condicion_pago = models.ForeignKey(CondicionPago, null=True, blank=True)
     cbu = models.CharField(max_length=50, null=True, blank=True)
     alias = models.CharField(max_length=100, null=True, blank=True)
     dias_fechas_facturas = models.CharField(max_length=20, null=True, blank=True)

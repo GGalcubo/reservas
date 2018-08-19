@@ -21,7 +21,7 @@
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
                             <li>
-                                <i class="icon-directions"></i>
+                                <i class="icon-home"></i>
                                 <a href="/sistema/operaciones/">Operaciones</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
@@ -128,46 +128,44 @@
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="form_control_1">
+                                                        <select class="form-control" id="iva" name="iva" >
                                                             <option value=""></option>
-                                                            <option value="1" selected="selected">Responsable Inscripto</option>
-                                                            <option value="2">Option 2</option>
-                                                            <option value="3">Option 3</option>
-                                                            <option value="4">Option 4</option>
+                                                            {% for i in ivas %}
+                                                                <option value="{{ i.id }}" {% if i.id == cliente.iva.id %}selected{% endif %}>{{ i.iva }}</option>
+                                                            {% endfor %}
                                                         </select>
-                                                        <label for="form_control_1">IVA</label>
+                                                        <label for="iva">IVA</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="form_control_2">
+                                                        <select class="form-control" id="condicionPago" name="condicionPago" >
                                                             <option value=""></option>
-                                                            <option value="1" selected="selected">Efectivo</option>
-                                                            <option value="2">Option 2</option>
-                                                            <option value="3">Option 3</option>
-                                                            <option value="4">Option 4</option>
+                                                            {% for c in condiciones %}
+                                                                <option value="{{ c.id }}" {% if c.id == cliente.condicion_pago.id %}selected{% endif %}>{{ c.condicion_pago }}</option>
+                                                            {% endfor %}
                                                         </select>
-                                                        <label for="form_control_2">Condición de Pago</label>
+                                                        <label for="condicionPago">Condición de Pago</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="form_control_3" value="15 días">
-                                                        <label for="form_control_3">Días fecha factura</label>
+                                                        <input type="text" class="form-control" id="diasFechaFactura" name="diasFechaFactura" value="{{ cliente.dias_fechas_facturas|default_if_none:"" }}">
+                                                        <label for="diasFechaFactura">Días fecha factura</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="form_control_4" value="12345678910123456789012">
-                                                        <label for="form_control_4">CBU</label>
+                                                        <input type="text" class="form-control" id="cbu" name="cbu" value="{{ cliente.cbu|default_if_none:"" }}">
+                                                        <label for="cbu">CBU</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="form_control_5" value="perro.caca.pis">
-                                                        <label for="form_control_5">Alias</label>
+                                                        <input type="text" class="form-control" id="alias" name="alias" value="{{ cliente.alias|default_if_none:"" }}">
+                                                        <label for="alias">Alias</label>
                                                     </div>
                                                 </div>
                                             </div>
