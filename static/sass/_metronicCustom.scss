@@ -404,7 +404,28 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
       margin-top: -1px;
       margin-right: 0;
       margin-left: 20px;
-      clear: both;
+      // clear: both;
+      float: left;
+      a.dt-button {
+        border-color: lightgrey;
+        background-color: white;
+        border-radius: 5px !important;
+        &:hover {
+          color: white;
+          &.buttons-copy {
+            background-color: #3598dc;
+          }
+          &.buttons-excel {
+            background-color: #26c281;
+          }
+          &.buttons-pdf {
+            background-color: #f36a5a;
+          }
+          &.buttons-print {
+            background-color: #3598dc;
+          }
+        }
+      }
     }
   }
 }

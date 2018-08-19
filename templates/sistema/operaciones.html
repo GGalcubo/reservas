@@ -105,10 +105,6 @@
                         responsive: true,
                         select: true,
                         order: [[ 3, "asc" ]],
-                        lengthMenu: [
-                                        [ -1, 500, 100, 50, 25, 10 ],
-                                        [ 'Todos', '500', '100', '50', '25', '10' ]
-                                    ],
                         dom: 'lfBrtip',
                         buttons: [
                             {
@@ -136,6 +132,10 @@
                                 }
                             },
                         ],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
                         language: {
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json',
                             buttons: {
@@ -147,10 +147,7 @@
 
                     $('#futurosViajes').DataTable( {
                         responsive: true,
-                        lengthMenu: [
-                                        [ -1, 500, 100, 50, 25, 10 ],
-                                        [ 'Todos', '500', '100', '50', '25', '10' ]
-                                    ],
+                        order: [[ 2, "asc" ]],
                         dom: 'lfBrtip',
                         buttons: [
                             {
@@ -178,6 +175,10 @@
                                 }
                             },
                         ],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
                         language: {
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json',
                             buttons: {

@@ -340,7 +340,21 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
   margin-top: -1px;
   margin-right: 0;
   margin-left: 20px;
-  clear: both; }
+  float: left; }
+  .portlet.light .dataTables_wrapper .dt-buttons a.dt-button {
+    border-color: lightgrey;
+    background-color: white;
+    border-radius: 5px !important; }
+    .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover {
+      color: white; }
+      .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-copy {
+        background-color: #3598dc; }
+      .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-excel {
+        background-color: #26c281; }
+      .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-pdf {
+        background-color: #f36a5a; }
+      .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-print {
+        background-color: #3598dc; }
 
 .bootstrap-table .fixed-table-toolbar .bs-bars.pull-left {
   float: right !important; }
