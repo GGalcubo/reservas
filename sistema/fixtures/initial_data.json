@@ -1,5 +1,34 @@
 [
-
+{
+        "model": "sistema.iva","pk":1,
+         "fields": {          
+       "iva":"Resp. inscripto"}
+},
+{
+        "model": "sistema.iva","pk":2,
+         "fields": {          
+       "iva":"Cons. final"}
+},
+{
+        "model": "sistema.iva","pk":3,
+         "fields": {          
+       "iva":"Autonomo"}
+},
+{
+        "model": "sistema.condicionpago","pk":1,
+         "fields": {          
+       "condicion_pago":"CC quincenal"}
+},
+{
+        "model": "sistema.condicionpago","pk":2,
+         "fields": {          
+       "condicion_pago":"CC mensual"}
+},
+{
+        "model": "sistema.condicionpago","pk":3,
+         "fields": {          
+       "condicion_pago":"Cheques"}
+},
  {
         "model": "sistema.tipoobservacion",
         "pk": 1,
@@ -2013,22 +2042,6 @@
   "pk": 2,
   "fields": {
     "tipo_telefono": "Celular"
-  }
-},
-{
-  "model": "sistema.telefono",
-  "pk": 1,
-  "fields": {
-    "tipo_telefono": 1,
-    "numero": "51324131"
-  }
-},
-{
-  "model": "sistema.telefono",
-  "pk": 2,
-  "fields": {
-    "tipo_telefono": 1,
-    "numero": "1"
   }
 },
 {
@@ -23696,6 +23709,2310 @@
          "fields": {          
        "cliente_id":10472,
        "persona_id":9998 }
+},
+{
+        "model": "sistema.telefono","pk":1,
+         "fields": {          
+       "numero":"15 6653 8909 ",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":2,
+         "fields": {          
+       "numero":"1561520311",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":3,
+         "fields": {          
+       "numero":"1127065987",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":4,
+         "fields": {          
+       "numero":"1563973716",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":5,
+         "fields": {          
+       "numero":"1557345557",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":6,
+         "fields": {          
+       "numero":"1550372678",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":7,
+         "fields": {          
+       "numero":"15 3267 5689",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":8,
+         "fields": {          
+       "numero":"11 3603 7067",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":9,
+         "fields": {          
+       "numero":"1540579320",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":10,
+         "fields": {          
+       "numero":"11 6370-3160",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":11,
+         "fields": {          
+       "numero":"1559432846",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":12,
+         "fields": {          
+       "numero":"1563074183",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":13,
+         "fields": {          
+       "numero":"15 3196 5330",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":14,
+         "fields": {          
+       "numero":"11 6360-1953",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":15,
+         "fields": {          
+       "numero":"15 5708 1822",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":16,
+         "fields": {          
+       "numero":"1524100380",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":17,
+         "fields": {          
+       "numero":"1523716966",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":18,
+         "fields": {          
+       "numero":"11 3195-7096",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":19,
+         "fields": {          
+       "numero":"1522176252",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":20,
+         "fields": {          
+       "numero":"1135798694",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":21,
+         "fields": {          
+       "numero":"11 6573 3955",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":22,
+         "fields": {          
+       "numero":"15 5623 1514",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":23,
+         "fields": {          
+       "numero":"15 58257785",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":24,
+         "fields": {          
+       "numero":"1553014370",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":25,
+         "fields": {          
+       "numero":"15 3731 0017",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":26,
+         "fields": {          
+       "numero":"1564975704",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":27,
+         "fields": {          
+       "numero":"15-6597-7654",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":28,
+         "fields": {          
+       "numero":"15 6292 1690",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":29,
+         "fields": {          
+       "numero":"0381155031417",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":30,
+         "fields": {          
+       "numero":"1532384307",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":31,
+         "fields": {          
+       "numero":"CEL.11.6094.7290",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":32,
+         "fields": {          
+       "numero":"1133430236",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":33,
+         "fields": {          
+       "numero":"1163703160",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":34,
+         "fields": {          
+       "numero":"44644499",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":35,
+         "fields": {          
+       "numero":"15 2289 3089",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":36,
+         "fields": {          
+       "numero":"1562921690",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":37,
+         "fields": {          
+       "numero":"0370154357829",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":38,
+         "fields": {          
+       "numero":"655*5071",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":39,
+         "fields": {          
+       "numero":"15 50270611",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":40,
+         "fields": {          
+       "numero":"11 3577-6231",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":41,
+         "fields": {          
+       "numero":"1169445347",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":42,
+         "fields": {          
+       "numero":"1561300122",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":43,
+         "fields": {          
+       "numero":"11 5602-9320",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":44,
+         "fields": {          
+       "numero":"0342-156-146901",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":45,
+         "fields": {          
+       "numero":"1160527868",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":46,
+         "fields": {          
+       "numero":"0261-4481122",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":47,
+         "fields": {          
+       "numero":"15-3771-6129",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":48,
+         "fields": {          
+       "numero":"52950200",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":49,
+         "fields": {          
+       "numero":"11-5749-7795",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":50,
+         "fields": {          
+       "numero":"15-4440-7383",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":51,
+         "fields": {          
+       "numero":"1554681874",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":52,
+         "fields": {          
+       "numero":"11 6050 2417",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":53,
+         "fields": {          
+       "numero":"11 33832942",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":54,
+         "fields": {          
+       "numero":"11 4039 0406",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":55,
+         "fields": {          
+       "numero":"1562841852",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":56,
+         "fields": {          
+       "numero":"15 2350 1792",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":57,
+         "fields": {          
+       "numero":"1532529306",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":58,
+         "fields": {          
+       "numero":"4856 0707",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":59,
+         "fields": {          
+       "numero":"1535008919",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":60,
+         "fields": {          
+       "numero":"11 6721-9256",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":61,
+         "fields": {          
+       "numero":"2994018292",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":62,
+         "fields": {          
+       "numero":"0340715430127",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":63,
+         "fields": {          
+       "numero":"0297-625-6301",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":64,
+         "fields": {          
+       "numero":"4343 5119",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":65,
+         "fields": {          
+       "numero":"(02323) 42-5455",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":66,
+         "fields": {          
+       "numero":"03755-42-5500",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":67,
+         "fields": {          
+       "numero":"1566668239",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":68,
+         "fields": {          
+       "numero":"211*1385",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":69,
+         "fields": {          
+       "numero":"0266-444-0000",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":70,
+         "fields": {          
+       "numero":"1531201510",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":71,
+         "fields": {          
+       "numero":"03489 15584471",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":72,
+         "fields": {          
+       "numero":"0383-154-359-071",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":73,
+         "fields": {          
+       "numero":"0291-455-6590",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":74,
+         "fields": {          
+       "numero":"03464-42-6108",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":75,
+         "fields": {          
+       "numero":"(03492) 570400",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":76,
+         "fields": {          
+       "numero":"02901422222",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":77,
+         "fields": {          
+       "numero":"02966422444/42232",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":78,
+         "fields": {          
+       "numero":"15 4161 2626",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":79,
+         "fields": {          
+       "numero":"1160462758",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":80,
+         "fields": {          
+       "numero":"15 5143 5457",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":81,
+         "fields": {          
+       "numero":"15 3544 5550",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":82,
+         "fields": {          
+       "numero":"1159713889",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":83,
+         "fields": {          
+       "numero":"1566354864",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":84,
+         "fields": {          
+       "numero":"15-6602-1890",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":85,
+         "fields": {          
+       "numero":"1569861772",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":86,
+         "fields": {          
+       "numero":"11 5458-1208",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":87,
+         "fields": {          
+       "numero":"(03487)15-538352",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":88,
+         "fields": {          
+       "numero":"1532877014",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":89,
+         "fields": {          
+       "numero":"1552473885",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":90,
+         "fields": {          
+       "numero":"1535486992",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":91,
+         "fields": {          
+       "numero":"11 59616613",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":92,
+         "fields": {          
+       "numero":"02226-15-602901",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":93,
+         "fields": {          
+       "numero":"15 3539 4810",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":94,
+         "fields": {          
+       "numero":"15 6878 0207",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":95,
+         "fields": {          
+       "numero":"1537631517",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":96,
+         "fields": {          
+       "numero":"190*3629",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":97,
+         "fields": {          
+       "numero":"4441 7637",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":98,
+         "fields": {          
+       "numero":"351 747720",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":99,
+         "fields": {          
+       "numero":"1520313355",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":100,
+         "fields": {          
+       "numero":"1532908279",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":101,
+         "fields": {          
+       "numero":"211*8992",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":102,
+         "fields": {          
+       "numero":"1523214083 wp",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":103,
+         "fields": {          
+       "numero":"43022992",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":104,
+         "fields": {          
+       "numero":"1131612770",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":105,
+         "fields": {          
+       "numero":"1566356476",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":106,
+         "fields": {          
+       "numero":"1558789317",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":107,
+         "fields": {          
+       "numero":"1533430236",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":108,
+         "fields": {          
+       "numero":"1527065987",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":109,
+         "fields": {          
+       "numero":"113432-0763",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":110,
+         "fields": {          
+       "numero":"02954-155-97-511",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":111,
+         "fields": {          
+       "numero":"(01115-3519-0449",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":112,
+         "fields": {          
+       "numero":"15-6017-6463",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":113,
+         "fields": {          
+       "numero":"15 6219 3112",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":114,
+         "fields": {          
+       "numero":"15-5228-7704",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":115,
+         "fields": {          
+       "numero":"1569531640",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":116,
+         "fields": {          
+       "numero":"15-4991-4662",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":117,
+         "fields": {          
+       "numero":"15-5349-9986",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":118,
+         "fields": {          
+       "numero":"1560271904",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":119,
+         "fields": {          
+       "numero":"15-6660-6516",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":120,
+         "fields": {          
+       "numero":"1552498618",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":121,
+         "fields": {          
+       "numero":"15 5929 5144",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":122,
+         "fields": {          
+       "numero":"1544108521",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":123,
+         "fields": {          
+       "numero":"155-328-8560",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":124,
+         "fields": {          
+       "numero":"15 5723 6475",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":125,
+         "fields": {          
+       "numero":"1531780340",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":126,
+         "fields": {          
+       "numero":"15-5838-4923",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":127,
+         "fields": {          
+       "numero":"629*1574",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":128,
+         "fields": {          
+       "numero":"15-5009-3660",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":129,
+         "fields": {          
+       "numero":"15-5177-7171",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":130,
+         "fields": {          
+       "numero":"15-3069-5551",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":131,
+         "fields": {          
+       "numero":"15-6797-2904",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":132,
+         "fields": {          
+       "numero":"0223-15-449-1970",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":133,
+         "fields": {          
+       "numero":"2804685242",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":134,
+         "fields": {          
+       "numero":"1551155299",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":135,
+         "fields": {          
+       "numero":"1567641675",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":136,
+         "fields": {          
+       "numero":"1555135018",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":137,
+         "fields": {          
+       "numero":"11 5727-7592",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":138,
+         "fields": {          
+       "numero":"0345615445389",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":139,
+         "fields": {          
+       "numero":"03364451400",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":140,
+         "fields": {          
+       "numero":"0280-154-421-664",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":141,
+         "fields": {          
+       "numero":"3442-154-55-765",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":142,
+         "fields": {          
+       "numero":"15 5 584 9738",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":143,
+         "fields": {          
+       "numero":"0354715500457",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":144,
+         "fields": {          
+       "numero":"3854411040",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":145,
+         "fields": {          
+       "numero":"02963 43-2074",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":146,
+         "fields": {          
+       "numero":"351-6507887",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":147,
+         "fields": {          
+       "numero":"0299-155-896-391",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":148,
+         "fields": {          
+       "numero":"1165566979",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":149,
+         "fields": {          
+       "numero":"1536051739",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":150,
+         "fields": {          
+       "numero":"15 5751 9889",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":151,
+         "fields": {          
+       "numero":"4343 4003",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":152,
+         "fields": {          
+       "numero":"03329-155-57-766",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":153,
+         "fields": {          
+       "numero":"15 4029 4449",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":154,
+         "fields": {          
+       "numero":"0341-155-811-024",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":155,
+         "fields": {          
+       "numero":"03489-430-308",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":156,
+         "fields": {          
+       "numero":"02324-154-71-976",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":157,
+         "fields": {          
+       "numero":"02317-154-19-786",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":158,
+         "fields": {          
+       "numero":"0291156423366",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":159,
+         "fields": {          
+       "numero":"0234415421930",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":160,
+         "fields": {          
+       "numero":"0249154528484",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":161,
+         "fields": {          
+       "numero":"03462-155-13-901",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":162,
+         "fields": {          
+       "numero":"0341-411-0636",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":163,
+         "fields": {          
+       "numero":"155754731",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":164,
+         "fields": {          
+       "numero":"03624 424 163",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":165,
+         "fields": {          
+       "numero":"0351-155649578",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":166,
+         "fields": {          
+       "numero":"0341 152202122",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":167,
+         "fields": {          
+       "numero":"0343 15 544 7121",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":168,
+         "fields": {          
+       "numero":"0376 15 464 1475",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":169,
+         "fields": {          
+       "numero":"0299154060014",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":170,
+         "fields": {          
+       "numero":"03446-155-01-007",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":171,
+         "fields": {          
+       "numero":"0362-154-930-290",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":172,
+         "fields": {          
+       "numero":"155240895",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":173,
+         "fields": {          
+       "numero":"02954-625194",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":174,
+         "fields": {          
+       "numero":"0236154692812",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":175,
+         "fields": {          
+       "numero":"03462429717",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":176,
+         "fields": {          
+       "numero":"0292015300013",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":177,
+         "fields": {          
+       "numero":"0280-154-873-000",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":178,
+         "fields": {          
+       "numero":"0299-155814814",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":179,
+         "fields": {          
+       "numero":"0266-154613806",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":180,
+         "fields": {          
+       "numero":"0388155147943",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":181,
+         "fields": {          
+       "numero":"0387-155-098-820",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":182,
+         "fields": {          
+       "numero":"02644202591",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":183,
+         "fields": {          
+       "numero":"0341-4545454",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":184,
+         "fields": {          
+       "numero":"0297156238634",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":185,
+         "fields": {          
+       "numero":"02281 15-53-0888",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":186,
+         "fields": {          
+       "numero":"02302 15 604 481",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":187,
+         "fields": {          
+       "numero":"0291154666006",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":188,
+         "fields": {          
+       "numero":"02966 15 542 138",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":189,
+         "fields": {          
+       "numero":"02215120699",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":190,
+         "fields": {          
+       "numero":"(03757) 15418626",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":191,
+         "fields": {          
+       "numero":"02392 489124",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":192,
+         "fields": {          
+       "numero":"0260-154-498-230",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":193,
+         "fields": {          
+       "numero":"03462-156-64-673",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":194,
+         "fields": {          
+       "numero":"0297154047507",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":195,
+         "fields": {          
+       "numero":"02945-156-82-257",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":196,
+         "fields": {          
+       "numero":"15-5-808-1478",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":197,
+         "fields": {          
+       "numero":"(0358) 466 4455 /",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":198,
+         "fields": {          
+       "numero":"03454-421-888",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":199,
+         "fields": {          
+       "numero":"0380-154-910-901",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":200,
+         "fields": {          
+       "numero":"294- 154-597532",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":201,
+         "fields": {          
+       "numero":"0343-424-2121",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":202,
+         "fields": {          
+       "numero":"15 4998-9226",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":203,
+         "fields": {          
+       "numero":"0385-431-0700",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":204,
+         "fields": {          
+       "numero":"0291-154-298-913",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":205,
+         "fields": {          
+       "numero":"0351-156-505-675",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":206,
+         "fields": {          
+       "numero":"0345-421-4954",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":207,
+         "fields": {          
+       "numero":"02477-156-89-470",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":208,
+         "fields": {          
+       "numero":"0261-437-7500",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":209,
+         "fields": {          
+       "numero":"02901-154-87-611",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":210,
+         "fields": {          
+       "numero":"02344-154-21-930",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":211,
+         "fields": {          
+       "numero":"4552-0638",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":212,
+         "fields": {          
+       "numero":"0351-428-1857",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":213,
+         "fields": {          
+       "numero":"005982-901-1335",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":214,
+         "fields": {          
+       "numero":"02325-154-02-600",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":215,
+         "fields": {          
+       "numero":"03482-154-09-702",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":216,
+         "fields": {          
+       "numero":"02314-156-14-731",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":217,
+         "fields": {          
+       "numero":"0280-154-30-3335",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":218,
+         "fields": {          
+       "numero":"0353-154-099-530",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":219,
+         "fields": {          
+       "numero":"03537-153-31-490",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":220,
+         "fields": {          
+       "numero":"0264 - 4 210 210",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":221,
+         "fields": {          
+       "numero":"0266-154-559-950",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":222,
+         "fields": {          
+       "numero":"02262-156-202-11",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":223,
+         "fields": {          
+       "numero":"0342-155-017-017",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":224,
+         "fields": {          
+       "numero":"(0299) 155-313-0",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":225,
+         "fields": {          
+       "numero":"0299-154-060-106",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":226,
+         "fields": {          
+       "numero":"0370-154-369-626",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":227,
+         "fields": {          
+       "numero":"0249-154-52-8484",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":228,
+         "fields": {          
+       "numero":"02284-155-55-787",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":229,
+         "fields": {          
+       "numero":"0294 - 154353138.",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":230,
+         "fields": {          
+       "numero":"1161300122",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":231,
+         "fields": {          
+       "numero":"0380-154-496-916",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":232,
+         "fields": {          
+       "numero":"3514843658",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":233,
+         "fields": {          
+       "numero":"0236-154-300-729",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":234,
+         "fields": {          
+       "numero":"0299-433-0186",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":235,
+         "fields": {          
+       "numero":"0362-154-153-987",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":236,
+         "fields": {          
+       "numero":"(02342) 42 2274",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":237,
+         "fields": {          
+       "numero":"0296615584952",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":238,
+         "fields": {          
+       "numero":"0800-222-5958",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":239,
+         "fields": {          
+       "numero":"1140792804",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":240,
+         "fields": {          
+       "numero":"03537-427-227",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":241,
+         "fields": {          
+       "numero":"08108883700",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":242,
+         "fields": {          
+       "numero":"0379154778119",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":243,
+         "fields": {          
+       "numero":"1569872235",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":244,
+         "fields": {          
+       "numero":"0351-155-203-990",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":245,
+         "fields": {          
+       "numero":"0387 4219203",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":246,
+         "fields": {          
+       "numero":"351 7477220",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":247,
+         "fields": {          
+       "numero":"1540262874",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":248,
+         "fields": {          
+       "numero":"1555669340",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":249,
+         "fields": {          
+       "numero":"1558858294",
+       "tipo_telefono_id":2 }
+},
+{
+        "model": "sistema.telefono","pk":250,
+         "fields": {          
+       "numero":"47637033",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":251,
+         "fields": {          
+       "numero":"47507077",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":252,
+         "fields": {          
+       "numero":"45872956",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":253,
+         "fields": {          
+       "numero":"4225 1864",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":254,
+         "fields": {          
+       "numero":"4231 9045",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":255,
+         "fields": {          
+       "numero":"47540959",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":256,
+         "fields": {          
+       "numero":"42597203",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":257,
+         "fields": {          
+       "numero":"4641-5934",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":258,
+         "fields": {          
+       "numero":"4249 7967",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":259,
+         "fields": {          
+       "numero":"45232374",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":260,
+         "fields": {          
+       "numero":"4866 0017",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":261,
+         "fields": {          
+       "numero":"4862-8722",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":262,
+         "fields": {          
+       "numero":"4856-7323",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":263,
+         "fields": {          
+       "numero":"42409338",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":264,
+         "fields": {          
+       "numero":"4837 0544",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":265,
+         "fields": {          
+       "numero":"2118 3007",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":266,
+         "fields": {          
+       "numero":"5648-5100",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":267,
+         "fields": {          
+       "numero":"0223-475-0700",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":268,
+         "fields": {          
+       "numero":"0342- 4599663",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":269,
+         "fields": {          
+       "numero":"4903-3485",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":270,
+         "fields": {          
+       "numero":"49410219",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":271,
+         "fields": {          
+       "numero":"4627 1156",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":272,
+         "fields": {          
+       "numero":"15-3500-8919",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":273,
+         "fields": {          
+       "numero":"02934 481566",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":274,
+         "fields": {          
+       "numero":"03461436400",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":275,
+         "fields": {          
+       "numero":"42542193",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":276,
+         "fields": {          
+       "numero":"(02323) 42 - 2920 -",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":277,
+         "fields": {          
+       "numero":"45730789",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":278,
+         "fields": {          
+       "numero":"0266-444-1269",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":279,
+         "fields": {          
+       "numero":"0291-453-0000",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":280,
+         "fields": {          
+       "numero":"03492-156-81-778",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":281,
+         "fields": {          
+       "numero":"02901434100",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":282,
+         "fields": {          
+       "numero":"02966-15621003",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":283,
+         "fields": {          
+       "numero":"4863 6951",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":284,
+         "fields": {          
+       "numero":"47297849",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":285,
+         "fields": {          
+       "numero":"46256545",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":286,
+         "fields": {          
+       "numero":"4314-5428",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":287,
+         "fields": {          
+       "numero":"44631161",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":288,
+         "fields": {          
+       "numero":"(03487)424941",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":289,
+         "fields": {          
+       "numero":"1142805126",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":290,
+         "fields": {          
+       "numero":"4460 2104",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":291,
+         "fields": {          
+       "numero":"282*5481",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":292,
+         "fields": {          
+       "numero":"15 2650 5768",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":293,
+         "fields": {          
+       "numero":"4714 6685",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":294,
+         "fields": {          
+       "numero":"(0351) 4533595",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":295,
+         "fields": {          
+       "numero":"43158405",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":296,
+         "fields": {          
+       "numero":"1166852427",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":297,
+         "fields": {          
+       "numero":"268*712",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":298,
+         "fields": {          
+       "numero":"0381 15 4436 300",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":299,
+         "fields": {          
+       "numero":"4243 9249",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":300,
+         "fields": {          
+       "numero":"4208-8601",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":301,
+         "fields": {          
+       "numero":"48550205",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":302,
+         "fields": {          
+       "numero":"20595629",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":303,
+         "fields": {          
+       "numero":"45211115",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":304,
+         "fields": {          
+       "numero":"0223-473-3130",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":305,
+         "fields": {          
+       "numero":"4782-0290",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":306,
+         "fields": {          
+       "numero":"0345648141",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":307,
+         "fields": {          
+       "numero":"(03329) 48 - 4878",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":308,
+         "fields": {          
+       "numero":"03516507887",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":309,
+         "fields": {          
+       "numero":"(0299) 4401230",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":310,
+         "fields": {          
+       "numero":"0343-423-4385",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":311,
+         "fields": {          
+       "numero":"1",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":312,
+         "fields": {          
+       "numero":"0297 483-0517",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":313,
+         "fields": {          
+       "numero":"0332915557766",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":314,
+         "fields": {          
+       "numero":"02252 42-1435",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":315,
+         "fields": {          
+       "numero":"02257463666",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":316,
+         "fields": {          
+       "numero":"022415504000",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":317,
+         "fields": {          
+       "numero":"(2317) 52 - 2400",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":318,
+         "fields": {          
+       "numero":"03772-155-86684",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":319,
+         "fields": {          
+       "numero":"(291) 4548725",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":320,
+         "fields": {          
+       "numero":"0249-154 528 484",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":321,
+         "fields": {          
+       "numero":"03462-430-730",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":322,
+         "fields": {          
+       "numero":"sofia",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":323,
+         "fields": {          
+       "numero":"0388-493-3700",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":324,
+         "fields": {          
+       "numero":"0362-15-4893675",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":325,
+         "fields": {          
+       "numero":"0351 4240921",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":326,
+         "fields": {          
+       "numero":"0341 5270150",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":327,
+         "fields": {          
+       "numero":"0343 4231109",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":328,
+         "fields": {          
+       "numero":"0376154141908",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":329,
+         "fields": {          
+       "numero":"2995525573",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":330,
+         "fields": {          
+       "numero":"0299-446-2185",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":331,
+         "fields": {          
+       "numero":"0362-446-0004",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":332,
+         "fields": {          
+       "numero":"02455422259",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":333,
+         "fields": {          
+       "numero":"02234956659",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":334,
+         "fields": {          
+       "numero":"03487420103",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":335,
+         "fields": {          
+       "numero":"02954-436950",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":336,
+         "fields": {          
+       "numero":"02364432753",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":337,
+         "fields": {          
+       "numero":"03442428446",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":338,
+         "fields": {          
+       "numero":"02920430439",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":339,
+         "fields": {          
+       "numero":"0280154873000",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":340,
+         "fields": {          
+       "numero":"03482-426510",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":341,
+         "fields": {          
+       "numero":"0299-4464518",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":342,
+         "fields": {          
+       "numero":"0266-4435751",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":343,
+         "fields": {          
+       "numero":"03884259396",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":344,
+         "fields": {          
+       "numero":"0387-424-1818",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":345,
+         "fields": {          
+       "numero":"02644218000",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":346,
+         "fields": {          
+       "numero":"03414545454",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":347,
+         "fields": {          
+       "numero":"0297 4560711",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":348,
+         "fields": {          
+       "numero":"02302-431500",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":349,
+         "fields": {          
+       "numero":"02914502732",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":350,
+         "fields": {          
+       "numero":"(03757) 423030",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":351,
+         "fields": {          
+       "numero":"02392430555",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":352,
+         "fields": {          
+       "numero":"0260-443-0700",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":353,
+         "fields": {          
+       "numero":"03462-435-777",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":354,
+         "fields": {          
+       "numero":"02945 45-5555",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":355,
+         "fields": {          
+       "numero":"3-531-0775",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":356,
+         "fields": {          
+       "numero":"0358-154-861-206",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":357,
+         "fields": {          
+       "numero":"0380-443-5000",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":358,
+         "fields": {          
+       "numero":"294 - 4-523240",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":359,
+         "fields": {          
+       "numero":"0343-424-8042",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":360,
+         "fields": {          
+       "numero":"(0221) 425 - 0747",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":361,
+         "fields": {          
+       "numero":"0291-491-5517",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":362,
+         "fields": {          
+       "numero":"0351-424-6605",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":363,
+         "fields": {          
+       "numero":"02901 - 422-275",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":364,
+         "fields": {          
+       "numero":"0261-155-605-871",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":365,
+         "fields": {          
+       "numero":"02901-155-36-738",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":366,
+         "fields": {          
+       "numero":"02344-430-990",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":367,
+         "fields": {          
+       "numero":"4521-4624",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":368,
+         "fields": {          
+       "numero":"2362-456225",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":369,
+         "fields": {          
+       "numero":"(03482) 423333",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":370,
+         "fields": {          
+       "numero":"02314-420-700",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":371,
+         "fields": {          
+       "numero":"4850-4216",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":372,
+         "fields": {          
+       "numero":"0341 -440 6-127",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":373,
+         "fields": {          
+       "numero":"02474-422-606",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":374,
+         "fields": {          
+       "numero":"(0299) 155-313-083",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":375,
+         "fields": {          
+       "numero":"0299154717843",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":376,
+         "fields": {          
+       "numero":"3704369626",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":377,
+         "fields": {          
+       "numero":"0294-4429722",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":378,
+         "fields": {          
+       "numero":"0344615501007",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":379,
+         "fields": {          
+       "numero":"(0351) 4843658",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":380,
+         "fields": {          
+       "numero":"(0299) 433 0717",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":381,
+         "fields": {          
+       "numero":"0280154203633",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":382,
+         "fields": {          
+       "numero":"(02962) 45 - 2427",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":383,
+         "fields": {          
+       "numero":"02936404140",
+       "tipo_telefono_id":1 }
+},
+{
+        "model": "sistema.telefono","pk":384,
+         "fields": {          
+       "numero":"02657-42-1148",
+       "tipo_telefono_id":1 }
 },
 {
 			"model": "sistema.telefonopersona","pk":1,
