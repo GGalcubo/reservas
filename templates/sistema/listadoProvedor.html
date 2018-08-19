@@ -47,7 +47,7 @@
                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoProvedor">
                                             <thead>
                                                 <tr>
-                                                    <th class="all">Editar</th>
+                                                    <!--th class="all">Editar</th-->
                                                     <th class="all">ID</th>
                                                     <th class="all">Nombre</th>
                                                     <th class="all">CUIT/CUIL</th>
@@ -56,20 +56,20 @@
                                                     <th class="all">Mail</th>
                                                     <th class="all">Tipo</th>
                                                     <th class="all">Unidad</th>
-                                                    <th class="all">Nombre</th>
+                                                    <th class="all">Nombre Unidad</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {% for p in provedores %}
                                                 <tr>
-                                                    <td class="text-center"><a href="/sistema/provedor/"><i class="fa fa-pencil"></i></a></td>
+                                                    <!--td class="text-center"><a href="/sistema/provedor/"><i class="fa fa-pencil"></i></a></td-->
                                                     <td>{{ p.id }}</td>
-                                                    <td>{{ p.nombreCompleto }}</td>
-                                                    <td>{{ p.documento }}</td>
+                                                    <td>{{ p.nombreCompleto|default_if_none:"" }}</td>
+                                                    <td>{{ p.documento|default_if_none:"" }}</td>
                                                     <td>{{ p.getDomicilio }}</td>
                                                     <td>{{ p.getTelefono }}</td>
-                                                    <td>{{ p.mail }}</td>
-                                                    <td>{{ p.tipo_persona.tipo_persona }}</td>
+                                                    <td>{{ p.mail|default_if_none:"" }}</td>
+                                                    <td>{{ p.tipo_persona.tipo_persona|default_if_none:"" }}</td>
                                                     <td>{{ p.getUnidad.id }}</td>
                                                     <td>{{ p.getUnidad.identificacion }}</td>
                                                 </tr>
