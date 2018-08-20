@@ -414,9 +414,9 @@ def guardarPasajeroProspect(request):
 	persona.mail = request.POST.get('mailPasajeroCliente', "")
 	persona.nacionalidad = request.POST.get('nacionalidadPasajeroCliente', "")
 	persona.calle = request.POST.get('callePasajeroCliente', "")
-	persona.altura = request.POST.get('alturaPasajeroCliente', "")
-	persona.piso = request.POST.get('pisoPasajeroCliente', "")
-	persona.cp = request.POST.get('cpPasajeroCliente', "")
+	#persona.altura = request.POST.get('alturaPasajeroCliente', "")
+	#persona.piso = request.POST.get('pisoPasajeroCliente', "")
+	#persona.cp = request.POST.get('cpPasajeroCliente', "")
 	persona.save()
 
 	telefono = request.POST.get('telefonoPasajeroCliente', "")
@@ -507,10 +507,10 @@ def guardarCliente(request):
 	cliente.razon_social = request.POST.get('razonSocial', "")
 	cliente.cuil = request.POST.get('cuil', "")
 	cliente.calle = request.POST.get('calle', "")
-	#cliente.altura = request.POST.get('altura',"")
-	#cliente.piso = request.POST.get('piso', "")
-	#cliente.depto = request.POST.get('depto', "")
-	#cliente.cp = request.POST.get('cp', "")
+	cliente.altura = request.POST.get('altura',"")
+	cliente.piso = request.POST.get('piso', "")
+	cliente.depto = request.POST.get('depto', "")
+	cliente.cp = request.POST.get('cp', "")
 	cliente.localidad = request.POST.get('localidad', "")
 	cliente.provincia = request.POST.get('provincia', "")
 	iva = request.POST.get('iva', "")
@@ -923,6 +923,17 @@ def centroCosto(request):
 
 	context = {'clientes':clientes, 'estado':estado, 'cc':cc, 'clientes':clientes, 'tarifarios':tarifarios}
 	return render(request, 'sistema/centroDeCosto.html', context)
+
+@login_required
+def validarCodigoCentroCosto(request):
+	codigoCC = request.GET.get('codigoCC', False)
+	cc = CentroCosto.objects.filter(nombre=codigoCC)
+	if cc:
+		data = {'mensaje': 'El codigo seleccionado ya existe.'}
+	else:
+		data = {'mensaje': ''}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
 
 @login_required
 def editaCentroDeCosto(request):

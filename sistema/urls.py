@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^guardarSolicitanteProspect/', guardarSolicitanteProspect, name='guardarSolicitanteProspect'),
     url(r'^guardarPasajeroProspect/', guardarPasajeroProspect, name='guardarPasajeroProspect'),
     url(r'^guardarMailCliente/', guardarMailCliente, name='guardarMailCliente'),
+    url(r'validarCodigoCentroCosto/', validarCodigoCentroCosto, name='validarCodigoCentroCosto'),
     url(r'^provedor/', provedor, name='provedor'),
     url(r'^listadoProvedor/', listadoProvedor, name='listadoProvedor'),
     url(r'^unidad/$', unidad, name='unidad'),

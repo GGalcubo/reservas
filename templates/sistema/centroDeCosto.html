@@ -88,14 +88,14 @@
                                                 </div-->
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="codigo" name="codigo" value="{{ cc.nombre }}">
+                                                        <input onkeypress="return soloLetras(event);" type="text" class="form-control" id="codigo" name="codigo" value="{{ cc.nombre|default_if_none:"" }}">
                                                         <label for="codigo">Código del Centro de Costo</label>
                                                         <span class="help-block">Código Cliente + Área + Detalle (Ej: PFZVACUJOSE)</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ cc.descripcion }}">
+                                                        <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ cc.descripcion|default_if_none:"" }}">
                                                         <label for="descripcion">Descripción</label>
                                                     </div>
                                                 </div>
@@ -160,14 +160,49 @@
                 });
 
                 function guardarCC(){
-
                     if ($("#codigo").val() == ""){
                         alert("El campo Codigo es obligatorio.");
                         return false;
                     }
 
-                    $("#formGuardarCC").submit();
+                    if ($("#idCC").val() == "0"){
+                        var url = "/sistema/validarCodigoCentroCosto/?codigoCC="+$("#codigo").val();
+                        $.ajax({
+                            type: "GET",
+                            url: url,
+                            success: function(data){
+                                if (data.mensaje == ""){
+                                    $("#formGuardarCC").submit();
+                                }else{
+                                    alert(data.mensaje);
+                                }
+                                
+                            }
+                        });
+                    }else{
+                        $("#formGuardarCC").submit();
+                    }
+                    
 
+                }
+
+                //Se utiliza para que el campo de texto solo acepte letras
+                function soloLetras(e) {
+                    key = e.keyCode || e.which;
+                    tecla = String.fromCharCode(key).toString();
+                    letras = "áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789";//Se define todo el abecedario que se quiere que se muestre.
+                    especiales = [8, 37, 39, 46, 6]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
+                    tecla_especial = false
+                    for(var i in especiales) {
+                        if(key == especiales[i]) {
+                            tecla_especial = true;
+                            break;
+                        }
+                    }
+
+                    if(letras.indexOf(tecla) == -1 && !tecla_especial){
+                        return false;
+                    }
                 }
             </script>
 
