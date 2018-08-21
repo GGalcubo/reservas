@@ -142,34 +142,36 @@ def guardarViaje(request):
 
     if es_nuevo == "1":
         viaje = Viaje()
+        viajeAdm = ViajeAdm()
+        observacion = Observacion()
+        obcl = ObservacionViaje()
         mensaje = 'Se dio de alta el viaje '
     else:
-		viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
-		mensaje = 'Se actualizo el viaje '
+        viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
+        viajeAdm = ViajeAdm.objects.get(viaje_id=request.POST.get('idViaje', False))
+        obcl = ObservacionViaje.objects.get(viaje_id=request.POST.get('idViaje', False))
+        observacion = Observacion.objects.get(id=obcl.viaje_id)
+        mensaje = 'Se actualizo el viaje '
 
     viaje.estado 				= Estado.objects.get(id=request.POST.get('estado', False))
     viaje.cliente 				= Cliente.objects.get(id=request.POST.get('cliente', False))
     viaje.categoria_viaje 		= CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
     solicitante 				= Persona.objects.get(id=request.POST.get('contacto', False))
-    viaje.solicitante 			= solicitante.nombre + '' + solicitante.apellido
+    viaje.solicitante 			= solicitante.nombre + ' ' + solicitante.apellido
     viaje.centro_costo 			= CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
     pasajero 					= Persona.objects.get(id=request.POST.get('pasajero', False))
     viaje.pasajero 				= pasajero.nombre + '' + pasajero.apellido
-    fecha 						= request.POST.get('fecha', "")
-    viaje.fecha 				= fecha[6:10] + fecha[3:5] + fecha[0:2]
+    fecha_tmp 					= request.POST.get('fecha', "")
+    viaje.fecha 				= fecha_tmp[6:10] + fecha_tmp[3:5] + fecha_tmp[0:2]
     viaje.hora 					= request.POST.get('hora', "")
     viaje.hora_estimada 		= request.POST.get('hora_estimada', "")
     viaje.costo_prov 			= request.POST.get('costo_proveedor', "")
     viaje.tarifapasada 			= request.POST.get('tarifa_pasada', "")
-    #viaje.comentario_chofer = request.POST.get('comentario_chofer', "")
-    unidad 						= id=request.POST.get('unidad', '')
+    unidad 						= request.POST.get('unidad', '')
     if unidad != '':
-        viaje.unidad 			= Unidad.objects.get(id=request.POST.get('unidad', ''))
-    viaje.espera 				= request.POST.get('espera', "")
-    viaje.peaje_total 			= request.POST.get('peaje', "")
-    viaje.Otros_tot 			= request.POST.get('otros', "")
-    viaje.estacionamiento_total = request.POST.get('estacionamiento', "")
-    viaje.save()
+        viaje.unidad 			= Unidad.objects.get(id=unidad)
+
+	viaje.save()
 
     data = {
         'error': '0',
@@ -177,7 +179,32 @@ def guardarViaje(request):
     }
 
     if es_nuevo == "1":
-		data = {'url': '/sistema/editaViaje/?idViaje=' + str(Viaje.objects.latest('id').id)}
+        data = {'url': '/sistema/editaViaje/?idViaje=' + str(Viaje.objects.latest('id').id)}
+        viajeAdm.viaje_id = Viaje.objects.latest('id').id
+        obcl.viaje_id = Viaje.objects.latest('id').id
+
+    if request.POST.get('espera', "") != '':
+        viajeAdm.espera_min = request.POST.get('espera')
+
+    if request.POST.get('peaje', "") != '':
+        viajeAdm.peaje_total = request.POST.get('peaje')
+
+    if request.POST.get('otros', "") != '':
+        viajeAdm.otros_tot = request.POST.get('otros')
+
+    if request.POST.get('estacionamiento', "") != '':
+        viajeAdm.estacionamiento_total = request.POST.get('estacionamiento')
+
+    viajeAdm.save()
+
+    observacion.fecha = fecha()
+    observacion.usuario = request.user
+    observacion.texto = request.POST.get('comentario_chofer', "")
+    observacion.tipo_observacion = TipoObservacion.objects.get(id=17)
+    observacion.save()
+
+    obcl.observacion = observacion
+    obcl.save()
 
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')

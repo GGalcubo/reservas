@@ -135,7 +135,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="centro_costos" name="centro_costos">
+                                                        <select class="form-control select2me" id="centro_costos" name="centro_costos">
                                                         </select>
                                                         <label>Centro de Costos</label>
                                                     </div>
@@ -389,6 +389,7 @@
                                                             <div class="col-md-6 cont_desde_localidad">
                                                                 <div class="form-group form-md-line-input">
                                                                     <select class="form-control select2me" id="desde_localidad" name="desde_localidad">
+                                                                        <option value=""></option>
                                                                         {% for l in localidades %}
                                                                             {% if l.id == viaje.getTrayectoPrincipal.localidad_desde_id %}
                                                                                 <option selected="selected" value="{{ l.id }}">{{ l.nombre }}</option>
@@ -1238,6 +1239,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control select2me" id="modal_desde_destino" name="modal_desde_destino">
+                                            <option value=""></option>
                                             {% for d in destinos %}
                                                <option value="{{ d.id }}">{{ d.nombre }}</option>
                                             {% endfor %}
@@ -1248,6 +1250,7 @@
                                 <div class="col-md-6 cont_modal_desde_localidad">
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control select2me" id="modal_desde_localidad" name="modal_desde_localidad">
+                                            <option value=""></option>
                                             {% for l in localidades %}
                                                <option value="{{ l.id }}">{{ l.nombre }}</option>
                                             {% endfor %}
@@ -1258,6 +1261,7 @@
                                 <div class="col-md-6 cont_modal_desde_provincia">
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control select2me" id="modal_desde_provincia" name="modal_desde_provincia">
+                                            <option value=""></option>
                                             {% for p in provincias %}
                                                <option value="{{ p.id }}">{{ p.nombre }}</option>
                                             {% endfor %}
@@ -1319,6 +1323,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control select2me" id="modal_hasta_destino" name="modal_hasta_destino">
+                                            <option value=""></option>
                                             {% for d in destinos %}
                                                <option value="{{ d.id }}">{{ d.nombre }}</option>
                                             {% endfor %}
@@ -1329,6 +1334,7 @@
                                 <div class="col-md-6 cont_modal_hasta_localidad">
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control select2me" id="modal_hasta_localidad" name="modal_hasta_localidad">
+                                            <option value=""></option>
                                             {% for l in localidades %}
                                                <option value="{{ l.id }}">{{ l.nombre }}</option>
                                             {% endfor %}
@@ -1339,6 +1345,7 @@
                                 <div class="col-md-6 cont_modal_hasta_provincia">
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control select2me" id="modal_hasta_provincia" name="modal_hasta_provincia">
+                                            <option value=""></option>
                                             {% for p in provincias %}
                                                <option value="{{ p.id }}">{{ p.nombre }}</option>
                                             {% endfor %}
@@ -1490,6 +1497,7 @@
         var obj = {
             id : {{ localidad.id }},
             provincia : '{{ localidad.provincia }}',
+            terminal_flag : '{{ localidad.terminal_flag }}',
             nombre:'{{ localidad.nombre }}'};
         localidades.push(obj);
     {% endfor %}
@@ -1582,13 +1590,38 @@
 
 
         $("#desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
+        $('#desde_destino').select2({
+          placeholder: 'Seleccionar'
+        });
         $("#hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
+        $('#hasta_destino').select2({
+          placeholder: 'Seleccionar'
+        });
         $("#modal_desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
+        $('#modal_desde_destino').select2({
+          placeholder: 'Seleccionar'
+        });
         $("#modal_hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
+        $('#modal_hasta_destino').select2({
+          placeholder: 'Seleccionar'
+        });
+
         $("#desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
+        $('#desde_localidad').select2({
+          placeholder: 'Seleccionar'
+        });
         $("#hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
+        $('#hasta_localidad').select2({
+          placeholder: 'Seleccionar'
+        });
         $("#modal_desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
+        $('#modal_desde_localidad').select2({
+          placeholder: 'Seleccionar'
+        });
         $("#modal_hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
+        $('#modal_hasta_localidad').select2({
+          placeholder: 'Seleccionar'
+        });
 
         var tmp_tipo_observacion;
         $('#tipo_viaje_obs').append($('<option>').text('').attr('value', ''));
@@ -1621,7 +1654,7 @@
                 return false;
             }
             if ($("#contacto").val() == ""){
-                mostrarMsgValidacion("El campo contacto es obligatorio.");
+                mostrarMsgValidacion("El campo solicitante es obligatorio.");
                 return false;
             }
             if ($("#centro_costos").val() == ""){
@@ -1660,6 +1693,10 @@
             }
             if ($("#estado").val() == ""){
                 mostrarMsgValidacion("El campo estado es obligatorio.");
+                return false;
+            }
+            if ($("#espera").val() != "" && $("#espera").val() < 15){
+                mostrarMsgValidacion("La espera minima es 15 min.");
                 return false;
             }
 
@@ -1949,7 +1986,7 @@
           $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
         });
         $.each(cliente_selected.personascliente, function(i, value) {
-            if(value.tipo_persona == 'Contacto'){
+            if(value.tipo_persona == 'Solicitante'){
                 $('#contacto').append($('<option>').text(value.nombre).attr('value', value.id));
             }
         });
@@ -1974,8 +2011,6 @@
         var html_select = evt.currentTarget.id;
         var html_direccion = '';
         var html_vuelo = '';
-
-        console.log(html_select)
 
         switch(html_select) {
             case 'desde_localidad':
@@ -2024,9 +2059,14 @@
                 break;
         }
 
-        console.log('localidad_id: '+localidad_id);
+        var terminal_flag;
+        $.each(localidades, function(i, value) {
+            if(value.id == localidad_id){
+                terminal_flag = value.terminal_flag;
+            }
+        });
 
-        if(localidad_id == 5 || localidad_id == 6 || localidad_id == 7){
+        if(terminal_flag == 'True'){
             $("." + html_direccion).hide();
             $("." + html_vuelo).show();
         }else{
@@ -2113,6 +2153,9 @@
                 }
                 break;
         }
+
+
+
 
         console.log('destino_id: '+destino_id);
 

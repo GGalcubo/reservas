@@ -196,14 +196,20 @@
                 });
 
 
+                $('#estado_pre_asignado').css( 'cursor', 'pointer' );
                 $('#estado_asignado').css( 'cursor', 'pointer' );
                 $('#estado_confirmado').css( 'cursor', 'pointer' );
                 $('#estado_en_progreso').css( 'cursor', 'pointer' );
+                $('#estado_finalizado').css( 'cursor', 'pointer' );
                 $('#estado_cerrado').css( 'cursor', 'pointer' );
                 $('#estado_cancelado').css( 'cursor', 'pointer' );
 
+                $('#estado_pre_asignado').click(function () {
+                    editEstadoViaje('2');
+                });
+
                 $('#estado_asignado').click(function () {
-                    editEstadoViaje('1');
+                    editEstadoViaje('3');
                 });
 
                 $('#estado_confirmado').click(function () {
@@ -212,6 +218,10 @@
 
                 $('#estado_en_progreso').click(function () {
                     editEstadoViaje('5');
+                });
+
+                $('#estado_finalizado').click(function () {
+                    editEstadoViaje('6');
                 });
 
                 $('#estado_cerrado').click(function () {

@@ -30,7 +30,7 @@ class ClienteAdmin(admin.ModelAdmin):
     inlines = [
         PersonaClienteInline,
     ]
-    list_display = ('razon_social',)
+    list_display = ('id', 'razon_social',)
 
 admin.site.register(Viaje,ViajeAdmin)
 admin.site.register(Provincia)
