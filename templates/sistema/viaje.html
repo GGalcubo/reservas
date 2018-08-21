@@ -1584,9 +1584,24 @@
 
 
         $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
+        $('#id_cliente').select2({
+          placeholder: 'Seleccionar'
+        });
         $("#razon_social").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
+        $('#razon_social').select2({
+          placeholder: 'Seleccionar'
+        });
         $("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
+        $('#unidad_id').select2({
+          placeholder: 'Seleccionar'
+        });
         $("#unidad_identificacion").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
+        $('#unidad_identificacion').select2({
+          placeholder: 'Seleccionar'
+        });
+        $('#centro_costos').select2({
+          placeholder: 'Seleccionar'
+        });
 
 
         $("#desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
@@ -2153,11 +2168,6 @@
                 }
                 break;
         }
-
-
-
-
-        console.log('destino_id: '+destino_id);
 
         if(destino_id == 1 || destino_id == 2){
             $('.' + html_direccion).show();
