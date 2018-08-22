@@ -61,6 +61,7 @@ urlpatterns = [
     url(r'^importarcalles/', importar_calles, name='importar_calles'),
     url(r'^exportar/', exportar, name='exportar'),
     url(r'^usuario/', usuario, name='usuario'),
+    url(r'^listadoAdelanto/', listadoAdelanto, name='listadoAdelanto'),
     
     #url(r'^$', 'sistema.views.index', name='index'),
 ]

@@ -100,7 +100,9 @@
     right: 164px; }
   .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-menu:after {
     /* Flechita del Desplegable del menú de usuario tirada a la izquierda */
-    right: 133px; }
+    right: 133px;
+    border-bottom: 9px solid #9facac;
+    border-left: 7px solid transparent; }
 .page-header.navbar .page-logo {
   /* Sin padding para que entre el logo y fondo acorde */
   padding-left: 0;
@@ -135,6 +137,14 @@ table.dataTable thead th,
 table.dataTable thead td {
   /* Mas angostas las rows */
   padding: 4px 8px; }
+
+/* PARA EL SELECCIONAR TODAS DE ADELANTOS */
+table.dataTable tr th.select-checkbox.selected::after {
+  content: "✔";
+  margin-top: -11px;
+  margin-left: -4px;
+  text-align: center;
+  text-shadow: #b0bed9 1px 1px, #b0bed9 -1px -1px, #b0bed9 1px -1px, #b0bed9 -1px 1px; }
 
 /* BOOTSTRAP TABLES */
 .table > tbody > tr > td,
@@ -358,6 +368,10 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
 
 .bootstrap-table .fixed-table-toolbar .bs-bars.pull-left {
   float: right !important; }
+
+span#estado_actual.label.label-info.estado-actual {
+  font-size: 12px;
+  padding: 6px 14px; }
 
 .top-0 {
   top: 0px !important; }

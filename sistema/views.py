@@ -1115,6 +1115,13 @@ def usuario(request):
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/usuario.html', context)
 
+@login_required
+def listadoAdelanto(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/listadoAdelanto.html', context)
+
 # devuelve AAAAMMDD
 def fecha():
 	import time

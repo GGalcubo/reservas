@@ -129,6 +129,8 @@
     }
     .navbar-nav>li.dropdown .dropdown-menu:after {/* Flechita del Desplegable del menú de usuario tirada a la izquierda */
       right: 133px;
+      border-bottom: 9px solid #9facac;
+      border-left: 7px solid transparent;
     }
   }
   .page-logo {/* Sin padding para que entre el logo y fondo acorde */
@@ -168,6 +170,15 @@ table.dataTable tbody td,
 table.dataTable thead th,
 table.dataTable thead td {/* Mas angostas las rows */
     padding: 4px 8px;
+}
+
+/* PARA EL SELECCIONAR TODAS DE ADELANTOS */
+table.dataTable tr th.select-checkbox.selected::after {
+  content: "✔";
+  margin-top: -11px;
+  margin-left: -4px;
+  text-align: center;
+  text-shadow: rgb(176, 190, 217) 1px 1px, rgb(176, 190, 217) -1px -1px, rgb(176, 190, 217) 1px -1px, rgb(176, 190, 217) -1px 1px;
 }
 
 /* BOOTSTRAP TABLES */
@@ -438,7 +449,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   }
 }
 
-
+span#estado_actual.label.label-info.estado-actual {
+  font-size: 12px;
+  padding: 6px 14px;
+}
 
 // div.floatright {
 //   display: inline;
