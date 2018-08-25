@@ -462,7 +462,8 @@ class Viaje(models.Model):
     hora_estimada = models.CharField(max_length=10, null=True, blank=True)
     costo_prov = models.IntegerField(default=0)
     tarifapasada = models.IntegerField(default=0)
-
+    nro_aux= models.CharField(max_length=30, null=True, blank=True)
+	
     def __unicode__(self):
         return u'%s' % self.fecha
 
@@ -839,3 +840,29 @@ def getFecha(aaaammdd):
     if aaaammdd == None:
         return ""
     return aaaammdd[6:8] + "/" + aaaammdd[4:6] + "/" + aaaammdd[0:4]
+
+class TipoAdelanto (models.Model):
+    descripcion= models.CharField(max_length=50, null=True, blank=True)
+    logica= models.CharField(max_length=50, null=True, blank=True)
+    
+
+    def __unicode__(self):
+        return u'%s' % self.descripcion
+
+    def __str__(self):
+        return self.descripcion
+		
+class Adelanto (models.Model):
+    persona_id = models.ForeignKey(Persona, null=True, blank=True)
+    tipo_adelanto_id = models.ForeignKey(TipoAdelanto, null=True, blank=True)
+    fecha = models.CharField(max_length=20, null=True, blank=True)
+    monto = models.CharField(max_length=25, null=True, blank=True)
+    Factura_id= models.CharField(max_length=25, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.persona_id
+
+    def __str__(self):
+        return self.persona_id
+
+

@@ -1,5 +1,29 @@
 [
 {
+        "model": "sistema.tipoadelanto","pk":1,
+         "fields": {          
+       "descripcion":"Nafta",
+       "logica":null }
+},
+{
+        "model": "sistema.tipoadelanto","pk":2,
+         "fields": {          
+       "descripcion":"Telefonia",
+       "logica": null }
+},
+{
+        "model": "sistema.tipoadelanto","pk":3,
+         "fields": {          
+       "descripcion":"Efectivo",
+       "logica":null  }
+},
+{
+        "model": "sistema.tipoadelanto","pk":4,
+         "fields": {          
+       "descripcion":"Adelanto Sueldo",
+       "logica":null  }
+},
+{
         "model": "sistema.iva","pk":1,
          "fields": {          
        "iva":"Resp. inscripto"}
