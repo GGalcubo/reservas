@@ -192,7 +192,6 @@ class Persona(models.Model):
     localidad = models.CharField(max_length=50, null=True, blank=True)
     cp = models.CharField(max_length=10, null=True, blank=True)
     mail = models.CharField(max_length=100, null=True, blank=True)
-    contacto_cliente = models.CharField(max_length=100, null=True, blank=True)
     puesto = models.CharField(max_length=100, null=True, blank=True)
     iva = models.CharField(max_length=100, null=True, blank=True)
     condicion_pago = models.CharField(max_length=100, null=True, blank=True)
@@ -269,12 +268,12 @@ class Persona(models.Model):
         
 
 class Vehiculo(models.Model):
-    marca = models.CharField(max_length=100)
-    modelo = models.CharField(max_length=100)
-    ano = models.CharField(max_length=10)
+    marca = models.CharField(max_length=50)
+    modelo = models.CharField(max_length=50)
+    ano = models.CharField(max_length=10,null=True, blank=True)
     color = models.CharField(max_length=50, null=True, blank=True)
     puertas = models.CharField(max_length=10, null=True, blank=True)
-    patente = models.CharField(max_length=100, null=True, blank=True)
+    patente = models.CharField(max_length=30, null=True, blank=True)
     nro_motor = models.CharField(max_length=100, null=True, blank=True)
     nro_chasis = models.CharField(max_length=100, null=True, blank=True)
     dueno = models.ForeignKey(Persona, null=True, blank=True)
