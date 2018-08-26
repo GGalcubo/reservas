@@ -448,6 +448,15 @@ class CentroCosto(models.Model):
     def getFechaFin(self):
         return getFecha(self.fecha_fin)
 
+class TipoPagoViaje(models.Model):
+    tipo_pago_viaje = models.CharField(max_length=50, null=True, blank=True)
+	
+    def __unicode__(self):
+        return u'%s' % self.tipo_pago_viaje
+
+    def __str__(self):
+        return self.tipo_pago_viaje
+        
 class Viaje(models.Model):
     estado = models.ForeignKey(Estado, null=True, blank=True)
     fecha = models.CharField(max_length=12)
@@ -462,7 +471,8 @@ class Viaje(models.Model):
     costo_prov = models.IntegerField(default=0)
     tarifapasada = models.IntegerField(default=0)
     nro_aux= models.CharField(max_length=30, null=True, blank=True)
-	
+    tipo_pago = models.ForeignKey(TipoPagoViaje, null=True, blank=True, default=1)
+    
     def __unicode__(self):
         return u'%s' % self.fecha
 
@@ -489,7 +499,6 @@ class TipoItemViaje(models.Model):
     item_desc = models.CharField(max_length=50, null=True, blank=True)
     iva_pct = models.FloatField(default=0)
     cliente_proveedor = models.CharField(max_length=1, null=True, blank=True)
-    logica = models.CharField(max_length=30, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.viaje.item_desc

@@ -1,5 +1,25 @@
 [
 {
+        "model": "sistema.tipopagoviaje","pk":1,
+         "fields": {          
+       "tipo_pago_viaje":"CC"}
+},
+{
+        "model": "sistema.tipopagoviaje","pk":2,
+         "fields": {          
+       "tipo_pago_viaje":"Tarjeta c/+5%"}
+},
+{
+        "model": "sistema.tipopagoviaje","pk":3,
+         "fields": {          
+       "tipo_pago_viaje":"Tarjeta s/rec"}
+},
+{
+        "model": "sistema.tipopagoviaje","pk":4,
+         "fields": {          
+       "tipo_pago_viaje":"Efectivo"}
+},
+{
         "model": "sistema.tipoitemviaje","pk":1,
          "fields": {          
        "item_desc":"Espera",
