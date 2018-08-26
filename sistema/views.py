@@ -171,14 +171,17 @@ def guardarViaje(request):
     if unidad != '':
         viaje.unidad 			= Unidad.objects.get(id=unidad)
 
-	viaje.save()
+
     data = {
         'error': '0',
         'msg': mensaje
     }
 
+    viaje.save()
+
     print mensaje
     print viaje.id
+    print Viaje.objects.latest('id').id
 
     if es_nuevo == "1":
         data = {'url': '/sistema/editaViaje/?idViaje=' + str(Viaje.objects.latest('id').id)}
