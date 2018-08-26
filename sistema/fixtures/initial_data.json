@@ -1,5 +1,89 @@
 [
 {
+        "model": "sistema.tipoitemviaje","pk":1,
+         "fields": {          
+       "item_desc":"Espera",
+       "iva_pct":0.105,
+       "cliente_proveedor":"c"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":2,
+         "fields": {          
+       "item_desc":"Base",
+       "iva_pct":0.105,
+       "cliente_proveedor":"c"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":3,
+         "fields": {          
+       "item_desc":"Bilingüe",
+       "iva_pct":0.105,
+       "cliente_proveedor":"c"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":4,
+         "fields": {          
+       "item_desc":"Maletas",
+       "iva_pct":0.105,
+       "cliente_proveedor":"c"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":5,
+         "fields": {          
+       "item_desc":"estacionamiento",
+       "iva_pct":0,
+       "cliente_proveedor":"c"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":6,
+         "fields": {          
+       "item_desc":"peajes",
+       "iva_pct":0,
+       "cliente_proveedor":"c"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":7,
+         "fields": {          
+       "item_desc":"cobrado eft",
+       "iva_pct":0,
+       "cliente_proveedor":"c"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":8,
+         "fields": {          
+       "item_desc":"Base",
+       "iva_pct":0,
+       "cliente_proveedor":"p"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":9,
+         "fields": {          
+       "item_desc":"Bilingüe",
+       "iva_pct":0,
+       "cliente_proveedor":"p"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":10,
+         "fields": {          
+       "item_desc":"Maletas",
+       "iva_pct":0,
+       "cliente_proveedor":"p"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":11,
+         "fields": {          
+       "item_desc":"estacionamiento",
+       "iva_pct":0,
+       "cliente_proveedor":"p"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":12,
+         "fields": {          
+       "item_desc":"cobrado eft",
+       "iva_pct":0,
+       "cliente_proveedor":"p"}
+},
+{
         "model": "sistema.tipoadelanto","pk":1,
          "fields": {          
        "descripcion":"Nafta",

@@ -485,27 +485,43 @@ class Viaje(models.Model):
     class Meta:
         verbose_name_plural = "Viajes"
 
-class ViajeAdm(models.Model):
-    viaje = models.ForeignKey(Viaje)
-    espera_min = models.CharField(max_length=50, null=True, blank=True)
-    espera_total = models.CharField(max_length=50, null=True, blank=True)
-    base_total = models.IntegerField(default=0)
-    peaje_total = models.IntegerField(default=0)
-    estacionamiento_total = models.IntegerField(default=0)
-    otros_tot = models.IntegerField(default=0)
-    maletas = models.BooleanField(default=False)
-    bilingue = models.BooleanField(default=False)
-    maletas_tot = models.IntegerField(default=0)
-    bilingue_tot = models.IntegerField(default=0)
-    factura = models.CharField(max_length=50, null=True, blank=True)
-    proforma = models.IntegerField(default=0)
-    cliente_o_prov = models.BooleanField(default=False)
+class TipoItemViaje(models.Model):
+    item_desc = models.CharField(max_length=50, null=True, blank=True)
+    iva_pct = models.FloatField(default=0)
+    cliente_proveedor = models.CharField(max_length=1, null=True, blank=True)
+    logica = models.CharField(max_length=30, null=True, blank=True)
 
     def __unicode__(self):
-        return u'%s' % self.viaje.fecha
+        return u'%s' % self.viaje.item_desc
 
     def __str__(self):
-        return self.viaje.fecha
+        return self.viaje.item_desc  
+
+class ItemViaje(models.Model):
+    viaje = models.ForeignKey(Viaje)
+    tipo_items_viaje = models.ForeignKey(TipoItemViaje)
+    monto_iva = models.FloatField(default=0)
+    monto_s_iva = models.FloatField(default=0)
+    cant = models.IntegerField(default=0)
+
+    def __unicode__(self):
+        return u'%s' % self.viaje.viaje
+
+    def __str__(self):
+        return self.viaje.viaje   
+
+class FacturaViaje(models.Model):
+    viaje = models.ForeignKey(Viaje)
+    fact_cliente = models.CharField(max_length=30, null=True, blank=True)
+    prof_cliente = models.CharField(max_length=30, null=True, blank=True)
+    fact_proveedor = models.CharField(max_length=30, null=True, blank=True)
+    
+
+    def __unicode__(self):
+        return u'%s' % self.viaje
+
+    def __str__(self):
+        return self.viaje  
 
 class ViajePasajero(models.Model):
     viaje = models.ForeignKey(Viaje)
@@ -863,5 +879,3 @@ class Adelanto (models.Model):
 
     def __str__(self):
         return self.persona_id
-
-
