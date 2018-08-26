@@ -142,15 +142,15 @@ def guardarViaje(request):
 
     if es_nuevo == "1":
         viaje = Viaje()
-        viajeAdm = ViajeAdm()
-        observacion = Observacion()
-        obcl = ObservacionViaje()
+        #viajeAdm = ViajeAdm()
+        #observacion = Observacion()
+        #obcl = ObservacionViaje()
         mensaje = 'Se dio de alta el viaje '
     else:
         viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
-        viajeAdm = ViajeAdm.objects.get(viaje_id=request.POST.get('idViaje', False))
-        obcl = ObservacionViaje.objects.get(viaje_id=request.POST.get('idViaje', False))
-        observacion = Observacion.objects.get(id=obcl.viaje_id)
+        #viajeAdm = ViajeAdm.objects.get(viaje_id=request.POST.get('idViaje', False))
+        #obcl = ObservacionViaje.objects.get(viaje_id=request.POST.get('idViaje', False))
+        #observacion = Observacion.objects.get(id=obcl.viaje_id)
         mensaje = 'Se actualizo el viaje '
 
     viaje.estado 				= Estado.objects.get(id=request.POST.get('estado', False))
@@ -172,39 +172,41 @@ def guardarViaje(request):
         viaje.unidad 			= Unidad.objects.get(id=unidad)
 
 	viaje.save()
-
     data = {
         'error': '0',
         'msg': mensaje
     }
 
+    print mensaje
+    print viaje.id
+
     if es_nuevo == "1":
         data = {'url': '/sistema/editaViaje/?idViaje=' + str(Viaje.objects.latest('id').id)}
-        viajeAdm.viaje_id = Viaje.objects.latest('id').id
-        obcl.viaje_id = Viaje.objects.latest('id').id
+        #viajeAdm.viaje_id = Viaje.objects.latest('id').id
+        #obcl.viaje_id = Viaje.objects.latest('id').id
 
-    if request.POST.get('espera', "") != '':
-        viajeAdm.espera_min = request.POST.get('espera')
+    #if request.POST.get('espera', "") != '':
+        #viajeAdm.espera_min = request.POST.get('espera')
 
-    if request.POST.get('peaje', "") != '':
-        viajeAdm.peaje_total = request.POST.get('peaje')
+    #if request.POST.get('peaje', "") != '':
+        #viajeAdm.peaje_total = request.POST.get('peaje')
 
-    if request.POST.get('otros', "") != '':
-        viajeAdm.otros_tot = request.POST.get('otros')
+    #if request.POST.get('otros', "") != '':
+        #viajeAdm.otros_tot = request.POST.get('otros')
 
-    if request.POST.get('estacionamiento', "") != '':
-        viajeAdm.estacionamiento_total = request.POST.get('estacionamiento')
+    #if request.POST.get('estacionamiento', "") != '':
+        #viajeAdm.estacionamiento_total = request.POST.get('estacionamiento')
 
-    viajeAdm.save()
+    #viajeAdm.save()
 
-    observacion.fecha = fecha()
-    observacion.usuario = request.user
-    observacion.texto = request.POST.get('comentario_chofer', "")
-    observacion.tipo_observacion = TipoObservacion.objects.get(id=17)
-    observacion.save()
+    #observacion.fecha = fecha()
+    #observacion.usuario = request.user
+    #observacion.texto = request.POST.get('comentario_chofer', "")
+    #observacion.tipo_observacion = TipoObservacion.objects.get(id=17)
+    #observacion.save()
 
-    obcl.observacion = observacion
-    obcl.save()
+    #obcl.observacion = observacion
+    #obcl.save()
 
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
