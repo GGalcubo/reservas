@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    {% include "sistema/cabecera.html" %}
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+        {% include "sistema/barra_top.html" %}
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            {% include "sistema/barra_lat.html" %}
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <i class="icon-directions"></i>
+                                <a href="/sistema/operaciones/">Operaciones</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="/sistema/listadoAdelanto/">Listado de Adelantos</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <span>Adelanto</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-blue">
+                                        <i class="icon-credit-card font-blue"></i>
+                                        <span class="caption-subject bold uppercase">Alta/Edición de Adelanto</span>
+                                    </div>
+                                    <div class="tools"> </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <form role="form" method="post" id="formGuardarAdelanto" action="/sistema/guardarAdelanto/">{% csrf_token %}
+                                        <input type="hidden" id="idAdelanto" name="idAdelanto" value="">
+                                        <input type="hidden" id="estado" name="estado" value="{{ estado }}">
+                                        <div class="form-body">
+                                            <div class="row mg-b-20">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <select class="form-control" id="provedor" name="provedor">
+                                                            <option value="0">Seleccioná un provedor</option>
+                                                            <option value="1" selected="selected">3 Monos</option>
+                                                            <option value="2">Galcubo</option>
+                                                        </select>
+                                                        <label for="provedor">Provedor</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="monto" name="monto">
+                                                        <label for="monto">Monto</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <select class="form-control" id="tipoAdelanto" name="tipoAdelanto" >
+                                                            <option value="0">Seleccioná un tipo</option>
+                                                            <option value="1" selected="selected" >Shell Nafta</option>
+                                                            <option value="2" >YPF Nafta</option>
+                                                        </select>
+                                                        <label for="tipoAdelanto">Tipo de Adelanto</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="descripcion" name="descripcion">
+                                                        <label for="descripcion">Descripción</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label for="fecha font-12">Fecha</label>
+                                                    <input class="form-control form-control-inline input-medium date-picker" id="fecha" name="fecha" size="16" type="text" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="factura" name="factura">
+                                                        <label for="factura">Factura</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions noborder flex flex-j-between">
+                                            <button type="button" class="btn green">Guardar</button>
+                                            <button type="button" onclick="location.href='/sistema/listadoAdelanto/';" class="btn red">Cancelar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        {% include "sistema/footer.html" %}
+
+            <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
+            <script>
+                $(document).ready(function(){
+                    $('#fecha').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+                });
+
+            </script>
+
+        </div>
+    </body>
+
+</html>

@@ -1127,6 +1127,13 @@ def listadoAdelanto(request):
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/listadoAdelanto.html', context)
 
+@login_required
+def adelanto(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/adelanto.html', context)
+
 # devuelve AAAAMMDD
 def fecha():
 	import time
