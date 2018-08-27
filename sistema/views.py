@@ -1134,6 +1134,20 @@ def adelanto(request):
 	context = {'mensaje': mensaje}
 	return render(request, 'sistema/adelanto.html', context)
 
+@login_required
+def listadoFactClientes(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/listadoFactClientes.html', context)
+
+@login_required
+def listadoFactProvedores(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/listadoFactProvedores.html', context)
+
 # devuelve AAAAMMDD
 def fecha():
 	import time

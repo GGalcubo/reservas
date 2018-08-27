@@ -63,6 +63,8 @@ urlpatterns = [
     url(r'^usuario/', usuario, name='usuario'),
     url(r'^listadoAdelanto/', listadoAdelanto, name='listadoAdelanto'),
     url(r'^adelanto/', adelanto, name='adelanto'),
+    url(r'^listadoFactClientes/', listadoFactClientes, name='listadoFactClientes'),
+    url(r'^listadoFactProvedores/', listadoFactProvedores, name='listadoFactProvedores'),
     
     #url(r'^$', 'sistema.views.index', name='index'),
 ]
