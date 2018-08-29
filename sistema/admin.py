@@ -32,7 +32,7 @@ class ClienteAdmin(admin.ModelAdmin):
     ]
     list_display = ('id', 'razon_social',)
 
-admin.site.register(Viaje,ItemViaje,FacturaViaje)
+admin.site.register(Viaje)
 admin.site.register(Provincia)
 admin.site.register(Localidad)
 admin.site.register(Calle)
@@ -76,3 +76,5 @@ admin.site.register(Iva)
 admin.site.register(CondicionPago)
 admin.site.register(Permission)
 admin.site.register(TipoItemViaje)
+admin.site.register(ItemViaje)
+admin.site.register(FacturaViaje)
