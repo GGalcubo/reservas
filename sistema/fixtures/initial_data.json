@@ -535,7 +535,7 @@
         "model": "sistema.Localidad",
         "pk": 5,
         "fields": {
-            "nombre": "AEP",
+            "nombre": "-Aeropuerto de Aeroparque",
             "trayectodestino_id":1,
             "provincia_id":24,
 			"terminal_flag":1,
@@ -546,7 +546,7 @@
         "model": "sistema.Localidad",
         "pk": 6,
         "fields": {
-            "nombre": "Retiro",
+            "nombre": "-Terminal de Retiro",
             "trayectodestino_id":1,
             "provincia_id":24,
 			"terminal_flag":1,
@@ -559,7 +559,7 @@
         "model": "sistema.Localidad",
         "pk": 7,
         "fields": {
-            "nombre": "Buquebus",
+            "nombre": "-Buquebus",
             "trayectodestino_id":1,
             "provincia_id":24,
 	        "terminal_flag":1,
@@ -570,7 +570,7 @@
         "model": "sistema.Localidad",
         "pk": 8,
         "fields": {
-            "nombre": "EZE",
+            "nombre": "-Aeropuerto Ezeiza",
             "trayectodestino_id":2,
             "provincia_id":1,
 	        "terminal_flag":1,
@@ -1852,7 +1852,7 @@
         "model": "sistema.Localidad",
         "pk": 151,
         "fields": {
-            "nombre": "Terminal de Cruceros",
+            "nombre": "-Terminal de Cruceros",
             "trayectodestino_id":1,
             "provincia_id":24,
 	    "terminal_flag":1,
@@ -1863,11 +1863,22 @@
         "model": "sistema.Localidad",
         "pk": 152,
         "fields": {
-            "nombre": "Terminal de Cruceros",
-            "trayectodestino_id":1,
+            "nombre": "-Terminal de San Fernando",
+            "trayectodestino_id":2,
             "provincia_id":1,
 	    "terminal_flag":1,
 	     "color":"#b858d6"
+        }
+    },
+    {
+        "model": "sistema.Localidad",
+        "pk": 153,
+        "fields": {
+            "nombre": "-Aeropuerto Palomar",
+            "trayectodestino_id":2,
+            "provincia_id":1,
+	    "terminal_flag":1
+	    
         }
     },
 {
