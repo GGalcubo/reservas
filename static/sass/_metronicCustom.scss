@@ -205,11 +205,15 @@ table.dataTable tr th.select-checkbox.selected::after {
 .form-datos-provedor-chofer,
 .form-datos-unidad {
   label, input, select, textarea {
-    font-size: 14px!important;
+    font-size: 14px !important;
   }
   .form-group.form-md-line-input {
     margin: 0 0 10px;
   }
+}
+
+.form-group.form-md-line-input {
+  margin: 0 0 10px 0 !important;
 }
 
 .form-viaje-viaje{

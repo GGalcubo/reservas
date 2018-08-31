@@ -208,6 +208,9 @@ table.dataTable tr th.select-checkbox.selected::after {
 .form-datos-unidad .form-group.form-md-line-input {
   margin: 0 0 10px; }
 
+.form-group.form-md-line-input {
+  margin: 0 0 10px 0 !important; }
+
 .form-viaje-viaje .mt-repeater-delete {
   margin-top: 0.8em; }
 

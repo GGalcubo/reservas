@@ -1,0 +1,364 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    {% include "sistema/cabecera.html" %}
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+        {% include "sistema/barra_top.html" %}
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            {% include "sistema/barra_lat.html" %}
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                  <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <i class="icon-directions"></i>
+                                <a href="/sistema/operaciones/">Operaciones</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <span>Listado de Facturas de Clientes</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div id="" class="col-sm-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light ">
+                              <div class="portlet-title">
+                                  <div class="caption font-blue">
+                                      <i class="icon-briefcase font-blue"></i>
+                                      <span class="caption-subject bold uppercase">Facturas de Clientes</span>
+                                  </div>
+                                  <div class="tools"> </div>
+                              </div>
+                              <div class="portlet-body">
+                                  <form role="form" method="post" id="" action="">
+                                      <div class="form-body">
+                                          <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group mg-b-10">
+                                                    <label class="control-label mg-b-0" style="color: #888;">Fecha</label>
+                                                    <!-- <div class="col-sm-4"> -->
+                                                    <div class="input-group input-large date-picker input-daterange" data-date-format="dd/mm/yyyy">
+                                                      <input type="text" class="form-control" name="from" id="from">
+                                                      <span class="input-group-addon"> hasta </span>
+                                                      <input type="text" class="form-control" name="to" id="to">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="cliente" name="cliente">
+                                                  <option value=""></option>
+                                                  <option value="1">3-Monos</option>
+                                                  <option value="2">Galcubo</option>
+                                                </select>
+                                                <label for="cliente">Cliente</label>
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto">
+                                                  <option value=""></option>
+                                                  <option value="1">3MFERIAJORGE</option>
+                                                  <option value="2">G3LABOJOSE</option>
+                                                </select>
+                                                <label for="centroDeCosto">Centro de Costo</label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-sm-4">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="categViaje" name="categViaje">
+                                                  <option value=""></option>
+                                                  <option value="1">Auto Std</option>
+                                                  <option value="2">Vip</option>
+                                                </select>
+                                                <label for="categViaje">Categ. Viaje</label>
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="condEspecial" name="condEspecial">
+                                                  <option value=""></option>
+                                                  <option value="1">Sarasa</option>
+                                                  <option value="2">Wathever</option>
+                                                </select>
+                                                <label for="condEspecial">Cond. Especial</label>
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="solicitante" name="solicitante">
+                                                  <option value=""></option>
+                                                  <option value="1">Jorge</option>
+                                                  <option value="2">Mercedes</option>
+                                                </select>
+                                                <label for="solicitante">Solicitante</label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-sm-4">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="proforma" name="proforma">
+                                                  <option value=""></option>
+                                                  <option value="1">123456789</option>
+                                                  <option value="2">456789123</option>
+                                                </select>
+                                                <label for="proforma">Proforma</label>
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="factura" name="factura">
+                                                  <option value=""></option>
+                                                  <option value="1">0001-00000123</option>
+                                                  <option value="2">0001-00000456</option>
+                                                </select>
+                                                <label for="factura">Factura</label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </div>
+                                      <div class="form-actions noborder flex flex-j-between">
+                                          <button type="button" class="btn green">Buscar</button>
+                                          <button type="button" class="btn blue">Resetear filtros</button>
+                                      </div>
+                                  </form>
+                              </div>
+                              <hr>
+                              <div class="portlet-body">
+                                  <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoFactClientes">
+                                      <thead>
+                                          <tr>
+                                              <th class="all" style="cursor: pointer;"></th>
+                                              <th class="all">Fecha</th>
+                                              <th class="all">TS</th>
+                                              <th class="all">Hora</th>
+                                              <th class="all">Unidad</th>
+                                              <th class="all">N° Serv</th>
+                                              <th class="all">ID Aux</th>
+                                              <th class="all">Proforma</th>
+                                              <th class="all">Factura</th>
+                                              <th class="all">Solicitante</th>
+                                              <th class="all">Centro Costo</th>
+                                              <th class="all">Pasajero</th>
+                                              <th class="all">Origen</th>
+                                              <th class="all">Destino</th>
+                                              <th class="all">Subtotal</th>
+                                              <th class="all">T. Espera</th>
+                                              <th class="all">Espera</th>
+                                              <th class="all">Bilingue</th>
+                                              <th class="all">Maletas</th>
+                                              <th class="all">Peajes</th>
+                                              <th class="all">Estación</th>
+                                              <th class="all">Otros</th>
+                                              <th class="all">Total</th>
+                                              <th class="all">IVA</th>
+                                              <th class="all">Final</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td></td>
+                                              <td>14/10/2018</td>
+                                              <td>Vip</td>
+                                              <td>15:30</td>
+                                              <td>345</td>
+                                              <td class="text-center"><a href="#">1</a></td>
+                                              <td></td>
+                                              <td>123456789</td>
+                                              <td>0001-00000123</td>
+                                              <td>Jorge</td>
+                                              <td>G3RURAL</td>
+                                              <td>Guido Su</td>
+                                              <td><span class="label label-sm label-info">Centro</span></td>
+                                              <td><span class="label label-sm label-primary">Aeroparque</span></td>
+                                              <td>$ 1.500,00</td>
+                                              <td>30</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 2.400,00</td>
+                                              <td>$ 504,00</td>
+                                              <td>$ 2.904,00</td>
+                                          </tr>
+                                          <tr>
+                                              <td></td>
+                                              <td>14/10/2018</td>
+                                              <td>Vip</td>
+                                              <td>15:30</td>
+                                              <td>345</td>
+                                              <td class="text-center"><a href="#">1</a></td>
+                                              <td></td>
+                                              <td>123456789</td>
+                                              <td>0001-00000123</td>
+                                              <td>Jorge</td>
+                                              <td>G3RURAL</td>
+                                              <td>Guido Su</td>
+                                              <td><span class="label label-sm label-info">Centro</span></td>
+                                              <td><span class="label label-sm label-primary">Aeroparque</span></td>
+                                              <td>$ 1.500,00</td>
+                                              <td>30</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 2.400,00</td>
+                                              <td>$ 504,00</td>
+                                              <td>$ 2.904,00</td>
+                                          </tr>
+                                          <tr>
+                                              <td></td>
+                                              <td>14/10/2018</td>
+                                              <td>Vip</td>
+                                              <td>15:30</td>
+                                              <td>345</td>
+                                              <td class="text-center"><a href="#">1</a></td>
+                                              <td></td>
+                                              <td>123456789</td>
+                                              <td>0001-00000123</td>
+                                              <td>Jorge</td>
+                                              <td>G3RURAL</td>
+                                              <td>Guido Su</td>
+                                              <td><span class="label label-sm label-info">Centro</span></td>
+                                              <td><span class="label label-sm label-primary">Aeroparque</span></td>
+                                              <td>$ 1.500,00</td>
+                                              <td>30</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 150,00</td>
+                                              <td>$ 2.400,00</td>
+                                              <td>$ 504,00</td>
+                                              <td>$ 2.904,00</td>
+                                          </tr>
+                                          <tr>
+                                              <td></td>
+                                              <td>14/10/2018</td>
+                                              <td>Vip</td>
+                                              <td>15:30</td>
+                                              <td>345</td>
+                                              <td class="text-center"><a href="#">1</a></td>
+                                              <td></td>
+                                              <td>123456789</td>
+                                              <td>0001-00000123</td>
+                                              <td>Jorge</td>
+                                              <td>G3RURAL</td>
+                                              <td>Guido Su</td>
+                                              <td><span class="label label-sm label-info">Centro</span></td>
+                                              <td><span class="label label-sm label-primary">Aeroparque</span></td>
+                                              <td>$1.500,00</td>
+                                              <td>30</td>
+                                              <td>$150,00</td>
+                                              <td>$150,00</td>
+                                              <td>$150,00</td>
+                                              <td>$150,00</td>
+                                              <td>$150,00</td>
+                                              <td>$150,00</td>
+                                              <td>$2.400,00</td>
+                                              <td>$504,00</td>
+                                              <td>$2.904,00</td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        {% include "sistema/footer.html" %}
+
+            <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
+            <script>
+                $(document).ready(function(){
+
+                    let table = $('#tablaListadoFactClientes').DataTable( {
+                        responsive: true,
+                        // scrollX: true,
+                        // scrollY: 200,
+                        columnDefs: [{
+                            orderable: false,
+                            className: 'select-checkbox',
+                            targets: 0
+                        }],
+                        select: {
+                            style: 'os',
+                            selector: 'td:first-child'
+                        },
+                        order: [[ 1, "asc" ]],
+                        dom: 'lfBrtip',
+                        buttons: [
+                            'copy', 'excel', 'pdf', 'print'
+                        ],
+                        lengthMenu: [
+                                        [ -1, 500, 100, 50, 25, 10 ],
+                                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                        language: {
+                            buttons: {
+                                copy: "Copiar",
+                                print: "Imprimir"
+                            }
+                        }
+                    } );
+
+                    //Para el seleccionar todos de la tabla
+                    table.on("click", "th.select-checkbox", function() {
+                        if ($("th.select-checkbox").hasClass("selected")) {
+                            table.rows().deselect();
+                            $("th.select-checkbox").removeClass("selected");
+                        } else {
+                            table.rows().select();
+                            $("th.select-checkbox").addClass("selected");
+                        }
+                    }).on("select deselect", function() {
+                        ("Some selection or deselection going on")
+                        if (table.rows({
+                                selected: true
+                            }).count() !== table.rows().count()) {
+                            $("th.select-checkbox").removeClass("selected");
+                        } else {
+                            $("th.select-checkbox").addClass("selected");
+                        }
+                    });
+
+                });
+
+            </script>
+
+        </div>
+    </body>
+
+</html>
