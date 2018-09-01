@@ -139,12 +139,11 @@ table.dataTable thead td {
   padding: 4px 8px; }
 
 /* PARA EL SELECCIONAR TODAS DE ADELANTOS */
-table.dataTable tr th.select-checkbox.selected::after {
-  content: "✔";
-  margin-top: -11px;
-  margin-left: -4px;
-  text-align: center;
-  text-shadow: #b0bed9 1px 1px, #b0bed9 -1px -1px, #b0bed9 1px -1px, #b0bed9 -1px 1px; }
+table.dataTable td.select-checkbox:before {
+  margin-top: -9px; }
+
+table.dataTable tr.selected td.select-checkbox:after {
+  margin-top: -14px; }
 
 /* BOOTSTRAP TABLES */
 .table > tbody > tr > td,
@@ -367,6 +366,10 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
       .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-pdf {
         background-color: #f36a5a; }
       .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-print {
+        background-color: #3598dc; }
+      .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-select-all {
+        background-color: #3598dc; }
+      .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-select-none {
         background-color: #3598dc; }
 
 .bootstrap-table .fixed-table-toolbar .bs-bars.pull-left {
