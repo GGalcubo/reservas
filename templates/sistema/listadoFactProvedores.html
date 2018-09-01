@@ -26,7 +26,7 @@
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <span>Listado de Facturas de Clientes</span>
+                                <span>Listado de Facturas de Provedores</span>
                             </li>
                         </ul>
                     </div>
@@ -36,8 +36,8 @@
                             <div class="portlet light ">
                               <div class="portlet-title">
                                   <div class="caption font-blue">
-                                      <i class="icon-briefcase font-blue"></i>
-                                      <span class="caption-subject bold uppercase">Facturas de Clientes</span>
+                                      <i class="icon-rocket font-blue"></i>
+                                      <span class="caption-subject bold uppercase">Facturas de Provedores</span>
                                   </div>
                                   <div class="tools"> </div>
                               </div>
@@ -55,68 +55,38 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                              <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="cliente" name="cliente">
-                                                  <option value=""></option>
-                                                  <option value="1">3-Monos</option>
-                                                  <option value="2">Galcubo</option>
-                                                </select>
-                                                <label for="cliente">Cliente</label>
-                                              </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                              <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto">
-                                                  <option value=""></option>
-                                                  <option value="1">3MFERIAJORGE</option>
-                                                  <option value="2">G3LABOJOSE</option>
-                                                </select>
-                                                <label for="centroDeCosto">Centro de Costo</label>
-                                              </div>
-                                            </div>
                                             <div class="col-sm-2">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="categViaje" name="categViaje">
+                                                <select class="form-control select2me" id="idUnidad" name="idUnidad">
                                                   <option value=""></option>
-                                                  <option value="1">Auto Std</option>
-                                                  <option value="2">Vip</option>
+                                                  <option value="1">325</option>
+                                                  <option value="2">225</option>
                                                 </select>
-                                                <label for="categViaje">Categ. Viaje</label>
+                                                <label for="idUnidad">ID Unidad</label>
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="unidad" name="unidad">
+                                                  <option value=""></option>
+                                                  <option value="1">Remises Junin</option>
+                                                  <option value="2">El Gordo Fabio</option>
+                                                </select>
+                                                <label for="unidad">Unidad</label>
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="provedor" name="provedor">
+                                                  <option value=""></option>
+                                                  <option value="1">Juan José Pizurno</option>
+                                                  <option value="2">Fabio Alberto</option>
+                                                </select>
+                                                <label for="provedor">Provedor</label>
                                               </div>
                                             </div>
                                           </div>
                                           <div class="row">
-                                            <div class="col-sm-3">
-                                              <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="condEspecial" name="condEspecial">
-                                                  <option value=""></option>
-                                                  <option value="1">Sarasa</option>
-                                                  <option value="2">Wathever</option>
-                                                </select>
-                                                <label for="condEspecial">Cond. Especial</label>
-                                              </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                              <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="solicitante" name="solicitante">
-                                                  <option value=""></option>
-                                                  <option value="1">Jorge</option>
-                                                  <option value="2">Mercedes</option>
-                                                </select>
-                                                <label for="solicitante">Solicitante</label>
-                                              </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                              <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="proforma" name="proforma">
-                                                  <option value=""></option>
-                                                  <option value="1">123456789</option>
-                                                  <option value="2">456789123</option>
-                                                </select>
-                                                <label for="proforma">Proforma</label>
-                                              </div>
-                                            </div>
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="factura" name="factura">
@@ -137,24 +107,16 @@
                               </div>
                               <hr>
                               <div class="flex flex-j-end">
-                                  <button type="button" class="btn green mg-r-10">Facturar</button>
-                                  <button type="button" class="btn blue">Asignar N° proforma</button>
+                                  <button type="button" class="btn green">Facturar Seleccionados</button>
                               </div>
                               <div class="portlet-body">
-                                  <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoFactClientes">
+                                  <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoFactProvedores">
                                       <thead>
                                           <tr>
                                               <th class="all"></th>
                                               <th class="all">Fecha</th>
                                               <th class="all">TS</th>
                                               <th class="all">Hora</th>
-                                              <th class="all">Unidad</th>
-                                              <th class="all">N° Serv</th>
-                                              <th class="all">ID Aux</th>
-                                              <th class="all">Proforma</th>
-                                              <th class="all">Factura</th>
-                                              <th class="all">Solicitante</th>
-                                              <th class="all">Centro Costo</th>
                                               <th class="all">Pasajero</th>
                                               <th class="all">Origen</th>
                                               <th class="all">Destino</th>
@@ -169,6 +131,9 @@
                                               <th class="all">Total</th>
                                               <th class="all">IVA</th>
                                               <th class="all">Final</th>
+                                              <th class="all">Cobrado</th>
+                                              <th class="all">Pagar</th>
+                                              <th class="all">Factura</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -177,13 +142,6 @@
                                               <td>14/10/2018</td>
                                               <td>Vip</td>
                                               <td>15:30</td>
-                                              <td>345</td>
-                                              <td class="text-center"><a href="#">1</a></td>
-                                              <td>???</td>
-                                              <td>123456789</td>
-                                              <td>000100000123</td>
-                                              <td>Jorge</td>
-                                              <td>G3RURAL</td>
                                               <td>Guido Su</td>
                                               <td><span class="label label-sm label-info">Centro</span></td>
                                               <td><span class="label label-sm label-primary">Aeroparque</span></td>
@@ -198,19 +156,15 @@
                                               <td>$2.400,00</td>
                                               <td>$504,00</td>
                                               <td>$2.904,00</td>
+                                              <td>$1.000,00</td>
+                                              <td>$1.904,00</td>
+                                              <td>000100000123</td>
                                           </tr>
                                           <tr>
                                               <td></td>
                                               <td>14/10/2018</td>
                                               <td>Vip</td>
                                               <td>15:30</td>
-                                              <td>345</td>
-                                              <td class="text-center"><a href="#">1</a></td>
-                                              <td>???</td>
-                                              <td>123456789</td>
-                                              <td>000100000123</td>
-                                              <td>Jorge</td>
-                                              <td>G3RURAL</td>
                                               <td>Guido Su</td>
                                               <td><span class="label label-sm label-info">Centro</span></td>
                                               <td><span class="label label-sm label-primary">Aeroparque</span></td>
@@ -225,19 +179,15 @@
                                               <td>$2.400,00</td>
                                               <td>$504,00</td>
                                               <td>$2.904,00</td>
+                                              <td>$1.000,00</td>
+                                              <td>$1.904,00</td>
+                                              <td>000100000123</td>
                                           </tr>
                                           <tr>
                                               <td></td>
                                               <td>14/10/2018</td>
                                               <td>Vip</td>
                                               <td>15:30</td>
-                                              <td>345</td>
-                                              <td class="text-center"><a href="#">1</a></td>
-                                              <td>???</td>
-                                              <td>123456789</td>
-                                              <td>000100000123</td>
-                                              <td>Jorge</td>
-                                              <td>G3RURAL</td>
                                               <td>Guido Su</td>
                                               <td><span class="label label-sm label-info">Centro</span></td>
                                               <td><span class="label label-sm label-primary">Aeroparque</span></td>
@@ -252,19 +202,15 @@
                                               <td>$2.400,00</td>
                                               <td>$504,00</td>
                                               <td>$2.904,00</td>
+                                              <td>$1.000,00</td>
+                                              <td>$1.904,00</td>
+                                              <td>000100000123</td>
                                           </tr>
                                           <tr>
                                               <td></td>
                                               <td>14/10/2018</td>
                                               <td>Vip</td>
                                               <td>15:30</td>
-                                              <td>345</td>
-                                              <td class="text-center"><a href="#">1</a></td>
-                                              <td>???</td>
-                                              <td>123456789</td>
-                                              <td>000100000123</td>
-                                              <td>Jorge</td>
-                                              <td>G3RURAL</td>
                                               <td>Guido Su</td>
                                               <td><span class="label label-sm label-info">Centro</span></td>
                                               <td><span class="label label-sm label-primary">Aeroparque</span></td>
@@ -279,12 +225,18 @@
                                               <td>$2.400,00</td>
                                               <td>$504,00</td>
                                               <td>$2.904,00</td>
+                                              <td>$1.000,00</td>
+                                              <td>$1.904,00</td>
+                                              <td>000100000123</td>
                                           </tr>
                                       </tbody>
                                       <!-- ESTO SE AGREGO PARA LA FILA DE TOTAL -->
                                       <tfoot>
                                           <tr>
-                                              <th colspan="15" style="text-align:right">Total:</th>
+                                              <th colspan="8" style="text-align:right">Total:</th>
+                                              <th></th>
+                                              <th></th>
+                                              <th></th>
                                               <th></th>
                                               <th></th>
                                               <th></th>
@@ -319,7 +271,7 @@
             <script>
                 $(document).ready(function(){
 
-                    let table = $('#tablaListadoFactClientes').DataTable( {
+                    let table = $('#tablaListadoFactProvedores').DataTable( {
                       ///////////////// EJEMPLO DE DATATABLES CON TABLE FOOTER PARA FILAS CON TOTAL /////////////
                       /*
                       Se puede usar esto que entiendo es una API de datatables o bien clavar una ultima fila y que algún
