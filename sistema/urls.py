@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^altaViaje/', altaViaje, name='altaViaje'),
     url(r'^editaViaje/$', editaViaje, name='editaViaje'),
     url(r'^guardarViaje/', guardarViaje, name='guardarViaje'),
+    url(r'^guardarViajeAdjunto/', guardarViajeAdjunto, name='guardarViajeAdjunto'),
     url(r'^getViajesFuturosPorFecha/', getViajesFuturosPorFecha, name='getViajesFuturosPorFecha'),
     url(r'^getViajesEnProgresoPorFecha/', getViajesEnProgresoPorFecha, name='getViajesEnProgresoPorFecha'),
     url(r'^editEstadoViaje/', editEstadoViaje, name='editEstadoViaje'),
