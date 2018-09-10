@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from .models import *
 from django.http import HttpResponse
-
+from django.core import serializers
 import json
 import os
 
@@ -227,6 +227,8 @@ def guardarViajeAdjunto(request):
         "acceptedformats": (
             "image/jpeg",
             "image/png",
+            "application/pdf",
+            "application/msword",
         )
     }
 
@@ -237,7 +239,6 @@ def guardarViajeAdjunto(request):
             return HttpResponseBadRequest("UID not specified.")
         uid = request.POST[u"uid"]
 
-        temp_path = os.path.join(settings.PROJECT_ROOT, "adjuntos")
         file = request.FILES[u'files[]']
 
         error = False
@@ -262,13 +263,8 @@ def guardarViajeAdjunto(request):
             response_data = json.dumps([response_data])
             return HttpResponse(response_data, mimetype='application/json')
 
-        if not os.path.exists(temp_path):
-            os.makedirs(temp_path)
+        #filename = os.path.join('adjuntos/', str(uuid.uuid4()) + file.name)
 
-        filename = os.path.join('adjuntos/', str(uuid.uuid4()) + file.name)
-
-        print request.get_full_path() + file.name
-        print settings.BASE_DIR
         adjunto = Adjunto()
         adjunto.upload = request.FILES[u'files[]']
         adjunto.fecha = '2018'
@@ -279,17 +275,13 @@ def guardarViajeAdjunto(request):
         viajeAdjunto.viaje_id = request.POST[u"idViaje"]
         viajeAdjunto.save()
 
-        destination = open(filename, "wb+")
-        for chunk in file.chunks():
-            destination.write(chunk)
-        destination.close()
         import urllib
 
-        response_data["delete_url"] = request.path + "?" + urllib.urlencode(
-            {"f": uid + "/" + os.path.split(filename)[1]})
-        response_data["delete_type"] = "POST"
-        response_data["url"] = settings.BASE_DIR + '/' + filename
-        response_data["thumbnailUrl"] = settings.BASE_DIR + '/' + filename
+        #response_data["delete_url"] = request.path + "?" + urllib.urlencode(
+            #{"f": uid + "/" + os.path.split(filename)[1]})
+        #response_data["delete_type"] = "POST"
+        response_data["url"] = adjunto.upload.url
+        response_data["thumbnailUrl"] = adjunto.upload.url
 
         response_data = {
             'files': [response_data]
@@ -303,10 +295,26 @@ def guardarViajeAdjunto(request):
         # return the data to the uploading plugin
         return HttpResponse(response_data, content_type=response_type)
     else:
+
+        idViaje = request.GET.get('idViaje', '')
+        viajeAdjuntos = AdjuntoViaje.objects.filter(viaje_id=idViaje)
+
+        adjunto = ''
+        nombre = ''
+        adjuntos = {}
         data = {
-            'error': '0',
-            'msg': 'qeh'
+            'files': []
         }
+        for item in viajeAdjuntos:
+            data['files'].append({
+                'url':item.adjunto.upload.url,
+                'name':item.adjunto.upload.name,
+                'thumbnailUrl':item.adjunto.upload.url,
+                'delete_url': item.adjunto.upload.url,
+                'delete_type': "POST"
+            })
+
+
         dump = json.dumps(data)
         return HttpResponse(dump, content_type='application/json')
 

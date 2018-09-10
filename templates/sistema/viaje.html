@@ -1156,7 +1156,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="tab_15_6">
-                                        <form id="fileupload" action="/sistema/guardarViajeAdjunto/" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                                        <form id="fileupload" action="/sistema/guardarViajeAdjunto/?idViaje={{ viaje.id }}" method="POST" enctype="multipart/form-data">{% csrf_token %}
                                             <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
                                             <div class="row fileupload-buttonbar">
                                                 <div class="col-lg-7">
@@ -2360,7 +2360,7 @@
         <td>
             <span class="preview"> {% if (file.thumbnailUrl) { %}
                 <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery>
-                    <img src="{%=file.thumbnailUrl%}">
+                    <img src="{%=file.thumbnailUrl%}" style="width: 200px;">
                 </a> {% } %} </span>
         </td>
         <td>
