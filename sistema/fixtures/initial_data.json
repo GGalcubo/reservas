@@ -2,7 +2,7 @@
 {
         "model": "sistema.tipopagoviaje","pk":1,
          "fields": {          
-       "tipo_pago_viaje":"CC"}
+       "tipo_pago_viaje":"Cuenta Cte"}
 },
 {
         "model": "sistema.tipopagoviaje","pk":2,
@@ -140,7 +140,7 @@
 {
         "model": "sistema.iva","pk":3,
          "fields": {          
-       "iva":"Autonomo"}
+       "iva":"Exento"}
 },
 {
         "model": "sistema.condicionpago","pk":1,
