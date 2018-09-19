@@ -1225,16 +1225,73 @@ def usuario(request):
 @login_required
 def listadoAdelanto(request):
 	mensaje = ""
-
-	context = {'mensaje': mensaje}
+	proveedores = Persona.objects.filter(tipo_persona=4)
+	context = {'mensaje': mensaje, 'proveedores':proveedores}
 	return render(request, 'sistema/listadoAdelanto.html', context)
+
+@login_required
+def altaAdelanto(request):
+	mensaje = ""
+	proveedores = Persona.objects.filter(tipo_persona=4)
+	tipos_adelanto = TipoAdelanto.objects.all()
+	adelanto = Adelanto()
+	adelanto.id = 0
+	context = {'mensaje': mensaje, 'proveedores':proveedores,'tipos_adelanto':tipos_adelanto,'adelanto':adelanto}
+	return render(request, 'sistema/adelanto.html', context)
 
 @login_required
 def adelanto(request):
 	mensaje = ""
 
-	context = {'mensaje': mensaje}
+	estado = request.session.get('estadoAdelanto', '')
+	idAdelanto = request.GET.get('idAdelanto', "")
+	adelanto = Adelanto.objects.get(id=idAdelanto)
+	tipos_adelanto = TipoAdelanto.objects.all()
+	proveedores = Persona.objects.filter(tipo_persona=4)
+
+	tipoAdelantoId = adelanto.tipo_adelanto.id
+	provedorId = adelanto.proveedor.id
+	request.session['estadoAdelanto'] = ''
+
+	context = {'mensaje': mensaje, 
+				'proveedores':proveedores,
+				'tipos_adelanto':tipos_adelanto, 
+				'estado':estado, 
+				'idAdelanto':idAdelanto,  
+				'tipoAdelantoId':tipoAdelantoId,
+				'adelanto':adelanto,
+				'provedorId':provedorId
+			}
 	return render(request, 'sistema/adelanto.html', context)
+
+@login_required
+def guardarAdelanto(request):
+	mensaje = ""
+	idAdelanto = request.POST.get('idAdelanto', False)
+	provedor = request.POST.get('provedor', False)
+	monto = request.POST.get('monto', False)
+	tipoAdelanto = request.POST.get('tipoAdelanto', False)
+	descripcion = request.POST.get('descripcion', False)
+	fecha = request.POST.get('fecha', False)
+	factura = request.POST.get('factura', False)
+	
+	if idAdelanto == "0":
+		adelanto = Adelanto()
+		request.session['adelantoLicencia'] = 'nuevo'
+	else:
+		adelanto = Adelanto.objects.get(id=idAdelanto)
+		request.session['adelantoLicencia'] = 'editado'
+
+	adelanto.proveedor = Persona.objects.get(id=provedor)
+	adelanto.monto = monto
+	adelanto.tipo_adelanto = TipoAdelanto.objects.get(id=tipoAdelanto)
+	adelanto.descripcion = descripcion
+	adelanto.fecha = getAAAAMMDD(fecha)
+	adelanto.factura = factura
+	adelanto.save()
+
+	url = '/sistema/adelanto/?idAdelanto='+str(adelanto.id)
+	return redirect(url)
 
 @login_required
 def listadoFactClientes(request):

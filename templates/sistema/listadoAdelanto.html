@@ -38,7 +38,7 @@
                                   <div class="caption font-blue">
                                       <i class="icon-credit-card font-blue mg-t-8"></i>
                                       <span class="caption-subject bold uppercase">Listado de Adelantos</span>
-                                      <a href="/sistema/adelanto/" role="button" class="btn green btn-outline mg-l-20">Agregar adelanto</a>
+                                      <a href="/sistema/altaAdelanto/" role="button" class="btn green btn-outline mg-l-20">Agregar adelanto</a>
                                       <a href="/sistema/#/" role="button" class="btn blue btn-outline mg-l-20">Facturar adelanto</a>
                                   </div>
                                   <div class="tools"> </div>
@@ -61,8 +61,9 @@
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="chofer" name="chofer">
                                                   <option value=""></option>
-                                                  <option value="1">Jorge Gutierrez</option>
-                                                  <option value="2">Diego Fuentes</option>
+                                                    {% for p in proveedores %}
+                                                        <option value="{{ p.id }}" selected="selected">{{ p.nombreCompleto }}</option>
+                                                    {% endfor %}
                                                 </select>
                                                 <label for="chofer">Provedor</label>
                                               </div>
@@ -81,6 +82,7 @@
                                       <thead>
                                           <tr>
                                               <th class="all"></th>
+                                              <th class="all text-center"><i class="fa fa-pencil"></i></th>
                                               <th class="all text-center"><i class="fa fa-trash"></i></th>
                                               <th class="all">ID</th>
                                               <th class="all">Nombre</th>
@@ -94,39 +96,7 @@
                                       <tbody>
                                           <tr>
                                               <td></td>
-                                              <td class="text-center"><a href=""><i class="fa fa-times" style="color: red;"></i></a></td>
-                                              <td>145</td>
-                                              <td>Jorge Alberto</td>
-                                              <td>0001-0000457</td>
-                                              <td>2500</td>
-                                              <td>YPF Nafta</td>
-                                              <td>No le daba la nasta</td>
-                                              <td>15/08/2018</td>
-                                          </tr>
-                                          <tr>
-                                              <td></td>
-                                              <td class="text-center"><a href=""><i class="fa fa-times" style="color: red;"></i></a></td>
-                                              <td>145</td>
-                                              <td>Guido Shu</td>
-                                              <td>0001-0000557</td>
-                                              <td>3500</td>
-                                              <td>Visa</td>
-                                              <td>Tarjeta</td>
-                                              <td>17/08/2018</td>
-                                          </tr>
-                                          <tr>
-                                              <td></td>
-                                              <td class="text-center"><a href=""><i class="fa fa-times" style="color: red;"></i></a></td>
-                                              <td>15</td>
-                                              <td>Martin Alberto</td>
-                                              <td>0001-0000457</td>
-                                              <td>2000</td>
-                                              <td>Shell Nafta</td>
-                                              <td>No le daba la nasta</td>
-                                              <td>16/08/2018</td>
-                                          </tr>
-                                          <tr>
-                                              <td></td>
+                                              <td class="text-center"><a href=""><i class="fa fa-pencil" style="color: blue;"></i></a></td>
                                               <td class="text-center"><a href=""><i class="fa fa-times" style="color: red;"></i></a></td>
                                               <td>145</td>
                                               <td>Jorge Alberto</td>

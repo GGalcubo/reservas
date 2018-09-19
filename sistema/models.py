@@ -868,10 +868,9 @@ def getFecha(aaaammdd):
     return aaaammdd[6:8] + "/" + aaaammdd[4:6] + "/" + aaaammdd[0:4]
 
 class TipoAdelanto (models.Model):
-    descripcion= models.CharField(max_length=50, null=True, blank=True)
-    logica= models.CharField(max_length=50, null=True, blank=True)
+    descripcion = models.CharField(max_length=50, null=True, blank=True)
+    logica = models.CharField(max_length=50, null=True, blank=True)
     
-
     def __unicode__(self):
         return u'%s' % self.descripcion
 
@@ -879,14 +878,18 @@ class TipoAdelanto (models.Model):
         return self.descripcion
 		
 class Adelanto (models.Model):
-    persona_id = models.ForeignKey(Persona, null=True, blank=True)
-    tipo_adelanto_id = models.ForeignKey(TipoAdelanto, null=True, blank=True)
-    fecha = models.CharField(max_length=20, null=True, blank=True)
+    proveedor = models.ForeignKey(Persona, null=True, blank=True)
+    tipo_adelanto = models.ForeignKey(TipoAdelanto, null=True, blank=True)
+    fecha = models.CharField(max_length=8, null=True, blank=True)
     monto = models.CharField(max_length=25, null=True, blank=True)
-    Factura_id= models.CharField(max_length=25, null=True, blank=True)
+    factura = models.CharField(max_length=25, null=True, blank=True)
+    descripcion = models.CharField(max_length=250, null=True, blank=True)
 
     def __unicode__(self):
-        return u'%s' % self.persona_id
+        return u'%s' % self.proveedor
 
     def __str__(self):
-        return self.persona_id
+        return self.proveedor
+
+    def getFecha(self):
+        return getFecha(self.fecha)

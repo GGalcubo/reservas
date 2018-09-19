@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="portlet-body">
                                     <form role="form" method="post" id="formGuardarAdelanto" action="/sistema/guardarAdelanto/">{% csrf_token %}
-                                        <input type="hidden" id="idAdelanto" name="idAdelanto" value="">
+                                        <input type="hidden" id="idAdelanto" name="idAdelanto" value="{{ adelanto.id }}">
                                         <input type="hidden" id="estado" name="estado" value="{{ estado }}">
                                         <div class="form-body">
                                             <div class="row mg-b-20">
@@ -55,15 +55,16 @@
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <select class="form-control" id="provedor" name="provedor">
                                                             <option value="0">Seleccioná un provedor</option>
-                                                            <option value="1" selected="selected">3 Monos</option>
-                                                            <option value="2">Galcubo</option>
+                                                            {% for p in proveedores %}
+                                                                <option value="{{ p.id }}" selected="selected">{{ p.nombreCompleto }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="provedor">Provedor</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="monto" name="monto">
+                                                        <input type="text" class="form-control" id="monto" name="monto" value="{{ adelanto.monto|default_if_none:"0" }}">
                                                         <label for="monto">Monto</label>
                                                     </div>
                                                 </div>
@@ -71,8 +72,9 @@
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <select class="form-control" id="tipoAdelanto" name="tipoAdelanto" >
                                                             <option value="0">Seleccioná un tipo</option>
-                                                            <option value="1" selected="selected" >Shell Nafta</option>
-                                                            <option value="2" >YPF Nafta</option>
+                                                            {% for t in tipos_adelanto %}
+                                                                <option value="{{ t.id }}" selected="selected" >{{ t.descripcion }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="tipoAdelanto">Tipo de Adelanto</label>
                                                     </div>
@@ -81,26 +83,26 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="descripcion" name="descripcion">
+                                                        <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ adelanto.descripcion|default_if_none:"" }}">
                                                         <label for="descripcion">Descripción</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label for="fecha font-12">Fecha</label>
-                                                    <input class="form-control form-control-inline input-medium date-picker" id="fecha" name="fecha" size="16" type="text" />
+                                                    <input class="form-control form-control-inline input-medium date-picker" id="fecha" name="fecha" size="16" type="text" value="{{ adelanto.getFecha }}" />
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="factura" name="factura">
+                                                        <input type="text" class="form-control" id="factura" name="factura" value="{{ adelanto.factura|default_if_none:"" }}">
                                                         <label for="factura">Factura</label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-actions noborder flex flex-j-between">
-                                            <button type="button" class="btn green">Guardar</button>
+                                            <button type="button" onclick="guardarAdelanto()" class="btn green">Guardar</button>
                                             <button type="button" onclick="location.href='/sistema/listadoAdelanto/';" class="btn red">Cancelar</button>
                                         </div>
                                     </form>
@@ -130,7 +132,30 @@
                         todayHighlight: true,
                         autoclose: true
                     });
+
+                    idAdelanto = $("#idAdelanto").val()
+                    estado = $("#estado").val()
+                    if (idAdelanto != "0"){
+                        if (estado != ''){
+                            alert("Se guardo la licencia correctamente.");
+                        }
+                        $("#tipoAdelanto").val('{{ tipoAdelantoId }}')
+                        $('#provedor').val('{{ provedorId }}');
+                    }
                 });
+
+                function guardarAdelanto(){
+                    if ($("#provedor").val() == ""){
+                        alert("El campo Provedor es obligatorio.");
+                        return false;
+                    }
+                    if ($("#tipoAdelanto").val() == ""){
+                        alert("El campo Tipo Adelanto es obligatorio.");
+                        return false;
+                    }
+
+                    $("#formGuardarAdelanto").submit();
+                }
 
             </script>
 
