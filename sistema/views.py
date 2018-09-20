@@ -11,60 +11,6 @@ import json
 import os
 
 @login_required
-def importar_calles(request):
-	Calle.objects.all().delete()
-	Partido.objects.all().delete()
-	Provincia.objects.all().delete()
-
-	import csv
-	with open('calles.csv') as csvfile:
-		reader = csv.reader(csvfile)
-		cont = 0
-		for row in reader:
-			cont = cont + 1
-			if cont != 1:
-				try:
-					alt_desde = row[0]
-					alt_hasta = row[1]
-					calle_csv = row[3]
-					part_csv = row[6]
-					prov_csv = row[7]
-				
-				
-					try:
-						provincia = Provincia.objects.get(nombre=prov_csv)
-					except Provincia.DoesNotExist:
-						provincia = Provincia(nombre=prov_csv)
-						provincia.save()
-		
-					try:
-						partido = Partido.objects.get(nombre=part_csv)
-					except Partido.DoesNotExist:
-						partido = Partido(nombre=part_csv, provincia=provincia)
-						partido.save()
-
-					calle = Calle()
-					calle.nombre = calle_csv
-					calle.altura_desde = alt_desde
-					calle.altura_hasta = alt_hasta
-					calle.partido = partido
-					calle.save()
-
-				except Exception as e:
-					print str(cont) + str(e)		
-
-			
-
-
-
-
-
-	mensaje = ""
-
-	context = { 'mensaje':mensaje }
-	return render(request, 'sistema/operaciones.html', context)
-
-@login_required
 def dashboard(request):
 	mensaje = ""
 
@@ -1225,14 +1171,14 @@ def usuario(request):
 @login_required
 def listadoAdelanto(request):
 	mensaje = ""
-	proveedores = Persona.objects.filter(tipo_persona=4)
+	proveedores = Persona.objects.filter(tipo_persona__in=[3,4])
 	context = {'mensaje': mensaje, 'proveedores':proveedores}
 	return render(request, 'sistema/listadoAdelanto.html', context)
 
 @login_required
 def altaAdelanto(request):
 	mensaje = ""
-	proveedores = Persona.objects.filter(tipo_persona=4)
+	proveedores = Persona.objects.filter(tipo_persona__in=[3,4])
 	tipos_adelanto = TipoAdelanto.objects.all()
 	adelanto = Adelanto()
 	adelanto.id = 0
@@ -1247,7 +1193,7 @@ def adelanto(request):
 	idAdelanto = request.GET.get('idAdelanto', "")
 	adelanto = Adelanto.objects.get(id=idAdelanto)
 	tipos_adelanto = TipoAdelanto.objects.all()
-	proveedores = Persona.objects.filter(tipo_persona=4)
+	proveedores = Persona.objects.filter(tipo_persona__in=[3,4])
 
 	tipoAdelantoId = adelanto.tipo_adelanto.id
 	provedorId = adelanto.proveedor.id
@@ -1277,10 +1223,10 @@ def guardarAdelanto(request):
 	
 	if idAdelanto == "0":
 		adelanto = Adelanto()
-		request.session['adelantoLicencia'] = 'nuevo'
+		request.session['estadoAdelanto'] = 'nuevo'
 	else:
 		adelanto = Adelanto.objects.get(id=idAdelanto)
-		request.session['adelantoLicencia'] = 'editado'
+		request.session['estadoAdelanto'] = 'editado'
 
 	adelanto.proveedor = Persona.objects.get(id=provedor)
 	adelanto.monto = monto
@@ -1292,6 +1238,35 @@ def guardarAdelanto(request):
 
 	url = '/sistema/adelanto/?idAdelanto='+str(adelanto.id)
 	return redirect(url)
+
+@login_required
+def buscarAdelantos(request):
+
+	fechaDesde = request.POST.get('desde', False)
+	fechaHasta = request.POST.get('hasta', False)
+	provedor = request.POST.get('provedor', False)
+
+	fechaDesde =  getAAAAMMDD(fechaDesde)
+	fechaHasta =  getAAAAMMDD(fechaHasta)
+
+	adelantos = []
+	if provedor:
+		print 'if'
+		adelantos = Adelanto.objects.filter(proveedor_id=provedor,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+	else:
+		print 'else'
+		adelantos = Adelanto.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+
+	context = {'adelantos': adelantos}
+	return render(request, 'sistema/grillaAdelantos.html', context)
+
+@login_required
+def eliminarAdelanto(request):
+	idAdelanto = request.GET.get('idAdelanto', False)
+	Adelanto.objects.get(id=idAdelanto).delete()
+	data = {'return': 'success'}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
 
 @login_required
 def listadoFactClientes(request):

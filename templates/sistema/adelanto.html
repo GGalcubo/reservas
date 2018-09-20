@@ -132,9 +132,11 @@
                         todayHighlight: true,
                         autoclose: true
                     });
+                    $('#fecha').datepicker('setDate', new Date());
 
                     idAdelanto = $("#idAdelanto").val()
                     estado = $("#estado").val()
+
                     if (idAdelanto != "0"){
                         if (estado != ''){
                             alert("Se guardo la licencia correctamente.");
