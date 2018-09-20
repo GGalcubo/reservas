@@ -1268,6 +1268,27 @@ def eliminarAdelanto(request):
 	dump = json.dumps(data)
 	return HttpResponse(dump, content_type='application/json')
 
+
+@login_required
+def facturarAdelantos(request):
+	idAdelantos = request.POST.get('idAdelantos', False)
+	numeroFactura = request.POST.get('numeroFactura', False)
+	print numeroFactura
+	idsList = []
+	print idAdelantos.split("-")
+	for ids in idAdelantos.split("-"):
+		if ids:
+			idsList.append(int(ids))
+
+	adelantos = Adelanto.objects.filter(id__in=idsList)
+	for a in adelantos:
+		a.factura = numeroFactura
+		a.save()
+
+	data = {'return': 'success'}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
 @login_required
 def listadoFactClientes(request):
 	mensaje = ""

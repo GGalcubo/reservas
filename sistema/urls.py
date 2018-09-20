@@ -67,6 +67,7 @@ urlpatterns = [
     url(r'^altaAdelanto/', altaAdelanto, name='altaAdelanto'),
     url(r'^buscarAdelantos/', buscarAdelantos, name='buscarAdelantos'),
     url(r'^eliminarAdelanto/', eliminarAdelanto, name='eliminarAdelanto'),
+    url(r'^facturarAdelantos/', facturarAdelantos, name='facturarAdelantos'),
     url(r'^listadoFactClientes/', listadoFactClientes, name='listadoFactClientes'),
     url(r'^listadoFactProvedores/', listadoFactProvedores, name='listadoFactProvedores'),
     
