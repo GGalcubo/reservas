@@ -49,28 +49,30 @@
                                                 <div class="form-group mg-b-10">
                                                     <label class="control-label mg-b-0" style="color: #888;">Fecha</label>
                                                     <div class="input-group date-picker input-daterange" data-date-format="dd/mm/yyyy">
-                                                      <input type="text" class="form-control" name="from" id="from">
+                                                      <input type="text" class="form-control" name="desde" id="desde">
                                                       <span class="input-group-addon" style="font-size: 10px;"> hasta </span>
-                                                      <input type="text" class="form-control" name="to" id="to">
+                                                      <input type="text" class="form-control" name="hasta" id="hasta">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="cliente" name="cliente">
-                                                  <option value=""></option>
-                                                  <option value="1">3-Monos</option>
-                                                  <option value="2">Galcubo</option>
+                                                <select class="form-control select2me" id="cliente" name="cliente" onchange="cambioCliente();">
+                                                  <option value="">Seleccionar Cliente</option>
+                                                  {% for c in clientes %}
+                                                    <option value="{{c.id}}">{{c.id}}-{{c.razon_social}}</option>
+                                                  {% endfor %}
                                                 </select>
                                                 <label for="cliente">Cliente</label>
                                               </div>
                                             </div>
                                             <div class="col-sm-3">
-                                              <div class="form-group form-md-line-input">
+                                              <div class="form-group form-md-line-input" id="selectCentroCostos">
                                                 <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto">
-                                                  <option value=""></option>
-                                                  <option value="1">3MFERIAJORGE</option>
-                                                  <option value="2">G3LABOJOSE</option>
+                                                  <option value="">Seleccionar Centro de Costo</option>
+                                                  {% for cc in centrosDeCosto %}
+                                                    <option value="{{cc.id}}">{{cc.nombre}}</option>
+                                                  {% endfor %}
                                                 </select>
                                                 <label for="centroDeCosto">Centro de Costo</label>
                                               </div>
@@ -79,8 +81,9 @@
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="categViaje" name="categViaje">
                                                   <option value=""></option>
-                                                  <option value="1">Auto Std</option>
-                                                  <option value="2">Vip</option>
+                                                  {% for c in categorias %}
+                                                    <option value="{{c.id}}">{{c.categoria}}</option>
+                                                  {% endfor %}
                                                 </select>
                                                 <label for="categViaje">Categ. Viaje</label>
                                               </div>
@@ -90,9 +93,10 @@
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="condEspecial" name="condEspecial">
-                                                  <option value=""></option>
-                                                  <option value="1">Sarasa</option>
-                                                  <option value="2">Wathever</option>
+                                                  <option value="">Seleccionar Condicion de Pago</option>
+                                                  {% for c in condicionesPago %}
+                                                    <option value="{{c.id}}">{{c.condicion_pago}}</option>
+                                                  {% endfor %}
                                                 </select>
                                                 <label for="condEspecial">Cond. Especial</label>
                                               </div>
@@ -108,7 +112,7 @@
                                               </div>
                                             </div>
                                             <div class="col-sm-3">
-                                              <div class="form-group form-md-line-input">
+                                              <div class="form-group form-md-line-input" id="selectProforma">
                                                 <select class="form-control select2me" id="proforma" name="proforma">
                                                   <option value=""></option>
                                                   <option value="1">123456789</option>
@@ -118,7 +122,7 @@
                                               </div>
                                             </div>
                                             <div class="col-sm-3">
-                                              <div class="form-group form-md-line-input">
+                                              <div class="form-group form-md-line-input" id="selectFactura">
                                                 <select class="form-control select2me" id="factura" name="factura">
                                                   <option value=""></option>
                                                   <option value="1">0001-00000123</option>
@@ -130,7 +134,7 @@
                                           </div>
                                       </div>
                                       <div class="form-actions noborder flex flex-j-between">
-                                          <button type="button" class="btn green">Buscar</button>
+                                          <button type="button" onclick="buscarFacturacion();" class="btn green">Buscar</button>
                                           <button type="button" class="btn blue">Resetear filtros</button>
                                       </div>
                                   </form>
@@ -140,7 +144,7 @@
                                   <button type="button" class="btn green mg-r-10">Facturar</button>
                                   <button type="button" class="btn blue">Asignar N° proforma</button>
                               </div>
-                              <div class="portlet-body">
+                              <div class="portlet-body" id="grillaFacturacion">
                                   <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoFactClientes">
                                       <thead>
                                           <tr>
@@ -172,87 +176,6 @@
                                           </tr>
                                       </thead>
                                       <tbody>
-                                          <tr>
-                                              <td></td>
-                                              <td>14/10/2018</td>
-                                              <td>Vip</td>
-                                              <td>15:30</td>
-                                              <td>345</td>
-                                              <td class="text-center"><a href="#">1</a></td>
-                                              <td>???</td>
-                                              <td>123456789</td>
-                                              <td>000100000123</td>
-                                              <td>Jorge</td>
-                                              <td>G3RURAL</td>
-                                              <td>Guido Su</td>
-                                              <td><span class="label label-sm label-info">Centro</span></td>
-                                              <td><span class="label label-sm label-primary">Aeroparque</span></td>
-                                              <td>$1.500,00</td>
-                                              <td>30</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$2.400,00</td>
-                                              <td>$504,00</td>
-                                              <td>$2.904,00</td>
-                                          </tr>
-                                          <tr>
-                                              <td></td>
-                                              <td>14/10/2018</td>
-                                              <td>Vip</td>
-                                              <td>15:30</td>
-                                              <td>345</td>
-                                              <td class="text-center"><a href="#">1</a></td>
-                                              <td>???</td>
-                                              <td>123456789</td>
-                                              <td>000100000123</td>
-                                              <td>Jorge</td>
-                                              <td>G3RURAL</td>
-                                              <td>Guido Su</td>
-                                              <td><span class="label label-sm label-info">Centro</span></td>
-                                              <td><span class="label label-sm label-primary">Aeroparque</span></td>
-                                              <td>$1.500,00</td>
-                                              <td>30</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$2.400,00</td>
-                                              <td>$504,00</td>
-                                              <td>$2.904,00</td>
-                                          </tr>
-                                          <tr>
-                                              <td></td>
-                                              <td>14/10/2018</td>
-                                              <td>Vip</td>
-                                              <td>15:30</td>
-                                              <td>345</td>
-                                              <td class="text-center"><a href="#">1</a></td>
-                                              <td>???</td>
-                                              <td>123456789</td>
-                                              <td>000100000123</td>
-                                              <td>Jorge</td>
-                                              <td>G3RURAL</td>
-                                              <td>Guido Su</td>
-                                              <td><span class="label label-sm label-info">Centro</span></td>
-                                              <td><span class="label label-sm label-primary">Aeroparque</span></td>
-                                              <td>$1.500,00</td>
-                                              <td>30</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$2.400,00</td>
-                                              <td>$504,00</td>
-                                              <td>$2.904,00</td>
-                                          </tr>
                                           <tr>
                                               <td></td>
                                               <td>14/10/2018</td>
@@ -414,7 +337,59 @@
                         }
                     } );
 
+                    $('#desde').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+
+                    $('#hasta').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+
+                    $("#cliente").select2({
+                        placeholder: "Seleccionar Cliente",
+                        allowClear: true
+                    });
+
+                    $("#categViaje").select2({
+                        placeholder: "Seleccione Categoria",
+                        allowClear: true
+                    });
+
+                    $("#condEspecial").select2({
+                        placeholder: "Seleccione Condicion de Pago",
+                        allowClear: true
+                    });
+
                 });
+
+                function cambioCliente(){
+                    alert($("#cliente").val());
+                    $("#centroDeCosto").select2({
+                        placeholder: "Seleccionar Centro de Costo",
+                        allowClear: true
+                    });
+                }
+
+                function buscarFacturacion(){
+                    var url = "/sistema/buscarFacturacionCliente/";
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        //data: $("#buscarAdelantos").serialize(),
+                        success: function(data){
+                            $('#grillaFacturacion').html(data);
+                        }
+                    });
+                }
 
             </script>
 

@@ -1291,10 +1291,18 @@ def facturarAdelantos(request):
 
 @login_required
 def listadoFactClientes(request):
-	mensaje = ""
-
-	context = {'mensaje': mensaje}
+	clientes = Cliente.objects.filter(baja=False)
+	categorias = CategoriaViaje.objects.all()
+	condicionesPago = CondicionPago.objects.all()
+	context = {'clientes': clientes, 'categorias':categorias, 'condicionesPago':condicionesPago}
 	return render(request, 'sistema/listadoFactClientes.html', context)
+
+@login_required
+def buscarFacturacionCliente(request):
+	viajes = Viaje.objects.all().order_by('-id')[:10] 
+	print viajes
+	context = {'viajes': viajes}
+	return render(request, 'sistema/grillaFacturacionCliente.html', context)
 
 @login_required
 def listadoFactProvedores(request):

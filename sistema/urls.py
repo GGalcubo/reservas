@@ -69,6 +69,7 @@ urlpatterns = [
     url(r'^eliminarAdelanto/', eliminarAdelanto, name='eliminarAdelanto'),
     url(r'^facturarAdelantos/', facturarAdelantos, name='facturarAdelantos'),
     url(r'^listadoFactClientes/', listadoFactClientes, name='listadoFactClientes'),
+    url(r'^buscarFacturacionCliente/', buscarFacturacionCliente, name='buscarFacturacionCliente'),
     url(r'^listadoFactProvedores/', listadoFactProvedores, name='listadoFactProvedores'),
     
     #url(r'^$', 'sistema.views.index', name='index'),
