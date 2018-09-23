@@ -41,40 +41,42 @@
                                   <form role="form" method="post" id="" action="">
                                       <div class="form-body">
                                           <div class="row">
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-6">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="chofer" name="chofer">
-                                                  <option value=""></option>
-                                                  <option value="1">Jorge Gutierrez</option>
-                                                  <option value="2">Diego Fuentes</option>
+                                                <select class="form-control select2me" id="chofer" name="chofer" multiple="multiple">
+                                                  <option value="">Seleccionar Chofer</option>
+                                                  <option value="1">456 - Jorge Gutierrez</option>
+                                                  <option value="2">123 - Diego Fuentes</option>
                                                 </select>
                                                 <label for="chofer">Chofer</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-6">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="cliente" name="cliente">
-                                                  <option value=""></option>
-                                                  <option value="1">3 Monos</option>
-                                                  <option value="2">Galcubo</option>
+                                                <select class="form-control select2me" id="cliente" name="cliente" multiple="multiple">
+                                                  <option value=""> Seleccionar Cliente</option>
+                                                  <option value="1">1005 - 3 Monos</option>
+                                                  <option value="2">1010 - Galcubo</option>
+                                                  <option value="3">1020 - Pfizer</option>
+                                                  <option value="4">1050 - TyC Sports</option>
                                                 </select>
                                                 <label for="cliente">Cliente</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-4">
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-sm-6">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto">
-                                                  <option value=""></option>
+                                                <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto" multiple="multiple">
+                                                  <option value="">Seleccionar Centro</option>
                                                   <option value="1">3MONOSRURAL</option>
                                                   <option value="2">G3MUSEOS</option>
                                                 </select>
                                                 <label for="centroDeCosto">Centro de costo</label>
                                               </div>
                                             </div>
-                                          </div>
-                                          <div class="row">
                                             <div class="col-sm-6">
-                                                <div class="form-group">
+                                                <div class="form-group mg-neg-t-5">
                                                     <label class="control-label">Fecha</label>
                                                     <!-- <div class="col-sm-4"> -->
                                                     <div class="input-group input-large date-picker input-daterange" data-date-format="dd/mm/yyyy">
@@ -185,6 +187,21 @@
                             }
                         }
                     } );
+
+                    $("#chofer").select2({
+                        placeholder: "Seleccionar Chofer",
+                        allowClear: true
+                    });
+
+                    $("#cliente").select2({
+                        placeholder: "Seleccionar Cliente",
+                        allowClear: true
+                    });
+
+                    $("#centroDeCosto").select2({
+                        placeholder: "Seleccionar Centro",
+                        allowClear: true
+                    });
 
                 });
 

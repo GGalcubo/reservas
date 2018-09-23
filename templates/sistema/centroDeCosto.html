@@ -45,24 +45,24 @@
                                     <form role="form" method="post" id="formGuardarCC" action="/sistema/guardarCC/">{% csrf_token %}
                                         <input type="hidden" id="idCC" name="idCC" value="{{ cc.id }}">
                                         <input type="hidden" id="estado" name="estado" value="{{ estado }}">
-                                        <div class="form-body">
-                                            <div class="row mg-b-20">
-                                                <div class="col-sm-5">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <select class="form-control" id="clientes" name="clientes">
-                                                            <option value=""></option>
+                                        <div class="form-body mg-b-20">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control select2me" id="clientes" name="clientes">
+                                                            <option value="">Seleccionar cliente</option>
                                                             {% for c in clientes %}
                                                                 {% if c.id == cc.cliente.id %}
-                                                                    <option value="{{ c.id }}" selected="selected">{{ c.razon_social }}</option>
+                                                                    <option value="{{ c.id }}" selected="selected">{{c.id}} - {{ c.razon_social }}</option>
                                                                 {% else %}
-                                                                    <option value="{{ c.id }}">{{ c.razon_social }}</option>
+                                                                    <option value="{{ c.id }}">{{c.id}} - {{ c.razon_social }}</option>
                                                                 {% endif %}
                                                             {% endfor %}
                                                         </select>
                                                         <label for="clientes">Cliente</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <select class="form-control" id="tarifarios" name="tarifarios" >
                                                             <option value=""></option>
@@ -77,11 +77,8 @@
                                                         <label for="tarifarios">Tarifario</label>
                                                     </div>
                                                 </div>
-                                                <!--div class="col-sm-3 text-center">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <a href="/sistema/altaTarifario/" role="button" class="btn green"><i class="icon-plus font-white"></i> Tarifario</a>
-                                                    </div>
-                                                </div-->
+                                            </div>
+                                            <div class="row mg-b-20">
                                                 <div class="col-sm-6">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input onkeypress="return soloLetras(event);" type="text" class="form-control" id="codigo" name="codigo" value="{{ cc.nombre|default_if_none:"" }}">
@@ -95,6 +92,8 @@
                                                         <label for="descripcion">Descripción</label>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-sm-6">
                                                     <label for="desdeCC font-12">Válido Desde</label>
                                                     <input class="form-control form-control-inline input-medium date-picker" id="desdeCC" name="desdeCC" size="16" type="text" value="{{ cc.getFechaInicio }}" />
@@ -153,6 +152,11 @@
                         $("#tarifarios").val('{{ cc.tarifario.id }}')
                         $('#clientes').val('{{ cc.cliente.id }}')
                     }
+
+                    $("#clientes").select2({
+                        placeholder: "Seleccionar cliente",
+                        allowClear: true
+                    });
                 });
 
                 function guardarCC(){

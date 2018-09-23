@@ -47,18 +47,18 @@
                                         <input type="hidden" id="estado" name="estado" value="{{ estado }}">
                                         <div class="form-body">
                                             <div class="row mg-b-20">
-                                                <div class="col-sm-4">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <select class="form-control" id="provedor" name="provedor">
-                                                            <option value="0">Seleccioná un provedor</option>
+                                                <div class="col-sm-5">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control select2me" id="provedor" name="provedor">
+                                                          <option value="">Seleccionar Provedor</option>
                                                             {% for p in proveedores %}
-                                                                <option value="{{ p.id }}" selected="selected">{{ p.nombreCompleto }}</option>
+                                                                <option value="{{ p.id }}">{{p.id}} - {{ p.nombreCompleto }}</option>
                                                             {% endfor %}
                                                         </select>
                                                         <label for="provedor">Provedor</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="monto" name="monto" value="{{ adelanto.monto|default_if_none:"0" }}">
                                                         <label for="monto">Monto</label>
@@ -135,11 +135,16 @@
 
                     if (idAdelanto != "0"){
                         if (estado != ''){
-                            alert("Se guardo la licencia correctamente.");
+                            alert("Se guardó el adelanto correctamente.");
                         }
                         $("#tipoAdelanto").val('{{ tipoAdelantoId }}')
                         $('#provedor').val('{{ provedorId }}');
                     }
+
+                    $("#provedor").select2({
+                        placeholder: "Seleccionar Provedor",
+                        allowClear: true
+                    });
                 });
 
                 function guardarAdelanto(){

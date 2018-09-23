@@ -79,10 +79,10 @@
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="selectOwners" name="selectOwners">
-                                                            <option value="">Seleccione dueño</option>
+                                                        <select class="form-control select2me" id="selectOwners" name="selectOwners">
+                                                            <option value="">Seleccionar dueño</option>
                                                             {% for o in owners %}
-                                                                <option value="{{ o.id }}" >{{ o.apellido }} {{ o.nombre }}</option>
+                                                                <option value="{{ o.id }}" >{{o.id}} - {{ o.apellido }} {{ o.nombre }}</option>
                                                             {% endfor %}
                                                         </select>
                                                         <label for="selectOwners">Dueño</label>
@@ -103,10 +103,10 @@
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="selectChoferes" name="selectChoferes">
-                                                            <option value="">Seleccione chofer</option>
+                                                        <select class="form-control select2me" id="selectChoferes" name="selectChoferes">
+                                                            <option value="">Seleccionar chofer</option>
                                                             {% for c in choferes %}
-                                                                <option value="{{ c.id }}" >{{ c.apellido }} {{ c.nombre }}</option>
+                                                                <option value="{{ c.id }}" >{{c.id}} - {{ c.apellido }} {{ c.nombre }}</option>
                                                             {% endfor %}
                                                         </select>
                                                         <label for="selectChoferes">Chofer</label>
@@ -542,6 +542,16 @@
                     if ($("#idVehiculo").val() != ""){
                         $('#personaLicencia').append($("<option></option>").attr("value",'vehiculo').text('{{ unidad.vehiculo.patente }}' + " (vehiculo)")); 
                     }
+
+                    $("#selectOwners").select2({
+                        placeholder: "Seleccionar dueño",
+                        allowClear: true
+                    });
+
+                    $("#selectChoferes").select2({
+                        placeholder: "Seleccionar chofer",
+                        allowClear: true
+                    });
                 });
 
                 function guardarUnidad(){
