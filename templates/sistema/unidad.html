@@ -8,10 +8,6 @@
     {% include "sistema/cabecera.html" %}
     <body id="datosCliente" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
         {% include "sistema/barra_top.html" %}
-        <!-- BEGIN HEADER & CONTENT DIVIDER -->
-        <div class="clearfix"> </div>
-        <!-- END HEADER & CONTENT DIVIDER -->
-        <!-- BEGIN CONTAINER -->
         <div class="page-container">
             {% include "sistema/barra_lat.html" %}
             <!-- BEGIN CONTENT -->
@@ -64,6 +60,19 @@
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="identificacion" name="identificacion" value="{{ unidad.identificacion }}">
                                                         <label for="identificacion">Nombre de la unidad</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-checkboxes">
+                                                        <div class="md-checkbox-inline">
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="unidadPropia" class="md-check" name="unidadPropia">
+                                                                <label for="unidadPropia">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span> Unidad propia </label>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

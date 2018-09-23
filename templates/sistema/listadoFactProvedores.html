@@ -8,10 +8,6 @@
     {% include "sistema/cabecera.html" %}
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
         {% include "sistema/barra_top.html" %}
-        <!-- BEGIN HEADER & CONTENT DIVIDER -->
-        <div class="clearfix"> </div>
-        <!-- END HEADER & CONTENT DIVIDER -->
-        <!-- BEGIN CONTAINER -->
         <div class="page-container">
             {% include "sistema/barra_lat.html" %}
             <!-- BEGIN CONTENT -->
@@ -55,27 +51,16 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-2">
+                                            <div class="col-sm-4">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="idUnidad" name="idUnidad">
-                                                  <option value=""></option>
-                                                  <option value="1">325</option>
-                                                  <option value="2">225</option>
-                                                </select>
-                                                <label for="idUnidad">ID Unidad</label>
-                                              </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                              <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="unidad" name="unidad">
-                                                  <option value=""></option>
-                                                  <option value="1">Remises Junin</option>
-                                                  <option value="2">El Gordo Fabio</option>
+                                                <select class="form-control select2me" id="unidad" name="unidad" multiple="multiple">
+                                                  <option value="1">255 - Remises Junin</option>
+                                                  <option value="2">358 - El Gordo Fabio</option>
                                                 </select>
                                                 <label for="unidad">Unidad</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="provedor" name="provedor">
                                                   <option value=""></option>
@@ -87,14 +72,22 @@
                                             </div>
                                           </div>
                                           <div class="row">
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="factura" name="factura">
-                                                  <option value=""></option>
+                                                <select class="form-control select2me" id="factura" name="factura" multiple="multiple">
                                                   <option value="1">0001-00000123</option>
                                                   <option value="2">0001-00000456</option>
                                                 </select>
                                                 <label for="factura">Factura</label>
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="condEspecial" name="condEspecial" multiple="multiple">
+                                                  <option value="1">Sin estacionamiento</option>
+                                                  <option value="2">Con espera y maletas</option>
+                                                </select>
+                                                <label for="condEspecial">Cond. Especial</label>
                                               </div>
                                             </div>
                                           </div>

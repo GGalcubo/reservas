@@ -100,6 +100,7 @@
     right: 164px; }
   .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-menu:after {
     /* Flechita del Desplegable del menú de usuario tirada a la izquierda */
+    top: -9px;
     right: 133px;
     border-bottom: 9px solid #9facac;
     border-left: 7px solid transparent; }

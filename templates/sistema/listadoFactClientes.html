@@ -8,10 +8,6 @@
     {% include "sistema/cabecera.html" %}
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
         {% include "sistema/barra_top.html" %}
-        <!-- BEGIN HEADER & CONTENT DIVIDER -->
-        <div class="clearfix"> </div>
-        <!-- END HEADER & CONTENT DIVIDER -->
-        <!-- BEGIN CONTAINER -->
         <div class="page-container">
             {% include "sistema/barra_lat.html" %}
             <!-- BEGIN CONTENT -->
@@ -58,18 +54,18 @@
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="cliente" name="cliente" onchange="cambioCliente();">
-                                                  <option value="">Seleccionar Cliente</option>
+                                                  <!-- <option value="">Seleccionar Cliente</option> -->
                                                   {% for c in clientes %}
-                                                    <option value="{{c.id}}">{{c.id}}-{{c.razon_social}}</option>
+                                                    <option value="{{c.id}}">{{c.id}} - {{c.razon_social}}</option>
                                                   {% endfor %}
                                                 </select>
                                                 <label for="cliente">Cliente</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-2">
                                               <div class="form-group form-md-line-input" id="selectCentroCostos">
-                                                <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto">
-                                                  <option value="">Seleccionar Centro de Costo</option>
+                                                <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto" multiple="multiple">
+                                                  <!-- <option value="">Seleccionar Centro de Costo</option> -->
                                                   {% for cc in centrosDeCosto %}
                                                     <option value="{{cc.id}}">{{cc.nombre}}</option>
                                                   {% endfor %}
@@ -77,10 +73,10 @@
                                                 <label for="centroDeCosto">Centro de Costo</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-2">
+                                            <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="categViaje" name="categViaje">
-                                                  <option value=""></option>
+                                                <select class="form-control select2me" id="categViaje" name="categViaje" multiple="multiple">
+                                                  <!-- <option value="">Seleccionar Categoría</option> -->
                                                   {% for c in categorias %}
                                                     <option value="{{c.id}}">{{c.categoria}}</option>
                                                   {% endfor %}
@@ -92,18 +88,17 @@
                                           <div class="row">
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="condEspecial" name="condEspecial">
-                                                  <option value="">Seleccionar Condicion de Pago</option>
-                                                  {% for c in condicionesPago %}
-                                                    <option value="{{c.id}}">{{c.condicion_pago}}</option>
-                                                  {% endfor %}
+                                                <select class="form-control select2me" id="condEspecial" name="condEspecial" multiple="multiple">
+                                                  <!-- <option value="">Seleccionar Condición</option> -->
+                                                  <option value="1">Sin estacionamiento</option>
+                                                  <option value="2">Con espera y maletas</option>
                                                 </select>
                                                 <label for="condEspecial">Cond. Especial</label>
                                               </div>
                                             </div>
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="solicitante" name="solicitante">
+                                                <select class="form-control select2me" id="solicitante" name="solicitante" multiple="multiple">
                                                   <option value=""></option>
                                                   <option value="1">Jorge</option>
                                                   <option value="2">Mercedes</option>
@@ -113,7 +108,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input" id="selectProforma">
-                                                <select class="form-control select2me" id="proforma" name="proforma">
+                                                <select class="form-control select2me" id="proforma" name="proforma" multiple="multiple">
                                                   <option value=""></option>
                                                   <option value="1">123456789</option>
                                                   <option value="2">456789123</option>
@@ -123,7 +118,7 @@
                                             </div>
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input" id="selectFactura">
-                                                <select class="form-control select2me" id="factura" name="factura">
+                                                <select class="form-control select2me" id="factura" name="factura" multiple="multiple">
                                                   <option value=""></option>
                                                   <option value="1">0001-00000123</option>
                                                   <option value="2">0001-00000456</option>
@@ -359,12 +354,12 @@
                     });
 
                     $("#categViaje").select2({
-                        placeholder: "Seleccione Categoria",
+                        placeholder: "Seleccionar Categoria",
                         allowClear: true
                     });
 
                     $("#condEspecial").select2({
-                        placeholder: "Seleccione Condicion de Pago",
+                        placeholder: "Seleccionar Condición",
                         allowClear: true
                     });
 
