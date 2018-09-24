@@ -5153,7 +5153,8 @@ span#estado_actual.label.label-info.estado-actual {
   height: 42px;
   min-height: 42px; }
   .page-header.navbar .page-logo {
-    height: 42px; }
+    height: 42px;
+    width: 160px; }
     .page-header.navbar .page-logo .logo-default {
       margin: 0 !important; }
   .page-header.navbar .page-top {
@@ -5170,6 +5171,20 @@ span#estado_actual.label.label-info.estado-actual {
 .page-header-fixed .page-container {
   margin-top: 42px; }
 
+@media (min-width: 992px) {
+  .page-sidebar-reversed.page-sidebar-fixed .page-sidebar {
+    margin-left: -160px; }
+
+  .page-sidebar {
+    width: 160px; }
+
+  body#operaciones.page-sidebar-reversed.page-sidebar-fixed .page-footer,
+  body#asignaciones.page-sidebar-reversed.page-sidebar-fixed .page-footer {
+    margin-right: 160px !important; }
+
+  body#operaciones.page-sidebar-reversed .page-content-wrapper .page-content,
+  body#asignaciones.page-sidebar-reversed .page-content-wrapper .page-content {
+    margin-right: 160px !important; } }
 @media (max-width: 767px) {
   .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
     padding: 11px 13px; } }
@@ -5220,7 +5235,9 @@ hr {
     top: 42px; } }
 @media (max-width: 991px) {
   .page-top .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle .username.username-hide-on-mobile {
-    display: none; } }
+    display: none; }
+
+  /* Para mejorar el desplegable en mobile */ }
 /* USUARIO */
 #configuracion .form-group.form-md-line-input {
   margin: 0 0 0 0 !important; }

@@ -5,6 +5,7 @@
     min-height: 42px;
     .page-logo {
     	height: 42px;
+    	width: 160px;
     	.logo-default {
 			margin: 0 !important;
 		}
@@ -28,6 +29,25 @@
 
 .page-header-fixed .page-container {
     margin-top: 42px;
+}
+
+@media (min-width: 992px) {
+	.page-sidebar-reversed.page-sidebar-fixed .page-sidebar {
+	    margin-left: -160px;
+	}
+	.page-sidebar {
+		width: 160px;
+	}
+
+	body#operaciones.page-sidebar-reversed.page-sidebar-fixed .page-footer,
+	body#asignaciones.page-sidebar-reversed.page-sidebar-fixed .page-footer {
+		margin-right: 160px !important;
+	}
+
+	body#operaciones.page-sidebar-reversed .page-content-wrapper .page-content,
+	body#asignaciones.page-sidebar-reversed .page-content-wrapper .page-content {
+		margin-right: 160px !important;
+	}
 }
 
 
@@ -107,6 +127,16 @@ hr {
 	.page-top .top-menu .navbar-nav>li.dropdown-user .dropdown-toggle .username.username-hide-on-mobile {
 		display: none;
 	}
+
+	/* Para mejorar el desplegable en mobile */
+	// .page-sidebar.navbar-collapse.in {
+	// 	position: fixed;
+	// }
+	// .page-sidebar, .page-sidebar.navbar-collapse.in {
+	// 	z-index: 1;
+	// 	right: 0;
+	// 	width: 200px;
+	// }
 }
 
 /* USUARIO */
