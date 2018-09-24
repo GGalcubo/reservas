@@ -29,26 +29,14 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <!-- BEGIN PROFILE SIDEBAR -->
-                            <div class="profile-sidebar">
-                                <!-- PORTLET MAIN -->
+                            <!-- <div class="profile-sidebar">
                                 <div class="portlet light profile-sidebar-portlet ">
-                                    <!-- SIDEBAR USERPIC -->
                                     <div class="profile-userpic">
                                         <img src="{% static 'img/profile.jpg' %}" class="img-responsive" alt=""> </div>
-                                    <!-- END SIDEBAR USERPIC -->
-                                    <!-- SIDEBAR USER TITLE -->
                                     <div class="profile-usertitle">
                                         <div class="profile-usertitle-name"> Juan Perez </div>
                                         <div class="profile-usertitle-job"> Operador </div>
                                     </div>
-                                    <!-- END SIDEBAR USER TITLE -->
-                                    <!-- SIDEBAR BUTTONS -->
-                                    <!-- <div class="profile-userbuttons">
-                                        <button type="button" class="btn btn-circle green btn-sm">Follow</button>
-                                        <button type="button" class="btn btn-circle red btn-sm">Message</button>
-                                    </div> -->
-                                    <!-- END SIDEBAR BUTTONS -->
-                                    <!-- SIDEBAR MENU -->
                                     <div class="profile-usermenu">
                                         <ul class="nav">
                                             <li class="active">
@@ -62,75 +50,37 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <!-- END MENU -->
                                 </div>
-                                <!-- END PORTLET MAIN -->
-                                <!-- PORTLET MAIN -->
-                                <!-- <div class="portlet light "> -->
-                                    <!-- STAT -->
-                                    <!-- <div class="row list-separated profile-stat">
-                                        <div class="col-md-4 col-sm-4 col-xs-6">
-                                            <div class="uppercase profile-stat-title"> 37 </div>
-                                            <div class="uppercase profile-stat-text"> Projects </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4 col-xs-6">
-                                            <div class="uppercase profile-stat-title"> 51 </div>
-                                            <div class="uppercase profile-stat-text"> Tasks </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4 col-xs-6">
-                                            <div class="uppercase profile-stat-title"> 61 </div>
-                                            <div class="uppercase profile-stat-text"> Uploads </div>
-                                        </div>
-                                    </div> -->
-                                    <!-- END STAT -->
-                                    <!-- <div>
-                                        <h4 class="profile-desc-title">About Marcus Doe</h4>
-                                        <span class="profile-desc-text"> Lorem ipsum dolor sit amet diam nonummy nibh dolore. </span>
-                                        <div class="margin-top-20 profile-desc-link">
-                                            <i class="fa fa-globe"></i>
-                                            <a href="http://www.keenthemes.com">www.keenthemes.com</a>
-                                        </div>
-                                        <div class="margin-top-20 profile-desc-link">
-                                            <i class="fa fa-twitter"></i>
-                                            <a href="http://www.twitter.com/keenthemes/">@keenthemes</a>
-                                        </div>
-                                        <div class="margin-top-20 profile-desc-link">
-                                            <i class="fa fa-facebook"></i>
-                                            <a href="http://www.facebook.com/keenthemes/">keenthemes</a>
-                                        </div>
-                                    </div> -->
-                                <!-- </div> -->
-                                <!-- END PORTLET MAIN -->
-                            </div>
+                            </div> -->
                             <!-- END BEGIN PROFILE SIDEBAR -->
                             <!-- BEGIN PROFILE CONTENT -->
                             <div class="profile-content">
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-8 col-sm-offset-2">
                                         <div class="portlet light ">
                                             <div class="portlet-title tabbable-line">
-                                                <div class="caption caption-md">
+                                                <div class="caption caption-md mg-t-10">
                                                     <i class="icon-globe theme-font hide"></i>
                                                     <span class="caption-subject font-blue-madison bold uppercase">Perfil</span>
                                                 </div>
                                                 <ul class="nav nav-tabs">
+                                                    <!-- <li>
+                                                        <a href="#datosPersonales" data-toggle="tab">Datos Personales</a>
+                                                    </li> -->
                                                     <li class="active">
-                                                        <a href="#tab_1_1" data-toggle="tab">Datos Personales</a>
+                                                        <a href="#configuracion" data-toggle="tab">Configuración de Operaciones</a>
                                                     </li>
                                                     <li>
-                                                        <a href="#tab_1_2" data-toggle="tab">Configuración de Operaciones</a>
+                                                        <a href="#contraseña" data-toggle="tab">Contraseña</a>
                                                     </li>
-                                                    <li>
-                                                        <a href="#tab_1_3" data-toggle="tab">Contraseña</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#tab_1_4" data-toggle="tab">Avatar</a>
-                                                    </li>
+                                                    <!-- <li>
+                                                        <a href="#avatar" data-toggle="tab">Avatar</a>
+                                                    </li> -->
                                                 </ul>
                                             </div>
                                             <div class="portlet-body">
                                                 <div class="tab-content">
-                                                    <div class="tab-pane active" id="tab_1_1">
+                                                    <!-- <div class="tab-pane" id="datosPersonales">
                                                         <form role="form" action="#">
                                                             <div class="form-group">
                                                                 <label class="control-label">Nombre</label>
@@ -157,8 +107,8 @@
                                                                 <button type="button" href="#" class="btn red"> Cancelar </button>
                                                             </div>
                                                         </form>
-                                                    </div>
-                                                    <div class="tab-pane" id="tab_1_2">
+                                                    </div> -->
+                                                    <div class="tab-pane active" id="configuracion">
                                                         <form action="#">
                                                             <div class="form-body">
                                                               <div class="row">
@@ -169,13 +119,13 @@
                                                                     <p class="mg-0"><b>N° de orden</b></p>
                                                                   </div>
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoNumReserva" name="campoNumReserva" value="N° Reserva">
                                                                           <!-- <label for="campoNumReserva">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoNumReserva" name="ordenCampoNumReserva">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="1" selected >1</option>
@@ -189,13 +139,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoCatViaje" name="campoCatViaje" value="Categoría de viaje">
                                                                           <!-- <label for="campoCatViaje">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoCatViaje" name="ordenCampoCatViaje">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="1" >1</option>
@@ -209,13 +159,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoFecha" name="campoFecha" value="Fecha">
                                                                           <!-- <label for="campoFecha">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoFecha" name="ordenCampoFecha">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="1" >1</option>
@@ -229,13 +179,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoHora" name="campoHora" value="Hora">
                                                                           <!-- <label for="campoHora">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoHora" name="ordenCampoHora">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="1" >1</option>
@@ -249,13 +199,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoHoraEstimada" name="campoHoraEstimada" value="Hora Estimada">
                                                                           <!-- <label for="campoNumReserva">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoHoraEstimada" name="ordenCampoHoraEstimada">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="5" selected >5</option>
@@ -269,13 +219,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoEstado" name="campoEstado" value="Estado">
                                                                           <!-- <label for="campoNumReserva">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoEstado" name="ordenCampoEstado">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="6" selected >6</option>
@@ -289,13 +239,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoNumUnidad" name="campoNumUnidad" value="N° Unidad">
                                                                           <!-- <label for="campoNumReserva">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoNumUnidad" name="ordenCampoNumUnidad">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="7" selected >7</option>
@@ -309,13 +259,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoNombreUnidad" name="campoNombreUnidad" value="Nombre Unidad">
                                                                           <!-- <label for="campoNumReserva">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoNombreUnidad" name="ordenCampoNombreUnidad">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="8" selected >8</option>
@@ -329,13 +279,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoOrigen" name="campoOrigen" value="Origen">
                                                                           <!-- <label for="campoNumReserva">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoOrigen" name="ordenCampoOrigen">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="9" selected >9</option>
@@ -349,13 +299,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoDestino" name="campoDestino" value="Destino">
                                                                           <!-- <label for="campoNumReserva">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoDestino" name="ordenCampoDestino">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="10" selected >10</option>
@@ -369,13 +319,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoPasajero" name="campoPasajero" value="Pasajero">
                                                                           <!-- <label for="campoNumReserva">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoPasajero" name="ordenCampoPasajero">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="11" selected >11</option>
@@ -389,13 +339,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoSolicitante" name="campoSolicitante" value="Solicitante">
                                                                           <!-- <label for="campoNumReserva">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoSolicitante" name="ordenCampoSolicitante">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="12" selected >12</option>
@@ -409,13 +359,13 @@
                                                               </div>
                                                               <div class="row">
                                                                   <div class="col-xs-9">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input form-md-floating-label">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input form-md-floating-label">
                                                                           <input type="text" disabled="disabled" class="form-control" id="campoCentroDeCostos" name="campoCentroDeCostos" value="Centro de Costos">
                                                                           <!-- <label for="campoNumReserva">Campo</label> -->
                                                                       </div>
                                                                   </div>
                                                                   <div class="col-xs-3">
-                                                                      <div class="mg-b-0 pd-t-5 form-group form-md-line-input">
+                                                                      <div class="mg-b-0 pd-t-0 form-group form-md-line-input">
                                                                         <select class="form-control" id="ordenCampoCentroDeCostos" name="ordenCampoCentroDeCostos">
                                                                             <!-- <option value="0" disabled>Elija uno</option> -->
                                                                             <option value="13" selected >13</option>
@@ -435,7 +385,7 @@
                                                             </div>
                                                         </form>
                                                     </div>
-                                                    <div class="tab-pane" id="tab_1_3">
+                                                    <div class="tab-pane" id="contraseña">
                                                         <form action="#">
                                                           <!-- <div style="width: 50%;"> -->
                                                             <div class="form-group">
@@ -454,7 +404,7 @@
                                                           <!-- </div> -->
                                                         </form>
                                                     </div>
-                                                    <div class="tab-pane" id="tab_1_4">
+                                                    <!-- <div class="tab-pane" id="avatar">
                                                         <p> Podés cambiar la foto de perfil y si no tenés una podés cargarla. </p>
                                                         <form action="#" role="form">
                                                             <div class="form-group">
@@ -470,17 +420,13 @@
                                                                         <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> Eliminar </a>
                                                                     </div>
                                                                 </div>
-                                                                <!-- <div class="clearfix margin-top-10">
-                                                                    <span class="label label-danger">NOTE! </span>
-                                                                    <span>Attached image thumbnail is supported in Latest Firefox, Chrome, Opera, Safari and Internet Explorer 10 only </span>
-                                                                </div> -->
                                                             </div>
                                                             <div class="margin-top-10 flex flex-j-between">
                                                                 <button type="submit" href="#" class="btn green"> Cambiar </button>
                                                                 <button type="button" href="#" class="btn red"> Cancelar </button>
                                                             </div>
                                                         </form>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>

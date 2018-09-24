@@ -158,56 +158,6 @@ table.dataTable tr.selected td.select-checkbox:after {
   border-top: none; }
 
 /* FORMULARIOS */
-.form-viaje-cliente label, .form-viaje-cliente input, .form-viaje-cliente select, .form-viaje-cliente textarea,
-.form-viaje-viaje label,
-.form-viaje-viaje input,
-.form-viaje-viaje select,
-.form-viaje-viaje textarea,
-.form-datos-cliente label,
-.form-datos-cliente input,
-.form-datos-cliente select,
-.form-datos-cliente textarea,
-.form-datos-cliente-contactos label,
-.form-datos-cliente-contactos input,
-.form-datos-cliente-contactos select,
-.form-datos-cliente-contactos textarea,
-.form-datos-cliente-cc label,
-.form-datos-cliente-cc input,
-.form-datos-cliente-cc select,
-.form-datos-cliente-cc textarea,
-.form-datos-cliente-facturacion label,
-.form-datos-cliente-facturacion input,
-.form-datos-cliente-facturacion select,
-.form-datos-cliente-facturacion textarea,
-.form-datos-provedor label,
-.form-datos-provedor input,
-.form-datos-provedor select,
-.form-datos-provedor textarea,
-.form-datos-provedor-unidad label,
-.form-datos-provedor-unidad input,
-.form-datos-provedor-unidad select,
-.form-datos-provedor-unidad textarea,
-.form-datos-provedor-chofer label,
-.form-datos-provedor-chofer input,
-.form-datos-provedor-chofer select,
-.form-datos-provedor-chofer textarea,
-.form-datos-unidad label,
-.form-datos-unidad input,
-.form-datos-unidad select,
-.form-datos-unidad textarea {
-  font-size: 14px !important; }
-.form-viaje-cliente .form-group.form-md-line-input,
-.form-viaje-viaje .form-group.form-md-line-input,
-.form-datos-cliente .form-group.form-md-line-input,
-.form-datos-cliente-contactos .form-group.form-md-line-input,
-.form-datos-cliente-cc .form-group.form-md-line-input,
-.form-datos-cliente-facturacion .form-group.form-md-line-input,
-.form-datos-provedor .form-group.form-md-line-input,
-.form-datos-provedor-unidad .form-group.form-md-line-input,
-.form-datos-provedor-chofer .form-group.form-md-line-input,
-.form-datos-unidad .form-group.form-md-line-input {
-  margin: 0 0 10px; }
-
 .form-group.form-md-line-input {
   margin: 0 0 10px 0 !important; }
 
@@ -5196,5 +5146,90 @@ span#estado_actual.label.label-info.estado-actual {
   display: block !important; }
 #datosCliente .hide-on-datosCliente {
   display: none !important; }
+
+/* ESTILOS PROPIOS */
+/* NAV HEADER */
+.page-header.navbar {
+  height: 42px;
+  min-height: 42px; }
+  .page-header.navbar .page-logo {
+    height: 42px; }
+    .page-header.navbar .page-logo .logo-default {
+      margin: 0 !important; }
+  .page-header.navbar .page-top {
+    height: 42px; }
+  .page-header.navbar .top-menu .navbar-nav > li.dropdown {
+    height: 42px; }
+  .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
+    padding: 11px 12px; }
+  .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-menu {
+    margin-top: 0px; }
+  .page-header.navbar .menu-toggler.responsive-toggler {
+    margin: 11px 14px 0 6px; }
+
+.page-header-fixed .page-container {
+  margin-top: 42px; }
+
+@media (max-width: 767px) {
+  .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
+    padding: 11px 13px; } }
+/* FORMULARIOS */
+.form-group.form-md-line-input.form-md-floating-label .form-control ~ label {
+  font-size: 14px; }
+
+.form-group.form-md-line-input {
+  padding-top: 15px; }
+
+span.select2.select2-container.select2-container--bootstrap {
+  margin-top: 5px; }
+
+.form-group.form-md-line-input .form-control {
+  font-size: 13px;
+  padding-bottom: 0; }
+
+.portlet {
+  margin-bottom: 6px; }
+
+.portlet.light .portlet-body {
+  padding-top: 0px; }
+
+.portlet.light > .portlet-title {
+  min-height: 0px;
+  margin-bottom: 10px; }
+
+.portlet.light > .portlet-title > .caption {
+  padding: 0; }
+
+.portlet-title .caption .btn.btn-outline {
+  margin-bottom: 5px; }
+
+.table-scrollable {
+  margin: 5px 0 !important; }
+
+.page-bar {
+  margin-bottom: 5px; }
+
+hr {
+  margin: 15px 0; }
+
+@media (min-width: 992px) {
+  .page-content-wrapper .page-content {
+    padding: 10px 15px 10px; }
+
+  .page-sidebar-fixed .page-sidebar {
+    top: 42px; } }
+@media (max-width: 991px) {
+  .page-top .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle .username.username-hide-on-mobile {
+    display: none; } }
+/* USUARIO */
+#configuracion .form-group.form-md-line-input {
+  margin: 0 0 0 0 !important; }
+
+/* BOTONES VARIOS */
+.dropdown-menu > li > a {
+  padding: 0px 0px; }
+
+.multiselect-container > li > a > label {
+  padding: 4px 30px 4px 30px; }
 
 /*# sourceMappingURL=style.css.map */

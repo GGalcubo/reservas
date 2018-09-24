@@ -240,7 +240,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="unidad_id" name="unidad_id">
                                                     <option value=""></option>
@@ -254,25 +254,25 @@
                                                 </select>
                                                 <label for="unidad_id">ID Unidad</label>
                                             </div>
-                                        </div>
-                                        <div class="col-md-5">
+                                        </div> -->
+                                        <div class="col-md-4">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="unidad_identificacion">
                                                     <option value=""></option>
                                                     {% for u in unidades %}
                                                         {% if u.id == viaje.unidad.id %}
-                                                            <option selected="selected" value="{{ u.id }}">{{ u.identificacion }}</option>
+                                                            <option selected="selected" value="{{ u.id }}">{{u.id}} - {{ u.identificacion }}</option>
                                                         {% else %}
-                                                            <option value="{{ u.id }}">{{ u.identificacion }}</option>
+                                                            <option value="{{ u.id }}">{{u.id}} - {{ u.identificacion }}</option>
                                                         {% endif %}
                                                     {% endfor %}
                                                 </select>
                                                 <label for="unidad_identificacion">Unidad</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <div class="form-group form-md-line-input">
-                                                <textarea class="form-control" rows="1" placeholder="{{ viaje.comentario }}" name="comentario_chofer" id="comentario_chofer"></textarea>
+                                                <textarea class="form-control" rows="2" placeholder="{{ viaje.comentario }}" name="comentario_chofer" id="comentario_chofer"></textarea>
                                                 <label for="comentario_chofer">Comentario para el chofer</label>
                                             </div>
                                         </div>
