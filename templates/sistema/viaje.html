@@ -433,11 +433,11 @@
                                         <form role="form" class="form-viaje-trayecto" id="form-viaje-trayecto" method="post">{% csrf_token %}
                                             <input type="hidden" id="trayecto_principal" name="trayecto_principal" value="1">
                                             <div class="form-body">
-                                                <div class="row" style="margin-top: 50px;">
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
+                                                                <div class="caption font-green" style="margin:0 auto;margin-bottom: 10px;text-align: center">
                                                                     <span class="caption-subject bold uppercase" style="font-size: 16px">Desde</span>
                                                                 </div>
                                                             </div>
@@ -533,7 +533,7 @@
                                                     <div class="col-md-6">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
+                                                                <div class="caption font-green" style="margin:0 auto;margin-bottom: 10px;text-align: center">
                                                                     <span class="caption-subject bold uppercase" style="font-size: 16px">Hasta</span>
                                                                 </div>
                                                             </div>
@@ -628,7 +628,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="row" style="margin-bottom: 30px">
+                                                    <div class="row">
                                                         <div class="col-md-12">
                                                             <span class="input-group-btn btn">
                                                                 <button class="btn green-haze" type="submit">Guardar Tramo Principal</button>
@@ -1250,12 +1250,12 @@
             </div>
             <div class="modal-body">
                 <input type="hidden" id="modal_id" value="modal_id">
-                <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible1="1">
+                <div class="scroller" style="height:250px" data-always-visible="1" data-rail-visible1="1">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
+                                    <div class="caption font-green" style="margin:0 auto;margin-bottom: 10px;text-align: center">
                                         <span class="caption-subject bold uppercase" style="font-size: 16px">Desde</span>
                                     </div>
                                 </div>
@@ -1339,7 +1339,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="caption font-green" style="margin:0 auto;margin-bottom: 30px;text-align: center">
+                                    <div class="caption font-green" style="margin:0 auto;margin-bottom: 10px;text-align: center">
                                         <span class="caption-subject bold uppercase" style="font-size: 16px">Hasta</span>
                                     </div>
                                 </div>
@@ -1424,9 +1424,9 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn dark btn-outline">Cerrar</button>
+            <div class="modal-footer flex">
                 <button type="button" onclick="agregarTramo()" class="btn green">Guardar</button>
+                <button type="button" data-dismiss="modal" class="btn dark btn-outline">Cerrar</button>
             </div>
         </div>
     </div>
