@@ -5227,6 +5227,9 @@ span.select2.select2-container.select2-container--bootstrap {
 hr {
   margin: 15px 0; }
 
+.input-group-addon {
+  padding: 8px 6px 0 0; }
+
 @media (min-width: 992px) {
   .page-content-wrapper .page-content {
     padding: 10px 15px 10px; }

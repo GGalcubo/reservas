@@ -54,10 +54,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
-
                     <div id="viajeValidacion" class="alert alert-danger">
                         <button class="close" data-close="alert"></button>
-                        <div></div> <div id="mensajeValidacion" ></div>
+                        <div></div><div id="mensajeValidacion" ></div>
                     </div>
                     <div class="portlet light ">
                         <div class="portlet-title">
@@ -71,7 +70,7 @@
                             <form role="form" class="form-viaje-viaje" id="form-viaje-viaje" method="post" action="/sistema/guardarViaje/">{% csrf_token %}
                                 <div class="form-body">
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="id_cliente" name="id_cliente">
                                                     <option value=""></option>
@@ -85,20 +84,20 @@
                                                 </select>
                                                 <label for="id_cliente">ID Cliente</label>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
+                                        </div> -->
+                                        <div class="col-md-4">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="razon_social">
                                                     <option value=""></option>
                                                     {% for c in clientes %}
                                                         {% if c.id == viaje.cliente.id %}
-                                                            <option selected="selected" value="{{ c.id }}">{{ c.razon_social }}</option>
+                                                            <option selected="selected" value="{{ c.id }}">{{ c.id }} - {{ c.razon_social }}</option>
                                                         {% else %}
-                                                            <option value="{{ c.id }}">{{ c.razon_social }}</option>
+                                                            <option value="{{ c.id }}">{{ c.id }} - {{ c.razon_social }}</option>
                                                         {% endif %}
                                                     {% endfor %}
                                                 </select>
-                                                <label for="razon_social">Razón Social</label>
+                                                <label for="razon_social">Cliente</label>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -115,9 +114,14 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="centro_costos" name="centro_costos">
-                                                </select>
-                                                <label for="centro_costos">Centro de Costos</label>
+                                                <input type="text" class="form-control" id="cod-externo" name="cod-externo">
+                                                <label for="cod-externo">Cod Externo</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="text" class="form-control" id="cod-externo" name="cod-externo">
+                                                <label for="id_aux">ID Aux</label>
                                             </div>
                                         </div>
                                         <!--<div class="col-md-1">
@@ -128,29 +132,40 @@
                                         </div>-->
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-7">
+                                        <div class="col-md-6">
                                             <div class="row">
                                                 <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control select2me" id="centro_costos" name="centro_costos">
+                                                        </select>
+                                                        <label for="centro_costos">Centro de Costos</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control" id="contacto" name="contacto"></select>
                                                         <label for="contacto">Solicitante</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-1 pd-0">
+                                                    <div class="form-group form-md-line-input">
+                                                       <a href="#add_solicitante" role="button" data-toggle="modal" class="btn btn-success btn-xs">+</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control" id="pasajero" name="pasajero"></select>
                                                         <label for="pasajero">Pasajero</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-1 pd-0">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="id_aux" name="id_aux"></select>
-                                                        <label for="id_aux">ID Aux</label>
+                                                        <a href="#add_pasajero" role="button" data-toggle="modal" class="btn btn-success btn-xs">+</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-6">
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
@@ -158,21 +173,21 @@
                                                         <label for="fecha">Fecha</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-2">
                                                     <div class="form-group form-md-line-input">
                                                         <input type="text" class="form-control timepicker timepicker-24" id="hora" value="{{ viaje.hora|default_if_none:"" }}" name="hora">
                                                         <label for="hora">Hora</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-2">
                                                     <div class="form-group form-md-line-input">
                                                         <input type="text" class="form-control timepicker timepicker-24" id="hora_estimada" value="{{ viaje.hora_estimada|default_if_none:"" }}" name="hora_estimada">
                                                         <label for="hora_estimada">H. E.</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-5">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="categoria_viaje" name="categoria_viaje">
+                                                        <select class="form-control select2me" id="categoria_viaje" name="categoria_viaje">
                                                             {% for cv in categoria_viajes %}
                                                                 {% if cv.id == viaje.categoria_viaje.id %}
                                                                     <option selected="selected" value="{{ cv.id }}">{{ cv.categoria }}</option>
@@ -202,44 +217,6 @@
                                                 <label for="estado">Estado</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group form-md-line-input">
-                                                <div class="input-group left-addon right-addon">
-                                                    <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="costo_proveedor" name="costo_proveedor" value="{{ viaje.costo_prov }}">
-                                                    <label for="costo_proveedor">Costo Proveedor</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group form-md-line-input">
-                                                <div class="input-group left-addon right-addon">
-                                                    <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control"  id="tarifa_pasada" name="tarifa_pasada"  value="{{ viaje.tarifapasada }}">
-                                                    <label for="tarifa_pasada">Tarifa pasada</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group form-md-line-input">
-                                                <select class="form-control" id="tipo_pago" name="tipo_pago">
-                                                    <option value="0" selected="selected">Efectivo</option>
-                                                    <option value="1">Cuenta corriente</option>
-                                                </select>
-                                                <label for="tipo_pago">Tipo Pago</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group form-md-line-input">
-                                                <div class="input-group left-addon right-addon">
-                                                    <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control"  id="importe_efectivo" name="importe_efectivo"  value="{{ viaje.tarifapasada }}">
-                                                    <label for="importe_efectivo">Importe efectivo</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
                                         <!-- <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="unidad_id" name="unidad_id">
@@ -255,7 +232,7 @@
                                                 <label for="unidad_id">ID Unidad</label>
                                             </div>
                                         </div> -->
-                                        <div class="col-md-4">
+                                        <div class="col-md-5">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="unidad_identificacion">
                                                     <option value=""></option>
@@ -277,39 +254,44 @@
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="espera" value="{{ viaje.espera|default_if_none:"" }}" name="espera">
-                                                <label for="espera">Espera</label>
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control"  id="tarifa_pasada" name="tarifa_pasada"  value="{{ viaje.tarifapasada }}">
+                                                    <label for="tarifa_pasada">Tarifa pasada</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group form-md-line-input">
+                                                <select class="form-control" id="tipo_pago" name="tipo_pago">
+                                                    <option value="0" selected="selected">Efectivo</option>
+                                                    <option value="1">Cuenta corriente</option>
+                                                </select>
+                                                <label for="tipo_pago">Tipo Pago</label>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="peaje" value="{{ viaje.peaje_total }}" name="peaje">
-                                                    <label for="peaje">Peajes</label>
+                                                    <input type="text" class="form-control"  id="importe_efectivo" name="importe_efectivo"  value="{{ viaje.tarifapasada }}">
+                                                    <label for="importe_efectivo">Importe efectivo</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <div class="input-group left-addon right-addon">
-                                                    <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.estacionamiento_total }}" name="estacionamiento">
-                                                    <label for="estacionamiento">Estacionamiento</label>
-                                                </div>
+                                                <input type="text" class="form-control" id="tiempo-espera" name="tiempo-espera">
+                                                <label for="tiempo-espera">Espera</label>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <div class="input-group left-addon right-addon">
-                                                    <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="otros" value="{{ viaje.Otros_tot }}" name="otros">
-                                                    <label for="otros">Otros</label>
-                                                </div>
+                                                <input type="text" class="form-control" id="tiempo-hs-dispo" name="tiempo-hs-dispo">
+                                                <label for="tiempo-hs-dispo">Horas Disp</label>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -332,12 +314,89 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-2">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" id="costo_proveedor" name="costo_proveedor" value="{{ viaje.costo_prov }}">
+                                                    <label for="costo_proveedor">Costo Proveedor</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" id="espera" value="{{ viaje.espera|default_if_none:"" }}" name="espera">
+                                                    <label for="espera">Espera</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" id="hs-dispo" value="{{ viaje.espera|default_if_none:"" }}" name="hs-dispo">
+                                                    <label for="hs-dispo">Horas Disp</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" id="peaje" value="{{ viaje.peaje_total }}" name="peaje">
+                                                    <label for="peaje">Peajes</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.estacionamiento_total }}" name="estacionamiento">
+                                                    <label for="estacionamiento">Estacionamiento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" id="otros" value="{{ viaje.Otros_tot }}" name="otros">
+                                                    <label for="otros">Otros</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" id="costo-maletas" value="{{ viaje.espera|default_if_none:"" }}" name="costo-maletas">
+                                                    <label for="costo-maletas">Maletas</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="input-group left-addon right-addon">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="text" class="form-control" id="costo-bilingue" value="{{ viaje.espera|default_if_none:"" }}" name="costo-bilingue">
+                                                    <label for="costo-bilingue">Bilingüe</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-md-2">
                                             <span class="input-group-btn btn">
                                                 <button class="btn green-haze" type="submit">Guardar</button>
                                             </span>
-                                        </div>
+                                        </div> -->
                                     </div>
+                                </div>
+                                <div class="form-footer flex flex-j-between">
+                                    <button class="btn green-haze" type="submit">Guardar</button>
                                 </div>
                             </form>
                         </div>
@@ -351,26 +410,26 @@
                             <div class="tabbable-line">
                                 <ul class="nav nav-tabs ">
                                     <li class="active">
-                                        <a href="#tab_15_1" data-toggle="tab" aria-expanded="true"> Viaje </a>
+                                        <a href="#viaje" data-toggle="tab" aria-expanded="true"> Viaje </a>
                                     </li>
                                     <li class="">
-                                        <a href="#tab_15_2" data-toggle="tab" aria-expanded="false"> Observaciones</a>
+                                        <a href="#observaciones" data-toggle="tab" aria-expanded="false"> Observaciones</a>
                                     </li>
                                     <li class="">
-                                        <a href="#tab_15_3" data-toggle="tab" aria-expanded="false"> Administración </a>
+                                        <a href="#administracion" data-toggle="tab" aria-expanded="false"> Administración </a>
                                     </li>
                                     <li class="">
-                                        <a href="#tab_15_4" data-toggle="tab" aria-expanded="false"> Historial </a>
+                                        <a href="#historial" data-toggle="tab" aria-expanded="false"> Historial </a>
                                     </li>
                                     <li class="">
-                                        <a href="#tab_15_5" data-toggle="tab" aria-expanded="false"> Pasajeros </a>
+                                        <a href="#pasajeros" data-toggle="tab" aria-expanded="false"> Pasajeros </a>
                                     </li>
                                     <li class="">
-                                        <a href="#tab_15_6" data-toggle="tab" aria-expanded="false"> Adjuntos </a>
+                                        <a href="#adjuntos" data-toggle="tab" aria-expanded="false"> Adjuntos </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
-                                    <div class="tab-pane active" id="tab_15_1">
+                                    <div class="tab-pane active" id="viaje">
                                         <form role="form" class="form-viaje-trayecto" id="form-viaje-trayecto" method="post">{% csrf_token %}
                                             <input type="hidden" id="trayecto_principal" name="trayecto_principal" value="1">
                                             <div class="form-body">
@@ -652,17 +711,17 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-{#                                                            <div class="form-actions noborder flex flex-j-between">#}
-{#                                                                <button type="button" class="btn green">Guardar</button>#}
-{#                                                                <button type="button" class="btn red">Cancelar</button>#}
-{#                                                            </div>#}
+                                                                {#<div class="form-actions noborder flex flex-j-between">#}
+                                                                {#<button type="button" class="btn green">Guardar</button>#}
+                                                                {#<button type="button" class="btn red">Cancelar</button>#}
+                                                            {#</div>#}
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="tab-pane" id="tab_15_2">
+                                    <div class="tab-pane" id="observaciones">
                                         <form role="form" id="form-datos-viaje-observacion" class="form-datos-viaje-observacion">{% csrf_token %}
                                             <div class="form-body">
                                                 <div class="row">
@@ -716,9 +775,9 @@
                                                                                                 <div class="col-md-6">
                                                                                                     <div class="form-group form-md-line-input">
                                                                                                         <select class="form-control" id="tipo_viaje_obs" name="tipo_viaje_obs">
-{#                                                                                                            {% for to in tipoobservacion %}#}
-{#                                                                                                               <option value="{{ to.id }}">{{ to.tipo_observacion }}</option>#}
-{#                                                                                                            {% endfor %}#}
+                                                                                                            {#{% for to in tipoobservacion %}#}
+                                                                                                            {#<option value="{{ to.id }}">{{ to.tipo_observacion }}</option>#}
+                                                                                                            {#{% endfor %}#}
                                                                                                         </select>
                                                                                                         <label>Tipo de viaje</label>
                                                                                                     </div>
@@ -726,9 +785,9 @@
                                                                                                 <div class="col-md-6">
                                                                                                     <div class="form-group form-md-line-input">
                                                                                                         <select class="form-control" id="detalle_obs" name="detalle_obs">
-{#                                                                                                            {% for to in tipoobservacion %}#}
-{#                                                                                                               <option value="{{ to.id }}">{{ to.detalle_tipo_obs }}</option>#}
-{#                                                                                                            {% endfor %}#}
+                                                                                                            {#{% for to in tipoobservacion %}#}
+                                                                                                            {#<option value="{{ to.id }}">{{ to.detalle_tipo_obs }}</option>#}
+                                                                                                            {#{% endfor %}#}
                                                                                                         </select>
                                                                                                         <label>Detalle</label>
                                                                                                     </div>
@@ -767,79 +826,12 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="tab-pane" id="tab_15_3">
+                                    <div class="tab-pane" id="administracion">
                                         <div class="form">
                                             <form role="form">
                                                 <div class="form-body">
                                                     <div class="row">
-                                                        <div class="col-sm-6 ">
-                                                            <!-- BEGIN SAMPLE FORM PORTLET-->
-                                                            <div class="portlet light ">
-                                                                <div class="portlet-title">
-                                                                    <div class="caption font-blue">
-                                                                        <span class="caption-subject bold uppercase">Provedor</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
-                                                                            <div class="input-group left-addon right-addon">
-                                                                                <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">TOTAL</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
-                                                                            <div class="input-icon">
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Proforma</label>
-                                                                                <i class="fa fa-file"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
-                                                                            <div class="input-group left-addon right-addon">
-                                                                                <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Base</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
-                                                                            <div class="input-group left-addon right-addon">
-                                                                                <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Maletas</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
-                                                                            <div class="input-group left-addon right-addon">
-                                                                                <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Bilingue</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
-                                                                            <div class="input-group left-addon right-addon">
-                                                                                <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Parking</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- END SAMPLE FORM PORTLET-->
-                                                        </div>
-                                                        <div class="col-sm-6 ">
+                                                        <div class="col-sm-12 ">
                                                             <!-- BEGIN SAMPLE FORM PORTLET-->
                                                             <div class="portlet light ">
                                                                 <div class="portlet-title">
@@ -848,7 +840,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <div class="col-sm-6">
+                                                                    <div class="col-sm-3">
                                                                         <div class="form-group form-md-line-input has-success form-md-floating-label">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
@@ -857,80 +849,88 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
-                                                                            <div class="input-icon">
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Factura</label>
-                                                                                <i class="fa fa-file"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-2">
+                                                                        <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Base</label>
+                                                                                <input type="text" class="form-control" id="costo_proveedor" name="costo_proveedor" value="{{ viaje.costo_prov }}">
+                                                                                <label for="costo_proveedor">Costo Cliente</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
+                                                                    <div class="col-md-2">
+                                                                        <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Espera</label>
+                                                                                <input type="text" class="form-control" id="espera" value="{{ viaje.espera|default_if_none:"" }}" name="espera">
+                                                                                <label for="espera">Espera</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
+                                                                    <div class="col-md-2">
+                                                                        <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Peajes</label>
+                                                                                <input type="text" class="form-control" id="hs-dispo" value="{{ viaje.espera|default_if_none:"" }}" name="hs-dispo">
+                                                                                <label for="hs-dispo">Horas Disp</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
+                                                                    <div class="col-md-1">
+                                                                        <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Parking</label>
+                                                                                <input type="text" class="form-control" id="peaje" value="{{ viaje.peaje_total }}" name="peaje">
+                                                                                <label for="peaje">Peajes</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
+                                                                    <div class="col-md-2">
+                                                                        <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Otros</label>
+                                                                                <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.estacionamiento_total }}" name="estacionamiento">
+                                                                                <label for="estacionamiento">Estacionamiento</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
+                                                                    <div class="col-md-1">
+                                                                        <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Maletas</label>
+                                                                                <input type="text" class="form-control" id="otros" value="{{ viaje.Otros_tot }}" name="otros">
+                                                                                <label for="otros">Otros</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
+                                                                    <div class="col-md-1">
+                                                                        <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">Bilingue</label>
+                                                                                <input type="text" class="form-control" id="costo-maletas" value="{{ viaje.espera|default_if_none:"" }}" name="costo-maletas">
+                                                                                <label for="costo-maletas">Maletas</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="col-md-1">
+                                                                        <div class="form-group form-md-line-input">
+                                                                            <div class="input-group left-addon right-addon">
+                                                                                <span class="input-group-addon">$</span>
+                                                                                <input type="text" class="form-control" id="costo-bilingue" value="{{ viaje.espera|default_if_none:"" }}" name="costo-bilingue">
+                                                                                <label for="costo-bilingue">Bilingüe</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- <div class="col-md-2">
+                                                                        <span class="input-group-btn btn">
+                                                                            <button class="btn green-haze" type="submit">Guardar</button>
+                                                                        </span>
+                                                                    </div> -->
                                                                 </div>
                                                             </div>
+                                                            <!-- END SAMPLE FORM PORTLET-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -941,7 +941,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="tab_15_4">
+                                    <div class="tab-pane" id="historial">
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -994,7 +994,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="tab_15_5">
+                                    <div class="tab-pane" id="pasajeros">
                                         <form role="form" class="form-viaje-pasajeros" id="form-viaje-pasajeros">
                                             <div class="form-body">
                                                 <div class="row">
@@ -1168,7 +1168,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="tab-pane" id="tab_15_6">
+                                    <div class="tab-pane" id="adjuntos">
                                         <form id="fileupload" action="/sistema/guardarViajeAdjunto/?idViaje={{ viaje.id }}" method="POST" enctype="multipart/form-data">{% csrf_token %}
                                             <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
                                             <div class="row fileupload-buttonbar">
@@ -1241,7 +1241,6 @@
 
 
 <!-- MODAL AGREGAR TRAMO -->
-
 <div id="add_tramo" class="modal fade" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -1433,6 +1432,157 @@
     </div>
 </div>
 <!-- END MODAL AGREGAR TRAMO -->
+
+<!-- MODAL AGREGAR SOLICITANTE -->
+<div id="add_solicitante" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title" style="color:#888;">Agregar Solicitante</h4>
+            </div>
+            <div class="modal-body">
+                <div class="scroller" style="height:150px" data-always-visible="1" data-rail-visible1="1">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="text" class="form-control" id="nombrePasajeroCliente" name="nombrePasajeroCliente">
+                                <label for="nombrePasajeroCliente">Nombre</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="text" class="form-control" id="apellidoPasajeroCliente" name="apellidoPasajeroCliente">
+                                <label for="apellidoPasajeroCliente">Apellido</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="text" class="form-control" id="puestoSol" name="puestoSol">
+                                <label for="puesto">Puesto</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="email" class="form-control" id="mailSol" name="mailSol" >
+                                <label for="mailSol">Mail</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="text" class="form-control" id="telefonoSol" name="telefonoSol">
+                                <label for="telefonoSol">Teléfono</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer noborder flex flex-j-between">
+              <button type="button" onclick="javascript:guardarSolicitante();" class="btn green">Guardar</button>
+              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MODAL AGREGAR SOLICITANTE -->
+
+<!-- MODAL AGREGAR PASAJERO -->
+<div id="add_pasajero" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title" style="color:#888;">Agregar Pasajero</h4>
+            </div>
+            <div class="modal-body">
+                <div class="scroller" style="height:250px" data-always-visible="1" data-rail-visible1="1">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="text" class="form-control" id="nombrePasCliente" name="nombrePasCliente">
+                                <label for="nombrePasCliente">Nombre</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="text" class="form-control" id="apellidoPasCliente" name="apellidoPasCliente">
+                                <label for="apellidoPasCliente">Apellido</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="text" class="form-control" id="documentoPasajeroCliente" name="documentoPasajeroCliente">
+                                <label for="documentoPasajeroCliente">DNI</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="text" class="form-control" id="telefonoPasajeroCliente" name="telefonoPasajeroCliente">
+                                <label for="telefonoPasajeroCliente">Teléfono</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="email" class="form-control" id="mailPasajeroCliente" name="mailPasajeroCliente">
+                                <label for="mailPasajeroCliente">Mail</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="text" class="form-control" id="nacionalidadPasajeroCliente" name="nacionalidadPasajeroCliente" >
+                                <label for="nacionalidadPasajeroCliente">Nacionalidad</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <input type="text" class="form-control" id="callePasajeroCliente" name="callePasajeroCliente">
+                                <label for="callePasajeroCliente">Calle</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-2" style="display:none;">
+                            <div class="form-group form-md-line-input">
+                                <input type="text" class="form-control" name="alturaPasajeroCliente" id="alturaPasajeroCliente" >
+                                <label for="alturaPasajeroCliente">Altura</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-2" style="display:none;">
+                            <div class="form-group form-md-line-input">
+                                <input type="text" class="form-control" name="pisoPasajeroCliente" id="pisoPasajeroCliente" >
+                                <label for="pisoPasajeroCliente">Piso</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-2" style="display:none;" >
+                            <div class="form-group form-md-line-input">
+                                <input type="text" class="form-control" name="cpPasajeroCliente" id="cpPasajeroCliente" >
+                                <label for="cpPasajeroCliente">CP</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group form-md-line-input">
+                                <textarea class="form-control" rows="2" name="comentarioPasajeroCliente" id="comentarioPasajeroCliente" placeholder=""></textarea>
+                                <label for="comentarioPasajeroCliente">Comentario</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer noborder flex flex-j-between">
+              <button type="button" onclick="guardarPasajero()" class="btn green">Guardar</button>
+              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MODAL AGREGAR PASAJERO -->
 <div id="prueba"></div>
 
 {% include "sistema/footer.html" %}
@@ -1609,59 +1759,83 @@
         }
 
 
-        $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
-        $('#id_cliente').select2({
-          placeholder: 'Seleccionar'
-        });
+        // $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
+        // $('#id_cliente').select2({
+        //   placeholder: 'Seleccionar'
+        // });
         $("#razon_social").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
         $('#razon_social').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar Cliente',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
         $("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
         $('#unidad_id').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
         $("#unidad_identificacion").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
         $('#unidad_identificacion').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
         $('#centro_costos').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
 
 
         $("#desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
         $('#desde_destino').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
         $("#hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
         $('#hasta_destino').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
         $("#modal_desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
         $('#modal_desde_destino').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
         $("#modal_hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
         $('#modal_hasta_destino').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
 
         $("#desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
         $('#desde_localidad').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
         $("#hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
         $('#hasta_localidad').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
         $("#modal_desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
         $('#modal_desde_localidad').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
         $("#modal_hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
         $('#modal_hasta_localidad').select2({
-          placeholder: 'Seleccionar'
+          placeholder: 'Seleccionar',
+          dropdownAutoWidth : true,
+          width: 'auto'
         });
 
         var tmp_tipo_observacion;
@@ -1990,6 +2164,71 @@
                 url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
             },
         } );
+
+
+        /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
+        function guardarSolicitante(){
+            if ($('#nombrePasajeroCliente').val() == ""){
+                alert("El Nombre es obligatorio.")
+                return false;
+            }
+            if ($('#apellidoPasajeroCliente').val() == ""){
+                alert("El Apellido es obligatorio.")
+                return false;
+            }
+            var url = "/sistema/guardarSolicitanteProspect/";
+            $.ajax({
+                type: "POST",
+                url: url,
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                data: $("#form-datos-cliente-solicitante").serialize(),
+                success: function(data){
+                    $('#idSolicitante').val("0");
+                    $('#nombrePasajeroCliente').val("");
+                    $('#apellidoPasajeroCliente').val("");
+                    $('#puestoSol').val("");
+                    $('#mailSol').val("");
+                    $('#telefonoSol').val("");
+                    $('#grillaSolicitante').html(data);
+                    $('#add_solicitante_cliente').modal('toggle');
+                }
+            });
+        }
+
+         /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
+        function guardarPasajero(){
+            if ($('#nombrePasCliente').val() == ""){
+                alert("El Nombre es obligatorio.")
+                return false;
+            }
+            if ($('#apellidoPasCliente').val() == ""){
+                alert("El Apellido es obligatorio.")
+                return false;
+            }
+            var url = "/sistema/guardarPasajeroProspect/";
+            $.ajax({
+                type: "POST",
+                url: url,
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                data: $("#form-datos-cliente-pasajeros").serialize(),
+                success: function(data){
+                    $('#idPasajero').val("0")
+                    $('#nombrePasCliente').val("")
+                    $('#apellidoPasCliente').val("")
+                    $('#documentoPasajeroCliente').val("")
+                    $('#telefonoPasajeroCliente').val("")
+                    $('#mailPasajeroCliente').val("")
+                    $('#nacionalidadPasajeroCliente').val("")
+                    $('#callePasajeroCliente').val("")
+                    $('#alturaPasajeroCliente').val("")
+                    $('#pisoPasajeroCliente').val("")
+                    $('#cpPasajeroCliente').val("")
+                    $('#comentarioPasajeroCliente').val("")
+                    $('#add_pasajero_cliente').modal('toggle');
+                    $('#grillaPasajero').html(data);
+                }
+            });
+        }
     });
 
     function mostrarMsgValidacion(msg){
