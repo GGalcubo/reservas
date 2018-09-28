@@ -537,6 +537,7 @@ class FacturaViaje(models.Model):
 class ViajePasajero(models.Model):
     viaje = models.ForeignKey(Viaje)
     pasajero = models.CharField(max_length=100)
+    pasajero_ppal = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s' % self.pasajero
