@@ -41,7 +41,7 @@
                                   <form role="form" method="post" id="" action="">
                                       <div class="form-body">
                                           <div class="row">
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="chofer" name="chofer" multiple="multiple">
                                                   <option value="">Seleccionar Chofer</option>
@@ -51,7 +51,7 @@
                                                 <label for="chofer">Chofer</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="cliente" name="cliente" multiple="multiple">
                                                   <option value=""> Seleccionar Cliente</option>
@@ -63,9 +63,33 @@
                                                 <label for="cliente">Cliente</label>
                                               </div>
                                             </div>
+                                            <div class="col-sm-3">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="pasajero" name="pasajero" multiple="multiple">
+                                                  <option value=""> Seleccionar Pasajero</option>
+                                                  <option value="1">Juan</option>
+                                                  <option value="2">María</option>
+                                                  <option value="3">Pedro</option>
+                                                  <option value="4">Judas</option>
+                                                </select>
+                                                <label for="pasajero">Pasajero</label>
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                              <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="solicitante" name="solicitante" multiple="multiple">
+                                                  <option value=""> Seleccionar Solicitante</option>
+                                                  <option value="1">Juan</option>
+                                                  <option value="2">María</option>
+                                                  <option value="3">Pedro</option>
+                                                  <option value="4">Judas</option>
+                                                </select>
+                                                <label for="solicitante">Solicitante</label>
+                                              </div>
+                                            </div>
                                           </div>
                                           <div class="row">
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto" multiple="multiple">
                                                   <option value="">Seleccionar Centro</option>
@@ -190,17 +214,37 @@
 
                     $("#chofer").select2({
                         placeholder: "Seleccionar Chofer",
-                        allowClear: true
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
                     });
 
                     $("#cliente").select2({
                         placeholder: "Seleccionar Cliente",
-                        allowClear: true
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
+                    $("#pasajero").select2({
+                        placeholder: "Seleccionar Pasajero",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
+                    $("#solicitante").select2({
+                        placeholder: "Seleccionar Solicitante",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
                     });
 
                     $("#centroDeCosto").select2({
                         placeholder: "Seleccionar Centro",
-                        allowClear: true
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
                     });
 
                 });
