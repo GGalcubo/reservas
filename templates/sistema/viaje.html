@@ -34,7 +34,7 @@
 <body id="viajes" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
 {% include "sistema/barra_top.html" %}
 <div class="page-container">
-    {% include "sistema/barra_lat.html" %}
+
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
         <!-- BEGIN CONTENT BODY -->
@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                    <div id="viajeValidacion" class="alert alert-danger">
+                    <div id="viajeValidacion" class="alert alert-danger hide">
                         <button class="close" data-close="alert"></button>
                         <div></div><div id="mensajeValidacion" ></div>
                     </div>
@@ -87,7 +87,7 @@
                                         </div> -->
                                         <div class="col-md-4">
                                             <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="razon_social">
+                                                <select class="form-control select2me" id="id_cliente" name="id_cliente">
                                                     <option value=""></option>
                                                     {% for c in clientes %}
                                                         {% if c.id == viaje.cliente.id %}
@@ -97,7 +97,7 @@
                                                         {% endif %}
                                                     {% endfor %}
                                                 </select>
-                                                <label for="razon_social">Cliente</label>
+                                                <label for="id_cliente">Cliente</label>
                                             </div>
                                         </div>
                                         <div class="col-md-1">
@@ -234,7 +234,7 @@
                                         </div> -->
                                         <div class="col-md-5">
                                             <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="unidad_identificacion">
+                                                <select class="form-control select2me" id="unidad_id" name="unidad_id">
                                                     <option value=""></option>
                                                     {% for u in unidades %}
                                                         {% if u.id == viaje.unidad.id %}
@@ -244,7 +244,7 @@
                                                         {% endif %}
                                                     {% endfor %}
                                                 </select>
-                                                <label for="unidad_identificacion">Unidad</label>
+                                                <label for="unidad_id">Unidad</label>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -405,7 +405,7 @@
                 </div>
                 <div class="col-md-12">
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                    <div class="portlet light" id="viaje-tab">
+                    <div class="portlet light" id="viaje-tab" style="display: none;">
                         <div class="portlet-body">
                             <div class="tabbable-line">
                                 <ul class="nav nav-tabs ">
@@ -1722,6 +1722,7 @@
             $("#viaje-tab").hide();
             $('#estado').attr("disabled", true);
         }else{
+            $("#viaje-tab").show();
             viaje = {{ viaje.id }};
             $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
             //HAGO ESTO PARA SIMULAR UN EVENTO QUE PIDE LA FUNCION DE SELECT2ME
@@ -1763,8 +1764,8 @@
         // $('#id_cliente').select2({
         //   placeholder: 'Seleccionar'
         // });
-        $("#razon_social").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
-        $('#razon_social').select2({
+        $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
+        $('#id_cliente').select2({
           placeholder: 'Seleccionar Cliente',
           dropdownAutoWidth : true,
           width: 'auto'
@@ -2556,7 +2557,36 @@
                 { name: "idViaje", value: "{{ viaje.id }}"},
                 { name: "csrfmiddlewaretoken", value: "{{ csrf_token }}"}
             ],
-            sequentialUploads: true
+            sequentialUploads: true,
+            getNumberOfFiles: function () {
+                return this.filesContainer.children()
+                    .not('.processing').length;
+            },
+            maxNumberOfFiles: 3,
+            add: function(e, data) {
+                var uploadErrors = [];
+                var acceptFileTypes = /^image\/(gif|jpe?g|png)$|^application\/(pdf|msword)$|^text\/plain$/i;
+                if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
+                    uploadErrors.push('Tipo de archivo no aceptado.');
+                }
+                if(data.originalFiles[0]['size'].length && data.originalFiles[0]['size'] > 3000000) {
+                    uploadErrors.push('Máximo 3 mb.');
+                }
+                if(data.files.length>=3){
+                    uploadErrors.push('Máximo 3 archivos.');
+                }
+                if(uploadErrors.length > 0) {
+                    alert(uploadErrors.join("\n"));
+                } else {
+                    data.submit();
+                }
+            },
+            change : function (e, data) {
+                if(data.files.length>=3){
+                    alert("Máximo 3 archivos.");
+                    return false;
+                }
+            },
         });
         // Load existing files
         $.getJSON($('#fileupload form').prop('action'), function (files) {
