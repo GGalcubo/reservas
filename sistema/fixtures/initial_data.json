@@ -22,28 +22,28 @@
 {
         "model": "sistema.tipoitemviaje","pk":1,
          "fields": {          
-       "item_desc":"Espera",
+       "item_desc":"espera",
        "iva_pct":0.105,
        "cliente_proveedor":"c"}
 },
 {
         "model": "sistema.tipoitemviaje","pk":2,
          "fields": {          
-       "item_desc":"Base",
+       "item_desc":"base",
        "iva_pct":0.105,
        "cliente_proveedor":"c"}
 },
 {
         "model": "sistema.tipoitemviaje","pk":3,
          "fields": {          
-       "item_desc":"Bilingüe",
+       "item_desc":"bilingüe",
        "iva_pct":0.105,
        "cliente_proveedor":"c"}
 },
 {
         "model": "sistema.tipoitemviaje","pk":4,
          "fields": {          
-       "item_desc":"Maletas",
+       "item_desc":"maletas",
        "iva_pct":0.105,
        "cliente_proveedor":"c"}
 },
@@ -71,21 +71,21 @@
 {
         "model": "sistema.tipoitemviaje","pk":8,
          "fields": {          
-       "item_desc":"Base",
+       "item_desc":"base",
        "iva_pct":0,
        "cliente_proveedor":"p"}
 },
 {
         "model": "sistema.tipoitemviaje","pk":9,
          "fields": {          
-       "item_desc":"Bilingüe",
+       "item_desc":"bilingüe",
        "iva_pct":0,
        "cliente_proveedor":"p"}
 },
 {
         "model": "sistema.tipoitemviaje","pk":10,
          "fields": {          
-       "item_desc":"Maletas",
+       "item_desc":"maletas",
        "iva_pct":0,
        "cliente_proveedor":"p"}
 },
@@ -102,6 +102,48 @@
        "item_desc":"cobrado eft",
        "iva_pct":0,
        "cliente_proveedor":"p"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":13,
+         "fields": {          
+       "item_desc":"dispo",
+       "iva_pct":0,
+       "cliente_proveedor":"p"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":14,
+         "fields": {          
+       "item_desc":"espera",
+       "iva_pct":0,
+       "cliente_proveedor":"p"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":15,
+         "fields": {          
+       "item_desc":"peajes",
+       "iva_pct":0,
+       "cliente_proveedor":"p"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":16,
+         "fields": {          
+       "item_desc":"otros",
+       "iva_pct":0,
+       "cliente_proveedor":"p"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":17,
+         "fields": {          
+       "item_desc":"otros",
+       "iva_pct":0,
+       "cliente_proveedor":"c"}
+},
+{
+        "model": "sistema.tipoitemviaje","pk":18,
+         "fields": {          
+       "item_desc":"dispo",
+       "iva_pct":0,
+       "cliente_proveedor":"c"}
 },
 {
         "model": "sistema.tipoadelanto","pk":1,
