@@ -46,7 +46,7 @@
                                         <input type="hidden" id="idAdelanto" name="idAdelanto" value="{{ adelanto.id }}">
                                         <input type="hidden" id="estado" name="estado" value="{{ estado }}">
                                         <div class="form-body">
-                                            <div class="row mg-b-20">
+                                            <div class="row">
                                                 <div class="col-sm-5">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" id="provedor" name="provedor">
@@ -85,7 +85,7 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label for="fecha font-12">Fecha</label>
-                                                    <input class="form-control form-control-inline input-medium date-picker" id="fecha" name="fecha" size="16" type="text" value="{{ adelanto.getFecha }}" />
+                                                    <input class="form-control form-control-inline date-picker" id="fecha" name="fecha" size="16" type="text" value="{{ adelanto.getFecha }}" />
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -143,7 +143,9 @@
 
                     $("#provedor").select2({
                         placeholder: "Seleccionar Provedor",
-                        allowClear: true
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
                     });
                 });
 

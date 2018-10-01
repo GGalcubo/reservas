@@ -122,6 +122,23 @@ hr {
     padding: 4px 24px 3px 12px;
 }
 
+.select2-container--bootstrap .select2-selection--multiple {
+    min-height: 28px;
+    .select2-search--inline .select2-search__field {
+		height: 28px;
+    }
+}
+
+.form-control {
+    height: 29px;
+    padding: 4px 12px 3px 12px;
+}
+
+.input-daterange .input-group-addon {
+	font-size: 10px;
+	padding: 3px 5px;
+}
+
 @media (min-width: 992px) {
 	.page-content-wrapper .page-content {
 	    padding: 10px 15px 10px;
