@@ -1298,8 +1298,61 @@ def listadoFactClientes(request):
 	return render(request, 'sistema/listadoFactClientes.html', context)
 
 @login_required
+def cargarCentrosDeCosto(request):
+	idCliente = request.GET.get('idCliente', False)
+	centrosDeCosto = CentroCosto.objects.filter(cliente_id=idCliente)
+	context = {'centrosDeCosto': centrosDeCosto}
+	return render(request, 'sistema/selectCentroCostos.html', context)
+
+@login_required
+def cargarSolicitanteDeCosto(request):
+	idCliente = request.GET.get('idCliente', False)
+	centrosDeCosto = CentroCosto.objects.filter(cliente_id=idCliente)
+	context = {'centrosDeCosto': centrosDeCosto}
+	return render(request, 'sistema/selectSolicitantes.html', context)
+
+@login_required
+def cargarFactura(request):
+	idCliente = request.GET.get('idCliente', False)
+	viajes = FacturaViaje.objects.filter(viaje__cliente_id=idCliente).order_by('fact_cliente')
+	facturas = []
+	for v in viajes:
+		if v.fact_cliente in facturas:
+			pass
+		else:
+			facturas.append(v.fact_cliente)
+
+	context = {'facturas': facturas}
+	return render(request, 'sistema/selectFacturas.html', context)
+
+@login_required
+def cargarProforma(request):
+	idCliente = request.GET.get('idCliente', False)
+	viajes = FacturaViaje.objects.filter(viaje__cliente_id=idCliente).order_by('prof_cliente')
+	proformas = []
+	for v in viajes:
+		if v.prof_cliente in proformas:
+			pass
+		else:
+			proformas.append(v.prof_cliente)
+	context = {'proformas': proformas}
+	return render(request, 'sistema/selectProformas.html', context)
+
+@login_required
 def buscarFacturacionCliente(request):
-	viajes = Viaje.objects.all().order_by('-id')[:10] 
+	idCliente = request.POST.get('cliente', False)
+
+	idCliente = request.POST.get('cliente', False)
+	idCliente = request.POST.get('cliente', False)
+	idCliente = request.POST.get('cliente', False)
+	idCliente = request.POST.get('cliente', False)
+	idCliente = request.POST.get('cliente', False)
+	idCliente = request.POST.get('cliente', False)
+
+
+
+
+	viajes = Viaje.objects.filter(cliente_id=idCliente)
 	print viajes
 	context = {'viajes': viajes}
 	return render(request, 'sistema/grillaFacturacionCliente.html', context)

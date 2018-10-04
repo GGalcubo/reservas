@@ -1,0 +1,16 @@
+<select class="form-control select2me" id="centroDeCosto" name="centroDeCosto" multiple="multiple">
+    <!-- <option value="">Seleccionar Centro de Costo</option> -->
+    {% for cc in centrosDeCosto %}
+      <option value="{{cc.id}}">{{cc.nombre}}</option>
+    {% endfor %}
+</select>
+<label for="centroDeCosto">Centro de Costo</label>
+<script>
+    $(document).ready(function(){
+        $("#centroDeCosto").select2({
+            placeholder: "Seleccionar Centro Costo",
+            allowClear: true
+        });
+    });
+</script>    
+

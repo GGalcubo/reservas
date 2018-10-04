@@ -38,7 +38,7 @@
                                   <div class="tools"> </div>
                               </div>
                               <div class="portlet-body">
-                                  <form role="form" method="post" id="" action="">
+                                  <form role="form" method="post" id="formFacturacionCliente" action="">
                                       <div class="form-body">
                                           <div class="row">
                                             <div class="col-sm-4">
@@ -54,7 +54,7 @@
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="cliente" name="cliente" onchange="cambioCliente();">
-                                                  <!-- <option value="">Seleccionar Cliente</option> -->
+                                                  <option value="">Seleccionar Cliente</option>
                                                   {% for c in clientes %}
                                                     <option value="{{c.id}}">{{c.id}} - {{c.razon_social}}</option>
                                                   {% endfor %}
@@ -62,13 +62,9 @@
                                                 <label for="cliente">Cliente</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-2">
+                                            <div class="col-sm-2" >
                                               <div class="form-group form-md-line-input" id="selectCentroCostos">
                                                 <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto" multiple="multiple">
-                                                  <!-- <option value="">Seleccionar Centro de Costo</option> -->
-                                                  {% for cc in centrosDeCosto %}
-                                                    <option value="{{cc.id}}">{{cc.nombre}}</option>
-                                                  {% endfor %}
                                                 </select>
                                                 <label for="centroDeCosto">Centro de Costo</label>
                                               </div>
@@ -76,7 +72,6 @@
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="categViaje" name="categViaje" multiple="multiple">
-                                                  <!-- <option value="">Seleccionar Categoría</option> -->
                                                   {% for c in categorias %}
                                                     <option value="{{c.id}}">{{c.categoria}}</option>
                                                   {% endfor %}
@@ -89,7 +84,6 @@
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="condEspecial" name="condEspecial" multiple="multiple">
-                                                  <!-- <option value="">Seleccionar Condición</option> -->
                                                   <option value="1">Sin estacionamiento</option>
                                                   <option value="2">Con espera y maletas</option>
                                                 </select>
@@ -100,8 +94,6 @@
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="solicitante" name="solicitante" multiple="multiple">
                                                   <option value=""></option>
-                                                  <option value="1">Jorge</option>
-                                                  <option value="2">Mercedes</option>
                                                 </select>
                                                 <label for="solicitante">Solicitante</label>
                                               </div>
@@ -110,8 +102,6 @@
                                               <div class="form-group form-md-line-input" id="selectProforma">
                                                 <select class="form-control select2me" id="proforma" name="proforma" multiple="multiple">
                                                   <option value=""></option>
-                                                  <option value="1">123456789</option>
-                                                  <option value="2">456789123</option>
                                                 </select>
                                                 <label for="proforma">Proforma</label>
                                               </div>
@@ -120,8 +110,6 @@
                                               <div class="form-group form-md-line-input" id="selectFactura">
                                                 <select class="form-control select2me" id="factura" name="factura" multiple="multiple">
                                                   <option value=""></option>
-                                                  <option value="1">0001-00000123</option>
-                                                  <option value="2">0001-00000456</option>
                                                 </select>
                                                 <label for="factura">Factura</label>
                                               </div>
@@ -355,6 +343,13 @@
                         width: 'auto'
                     });
 
+                    $("#centroDeCosto").select2({
+                        placeholder: "Seleccionar Centro Costo",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
                     $("#categViaje").select2({
                         placeholder: "Seleccionar Categoria",
                         allowClear: true,
@@ -369,25 +364,84 @@
                         width: 'auto'
                     });
 
+                    $("#factura").select2({
+                        placeholder: "Seleccionar Facturas",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
+                    $("#proforma").select2({
+                        placeholder: "Seleccionar Centro de Costo",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
                 });
 
                 function cambioCliente(){
-                    alert($("#cliente").val());
-                    $("#centroDeCosto").select2({
-                        placeholder: "Seleccionar Centro de Costo",
-                        allowClear: true
-                    });
+                    cod = $("#cliente").val();
+                    if (cod == null){
+                        return false;
+                    }else{
+                        cargarCentrosDeCosto(cod);
+                        cargarFactura(cod);
+                        cargarProforma(cod);
+                    }
                 }
 
                 function buscarFacturacion(){
+                    var params = "categorias="+$("#categViaje").val();
+                    params += "&centroDeCosto="+$("#centroDeCosto").val();
+                    params += "&condEspecial="+$("#condEspecial").val();
+                    params += "&facturas="+$("#factura").val();
+                    params += "&proformas="+$("#proforma").val();
+                    params += "&cliente="+$("#cliente").val();
+                    params += "&desde="+$("#desde").val();
+                    params += "&hasta="+$("#hasta").val();
+                    alert(params)
                     var url = "/sistema/buscarFacturacionCliente/";
                     $.ajax({
                         type: "POST",
                         url: url,
                         headers: {'X-CSRFToken': '{{ csrf_token }}'},
-                        //data: $("#buscarAdelantos").serialize(),
+                        data: params,
                         success: function(data){
                             $('#grillaFacturacion').html(data);
+                        }
+                    });
+                }
+
+                function cargarCentrosDeCosto(codCli){
+                    var url = "/sistema/cargarCentrosDeCosto/?idCliente="+codCli;
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        success: function(data){
+                            $('#selectCentroCostos').html(data);
+                        }
+                    });
+                }
+
+                function cargarProforma(codCli){
+                    var url = "/sistema/cargarProforma/?idCliente="+codCli;
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        success: function(data){
+                            $('#selectProforma').html(data);
+                        }
+                    });
+                }
+
+                function cargarFactura(codCli){
+                    var url = "/sistema/cargarFactura/?idCliente="+codCli;
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        success: function(data){
+                            $('#selectFactura').html(data);
                         }
                     });
                 }
