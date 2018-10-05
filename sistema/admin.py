@@ -24,7 +24,7 @@ class ViajeAdmin(admin.ModelAdmin):
     inlines = [
         TrayectoInline, ObservacionViajeInline, AdjuntoViajeInline,
     ]
-    list_display = ('estado', 'fecha', 'cliente', 'unidad')
+    list_display = ('estado', 'getFecha', 'cliente', 'unidad', 'categoria_viaje')
 
 class ClienteAdmin(admin.ModelAdmin):
     inlines = [
@@ -32,7 +32,7 @@ class ClienteAdmin(admin.ModelAdmin):
     ]
     list_display = ('id', 'razon_social',)
 
-admin.site.register(Viaje)
+admin.site.register(Viaje, ViajeAdmin)
 admin.site.register(Provincia)
 admin.site.register(Localidad)
 admin.site.register(Calle)

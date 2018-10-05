@@ -365,14 +365,14 @@
                     });
 
                     $("#factura").select2({
-                        placeholder: "Seleccionar Facturas",
+                        placeholder: "Seleccionar Nro. Facturas",
                         allowClear: true,
                         dropdownAutoWidth : true,
                         width: 'auto'
                     });
 
                     $("#proforma").select2({
-                        placeholder: "Seleccionar Centro de Costo",
+                        placeholder: "Seleccionar Nro. Proforma",
                         allowClear: true,
                         dropdownAutoWidth : true,
                         width: 'auto'
@@ -392,6 +392,28 @@
                 }
 
                 function buscarFacturacion(){
+                    if ($("#cliente").val() == ""){
+                        alert("Debe seleccionar un Cliente.");
+                        return false;
+                    }
+
+                    if ($('#desde').val() == ""){
+                        alert("El campo Fecha desde es obligatorio.")
+                        return false;
+                    }
+                    if ($('#hasta').val() == ""){
+                        alert("El campo Fecha hasta es obligatorio.")
+                        return false;
+                    }
+
+                    desde = $('#desde').val().substring(6,10) + $('#desde').val().substring(3,5) + $('#desde').val().substring(0,2);
+                    hasta = $('#hasta').val().substring(6,10) + $('#hasta').val().substring(3,5) + $('#hasta').val().substring(0,2);
+
+                    if (desde.localeCompare(hasta) == 1 ){
+                        alert("La fecha desde no puede ser mayor a la fecha hasta.")
+                        return false;
+                    }
+
                     var params = "categorias="+$("#categViaje").val();
                     params += "&centroDeCosto="+$("#centroDeCosto").val();
                     params += "&condEspecial="+$("#condEspecial").val();
@@ -400,7 +422,7 @@
                     params += "&cliente="+$("#cliente").val();
                     params += "&desde="+$("#desde").val();
                     params += "&hasta="+$("#hasta").val();
-                    alert(params)
+
                     var url = "/sistema/buscarFacturacionCliente/";
                     $.ajax({
                         type: "POST",

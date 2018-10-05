@@ -1340,20 +1340,26 @@ def cargarProforma(request):
 
 @login_required
 def buscarFacturacionCliente(request):
-	idCliente = request.POST.get('cliente', False)
+	idCliente 		= request.POST.get('cliente', False)
+	categorias 		= request.POST.get('categorias', False)
+	centroDeCosto 	= request.POST.get('centroDeCosto', False)
+	condEspecial 	= request.POST.get('condEspecial', False)
+	facturas 		= request.POST.get('facturas', False)
+	proformas 		= request.POST.get('proformas', False)
+	desde 			= request.POST.get('desde', False)
+	hasta 			= request.POST.get('hasta', False)
 
-	idCliente = request.POST.get('cliente', False)
-	idCliente = request.POST.get('cliente', False)
-	idCliente = request.POST.get('cliente', False)
-	idCliente = request.POST.get('cliente', False)
-	idCliente = request.POST.get('cliente', False)
-	idCliente = request.POST.get('cliente', False)
+	fechaDesde =  getAAAAMMDD(desde)
+	fechaHasta =  getAAAAMMDD(hasta)
 
+	catList = []
+	print categorias
+	if categorias != "null":
+		for c in categorias.split(","):
+			catList.append(int(c))
 
-
-
-	viajes = Viaje.objects.filter(cliente_id=idCliente)
-	print viajes
+	viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta, categoria_viaje_id__in=catList)
+	
 	context = {'viajes': viajes}
 	return render(request, 'sistema/grillaFacturacionCliente.html', context)
 
