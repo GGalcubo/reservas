@@ -1352,13 +1352,38 @@ def buscarFacturacionCliente(request):
 	fechaDesde =  getAAAAMMDD(desde)
 	fechaHasta =  getAAAAMMDD(hasta)
 
+	listaviajes = []
+
 	catList = []
-	print categorias
 	if categorias != "null":
 		for c in categorias.split(","):
 			catList.append(int(c))
 
-	viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta, categoria_viaje_id__in=catList)
+	ccList = []
+	if centroDeCosto != "null":
+		for c in centroDeCosto.split(","):
+			ccLista.append(int(c))
+
+	ceList = []
+	if condEspecial != "null":
+		for c in condEspecial.split(","):
+			ceList.append(int(c))
+
+	facList = []
+	if facturas != "null":
+		for c in facturas.split(","):
+			facList.append(int(c))
+	
+	proList = []
+	if proformas != "null":
+		for c in proformas.split(","):
+			proList.append(int(c))
+
+	viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+	if catList:
+		viajes = viajes.filter(categoria_viaje_id__in=catList)
+	if ccList:
+		viajes = viajes.filter(centro_costo_id__in=ccList)
 	
 	context = {'viajes': viajes}
 	return render(request, 'sistema/grillaFacturacionCliente.html', context)

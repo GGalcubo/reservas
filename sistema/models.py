@@ -439,10 +439,10 @@ class CentroCosto(models.Model):
     baja = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return u'%s' % self.nombre
+        return u'%s' % str(self.id)+"-"+self.nombre
 
     def __str__(self):
-        return self.nombre
+        return str(self.id)+"-"+self.nombre
 
     def getFechaInicio(self):
         return getFecha(self.fecha_inicio)
