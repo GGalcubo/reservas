@@ -26,11 +26,12 @@
             <th class="all">Total</th>
             <th class="all">IVA</th>
             <th class="all">Final</th>
+            <th class="all">ID</th>
         </tr>
     </thead>
     <tbody>
         {% for v in viajes %}
-        <tr>
+        <tr id="rowid{{ v.id }}">
             <td></td>
             <td>{{v.getFecha}}</td>
             <td>Vip</td>
@@ -56,6 +57,7 @@
             <td>$2.400,00</td>
             <td>$504,00</td>
             <td>$2.904,00</td>
+            <td>{{v.id}}</td>
         </tr>
         {% endfor %}
     </tbody>
@@ -145,7 +147,12 @@
                 orderable: false,
                 className: 'select-checkbox',
                 targets:   0
-            } ],
+            },
+            {
+                targets: 25,
+                visible: false,
+                name: "ID"
+            }],
             select: {
                 style:    'os',
                 selector: 'td:first-child'

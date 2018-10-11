@@ -124,7 +124,7 @@
                               </div>
                               <hr>
                               <div class="flex flex-j-end">
-                                  <button type="button" class="btn green mg-r-10 mg-b-5">Facturar</button>
+                                  <button type="button" onclick="openFacturar();" class="btn green mg-r-10 mg-b-5">Facturar</button>
                                   <button type="button" class="btn blue mg-b-5">Asignar N° proforma</button>
                               </div>
                               <div class="portlet-body" id="grillaFacturacion">
@@ -156,6 +156,7 @@
                                               <th class="all">Total</th>
                                               <th class="all">IVA</th>
                                               <th class="all">Final</th>
+                                              <th class="all">ID</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -185,6 +186,7 @@
                                               <td>$2.400,00</td>
                                               <td>$504,00</td>
                                               <td>$2.904,00</td>
+                                              <td>ID</td>
                                           </tr>
                                       </tbody>
                                       <!-- ESTO SE AGREGO PARA LA FILA DE TOTAL -->
@@ -212,6 +214,37 @@
                     </div>
 
                 </div>
+
+                <form role="form" method="post" id="facturarClientes" action="">
+                <input type="hidden" class="form-control" id="idViajes" name="idViajes">
+                <div id="facturarClientesModal" class="modal fade" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <h4 class="modal-title" style="color:#888;">Facturar Clientes</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                            <input type="text" class="form-control" id="numeroFactura" name="numeroFactura" data-mask="9999-99999999">
+                                            <label for="numeroFactura">Numero de Factura (0001-00000001)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer noborder flex flex-j-between">
+                            <button type="button" onclick="guardarNumeroFactura();" class="btn green">Guardar</button>
+                            <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </form>
+
                 <!-- END CONTENT BODY -->
             </div>
             <!-- END CONTENT -->
@@ -290,6 +323,11 @@
                             orderable: false,
                             className: 'select-checkbox',
                             targets:   0
+                        },
+                        {
+                            targets: 25,
+                            visible: false,
+                            name: "ID"
                         } ],
                         select: {
                             style:    'os',
@@ -382,7 +420,8 @@
 
                 function cambioCliente(){
                     cod = $("#cliente").val();
-                    if (cod == null){
+                    if (cod == null || cod == ""){
+                        $('#centroDeCosto').val([]);
                         return false;
                     }else{
                         cargarCentrosDeCosto(cod);
@@ -435,6 +474,15 @@
                     });
                 }
 
+                function resetFiltros(){
+                    $('#desde').val("");
+                    $('#hasta').val("");
+                    var table = $('#tablaListadoFactClientes').DataTable();
+                    table.clear().draw();
+                    $("#cliente").val('').trigger('change')
+                    cambioCliente();
+                }
+
                 function cargarCentrosDeCosto(codCli){
                     var url = "/sistema/cargarCentrosDeCosto/?idCliente="+codCli;
                     $.ajax({
@@ -466,6 +514,47 @@
                             $('#selectFactura').html(data);
                         }
                     });
+                }
+
+                function openFacturar(){
+                    if (obtenerRowChecked() == ""){
+                        alert("Debe seleccionar Adelantos para poder facturar.")
+                    }else{
+                        $('#numeroFactura').val("");
+                        $('#facturarClientesModal').modal('toggle');
+                    }
+                }
+
+                function guardarNumeroFactura(){
+                    if ($('#numeroFactura').val() == ""){
+                        alert("El numero de factura no puede estar vacio.")
+                        return false;
+                    }
+
+                    var url = "/sistema/facturarClientes/";
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: $("#facturarClientes").serialize(),
+                        success: function(data){
+                            alert("Viajes Facturados.")
+                            $("#idViajes").val("");
+                            $('#facturarClientesModal').modal('toggle');
+                            resetFiltros();
+                        }
+                    });
+                }
+
+                function obtenerRowChecked(){
+                    var table = $('#tablaListadoFactClientes').DataTable();
+                    var selectedRows = table.rows({ selected: true }).ids(true);
+                    var ids = "";
+                    for (var i = 0; i < selectedRows.length; i++) {
+                        ids = ids + selectedRows[i].replace("#rowid","") + "-"
+                    }
+                    $("#idViajes").val(ids);
+                    return ids;
                 }
 
             </script>

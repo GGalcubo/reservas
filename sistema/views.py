@@ -1273,9 +1273,7 @@ def eliminarAdelanto(request):
 def facturarAdelantos(request):
 	idAdelantos = request.POST.get('idAdelantos', False)
 	numeroFactura = request.POST.get('numeroFactura', False)
-	print numeroFactura
 	idsList = []
-	print idAdelantos.split("-")
 	for ids in idAdelantos.split("-"):
 		if ids:
 			idsList.append(int(ids))
@@ -1387,6 +1385,25 @@ def buscarFacturacionCliente(request):
 	
 	context = {'viajes': viajes}
 	return render(request, 'sistema/grillaFacturacionCliente.html', context)
+
+@login_required
+def facturarClientes(request):
+	idViajes 		= request.POST.get('idViajes', False)
+	idsList = []
+	for ids in idViajes.split("-"):
+		if ids:
+			idsList.append(int(ids))
+
+	viajes = Viaje.objects.filter(id__in=idsList)
+	for v in viajes:
+		print '---***---'
+		print v
+		#a.factura = numeroFactura
+		#a.save()
+
+	data = {'return': 'success'}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
 
 @login_required
 def listadoFactProvedores(request):

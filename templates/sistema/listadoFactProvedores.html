@@ -45,9 +45,9 @@
                                                 <div class="form-group mg-b-10">
                                                     <label class="control-label mg-b-0" style="color: #888;">Fecha</label>
                                                     <div class="input-group date-picker input-daterange" data-date-format="dd/mm/yyyy">
-                                                      <input type="text" class="form-control" name="from" id="from">
+                                                      <input type="text" class="form-control" name="desde" id="desde">
                                                       <span class="input-group-addon" style="font-size: 10px;"> hasta </span>
-                                                      <input type="text" class="form-control" name="to" id="to">
+                                                      <input type="text" class="form-control" name="hasta" id="hasta">
                                                     </div>
                                                 </div>
                                             </div>
@@ -358,6 +358,22 @@
                             }
                         }
                     } );
+
+                    $('#desde').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+
+                    $('#hasta').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
 
                     $("#unidad").select2({
                         placeholder: "Seleccionar Unidad",
