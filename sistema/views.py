@@ -55,8 +55,9 @@ def altaViaje(request):
     destinos = TrayectoDestino.objects.all()
     observaciones = Observacion.objects.all()
     tipoobservacion = TipoObservacion.objects.all()
+    tipo_pago = TipoPagoViaje.objects.all()
 
-    context = {'mensaje': mensaje,'clientes':clientes, 'tipoobservacion':tipoobservacion, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje}
+    context = {'mensaje': mensaje,'clientes':clientes, 'tipoobservacion':tipoobservacion, 'tipo_pago':tipo_pago, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje}
     return render(request, 'sistema/viaje.html', context)
 
 @login_required
@@ -80,9 +81,11 @@ def editaViaje(request):
     provincias = Provincia.objects.all()
     observaciones = Observacion.objects.all()
     tipoobservacion = TipoObservacion.objects.all()
+    tipo_pago = TipoPagoViaje.objects.all()
     trayectos = Trayecto.objects.filter(viaje_id=id_viaje)
+    itemsviaje = ItemViaje.objects.filter(viaje_id=id_viaje)
 
-    context = {'mensaje': mensaje,'clientes':clientes, 'uid':uid, 'tipoobservacion':tipoobservacion, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje, 'trayectos':trayectos}
+    context = {'mensaje': mensaje,'clientes':clientes, 'uid':uid, 'tipoobservacion':tipoobservacion, 'tipo_pago':tipo_pago, 'itemsviaje':itemsviaje, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje, 'trayectos':trayectos}
     return render(request, 'sistema/viaje.html', context)
 
 
@@ -93,15 +96,9 @@ def guardarViaje(request):
 
     if es_nuevo == "1":
         viaje = Viaje()
-        #viajeAdm = ViajeAdm()
-        #observacion = Observacion()
-        #obcl = ObservacionViaje()
         mensaje = 'Se dio de alta el viaje '
     else:
         viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
-        #viajeAdm = ViajeAdm.objects.get(viaje_id=request.POST.get('idViaje', False))
-        #obcl = ObservacionViaje.objects.get(viaje_id=request.POST.get('idViaje', False))
-        #observacion = Observacion.objects.get(id=obcl.viaje_id)
         mensaje = 'Se actualizo el viaje '
 
     viaje.estado 				= Estado.objects.get(id=request.POST.get('estado', False))
@@ -116,8 +113,10 @@ def guardarViaje(request):
     viaje.fecha 				= fecha_tmp[6:10] + fecha_tmp[3:5] + fecha_tmp[0:2]
     viaje.hora 					= request.POST.get('hora', "")
     viaje.hora_estimada 		= request.POST.get('hora_estimada', "")
-    viaje.costo_prov 			= request.POST.get('costo_proveedor', "")
     viaje.tarifapasada 			= request.POST.get('tarifa_pasada', "")
+    viaje.Cod_ext_viaje         = request.POST.get('cod_externo', "")
+    viaje.nro_aux               = request.POST.get('nro_aux', "")
+    viaje.tipo_pago             = TipoPagoViaje.objects.get(id=request.POST.get('tipo_pago', False))
     unidad 						= request.POST.get('unidad', '')
     if unidad != '':
         viaje.unidad 			= Unidad.objects.get(id=unidad)
@@ -130,40 +129,62 @@ def guardarViaje(request):
 
     viaje.save()
 
-    print mensaje
-    print viaje.id
-    print Viaje.objects.latest('id').id
+    guardaItemViaje(request.POST.get('importe_efectivo', ''),12,1,viaje)
+    guardaItemViaje(request.POST.get('otros', ''),16,1,viaje)
+    guardaItemViaje(request.POST.get('peaje', ''),15,1,viaje)
+    guardaItemViaje(request.POST.get('estacionamiento', ''),11,1,viaje)
+    guardaItemViaje(request.POST.get('costo_proveedor', ''),8,1,viaje)
+    #guardaItemViaje(request.POST.get('espera', ''),8,request.POST.get('tiempo_espera', ''),viaje)
+
+    guardarObsViaje(request.POST.get('comentario_chofer', ""), viaje, request)
 
     if es_nuevo == "1":
-        data = {'url': '/sistema/editaViaje/?idViaje=' + str(Viaje.objects.latest('id').id)}
-        #viajeAdm.viaje_id = Viaje.objects.latest('id').id
-        #obcl.viaje_id = Viaje.objects.latest('id').id
-
-    #if request.POST.get('espera', "") != '':
-        #viajeAdm.espera_min = request.POST.get('espera')
-
-    #if request.POST.get('peaje', "") != '':
-        #viajeAdm.peaje_total = request.POST.get('peaje')
-
-    #if request.POST.get('otros', "") != '':
-        #viajeAdm.otros_tot = request.POST.get('otros')
-
-    #if request.POST.get('estacionamiento', "") != '':
-        #viajeAdm.estacionamiento_total = request.POST.get('estacionamiento')
-
-    #viajeAdm.save()
-
-    #observacion.fecha = fecha()
-    #observacion.usuario = request.user
-    #observacion.texto = request.POST.get('comentario_chofer', "")
-    #observacion.tipo_observacion = TipoObservacion.objects.get(id=17)
-    #observacion.save()
-
-    #obcl.observacion = observacion
-    #obcl.save()
+        data = {'url': '/sistema/editaViaje/?idViaje=' + str(viaje.id)}
 
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
+
+def guardaItemViaje(input_text,tipo_item_viaje,cant,viaje):
+    monto = input_text
+    tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
+    try:
+        item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
+        if monto == '':
+            monto = 0
+    except ItemViaje.DoesNotExist:
+        if monto == '':
+            return
+        item_viaje_otros = ItemViaje()
+
+    item_viaje_otros.cant = cant
+    item_viaje_otros.monto_s_iva = monto
+    item_viaje_otros.viaje = viaje
+
+    item_viaje_otros.monto_iva = int(monto) * int(tipo_item_viaje.iva_pct)
+    item_viaje_otros.tipo_items_viaje = tipo_item_viaje
+    item_viaje_otros.save()
+
+def guardarObsViaje(input_text, viaje, request):
+
+    if len(viaje.observacionviaje_set.all()) > 0:
+        observacion = viaje.observacionviaje_set.all()[0].observacion
+        ob_viaje = viaje.observacionviaje_set.all()[0]
+    else:
+        if input_text == '':
+            return
+        ob_viaje = ObservacionViaje()
+        observacion = Observacion()
+        observacion.tipo_observacion = TipoObservacion.objects.get(id=17)
+    
+    observacion.fecha = fecha()
+    observacion.usuario = request.user
+    observacion.texto = input_text
+    observacion.save()
+
+    ob_viaje.viaje = viaje
+    ob_viaje.observacion = observacion
+    ob_viaje.save()
+
 
 @login_required
 def guardarViajeAdjunto(request):

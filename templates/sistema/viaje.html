@@ -70,21 +70,6 @@
                             <form role="form" class="form-viaje-viaje" id="form-viaje-viaje" method="post" action="/sistema/guardarViaje/">{% csrf_token %}
                                 <div class="form-body">
                                     <div class="row">
-                                        <!-- <div class="col-md-2">
-                                            <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="id_cliente" name="id_cliente">
-                                                    <option value=""></option>
-                                                    {% for c in clientes %}
-                                                        {% if c.id == viaje.cliente.id %}
-                                                            <option selected="selected" value="{{ c.id }}">{{ c.id }}</option>
-                                                        {% else %}
-                                                            <option value="{{ c.id }}">{{ c.id }}</option>
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                </select>
-                                                <label for="id_cliente">ID Cliente</label>
-                                            </div>
-                                        </div> -->
                                         <div class="col-md-4">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="id_cliente" name="id_cliente">
@@ -114,22 +99,16 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cod-externo" name="cod-externo">
-                                                <label for="cod-externo">Cod Externo</label>
+                                                <input type="text" class="form-control" id="cod_externo" name="cod_externo" value="{{ viaje.Cod_ext_viaje|default_if_none:"" }}">
+                                                <label for="cod_externo">Cod Externo</label>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cod-externo" name="cod-externo">
+                                                <input type="text" class="form-control" id="nro_aux" name="nro_aux" value="{{ viaje.nro_aux|default_if_none:"" }}">
                                                 <label for="id_aux">ID Aux</label>
                                             </div>
                                         </div>
-                                        <!--<div class="col-md-1">
-                                            <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cliente_factura" value="" name="cliente_factura" readonly>
-                                                <label>C. Fact.</label>
-                                            </div>
-                                        </div>-->
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -217,21 +196,6 @@
                                                 <label for="estado">Estado</label>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-md-2">
-                                            <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="unidad_id" name="unidad_id">
-                                                    <option value=""></option>
-                                                    {% for u in unidades %}
-                                                        {% if u.id == viaje.unidad.id %}
-                                                            <option selected="selected" value="{{ u.id }}">{{ u.id }}</option>
-                                                        {% else %}
-                                                            <option value="{{ u.id }}">{{ u.id }}</option>
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                </select>
-                                                <label for="unidad_id">ID Unidad</label>
-                                            </div>
-                                        </div> -->
                                         <div class="col-md-5">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="unidad_id" name="unidad_id">
@@ -259,7 +223,7 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control"  id="tarifa_pasada" name="tarifa_pasada"  value="{{ viaje.tarifapasada }}">
+                                                    <input type="text" class="form-control"  id="tarifa_pasada" name="tarifa_pasada" value="{{ viaje.tarifapasada }}">
                                                     <label for="tarifa_pasada">Tarifa pasada</label>
                                                 </div>
                                             </div>
@@ -267,8 +231,13 @@
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control" id="tipo_pago" name="tipo_pago">
-                                                    <option value="0" selected="selected">Efectivo</option>
-                                                    <option value="1">Cuenta corriente</option>
+                                                    {% for tp in tipo_pago %}
+                                                        {% if tp.id == viaje.tipo_pago.id %}
+                                                            <option selected="selected" value="{{ tp.id }}">{{ tp.tipo_pago_viaje }}</option>
+                                                        {% else %}
+                                                            <option value="{{ tp.id }}">{{ tp.tipo_pago_viaje }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 </select>
                                                 <label for="tipo_pago">Tipo Pago</label>
                                             </div>
@@ -277,21 +246,21 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control"  id="importe_efectivo" name="importe_efectivo"  value="{{ viaje.tarifapasada }}">
+                                                    <input type="text" class="form-control" id="importe_efectivo" name="importe_efectivo" value="">
                                                     <label for="importe_efectivo">Importe efectivo</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="tiempo-espera" name="tiempo-espera">
-                                                <label for="tiempo-espera">Espera</label>
+                                                <input type="text" class="form-control" id="tiempo_espera" name="tiempo_espera">
+                                                <label for="tiempo_espera">Espera</label>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="tiempo-hs-dispo" name="tiempo-hs-dispo">
-                                                <label for="tiempo-hs-dispo">Horas Disp</label>
+                                                <input type="text" class="form-control" id="tiempo_hs_dispo" name="tiempo_hs_dispo">
+                                                <label for="tiempo_hs_dispo">Horas Disp</label>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -329,7 +298,7 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="espera" value="{{ viaje.espera|default_if_none:"" }}" name="espera">
+                                                    <input type="text" class="form-control" id="espera" value="" name="espera">
                                                     <label for="espera">Espera</label>
                                                 </div>
                                             </div>
@@ -338,8 +307,8 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="hs-dispo" value="{{ viaje.espera|default_if_none:"" }}" name="hs-dispo">
-                                                    <label for="hs-dispo">Horas Disp</label>
+                                                    <input type="text" class="form-control" id="hs_dispo" value="" name="hs_dispo">
+                                                    <label for="hs_dispo">Horas Disp</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -347,7 +316,7 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="peaje" value="{{ viaje.peaje_total }}" name="peaje">
+                                                    <input type="text" class="form-control" id="peaje" value="" name="peaje">
                                                     <label for="peaje">Peajes</label>
                                                 </div>
                                             </div>
@@ -356,7 +325,7 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.estacionamiento_total }}" name="estacionamiento">
+                                                    <input type="text" class="form-control" id="estacionamiento" value="" name="estacionamiento">
                                                     <label for="estacionamiento">Estacionamiento</label>
                                                 </div>
                                             </div>
@@ -365,7 +334,7 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="otros" value="{{ viaje.Otros_tot }}" name="otros">
+                                                    <input type="text" class="form-control" id="otros" value="" name="otros">
                                                     <label for="otros">Otros</label>
                                                 </div>
                                             </div>
@@ -374,8 +343,8 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="costo-maletas" value="{{ viaje.espera|default_if_none:"" }}" name="costo-maletas">
-                                                    <label for="costo-maletas">Maletas</label>
+                                                    <input type="text" class="form-control" id="costo_maletas" value="" name="costo_maletas">
+                                                    <label for="costo_maletas">Maletas</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -383,8 +352,8 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="costo-bilingue" value="{{ viaje.espera|default_if_none:"" }}" name="costo-bilingue">
-                                                    <label for="costo-bilingue">Bilingüe</label>
+                                                    <input type="text" class="form-control" id="costo_bilingue" value="" name="costo_bilingue">
+                                                    <label for="costo_bilingue">Bilingüe</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -855,7 +824,7 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control" id="costo_proveedor" name="costo_proveedor" value="{{ viaje.costo_prov }}">
+                                                                                <input type="text" class="form-control" name="costo_proveedor" value="{{ viaje.costo_prov }}">
                                                                                 <label for="costo_proveedor">Costo Cliente</label>
                                                                             </div>
                                                                         </div>
@@ -864,7 +833,7 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control" id="espera" value="{{ viaje.espera|default_if_none:"" }}" name="espera">
+                                                                                <input type="text" class="form-control"  value="" name="espera">
                                                                                 <label for="espera">Espera</label>
                                                                             </div>
                                                                         </div>
@@ -873,8 +842,8 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control" id="hs-dispo" value="{{ viaje.espera|default_if_none:"" }}" name="hs-dispo">
-                                                                                <label for="hs-dispo">Horas Disp</label>
+                                                                                <input type="text" class="form-control"  value="" name="hs_dispo">
+                                                                                <label for="hs_dispo">Horas Disp</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -882,7 +851,7 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control" id="peaje" value="{{ viaje.peaje_total }}" name="peaje">
+                                                                                <input type="text" class="form-control"  value="" name="peaje">
                                                                                 <label for="peaje">Peajes</label>
                                                                             </div>
                                                                         </div>
@@ -891,7 +860,7 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.estacionamiento_total }}" name="estacionamiento">
+                                                                                <input type="text" class="form-control"  value="" name="estacionamiento">
                                                                                 <label for="estacionamiento">Estacionamiento</label>
                                                                             </div>
                                                                         </div>
@@ -900,7 +869,7 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control" id="otros" value="{{ viaje.Otros_tot }}" name="otros">
+                                                                                <input type="text" class="form-control"  value="" name="otros">
                                                                                 <label for="otros">Otros</label>
                                                                             </div>
                                                                         </div>
@@ -909,8 +878,8 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control" id="costo-maletas" value="{{ viaje.espera|default_if_none:"" }}" name="costo-maletas">
-                                                                                <label for="costo-maletas">Maletas</label>
+                                                                                <input type="text" class="form-control"  value="" name="costo_maletas">
+                                                                                <label for="costo_maletas">Maletas</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -918,8 +887,8 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control" id="costo-bilingue" value="{{ viaje.espera|default_if_none:"" }}" name="costo-bilingue">
-                                                                                <label for="costo-bilingue">Bilingüe</label>
+                                                                                <input type="text" class="form-control"  value="" name="costo_bilingue">
+                                                                                <label for="costo_bilingue">Bilingüe</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1707,7 +1676,7 @@
         });
 
         $("#mensajeValidacion").html("");
-        $("#viajeValidacion").hide();
+        $("#viajeValidacion").addClass('hide');
         $(".cont_desde_provincia").hide();
         $(".cont_hasta_provincia").hide();
         $(".cont_modal_desde_provincia").hide();
@@ -1759,11 +1728,6 @@
             updateFillsByLocalidad('', evt);
         }
 
-
-        // $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
-        // $('#id_cliente').select2({
-        //   placeholder: 'Seleccionar'
-        // });
         $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
         $('#id_cliente').select2({
           placeholder: 'Seleccionar Cliente',
@@ -1772,12 +1736,6 @@
         });
         $("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
         $('#unidad_id').select2({
-          placeholder: 'Seleccionar',
-          dropdownAutoWidth : true,
-          width: 'auto'
-        });
-        $("#unidad_identificacion").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
-        $('#unidad_identificacion').select2({
           placeholder: 'Seleccionar',
           dropdownAutoWidth : true,
           width: 'auto'
@@ -1865,10 +1823,6 @@
                 mostrarMsgValidacion("El campo id cliente es obligatorio.");
                 return false;
             }
-            if ($("#razon_social").val() == ""){
-                mostrarMsgValidacion("El campo razon social es obligatorio.");
-                return false;
-            }
             if ($("#contacto").val() == ""){
                 mostrarMsgValidacion("El campo solicitante es obligatorio.");
                 return false;
@@ -1902,10 +1856,6 @@
                     mostrarMsgValidacion("El campo unidad id es obligatorio.");
                     return false;
                 }
-                if ($("#unidad_identificacion").val() == ""){
-                    mostrarMsgValidacion("El campo unidad identificacion es obligatorio.");
-                    return false;
-                }
             }
             if ($("#estado").val() == ""){
                 mostrarMsgValidacion("El campo estado es obligatorio.");
@@ -1930,12 +1880,19 @@
             obj.comentario_chofer = $("#comentario_chofer").val();
             obj.unidad            = $("#unidad_id").val();
             obj.espera            = $("#espera").val();
+            obj.tiempo_espera     = $("#tiempo_espera").val();
             obj.peaje             = $("#peaje").val();
             obj.otros             = $("#otros").val();
             obj.estacionamiento   = $("#estacionamiento").val();
             obj.categoria_viaje   = $("#categoria_viaje").val();
             obj.maletas           = $("#maletas").val();
             obj.bilingue          = $("#bilingue").val();
+            obj.cod_externo       = $("#cod_externo").val();
+            obj.nro_aux           = $("#nro_aux").val();
+            obj.tipo_pago         = $("#tipo_pago").val();
+            obj.importe_efectivo  = $("#importe_efectivo").val();
+            obj.tiempo_hs_dispo   = $("#tiempo_hs_dispo").val();
+            obj.hs_dispo          = $("#hs_dispo").val();
             obj.es_nuevo          = es_nuevo;
 
             if(es_nuevo == 0){
@@ -1956,7 +1913,7 @@
                            alert(data.msg);
                        }
                        $("#mensajeValidacion").html("");
-                       $("#viajeValidacion").hide();
+                       $("#viajeValidacion").addClass('hide');
 
                        //es_nuevo = 0;
                    }
@@ -2234,7 +2191,7 @@
 
     function mostrarMsgValidacion(msg){
         $("#mensajeValidacion").html(msg);
-        $("#viajeValidacion").show();
+        $("#viajeValidacion").removeClass('hide');
         $('html, body').animate({
             scrollTop: $("#viajeValidacion").offset().top - 100
           }, 100);
@@ -2252,9 +2209,7 @@
         });
 
         $('#id_cliente').select2('val',cliente_selected.id);
-        $('#razon_social').select2('val',cliente_selected.id);
         $('#id_cliente').val(cliente_selected.id).trigger("change");
-        $('#razon_social').val(cliente_selected.id).trigger("change");
         $('#cliente_direccion').val(cliente_selected.direccion);
         $('#cliente_categoria').val(cliente_selected.categoria_id);
         $('#cliente_tel').val(cliente_selected.telefono);
@@ -2281,9 +2236,7 @@
     function updateFillsByUnidad(name, evt){
         var option_selected = evt.params.data.id - 1;
         $('#unidad_id').select2('val',unidades[option_selected].id);
-        $('#unidad_identificacion').select2('val',unidades[option_selected].id);
         $('#unidad_id').val(unidades[option_selected].id).trigger("change");
-        $('#unidad_identificacion').val(unidades[option_selected].id).trigger("change");
     }
 
     function updateFillsByLocalidad(name, evt) {
