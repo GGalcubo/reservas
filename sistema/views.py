@@ -129,14 +129,14 @@ def guardarViaje(request):
 
     viaje.save()
 
-    guardaItemViaje(request.POST.get('importe_efectivo', ''),12,1,viaje)
-    guardaItemViaje(request.POST.get('otros', ''),16,1,viaje)
-    guardaItemViaje(request.POST.get('peaje', ''),15,1,viaje)
-    guardaItemViaje(request.POST.get('estacionamiento', ''),11,1,viaje)
-    guardaItemViaje(request.POST.get('costo_proveedor', ''),8,1,viaje)
-    #guardaItemViaje(request.POST.get('espera', ''),8,request.POST.get('tiempo_espera', ''),viaje)
-
-    guardarObsViaje(request.POST.get('comentario_chofer', ""), viaje, request)
+    guardaItemViaje(request.POST.get('importe_efectivo', ''), 12 ,1 , viaje)
+    guardaItemViaje(request.POST.get('otros', ''), 16, 1, viaje)
+    guardaItemViaje(request.POST.get('peaje', ''), 15, 1, viaje)
+    guardaItemViaje(request.POST.get('estacionamiento', ''), 11, 1, viaje)
+    guardaItemViaje(request.POST.get('costo_proveedor', ''), 8, 1, viaje)
+    guardaItemViajeHsDispo(request.POST.get('hs_dispo', ''), 13, request.POST.get('tiempo_hs_dispo', ''), viaje)
+    guardaItemViajeHsDispo(request.POST.get('espera', ''), 1, request.POST.get('tiempo_espera', ''), viaje)
+    guardarObsViaje(request.POST.get('comentario_chofer', ''), viaje, request)
 
     if es_nuevo == "1":
         data = {'url': '/sistema/editaViaje/?idViaje=' + str(viaje.id)}
@@ -144,8 +144,53 @@ def guardarViaje(request):
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
 
-def guardaItemViaje(input_text,tipo_item_viaje,cant,viaje):
-    monto = input_text
+def guardaItemViajeEspera(monto,tipo_item_viaje,tiempo,viaje):
+    tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
+    centro_costo = viaje.centro_costo
+    tarifa_extra = TarifaExtra.objects.get(categoria_viaje=viaje.categoria_viaje, tarifario=centro_costo.tarifario, extra_descripcion='espera')
+    try:
+        item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
+        if monto == '':
+            monto = 0
+        if tiempo == '':
+            tiempo = 0
+    except ItemViaje.DoesNotExist:
+        if monto == '':
+            return
+        item_viaje_otros = ItemViaje()
+
+    item_viaje_otros.cant = tiempo
+    item_viaje_otros.monto_s_iva = (tiempo/15) * tarifa_extra.extra_precio_prov
+    item_viaje_otros.viaje = viaje
+
+    item_viaje_otros.monto_iva = int(monto) * int(tipo_item_viaje.iva_pct)
+    item_viaje_otros.tipo_items_viaje = tipo_item_viaje
+    item_viaje_otros.save()
+
+def guardaItemViajeHsDispo(monto,tipo_item_viaje,tiempo,viaje):
+    tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
+    centro_costo = viaje.centro_costo
+    tarifa_extra = TarifaExtra.objects.get(categoria_viaje=viaje.categoria_viaje, tarifario=centro_costo.tarifario, extra_descripcion='extra')
+    try:
+        item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
+        if monto == '':
+            monto = 0
+        if tiempo == '':
+            tiempo = 0
+    except ItemViaje.DoesNotExist:
+        if monto == '':
+            return
+        item_viaje_otros = ItemViaje()
+
+    item_viaje_otros.cant = tiempo
+    item_viaje_otros.monto_s_iva = tiempo * int(tarifa_extra.extra_precio_prov)
+    item_viaje_otros.viaje = viaje
+
+    item_viaje_otros.monto_iva = int(monto) * int(tipo_item_viaje.iva_pct)
+    item_viaje_otros.tipo_items_viaje = tipo_item_viaje
+    item_viaje_otros.save()
+
+def guardaItemViaje(monto,tipo_item_viaje,cant,viaje):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
@@ -452,6 +497,120 @@ def guardarCentroCostoProspect(request):
 
 	context = {'mensaje': mensaje, 'trayectos': trayectos, 'cliente':cliente}
 	return render(request, 'sistema/grillaCentroCostos.html', context)
+
+@login_required
+def guardarSolicitanteDesdeViaje(request):
+    mensaje = ""
+    idClienteEnSol = request.POST.get('idClienteEnSol', "")
+    cliente = Cliente.objects.get(id=idClienteEnSol)
+    idSol = request.POST.get('idSolicitante', "")
+    if idSol == "0":
+        persona = Persona()
+        persona.tipo_persona = TipoPersona.objects.get(id=1)
+    else:
+        persona = Persona.objects.get(id=idSol)
+
+    persona.nombre = request.POST.get('nombrePasajeroCliente', "")
+    persona.apellido = request.POST.get('apellidoPasajeroCliente', "")
+    persona.puesto = request.POST.get('puestoSol', "")
+    persona.mail = request.POST.get('mailSol', "")
+    persona.save()
+    telefono = request.POST.get('telefonoSol', "")
+
+    if idSol == "0":
+        perCli = PersonaCliente()
+        perCli.persona = persona
+        perCli.cliente = cliente
+        perCli.save()
+    
+    if telefono != "" and telefono != "Sin telefono":
+        if len(persona.telefonopersona_set.all()) > 0:
+            tel = persona.telefonopersona_set.all()[0].telefono
+            telcli = persona.telefonopersona_set.all()[0]
+        else:
+            telcli = TelefonoPersona()
+            tel = Telefono()
+            tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
+
+        tel.numero = telefono
+        tel.save()
+
+        telcli.persona = persona
+        telcli.telefono = tel
+        telcli.save()
+
+    context = {'mensaje': mensaje, 'cliente':cliente}
+    return render(request, 'sistema/selectSolicitante.html', context)
+
+@login_required
+def guardarPasajeroDesdeViaje(request):
+    mensaje = ""
+    idClientePasajero = request.POST.get('idClientePasajeroModal', "")
+    print idClientePasajero
+    cliente = Cliente.objects.get(id=idClientePasajero)
+    idPasajero = request.POST.get('idPasajeroModal', "")
+    if idPasajero == "0":
+        persona = Persona()
+        persona.tipo_persona = TipoPersona.objects.get(id=2)
+    else:
+        persona = Persona.objects.get(id=idPasajero)
+
+    persona.nombre = request.POST.get('nombrePasClienteModal', "")
+    persona.apellido = request.POST.get('apellidoPasClienteModal', "")
+    persona.documento = request.POST.get('documentoPasajeroClienteModal', "")
+    persona.mail = request.POST.get('mailPasajeroClienteModal', "")
+    persona.nacionalidad = request.POST.get('nacionalidadPasajeroClienteModal', "")
+    persona.calle = request.POST.get('callePasajeroClienteModal', "")
+    #persona.altura = request.POST.get('alturaPasajeroCliente', "")
+    #persona.piso = request.POST.get('pisoPasajeroCliente', "")
+    #persona.cp = request.POST.get('cpPasajeroCliente', "")
+    persona.save()
+
+    telefono = request.POST.get('telefonoPasajeroClienteModal', "")
+    comentario = request.POST.get('comentarioPasajeroClienteModal', "")
+
+    if idPasajero == "0":
+        perCli = PersonaCliente()
+        perCli.persona = persona
+        perCli.cliente = cliente
+        perCli.save()
+
+    if telefono != "" and telefono != "Sin telefono":
+        if len(persona.telefonopersona_set.all()) > 0:
+            tel = persona.telefonopersona_set.all()[0].telefono
+            telcli = persona.telefonopersona_set.all()[0]
+        else:
+            telcli = TelefonoPersona()
+            tel = Telefono()
+            tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
+
+        tel.numero = telefono
+        tel.save()
+
+        telcli.persona = persona
+        telcli.telefono = tel
+        telcli.save()
+
+    if comentario != "":
+        if len(persona.observacionpersona_set.all()) > 0:
+            obs = persona.observacionpersona_set.all()[0].observacion
+            obsper = persona.observacionpersona_set.all()[0]
+        else:
+            obsper = ObservacionPersona()
+            obs = Observacion()
+            obs.tipo_observacion = TipoObservacion.objects.get(id=16)
+
+        obs.fecha = fecha()
+        obs.usuario = request.user
+        obs.texto = comentario
+        obs.save()
+
+        obsper.persona = persona
+        obsper.observacion = obs
+        obsper.save()
+
+    context = {'mensaje': mensaje, 'cliente':cliente}
+    return render(request, 'sistema/selectPasajero.html', context)
 
 @login_required
 def guardarSolicitanteProspect(request):

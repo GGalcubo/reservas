@@ -487,6 +487,19 @@ class Viaje(models.Model):
             observaciones.append(obsviaje.observacion)
         return observaciones
 
+    def getObservacioneChofer(self):
+        obs_chofer = ''
+        for obsviaje in self.observacionviaje_set.all():
+            if obsviaje.observacion.tipo_observacion_id == 17:
+                obs_chofer = obsviaje.observacion.texto
+        return obs_chofer
+
+    def getViajeItems(self):
+        viaje_items = []
+        for item in self.itemviaje_set.all():
+            viaje_items.append(item)
+        return viaje_items
+
     def getTrayectoPrincipal(self):
         trayecto = self.trayecto_set.filter()[:1].get()
         return trayecto

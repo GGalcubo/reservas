@@ -213,7 +213,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group form-md-line-input">
-                                                <textarea class="form-control" rows="1" placeholder="{{ viaje.comentario }}" name="comentario_chofer" id="comentario_chofer"></textarea>
+                                                <textarea class="form-control" rows="1" value="{{ viaje.getObservacioneChofer }}" placeholder="" name="comentario_chofer" id="comentario_chofer"></textarea>
                                                 <label for="comentario_chofer">Comentario para el chofer</label>
                                             </div>
                                         </div>
@@ -1011,9 +1011,9 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        {% for p in cliente.getPasajeros %}
+                                                                        {% for p in viaje.cliente.getPasajeros %}
                                                                         <tr>
-                                                                            <td class="text-center"><a href="#" onclick="editarPasajero('{{ p.id }}','{{ cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}','{{ p.getObservacion }}');"><i class="fa fa-pencil"></i></a></td>
+                                                                            <td class="text-center"><a href="#" onclick="editarPasajero('{{ p.id }}','{{ viaje.cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}','{{ p.getObservacion }}');"><i class="fa fa-pencil"></i></a></td>
                                                                             <td>{{ p.nombre|default_if_none:"" }}</td>
                                                                             <td>{{ p.apellido|default_if_none:"" }}</td>
                                                                             <td>{{ p.documento|default_if_none:"" }}</td>
@@ -1403,153 +1403,161 @@
 <!-- END MODAL AGREGAR TRAMO -->
 
 <!-- MODAL AGREGAR SOLICITANTE -->
-<div id="add_solicitante" class="modal fade" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title" style="color:#888;">Agregar Solicitante</h4>
-            </div>
-            <div class="modal-body">
-                <div class="scroller" style="height:150px" data-always-visible="1" data-rail-visible1="1">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="nombrePasajeroCliente" name="nombrePasajeroCliente">
-                                <label for="nombrePasajeroCliente">Nombre</label>
+<div id="add_solicitante" class="modal fade" tabindex="-1" aria-hidden="true">    
+    <form role="form" id="form-datos-cliente-solicitante" class="form-datos-cliente-solicitante">
+        <input type="hidden" id="idClienteEnCC" name="idClienteEnSol" value="{{ viaje.cliente.id }}">
+        <input type="hidden" id="idSolicitante" name="idSolicitante" value="0">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" style="color:#888;">Agregar Solicitante</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="scroller" style="height:150px" data-always-visible="1" data-rail-visible1="1">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="nombrePasajeroCliente" name="nombrePasajeroCliente">
+                                    <label for="nombrePasajeroCliente">Nombre</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="apellidoPasajeroCliente" name="apellidoPasajeroCliente">
+                                    <label for="apellidoPasajeroCliente">Apellido</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="apellidoPasajeroCliente" name="apellidoPasajeroCliente">
-                                <label for="apellidoPasajeroCliente">Apellido</label>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="puestoSol" name="puestoSol">
+                                    <label for="puesto">Puesto</label>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="puestoSol" name="puestoSol">
-                                <label for="puesto">Puesto</label>
+                            <div class="col-sm-4">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="email" class="form-control" id="mailSol" name="mailSol" >
+                                    <label for="mailSol">Mail</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="email" class="form-control" id="mailSol" name="mailSol" >
-                                <label for="mailSol">Mail</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="telefonoSol" name="telefonoSol">
-                                <label for="telefonoSol">Teléfono</label>
+                            <div class="col-sm-4">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="telefonoSol" name="telefonoSol">
+                                    <label for="telefonoSol">Teléfono</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer noborder flex flex-j-between">
-              <button type="button" onclick="javascript:guardarSolicitante();" class="btn green">Guardar</button>
-              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                <div class="modal-footer noborder flex flex-j-between">
+                  <button type="button" onclick="javascript:guardarSolicitante();" class="btn green">Guardar</button>
+                  <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 <!-- END MODAL AGREGAR SOLICITANTE -->
 
 <!-- MODAL AGREGAR PASAJERO -->
 <div id="add_pasajero" class="modal fade" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title" style="color:#888;">Agregar Pasajero</h4>
-            </div>
-            <div class="modal-body">
-                <div class="scroller" style="height:250px" data-always-visible="1" data-rail-visible1="1">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="nombrePasCliente" name="nombrePasCliente">
-                                <label for="nombrePasCliente">Nombre</label>
+    <form role="form" class="form-datos-cliente-pasajeros" id="form-datos-cliente-pasajeros">
+        <input type="hidden" id="idClientePasajeroModal" name="idClientePasajeroModal" value="{{ viaje.cliente.id }}">
+        <input type="hidden" id="idPasajeroModal" name="idPasajeroModal" value="0">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" style="color:#888;">Agregar Pasajero</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="scroller" style="height:250px" data-always-visible="1" data-rail-visible1="1">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="nombrePasClienteModal" name="nombrePasClienteModal">
+                                    <label for="nombrePasCliente">Nombre</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="apellidoPasClienteModal" name="apellidoPasClienteModal">
+                                    <label for="apellidoPasCliente">Apellido</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="documentoPasajeroClienteModal" name="documentoPasajeroClienteModal">
+                                    <label for="documentoPasajeroCliente">DNI</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="apellidoPasCliente" name="apellidoPasCliente">
-                                <label for="apellidoPasCliente">Apellido</label>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="telefonoPasajeroClienteModal" name="telefonoPasajeroClienteModal">
+                                    <label for="telefonoPasajeroCliente">Teléfono</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="email" class="form-control" id="mailPasajeroClienteModal" name="mailPasajeroClienteModal">
+                                    <label for="mailPasajeroCliente">Mail</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="nacionalidadPasajeroClienteModal" name="nacionalidadPasajeroClienteModal" >
+                                    <label for="nacionalidadPasajeroCliente">Nacionalidad</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="documentoPasajeroCliente" name="documentoPasajeroCliente">
-                                <label for="documentoPasajeroCliente">DNI</label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="callePasajeroClienteModal" name="callePasajeroClienteModal">
+                                    <label for="callePasajeroCliente">Calle</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2" style="display:none;">
+                                <div class="form-group form-md-line-input">
+                                    <input type="text" class="form-control" name="alturaPasajeroClienteModal" id="alturaPasajeroClienteModal" >
+                                    <label for="alturaPasajeroCliente">Altura</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2" style="display:none;">
+                                <div class="form-group form-md-line-input">
+                                    <input type="text" class="form-control" name="pisoPasajeroClienteModal" id="pisoPasajeroClienteModal" >
+                                    <label for="pisoPasajeroCliente">Piso</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2" style="display:none;" >
+                                <div class="form-group form-md-line-input">
+                                    <input type="text" class="form-control" name="cpPasajeroClienteModal" id="cpPasajeroClienteModal" >
+                                    <label for="cpPasajeroCliente">CP</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="telefonoPasajeroCliente" name="telefonoPasajeroCliente">
-                                <label for="telefonoPasajeroCliente">Teléfono</label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group form-md-line-input">
+                                    <textarea class="form-control" rows="2" name="comentarioPasajeroClienteModal" id="comentarioPasajeroClienteModal" placeholder=""></textarea>
+                                    <label for="comentarioPasajeroCliente">Comentario</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="email" class="form-control" id="mailPasajeroCliente" name="mailPasajeroCliente">
-                                <label for="mailPasajeroCliente">Mail</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="nacionalidadPasajeroCliente" name="nacionalidadPasajeroCliente" >
-                                <label for="nacionalidadPasajeroCliente">Nacionalidad</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="callePasajeroCliente" name="callePasajeroCliente">
-                                <label for="callePasajeroCliente">Calle</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2" style="display:none;">
-                            <div class="form-group form-md-line-input">
-                                <input type="text" class="form-control" name="alturaPasajeroCliente" id="alturaPasajeroCliente" >
-                                <label for="alturaPasajeroCliente">Altura</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2" style="display:none;">
-                            <div class="form-group form-md-line-input">
-                                <input type="text" class="form-control" name="pisoPasajeroCliente" id="pisoPasajeroCliente" >
-                                <label for="pisoPasajeroCliente">Piso</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2" style="display:none;" >
-                            <div class="form-group form-md-line-input">
-                                <input type="text" class="form-control" name="cpPasajeroCliente" id="cpPasajeroCliente" >
-                                <label for="cpPasajeroCliente">CP</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group form-md-line-input">
-                                <textarea class="form-control" rows="2" name="comentarioPasajeroCliente" id="comentarioPasajeroCliente" placeholder=""></textarea>
-                                <label for="comentarioPasajeroCliente">Comentario</label>
-                            </div>
-                        </div>
-                    </div>
 
+                    </div>
+                </div>
+                <div class="modal-footer noborder flex flex-j-between">
+                  <button type="button" onclick="guardarPasajeroModal()" class="btn green">Guardar</button>
+                  <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
-            <div class="modal-footer noborder flex flex-j-between">
-              <button type="button" onclick="guardarPasajero()" class="btn green">Guardar</button>
-              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
-            </div>
         </div>
-    </div>
+    </form>
 </div>
 <!-- END MODAL AGREGAR PASAJERO -->
 <div id="prueba"></div>
@@ -1601,6 +1609,7 @@
             telefono:'{{ cliente.telefonoPrincipal }}',
             centro_costos: centro_costos,
             personascliente: personascliente};
+
         clientes.push(obj);
     {% endfor %}
 
@@ -1655,6 +1664,19 @@
             categoria:'{{ categoria_viaje.categoria }}'};
         categoria_viajes.push(obj);
     {% endfor %}
+
+    var viaje_items = [];
+    {% for viaje_item in viaje.getViajeItems %}
+        var obj = {
+            id : '{{ viaje_item.id }}',
+            monto_s_iva : '{{ viaje_item.monto_s_iva }}',
+            monto_iva : '{{ viaje_item.monto_iva }}',
+            tipo_items_viaje : '{{ viaje_item.tipo_items_viaje_id }}',
+            cant:'{{ viaje_item.cant }}'};
+        viaje_items.push(obj);
+    {% endfor %}
+
+    console.table(viaje_items);
 
     var es_nuevo = '{{ es_nuevo }}';
     var html_select = '';
@@ -1726,6 +1748,8 @@
             evt.params.data.id = '{{ viaje.getTrayectoPrincipal.localidad_hasta_id|default_if_none:"" }}';
             evt.currentTarget.id = 'hasta_localidad';
             updateFillsByLocalidad('', evt);
+
+            fillViajeItems();
         }
 
         $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
@@ -1901,23 +1925,22 @@
 
             var url = "/sistema/guardarViaje/"; // the script where you handle the form input.
             $.ajax({
-                   type: "POST",
-                   url: url,
-                   headers: {'X-CSRFToken': '{{ csrf_token }}'},
-                   data: obj, // serializes the form's elements.
-                   success: function(data)
-                   {
-                       if(data.url){
-                            window.location.replace(data.url);
-                       }else{
-                           alert(data.msg);
-                       }
-                       $("#mensajeValidacion").html("");
-                       $("#viajeValidacion").addClass('hide');
-
-                       //es_nuevo = 0;
+               type: "POST",
+               url: url,
+               headers: {'X-CSRFToken': '{{ csrf_token }}'},
+               data: obj, // serializes the form's elements.
+               success: function (data) {
+                   if (data.url) {
+                       window.location.replace(data.url);
+                   } else {
+                       alert(data.msg);
                    }
-                 });
+                   $("#mensajeValidacion").html("");
+                   $("#viajeValidacion").addClass('hide');
+
+                   //es_nuevo = 0;
+               }
+            });
 
             e.preventDefault(); // avoid to execute the actual submit of the form.
         });
@@ -2124,72 +2147,109 @@
         } );
 
 
-        /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
-        function guardarSolicitante(){
-            if ($('#nombrePasajeroCliente').val() == ""){
-                alert("El Nombre es obligatorio.")
-                return false;
-            }
-            if ($('#apellidoPasajeroCliente').val() == ""){
-                alert("El Apellido es obligatorio.")
-                return false;
-            }
-            var url = "/sistema/guardarSolicitanteProspect/";
-            $.ajax({
-                type: "POST",
-                url: url,
-                headers: {'X-CSRFToken': '{{ csrf_token }}'},
-                data: $("#form-datos-cliente-solicitante").serialize(),
-                success: function(data){
-                    $('#idSolicitante').val("0");
-                    $('#nombrePasajeroCliente').val("");
-                    $('#apellidoPasajeroCliente').val("");
-                    $('#puestoSol').val("");
-                    $('#mailSol').val("");
-                    $('#telefonoSol').val("");
-                    $('#grillaSolicitante').html(data);
-                    $('#add_solicitante_cliente').modal('toggle');
-                }
-            });
-        }
-
-         /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
-        function guardarPasajero(){
-            if ($('#nombrePasCliente').val() == ""){
-                alert("El Nombre es obligatorio.")
-                return false;
-            }
-            if ($('#apellidoPasCliente').val() == ""){
-                alert("El Apellido es obligatorio.")
-                return false;
-            }
-            var url = "/sistema/guardarPasajeroProspect/";
-            $.ajax({
-                type: "POST",
-                url: url,
-                headers: {'X-CSRFToken': '{{ csrf_token }}'},
-                data: $("#form-datos-cliente-pasajeros").serialize(),
-                success: function(data){
-                    $('#idPasajero').val("0")
-                    $('#nombrePasCliente').val("")
-                    $('#apellidoPasCliente').val("")
-                    $('#documentoPasajeroCliente').val("")
-                    $('#telefonoPasajeroCliente').val("")
-                    $('#mailPasajeroCliente').val("")
-                    $('#nacionalidadPasajeroCliente').val("")
-                    $('#callePasajeroCliente').val("")
-                    $('#alturaPasajeroCliente').val("")
-                    $('#pisoPasajeroCliente').val("")
-                    $('#cpPasajeroCliente').val("")
-                    $('#comentarioPasajeroCliente').val("")
-                    $('#add_pasajero_cliente').modal('toggle');
-                    $('#grillaPasajero').html(data);
-                }
-            });
-        }
+        
     });
 
-    function mostrarMsgValidacion(msg){
+    /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
+    guardarSolicitante = () => {
+        if ($('#nombrePasajeroCliente').val() == ""){
+            alert("El Nombre es obligatorio.")
+            return false;
+        }
+        if ($('#apellidoPasajeroCliente').val() == ""){
+            alert("El Apellido es obligatorio.")
+            return false;
+        }
+        var url = "/sistema/guardarSolicitanteDesdeViaje/";
+        $.ajax({
+            type: "POST",
+            url: url,
+            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+            data: $("#form-datos-cliente-solicitante").serialize(),
+            success: function(data){
+                $('#idSolicitante').val("0");
+                $('#nombrePasajeroCliente').val("");
+                $('#apellidoPasajeroCliente').val("");
+                $('#puestoSol').val("");
+                $('#mailSol').val("");
+                $('#telefonoSol').val("");
+                $('#contacto').html(data);
+                $('#add_solicitante').modal('toggle');
+            }
+        });
+    }
+
+     /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
+    guardarPasajeroModal = () => {
+        if ($('#nombrePasClienteModal').val() == ""){
+            alert("El Nombre es obligatorio.")
+            return false;
+        }
+        if ($('#apellidoPasClienteModal').val() == ""){
+            alert("El Apellido es obligatorio.")
+            return false;
+        }
+        var url = "/sistema/guardarPasajeroDesdeViaje/";
+        $.ajax({
+            type: "POST",
+            url: url,
+            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+            data: $("#form-datos-cliente-pasajeros").serialize(),
+            success: function(data){
+                $('#idPasajeroModal').val("0")
+                $('#nombrePasClienteModal').val("")
+                $('#apellidoPasClienteModal').val("")
+                $('#documentoPasajeroClienteModal').val("")
+                $('#telefonoPasajeroClienteModal').val("")
+                $('#mailPasajeroClienteModal').val("")
+                $('#nacionalidadPasajeroClienteModal').val("")
+                $('#callePasajeroClienteModal').val("")
+                $('#alturaPasajeroClienteModal').val("")
+                $('#pisoPasajeroClienteModal').val("")
+                $('#cpPasajeroClienteModal').val("")
+                $('#comentarioPasajeroClienteModal').val("")
+                $('#add_pasajero').modal('toggle');
+                $('#pasajero').html(data);
+            }
+        });
+    }
+
+     /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
+    guardarPasajero = () => {
+        if ($('#nombrePasCliente').val() == ""){
+            alert("El Nombre es obligatorio.")
+            return false;
+        }
+        if ($('#apellidoPasCliente').val() == ""){
+            alert("El Apellido es obligatorio.")
+            return false;
+        }
+        var url = "/sistema/guardarPasajeroProspect/";
+        $.ajax({
+            type: "POST",
+            url: url,
+            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+            data: $("#form-viaje-pasajeros").serialize(),
+            success: function(data){
+                $('#idPasajero').val("0")
+                $('#nombrePasCliente').val("")
+                $('#apellidoPasCliente').val("")
+                $('#documentoPasajeroCliente').val("")
+                $('#telefonoPasajeroCliente').val("")
+                $('#mailPasajeroCliente').val("")
+                $('#nacionalidadPasajeroCliente').val("")
+                $('#callePasajeroCliente').val("")
+                $('#alturaPasajeroCliente').val("")
+                $('#pisoPasajeroCliente').val("")
+                $('#cpPasajeroCliente').val("")
+                $('#comentarioPasajeroCliente').val("")
+                $('#add_pasajero_cliente').modal('toggle');
+                $('#grillaPasajero').html(data);
+            }
+        });
+    }
+
+    mostrarMsgValidacion = msg => {
         $("#mensajeValidacion").html(msg);
         $("#viajeValidacion").removeClass('hide');
         $('html, body').animate({
@@ -2197,8 +2257,7 @@
           }, 100);
         return false;
     }
-
-    function updateFillsByCliente(name, evt){
+    updateFillsByCliente = (name, evt) => {
         var option_selected = evt.params.data.id;
         var cliente_selected;
 
@@ -2209,6 +2268,8 @@
         });
 
         $('#id_cliente').select2('val',cliente_selected.id);
+        $('#idClienteEnCC').val(cliente_selected.id);
+        $('#idClientePasajero').val(cliente_selected.id);
         $('#id_cliente').val(cliente_selected.id).trigger("change");
         $('#cliente_direccion').val(cliente_selected.direccion);
         $('#cliente_categoria').val(cliente_selected.categoria_id);
@@ -2233,18 +2294,18 @@
         });
     }
 
-    function updateFillsByUnidad(name, evt){
+    updateFillsByUnidad = (name, evt) => {
         var option_selected = evt.params.data.id - 1;
         $('#unidad_id').select2('val',unidades[option_selected].id);
         $('#unidad_id').val(unidades[option_selected].id).trigger("change");
     }
 
-    function updateFillsByLocalidad(name, evt) {
-        var localidad_id = evt.params.data.id;
-        var init = evt.params.data.init;
-        var html_select = evt.currentTarget.id;
-        var html_direccion = '';
-        var html_vuelo = '';
+    updateFillsByLocalidad = (name, evt) => {
+        var localidad_id = evt.params.data.id,
+            init = evt.params.data.init,
+            html_select = evt.currentTarget.id,
+            html_direccion = '',
+            html_vuelo = '';
 
         switch(html_select) {
             case 'desde_localidad':
@@ -2308,18 +2369,17 @@
             $("." + html_vuelo).hide();
         }
     }
-
-    function updateFillsByDestino(name, evt){
-        var destino_id = evt.params.data.id;
-        var localidad_select_id = evt.params.data.localidad_select_id;
-        var provincia_select_id = evt.params.data.provincia_select_id;
-        var init = evt.params.data.init;
-        var html_select = evt.currentTarget.id;
-        var html_to_change = '';
-        var html_direccion = '';
-        var html_vuelo = '';
-        var html_cont_localidad = '';
-        var html_cont_provincia = '';
+    updateFillsByDestino = (name, evt) => {
+        var destino_id          = evt.params.data.id,
+            localidad_select_id = evt.params.data.localidad_select_id,
+            provincia_select_id = evt.params.data.provincia_select_id,
+            init                = evt.params.data.init,
+            html_select         = evt.currentTarget.id,
+            html_to_change      = '',
+            html_direccion      = '',
+            html_vuelo          = '',
+            html_cont_localidad = '',
+            html_cont_provincia = '';
 
         switch(html_select) {
             case 'desde_destino':
@@ -2422,7 +2482,7 @@
         }
     }
 
-    function agregarTramo(){
+    agregarTramo = () => {
         /*if ($("#modal_desde_destino").val() == ""){
             alert("El campo desde destino es obligatorio.");
             return false;
@@ -2479,7 +2539,7 @@
            }
          });
     }
-    function agregarObservacion(){
+    agregarObservacion = () => {
         if ($('#textAreaObservacion').val() == ""){
             alert("Campo observacion es obligatorio");
         }else{
@@ -2495,6 +2555,44 @@
                 }
             });
         }
+    }
+
+    fillViajeItems = () => {
+        $.each(viaje_items, function(i, value) {    
+            switch(value.tipo_items_viaje){
+                case '1':
+                    $('#espera').val(parseInt(value.monto_s_iva));
+                    $('#tiempo_espera').val(value.cant);
+                break;
+                case '8':
+                    $('#costo_proveedor').val(parseInt(value.monto_s_iva));
+                break;
+                case '9':
+                    $('#maletas').val(parseInt(value.monto_s_iva));
+                break;
+                case '10':
+                    $('#bilingue').val(parseInt(value.monto_s_iva));
+                break;
+                case '11':
+                    $('#estacionamiento').val(parseInt(value.monto_s_iva));
+                break;
+                case '12':
+                    $('#importe_efectivo').val(parseInt(value.monto_s_iva));
+                break;
+                case '13':
+                    $('#hs_dispo').val(parseInt(value.monto_s_iva));
+                    $('#tiempo_hs_dispo').val(value.cant);
+                break;
+                case '15':
+                    $('#peaje').val(parseInt(value.monto_s_iva));
+                break;
+                case '16':
+                    $('#otros').val(parseInt(value.monto_s_iva));
+                break;
+                default:
+
+            }
+        });
     }
 </script>
 <script type="text/javascript">
