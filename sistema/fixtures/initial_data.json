@@ -20996,7 +20996,7 @@
 {
         "model": "sistema.TarifaExtra","pk":3,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":1,
@@ -21023,7 +21023,7 @@
 {
         "model": "sistema.TarifaExtra","pk":6,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":2,
@@ -21050,7 +21050,7 @@
 {
         "model": "sistema.TarifaExtra","pk":9,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":3,
@@ -21077,7 +21077,7 @@
 {
         "model": "sistema.TarifaExtra","pk":12,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":4,
@@ -21104,7 +21104,7 @@
 {
         "model": "sistema.TarifaExtra","pk":15,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":5,
@@ -21131,7 +21131,7 @@
 {
         "model": "sistema.TarifaExtra","pk":18,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":6,
@@ -21158,7 +21158,7 @@
 {
         "model": "sistema.TarifaExtra","pk":21,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":7,
@@ -21185,7 +21185,7 @@
 {
         "model": "sistema.TarifaExtra","pk":24,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":8,
@@ -21212,7 +21212,7 @@
 {
         "model": "sistema.TarifaExtra","pk":27,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":1,
@@ -21239,7 +21239,7 @@
 {
         "model": "sistema.TarifaExtra","pk":30,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":2,
@@ -21266,7 +21266,7 @@
 {
         "model": "sistema.TarifaExtra","pk":33,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":3,
@@ -21293,7 +21293,7 @@
 {
         "model": "sistema.TarifaExtra","pk":36,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":4,
@@ -21320,7 +21320,7 @@
 {
         "model": "sistema.TarifaExtra","pk":39,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":5,
@@ -21347,7 +21347,7 @@
 {
         "model": "sistema.TarifaExtra","pk":42,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":6,
@@ -21374,7 +21374,7 @@
 {
         "model": "sistema.TarifaExtra","pk":45,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":7,
@@ -21401,7 +21401,7 @@
 {
         "model": "sistema.TarifaExtra","pk":48,
          "fields": {          
-                       "extra_descripcion":"extra",
+                       "extra_descripcion":"maletas",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":8,
