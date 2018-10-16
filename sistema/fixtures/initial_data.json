@@ -20978,7 +20978,7 @@
 {
         "model": "sistema.TarifaExtra","pk":1,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":1,
@@ -21005,7 +21005,7 @@
 {
         "model": "sistema.TarifaExtra","pk":4,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":2,
@@ -21032,7 +21032,7 @@
 {
         "model": "sistema.TarifaExtra","pk":7,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":3,
@@ -21059,7 +21059,7 @@
 {
         "model": "sistema.TarifaExtra","pk":10,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":4,
@@ -21086,7 +21086,7 @@
 {
         "model": "sistema.TarifaExtra","pk":13,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":5,
@@ -21113,7 +21113,7 @@
 {
         "model": "sistema.TarifaExtra","pk":16,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":6,
@@ -21140,7 +21140,7 @@
 {
         "model": "sistema.TarifaExtra","pk":19,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":7,
@@ -21167,7 +21167,7 @@
 {
         "model": "sistema.TarifaExtra","pk":22,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":8,
@@ -21194,7 +21194,7 @@
 {
         "model": "sistema.TarifaExtra","pk":25,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":1,
@@ -21221,7 +21221,7 @@
 {
         "model": "sistema.TarifaExtra","pk":28,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":2,
@@ -21248,7 +21248,7 @@
 {
         "model": "sistema.TarifaExtra","pk":31,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":3,
@@ -21275,7 +21275,7 @@
 {
         "model": "sistema.TarifaExtra","pk":34,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":4,
@@ -21302,7 +21302,7 @@
 {
         "model": "sistema.TarifaExtra","pk":37,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":5,
@@ -21329,7 +21329,7 @@
 {
         "model": "sistema.TarifaExtra","pk":40,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":6,
@@ -21356,7 +21356,7 @@
 {
         "model": "sistema.TarifaExtra","pk":43,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":7,
@@ -21383,7 +21383,7 @@
 {
         "model": "sistema.TarifaExtra","pk":46,
          "fields": {          
-                       "extra_descripcion":"bilingüe",
+                       "extra_descripcion":"dispo",
                        "extra_precio":101,
                        "extra_precio_prov":61,
                        "categoria_viaje_id":8,
