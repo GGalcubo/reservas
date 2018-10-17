@@ -135,7 +135,9 @@ def guardarViaje(request):
     guardaItemViaje(request.POST.get('estacionamiento', ''), 11, 1, viaje)
     guardaItemViaje(request.POST.get('costo_proveedor', ''), 8, 1, viaje)
     guardaItemViajeHsDispo(request.POST.get('hs_dispo', ''), 13, request.POST.get('tiempo_hs_dispo', ''), viaje)
-    guardaItemViajeHsDispo(request.POST.get('espera', ''), 1, request.POST.get('tiempo_espera', ''), viaje)
+    guardaItemViajeEspera(request.POST.get('espera', ''), 14, request.POST.get('tiempo_espera', ''), viaje)
+    guardaItemViajeBilingue(request.POST.get('costo_bilingue', ''), 9, request.POST.get('bilingue', ''), viaje)
+    guardaItemViajeMaletas(request.POST.get('costo_maletas', ''), 10, request.POST.get('maletas', ''), viaje)
     guardarObsViaje(request.POST.get('comentario_chofer', ''), viaje, request)
 
     if es_nuevo == "1":
@@ -143,6 +145,73 @@ def guardarViaje(request):
 
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
+
+def guardaItemViajeMaletas(monto,tipo_item_viaje,checkbox,viaje):
+    tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
+    centro_costo = viaje.centro_costo
+    tarifa_extra = TarifaExtra.objects.get(categoria_viaje=viaje.categoria_viaje, tarifario=centro_costo.tarifario, extra_descripcion='maletas')
+    try:
+        item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
+        if monto == '':
+            monto = 0
+        if checkbox == '':
+            checkbox = 0
+        else:
+            checkbox = 1
+    except ItemViaje.DoesNotExist:
+        if checkbox == '':
+            return
+        else:
+            checkbox = 1
+            if monto == '':
+                monto = 0
+        item_viaje_otros = ItemViaje()
+
+    item_viaje_otros.cant               = checkbox
+    item_viaje_otros.monto              = int(monto)
+    item_viaje_otros.monto_s_iva        = int(tarifa_extra.extra_precio_prov)
+    item_viaje_otros.viaje              = viaje
+
+    item_viaje_otros.monto_iva          = int(tarifa_extra.extra_precio_prov) * int(tipo_item_viaje.iva_pct)
+    item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
+    item_viaje_otros.save()
+
+def guardaItemViajeBilingue(monto,tipo_item_viaje,checkbox,viaje):
+    tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
+    centro_costo = viaje.centro_costo
+    
+    try:
+        trayecto = viaje.getTrayectoPrincipal()
+        tarifa_viaje = TarifaViaje.objects.get(categoria_viaje=viaje.categoria_viaje, tarifario=centro_costo.tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta)
+        base = tarifa_viaje.precio_prov
+    except Exception as e:
+        base = 0
+
+    try:
+        item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
+        if monto == '':
+            monto = 0
+        if checkbox == '':
+            checkbox = 0
+        else:
+            checkbox = 1
+    except ItemViaje.DoesNotExist:
+        if checkbox == '':
+            return
+        else:
+            checkbox = 1
+            if monto == '':
+                monto = 0
+        item_viaje_otros = ItemViaje()
+
+    item_viaje_otros.cant               = checkbox
+    item_viaje_otros.monto              = monto
+    item_viaje_otros.monto_s_iva        = float(base) * 0.2
+    item_viaje_otros.viaje              = viaje
+
+    item_viaje_otros.monto_iva          = (float(base) * 0.2) * int(tipo_item_viaje.iva_pct)
+    item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
+    item_viaje_otros.save()
 
 def guardaItemViajeEspera(monto,tipo_item_viaje,tiempo,viaje):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
@@ -157,14 +226,20 @@ def guardaItemViajeEspera(monto,tipo_item_viaje,tiempo,viaje):
     except ItemViaje.DoesNotExist:
         if monto == '':
             return
+        else:
+            if tiempo == '':
+                tiempo = 0
+            if monto == '':
+                monto = 0
         item_viaje_otros = ItemViaje()
 
-    item_viaje_otros.cant = tiempo
-    item_viaje_otros.monto_s_iva = (tiempo/15) * tarifa_extra.extra_precio_prov
-    item_viaje_otros.viaje = viaje
+    item_viaje_otros.cant               = tiempo
+    item_viaje_otros.monto              = int(monto)
+    item_viaje_otros.monto_s_iva        = (int(tiempo)/15) * int(tarifa_extra.extra_precio_prov)
+    item_viaje_otros.viaje              = viaje
 
-    item_viaje_otros.monto_iva = int(monto) * int(tipo_item_viaje.iva_pct)
-    item_viaje_otros.tipo_items_viaje = tipo_item_viaje
+    item_viaje_otros.monto_iva          = int(monto) * int(tipo_item_viaje.iva_pct)
+    item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
     item_viaje_otros.save()
 
 def guardaItemViajeHsDispo(monto,tipo_item_viaje,tiempo,viaje):
@@ -182,12 +257,13 @@ def guardaItemViajeHsDispo(monto,tipo_item_viaje,tiempo,viaje):
             return
         item_viaje_otros = ItemViaje()
 
-    item_viaje_otros.cant = tiempo
-    item_viaje_otros.monto_s_iva = tiempo * int(tarifa_extra.extra_precio_prov)
-    item_viaje_otros.viaje = viaje
+    item_viaje_otros.cant               = tiempo
+    item_viaje_otros.monto              = monto
+    item_viaje_otros.monto_s_iva        = tiempo * int(tarifa_extra.extra_precio_prov)
+    item_viaje_otros.viaje              = viaje
 
-    item_viaje_otros.monto_iva = int(monto) * int(tipo_item_viaje.iva_pct)
-    item_viaje_otros.tipo_items_viaje = tipo_item_viaje
+    item_viaje_otros.monto_iva          = int(monto) * int(tipo_item_viaje.iva_pct)
+    item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
     item_viaje_otros.save()
 
 def guardaItemViaje(monto,tipo_item_viaje,cant,viaje):
@@ -201,12 +277,13 @@ def guardaItemViaje(monto,tipo_item_viaje,cant,viaje):
             return
         item_viaje_otros = ItemViaje()
 
-    item_viaje_otros.cant = cant
-    item_viaje_otros.monto_s_iva = monto
-    item_viaje_otros.viaje = viaje
+    item_viaje_otros.cant               = cant
+    item_viaje_otros.monto              = monto
+    item_viaje_otros.monto_s_iva        = monto
+    item_viaje_otros.viaje              = viaje
 
-    item_viaje_otros.monto_iva = int(monto) * int(tipo_item_viaje.iva_pct)
-    item_viaje_otros.tipo_items_viaje = tipo_item_viaje
+    item_viaje_otros.monto_iva          = int(monto) * int(tipo_item_viaje.iva_pct)
+    item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
     item_viaje_otros.save()
 
 def guardarObsViaje(input_text, viaje, request):

@@ -253,7 +253,20 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="tiempo_espera" name="tiempo_espera">
+                                                <select class="form-control" id="tiempo_espera" name="tiempo_espera">
+                                                    <option value="" selected="selected">Elegir tiempo</option>
+                                                    <option value="15">00:15 hs</option>
+                                                    <option value="30">00:30 hs</option>
+                                                    <option value="45">00:45 hs</option>
+                                                    <option value="60">01:00 hs</option>
+                                                    <option value="75">01:15 hs</option>
+                                                    <option value="90">01:30 hs</option>
+                                                    <option value="105">02:00 hs</option>
+                                                    <option value="120">02:15 hs</option>
+                                                    <option value="135">02:30 hs</option>
+                                                    <option value="150">02:45 hs</option>
+                                                    <option value="165">03:00 hs</option>
+                                                </select>
                                                 <label for="tiempo_espera">Espera</label>
                                             </div>
                                         </div>
@@ -1669,6 +1682,7 @@
     {% for viaje_item in viaje.getViajeItems %}
         var obj = {
             id : '{{ viaje_item.id }}',
+            monto : '{{ viaje_item.monto }}',
             monto_s_iva : '{{ viaje_item.monto_s_iva }}',
             monto_iva : '{{ viaje_item.monto_iva }}',
             tipo_items_viaje : '{{ viaje_item.tipo_items_viaje_id }}',
@@ -1682,7 +1696,7 @@
     var html_select = '';
 </script>
 <script>
-    $(document).ready(function () {
+    $(document).ready( () => {
 
         $('#fecha').datepicker({
             language: 'es',
@@ -1690,8 +1704,8 @@
             // todayBtn: true,
             todayHighlight: true,
             autoclose: true,
-            beforeShow: function() {
-                setTimeout(function(){
+            beforeShow: () => {
+                setTimeout( () => {
                     $('.ui-datepicker').css('z-index', 99999999999999);
                 }, 0);
             }
@@ -1823,26 +1837,26 @@
 
         var tmp_tipo_observacion;
         $('#tipo_viaje_obs').append($('<option>').text('').attr('value', ''));
-        $.each(tipo_observaciones, function(i, value) {
+        $.each(tipo_observaciones, (i, value) => {
             if(tmp_tipo_observacion != value.tipo_observacion){
                 $('#tipo_viaje_obs').append($('<option>').text(value.tipo_observacion).attr('value', value.tipo_observacion));
             }
             tmp_tipo_observacion = value.tipo_observacion;
         });
 
-        $('#tipo_viaje_obs').on('change', function (e) {
+        $('#tipo_viaje_obs').on('change', e => {
             var optionSelected = $("option:selected", this);
             var valueSelected = this.value;
             $('#detalle_obs').empty();
 
-            $.each(tipo_observaciones, function(i, value) {
+            $.each(tipo_observaciones, (i, value) => {
                 if(valueSelected == value.tipo_observacion){
                   $('#detalle_obs').append($('<option>').text(value.detalle_tipo_obs).attr('value', value.id));
                 }
             });
         });
 
-        $("#form-viaje-viaje").submit(function(e) {
+        $("#form-viaje-viaje").submit( e => {
             if ($("#id_cliente").val() == ""){
                 mostrarMsgValidacion("El campo id cliente es obligatorio.");
                 return false;
@@ -1885,7 +1899,7 @@
                 mostrarMsgValidacion("El campo estado es obligatorio.");
                 return false;
             }
-            if ($("#espera").val() != "" && $("#espera").val() < 15){
+            if ($("#tiempo_espera").val() != "" && $("#tiempo_espera").val() < 15){
                 mostrarMsgValidacion("La espera minima es 15 min.");
                 return false;
             }
@@ -1909,8 +1923,10 @@
             obj.otros             = $("#otros").val();
             obj.estacionamiento   = $("#estacionamiento").val();
             obj.categoria_viaje   = $("#categoria_viaje").val();
-            obj.maletas           = $("#maletas").val();
-            obj.bilingue          = $("#bilingue").val();
+            obj.maletas           = $("#maletas:checked").val() || '';
+            obj.costo_maletas     = $("#costo_maletas").val();
+            obj.bilingue          = $("#bilingue:checked").val() || '';
+            obj.costo_bilingue    = $("#costo_bilingue").val();
             obj.cod_externo       = $("#cod_externo").val();
             obj.nro_aux           = $("#nro_aux").val();
             obj.tipo_pago         = $("#tipo_pago").val();
@@ -1918,6 +1934,8 @@
             obj.tiempo_hs_dispo   = $("#tiempo_hs_dispo").val();
             obj.hs_dispo          = $("#hs_dispo").val();
             obj.es_nuevo          = es_nuevo;
+
+            //obj.idViaje = (es_nuevo == 0) viaje;  
 
             if(es_nuevo == 0){
                 obj.idViaje = viaje;
@@ -1929,14 +1947,15 @@
                url: url,
                headers: {'X-CSRFToken': '{{ csrf_token }}'},
                data: obj, // serializes the form's elements.
-               success: function (data) {
-                   if (data.url) {
+               success: data => {
+                    data.url ? window.location.replace(data.url) : alert(data.msg); 
+                   /*if(data.url) {
                        window.location.replace(data.url);
                    } else {
                        alert(data.msg);
-                   }
-                   $("#mensajeValidacion").html("");
-                   $("#viajeValidacion").addClass('hide');
+                   }*/
+                    $("#mensajeValidacion").html("");
+                    $("#viajeValidacion").addClass('hide');
 
                    //es_nuevo = 0;
                }
@@ -1945,7 +1964,7 @@
             e.preventDefault(); // avoid to execute the actual submit of the form.
         });
 
-        $("#form-viaje-trayecto").submit(function(e) {
+        $("#form-viaje-trayecto").submit( e => {
             /*if ($("#desde_destino").val() == ""){
                 alert("El campo desde destino es obligatorio.");
                 return false;
@@ -1990,8 +2009,7 @@
                    url: url,
                    headers: {'X-CSRFToken': '{{ csrf_token }}'},
                    data: obj, // serializes the form's elements.
-                   success: function(data)
-                   {
+                   success: data => {
                        //$("#viaje-tab").show();
                        alert(data.msg); // show response from the php script.
                    }
@@ -2000,7 +2018,7 @@
             e.preventDefault(); // avoid to execute the actual submit of the form.
         });
 
-        $(document).on( "click", '.delete_button',function(e) {
+        $(document).on( "click", '.delete_button', e => {
 
             var obj               = {};
             obj.id                = $(this).data('id');
@@ -2012,8 +2030,7 @@
                    url: url,
                    headers: {'X-CSRFToken': '{{ csrf_token }}'},
                    data: obj, // serializes the form's elements.
-                   success: function(data)
-                   {
+                   success: data => {
                        if(data.error == '1'){
                            alert(data.msg);
                        }else{
@@ -2023,7 +2040,7 @@
                  });
         });
 
-        $(document).on( "click", '#add_button',function(e) {
+        $(document).on( "click", '#add_button', e => {
             $("#modal_id").val('0');
 
             $("#modal_desde_destino").val('');
@@ -2045,7 +2062,7 @@
             $("#modal_hasta_compania").val('');
         });
 
-        $(document).on( "click", '.edit_button',function(e) {
+        $(document).on( "click", '.edit_button', e => {
 
             var id              = $(this).data('id');
 
@@ -2166,7 +2183,7 @@
             url: url,
             headers: {'X-CSRFToken': '{{ csrf_token }}'},
             data: $("#form-datos-cliente-solicitante").serialize(),
-            success: function(data){
+            success: data => {
                 $('#idSolicitante').val("0");
                 $('#nombrePasajeroCliente').val("");
                 $('#apellidoPasajeroCliente').val("");
@@ -2195,7 +2212,7 @@
             url: url,
             headers: {'X-CSRFToken': '{{ csrf_token }}'},
             data: $("#form-datos-cliente-pasajeros").serialize(),
-            success: function(data){
+            success: data => {
                 $('#idPasajeroModal').val("0")
                 $('#nombrePasClienteModal').val("")
                 $('#apellidoPasClienteModal').val("")
@@ -2230,7 +2247,7 @@
             url: url,
             headers: {'X-CSRFToken': '{{ csrf_token }}'},
             data: $("#form-viaje-pasajeros").serialize(),
-            success: function(data){
+            success: data => {
                 $('#idPasajero').val("0")
                 $('#nombrePasCliente').val("")
                 $('#apellidoPasCliente').val("")
@@ -2261,7 +2278,7 @@
         var option_selected = evt.params.data.id;
         var cliente_selected;
 
-        $.each(clientes, function(i, value) {
+        $.each(clientes, (i, value) => {
             if(value.id == option_selected){
                 cliente_selected = value;
             }
@@ -2279,15 +2296,15 @@
         $('#contacto').empty();
         $('#pasajero').empty();
 
-        $.each(cliente_selected.centro_costos, function(i, value) {
+        $.each(cliente_selected.centro_costos, (i, value) => {
           $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
         });
-        $.each(cliente_selected.personascliente, function(i, value) {
+        $.each(cliente_selected.personascliente, (i, value) => {
             if(value.tipo_persona == 'Solicitante'){
                 $('#contacto').append($('<option>').text(value.nombre).attr('value', value.id));
             }
         });
-        $.each(cliente_selected.personascliente, function(i, value) {
+        $.each(cliente_selected.personascliente, (i, value) => {
             if(value.tipo_persona == 'Pasajero'){
                 $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
             }
@@ -2475,7 +2492,7 @@
                 url: url,
                 headers: {'X-CSRFToken': '{{ csrf_token }}'},
                 data: param,
-                success: function(data){
+                success:  data => {
                     $('#' + html_to_change).html(data);
                 }
             });
@@ -2528,8 +2545,7 @@
            url: url,
            headers: {'X-CSRFToken': '{{ csrf_token }}'},
            data: obj, // serializes the form's elements.
-           success: function(data)
-           {
+           success:  data =>{
                if(data.error == '1'){
                    alert(data.msg);
                }else{
@@ -2548,7 +2564,7 @@
                 type: "POST",
                 url: url,
                 data: $("#form-datos-viaje-observacion").serialize(),
-                success: function(data){
+                success: data => {
                     $("#grillaObservaciones").html(data);
                     $('#add_observacion_viaje').modal('toggle');
                     $('#texto_obs').val('')
@@ -2558,36 +2574,42 @@
     }
 
     fillViajeItems = () => {
-        $.each(viaje_items, function(i, value) {    
-            switch(value.tipo_items_viaje){
-                case '1':
-                    $('#espera').val(parseInt(value.monto_s_iva));
-                    $('#tiempo_espera').val(value.cant);
-                break;
+        viaje_items.forEach(value => {
+            switch(value.tipo_items_viaje){                
                 case '8':
-                    $('#costo_proveedor').val(parseInt(value.monto_s_iva));
+                    $('#costo_proveedor').val(parseInt(value.monto));
                 break;
                 case '9':
-                    $('#maletas').val(parseInt(value.monto_s_iva));
+                    if(value.cant == 1){
+                        $('#bilingue').prop('checked', true);
+                    }
+                    $('#costo_bilingue').val(parseInt(value.monto));
                 break;
                 case '10':
-                    $('#bilingue').val(parseInt(value.monto_s_iva));
+                    if(value.cant == 1){
+                        $('#maletas').prop('checked', true);
+                    }
+                    $('#costo_maletas').val(parseInt(value.monto));
                 break;
                 case '11':
-                    $('#estacionamiento').val(parseInt(value.monto_s_iva));
+                    $('#estacionamiento').val(parseInt(value.monto));
                 break;
                 case '12':
-                    $('#importe_efectivo').val(parseInt(value.monto_s_iva));
+                    $('#importe_efectivo').val(parseInt(value.monto));
                 break;
                 case '13':
-                    $('#hs_dispo').val(parseInt(value.monto_s_iva));
+                    $('#hs_dispo').val(parseInt(value.monto));
                     $('#tiempo_hs_dispo').val(value.cant);
                 break;
+                case '14':
+                    $('#espera').val(parseInt(value.monto));
+                    $('#tiempo_espera').val(value.cant);
+                break;
                 case '15':
-                    $('#peaje').val(parseInt(value.monto_s_iva));
+                    $('#peaje').val(parseInt(value.monto));
                 break;
                 case '16':
-                    $('#otros').val(parseInt(value.monto_s_iva));
+                    $('#otros').val(parseInt(value.monto));
                 break;
                 default:
 

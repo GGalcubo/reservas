@@ -524,6 +524,7 @@ class TipoItemViaje(models.Model):
 class ItemViaje(models.Model):
     viaje = models.ForeignKey(Viaje)
     tipo_items_viaje = models.ForeignKey(TipoItemViaje)
+    monto = models.FloatField(default=0)
     monto_iva = models.FloatField(default=0)
     monto_s_iva = models.FloatField(default=0)
     cant = models.IntegerField(default=0)
