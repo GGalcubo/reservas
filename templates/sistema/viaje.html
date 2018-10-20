@@ -1615,7 +1615,7 @@
         ];
 
         var obj = {
-            id : {{ cliente.id }},
+            id : '{{ cliente.id }}',
             razon_social:'{{ cliente.razon_social }}',
             direccion:'{{ cliente.calle|default_if_none:""  }} {{ cliente.altura|default_if_none:""  }} {{ cliente.piso|default_if_none:""  }} {{ cliente.depto|default_if_none:""  }}',
             categoria_id:'{{ cliente.categoria.categoria }}',
@@ -1629,7 +1629,7 @@
     var unidades = [];
     {% for unidad in unidades %}
         var obj = {
-            id : {{ unidad.id }},
+            id : '{{ unidad.id }}',
             identificacion:'{{ unidad.identificacion }}'};
         unidades.push(obj);
     {% endfor %}
@@ -1637,7 +1637,7 @@
     var tipo_observaciones = [];
     {% for to in tipoobservacion %}
         var obj = {
-            id : {{ to.id }},
+            id : '{{ to.id }}',
             tipo_observacion : '{{ to.tipo_observacion }}',
             detalle_tipo_obs:'{{ to.detalle_tipo_obs|default_if_none:"" }}'};
         tipo_observaciones.push(obj);
@@ -1646,7 +1646,7 @@
     var estados = [];
     {% for estado in estados %}
         var obj = {
-            id : {{ estado.id }},
+            id : '{{ estado.id }}',
             identificacion:'{{ estado.estado }}'};
         estados.push(obj);
     {% endfor %}
@@ -1654,7 +1654,7 @@
     var provincias = [];
     {% for provincia in provincias %}
         var obj = {
-            id : {{ provincia.id }},
+            id : '{{ provincia.id }}',
             nombre:'{{ provincia.nombre }}'};
         provincias.push(obj);
     {% endfor %}
@@ -1662,7 +1662,7 @@
     var localidades = [];
     {% for localidad in localidades %}
         var obj = {
-            id : {{ localidad.id }},
+            id : '{{ localidad.id }}',
             provincia : '{{ localidad.provincia }}',
             terminal_flag : '{{ localidad.terminal_flag }}',
             nombre:'{{ localidad.nombre }}'};
@@ -1693,10 +1693,26 @@
     console.table(viaje_items);
 
     var es_nuevo = '{{ es_nuevo }}';
+    var mensaje = '{{ mensaje }}';
     var html_select = '';
 </script>
 <script>
     $(document).ready( () => {
+
+        toastr.options = {
+          "closeButton": true,
+          "debug": false,
+          "positionClass": "toast-top-full-width",
+          "onclick": null,
+          "showDuration": "1000",
+          "hideDuration": "1000",
+          "timeOut": "5000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        }
 
         $('#fecha').datepicker({
             language: 'es',
@@ -1728,7 +1744,8 @@
             $('#estado').attr("disabled", true);
         }else{
             $("#viaje-tab").show();
-            viaje = {{ viaje.id }};
+            viaje = '{{ viaje.id }}';
+            if(mensaje != ''){toastr.success(mensaje);}
             $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
             //HAGO ESTO PARA SIMULAR UN EVENTO QUE PIDE LA FUNCION DE SELECT2ME
             var evt = {};
@@ -1858,7 +1875,7 @@
 
         $("#form-viaje-viaje").submit( e => {
             if ($("#id_cliente").val() == ""){
-                mostrarMsgValidacion("El campo id cliente es obligatorio.");
+                mostrarMsgValidacion("El campo cliente es obligatorio.");
                 return false;
             }
             if ($("#contacto").val() == ""){
@@ -1891,7 +1908,7 @@
             }
             if(es_nuevo != '1'){
                 if ($("#unidad_id").val() == ""){
-                    mostrarMsgValidacion("El campo unidad id es obligatorio.");
+                    mostrarMsgValidacion("El campo unidad es obligatorio.");
                     return false;
                 }
             }
@@ -1901,6 +1918,10 @@
             }
             if ($("#tiempo_espera").val() != "" && $("#tiempo_espera").val() < 15){
                 mostrarMsgValidacion("La espera minima es 15 min.");
+                return false;
+            }
+            if ($("#tiempo_hs_dispo").val() != "" && $("#tiempo_hs_dispo").val() > 0){
+                mostrarMsgValidacion("El horario disponible minimo es 1 hs.");
                 return false;
             }
 
@@ -1935,10 +1956,10 @@
             obj.hs_dispo          = $("#hs_dispo").val();
             obj.es_nuevo          = es_nuevo;
 
-            //obj.idViaje = (es_nuevo == 0) viaje;  
-
-            if(es_nuevo == 0){
+            if(es_nuevo == 0){ 
                 obj.idViaje = viaje;
+            }else{
+                obj.mensaje = 1;
             }
 
             var url = "/sistema/guardarViaje/"; // the script where you handle the form input.
@@ -1948,7 +1969,7 @@
                headers: {'X-CSRFToken': '{{ csrf_token }}'},
                data: obj, // serializes the form's elements.
                success: data => {
-                    data.url ? window.location.replace(data.url) : alert(data.msg); 
+                    data.url ? window.location.replace(data.url) : toastr.success(data.msg);
                    /*if(data.url) {
                        window.location.replace(data.url);
                    } else {
@@ -1956,7 +1977,6 @@
                    }*/
                     $("#mensajeValidacion").html("");
                     $("#viajeValidacion").addClass('hide');
-
                    //es_nuevo = 0;
                }
             });
@@ -2162,9 +2182,6 @@
                 url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
             },
         } );
-
-
-        
     });
 
     /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
@@ -2266,13 +2283,14 @@
         });
     }
 
-    mostrarMsgValidacion = msg => {
-        $("#mensajeValidacion").html(msg);
+    mostrarMsgValidacion = (msg, input) => {
+        /*$("#mensajeValidacion").html(msg);
         $("#viajeValidacion").removeClass('hide');
         $('html, body').animate({
             scrollTop: $("#viajeValidacion").offset().top - 100
           }, 100);
-        return false;
+        return false;*/
+        toastr.error(msg);
     }
     updateFillsByCliente = (name, evt) => {
         var option_selected = evt.params.data.id;
@@ -2615,7 +2633,7 @@
 
             }
         });
-    }
+    };
 </script>
 <script type="text/javascript">
     $(function() {
