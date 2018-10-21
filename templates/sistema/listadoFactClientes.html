@@ -146,6 +146,7 @@
                                               <th class="all">Origen</th>
                                               <th class="all">Destino</th>
                                               <th class="all">Subtotal</th>
+                                              <th class="all">P. Eft</th>
                                               <th class="all">T. Espera</th>
                                               <th class="all">Espera</th>
                                               <th class="all">Bilingue</th>
@@ -176,6 +177,7 @@
                                               <td><span class="label label-sm label-info">Centro</span></td>
                                               <td><span class="label label-sm label-primary">Aeroparque</span></td>
                                               <td>$1.500,00</td>
+                                              <td>$500,00</td>
                                               <td>30</td>
                                               <td>$150,00</td>
                                               <td>$150,00</td>
@@ -193,6 +195,8 @@
                                       <tfoot>
                                           <tr>
                                               <th colspan="15" style="text-align:right">Total:</th>
+                                              <th></th>
+                                              <th></th>
                                               <th></th>
                                               <th></th>
                                               <th></th>
@@ -338,10 +342,30 @@
                         buttons: [
                             'selectAll',
                             'selectNone',
-                            'copy',
-                            'excel',
-                            'pdf',
-                            'print'
+                            {
+                                extend: 'copyHtml5',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
+                            {
+                                extend: 'excelHtml5',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
+                            {
+                                extend: 'pdfHtml5',
+                                orientation: 'landscape',
+                                pageSize: 'TABLOID'
+                            },
+                            {
+                                extend: 'print',
+                                messageTop: 'Facturación Provedores',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            }
                         ],
                         lengthMenu: [
                                         [ 100, 50, 25, 10, -1 ],
