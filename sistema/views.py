@@ -1544,27 +1544,33 @@ def listadoFactClientes(request):
 @login_required
 def cargarCentrosDeCosto(request):
 	idCliente = request.GET.get('idCliente', False)
-	centrosDeCosto = CentroCosto.objects.filter(cliente_id=idCliente)
+	centrosDeCosto = []
+	if idCliente:
+		centrosDeCosto = CentroCosto.objects.filter(cliente_id=idCliente)
+
 	context = {'centrosDeCosto': centrosDeCosto}
 	return render(request, 'sistema/selectCentroCostos.html', context)
 
 @login_required
-def cargarSolicitanteDeCosto(request):
+def cargarSolicitantes(request):
 	idCliente = request.GET.get('idCliente', False)
-	centrosDeCosto = CentroCosto.objects.filter(cliente_id=idCliente)
-	context = {'centrosDeCosto': centrosDeCosto}
+	solicitantes = []
+	if idCliente:
+		solicitantes = Persona.objects.filter(personacliente__cliente_id=idCliente, tipo_persona_id=1)
+
+	context = {'solicitantes': solicitantes}
 	return render(request, 'sistema/selectSolicitantes.html', context)
 
 @login_required
 def cargarFactura(request):
 	idCliente = request.GET.get('idCliente', False)
-	viajes = FacturaViaje.objects.filter(viaje__cliente_id=idCliente).order_by('fact_cliente')
 	facturas = []
-	for v in viajes:
-		if v.fact_cliente in facturas:
-			pass
-		else:
-			facturas.append(v.fact_cliente)
+	if idCliente:
+		viajes = FacturaViaje.objects.filter(viaje__cliente_id=idCliente).order_by('fact_cliente')
+		for v in viajes:
+			if v.fact_cliente not in facturas:
+				if v.fact_cliente:
+					facturas.append(v.fact_cliente)
 
 	context = {'facturas': facturas}
 	return render(request, 'sistema/selectFacturas.html', context)
@@ -1572,13 +1578,16 @@ def cargarFactura(request):
 @login_required
 def cargarProforma(request):
 	idCliente = request.GET.get('idCliente', False)
-	viajes = FacturaViaje.objects.filter(viaje__cliente_id=idCliente).order_by('prof_cliente')
 	proformas = []
-	for v in viajes:
-		if v.prof_cliente in proformas:
-			pass
-		else:
-			proformas.append(v.prof_cliente)
+	if idCliente:
+		viajes = FacturaViaje.objects.filter(viaje__cliente_id=idCliente).order_by('prof_cliente')
+		for v in viajes:
+			if v.prof_cliente in proformas:
+				pass
+			else:
+				if v.prof_cliente:
+					proformas.append(v.prof_cliente)
+
 	context = {'proformas': proformas}
 	return render(request, 'sistema/selectProformas.html', context)
 
@@ -1588,6 +1597,7 @@ def buscarFacturacionCliente(request):
 	categorias 		= request.POST.get('categorias', False)
 	centroDeCosto 	= request.POST.get('centroDeCosto', False)
 	condEspecial 	= request.POST.get('condEspecial', False)
+	solicitantes 	= request.POST.get('solicitantes', False)
 	facturas 		= request.POST.get('facturas', False)
 	proformas 		= request.POST.get('proformas', False)
 	desde 			= request.POST.get('desde', False)
@@ -1623,11 +1633,20 @@ def buscarFacturacionCliente(request):
 		for c in proformas.split(","):
 			proList.append(int(c))
 
+	solList = []
+	if solicitantes != "null":
+		for c in solicitantes.split(","):
+			solList.append(int(c))
+
 	viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 	if catList:
 		viajes = viajes.filter(categoria_viaje_id__in=catList)
 	if ccList:
 		viajes = viajes.filter(centro_costo_id__in=ccList)
+	if solList:
+		viajes = viajes.filter(cliente__personacliente__persona_id__in=solList)
+
+	
 	
 	context = {'viajes': viajes}
 	return render(request, 'sistema/grillaFacturacionCliente.html', context)
@@ -1635,6 +1654,7 @@ def buscarFacturacionCliente(request):
 @login_required
 def facturarClientes(request):
 	idViajes 		= request.POST.get('idViajes', False)
+	numeroFactrura	= request.POST.get('numeroFactura', False)
 	idsList = []
 	for ids in idViajes.split("-"):
 		if ids:
@@ -1642,10 +1662,14 @@ def facturarClientes(request):
 
 	viajes = Viaje.objects.filter(id__in=idsList)
 	for v in viajes:
-		print '---***---'
-		print v
-		#a.factura = numeroFactura
-		#a.save()
+		if v.facturaviaje_set.all():
+			fv = v.facturaviaje_set.all()[0]
+		else:
+			fv = FacturaViaje()
+			fv.viaje = v
+
+		fv.fact_cliente = numeroFactrura
+		fv.save()
 
 	data = {'return': 'success'}
 	dump = json.dumps(data)
@@ -1653,10 +1677,24 @@ def facturarClientes(request):
 
 @login_required
 def listadoFactProvedores(request):
-	mensaje = ""
+	unidades = Unidad.objects.all()
 
-	context = {'mensaje': mensaje}
+	context = {'unidades': unidades}
 	return render(request, 'sistema/listadoFactProvedores.html', context)
+
+@login_required
+def cargarFacturaProveedor(request):
+	idUnidad = request.GET.get('idUnidad', False)
+	facturas = []
+	if idUnidad:
+		viajes = FacturaViaje.objects.filter(viaje__unidad_id=idUnidad).order_by('fact_proveedor')
+		for v in viajes:
+			if v.fact_proveedor not in facturas:
+				if v.fact_proveedor:
+					facturas.append(v.fact_proveedor)
+
+	context = {'facturas': facturas}
+	return render(request, 'sistema/selectFacturas.html', context)
 
 # devuelve AAAAMMDD
 def fecha():

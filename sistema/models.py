@@ -504,6 +504,24 @@ class Viaje(models.Model):
         trayecto = self.trayecto_set.filter()[:1].get()
         return trayecto
 
+    def getProforma(self):
+        if self.facturaviaje_set.all():
+            if self.facturaviaje_set.all()[0].prof_cliente:
+                return self.facturaviaje_set.all()[0].prof_cliente
+            else:
+                return ""
+        else:
+            return ""
+
+    def getFacturaCliente(self):
+        if self.facturaviaje_set.all():
+            if self.facturaviaje_set.all()[0].fact_cliente:
+                return self.facturaviaje_set.all()[0].fact_cliente
+            else:
+                return ""
+        else:
+            return ""
+
     def getFecha(self):
         return getFecha(self.fecha)
 
@@ -516,10 +534,10 @@ class TipoItemViaje(models.Model):
     cliente_proveedor = models.CharField(max_length=1, null=True, blank=True)
 
     def __unicode__(self):
-        return u'%s' % self.viaje.item_desc
+        return u'%s' % self.item_desc
 
     def __str__(self):
-        return self.viaje.item_desc  
+        return self.item_desc 
 
 class ItemViaje(models.Model):
     viaje = models.ForeignKey(Viaje)
@@ -871,17 +889,6 @@ class LicenciaVehiculo(models.Model):
     def __str__(self):
         return self.licencia
 
-# devuelve hh:mm dd/mm/aaaa
-def getFechaHora(aaaammddhhmm):
-    if aaaammddhhmm == None:
-        return ""
-    return aaaammddhhmm[8:10] + ":" + aaaammddhhmm[10:12] + " " + aaaammddhhmm[6:8] + "/" + aaaammddhhmm[4:6] + "/" + aaaammddhhmm[0:4]
-
-def getFecha(aaaammdd):
-    if aaaammdd == None:
-        return ""
-    return aaaammdd[6:8] + "/" + aaaammdd[4:6] + "/" + aaaammdd[0:4]
-
 class TipoAdelanto (models.Model):
     descripcion = models.CharField(max_length=50, null=True, blank=True)
     logica = models.CharField(max_length=50, null=True, blank=True)
@@ -908,3 +915,14 @@ class Adelanto (models.Model):
 
     def getFecha(self):
         return getFecha(self.fecha)
+
+# devuelve hh:mm dd/mm/aaaa
+def getFechaHora(aaaammddhhmm):
+    if aaaammddhhmm == None:
+        return ""
+    return aaaammddhhmm[8:10] + ":" + aaaammddhhmm[10:12] + " " + aaaammddhhmm[6:8] + "/" + aaaammddhhmm[4:6] + "/" + aaaammddhhmm[0:4]
+
+def getFecha(aaaammdd):
+    if aaaammdd == None:
+        return ""
+    return aaaammdd[6:8] + "/" + aaaammdd[4:6] + "/" + aaaammdd[0:4]

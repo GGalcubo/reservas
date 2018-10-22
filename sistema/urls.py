@@ -77,5 +77,6 @@ urlpatterns = [
     url(r'^cargarCentrosDeCosto/', cargarCentrosDeCosto, name='cargarCentrosDeCosto'),
     url(r'^cargarFactura/', cargarFactura, name='cargarFactura'),
     url(r'^cargarProforma/', cargarProforma, name='cargarProforma'),
+    url(r'^cargarSolicitante/', cargarSolicitantes, name='cargarSolicitantes')
     #url(r'^$', 'sistema.views.index', name='index'),
 ]
