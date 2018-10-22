@@ -1,0 +1,17 @@
+<select class="form-control select2me" id="solicitante" name="solicitante" multiple="multiple">
+    <option value=""></option>
+    {% for valor in solicitantes %}
+        <option value="{{valor}}">{{valor}}</option>
+    {% endfor %}
+  </select>
+  <label for="proforma">Solicitante</label>
+  <script>
+    $(document).ready(function(){
+        $("#solicitante").select2({
+            placeholder: "Seleccionar Solicitante",
+            allowClear: true,
+            dropdownAutoWidth : true,
+            width: 'auto'
+        });
+    });
+</script>    

@@ -114,6 +114,7 @@
                                               <th class="all">Origen</th>
                                               <th class="all">Destino</th>
                                               <th class="all">Subtotal</th>
+                                              <th class="all">P. Eft</th>
                                               <th class="all">T. Espera</th>
                                               <th class="all">Espera</th>
                                               <th class="all">Bilingue</th>
@@ -139,6 +140,7 @@
                                               <td><span class="label label-sm label-info">Centro</span></td>
                                               <td><span class="label label-sm label-primary">Aeroparque</span></td>
                                               <td>$1.500,00</td>
+                                              <td>$500,00</td>
                                               <td>30</td>
                                               <td>$150,00</td>
                                               <td>$150,00</td>
@@ -162,6 +164,7 @@
                                               <td><span class="label label-sm label-info">Centro</span></td>
                                               <td><span class="label label-sm label-primary">Aeroparque</span></td>
                                               <td>$1.500,00</td>
+                                              <td>$500,00</td>
                                               <td>30</td>
                                               <td>$150,00</td>
                                               <td>$150,00</td>
@@ -185,6 +188,7 @@
                                               <td><span class="label label-sm label-info">Centro</span></td>
                                               <td><span class="label label-sm label-primary">Aeroparque</span></td>
                                               <td>$1.500,00</td>
+                                              <td>$500,00</td>
                                               <td>30</td>
                                               <td>$150,00</td>
                                               <td>$150,00</td>
@@ -207,19 +211,20 @@
                                               <td>Guido Su</td>
                                               <td><span class="label label-sm label-info">Centro</span></td>
                                               <td><span class="label label-sm label-primary">Aeroparque</span></td>
-                                              <td>$1.500,00</td>
+                                              <td>$150000</td>
+                                              <td>$50000</td>
                                               <td>30</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$2.400,00</td>
-                                              <td>$504,00</td>
-                                              <td>$2.904,00</td>
-                                              <td>$1.000,00</td>
-                                              <td>$1.904,00</td>
+                                              <td>$15000</td>
+                                              <td>$15000</td>
+                                              <td>$15000</td>
+                                              <td>$15000</td>
+                                              <td>$15000</td>
+                                              <td>$15000</td>
+                                              <td>$240000</td>
+                                              <td>$50400</td>
+                                              <td>$290400</td>
+                                              <td>$100000</td>
+                                              <td>$190400</td>
                                               <td>000100000123</td>
                                           </tr>
                                       </tbody>
@@ -227,6 +232,7 @@
                                       <tfoot>
                                           <tr>
                                               <th colspan="8" style="text-align:right">Total:</th>
+                                              <th></th>
                                               <th></th>
                                               <th></th>
                                               <th></th>
@@ -339,10 +345,30 @@
                         buttons: [
                             'selectAll',
                             'selectNone',
-                            'copy',
-                            'excel',
-                            'pdf',
-                            'print'
+                            {
+                                extend: 'copyHtml5',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
+                            {
+                                extend: 'excelHtml5',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            },
+                            {
+                                extend: 'pdfHtml5',
+                                orientation: 'landscape',
+                                pageSize: 'TABLOID'
+                            },
+                            {
+                                extend: 'print',
+                                messageTop: 'Facturación Provedores',
+                                exportOptions: {
+                                    columns: ':visible:not(:eq(0))'
+                                }
+                            }
                         ],
                         lengthMenu: [
                                         [ 100, 50, 25, 10, -1 ],
