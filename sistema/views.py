@@ -39,55 +39,54 @@ def asignaciones(request):
 
 @login_required
 def altaViaje(request):
-    mensaje = ""
+    mensaje     = ""
+    es_nuevo    = 1
+    viaje       = Viaje()
+    viaje.id    = 0
 
-    es_nuevo = 1
+    context = {'mensaje': mensaje,
+               'clientes':Cliente.objects.all(),
+               'tipoobservacion':TipoObservacion.objects.all(),
+               #'observacion':Observacion.objects.all(),
+               'tipo_pago':TipoPagoViaje.objects.all(),
+               'unidades':Unidad.objects.all(),
+               'estados':Estado.objects.all(),
+               'categoria_viajes':CategoriaViaje.objects.all(),
+               'destinos':TrayectoDestino.objects.all(),
+               'localidades':CategoriaViaje.objects.all(),
+               'provincias':Provincia.objects.all(),
+               'es_nuevo':es_nuevo,
+               'viaje':viaje}
 
-    viaje = Viaje()
-    viaje.id = 0
-
-    clientes = Cliente.objects.all()
-    unidades = Unidad.objects.all()
-    estados = Estado.objects.all()
-    categoria_viajes = CategoriaViaje.objects.all()
-    localidades = Localidad.objects.all()
-    provincias = Provincia.objects.all()
-    destinos = TrayectoDestino.objects.all()
-    observaciones = Observacion.objects.all()
-    tipoobservacion = TipoObservacion.objects.all()
-    tipo_pago = TipoPagoViaje.objects.all()
-
-    context = {'mensaje': mensaje,'clientes':clientes, 'tipoobservacion':tipoobservacion, 'tipo_pago':tipo_pago, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje}
     return render(request, 'sistema/viaje.html', context)
 
 @login_required
 def editaViaje(request):
-    mensaje = ""
-
-    es_nuevo = 0
-
-    id_viaje = request.GET.get('idViaje', "")
+    mensaje     = ""
+    es_nuevo    = 0
+    id_viaje    = request.GET.get('idViaje', "")
     if request.GET.get('msg', "") == '1':
         mensaje = 'El viaje se creo correctamente.'
     viaje = Viaje.objects.get(id=id_viaje)
     # used to generate random unique id
-    import uuid
-    uid = uuid.uuid4()
+    #import uuid #uid = uuid.uuid4()
 
-    clientes = Cliente.objects.all()
-    unidades = Unidad.objects.all()
-    estados = Estado.objects.all()
-    categoria_viajes = CategoriaViaje.objects.all()
-    destinos = TrayectoDestino.objects.all()
-    localidades = Localidad.objects.all()
-    provincias = Provincia.objects.all()
-    observaciones = Observacion.objects.all()
-    tipoobservacion = TipoObservacion.objects.all()
-    tipo_pago = TipoPagoViaje.objects.all()
-    trayectos = Trayecto.objects.filter(viaje_id=id_viaje)
-    itemsviaje = ItemViaje.objects.filter(viaje_id=id_viaje)
-
-    context = {'mensaje': mensaje,'clientes':clientes, 'uid':uid, 'tipoobservacion':tipoobservacion, 'tipo_pago':tipo_pago, 'itemsviaje':itemsviaje, 'unidades':unidades, 'estados':estados, 'categoria_viajes':categoria_viajes,'destinos':destinos,'localidades':localidades,'provincias':provincias, 'es_nuevo':es_nuevo, 'viaje':viaje, 'trayectos':trayectos}
+    context = {'mensaje': mensaje,
+               'clientes':Cliente.objects.all(),
+               #'uid':uuid.uuid4(),
+               'tipoobservacion':TipoObservacion.objects.all(),
+               #'observaciones':Observacion.objects.all(),
+               'tipo_pago':TipoPagoViaje.objects.all(),
+               'itemsviaje':ItemViaje.objects.filter(viaje_id=id_viaje),
+               'unidades':Unidad.objects.all(),
+               'estados':Estado.objects.all(),
+               'categoria_viajes':CategoriaViaje.objects.all(),
+               'destinos':TrayectoDestino.objects.all(),
+               'localidades':Localidad.objects.all(),
+               'provincias':Provincia.objects.all(),
+               'es_nuevo':es_nuevo,
+               'viaje':viaje,
+               'trayectos':Trayecto.objects.filter(viaje_id=id_viaje)}
     return render(request, 'sistema/viaje.html', context)
 
 
@@ -106,11 +105,9 @@ def guardarViaje(request):
     viaje.estado 				= Estado.objects.get(id=request.POST.get('estado', False))
     viaje.cliente 				= Cliente.objects.get(id=request.POST.get('cliente', False))
     viaje.categoria_viaje 		= CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
-    solicitante 				= Persona.objects.get(id=request.POST.get('contacto', False))
-    viaje.solicitante 			= solicitante.nombre + ' ' + solicitante.apellido
+    viaje.solicitante 			= Persona.objects.get(id=request.POST.get('contacto', False))
     viaje.centro_costo 			= CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
-    pasajero 					= Persona.objects.get(id=request.POST.get('pasajero', False))
-    viaje.pasajero 				= pasajero.nombre + '' + pasajero.apellido
+    viaje.pasajero 				= Persona.objects.get(id=request.POST.get('pasajero', False))
     fecha_tmp 					= request.POST.get('fecha', "")
     viaje.fecha 				= fecha_tmp[6:10] + fecha_tmp[3:5] + fecha_tmp[0:2]
     viaje.hora 					= request.POST.get('hora', "")
@@ -470,100 +467,6 @@ def borrarTrayecto(request):
     context = {'mensaje': mensaje, 'trayectos': trayectos}
     return render(request, 'sistema/grillaTramos.html', context)
 
-
-@login_required
-def altaPersona(request):
-	mensaje = ""
-	context = {'mensaje': mensaje}
-	return render(request, 'sistema/altaPersona.html', context)
-
-@login_required
-def editaPersona(request):
-	mensaje = ""
-
-	context = {'mensaje': mensaje}
-	return render(request, 'sistema/altaPersona.html', context)
-
-@login_required
-def guardarOwnerProspect(request):
-	persona = Persona()
-	persona.nombre = request.POST.get('nombreDuenio', "")
-	persona.apellido = request.POST.get('apellidoDuenio', "")
-	persona.tipo_persona_id = 4
-	persona.save()
-
-	telefono = request.POST.get('telefonoDuenio', "")
-	if telefono != "":
-		tel = Telefono()
-		tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
-		tel.numero = telefono
-		tel.save()
-
-		telcli = TelefonoPersona()
-		telcli.persona = persona
-		telcli.telefono = tel
-		telcli.save()
-
-	data = {
-		'persona_id': persona.id,
-		'persona_nombre': persona.nombre,
-		'persona_apellido':persona.apellido
-	}
-	dump = json.dumps(data)
-	return HttpResponse(dump, content_type='application/json')
-
-def guardarChoferProspect(request):
-	persona = Persona()
-	persona.nombre = request.POST.get('nombreChofer', "")
-	persona.apellido = request.POST.get('apellidoChofer', "")
-	persona.porcentaje_viaje = request.POST.get('porcentajeChofer', "")
-	persona.tipo_persona_id = 3
-	persona.save()
-
-	telefono = request.POST.get('telefonoChofer', "")
-	if telefono != "":
-		tel = Telefono()
-		tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
-		tel.numero = telefono
-		tel.save()
-
-		telcli = TelefonoPersona()
-		telcli.persona = persona
-		telcli.telefono = tel
-		telcli.save()
-
-	data = {
-		'persona_id': persona.id,
-		'persona_nombre': persona.nombre,
-		'persona_apellido':persona.apellido,
-		'persona_porcentaje':persona.porcentaje_viaje
-	}
-	dump = json.dumps(data)
-	return HttpResponse(dump, content_type='application/json')
-
-@login_required
-def guardarCentroCostoProspect(request):
-	mensaje = ""
-	trayectos = ""
-	idCC = request.POST.get('idClienteCC', "")
-	if idCC == "0":
-		cc = CentroCosto()
-		cliente = Cliente.objects.get(id=request.POST.get('idClienteEnCC', ""))
-		cc.cliente = cliente
-	else:
-		cc = CentroCosto.objects.get(id=idCC)
-		cliente = cc.cliente
-
-	cc.nombre = request.POST.get('codigoCCCliente', "")
-	cc.fecha_inicio = getAAAAMMDD(request.POST.get('desdeCC', ""))
-	cc.fecha_fin = getAAAAMMDD(request.POST.get('hastaCC', ""))
-	cc.descripcion = request.POST.get('descripcionCCCliente', "")
-	cc.tarifario = Tarifario.objects.get(id=request.POST.get('selectTarifariosCCCliente', ""))
-	cc.save()
-
-	context = {'mensaje': mensaje, 'trayectos': trayectos, 'cliente':cliente}
-	return render(request, 'sistema/grillaCentroCostos.html', context)
-
 @login_required
 def guardarSolicitanteDesdeViaje(request):
     mensaje = ""
@@ -677,6 +580,102 @@ def guardarPasajeroDesdeViaje(request):
 
     context = {'mensaje': mensaje, 'cliente':cliente}
     return render(request, 'sistema/selectPasajero.html', context)
+
+
+@login_required
+def altaPersona(request):
+	mensaje = ""
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/altaPersona.html', context)
+
+@login_required
+def editaPersona(request):
+	mensaje = ""
+
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/altaPersona.html', context)
+
+@login_required
+def guardarOwnerProspect(request):
+	persona = Persona()
+	persona.nombre = request.POST.get('nombreDuenio', "")
+	persona.apellido = request.POST.get('apellidoDuenio', "")
+	persona.tipo_persona_id = 4
+	persona.save()
+
+	telefono = request.POST.get('telefonoDuenio', "")
+	if telefono != "":
+		tel = Telefono()
+		tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
+		tel.numero = telefono
+		tel.save()
+
+		telcli = TelefonoPersona()
+		telcli.persona = persona
+		telcli.telefono = tel
+		telcli.save()
+
+	data = {
+		'persona_id': persona.id,
+		'persona_nombre': persona.nombre,
+		'persona_apellido':persona.apellido
+	}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
+def guardarChoferProspect(request):
+	persona = Persona()
+	persona.nombre = request.POST.get('nombreChofer', "")
+	persona.apellido = request.POST.get('apellidoChofer', "")
+	persona.porcentaje_viaje = request.POST.get('porcentajeChofer', "")
+	persona.tipo_persona_id = 3
+	persona.save()
+
+	telefono = request.POST.get('telefonoChofer', "")
+	if telefono != "":
+		tel = Telefono()
+		tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
+		tel.numero = telefono
+		tel.save()
+
+		telcli = TelefonoPersona()
+		telcli.persona = persona
+		telcli.telefono = tel
+		telcli.save()
+
+	data = {
+		'persona_id': persona.id,
+		'persona_nombre': persona.nombre,
+		'persona_apellido':persona.apellido,
+		'persona_porcentaje':persona.porcentaje_viaje
+	}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
+@login_required
+def guardarCentroCostoProspect(request):
+	mensaje = ""
+	trayectos = ""
+	idCC = request.POST.get('idClienteCC', "")
+	if idCC == "0":
+		cc = CentroCosto()
+		cliente = Cliente.objects.get(id=request.POST.get('idClienteEnCC', ""))
+		cc.cliente = cliente
+	else:
+		cc = CentroCosto.objects.get(id=idCC)
+		cliente = cc.cliente
+
+	cc.nombre = request.POST.get('codigoCCCliente', "")
+	cc.fecha_inicio = getAAAAMMDD(request.POST.get('desdeCC', ""))
+	cc.fecha_fin = getAAAAMMDD(request.POST.get('hastaCC', ""))
+	cc.descripcion = request.POST.get('descripcionCCCliente', "")
+	cc.tarifario = Tarifario.objects.get(id=request.POST.get('selectTarifariosCCCliente', ""))
+	cc.save()
+
+	context = {'mensaje': mensaje, 'trayectos': trayectos, 'cliente':cliente}
+	return render(request, 'sistema/grillaCentroCostos.html', context)
+
+
 
 @login_required
 def guardarSolicitanteProspect(request):

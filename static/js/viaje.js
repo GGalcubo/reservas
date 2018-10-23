@@ -1,4 +1,5 @@
 $(document).ready( () => {
+
     $('#fecha').datepicker({
         language: 'es',
         dateFormat: 'dd/mm/yy',
@@ -354,7 +355,7 @@ $(document).ready( () => {
         //$(".modal-title").text('Editar Tramo');
     });
 
-    $('#tablaTramos').DataTable( {
+    $('#tablaTramos').DataTable({
         responsive: true,
         // scrollY: 200,
         order: [[ 0, "asc" ]],
@@ -365,9 +366,9 @@ $(document).ready( () => {
         language: {
             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
         }
-    } );
+    });
 
-    $('#tablaObservacionViajes').DataTable( {
+    $('#tablaObservacionViajes').DataTable({
         responsive: true,
         // scrollY: 200,
         order: [[ 0, "asc" ]],
@@ -378,13 +379,13 @@ $(document).ready( () => {
         language: {
             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
         }
-    } );
+    });
 
     $('#hora').timepicker();
     $('#hora_estimada').timepicker();
     $('#hora_obs').timepicker();
 
-    $('#tablaPasajeroClientes').DataTable( {
+    $('#tablaPasajeroClientes').DataTable({
         responsive: true,
         // scrollY: 200,
         order: [[ 1, "asc" ]],
@@ -395,9 +396,9 @@ $(document).ready( () => {
         language: {
             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
         },
-    } );
+    });
 
-    $('#tablaHistorialViaje').DataTable( {
+    $('#tablaHistorialViaje').DataTable({
         responsive: true,
         // scrollY: 200,
         order: [[ 0, "asc" ]],
@@ -408,7 +409,8 @@ $(document).ready( () => {
         language: {
             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
         },
-    } );
+    });
+    
 });
 
 /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/

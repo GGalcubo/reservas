@@ -465,8 +465,8 @@ class Viaje(models.Model):
     cliente = models.ForeignKey(Cliente, null=True, blank=True)
     unidad = models.ForeignKey(Unidad, null=True, blank=True)
     hora = models.CharField(max_length=10, null=True, blank=True)
-    solicitante = models.CharField(max_length=50, null=True, blank=True)
-    pasajero = models.CharField(max_length=50, null=True, blank=True)
+    solicitante = models.ForeignKey(Persona, related_name='solicitante', null=True, blank=True)
+    pasajero = models.ForeignKey(Persona, related_name='pasajero', null=True, blank=True)
     centro_costo = models.ForeignKey(CentroCosto, null=True, blank=True)
     categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
     hora_estimada = models.CharField(max_length=10, null=True, blank=True)
@@ -568,7 +568,7 @@ class FacturaViaje(models.Model):
 
 class ViajePasajero(models.Model):
     viaje = models.ForeignKey(Viaje)
-    pasajero = models.CharField(max_length=100)
+    pasajero = models.ForeignKey(Persona, null=True, blank=True)
     pasajero_ppal = models.BooleanField(default=False)
 
     def __unicode__(self):
