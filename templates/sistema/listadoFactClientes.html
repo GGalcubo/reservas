@@ -85,17 +85,17 @@
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="condEspecial" name="condEspecial" multiple="multiple">
                                                   <option value="1">Sin estacionamiento</option>
-                                                  <option value="2">Con espera y maletas</option>
+                                                  <option value="2">Con estacionamiento</option>
                                                 </select>
                                                 <label for="condEspecial">Cond. Especial</label>
                                               </div>
                                             </div>
                                             <div class="col-sm-3">
-                                              <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="solicitante" name="solicitante" multiple="multiple">
+                                              <div class="form-group form-md-line-input"  id="selectSolicitante">
+                                                <select class="form-control select2me" id="solicitantes" name="solicitantes" multiple="multiple">
                                                   <option value=""></option>
                                                 </select>
-                                                <label for="solicitante">Solicitante</label>
+                                                <label for="solicitantes">Solicitante</label>
                                               </div>
                                             </div>
                                             <div class="col-sm-3">
@@ -161,35 +161,7 @@
                                           </tr>
                                       </thead>
                                       <tbody>
-                                          <tr>
-                                              <td></td>
-                                              <td>14/10/2018</td>
-                                              <td>Vip</td>
-                                              <td>15:30</td>
-                                              <td>345</td>
-                                              <td class="text-center"><a href="#">1</a></td>
-                                              <td>???</td>
-                                              <td>123456789</td>
-                                              <td>000100000123</td>
-                                              <td>Jorge</td>
-                                              <td>G3RURAL</td>
-                                              <td>Guido Su</td>
-                                              <td><span class="label label-sm label-info">Centro</span></td>
-                                              <td><span class="label label-sm label-primary">Aeroparque</span></td>
-                                              <td>$1.500,00</td>
-                                              <td>$500,00</td>
-                                              <td>30</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$2.400,00</td>
-                                              <td>$504,00</td>
-                                              <td>$2.904,00</td>
-                                              <td>ID</td>
-                                          </tr>
+                                          
                                       </tbody>
                                       <!-- ESTO SE AGREGO PARA LA FILA DE TOTAL -->
                                       <tfoot>
@@ -419,6 +391,13 @@
                         width: 'auto'
                     });
 
+                    $("#solicitantes").select2({
+                        placeholder: "Seleccionar Solicitante",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
                     $("#condEspecial").select2({
                         placeholder: "Seleccionar Condición",
                         allowClear: true,
@@ -451,6 +430,7 @@
                         cargarCentrosDeCosto(cod);
                         cargarFactura(cod);
                         cargarProforma(cod);
+                        cargarSolicitante(cod);
                     }
                 }
 
@@ -480,6 +460,7 @@
                     var params = "categorias="+$("#categViaje").val();
                     params += "&centroDeCosto="+$("#centroDeCosto").val();
                     params += "&condEspecial="+$("#condEspecial").val();
+                    params += "&solicitantes="+$("#solicitantes").val();
                     params += "&facturas="+$("#factura").val();
                     params += "&proformas="+$("#proforma").val();
                     params += "&cliente="+$("#cliente").val();
@@ -514,6 +495,17 @@
                         url: url,
                         success: function(data){
                             $('#selectCentroCostos').html(data);
+                        }
+                    });
+                }
+
+                function cargarSolicitante(codCli){
+                    var url = "/sistema/cargarSolicitante/?idCliente="+codCli;
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        success: function(data){
+                            $('#selectSolicitante').html(data);
                         }
                     });
                 }

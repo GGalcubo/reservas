@@ -1644,8 +1644,6 @@ def buscarFacturacionCliente(request):
 		viajes = viajes.filter(centro_costo_id__in=ccList)
 	if solList:
 		viajes = viajes.filter(cliente__personacliente__persona_id__in=solList)
-
-	
 	
 	context = {'viajes': viajes}
 	return render(request, 'sistema/grillaFacturacionCliente.html', context)
