@@ -525,6 +525,64 @@ class Viaje(models.Model):
     def getFecha(self):
         return getFecha(self.fecha)
 
+    def getCantidadTiempoEsperaCliente(self):
+        retorno = 0
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 1:
+                retorno = retorno + iv.cant
+        return retorno
+
+    def getMontoTiempoEsperaCliente(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 1:
+                retorno = retorno + iv.monto_s_iva
+        return retorno
+
+    def getMontoBilingueCliente(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 3:
+                retorno = retorno + iv.monto_s_iva
+        return retorno
+
+    def getMontoMontoCliente(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 4:
+                retorno = retorno + iv.monto_s_iva
+        return retorno
+
+    def getMontoPeajesCliente(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 6:
+                retorno = retorno + iv.monto_s_iva
+        return retorno
+
+    def getMontoEstacionCliente(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 5:
+                retorno = retorno + iv.monto_s_iva
+        return retorno
+
+    def getMontoOtrosCliente(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 17:
+                retorno = retorno + iv.monto_s_iva
+        return retorno
+
+    def getMontoPeftCliente(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 17:
+                retorno = retorno + iv.monto_s_iva
+        return retorno
+
+        
+
     class Meta:
         verbose_name_plural = "Viajes"
 
@@ -548,10 +606,10 @@ class ItemViaje(models.Model):
     cant = models.IntegerField(default=0)
 
     def __unicode__(self):
-        return u'%s' % self.viaje.viaje
+        return u'%s' % self.viaje
 
     def __str__(self):
-        return self.viaje.viaje   
+        return self.viaje
 
 class FacturaViaje(models.Model):
     viaje = models.ForeignKey(Viaje)

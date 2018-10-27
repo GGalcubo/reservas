@@ -1,13 +1,13 @@
-<select class="form-control select2me" id="solicitante" name="solicitante" multiple="multiple">
+<select class="form-control select2me" id="solicitantes" name="solicitantes" multiple="multiple">
     <option value=""></option>
     {% for valor in solicitantes %}
         <option value="{{valor}}">{{valor}}</option>
     {% endfor %}
   </select>
-  <label for="proforma">Solicitante</label>
+  <label for="solicitantes">Solicitante</label>
   <script>
     $(document).ready(function(){
-        $("#solicitante").select2({
+        $("#solicitantes").select2({
             placeholder: "Seleccionar Solicitante",
             allowClear: true,
             dropdownAutoWidth : true,
