@@ -107,7 +107,8 @@ def guardarViaje(request):
     viaje.categoria_viaje 		= CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
     viaje.solicitante 			= Persona.objects.get(id=request.POST.get('contacto', False))
     viaje.centro_costo 			= CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
-    viaje.pasajero 				= Persona.objects.get(id=request.POST.get('pasajero', False))
+    pasajero                    = Persona.objects.get(id=request.POST.get('pasajero', False))
+    viaje.pasajero 				= pasajero
     fecha_tmp 					= request.POST.get('fecha', "")
     viaje.fecha 				= fecha_tmp[6:10] + fecha_tmp[3:5] + fecha_tmp[0:2]
     viaje.hora 					= request.POST.get('hora', "")
@@ -128,7 +129,8 @@ def guardarViaje(request):
 
     viaje.save()
 
-    guardaItemViaje(request.POST.get('importe_efectivo', ''), 12 ,1 , viaje)
+    guardaViajePasajero(pasajero, True, viaje)
+    guardaItemViaje(request.POST.get('importe_efectivo', ''), 12, 1, viaje)
     guardaItemViaje(request.POST.get('otros', ''), 16, 1, viaje)
     guardaItemViaje(request.POST.get('peaje', ''), 15, 1, viaje)
     guardaItemViaje(request.POST.get('estacionamiento', ''), 11, 1, viaje)
@@ -137,13 +139,24 @@ def guardarViaje(request):
     guardaItemViajeEspera(request.POST.get('espera', ''), 14, request.POST.get('tiempo_espera', ''), viaje)
     guardaItemViajeBilingue(request.POST.get('costo_bilingue', ''), 9, request.POST.get('bilingue', ''), viaje)
     guardaItemViajeMaletas(request.POST.get('costo_maletas', ''), 10, request.POST.get('maletas', ''), viaje)
-    guardarObsViaje(request.POST.get('comentario_chofer', ''), viaje, request)
+    guardaObsViaje(request.POST.get('comentario_chofer', ''), viaje, request)
 
     if es_nuevo == "1":
         data = {'url': '/sistema/editaViaje/?idViaje=' + str(viaje.id) + '&msg=1'}
 
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
+
+def guardaViajePasajero(pasajero, principal, viaje):
+    try:
+        viaje_pasajero = ViajePasajero.objects.get(viaje=viaje, pasajero_ppal=principal)
+    except ViajePasajero.DoesNotExist:
+        viaje_pasajero = ViajePasajero()
+    
+    viaje_pasajero.viaje         = viaje
+    viaje_pasajero.pasajero      = pasajero
+    viaje_pasajero.pasajero_ppal = principal
+    viaje_pasajero.save()
 
 def guardaItemViajeMaletas(monto,tipo_item_viaje,checkbox,viaje):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
@@ -169,7 +182,6 @@ def guardaItemViajeMaletas(monto,tipo_item_viaje,checkbox,viaje):
     item_viaje_otros.monto_iva          = int(tarifa_extra.extra_precio_prov) * int(tipo_item_viaje.iva_pct)
     item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
     item_viaje_otros.save()
-
 
 def guardaItemViajeBilingue(monto,tipo_item_viaje,checkbox,viaje):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
@@ -272,7 +284,7 @@ def guardaItemViaje(monto,tipo_item_viaje,cant,viaje):
     item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
     item_viaje_otros.save()
 
-def guardarObsViaje(input_text, viaje, request):
+def guardaObsViaje(input_text, viaje, request):
 
     if len(viaje.observacionviaje_set.all()) > 0:
         observacion = viaje.observacionviaje_set.all()[0].observacion
@@ -292,7 +304,6 @@ def guardarObsViaje(input_text, viaje, request):
     ob_viaje.viaje = viaje
     ob_viaje.observacion = observacion
     ob_viaje.save()
-
 
 @login_required
 def guardarViajeAdjunto(request):
