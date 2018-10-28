@@ -798,18 +798,6 @@ def guardarPasajeroProspect(request):
         obsper.observacion = obs
         obsper.save()
 
-    if request.POST.get('desde_viaje', '') != '':
-        viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
-        try:
-            viaje_pasajero = ViajePasajero.objects.get(viaje=viaje, pasajero_ppal=0)
-        except ViajePasajero.DoesNotExist:
-            viaje_pasajero = ViajePasajero()
-
-        viaje_pasajero.viaje = viaje
-        viaje_pasajero.pasajero = pasajero
-        viaje_pasajero.pasajero_ppal = principal
-        viaje_pasajero.save()
-
 	context = {'mensaje': mensaje, 'cliente':cliente}
 	return render(request, 'sistema/grillaPasajeros.html', context)
 
