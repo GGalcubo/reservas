@@ -97,6 +97,13 @@
        "cliente_proveedor":"p"}
 },
 {
+        "model": "sistema.tipoitemviaje","pk":12,
+         "fields": {          
+       "item_desc":"cobrado eft",
+       "iva_pct":0,
+       "cliente_proveedor":"p"}
+},
+{
         "model": "sistema.tipoitemviaje","pk":13,
          "fields": {          
        "item_desc":"dispo",
