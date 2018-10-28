@@ -12,10 +12,9 @@ import os
 
 @login_required
 def dashboard(request):
-	mensaje = ""
-
-	context = { 'mensaje':mensaje }
-	return render(request, 'sistema/dashboard.html', context)
+    mensaje = ""
+    context = { 'mensaje':mensaje }
+    return render(request, 'sistema/dashboard.html', context)
 
 @login_required
 def operaciones(request):
@@ -734,38 +733,38 @@ def guardarSolicitanteProspect(request):
 
 @login_required
 def guardarPasajeroProspect(request):
-	mensaje = ""
-	idClientePasajero = request.POST.get('idClientePasajero', "")
-	print idClientePasajero
-	cliente = Cliente.objects.get(id=idClientePasajero)
-	idPasajero = request.POST.get('idPasajero', "")
-	if idPasajero == "0":
+    mensaje = ""
+    idClientePasajero = request.POST.get('idClientePasajero', "")
+    print idClientePasajero
+    cliente = Cliente.objects.get(id=idClientePasajero)
+    idPasajero = request.POST.get('idPasajero', "")
+    if idPasajero == "0":
 		persona = Persona()
 		persona.tipo_persona = TipoPersona.objects.get(id=2)
-	else:
+    else:
 		persona = Persona.objects.get(id=idPasajero)
 
-	persona.nombre = request.POST.get('nombrePasCliente', "")
-	persona.apellido = request.POST.get('apellidoPasCliente', "")
-	persona.documento = request.POST.get('documentoPasajeroCliente', "")
-	persona.mail = request.POST.get('mailPasajeroCliente', "")
-	persona.nacionalidad = request.POST.get('nacionalidadPasajeroCliente', "")
-	persona.calle = request.POST.get('callePasajeroCliente', "")
-	#persona.altura = request.POST.get('alturaPasajeroCliente', "")
-	#persona.piso = request.POST.get('pisoPasajeroCliente', "")
-	#persona.cp = request.POST.get('cpPasajeroCliente', "")
-	persona.save()
+    persona.nombre = request.POST.get('nombrePasCliente', "")
+    persona.apellido = request.POST.get('apellidoPasCliente', "")
+    persona.documento = request.POST.get('documentoPasajeroCliente', "")
+    persona.mail = request.POST.get('mailPasajeroCliente', "")
+    persona.nacionalidad = request.POST.get('nacionalidadPasajeroCliente', "")
+    persona.calle = request.POST.get('callePasajeroCliente', "")
+    #persona.altura = request.POST.get('alturaPasajeroCliente', "")
+    #persona.piso = request.POST.get('pisoPasajeroCliente', "")
+    #persona.cp = request.POST.get('cpPasajeroCliente', "")
+    persona.save()
 
-	telefono = request.POST.get('telefonoPasajeroCliente', "")
-	comentario = request.POST.get('comentarioPasajeroCliente', "")
+    telefono = request.POST.get('telefonoPasajeroCliente', "")
+    comentario = request.POST.get('comentarioPasajeroCliente', "")
 
-	if idPasajero == "0":
+    if idPasajero == "0":
 		perCli = PersonaCliente()
 		perCli.persona = persona
 		perCli.cliente = cliente
 		perCli.save()
 
-	if telefono != "" and telefono != "Sin telefono":
+    if telefono != "" and telefono != "Sin telefono":
 		if len(persona.telefonopersona_set.all()) > 0:
 			tel = persona.telefonopersona_set.all()[0].telefono
 			telcli = persona.telefonopersona_set.all()[0]
@@ -781,23 +780,35 @@ def guardarPasajeroProspect(request):
 		telcli.telefono = tel
 		telcli.save()
 
-	if comentario != "":
-		if len(persona.observacionpersona_set.all()) > 0:
-			obs = persona.observacionpersona_set.all()[0].observacion
-			obsper = persona.observacionpersona_set.all()[0]
-		else:
-			obsper = ObservacionPersona()
-			obs = Observacion()
-			obs.tipo_observacion = TipoObservacion.objects.get(id=16)
+    if comentario != "":
+        if len(persona.observacionpersona_set.all()) > 0:
+            obs = persona.observacionpersona_set.all()[0].observacion
+            obsper = persona.observacionpersona_set.all()[0]
+        else:
+            obsper = ObservacionPersona()
+            obs = Observacion()
+            obs.tipo_observacion = TipoObservacion.objects.get(id=16)
 
-		obs.fecha = fecha()
-		obs.usuario = request.user
-		obs.texto = comentario
-		obs.save()
+        obs.fecha = fecha()
+        obs.usuario = request.user
+        obs.texto = comentario
+        obs.save()
 
-		obsper.persona = persona
-		obsper.observacion = obs
-		obsper.save()
+        obsper.persona = persona
+        obsper.observacion = obs
+        obsper.save()
+
+    if request.POST.get('desde_viaje', '') != '':
+        viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
+        try:
+            viaje_pasajero = ViajePasajero.objects.get(viaje=viaje, pasajero_ppal=0)
+        except ViajePasajero.DoesNotExist:
+            viaje_pasajero = ViajePasajero()
+
+        viaje_pasajero.viaje = viaje
+        viaje_pasajero.pasajero = pasajero
+        viaje_pasajero.pasajero_ppal = principal
+        viaje_pasajero.save()
 
 	context = {'mensaje': mensaje, 'cliente':cliente}
 	return render(request, 'sistema/grillaPasajeros.html', context)

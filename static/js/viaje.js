@@ -158,7 +158,7 @@ $(document).ready( () => {
             showMsg("La espera minima es 15 min.");
             return false;
         }
-        if ($("#tiempo_hs_dispo").val() != "" && $("#tiempo_hs_dispo").val() > 0){
+        if ($("#tiempo_hs_dispo").val() != "" && $("#tiempo_hs_dispo").val() < 1){
             showMsg("El horario disponible minimo es 1 hs.");
             return false;
         }
@@ -452,7 +452,7 @@ guardarPasajeroModal = () => {
         showMsg("El Apellido es obligatorio.")
         return false;
     }
-    var url = "/sistema/guardarPasajeroDesdeViaje/";
+    let url = "/sistema/guardarPasajeroDesdeViaje/";
     $.ajax({
         type: "POST",
         url: url,
@@ -479,38 +479,38 @@ guardarPasajeroModal = () => {
 
  /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
 guardarPasajero = () => {
-    if ($('#nombrePasCliente').val() == ""){
-        showMsg("El Nombre es obligatorio.")
+    if ($('#nombrePasCliente').val() == ''){
+        showMsg("El Nombre es obligatorio.");
         return false;
     }
-    if ($('#apellidoPasCliente').val() == ""){
-        showMsg("El Apellido es obligatorio.")
+    if ($('#apellidoPasCliente').val() == ''){
+        showMsg("El Apellido es obligatorio.");
         return false;
     }
-    var url = "/sistema/guardarPasajeroProspect/";
+    let url = "/sistema/guardarPasajeroProspect/";
     $.ajax({
         type: "POST",
         url: url,
         headers: {'X-CSRFToken': csrf_token},
         data: $("#form-viaje-pasajeros").serialize(),
         success: data => {
-            $('#idPasajero').val("0")
-            $('#nombrePasCliente').val("")
-            $('#apellidoPasCliente').val("")
-            $('#documentoPasajeroCliente').val("")
-            $('#telefonoPasajeroCliente').val("")
-            $('#mailPasajeroCliente').val("")
-            $('#nacionalidadPasajeroCliente').val("")
-            $('#callePasajeroCliente').val("")
-            $('#alturaPasajeroCliente').val("")
-            $('#pisoPasajeroCliente').val("")
-            $('#cpPasajeroCliente').val("")
-            $('#comentarioPasajeroCliente').val("")
+            $('#idPasajero').val("0");
+            $('#nombrePasCliente').val("");
+            $('#apellidoPasCliente').val("");
+            $('#documentoPasajeroCliente').val("");
+            $('#telefonoPasajeroCliente').val("");
+            $('#mailPasajeroCliente').val("");
+            $('#nacionalidadPasajeroCliente').val("");
+            $('#callePasajeroCliente').val("");
+            $('#alturaPasajeroCliente').val("");
+            $('#pisoPasajeroCliente').val("");
+            $('#cpPasajeroCliente').val("");
+            $('#comentarioPasajeroCliente').val("");
             $('#add_pasajero_cliente').modal('toggle');
             $('#grillaPasajero').html(data);
         }
     });
-}
+};
 
 updateFillsByCliente = (name, evt) => {
     var option_selected = evt.params.data.id;
