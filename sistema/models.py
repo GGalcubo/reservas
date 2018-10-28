@@ -775,6 +775,8 @@ class Trayecto(models.Model):
             retorno += self.compania_desde + ", " 
         if self.vuelo_desde:
             retorno += self.vuelo_desde + ", " 
+        if self.entre_desde:
+            retorno += self.entre_desde + ", "
         return retorno[:-2]
 
 
@@ -793,6 +795,8 @@ class Trayecto(models.Model):
             retorno += self.compania_hasta + ", "
         if self.vuelo_hasta:
             retorno += self.vuelo_hasta + ", "
+        if self.entre_hasta:
+            retorno += self.entre_hasta + ", "
         return retorno[:-2]
 
 class OperacionesConfCol(models.Model):
