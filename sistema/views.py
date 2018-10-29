@@ -1660,8 +1660,9 @@ def buscarFacturacionCliente(request):
 
 @login_required
 def facturarClientes(request):
-	idViajes 		= request.POST.get('idViajes', False)
-	numeroFactrura	= request.POST.get('numeroFactura', False)
+	idViajes 			= request.POST.get('idViajes', False)
+	numeroFactrura		= request.POST.get('numeroFactura', False)
+	primernumeroFactura = request.POST.get('primernumeroFactura', False)
 	idsList = []
 	for ids in idViajes.split("-"):
 		if ids:
@@ -1675,10 +1676,41 @@ def facturarClientes(request):
 			fv = FacturaViaje()
 			fv.viaje = v
 
-		fv.fact_cliente = numeroFactrura
+		fv.fact_cliente = primernumeroFactura + "-" + numeroFactrura
 		fv.save()
 
 	data = {'return': 'success'}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
+@login_required
+def proformarClientes(request):
+	idViajes = request.POST.get('idViajes', False)
+
+	facturasViaje = FacturaViaje.objects.all().order_by('-prof_cliente')
+	if facturasViaje:
+		numeroProforma = facturasViaje[0].prof_cliente
+		numeroProforma = int(numeroProforma) + 1
+	else:
+		numeroProforma = 1
+
+	idsList = []
+	for ids in idViajes.split("-"):
+		if ids:
+			idsList.append(int(ids))
+
+	viajes = Viaje.objects.filter(id__in=idsList)
+	for v in viajes:
+		if v.facturaviaje_set.all():
+			fv = v.facturaviaje_set.all()[0]
+		else:
+			fv = FacturaViaje()
+			fv.viaje = v
+
+		fv.prof_cliente = numeroProforma
+		fv.save()
+
+	data = {'return': numeroProforma}
 	dump = json.dumps(data)
 	return HttpResponse(dump, content_type='application/json')
 
