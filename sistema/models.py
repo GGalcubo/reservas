@@ -581,7 +581,30 @@ class Viaje(models.Model):
                 retorno = retorno + iv.monto_s_iva
         return retorno
 
+    def getSubtotalCliente(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18:
+                retorno = retorno + iv.monto_s_iva
+        return retorno
+
+    def getTotalCliente(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18:
+                retorno = retorno + iv.monto_s_iva
+        return retorno
         
+    def getIvaCliente(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18 or iv.tipo_items_viaje.id == 1 or iv.tipo_items_viaje.id == 3 or iv.tipo_items_viaje.id == 4 or iv.tipo_items_viaje.id == 5 or iv.tipo_items_viaje.id == 6 or iv.tipo_items_viaje.id == 17:
+                retorno = retorno + iv.monto_iva
+        return retorno
+
+    def getFinalCliente(self):
+        retorno = self.getTotalCliente() + self.getIvaCliente()
+        return retorno
 
     class Meta:
         verbose_name_plural = "Viajes"
