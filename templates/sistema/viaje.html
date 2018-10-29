@@ -981,7 +981,7 @@
                                                         <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                                         <div class="portlet light ">
                                                             <div class="portlet-title">
-                                                                <a href="#add_pasajero_cliente" role="button" data-toggle="modal" class="btn green btn-outline pull-right">Agregar pasajero al Cliente</a>
+                                                                <!--<a href="#add_pasajero_cliente" role="button" data-toggle="modal" class="btn green btn-outline pull-right">Agregar pasajero al Cliente</a>-->
                                                                 <div class="caption font-blue">
                                                                     <i class="icon-user font-blue"></i>
                                                                     <span class="caption-subject bold uppercase">Pasajeros del viaje</span>
@@ -1021,7 +1021,7 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        {% for p in viaje.cliente.getPasajeros %}
+                                                                        {% for p in viaje.getPasajeros %}
                                                                         <tr>
                                                                             <td class="text-center"><a href="#" onclick="editarPasajero('{{ p.id }}','{{ viaje.cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}','{{ p.getObservacion }}');"><i class="fa fa-pencil"></i></a></td>
                                                                             <td>{{ p.nombre|default_if_none:"" }}</td>

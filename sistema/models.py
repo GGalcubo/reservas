@@ -581,7 +581,11 @@ class Viaje(models.Model):
                 retorno = retorno + iv.monto_s_iva
         return retorno
 
-        
+    def getPasajeros(self):
+        pasajeros = []
+        for pervi in self.viajepasajero_set.all():
+            pasajeros.append(pervi.pasajero)
+        return pasajeros
 
     class Meta:
         verbose_name_plural = "Viajes"
