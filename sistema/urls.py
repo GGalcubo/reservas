@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^editaViaje/$', editaViaje, name='editaViaje'),
     url(r'^guardarViaje/', guardarViaje, name='guardarViaje'),
     url(r'^guardarViajeAdjunto/', guardarViajeAdjunto, name='guardarViajeAdjunto'),
+    url(r'^guardaViajePasajeroPOST/', guardaViajePasajeroPOST, name='guardaViajePasajeroPOST'),
     url(r'^getViajesFuturosPorFecha/', getViajesFuturosPorFecha, name='getViajesFuturosPorFecha'),
     url(r'^getViajesEnProgresoPorFecha/', getViajesEnProgresoPorFecha, name='getViajesEnProgresoPorFecha'),
     url(r'^editEstadoViaje/', editEstadoViaje, name='editEstadoViaje'),

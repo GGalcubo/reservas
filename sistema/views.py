@@ -146,6 +146,19 @@ def guardarViaje(request):
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
 
+def guardaViajePasajeroPOST(request):
+
+    viaje                        = Viaje.objects.get(id=request.POST.get('viaje', False))
+    
+    viaje_pasajero               = ViajePasajero()    
+    viaje_pasajero.viaje         = viaje
+    viaje_pasajero.pasajero      = Persona.objects.get(id=request.POST.get('pasajero', False))
+    viaje_pasajero.pasajero_ppal = False
+    viaje_pasajero.save()
+
+    context = {'viaje':viaje}
+    return render(request, 'sistema/grillaPasajeros.html', context)
+
 def guardaViajePasajero(pasajero, principal, viaje):
     try:
         viaje_pasajero = ViajePasajero.objects.get(viaje=viaje, pasajero_ppal=principal)

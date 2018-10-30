@@ -398,6 +398,19 @@ $(document).ready( () => {
         },
     });
 
+    $('#tablaPasajeroViaje').DataTable({
+        responsive: true,
+        // scrollY: 200,
+        order: [[ 1, "asc" ]],
+        lengthMenu: [
+                        [ -1, 500, 100, 50, 25, 10 ],
+                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                    ],
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+        },
+    });
+
     $('#tablaHistorialViaje').DataTable({
         responsive: true,
         // scrollY: 200,
@@ -438,6 +451,20 @@ guardarSolicitante = () => {
             $('#telefonoSol').val("");
             $('#contacto').html(data);
             $('#add_solicitante').modal('toggle');
+        }
+    });
+}
+
+sumarPasajero = () => {
+    let url = "/sistema/guardaViajePasajeroPOST/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: {pasajero:$('#suma_pasajero').val(), viaje},
+        success: data => {
+            showMsg('Agregado con exito', 'success')
+            $('#grillaPasajero').html(data);
         }
     });
 }
@@ -533,6 +560,7 @@ updateFillsByCliente = (name, evt) => {
     $('#centro_costos').empty();
     $('#contacto').empty();
     $('#pasajero').empty();
+    $('#suma_pasajero').empty();
 
     $.each(cliente_selected.centro_costos, (i, value) => {
       $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
@@ -545,6 +573,7 @@ updateFillsByCliente = (name, evt) => {
     $.each(cliente_selected.personascliente, (i, value) => {
         if(value.tipo_persona == 'Pasajero'){
             $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
+            $('#suma_pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
         }
     });
 }

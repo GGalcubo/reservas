@@ -605,6 +605,7 @@ class Viaje(models.Model):
     def getFinalCliente(self):
         retorno = self.getTotalCliente() + self.getIvaCliente()
         return retorno
+        
     def getPasajeros(self):
         pasajeros = []
         for pervi in self.viajepasajero_set.all():

@@ -993,24 +993,22 @@
                                                                     <div class="col-md-8">
                                                                         <div class="form-group form-md-line-input flex">
                                                                             <div class="input-group-control" style="min-width: 200px; display: inline-block;">
-                                                                                <select class="form-control select2me" id="">
+                                                                                <select class="form-control select2me" id="suma_pasajero" name="suma_pasajero">
                                                                                     <option value="0"></option>
-                                                                                    <option value="1">José</option>
-                                                                                    <option value="2">María</option>
                                                                                 </select>
                                                                                 <label>Pasajero</label>
                                                                             </div>
                                                                             <span class="input-group-btn btn-right" style="display: inline-block;">
-                                                                                <button class="btn green-haze mg-l-10" type="button">Sumar pasajero al viaje</button>
+                                                                                <button class="btn green-haze mg-l-10"  onclick="sumarPasajero()" type="button">Sumar pasajero al viaje</button>
                                                                             </span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div id="grillaPasajero" >
-                                                                <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaPasajeroClientes">
+                                                                <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaPasajeroViaje">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th class="all">Editar</th>
+                                                                            <!--<th class="all">Editar</th>-->
                                                                             <th class="all">Nombre</th>
                                                                             <th class="all">Apellido</th>
                                                                             <th class="all">DNI</th>
@@ -1023,7 +1021,7 @@
                                                                     <tbody>
                                                                         {% for p in viaje.getPasajeros %}
                                                                         <tr>
-                                                                            <td class="text-center"><a href="#" onclick="editarPasajero('{{ p.id }}','{{ viaje.cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}','{{ p.getObservacion }}');"><i class="fa fa-pencil"></i></a></td>
+                                                                            <!--<td class="text-center"><a href="#" onclick="editarPasajero('{{ p.id }}','{{ viaje.cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}','{{ p.getObservacion }}');"><i class="fa fa-pencil"></i></a></td>-->
                                                                             <td>{{ p.nombre|default_if_none:"" }}</td>
                                                                             <td>{{ p.apellido|default_if_none:"" }}</td>
                                                                             <td>{{ p.documento|default_if_none:"" }}</td>
