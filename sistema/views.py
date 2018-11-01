@@ -1640,10 +1640,10 @@ def buscarFacturacionCliente(request):
 		for c in centroDeCosto.split(","):
 			ccLista.append(int(c))
 
-	ceList = []
-	if condEspecial != "null":
-		for c in condEspecial.split(","):
-			ceList.append(int(c))
+	# ceList = []
+	# if condEspecial != "null":
+	# 	for c in condEspecial.split(","):
+	# 		ceList.append(int(c))
 
 	facList = []
 	if facturas != "null":
@@ -1668,6 +1668,13 @@ def buscarFacturacionCliente(request):
 	if solList:
 		viajes = viajes.filter(cliente__personacliente__persona_id__in=solList)
 	
+	if condEspecial == "1":
+		q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() == 0]
+		viajes = viajes.filter(id__in=q_ids)
+	elif condEspecial == "2":
+		q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() > 0]
+		viajes = viajes.filter(id__in=q_ids)
+
 	context = {'viajes': viajes}
 	return render(request, 'sistema/grillaFacturacionCliente.html', context)
 

@@ -83,7 +83,8 @@
                                           <div class="row">
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="condEspecial" name="condEspecial" multiple="multiple">
+                                                <select class="form-control select2me" id="condEspecial" name="condEspecial">
+                                                  <option value="">Seleccionar Condicion Especial</option>
                                                   <option value="1">Sin estacionamiento</option>
                                                   <option value="2">Con estacionamiento</option>
                                                 </select>
@@ -405,7 +406,7 @@
                     });
 
                     $("#condEspecial").select2({
-                        placeholder: "Seleccionar Condición",
+                        placeholder: "Seleccionar Condición Especial",
                         allowClear: true,
                         dropdownAutoWidth : true,
                         width: 'auto'
@@ -429,15 +430,10 @@
 
                 function cambioCliente(){
                     cod = $("#cliente").val();
-                    if (cod == null || cod == ""){
-                        $('#centroDeCosto').val([]);
-                        return false;
-                    }else{
-                        cargarCentrosDeCosto(cod);
-                        cargarFactura(cod);
-                        cargarProforma(cod);
-                        cargarSolicitante(cod);
-                    }
+                    cargarCentrosDeCosto(cod);
+                    cargarFactura(cod);
+                    cargarProforma(cod);
+                    cargarSolicitante(cod);
                 }
 
                 function buscarFacturacion(){
