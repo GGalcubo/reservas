@@ -36,6 +36,7 @@ $(document).ready( () => {
         evt.params = {};
         evt.params.data = {};
         evt.params.data.id = cliente_id;
+        evt.params.data.no_borrar_pasajeros = true;
         updateFillsByCliente('', evt);
 
         evt.params.data.id = destino_desde_id;
@@ -624,10 +625,13 @@ updateFillsByCliente = (name, evt) => {
     $('#pasajero').empty();
     $('#suma_pasajero').empty();
 
-    if(es_nuevo != 1){
-        deleteAllViajePasajero();
-    }
+    if(evt.params.data.no_borrar_pasajeros){
 
+    }else{
+        if(es_nuevo != 1){
+            deleteAllViajePasajero();
+        }
+    }
     $.each(cliente.centro_costos, (i, value) => {
       $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
     });
