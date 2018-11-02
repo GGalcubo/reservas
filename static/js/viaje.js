@@ -200,7 +200,7 @@ $(document).ready( () => {
             obj.mensaje = 1;
         }
 
-        var url = "/sistema/guardarViaje/"; // the script where you handle the form input.
+        var url = "/sistema/guardarViaje/"; 
         $.ajax({
            type: "POST",
            url: url,
@@ -253,7 +253,7 @@ $(document).ready( () => {
         obj.idViaje           = viaje;
 
 
-        var url = "/sistema/guardarTrayecto/"; // the script where you handle the form input.
+        var url = "/sistema/guardarTrayecto/"; 
         $.ajax({
                type: "POST",
                url: url,
@@ -264,7 +264,7 @@ $(document).ready( () => {
                }
              });
 
-        e.preventDefault(); // avoid to execute the actual submit of the form.
+        e.preventDefault(); 
     });
 
     $(document).on( "click", '.delete_button', e => {
@@ -272,12 +272,12 @@ $(document).ready( () => {
         obj.id                = $(this).data('id');
         obj.idViaje           = viaje;
 
-        var url = "/sistema/borrarTrayecto/"; // the script where you handle the form input.
+        var url = "/sistema/borrarTrayecto/"; 
         $.ajax({
                type: "POST",
                url: url,
                headers: {'X-CSRFToken': csrf_token},
-               data: obj, // serializes the form's elements.
+               data: obj, 
                success: data => {
                    if(data.error == '1'){
                       showMsg(data.msg, 'error');
@@ -354,6 +354,8 @@ $(document).ready( () => {
 
         //$(".modal-title").text('Editar Tramo');
     });
+
+    $( "#pasajero" ).change(updateFillsByPasajero);
 
     $('#tablaTramos').DataTable({
         responsive: true,
@@ -467,6 +469,70 @@ sumarPasajero = () => {
             $('#grillaPasajero').html(data);
         }
     });
+    
+}
+
+getViajePasajeros = () => {
+    let url       = "/sistema/getViajePasajeros/";
+    let pasajeros = {};
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: {viaje},
+        success: data => {
+            //console.table(data);
+            pasajeros = data;
+        }
+    });
+    return pasajeros;
+}
+
+updateFillsByPasajero = () =>{
+    $('#suma_pasajero').empty();
+    let pasajeros = getViajePasajeros;
+    $.each(cliente.personascliente, (i, persona) => {
+        if(persona.tipo_persona == 'Pasajero'){
+            if(persona.id != $('#pasajero').val()){
+                $.each(pasajeros, (k, pasajero) => {
+                    if(){
+                        
+                    }
+                }
+                $('#suma_pasajero').append($('<option>').text(persona.nombre).attr('value', persona.id));
+            }
+        }
+    });
+}
+
+deleteViajePasajero = pasajero_id =>{
+    let url       = "/sistema/deleteViajePasajero/";
+    let pasajeros = {};
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: {pasajero:pasajero_id,viaje},
+        success: data => {
+            //console.table(data);
+            $('#grillaPasajero').html(data);
+        }
+    });
+}
+
+deleteAllViajePasajero = () =>{
+    let url       = "/sistema/deleteAllViajePasajero/";
+    let pasajeros = {};
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: {viaje},
+        success: data => {
+            //console.table(data);
+            $('#grillaPasajero').html(data);
+        }
+    });
 }
 
  /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
@@ -540,42 +606,47 @@ guardarPasajero = () => {
 };
 
 updateFillsByCliente = (name, evt) => {
-    var option_selected = evt.params.data.id;
-    var cliente_selected;
+    cliente = searchCliente(evt.params.data.id);
 
-    $.each(clientes, (i, value) => {
-        if(value.id == option_selected){
-            cliente_selected = value;
-        }
-    });
-
-    $('#id_cliente').select2('val',cliente_selected.id);
-    $('#idClienteEnCC').val(cliente_selected.id);
-    $('#idClientePasajero').val(cliente_selected.id);
-    $('#id_cliente').val(cliente_selected.id).trigger("change");
-    $('#cliente_direccion').val(cliente_selected.direccion);
-    $('#cliente_categoria').val(cliente_selected.categoria_id);
-    $('#cliente_tel').val(cliente_selected.telefono);
+    $('#id_cliente').select2('val',cliente.id);
+    $('#idClienteEnCC').val(cliente.id);
+    $('#idClientePasajero').val(cliente.id);
+    $('#id_cliente').val(cliente.id).trigger("change");
+    $('#cliente_direccion').val(cliente.direccion);
+    $('#cliente_categoria').val(cliente.categoria_id);
+    $('#cliente_tel').val(cliente.telefono);
 
     $('#centro_costos').empty();
     $('#contacto').empty();
     $('#pasajero').empty();
     $('#suma_pasajero').empty();
 
-    $.each(cliente_selected.centro_costos, (i, value) => {
+    $.each(cliente.centro_costos, (i, value) => {
       $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
     });
-    $.each(cliente_selected.personascliente, (i, value) => {
+    $.each(cliente.personascliente, (i, value) => {
         if(value.tipo_persona == 'Solicitante'){
             $('#contacto').append($('<option>').text(value.nombre).attr('value', value.id));
         }
     });
-    $.each(cliente_selected.personascliente, (i, value) => {
+    $.each(cliente.personascliente, (i, value) => {
         if(value.tipo_persona == 'Pasajero'){
             $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
-            $('#suma_pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
+            if(value.id != $('#pasajero').val()){                
+                $('#suma_pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
+            }
         }
     });
+}
+
+searchCliente = (_cliente_id) => {
+    let cliente = {};
+    $.each(clientes, (i, value) => {
+        if(value.id == _cliente_id){
+            cliente = value;
+        }
+    }); 
+    return cliente;
 }
 
 updateFillsByUnidad = (name, evt) => {

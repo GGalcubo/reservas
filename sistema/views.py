@@ -128,7 +128,7 @@ def guardarViaje(request):
 
     viaje.save()
 
-    guardaViajePasajero(pasajero, True, viaje)
+    #guardaViajePasajero(pasajero, True, viaje)
     guardaItemViaje(request.POST.get('importe_efectivo', ''), 12, 1, viaje)
     guardaItemViaje(request.POST.get('otros', ''), 16, 1, viaje)
     guardaItemViaje(request.POST.get('peaje', ''), 15, 1, viaje)
@@ -147,9 +147,7 @@ def guardarViaje(request):
     return HttpResponse(dump, content_type='application/json')
 
 def guardaViajePasajeroPOST(request):
-
-    viaje                        = Viaje.objects.get(id=request.POST.get('viaje', False))
-    
+    viaje                        = Viaje.objects.get(id=request.POST.get('viaje', False))    
     viaje_pasajero               = ViajePasajero()    
     viaje_pasajero.viaje         = viaje
     viaje_pasajero.pasajero      = Persona.objects.get(id=request.POST.get('pasajero', False))
@@ -157,7 +155,26 @@ def guardaViajePasajeroPOST(request):
     viaje_pasajero.save()
 
     context = {'viaje':viaje}
-    return render(request, 'sistema/grillaPasajeros.html', context)
+    return render(request, 'sistema/grillaPasajerosViaje.html', context)
+
+def getViajePasajeros(request):
+    viaje = Viaje.objects.get(id=request.POST.get('viaje', False))
+
+    dump = serializers.serialize('json', viaje.getPasajeros()) 
+    return HttpResponse(dump, content_type='application/json')
+
+def deleteViajePasajero(request):
+    ViajePasajero.objects.filter(id=request.POST.get('pasajero', False)).delete()
+
+    context = {'viaje':viaje}
+    return render(request, 'sistema/grillaPasajerosViaje.html', context)
+
+def deleteAllViajePasajero(request):
+    viaje = Viaje.objects.get(id=request.POST.get('viaje', False))
+    ViajePasajero.objects.filter(viaje=viaje).delete()
+
+    context = {'viaje':viaje}
+    return render(request, 'sistema/grillaPasajerosViaje.html', context)
 
 def guardaViajePasajero(pasajero, principal, viaje):
     try:
