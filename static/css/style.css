@@ -270,7 +270,13 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
 
   body#operaciones .page-sidebar-wrapper,
   body#asignaciones .page-sidebar-wrapper {
-    display: block !important; }
+    display: block !important;
+    width: 200px;
+    overflow: hidden;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    z-index: 1; }
 
   body .page-header.navbar .menu-toggler.responsive-toggler {
     display: none !important; }
@@ -278,6 +284,10 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
   body#operaciones .page-header.navbar .menu-toggler.responsive-toggler,
   body#asignaciones .page-header.navbar .menu-toggler.responsive-toggler {
     display: inline-block !important; } }
+@media (max-width: 481px) {
+  body#operaciones .page-sidebar-wrapper,
+  body#asignaciones .page-sidebar-wrapper {
+    top: -11px; } }
 /* PARA ESCONDER LA BARRA LATERAL EN DESKTOP */
 @media (min-width: 992px) {
   body.page-sidebar-reversed .page-content-wrapper .page-content {

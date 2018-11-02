@@ -377,6 +377,12 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   body#asignaciones {
     .page-sidebar-wrapper {
       display: block !important;
+      width: 200px;
+      overflow: hidden;
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      z-index: 1;
     }
   }
   body .page-header.navbar .menu-toggler.responsive-toggler {
@@ -386,6 +392,15 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   body#asignaciones {
     .page-header.navbar .menu-toggler.responsive-toggler {
       display: inline-block !important;
+    }
+  }
+}
+
+@media (max-width: 481px) {
+  body#operaciones,
+  body#asignaciones {
+    .page-sidebar-wrapper {
+      top: -11px;
     }
   }
 }
