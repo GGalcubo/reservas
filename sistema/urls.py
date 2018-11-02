@@ -76,12 +76,15 @@ urlpatterns = [
     url(r'^facturarAdelantos/', facturarAdelantos, name='facturarAdelantos'),
     url(r'^listadoFactClientes/', listadoFactClientes, name='listadoFactClientes'),
     url(r'^buscarFacturacionCliente/', buscarFacturacionCliente, name='buscarFacturacionCliente'),
+    url(r'^buscarFacturacionProveedor/', buscarFacturacionProveedor, name='buscarFacturacionProveedor'),
     url(r'^facturarClientes/', facturarClientes, name='facturarClientes'),
     url(r'^proformarClientes/', proformarClientes, name='proformarClientes'),
     url(r'^listadoFactProvedores/', listadoFactProvedores, name='listadoFactProvedores'),
     url(r'^cargarCentrosDeCosto/', cargarCentrosDeCosto, name='cargarCentrosDeCosto'),
     url(r'^cargarFactura/', cargarFactura, name='cargarFactura'),
+    url(r'^cargarFacturaUnidad/', cargarFacturaUnidad, name='cargarFacturaUnidad'),
     url(r'^cargarProforma/', cargarProforma, name='cargarProforma'),
-    url(r'^cargarSolicitante/', cargarSolicitantes, name='cargarSolicitantes')
+    url(r'^cargarSolicitante/', cargarSolicitantes, name='cargarSolicitantes'),
+    url(r'^cargarProveedores/', cargarProveedores, name='cargarProveedores')
     #url(r'^$', 'sistema.views.index', name='index'),
 ]

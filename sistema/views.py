@@ -1615,6 +1615,20 @@ def cargarFactura(request):
 	return render(request, 'sistema/selectFacturas.html', context)
 
 @login_required
+def cargarFacturaUnidad(request):
+	idUnidad = request.GET.get('idUnidad', False)
+	facturas = []
+	if idUnidad:
+		viajes = FacturaViaje.objects.filter(viaje__cliente_id=idCliente).order_by('fact_proveedor')
+		for v in viajes:
+			if v.fact_proveedor not in facturas:
+				if v.fact_proveedor:
+					facturas.append(v.fact_proveedor)
+
+	context = {'facturas': facturas}
+	return render(request, 'sistema/selectFacturas.html', context)
+
+@login_required
 def cargarProforma(request):
 	idCliente = request.GET.get('idCliente', False)
 	proformas = []
@@ -1629,6 +1643,19 @@ def cargarProforma(request):
 
 	context = {'proformas': proformas}
 	return render(request, 'sistema/selectProformas.html', context)
+
+@login_required
+def cargarProveedores(request):
+	idUnidad = request.GET.get('idUnidad', False)
+	proveedores = []
+	if idUnidad:
+		unidad = Unidad.objects.get(id=idUnidad)
+		if unidad.chofer:
+			proveedores.append(unidad.chofer)
+		if unidad.owner:
+			proveedores.append(unidad.owner)
+	context = {'proveedores': proveedores}
+	return render(request, 'sistema/selectProveedores.html', context)
 
 @login_required
 def buscarFacturacionCliente(request):
@@ -1655,12 +1682,12 @@ def buscarFacturacionCliente(request):
 	ccList = []
 	if centroDeCosto != "null":
 		for c in centroDeCosto.split(","):
-			ccLista.append(int(c))
+			ccList.append(int(c))
 
-	ceList = []
-	if condEspecial != "null":
-		for c in condEspecial.split(","):
-			ceList.append(int(c))
+	# ceList = []
+	# if condEspecial != "null":
+	# 	for c in condEspecial.split(","):
+	# 		ceList.append(int(c))
 
 	facList = []
 	if facturas != "null":
@@ -1685,8 +1712,20 @@ def buscarFacturacionCliente(request):
 	if solList:
 		viajes = viajes.filter(cliente__personacliente__persona_id__in=solList)
 	
+	if condEspecial == "1":
+		q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() == 0]
+		viajes = viajes.filter(id__in=q_ids)
+	elif condEspecial == "2":
+		q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() > 0]
+		viajes = viajes.filter(id__in=q_ids)
+
 	context = {'viajes': viajes}
 	return render(request, 'sistema/grillaFacturacionCliente.html', context)
+
+@login_required
+def buscarFacturacionProveedor(request):
+	context = {'viajes': viajes}
+	return render(request, 'sistema/grillaFacturacioProveedores.html', context)
 
 @login_required
 def facturarClientes(request):

@@ -16,7 +16,7 @@
             <th class="all">Origen</th>
             <th class="all">Destino</th>
             <th class="all">Subtotal</th>
-            <th class="all">P. Eft</th>
+            <th class="all">P. Efect</th>
             <th class="all">T. Espera</th>
             <th class="all">Espera</th>
             <th class="all">Bilingue</th>
@@ -25,7 +25,7 @@
             <th class="all">Estación</th>
             <th class="all">Otros</th>
             <th class="all">Total</th>
-            <th class="all">IVA</th>
+            <th class="all">I.V.A.</th>
             <th class="all">Final</th>
             <th class="all">ID</th>
         </tr>
@@ -35,10 +35,10 @@
         <tr id="rowid{{ v.id }}">
             <td></td>
             <td>{{v.getFecha}}</td>
-            <td>Vip</td>
+            <td>{{v.categoria_viaje}}</td>
             <td>{{v.hora}}</td>
             <td>{{v.unidad.identificacion}}</td>
-            <td class="text-center"><a href="#">{{v.id}}</a></td>
+            <td class="text-center"><a href="/sistema/editaViaje/?idViaje={{v.id}}">{{v.id}}</a></td>
             <td>{{v.nro_aux|default_if_none:""}}</td>
             <td>{{v.getProforma}}</td>
             <td>{{v.getFacturaCliente}}</td>
@@ -77,6 +77,8 @@
             <th></th>
             <th></th>
             <th></th>
+            <th></th>
+            <th></th>
         </tr>
     </tfoot>
     <!-- HASTA ACA -->
@@ -104,7 +106,7 @@
    
               // Total over all pages
               total = api
-                  .column( 4 )
+                  .column( 14 )
                   .data()
                   .reduce( function (a, b) {
                       return intVal(a) + intVal(b);
@@ -112,14 +114,14 @@
    
               // Total over this page
               pageTotal = api
-                  .column( 4, { page: 'current'} )
+                  .column( 14, { page: 'current'} )
                   .data()
                   .reduce( function (a, b) {
                       return intVal(a) + intVal(b);
                   }, 0 );
    
               // Update footer
-              $( api.column( 4 ).footer() ).html(
+              $( api.column( 14 ).footer() ).html(
                   '$'+pageTotal +' ( $'+ total +' total)'
               );
           },
@@ -164,10 +166,33 @@
             buttons: [
                 'selectAll',
                 'selectNone',
-                'copy',
-                'excel',
-                'pdf',
-                'print'
+                {
+                    extend: 'copyHtml5',
+                    exportOptions: {
+                        columns: ':visible:not(:eq(0))'
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    exportOptions: {
+                        columns: ':visible:not(:eq(0))'
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'TABLOID',
+                    customize: function(doc) {
+                      doc.defaultStyle.fontSize = 8;
+                   }  
+                },
+                {
+                    extend: 'print',
+                    messageTop: 'Facturación Provedores',
+                    exportOptions: {
+                        columns: ':visible:not(:eq(0))'
+                    }
+                }
             ],
             lengthMenu: [
                             [ 100, 50, 25, 10, -1 ],

@@ -63,11 +63,9 @@
                                               </div>
                                             </div>
                                             <div class="col-sm-4">
-                                              <div class="form-group form-md-line-input">
+                                              <div class="form-group form-md-line-input"  id="selectProveedores">
                                                 <select class="form-control select2me" id="provedor" name="provedor">
-                                                  <option value=""></option>
-                                                  <option value="1">Juan José Pizurno</option>
-                                                  <option value="2">Fabio Alberto</option>
+                                                  <option value="">Seleccionar Proveedor</option>
                                                 </select>
                                                 <label for="provedor">Provedor</label>
                                               </div>
@@ -75,10 +73,9 @@
                                           </div>
                                           <div class="row">
                                             <div class="col-sm-4">
-                                              <div class="form-group form-md-line-input">
+                                              <div class="form-group form-md-line-input" id="selectFactura">
                                                 <select class="form-control select2me" id="factura" name="factura" multiple="multiple">
-                                                  <option value="1">0001-00000123</option>
-                                                  <option value="2">0001-00000456</option>
+                                                    <option value=""></option>
                                                 </select>
                                                 <label for="factura">Factura</label>
                                               </div>
@@ -86,8 +83,9 @@
                                             <div class="col-sm-4">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="condEspecial" name="condEspecial" multiple="multiple">
-                                                  <option value="1">Sin estacionamiento</option>
-                                                  <option value="2">Con espera y maletas</option>
+                                                    <option value="">Seleccionar Condicion Especial</option>
+                                                    <option value="1">Sin estacionamiento</option>
+                                                    <option value="2">Con estacionamiento</option>
                                                 </select>
                                                 <label for="condEspecial">Cond. Especial</label>
                                               </div>
@@ -95,8 +93,8 @@
                                           </div>
                                       </div>
                                       <div class="form-actions noborder flex flex-j-between">
-                                          <button type="button" class="btn green">Buscar</button>
-                                          <button type="button" class="btn blue">Resetear filtros</button>
+                                          <button type="button" onclick="buscarFacturacion();"  class="btn green">Buscar</button>
+                                          <button type="button" onclick="resetFiltros();" class="btn blue">Resetear filtros</button>
                                       </div>
                                   </form>
                               </div>
@@ -104,7 +102,7 @@
                               <div class="flex flex-j-end">
                                   <button type="button" class="btn green mg-b-5">Facturar Seleccionados</button>
                               </div>
-                              <div class="portlet-body">
+                              <div class="portlet-body" id="grillaFacturacion">
                                   <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoFactProvedores">
                                       <thead>
                                           <tr>
@@ -116,7 +114,7 @@
                                               <th class="all">Origen</th>
                                               <th class="all">Destino</th>
                                               <th class="all">Subtotal</th>
-                                              <th class="all">P. Eft</th>
+                                              <th class="all">P. Efect</th>
                                               <th class="all">T. Espera</th>
                                               <th class="all">Espera</th>
                                               <th class="all">Bilingue</th>
@@ -125,7 +123,7 @@
                                               <th class="all">Estación</th>
                                               <th class="all">Otros</th>
                                               <th class="all">Total</th>
-                                              <th class="all">IVA</th>
+                                              <th class="all">I.V.A.</th>
                                               <th class="all">Final</th>
                                               <th class="all">Cobrado</th>
                                               <th class="all">Pagar</th>
@@ -157,78 +155,6 @@
                                               <td>$1.904,00</td>
                                               <td>000100000123</td>
                                           </tr>
-                                          <tr>
-                                              <td></td>
-                                              <td>14/10/2018</td>
-                                              <td>Vip</td>
-                                              <td>15:30</td>
-                                              <td>Guido Su</td>
-                                              <td><span class="label label-sm label-info">Centro</span></td>
-                                              <td><span class="label label-sm label-primary">Aeroparque</span></td>
-                                              <td>$1.500,00</td>
-                                              <td>$500,00</td>
-                                              <td>30</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$2.400,00</td>
-                                              <td>$504,00</td>
-                                              <td>$2.904,00</td>
-                                              <td>$1.000,00</td>
-                                              <td>$1.904,00</td>
-                                              <td>000100000123</td>
-                                          </tr>
-                                          <tr>
-                                              <td></td>
-                                              <td>14/10/2018</td>
-                                              <td>Vip</td>
-                                              <td>15:30</td>
-                                              <td>Guido Su</td>
-                                              <td><span class="label label-sm label-info">Centro</span></td>
-                                              <td><span class="label label-sm label-primary">Aeroparque</span></td>
-                                              <td>$1.500,00</td>
-                                              <td>$500,00</td>
-                                              <td>30</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$150,00</td>
-                                              <td>$2.400,00</td>
-                                              <td>$504,00</td>
-                                              <td>$2.904,00</td>
-                                              <td>$1.000,00</td>
-                                              <td>$1.904,00</td>
-                                              <td>000100000123</td>
-                                          </tr>
-                                          <tr>
-                                              <td></td>
-                                              <td>14/10/2018</td>
-                                              <td>Vip</td>
-                                              <td>15:30</td>
-                                              <td>Guido Su</td>
-                                              <td><span class="label label-sm label-info">Centro</span></td>
-                                              <td><span class="label label-sm label-primary">Aeroparque</span></td>
-                                              <td>$150000</td>
-                                              <td>$50000</td>
-                                              <td>30</td>
-                                              <td>$15000</td>
-                                              <td>$15000</td>
-                                              <td>$15000</td>
-                                              <td>$15000</td>
-                                              <td>$15000</td>
-                                              <td>$15000</td>
-                                              <td>$240000</td>
-                                              <td>$50400</td>
-                                              <td>$290400</td>
-                                              <td>$100000</td>
-                                              <td>$190400</td>
-                                              <td>000100000123</td>
-                                          </tr>
                                       </tbody>
                                       <!-- ESTO SE AGREGO PARA LA FILA DE TOTAL -->
                                       <tfoot>
@@ -257,6 +183,42 @@
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
                     </div>
+
+                    <form role="form" method="post" id="facturarProveedores" action="">
+                    <input type="hidden" class="form-control" id="idViajes" name="idViajes">
+                    <div id="facturarProveedoresModal" class="modal fade" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title" style="color:#888;">Facturar Proveedores</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                <input type="text" class="form-control" id="primernumeroFactura" name="primernumeroFactura" onchange="completarPrimerNumeroFactura();" maxlength="4">
+                                                <label for="primernumeroFactura">Primer parte (0001).</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                <input type="text" class="form-control" id="numeroFactura" name="numeroFactura" maxlength="8" onchange="completarNumeroFactura();">
+                                                <label for="numeroFactura">Numero de Factura (00000001)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer noborder flex flex-j-between">
+                                <button type="button" onclick="guardarNumeroFactura();" class="btn green">Guardar</button>
+                                <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </form>
 
                 </div>
                 <!-- END CONTENT BODY -->
@@ -292,7 +254,7 @@
                
                           // Total over all pages
                           total = api
-                              .column( 4 )
+                              .column( 7 )
                               .data()
                               .reduce( function (a, b) {
                                   return intVal(a) + intVal(b);
@@ -300,14 +262,14 @@
                
                           // Total over this page
                           pageTotal = api
-                              .column( 4, { page: 'current'} )
+                              .column( 7, { page: 'current'} )
                               .data()
                               .reduce( function (a, b) {
                                   return intVal(a) + intVal(b);
                               }, 0 );
                
                           // Update footer
-                          $( api.column( 4 ).footer() ).html(
+                          $( api.column( 7 ).footer() ).html(
                               '$'+pageTotal +' ( $'+ total +' total)'
                           );
                       },
@@ -362,7 +324,10 @@
                             {
                                 extend: 'pdfHtml5',
                                 orientation: 'landscape',
-                                pageSize: 'TABLOID'
+                                pageSize: 'TABLOID',
+                                customize: function(doc) {
+                                  doc.defaultStyle.fontSize = 8;
+                               }
                             },
                             {
                                 extend: 'print',
@@ -432,6 +397,127 @@
                     });
 
                 });
+
+                function resetFiltros(){
+                    $('#desde').val("");
+                    $('#hasta').val("");
+                    var table = $('#tablaListadoFactProvedores').DataTable();
+                    table.clear().draw();
+                    $("#unidad").val('').trigger('change')
+                    cambioUnidad();
+                }
+
+                function cambioUnidad(){
+                    idUnidad = $('#unidad').val();
+                    cargarProveedores(idUnidad)
+                    cargarFactura(idUnidad);
+                }
+
+                function cargarProveedores(idUnidad){
+                    var url = "/sistema/cargarProveedores/?idUnidad="+idUnidad;
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        success: function(data){
+                            $('#selectProveedores').html(data);
+                        }
+                    });
+                }
+
+                function cargarFactura(idUnidad){
+                    var url = "/sistema/cargarFacturaUnidad/?idUnidad="+idUnidad;
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        success: function(data){
+                            $('#selectFactura').html(data);
+                        }
+                    });
+                }
+
+                function openFacturar(){
+                    if (obtenerRowChecked() == ""){
+                        alert("Debe seleccionar Viajes para poder facturar.")
+                    }else{
+                        $('#numeroFactura').val("");
+                        $('#facturarClientesModal').modal('toggle');
+                    }
+                }
+
+                function obtenerRowChecked(){
+                    var table = $('#tablaListadoFactProvedores').DataTable();
+                    var selectedRows = table.rows({ selected: true }).ids(true);
+                    var ids = "";
+                    for (var i = 0; i < selectedRows.length; i++) {
+                        ids = ids + selectedRows[i].replace("#rowid","") + "-"
+                    }
+                    $("#idViajes").val(ids);
+                    return ids;
+                }
+
+                function completarPrimerNumeroFactura(){
+                    var size = $("#primernumeroFactura").val().length;
+                    var poner = 4 - parseInt(size);
+                    var i;
+                    var texto = "";
+                    for (i = 0; i < poner; i++) { 
+                        texto += "0";
+                    }
+                    $("#primernumeroFactura").val(texto+$("#primernumeroFactura").val());
+                }
+
+                function completarNumeroFactura(){
+                    var size = $("#numeroFactura").val().length;
+                    var poner = 8 - parseInt(size);
+                    var i;
+                    var texto = "";
+                    for (i = 0; i < poner; i++) { 
+                        texto += "0";
+                    }
+                    $("#numeroFactura").val(texto+$("#numeroFactura").val());
+                }
+
+                function buscarFacturacion(){
+                    if ($("#unidad").val() == ""){
+                        alert("Debe seleccionar una Unidad.");
+                        return false;
+                    }
+
+                    if ($('#desde').val() == ""){
+                        alert("El campo Fecha desde es obligatorio.")
+                        return false;
+                    }
+                    if ($('#hasta').val() == ""){
+                        alert("El campo Fecha hasta es obligatorio.")
+                        return false;
+                    }
+
+                    desde = $('#desde').val().substring(6,10) + $('#desde').val().substring(3,5) + $('#desde').val().substring(0,2);
+                    hasta = $('#hasta').val().substring(6,10) + $('#hasta').val().substring(3,5) + $('#hasta').val().substring(0,2);
+
+                    if (desde.localeCompare(hasta) == 1 ){
+                        alert("La fecha desde no puede ser mayor a la fecha hasta.")
+                        return false;
+                    }
+
+                    var params = "condEspecial="+$("#condEspecial").val();
+                    params += "&facturas="+$("#factura").val();
+                    params += "&proveedor="+$("#proveedor").val();
+                    params += "&unidad="+$("#unidad").val();
+                    params += "&desde="+$("#desde").val();
+                    params += "&hasta="+$("#hasta").val();
+
+                    var url = "/sistema/buscarFacturacionProveedor/";
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: params,
+                        success: function(data){
+                            $('#grillaFacturacion').html(data);
+                        }
+                    });
+                }
 
             </script>
 

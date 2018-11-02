@@ -1,0 +1,17 @@
+<select class="form-control select2me" id="provedor" name="provedor">
+    <option value="">Seleccionar Proveedor</option>
+    {% for p in proveedores %}
+      <option value="{{p.id}}">{{p.nombre}} {{p.apellido}}</option>
+    {% endfor %}
+</select>
+<label for="provedor">Provedor</label>
+<script>
+    $(document).ready(function(){
+        $("#provedor").select2({
+            placeholder: "Seleccionar Provedor",
+            allowClear: true,
+            dropdownAutoWidth : true,
+            width: 'auto'
+        });
+    });
+</script> 

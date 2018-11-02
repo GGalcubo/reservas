@@ -83,7 +83,8 @@
                                           <div class="row">
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="condEspecial" name="condEspecial" multiple="multiple">
+                                                <select class="form-control select2me" id="condEspecial" name="condEspecial">
+                                                  <option value="">Seleccionar Condicion Especial</option>
                                                   <option value="1">Sin estacionamiento</option>
                                                   <option value="2">Con estacionamiento</option>
                                                 </select>
@@ -118,7 +119,7 @@
                                       </div>
                                       <div class="form-actions noborder flex flex-j-between">
                                           <button type="button" onclick="buscarFacturacion();" class="btn green">Buscar</button>
-                                          <button type="button" class="btn blue">Resetear filtros</button>
+                                          <button type="button" onclick="resetFiltros();" class="btn blue">Resetear filtros</button>
                                       </div>
                                   </form>
                               </div>
@@ -146,7 +147,7 @@
                                               <th class="all">Origen</th>
                                               <th class="all">Destino</th>
                                               <th class="all">Subtotal</th>
-                                              <th class="all">P. Eft</th>
+                                              <th class="all">P. Efect</th>
                                               <th class="all">T. Espera</th>
                                               <th class="all">Espera</th>
                                               <th class="all">Bilingue</th>
@@ -155,7 +156,7 @@
                                               <th class="all">Estación</th>
                                               <th class="all">Otros</th>
                                               <th class="all">Total</th>
-                                              <th class="all">IVA</th>
+                                              <th class="all">I.V.A.</th>
                                               <th class="all">Final</th>
                                               <th class="all">ID</th>
                                           </tr>
@@ -335,7 +336,10 @@
                             {
                                 extend: 'pdfHtml5',
                                 orientation: 'landscape',
-                                pageSize: 'TABLOID'
+                                pageSize: 'TABLOID',
+                                customize: function(doc) {
+                                  doc.defaultStyle.fontSize = 8;
+                               }
                             },
                             {
                                 extend: 'print',
@@ -405,7 +409,7 @@
                     });
 
                     $("#condEspecial").select2({
-                        placeholder: "Seleccionar Condición",
+                        placeholder: "Seleccionar Condición Especial",
                         allowClear: true,
                         dropdownAutoWidth : true,
                         width: 'auto'
@@ -429,15 +433,10 @@
 
                 function cambioCliente(){
                     cod = $("#cliente").val();
-                    if (cod == null || cod == ""){
-                        $('#centroDeCosto').val([]);
-                        return false;
-                    }else{
-                        cargarCentrosDeCosto(cod);
-                        cargarFactura(cod);
-                        cargarProforma(cod);
-                        cargarSolicitante(cod);
-                    }
+                    cargarCentrosDeCosto(cod);
+                    cargarFactura(cod);
+                    cargarProforma(cod);
+                    cargarSolicitante(cod);
                 }
 
                 function buscarFacturacion(){
