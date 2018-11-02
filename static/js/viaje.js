@@ -624,7 +624,9 @@ updateFillsByCliente = (name, evt) => {
     $('#pasajero').empty();
     $('#suma_pasajero').empty();
 
-    deleteAllViajePasajero();
+    if(es_nuevo != 1){
+        deleteAllViajePasajero();
+    }
 
     $.each(cliente.centro_costos, (i, value) => {
       $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
