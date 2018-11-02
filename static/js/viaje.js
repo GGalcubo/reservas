@@ -495,10 +495,10 @@ updateFillsByPasajero = () =>{
         if(persona.tipo_persona == 'Pasajero'){
             if(persona.id != $('#pasajero').val()){
                 $.each(pasajeros, (k, pasajero) => {
-                    if(){
+                    /*if(){
                         
-                    }
-                }
+                    }*/
+                };
                 $('#suma_pasajero').append($('<option>').text(persona.nombre).attr('value', persona.id));
             }
         }
