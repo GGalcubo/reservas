@@ -141,7 +141,9 @@ table.dataTable thead td {
 
 /* PARA EL SELECCIONAR TODAS DE ADELANTOS */
 table.dataTable td.select-checkbox:before {
-  margin-top: -9px; }
+  margin-top: unset;
+  position: absolute;
+  top: 35%; }
 
 table.dataTable tr.selected td.select-checkbox:after {
   margin-top: -14px; }

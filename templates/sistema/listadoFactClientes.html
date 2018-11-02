@@ -147,7 +147,7 @@
                                               <th class="all">Origen</th>
                                               <th class="all">Destino</th>
                                               <th class="all">Subtotal</th>
-                                              <th class="all">P. Eft</th>
+                                              <th class="all">P. Efect</th>
                                               <th class="all">T. Espera</th>
                                               <th class="all">Espera</th>
                                               <th class="all">Bilingue</th>
@@ -156,7 +156,7 @@
                                               <th class="all">Estación</th>
                                               <th class="all">Otros</th>
                                               <th class="all">Total</th>
-                                              <th class="all">IVA</th>
+                                              <th class="all">I.V.A.</th>
                                               <th class="all">Final</th>
                                               <th class="all">ID</th>
                                           </tr>
@@ -336,7 +336,10 @@
                             {
                                 extend: 'pdfHtml5',
                                 orientation: 'landscape',
-                                pageSize: 'TABLOID'
+                                pageSize: 'TABLOID',
+                                customize: function(doc) {
+                                  doc.defaultStyle.fontSize = 8;
+                               }
                             },
                             {
                                 extend: 'print',

@@ -182,7 +182,9 @@ table.dataTable thead td {/* Mas angostas las rows */
 //   text-shadow: rgb(176, 190, 217) 1px 1px, rgb(176, 190, 217) -1px -1px, rgb(176, 190, 217) 1px -1px, rgb(176, 190, 217) -1px 1px;
 // }
 table.dataTable td.select-checkbox:before {
-  margin-top: -9px;
+  margin-top: unset;
+  position: absolute;
+  top: 35%;
 }
 table.dataTable tr.selected td.select-checkbox:after {
   margin-top: -14px;

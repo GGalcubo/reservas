@@ -16,7 +16,7 @@
             <th class="all">Origen</th>
             <th class="all">Destino</th>
             <th class="all">Subtotal</th>
-            <th class="all">P. Eft</th>
+            <th class="all">P. Efect</th>
             <th class="all">T. Espera</th>
             <th class="all">Espera</th>
             <th class="all">Bilingue</th>
@@ -25,7 +25,7 @@
             <th class="all">Estación</th>
             <th class="all">Otros</th>
             <th class="all">Total</th>
-            <th class="all">IVA</th>
+            <th class="all">I.V.A.</th>
             <th class="all">Final</th>
             <th class="all">ID</th>
         </tr>
@@ -67,6 +67,8 @@
     <tfoot>
         <tr>
             <th colspan="15" style="text-align:right">Total:</th>
+            <th></th>
+            <th></th>
             <th></th>
             <th></th>
             <th></th>
@@ -164,10 +166,33 @@
             buttons: [
                 'selectAll',
                 'selectNone',
-                'copy',
-                'excel',
-                'pdf',
-                'print'
+                {
+                    extend: 'copyHtml5',
+                    exportOptions: {
+                        columns: ':visible:not(:eq(0))'
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    exportOptions: {
+                        columns: ':visible:not(:eq(0))'
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'TABLOID',
+                    customize: function(doc) {
+                      doc.defaultStyle.fontSize = 8;
+                   }  
+                },
+                {
+                    extend: 'print',
+                    messageTop: 'Facturación Provedores',
+                    exportOptions: {
+                        columns: ':visible:not(:eq(0))'
+                    }
+                }
             ],
             lengthMenu: [
                             [ 100, 50, 25, 10, -1 ],
