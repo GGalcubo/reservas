@@ -577,7 +577,7 @@ class Viaje(models.Model):
     def getMontoPeftCliente(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 17:
+            if iv.tipo_items_viaje.id == 12:
                 retorno = retorno + iv.monto_s_iva
         return retorno
 
@@ -591,15 +591,16 @@ class Viaje(models.Model):
     def getTotalCliente(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18:
+            if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18 or iv.tipo_items_viaje.id == 1 or iv.tipo_items_viaje.id == 3 or iv.tipo_items_viaje.id == 4 or iv.tipo_items_viaje.id == 5 or iv.tipo_items_viaje.id == 6 or iv.tipo_items_viaje.id == 17:                
                 retorno = retorno + iv.monto_s_iva
-        return retorno
+        return retorno - self.getMontoPeftCliente()
 
     def getIvaCliente(self):
         retorno = 0.00
-        for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18 or iv.tipo_items_viaje.id == 1 or iv.tipo_items_viaje.id == 3 or iv.tipo_items_viaje.id == 4 or iv.tipo_items_viaje.id == 5 or iv.tipo_items_viaje.id == 6 or iv.tipo_items_viaje.id == 17:
-                retorno = retorno + iv.monto_iva
+        if self.categoria_viaje.iva_flag:
+            for iv in self.itemviaje_set.all():
+                if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18 or iv.tipo_items_viaje.id == 1 or iv.tipo_items_viaje.id == 3 or iv.tipo_items_viaje.id == 4 or iv.tipo_items_viaje.id == 5 or iv.tipo_items_viaje.id == 6 or iv.tipo_items_viaje.id == 17:
+                    retorno = retorno + iv.monto_iva
         return retorno
 
     def getFinalCliente(self):
