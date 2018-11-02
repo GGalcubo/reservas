@@ -14,7 +14,7 @@
     <tbody>
         {% for p in viaje.getPasajeros %}
         <tr>
-            <td class="text-center"><a href="#" onclick="editarPasajero('{{ p.id }}');"><i class="fa fa-trash"></i></a></td>
+            <td class="text-center"><a href="#" onclick="deleteViajePasajero('{{ p.id }}');"><i class="fa fa-trash"></i></a></td>
             <td>{{ p.nombre|default_if_none:"" }}</td>
             <td>{{ p.apellido|default_if_none:"" }}</td>
             <td>{{ p.documento|default_if_none:"" }}</td>

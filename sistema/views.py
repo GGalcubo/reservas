@@ -164,7 +164,8 @@ def getViajePasajeros(request):
     return HttpResponse(dump, content_type='application/json')
 
 def deleteViajePasajero(request):
-    ViajePasajero.objects.filter(id=request.POST.get('pasajero', False)).delete()
+    viaje = Viaje.objects.get(id=request.POST.get('viaje', False))
+    ViajePasajero.objects.filter(pasajero_id=request.POST.get('pasajero', False), viaje=viaje).delete()
 
     context = {'viaje':viaje}
     return render(request, 'sistema/grillaPasajerosViaje.html', context)

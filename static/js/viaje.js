@@ -455,7 +455,7 @@ guardarSolicitante = () => {
             $('#add_solicitante').modal('toggle');
         }
     });
-}
+};
 
 sumarPasajero = () => {
     let url = "/sistema/guardaViajePasajeroPOST/";
@@ -486,7 +486,7 @@ getViajePasajeros = () => {
         }
     });
     return pasajeros;
-}
+};
 
 updateFillsByPasajero = () =>{
     $('#suma_pasajero').empty();
@@ -494,16 +494,19 @@ updateFillsByPasajero = () =>{
     $.each(cliente.personascliente, (i, persona) => {
         if(persona.tipo_persona == 'Pasajero'){
             if(persona.id != $('#pasajero').val()){
+                let ya_fue_agregado = false;
                 $.each(pasajeros, (k, pasajero) => {
-                    /*if(){
-                        
-                    }*/
-                };
-                $('#suma_pasajero').append($('<option>').text(persona.nombre).attr('value', persona.id));
+                    if(pasajero.pk === persona.id){
+                        ya_fue_agregado = true;
+                    }
+                });
+                if(!ya_fue_agregado){
+                    $('#suma_pasajero').append($('<option>').text(persona.nombre).attr('value', persona.id));
+                }
             }
         }
     });
-}
+};
 
 deleteViajePasajero = pasajero_id =>{
     let url       = "/sistema/deleteViajePasajero/";
@@ -518,7 +521,7 @@ deleteViajePasajero = pasajero_id =>{
             $('#grillaPasajero').html(data);
         }
     });
-}
+};
 
 deleteAllViajePasajero = () =>{
     let url       = "/sistema/deleteAllViajePasajero/";
@@ -533,7 +536,7 @@ deleteAllViajePasajero = () =>{
             $('#grillaPasajero').html(data);
         }
     });
-}
+};
 
  /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
 guardarPasajeroModal = () => {
@@ -620,6 +623,8 @@ updateFillsByCliente = (name, evt) => {
     $('#contacto').empty();
     $('#pasajero').empty();
     $('#suma_pasajero').empty();
+
+    deleteAllViajePasajero();
 
     $.each(cliente.centro_costos, (i, value) => {
       $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
