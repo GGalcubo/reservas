@@ -16800,7 +16800,7 @@
 			"model": "sistema.viaje","pk":562,
 			 "fields": {          
 		   "estado":1,
-		   "fecha":"20180823",
+		   "fecha":"20181103",
 		   "cliente":10001,
 		   "unidad":1,
 		   "hora":"10:45 PM",
@@ -16816,7 +16816,7 @@
 			"model": "sistema.viaje","pk":563,
 			 "fields": {          
 		   "estado":1,
-		   "fecha":"20180823",
+		   "fecha":"20181103",
 		   "cliente":10001,
 		   "unidad":1,
 		   "hora":"9:45 PM",
