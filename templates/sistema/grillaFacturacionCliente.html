@@ -47,18 +47,18 @@
             <td>{{v.pasajero|default_if_none:""}}</td>
             <td><span class="label label-sm label-info">{{v.getTrayectoPrincipal.desdeConcat}}</span></td>
             <td><span class="label label-sm label-primary">{{v.getTrayectoPrincipal.hastaConcat}}</span></td>
-            <td>${{v.getSubtotalCliente}}</td>
-            <td>${{v.getMontoPeftCliente}}</td>
+            <td>${{v.getSubtotalCliente|floatformat:0}}</td>
+            <td>${{v.getMontoPeftCliente|floatformat:0}}</td>
             <td>{{v.getCantidadTiempoEsperaCliente}}</td>
-            <td>${{v.getMontoTiempoEsperaCliente}}</td>
-            <td>${{v.getMontoBilingueCliente}}</td>
-            <td>${{v.getMontoMontoCliente}}</td>
-            <td>${{v.getMontoPeajesCliente}}</td>
-            <td>${{v.getMontoEstacionCliente}}</td>
-            <td>${{v.getMontoOtrosCliente}}</td>
-            <td>${{v.getTotalCliente}}</td>
-            <td>${{v.getIvaCliente}}</td>
-            <td>${{v.getFinalCliente}}</td>
+            <td>${{v.getMontoTiempoEsperaCliente|floatformat:0}}</td>
+            <td>${{v.getMontoBilingueCliente|floatformat:0}}</td>
+            <td>${{v.getMontoMontoCliente|floatformat:0}}</td>
+            <td>${{v.getMontoPeajesCliente|floatformat:0}}</td>
+            <td>${{v.getMontoEstacionCliente|floatformat:0}}</td>
+            <td>${{v.getMontoOtrosCliente|floatformat:0}}</td>
+            <td>${{v.getTotalCliente|floatformat:0}}</td>
+            <td>${{v.getIvaCliente|floatformat:2}}</td>
+            <td>${{v.getFinalCliente|floatformat:2}}</td>
             <td>{{v.id}}</td>
         </tr>
         {% endfor %}

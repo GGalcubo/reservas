@@ -1,4 +1,4 @@
-<select class="form-control" id="personaLicencia" name="personaLicencia">
+<select class="form-control select2me" id="personaLicencia" name="personaLicencia">
     {% for l in listaAsignoLicencia %}
         <option value="{{ l.id }}">{{ l.getIdentificacion }}</option>
     {% endfor %}

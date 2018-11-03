@@ -50,7 +50,7 @@
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select id="tipoPersonaLicencia" class="form-control" name="tipoPersonaLicencia" onchange="getLicenciaAdjudicado();">
+                                                        <select id="tipoPersonaLicencia" class="form-control select2me" name="tipoPersonaLicencia" onchange="getLicenciaAdjudicado();">
                                                             <option value="0">Chofer</option>
                                                             <option value="1">Dueño</option>
                                                             <option value="2">Vehículo</option>
@@ -60,7 +60,7 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input" id="divPersonaLicencia">
-                                                        <select class="form-control" id="personaLicencia" name="personaLicencia">
+                                                        <select class="form-control select2me" id="personaLicencia" name="personaLicencia">
                                                             {% for l in listaAsignoLicencia %}
                                                                 <option value="{{ l.id }}">{{ l.getIdentificacion }}</option>
                                                             {% endfor %}
@@ -70,7 +70,7 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="tipoLicencia" name="tipoLicencia">
+                                                        <select class="form-control select2me" id="tipoLicencia" name="tipoLicencia">
                                                             {% for tl in tipo_licencias %}
                                                                 <option value="{{ tl.id }}">{{ tl.tipo_licencia }}</option>
                                                             {% endfor %}
@@ -90,7 +90,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-actions noborder flex flex-j-between">
+                                        <div class="form-actions noborder flex flex-j-between mg-t-10">
                                             <button type="submit" class="btn green">Guardar</button>
                                             <button type="button" onclick="location.href='/sistema/listadoLicencia/';" class="btn red">Cancelar</button>
                                         </div>

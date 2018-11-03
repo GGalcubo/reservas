@@ -93,7 +93,7 @@
     /* Logo unos px más abajo */
     margin: 30px 0 0; }
 .page-header.navbar .top-menu {
-  /* Menú usuario a a izquierda */
+  /* Menú usuario a la izquierda */
   float: left; }
   .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-menu:before {
     /* Flechita del Desplegable del menú de usuario tirada a la izquierda */
@@ -104,6 +104,9 @@
     right: 133px;
     border-bottom: 9px solid #9facac;
     border-left: 7px solid transparent; }
+  .page-header.navbar .top-menu ~ .flex a.btn {
+    font-size: 11px;
+    white-space: inherit; }
 .page-header.navbar .page-logo {
   /* Sin padding para que entre el logo y fondo acorde */
   padding-left: 0;
@@ -271,12 +274,17 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
   body#operaciones .page-sidebar-wrapper,
   body#asignaciones .page-sidebar-wrapper {
     display: block !important;
-    width: 200px;
+    width: 160px;
     overflow: hidden;
     position: absolute;
-    right: -20px;
+    right: 0px;
     top: -20px;
     z-index: 1; }
+    body#operaciones .page-sidebar-wrapper .page-sidebar,
+    body#operaciones .page-sidebar-wrapper .page-sidebar.navbar-collapse.in,
+    body#asignaciones .page-sidebar-wrapper .page-sidebar,
+    body#asignaciones .page-sidebar-wrapper .page-sidebar.navbar-collapse.in {
+      margin: 20px 0 0 0; }
 
   body .page-header.navbar .menu-toggler.responsive-toggler {
     display: none !important; }
@@ -287,7 +295,12 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
 @media (max-width: 481px) {
   body#operaciones .page-sidebar-wrapper,
   body#asignaciones .page-sidebar-wrapper {
-    top: -11px; } }
+    top: -11px; }
+    body#operaciones .page-sidebar-wrapper .page-sidebar,
+    body#operaciones .page-sidebar-wrapper .page-sidebar.in,
+    body#asignaciones .page-sidebar-wrapper .page-sidebar,
+    body#asignaciones .page-sidebar-wrapper .page-sidebar.in {
+      margin: 10px 0 0 0 !important; } }
 /* PARA ESCONDER LA BARRA LATERAL EN DESKTOP */
 @media (min-width: 992px) {
   body.page-sidebar-reversed .page-content-wrapper .page-content {
