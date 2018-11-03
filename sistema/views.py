@@ -1725,8 +1725,34 @@ def buscarFacturacionCliente(request):
 
 @login_required
 def buscarFacturacionProveedor(request):
+	idUnidad 		= request.POST.get('unidad', False)
+	condEspecial 	= request.POST.get('condEspecial', False)
+	facturas 		= request.POST.get('facturas', False)
+	proveedor 		= request.POST.get('proveedor', False)
+	desde 			= request.POST.get('desde', False)
+	hasta 			= request.POST.get('hasta', False)
+
+	fechaDesde =  getAAAAMMDD(desde)
+	fechaHasta =  getAAAAMMDD(hasta)
+
+	listaviajes = []
+
+	facList = []
+	if facturas != "null":
+		for c in facturas.split(","):
+			facList.append(int(c))
+
+	viajes = Viaje.objects.filter(unidad_id=idUnidad,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+
+	if condEspecial == "1":
+		q_ids = [o.id for o in viajes if o.getMontoEstacionProveedor() == 0]
+		viajes = viajes.filter(id__in=q_ids)
+	elif condEspecial == "2":
+		q_ids = [o.id for o in viajes if o.getMontoEstacionProveedor() > 0]
+		viajes = viajes.filter(id__in=q_ids)
+
 	context = {'viajes': viajes}
-	return render(request, 'sistema/grillaFacturacioProveedores.html', context)
+	return render(request, 'sistema/grillaFacturacionProveedor.html', context)
 
 @login_required
 def facturarClientes(request):
