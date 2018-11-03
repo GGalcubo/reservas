@@ -4,3 +4,13 @@
     {% endfor %}
 </select>
 <label for="personaLicencia">{{titulo}}</label>
+
+<script>
+	$(document).ready(function(){
+		$("#personaLicencia").select2({
+            allowClear: true,
+            dropdownAutoWidth : true,
+            width: 'auto'
+        });
+	});
+</script>
