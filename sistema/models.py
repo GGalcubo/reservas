@@ -522,15 +522,6 @@ class Viaje(models.Model):
         else:
             return ""
 
-    def getFacturaProveedor(self):
-        if self.facturaviaje_set.all():
-            if self.facturaviaje_set.all()[0].fact_proveedor:
-                return self.facturaviaje_set.all()[0].fact_proveedor
-            else:
-                return ""
-        else:
-            return ""
-
     def getFecha(self):
         return getFecha(self.fecha)
 
@@ -621,93 +612,6 @@ class Viaje(models.Model):
         for pervi in self.viajepasajero_set.all():
             pasajeros.append(pervi.pasajero)
         return pasajeros
-
-    #items proveedor
-    def getCantidadTiempoEsperaProveedor(self):
-        retorno = 0
-        for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 14:
-                retorno = retorno + iv.cant
-        return retorno
-
-    def getMontoTiempoEsperaProveedor(self):
-        retorno = 0.00
-        for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 14:
-                retorno = retorno + iv.monto_s_iva
-        return retorno
-
-    def getMontoBilingueProveedor(self):
-        retorno = 0.00
-        for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 9:
-                retorno = retorno + iv.monto_s_iva
-        return retorno
-
-    def getMontoMaletasProveedor(self):
-        retorno = 0.00
-        for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 10:
-                retorno = retorno + iv.monto_s_iva
-        return retorno
-
-    def getMontoPeajesProveedor(self):
-        retorno = 0.00
-        for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 15:
-                retorno = retorno + iv.monto_s_iva
-        return retorno
-
-    def getMontoEstacionProveedor(self):
-        retorno = 0.00
-        for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 11:
-                retorno = retorno + iv.monto_s_iva
-        return retorno
-
-    def getMontoOtrosProveedor(self):
-        retorno = 0.00
-        for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 16:
-                retorno = retorno + iv.monto_s_iva
-        return retorno
-
-    def getCobradoProveedor(self):
-        retorno = 0.00
-        for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 12:
-                retorno = retorno + iv.monto_s_iva
-        return retorno
-
-    def getSubtotalProveedor(self):
-        retorno = 0.00
-        for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18:
-                retorno = retorno + iv.monto_s_iva
-        return retorno
-
-    def getTotalProveedor(self):
-        retorno = 0.00
-        for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 14 or iv.tipo_items_viaje.id == 9 or iv.tipo_items_viaje.id == 10 or iv.tipo_items_viaje.id == 15 or iv.tipo_items_viaje.id == 11 or iv.tipo_items_viaje.id == 16:                
-                retorno = retorno + iv.monto_s_iva
-        return retorno - self.getMontoPeftCliente()
-
-    def getIvaProveedor(self):
-        retorno = 0.00
-        if self.categoria_viaje.iva_flag:
-            for iv in self.itemviaje_set.all():
-                if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 14 or iv.tipo_items_viaje.id == 9 or iv.tipo_items_viaje.id == 10 or iv.tipo_items_viaje.id == 15 or iv.tipo_items_viaje.id == 11 or iv.tipo_items_viaje.id == 16:
-                    retorno = retorno + iv.monto_iva
-        return retorno
-
-    def getFinalProveedor(self):
-        retorno = self.getTotalProveedor() + self.getIvaProveedor()
-        return retorno
-
-    def getPagarProveedor(self):
-        retorno = self.getFinalProveedor() - self.getCobradoProveedor()
-        return retorno
 
     class Meta:
         verbose_name_plural = "Viajes"
