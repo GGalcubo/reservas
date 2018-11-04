@@ -35,20 +35,20 @@
             <td>{{v.pasajero.nombre}} {{v.pasajero.apellido}}</td>
             <td><span class="label label-sm label-info">{{v.getTrayectoPrincipal.desdeConcat}}</span></td>
             <td><span class="label label-sm label-primary">{{v.getTrayectoPrincipal.hastaConcat}}</span></td>
-            <td>${{v.getSubtotalProveedor}}</td>
-            <td>${{v.getCobradoProveedor}}</td>
+            <td>${{v.getSubtotalProveedor|floatformat:0}}</td>
+            <td>${{v.getCobradoProveedor|floatformat:0}}</td>
             <td>{{v.getCantidadTiempoEsperaProveedor}}</td>
-            <td>${{v.getMontoTiempoEsperaProveedor}}</td>
-            <td>${{v.getMontoBilingueProveedor}}</td>
-            <td>${{v.getMontoMaletasProveedor}}</td>
-            <td>${{v.getMontoPeajesProveedor}}</td>
-            <td>${{v.getMontoEstacionProveedor}}</td>
-            <td>${{v.getMontoOtrosProveedor}}</td>
-            <td>${{v.getTotalProveedor}}</td>
-            <td>${{v.getIvaProveedor}}</td>
-            <td>${{v.getFinalProveedor}}</td>
-            <td>${{v.getCobradoProveedor}}</td>
-            <td>${{v.getPagarProveedor}}</td>
+            <td>${{v.getMontoTiempoEsperaProveedor|floatformat:0}}</td>
+            <td>${{v.getMontoBilingueProveedor|floatformat:0}}</td>
+            <td>${{v.getMontoMaletasProveedor|floatformat:0}}</td>
+            <td>${{v.getMontoPeajesProveedor|floatformat:0}}</td>
+            <td>${{v.getMontoEstacionProveedor|floatformat:0}}</td>
+            <td>${{v.getMontoOtrosProveedor|floatformat:0}}</td>
+            <td>${{v.getTotalProveedor|floatformat:0}}</td>
+            <td>${{v.getIvaProveedor|floatformat:0}}</td>
+            <td>${{v.getFinalProveedor|floatformat:0}}</td>
+            <td>${{v.getCobradoProveedor|floatformat:0}}</td>
+            <td>${{v.getPagarProveedor|floatformat:0}}</td>
             <td>{{v.getFacturaProveedor}}</td>
         </tr>
         {%endfor%}

@@ -1620,7 +1620,7 @@ def cargarFacturaUnidad(request):
 	idUnidad = request.GET.get('idUnidad', False)
 	facturas = []
 	if idUnidad:
-		viajes = FacturaViaje.objects.filter(viaje__cliente_id=idCliente).order_by('fact_proveedor')
+		viajes = FacturaViaje.objects.filter(viaje__unidad_id=idUnidad).order_by('fact_proveedor')
 		for v in viajes:
 			if v.fact_proveedor not in facturas:
 				if v.fact_proveedor:
@@ -1685,27 +1685,22 @@ def buscarFacturacionCliente(request):
 		for c in centroDeCosto.split(","):
 			ccList.append(int(c))
 
-	# ceList = []
-	# if condEspecial != "null":
-	# 	for c in condEspecial.split(","):
-	# 		ceList.append(int(c))
-
 	facList = []
 	if facturas != "null":
 		for c in facturas.split(","):
-			facList.append(int(c))
+			facList.append(c)
 	
 	proList = []
 	if proformas != "null":
 		for c in proformas.split(","):
-			proList.append(int(c))
+			proList.append(c)
 
 	solList = []
 	if solicitantes != "null":
 		for c in solicitantes.split(","):
 			solList.append(int(c))
 
-	viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+	viajes = Viaje.objects.filter(cliente_id=idCliente,estado_id=7,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 	if catList:
 		viajes = viajes.filter(categoria_viaje_id__in=catList)
 	if ccList:
@@ -1718,6 +1713,14 @@ def buscarFacturacionCliente(request):
 		viajes = viajes.filter(id__in=q_ids)
 	elif condEspecial == "2":
 		q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() > 0]
+		viajes = viajes.filter(id__in=q_ids)
+
+	if facList:
+		q_ids = [o.id for o in viajes if o.getFacturaCliente() in facList]
+		viajes = viajes.filter(id__in=q_ids)
+
+	if proList:
+		q_ids = [o.id for o in viajes if o.getProforma() in proList]
 		viajes = viajes.filter(id__in=q_ids)
 
 	context = {'viajes': viajes}
@@ -1740,15 +1743,12 @@ def buscarFacturacionProveedor(request):
 	facList = []
 	if facturas != "null":
 		for c in facturas.split(","):
-			facList.append(int(c))
+			facList.append(c)
 
-	viajes = Viaje.objects.filter(unidad_id=idUnidad,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+	viajes = Viaje.objects.filter(unidad_id=idUnidad,estado_id=7,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 
-	if condEspecial == "1":
-		q_ids = [o.id for o in viajes if o.getMontoEstacionProveedor() == 0]
-		viajes = viajes.filter(id__in=q_ids)
-	elif condEspecial == "2":
-		q_ids = [o.id for o in viajes if o.getMontoEstacionProveedor() > 0]
+	if facList:
+		q_ids = [o.id for o in viajes if o.getFacturaProveedor() in facList]
 		viajes = viajes.filter(id__in=q_ids)
 
 	context = {'viajes': viajes}
@@ -1780,13 +1780,41 @@ def facturarClientes(request):
 	return HttpResponse(dump, content_type='application/json')
 
 @login_required
+def facturarProveedores(request):
+	idViajes 			= request.POST.get('idViajes', False)
+	numeroFactrura		= request.POST.get('numeroFactura', False)
+	primernumeroFactura = request.POST.get('primernumeroFactura', False)
+	idsList = []
+	for ids in idViajes.split("-"):
+		if ids:
+			idsList.append(int(ids))
+
+	viajes = Viaje.objects.filter(id__in=idsList)
+	for v in viajes:
+		if v.facturaviaje_set.all():
+			fv = v.facturaviaje_set.all()[0]
+		else:
+			fv = FacturaViaje()
+			fv.viaje = v
+
+		fv.fact_proveedor = primernumeroFactura + "-" + numeroFactrura
+		fv.save()
+
+	data = {'return': 'success'}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
+@login_required
 def proformarClientes(request):
 	idViajes = request.POST.get('idViajes', False)
 
 	facturasViaje = FacturaViaje.objects.all().order_by('-prof_cliente')
 	if facturasViaje:
 		numeroProforma = facturasViaje[0].prof_cliente
-		numeroProforma = int(numeroProforma) + 1
+		if numeroProforma:
+			numeroProforma = int(numeroProforma) + 1
+		else:
+			numeroProforma = 1
 	else:
 		numeroProforma = 1
 

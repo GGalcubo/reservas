@@ -62,25 +62,26 @@
                                                 <label for="unidad">Unidad</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-4">
-                                              <div class="form-group form-md-line-input"  id="selectProveedores">
-                                                <select class="form-control select2me" id="provedor" name="provedor">
-                                                  <option value="">Seleccionar Proveedor</option>
-                                                </select>
-                                                <label for="provedor">Provedor</label>
-                                              </div>
+                                            
+                                          <div class="col-sm-4">
+                                            <div class="form-group form-md-line-input" id="selectFactura">
+                                              <select class="form-control select2me" id="factura" name="factura" multiple="multiple">
+                                                  <option value=""></option>
+                                              </select>
+                                              <label for="factura">Factura</label>
                                             </div>
                                           </div>
                                           <div class="row">
-                                            <div class="col-sm-4">
-                                              <div class="form-group form-md-line-input" id="selectFactura">
-                                                <select class="form-control select2me" id="factura" name="factura" multiple="multiple">
-                                                    <option value=""></option>
-                                                </select>
-                                                <label for="factura">Factura</label>
+                                            <div class="col-sm-4" style="display:none;">
+                                                <div class="form-group form-md-line-input"  id="selectProveedores">
+                                                  <select class="form-control select2me" id="provedor" name="provedor">
+                                                    <option value="">Seleccionar Proveedor</option>
+                                                  </select>
+                                                  <label for="provedor">Provedor</label>
+                                                </div>
                                               </div>
                                             </div>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-4" style="display:none;">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="condEspecial" name="condEspecial" multiple="multiple">
                                                     <option value="">Seleccionar Condicion Especial</option>
@@ -101,7 +102,7 @@
                               
                               <hr>
                               <div class="flex flex-j-end">
-                                  <button type="button" class="btn green mg-b-5">Facturar Seleccionados</button>
+                                  <button type="button" onclick="openFacturar();" class="btn green mg-b-5">Facturar Seleccionados</button>
                               </div>
                               <div class="portlet-body" id="grillaFacturacion">
                                   <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoFactProvedores">
@@ -418,7 +419,7 @@
                         alert("Debe seleccionar Viajes para poder facturar.")
                     }else{
                         $('#numeroFactura').val("");
-                        $('#facturarClientesModal').modal('toggle');
+                        $('#facturarProveedoresModal').modal('toggle');
                     }
                 }
 
@@ -493,6 +494,31 @@
                         data: params,
                         success: function(data){
                             $('#grillaFacturacion').html(data);
+                        }
+                    });
+                }
+
+                function guardarNumeroFactura(){
+                    if ($('#primernumeroFactura').val() == ""){
+                        alert("El primer numero de factura no puede estar vacio.")
+                        return false;
+                    }
+                    if ($('#numeroFactura').val() == ""){
+                        alert("El numero de factura no puede estar vacio.")
+                        return false;
+                    }
+
+                    var url = "/sistema/facturarProveedores/";
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: $("#facturarProveedores").serialize(),
+                        success: function(data){
+                            alert("Viajes Facturados.")
+                            $("#idViajes").val("");
+                            $('#facturarProveedoresModal').modal('toggle');
+                            resetFiltros();
                         }
                     });
                 }
