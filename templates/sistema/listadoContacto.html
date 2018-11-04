@@ -43,7 +43,7 @@
                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaContactos">
                                             <thead>
                                                 <tr>
-                                                    <th class="all">Editar</th>
+                                                    <th class="all">Acciones</th>
                                                     <th class="all">Nombre</th>
                                                     <th class="all">Apellido</th>
                                                     <th class="all">Cliente/Empresa</th>
@@ -55,7 +55,9 @@
                                             <tbody>
                                                 {% for c in contactos %}
                                                 <tr>
-                                                    <td class="text-center"><a href="/sistema/contacto/?idContacto={{ c.id }}"><i class="fa fa-pencil">
+                                                    <td class="text-center">
+                                                        <a href="/sistema/contacto/?idContacto={{ c.id }}" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
+                                                    </td>
                                                     <td>{{ c.nombre|default_if_none:"" }}</td>
                                                     <td>{{ c.apellido|default_if_none:"" }}</td>
                                                     <td>{{ c.getCliente }}</td>

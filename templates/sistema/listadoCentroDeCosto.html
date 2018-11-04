@@ -43,7 +43,7 @@
                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoCC">
                                             <thead>
                                                 <tr>
-                                                    <th class="all">Editar</th>
+                                                    <th class="all">Acciones</th>
                                                     <th class="all">ID</th>
                                                     <th class="all">Centro de Costo</th>
                                                     <th class="all">Descripción</th>
@@ -55,7 +55,9 @@
                                             <tbody>
                                                 {% for cc in centroCostos %}
                                                 <tr>
-                                                    <td class="text-center"><a href="/sistema/centroCosto/?idCC={{ cc.id }}"><i class="fa fa-pencil"></i></a></td>
+                                                    <td class="text-center">
+                                                        <a href="/sistema/centroCosto/?idCC={{ cc.id }}" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
+                                                    </td>
                                                     <td>{{ cc.id }}</td>
                                                     <td>{{ cc.nombre }}</td>
                                                     <td>{{ cc.descripcion }}</td>

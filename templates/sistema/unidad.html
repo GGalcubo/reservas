@@ -193,7 +193,7 @@
                                                         </div>
                                                         <form role="form" id="form-datos-unidad-owner" class="form-owner-unidad">
                                                         <div class="modal-body">
-                                                            <div class="scroller" style="height:150px" data-always-visible="1" data-rail-visible1="1">
+                                                            <div class="scroller" style="height:120px" data-always-visible="1" data-rail-visible1="1">
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group form-md-line-input form-md-floating-label">
@@ -216,7 +216,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer noborder flex flex-j-between">
+                                                        <div class="modal-footer noborder flex">
                                                           <button type="button" onclick="agregarOwner()" class="btn green">Guardar</button>
                                                           <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
                                                         </div>
@@ -232,7 +232,7 @@
                                                             <h4 class="modal-title" style="color:#888;">Agregar Chofer</h4>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <div class="scroller" style="height:150px" data-always-visible="1" data-rail-visible1="1">
+                                                            <div class="scroller" style="height:120px" data-always-visible="1" data-rail-visible1="1">
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group form-md-line-input form-md-floating-label">
@@ -270,7 +270,7 @@
                                                             <h4 class="modal-title" style="color:#888;">Agregar Licencia</h4>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                                                            <div class="scroller" style="height:120px" data-always-visible="1" data-rail-visible1="1">
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group form-md-line-input">
@@ -304,7 +304,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer noborder flex flex-j-between">
+                                                        <div class="modal-footer noborder flex">
                                                           <button type="button" onclick="agregarLicencia()" class="btn green">Guardar</button>
                                                           <button type="button" class="btn red" onclick="cerrarModalLicencia();" >Cancelar</button>
                                                         </div>
@@ -355,8 +355,8 @@
                                                                             <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaLicenciasUnidad">
                                                                                 <thead>
                                                                                     <tr>
-                                                                                        <th class="all">Editar</th>
-                                                                                        <th class="all">Eliminar</th>
+                                                                                        <th class="all" style="min-width: 120px;">Acciones</th>
+                                                                                        <!-- <th class="all">Eliminar</th> -->
                                                                                         <th class="all">Asignada</th>
                                                                                         <th class="all">Licencia</th>
                                                                                         <th class="all">Vencimiento</th>
@@ -366,8 +366,11 @@
                                                                                 <tbody>
                                                                                     {% for l in unidad.getLicencias %}
                                                                                     <tr>
-                                                                                        <td class="text-center"><a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}','{{ l.getAsignadoTipo }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');"><i class="fa fa-pencil"></i></a></td>
-                                                                                        <td class="text-center"><a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');"><i class="fa fa-minus-circle"></i></a></td>
+                                                                                        <td class="text-center">
+                                                                                            <a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}','{{ l.getAsignadoTipo }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
+                                                                                            <a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');" class="btn btn-xs red"><i class="fa fa-times"></i></a>
+                                                                                        </td>
+                                                                                        <td class="text-center"></td>
                                                                                         <td>{{ l.getAsignadoNombre }} ({{ l.getAsignadoTipo }})</td>
                                                                                         <td>{{ l.tipo_licencia.tipo_licencia }}</td>
                                                                                         <td>{{ l.getFechaVencimiento }}</td>
@@ -383,8 +386,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-actions noborder flex flex-j-between">
-                                                        <button type="button" class="btn green">Guardar</button>
+                                                    <div class="form-actions noborder flex">
+                                                        <button type="button" class="btn green mg-r-10">Guardar</button>
                                                         <button type="button" class="btn red">Cancelar</button>
                                                     </div>
                                                 </form>
@@ -447,7 +450,7 @@
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div class="modal-footer noborder flex flex-j-between">
+                                                                                            <div class="modal-footer noborder flex">
                                                                                               <button type="button" onclick="agregarObservacion()" class="btn green">Guardar</button>
                                                                                               <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
                                                                                             </div>
@@ -462,8 +465,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-actions noborder flex flex-j-between">
-                                                        <button type="button" class="btn green">Guardar</button>
+                                                    <div class="form-actions noborder flex">
+                                                        <button type="button" class="btn green mg-r-10">Guardar</button>
                                                         <button type="button" class="btn red">Cancelar</button>
                                                     </div>
                                                 </form>

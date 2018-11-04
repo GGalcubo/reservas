@@ -53,9 +53,9 @@
                                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaClientes">
                                         <thead>
                                             <tr>
-                                                <th class="all" style="width: 40px;" >Editar</th>
-                                                <th class="all" style="width: 40px;" >Eliminar</th>
-                                                <th class="min-tablet" style="width: 20px;">ID</th>
+                                                <th class="all" style="min-width: 120px;">Acciones</th>
+                                                <!-- <th class="all" style="width: 40px;" >Eliminar</th> -->
+                                                <th class="min-tablet">ID</th>
                                                 <th class="min-phone-l">Cliente</th>
                                                 <th class="desktop">Teléfono</th>
                                                 <th class="min-tablet">Dirección</th>
@@ -64,8 +64,11 @@
                                         <tbody>
                                             {% for c in clientes %}
                                             <tr>
-                                                <td class="text-center" ><a href="/sistema/cliente/?idCliente={{ c.id }}"><i class="fa fa-pencil"></i></a></td>
-                                                <td class="text-center"><a style="color:red;" href="#" onclick="eliminarCliente({{ c.id }},'{{ c.razon_social }}');" ><i class="fa fa-times"></i></a></td>
+                                                <td class="text-center" >
+                                                    <a href="/sistema/cliente/?idCliente={{ c.id }}" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
+                                                    <a href="#" onclick="eliminarCliente({{ c.id }},'{{ c.razon_social }}');" class="btn btn-xs red" ><i class="fa fa-times"></i></a>
+                                                </td>
+                                                <!-- <td class="text-center"></td> -->
                                                 <td>{{ c.id }}</td>
                                                 <td>{{ c.razon_social }}</td>
                                                 <td>{{ c.telefonoPrincipal }}</td>
@@ -96,7 +99,7 @@
                     $('#tablaClientes').DataTable( {
                         responsive: true,
                         // scrollY: 300,
-                        order: [[ 2, "desc" ]],
+                        order: [[ 1, "asc" ]],
                         lengthMenu: [
                                         [ 100, 50, 25, 10, -1 ],
                                         [ '100', '50', '25', '10', 'Todos' ]

@@ -1,7 +1,7 @@
 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaPasajeroClientes">
     <thead>
         <tr>
-            <th class="all">Editar</th>
+            <th class="all">Acciones</th>
             <th class="all">Nombre</th>
             <th class="all">Apellido</th>
             <th class="all">DNI</th>
@@ -14,7 +14,9 @@
     <tbody>
         {% for p in cliente.getPasajeros %}
         <tr>
-            <td class="text-center"><a href="#" onclick="editarPasajero('{{ p.id }}','{{ cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}');"><i class="fa fa-pencil"></i></a></td>
+            <td class="text-center">
+                <a href="#" onclick="editarPasajero('{{ p.id }}','{{ cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}');" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
+            </td>
             <td>{{ p.nombre|default_if_none:"" }}</td>
             <td>{{ p.apellido|default_if_none:"" }}</td>
             <td>{{ p.documento|default_if_none:"" }}</td>

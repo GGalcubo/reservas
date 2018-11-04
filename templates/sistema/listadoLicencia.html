@@ -43,8 +43,8 @@
                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoLicencias">
                                             <thead>
                                                 <tr>
-                                                    <th class="all">Editar</th>
-                                                    <th class="all">Eliminar</th>
+                                                    <th class="all" style="min-width: 120px;">Acciones</th>
+                                                    <!-- <th class="all">Eliminar</th> -->
                                                     <th class="all">Asignada a</th>
                                                     <th class="all">Tipo</th>
                                                     <th class="all">Vencimiento</th>
@@ -54,8 +54,11 @@
                                             <tbody>
                                                 {% for l in licencias %}
                                                 <tr>
-                                                    <td class="text-center"><a href="/sistema/licencia/?idLicencia={{ l.id }}"><i class="fa fa-pencil"></i></a></td>
-                                                    <td class="text-center"><a href="#" onclick="eliminarLicencia({{ l.id }});" ><i class="fa fa-minus-circle"></i></a></td>
+                                                    <td class="text-center">
+                                                        <a href="/sistema/licencia/?idLicencia={{ l.id }}" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
+                                                        <a href="#" onclick="eliminarLicencia({{ l.id }});" class="btn btn-xs red"><i class="fa fa-times"></i></a>
+                                                    </td>
+                                                    <!-- <td class="text-center"></td> -->
                                                     <td>{{ l.getAsignadoNombre }}</td>
                                                     <td>{{ l.tipo_licencia.tipo_licencia }}</td>
                                                     <td>{{ l.getFechaVencimiento }}</td>
