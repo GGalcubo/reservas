@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Permission
 from django.conf import settings
 from .models import *
 from django.http import HttpResponse
@@ -1858,6 +1859,23 @@ def cargarFacturaProveedor(request):
 
 	context = {'facturas': facturas}
 	return render(request, 'sistema/selectFacturas.html', context)
+
+@login_required
+def cargarMenu(request):
+	print request.user
+	permisos = [x.name for x in Permission.objects.filter(user=request.user)]
+	print permisos
+	if 'unidades' in permisos:
+		menu_file = "sistema/unidadesMenu.html"
+	if 'operaciones' in permisos:
+		menu_file = "sistema/operacionesMenu.html"
+	if 'finanzas' in permisos:
+		menu_file = "sistema/finanzasMenu.html"
+	if 'superuser' in permisos:
+		menu_file = "sistema/superUserMenu.html"
+
+	context = {'facturas': ''}
+	return render(request, menu_file, context)
 
 # devuelve AAAAMMDD
 def fecha():
