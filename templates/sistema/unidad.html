@@ -313,8 +313,8 @@
                                             </div>
                                         </div>
                                         <div class="form-actions noborder flex mg-t-20">
-                                            <button type="button" onclick="guardarUnidad();" class="btn green mg-r-10">Guardar</button>
-                                            <button type="button" class="btn red">Cancelar</button>
+                                            <button type="button" onclick="guardarUnidad();" class="btn green btn-outline mg-r-10">Guardar</button>
+                                            <button type="button" class="btn btn-outline red">Cancelar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -367,8 +367,8 @@
                                                                                     {% for l in unidad.getLicencias %}
                                                                                     <tr>
                                                                                         <td class="text-center">
-                                                                                            <a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}','{{ l.getAsignadoTipo }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
-                                                                                            <a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');" class="btn btn-xs red"><i class="fa fa-times"></i></a>
+                                                                                            <a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}','{{ l.getAsignadoTipo }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                            <a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
                                                                                         </td>
                                                                                         <td class="text-center"></td>
                                                                                         <td>{{ l.getAsignadoNombre }} ({{ l.getAsignadoTipo }})</td>
@@ -387,8 +387,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-actions noborder flex">
-                                                        <button type="button" class="btn green mg-r-10">Guardar</button>
-                                                        <button type="button" class="btn red">Cancelar</button>
+                                                        <button type="button" class="btn green btn-outline mg-r-10">Guardar</button>
+                                                        <button type="button" class="btn btn-outline red">Cancelar</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -466,8 +466,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-actions noborder flex">
-                                                        <button type="button" class="btn green mg-r-10">Guardar</button>
-                                                        <button type="button" class="btn red">Cancelar</button>
+                                                        <button type="button" class="btn green btn-outline mg-r-10">Guardar</button>
+                                                        <button type="button" class="btn btn-outline red">Cancelar</button>
                                                     </div>
                                                 </form>
                                             </div>

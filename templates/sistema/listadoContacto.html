@@ -56,7 +56,7 @@
                                                 {% for c in contactos %}
                                                 <tr>
                                                     <td class="text-center">
-                                                        <a href="/sistema/contacto/?idContacto={{ c.id }}" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
+                                                        <a href="/sistema/contacto/?idContacto={{ c.id }}" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                                                     </td>
                                                     <td>{{ c.nombre|default_if_none:"" }}</td>
                                                     <td>{{ c.apellido|default_if_none:"" }}</td>

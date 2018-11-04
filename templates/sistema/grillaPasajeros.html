@@ -15,7 +15,7 @@
         {% for p in cliente.getPasajeros %}
         <tr>
             <td class="text-center">
-                <a href="#" onclick="editarPasajero('{{ p.id }}','{{ cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}');" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
+                <a href="#" onclick="editarPasajero('{{ p.id }}','{{ cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
             </td>
             <td>{{ p.nombre|default_if_none:"" }}</td>
             <td>{{ p.apellido|default_if_none:"" }}</td>
