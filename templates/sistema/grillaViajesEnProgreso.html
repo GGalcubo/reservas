@@ -48,28 +48,17 @@
         dom: 'lfBrtip',
         buttons: [
             {
-                extend: 'copy',
-                exportOptions: {
-                    columns: ':visible:not(:eq(0))'
-                }
+                extend: 'copy'
             },
             {
-                extend: 'excel',
-                exportOptions: {
-                    columns: ':visible:not(:eq(0))'
-                }
+                extend: 'excel'
             },
             {
-                extend: 'pdf',
-                exportOptions: {
-                    columns: ':visible:not(:eq(0))'
-                }
+                extend: 'pdfHtml5',
+                orientation: 'landscape'
             },
             {
-                extend: 'print',
-                exportOptions: {
-                    columns: ':visible:not(:eq(0))'
-                }
+                extend: 'print'
             },
         ],
         lengthMenu: [

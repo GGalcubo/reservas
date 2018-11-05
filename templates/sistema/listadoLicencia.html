@@ -55,8 +55,8 @@
                                                 {% for l in licencias %}
                                                 <tr>
                                                     <td class="text-center">
-                                                        <a href="/sistema/licencia/?idLicencia={{ l.id }}" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" onclick="eliminarLicencia({{ l.id }});" class="btn btn-xs red"><i class="fa fa-times"></i></a>
+                                                        <a href="/sistema/licencia/?idLicencia={{ l.id }}" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                        <a href="#" onclick="eliminarLicencia({{ l.id }});" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
                                                     </td>
                                                     <!-- <td class="text-center"></td> -->
                                                     <td>{{ l.getAsignadoNombre }}</td>

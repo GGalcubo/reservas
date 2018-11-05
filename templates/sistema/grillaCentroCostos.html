@@ -15,8 +15,8 @@
         {% for cc in cliente.getCentroCostos %}
         <tr>
             <td class="text-center">
-                <a href="#" onclick="editarCCPropect('{{ cc.id }}','{{ cliente.id }}','{{ cc.nombre }}','{{ cc.descripcion }}','{{ cc.getFechaInicio }}','{{ cc.getFechaFin }}','{{ cc.tarifario.id }}');" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
-                <a href="#" onclick="eliminarCCPropect('{{ cc.id }}','{{ cliente.id }}');" class="btn btn-xs red"><i class="fa fa-times"></i></a>
+                <a href="#" onclick="editarCCPropect('{{ cc.id }}','{{ cliente.id }}','{{ cc.nombre }}','{{ cc.descripcion }}','{{ cc.getFechaInicio }}','{{ cc.getFechaFin }}','{{ cc.tarifario.id }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                <a href="#" onclick="eliminarCCPropect('{{ cc.id }}','{{ cliente.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
             </td>
             <!-- <td class="text-center"></td> -->
             <td>{{ cc.id }}</td>

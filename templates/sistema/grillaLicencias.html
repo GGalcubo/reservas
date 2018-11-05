@@ -13,8 +13,8 @@
         {% for l in unidad.getLicencias %}
         <tr>
             <td class="text-center">
-                <a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}','{{ l.getAsignadoTipo }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
-                <a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');" class="btn btn-xs red"><i class="fa fa-times"></i></a>
+                <a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}','{{ l.getAsignadoTipo }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                <a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
             </td>
             <td>{{ l.getAsignadoNombre }} ({{ l.getAsignadoTipo }})</td>
             <td>{{ l.tipo_licencia.tipo_licencia }}</td>

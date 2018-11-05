@@ -15,7 +15,7 @@
         {% for p in viaje.getPasajeros %}
         <tr>
             <td class="text-center">
-                <a href="#" onclick="deleteViajePasajero('{{ p.id }}');" class="btn btn-xs red"><i class="fa fa-trash"></i></a>
+                <a href="#" onclick="deleteViajePasajero('{{ p.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-trash"></i></a>
             </td>
             <td>{{ p.nombre|default_if_none:"" }}</td>
             <td>{{ p.apellido|default_if_none:"" }}</td>

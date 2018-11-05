@@ -159,10 +159,12 @@
                                 }
                             },
                             {
-                                extend: 'pdf',
-                                exportOptions: {
-                                    columns: ':visible:not(:eq(0))'
-                                }
+                                extend: 'pdfHtml5',
+                                orientation: 'landscape',
+                                pageSize: 'LEGAL',
+                                customize: function(doc) {
+                                  doc.defaultStyle.fontSize = 8;
+                               }
                             },
                             {
                                 extend: 'print',

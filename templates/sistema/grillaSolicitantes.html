@@ -13,7 +13,7 @@
         {% for c in cliente.getContactos %}
         <tr>
             <td class="text-center">
-                <a href="#" onclick="editarSolicitante('{{ c.id }}','{{ cliente.id }}','{{ c.nombre }}','{{ c.apellido }}','{{ c.puesto|default_if_none:"" }}','{{ c.mail|default_if_none:"" }}','{{ c.getTelefono }}');" class="btn btn-xs blue"><i class="fa fa-pencil"></i></a>
+                <a href="#" onclick="editarSolicitante('{{ c.id }}','{{ cliente.id }}','{{ c.nombre }}','{{ c.apellido }}','{{ c.puesto|default_if_none:"" }}','{{ c.mail|default_if_none:"" }}','{{ c.getTelefono }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
             </td>
             <td>{{ c.nombre|default_if_none:"" }}</td>
             <td>{{ c.apellido|default_if_none:"" }}</td>
