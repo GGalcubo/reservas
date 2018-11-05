@@ -805,7 +805,8 @@
                                     </div>
                                     <div class="tab-pane" id="administracion">
                                         <div class="form">
-                                            <form role="form">
+                                            <form role="form" id="form-guarda-viaje-admin">
+                                                <input type="hidden" name="viaje" value="{{ viaje.id }}">
                                                 <div class="form-body">
                                                     <div class="row">
                                                         <div class="col-sm-12 ">
@@ -821,8 +822,8 @@
                                                                         <div class="form-group form-md-line-input has-success form-md-floating-label">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control">
-                                                                                <label for="form_control_1">TOTAL</label>
+                                                                                <input type="text" class="form-control" id="admin_total" name="admin_total" readonly="true">
+                                                                                <label for="admin_total">TOTAL</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -832,8 +833,8 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control" name="costo_proveedor" value="">
-                                                                                <label for="costo_proveedor">Costo Cliente</label>
+                                                                                <input type="text" class="form-control" id="admin_costo_cliente" name="admin_costo_cliente" value="">
+                                                                                <label for="admin_costo_cliente">Costo Cliente</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -841,8 +842,8 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control"  value="" name="espera">
-                                                                                <label for="espera">Espera</label>
+                                                                                <input type="text" class="form-control"  value="" id="admin_espera" name="admin_espera">
+                                                                                <label for="admin_espera">Espera</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -850,8 +851,8 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control"  value="" name="hs_dispo">
-                                                                                <label for="hs_dispo">Horas Disp</label>
+                                                                                <input type="text" class="form-control"  value="" id="admin_hs_dispo" name="admin_hs_dispo">
+                                                                                <label for="admin_hs_dispo">Horas Disp</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -859,8 +860,8 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control"  value="" name="peaje">
-                                                                                <label for="peaje">Peajes</label>
+                                                                                <input type="text" class="form-control"  value="" id="admin_peaje" name="admin_peaje">
+                                                                                <label for="admin_peaje">Peajes</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -868,8 +869,8 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control"  value="" name="estacionamiento">
-                                                                                <label for="estacionamiento">Estacionamiento</label>
+                                                                                <input type="text" class="form-control"  value="" id="admin_estacionamiento" name="admin_estacionamiento">
+                                                                                <label for="admin_estacionamiento">Estacionamiento</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -877,8 +878,8 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control"  value="" name="otros">
-                                                                                <label for="otros">Otros</label>
+                                                                                <input type="text" class="form-control"  value="" id="admin_otros" name="admin_otros">
+                                                                                <label for="admin_otros">Otros</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -886,8 +887,8 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control"  value="" name="costo_maletas">
-                                                                                <label for="costo_maletas">Maletas</label>
+                                                                                <input type="text" class="form-control"  value="" id="admin_costo_maletas" name="admin_costo_maletas">
+                                                                                <label for="admin_costo_maletas">Maletas</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -895,8 +896,8 @@
                                                                         <div class="form-group form-md-line-input">
                                                                             <div class="input-group left-addon right-addon">
                                                                                 <span class="input-group-addon">$</span>
-                                                                                <input type="text" class="form-control"  value="" name="costo_bilingue">
-                                                                                <label for="costo_bilingue">Bilingüe</label>
+                                                                                <input type="text" class="form-control"  value="" id="admin_costo_bilingue" name="admin_costo_bilingue">
+                                                                                <label for="admin_costo_bilingue">Bilingüe</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -912,8 +913,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-actions noborder flex flex-j-between">
-                                                    <button type="button" class="btn green">Guardar</button>
-                                                    <button type="button" class="btn red">Cancelar</button>
+                                                    <button type="button" onclick="guardaViajeAdmin()" class="btn green">Guardar</button>
+                                                    <!--<button type="button" class="btn red">Cancelar</button>-->
                                                 </div>
                                             </form>
                                         </div>

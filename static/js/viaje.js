@@ -13,6 +13,22 @@ $(document).ready( () => {
         }
     });
 
+    //$('#admin_total').val(0);
+
+    $('#admin_espera, #admin_estacionamiento, #admin_estacionamiento, #admin_peaje, #admin_hs_dispo, #admin_costo_cliente, #admin_costo_bilingue, #admin_costo_maletas, #admin_otros').on('input', function () {
+        let sum_total = 0;
+        sum_total += parseInt($('#admin_espera').val()) || 0;
+        sum_total += parseInt($('#admin_estacionamiento').val()) || 0;
+        sum_total += parseInt($('#admin_peaje').val()) || 0;
+        sum_total += parseInt($('#admin_hs_dispo').val()) || 0;
+        sum_total += parseInt($('#admin_costo_cliente').val()) || 0;
+        sum_total += parseInt($('#admin_costo_bilingue').val()) || 0;
+        sum_total += parseInt($('#admin_costo_maletas').val()) || 0;
+        sum_total += parseInt($('#admin_otros').val()) || 0;
+
+        $('#admin_total').val(sum_total);
+    });
+
     $(".cont_desde_provincia").hide();
     $(".cont_hasta_provincia").hide();
     $(".cont_modal_desde_provincia").hide();
@@ -208,7 +224,21 @@ $(document).ready( () => {
            headers: {'X-CSRFToken': csrf_token},
            data: obj,
            success: data => {
-              data.url ? window.location.replace(data.url) : showMsg(data.msg, 'success');
+                data.url ? window.location.replace(data.url) : showMsg('Los datos se han actualizado correctamente.', 'success');
+                if(obj.estado == 6){
+                    viaje_items = [];
+                    $.each(data, (k, item) => {
+                        var obj = {
+                            id : item.pk,
+                            monto : item.fields.monto,
+                            monto_s_iva : item.fields.monto_s_iva,
+                            monto_iva : item.fields.monto_iva,
+                            tipo_items_viaje : item.fields.tipo_items_viaje.toString() ,
+                            cant: item.fields.cant};
+                        viaje_items.push(obj);
+                    });
+                    fillViajeItems();
+                }                
            }
         });
 
@@ -458,6 +488,23 @@ guardarSolicitante = () => {
     });
 };
 
+guardaViajeAdmin = () => {
+    let url = "/sistema/guardaViajeAdmin/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: $("#form-guarda-viaje-admin").serialize()+'&'+$.param({ 'tiempo_hs_dispo': $('#tiempo_hs_dispo').val(),
+                                                                     'tiempo_espera': $('#tiempo_espera').val(),
+                                                                     'bilingue': $("#bilingue:checked").val() || '',
+                                                                     'maletas': $("#maletas:checked").val() || ''
+                                                                    }),
+        success: data => {
+            showMsg('Se guardo con exito', 'success');
+        }
+    });    
+}
+
 sumarPasajero = () => {
     let url = "/sistema/guardaViajePasajeroPOST/";
     $.ajax({
@@ -466,11 +513,10 @@ sumarPasajero = () => {
         headers: {'X-CSRFToken': csrf_token},
         data: {pasajero:$('#suma_pasajero').val(), viaje},
         success: data => {
-            showMsg('Agregado con exito', 'success')
+            showMsg('Agregado con exito', 'success');
             $('#grillaPasajero').html(data);
         }
-    });
-    
+    });    
 }
 
 getViajePasajeros = () => {
@@ -923,8 +969,34 @@ agregarObservacion = () => {
 }
 
 fillViajeItems = () => {
+    let sum_total = 0;
     viaje_items.forEach(value => {
-        switch(value.tipo_items_viaje){                
+        console.log(value.tipo_items_viaje)
+        switch(value.tipo_items_viaje){  
+            case '1':
+                $('#admin_espera').val(parseInt(value.monto));
+                sum_total += parseInt(value.monto);
+            break;              
+            case '2':
+                $('#admin_costo_cliente').val(parseInt(value.monto));
+                sum_total += parseInt(value.monto);
+            break;              
+            case '3':
+                $('#admin_costo_bilingue').val(parseInt(value.monto));
+                sum_total += parseInt(value.monto);
+            break;            
+            case '4':
+                $('#admin_costo_maletas').val(parseInt(value.monto));
+                sum_total += parseInt(value.monto);
+            break;          
+            case '5':
+                $('#admin_estacionamiento').val(parseInt(value.monto));
+                sum_total += parseInt(value.monto);
+            break;
+            case '6':
+                $('#admin_peaje').val(parseInt(value.monto));
+                sum_total += parseInt(value.monto);
+            break;                
             case '8':
                 $('#costo_proveedor').val(parseInt(value.monto));
             break;
@@ -960,10 +1032,18 @@ fillViajeItems = () => {
             case '16':
                 $('#otros').val(parseInt(value.monto));
             break;
+            case '17':
+                $('#admin_otros').val(parseInt(value.monto));
+                sum_total += parseInt(value.monto);
+            break;            
+            case '18':
+                $('#admin_hs_dispo').val(parseInt(value.monto));
+                sum_total += parseInt(value.monto);
+            break;
             default:
-
-        }
+        }        
     });
+    $('#admin_total').val(sum_total);
 };
 
 $(function() {

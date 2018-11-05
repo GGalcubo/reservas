@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^deleteViajePasajero/', deleteViajePasajero, name='deleteViajePasajero'),
     url(r'^deleteAllViajePasajero/', deleteAllViajePasajero, name='deleteAllViajePasajero'),
     url(r'^getViajesEnProgresoPorFecha/', getViajesEnProgresoPorFecha, name='getViajesEnProgresoPorFecha'),
+    url(r'^guardaViajeAdmin/', guardaViajeAdmin, name='guardaViajeAdmin'),
     url(r'^editEstadoViaje/', editEstadoViaje, name='editEstadoViaje'),
     url(r'^guardarObservacionViaje/', guardarObservacionViaje, name='guardarObservacionViaje'),
     url(r'^guardarTrayecto/', guardarTrayecto, name='guardarTrayecto'),
