@@ -15,18 +15,32 @@ $(document).ready( () => {
 
     //$('#admin_total').val(0);
 
-    $('#admin_espera, #admin_estacionamiento, #admin_estacionamiento, #admin_peaje, #admin_hs_dispo, #admin_costo_cliente, #admin_costo_bilingue, #admin_costo_maletas, #admin_otros').on('input', function () {
+    $('#admin_espera_cliente, #admin_estacionamiento_cliente, #admin_estacionamiento_cliente, #admin_peaje_cliente, #admin_hs_dispo_cliente, #admin_costo_cliente, #admin_costo_bilingue_cliente, #admin_costo_maletas_cliente, #admin_otros_cliente').on('input', function () {
         let sum_total = 0;
-        sum_total += parseInt($('#admin_espera').val()) || 0;
-        sum_total += parseInt($('#admin_estacionamiento').val()) || 0;
-        sum_total += parseInt($('#admin_peaje').val()) || 0;
-        sum_total += parseInt($('#admin_hs_dispo').val()) || 0;
+        sum_total += parseInt($('#admin_espera_cliente').val()) || 0;
+        sum_total += parseInt($('#admin_estacionamiento_cliente').val()) || 0;
+        sum_total += parseInt($('#admin_peaje_cliente').val()) || 0;
+        sum_total += parseInt($('#admin_hs_dispo_cliente').val()) || 0;
         sum_total += parseInt($('#admin_costo_cliente').val()) || 0;
-        sum_total += parseInt($('#admin_costo_bilingue').val()) || 0;
-        sum_total += parseInt($('#admin_costo_maletas').val()) || 0;
-        sum_total += parseInt($('#admin_otros').val()) || 0;
+        sum_total += parseInt($('#admin_costo_bilingue_cliente').val()) || 0;
+        sum_total += parseInt($('#admin_costo_maletas_cliente').val()) || 0;
+        sum_total += parseInt($('#admin_otros_cliente').val()) || 0;
 
-        $('#admin_total').val(sum_total);
+        $('#admin_total_cliente').val(sum_total);
+    });
+
+    $('#admin_espera_proveedor, #admin_estacionamiento_proveedor, #admin_estacionamiento_proveedor, #admin_peaje_proveedor, #admin_hs_dispo_proveedor, #admin_costo_proveedor, #admin_costo_bilingue_proveedor, #admin_costo_maletas_proveedor, #admin_otros_proveedor').on('input', function () {
+        let sum_total = 0;
+        sum_total += parseInt($('#admin_espera_proveedor').val()) || 0;
+        sum_total += parseInt($('#admin_estacionamiento_proveedor').val()) || 0;
+        sum_total += parseInt($('#admin_peaje_proveedor').val()) || 0;
+        sum_total += parseInt($('#admin_hs_dispo_proveedor').val()) || 0;
+        sum_total += parseInt($('#admin_costo_proveedor').val()) || 0;
+        sum_total += parseInt($('#admin_costo_bilingue_proveedor').val()) || 0;
+        sum_total += parseInt($('#admin_costo_maletas_proveedor').val()) || 0;
+        sum_total += parseInt($('#admin_otros_proveedor').val()) || 0;
+
+        $('#admin_total_proveedor').val(sum_total);
     });
 
     $(".cont_desde_provincia").hide();
@@ -37,6 +51,8 @@ $(document).ready( () => {
     $(".desde_vuelo").hide();
     $(".modal_desde_vuelo").hide();
     $(".modal_hasta_vuelo").hide();
+    //$("#administracion").hide();
+    $("#administracion_tab_btn a").hide();
 
     if(es_nuevo == '1'){
         $('#fecha').datepicker('setDate', 'today');
@@ -44,6 +60,10 @@ $(document).ready( () => {
         $('#estado').attr("disabled", true);
     }else{
         $("#viaje-tab").show();
+        if(estado == '6' || estado == '7'){
+            //$("#administracion").show();
+            $("#administracion_tab_btn a").show();
+        }
         if(mensaje != ''){showMsg(mensaje, 'success')}
         $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
         //HAGO ESTO PARA SIMULAR UN EVENTO QUE PIDE LA FUNCION DE SELECT2ME
@@ -225,10 +245,10 @@ $(document).ready( () => {
            data: obj,
            success: data => {
                 data.url ? window.location.replace(data.url) : showMsg('Los datos se han actualizado correctamente.', 'success');
-                if(obj.estado == 6){
+                if(obj.estado == 6 || obj.estado == 7){
                     viaje_items = [];
                     $.each(data, (k, item) => {
-                        var obj = {
+                        let obj = {
                             id : item.pk,
                             monto : item.fields.monto,
                             monto_s_iva : item.fields.monto_s_iva,
@@ -238,7 +258,12 @@ $(document).ready( () => {
                         viaje_items.push(obj);
                     });
                     fillViajeItems();
-                }                
+                    //$("#administracion").show();
+                    $("#administracion_tab_btn a").show();
+                }else{
+                    //$("#administracion").hide();
+                    $("#administracion_tab_btn a").hide();
+                }
            }
         });
 
@@ -501,6 +526,18 @@ guardaViajeAdmin = () => {
                                                                     }),
         success: data => {
             showMsg('Se guardo con exito', 'success');
+            viaje_items = [];
+            $.each(data, (k, item) => {
+                let obj = {
+                    id : item.pk,
+                    monto : item.fields.monto,
+                    monto_s_iva : item.fields.monto_s_iva,
+                    monto_iva : item.fields.monto_iva,
+                    tipo_items_viaje : item.fields.tipo_items_viaje.toString() ,
+                    cant: item.fields.cant};
+                viaje_items.push(obj);
+            });
+            fillViajeItems();
         }
     });    
 }
@@ -912,7 +949,7 @@ agregarTramo = () => {
         return false;
     }*/
 
-    var obj               = {};
+    let obj               = {};
     obj.desde_destino     = $("#modal_desde_destino").val();
     obj.desde_localidad   = $("#modal_desde_localidad").val();
     obj.desde_provincia   = $("#modal_desde_provincia").val();
@@ -934,7 +971,7 @@ agregarTramo = () => {
     obj.id                = $("#modal_id").val();
 
 
-    var url = "/sistema/guardarTrayecto/"; // the script where you handle the form input.
+    let url = "/sistema/guardarTrayecto/"; // the script where you handle the form input.
     $.ajax({
        type: "POST",
        url: url,
@@ -954,7 +991,7 @@ agregarObservacion = () => {
     if ($('#textAreaObservacion').val() == ""){
         showMsg("Campo observacion es obligatorio", 'error');
     }else{
-        var url = "/sistema/guardarObservacionViaje/";
+        let url = "/sistema/guardarObservacionViaje/";
         $.ajax({
             type: "POST",
             url: url,
@@ -966,84 +1003,97 @@ agregarObservacion = () => {
             }
         });
     }
-}
+};
 
 fillViajeItems = () => {
-    let sum_total = 0;
+    let sum_total_proveedor = 0;
+    let sum_total_cliente = 0;
     viaje_items.forEach(value => {
-        console.log(value.tipo_items_viaje)
-        switch(value.tipo_items_viaje){  
+        console.log(value.monto_s_iva);
+        switch(value.tipo_items_viaje){
             case '1':
-                $('#admin_espera').val(parseInt(value.monto));
-                sum_total += parseInt(value.monto);
+                $('#admin_espera_cliente').val(parseFloat(value.monto_s_iva));
+                sum_total_cliente += parseFloat(value.monto_s_iva);
             break;              
             case '2':
-                $('#admin_costo_cliente').val(parseInt(value.monto));
-                sum_total += parseInt(value.monto);
+                $('#admin_costo_cliente').val(parseFloat(value.monto_s_iva));
+                sum_total_cliente += parseFloat(value.monto_s_iva);
             break;              
             case '3':
-                $('#admin_costo_bilingue').val(parseInt(value.monto));
-                sum_total += parseInt(value.monto);
+                $('#admin_costo_bilingue_cliente').val(parseFloat(value.monto_s_iva));
+                sum_total_cliente += parseFloat(value.monto_s_iva);
             break;            
             case '4':
-                $('#admin_costo_maletas').val(parseInt(value.monto));
-                sum_total += parseInt(value.monto);
+                $('#admin_costo_maletas_cliente').val(parseFloat(value.monto_s_iva));
+                sum_total_cliente += parseFloat(value.monto_s_iva);
             break;          
             case '5':
-                $('#admin_estacionamiento').val(parseInt(value.monto));
-                sum_total += parseInt(value.monto);
+                $('#admin_estacionamiento_cliente').val(parseFloat(value.monto_s_iva));
+                sum_total_cliente += parseFloat(value.monto_s_iva);
             break;
             case '6':
-                $('#admin_peaje').val(parseInt(value.monto));
-                sum_total += parseInt(value.monto);
+                $('#admin_peaje_cliente').val(parseFloat(value.monto_s_iva));
+                sum_total_cliente += parseFloat(value.monto_s_iva);
             break;                
             case '8':
-                $('#costo_proveedor').val(parseInt(value.monto));
+                $('#admin_costo_proveedor').val(parseFloat(value.monto_s_iva));
+                sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '9':
                 if(value.cant == 1){
                     $('#bilingue').prop('checked', true);
                 }
-                $('#costo_bilingue').val(parseInt(value.monto));
+                $('#admin_costo_bilingue_proveedor').val(parseFloat(value.monto_s_iva));
+                sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '10':
                 if(value.cant == 1){
                     $('#maletas').prop('checked', true);
                 }
-                $('#costo_maletas').val(parseInt(value.monto));
+                $('#admin_costo_maletas_proveedor').val(parseFloat(value.monto_s_iva));
+                sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '11':
-                $('#estacionamiento').val(parseInt(value.monto));
+                $('#estacionamiento').val(parseFloat(value.monto_s_iva));
+                $('#admin_estacionamiento_proveedor').val(parseFloat(value.monto_s_iva));
+                sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '12':
-                $('#importe_efectivo').val(parseInt(value.monto));
+                $('#importe_efectivo').val(parseFloat(value.monto_s_iva));
             break;
             case '13':
-                $('#hs_dispo').val(parseInt(value.monto));
+                $('#admin_hs_dispo_proveedor').val(parseFloat(value.monto_s_iva));
                 $('#tiempo_hs_dispo').val(value.cant);
+                sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '14':
-                $('#espera').val(parseInt(value.monto));
+                $('#admin_espera_proveedor').val(parseFloat(value.monto_s_iva));
                 $('#tiempo_espera').val(value.cant);
+                sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '15':
-                $('#peaje').val(parseInt(value.monto));
+                $('#peaje').val(parseFloat(value.monto_s_iva));
+                $('#admin_peaje_proveedor').val(parseFloat(value.monto_s_iva));
+                sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '16':
-                $('#otros').val(parseInt(value.monto));
+                $('#admin_otros_proveedor').val(parseFloat(value.monto_s_iva));
+                $('#otros').val(parseFloat(value.monto_s_iva));
+                sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '17':
-                $('#admin_otros').val(parseInt(value.monto));
-                sum_total += parseInt(value.monto);
+                $('#admin_otros_cliente').val(parseFloat(value.monto_s_iva));
+                sum_total_cliente += parseFloat(value.monto_s_iva);
             break;            
             case '18':
-                $('#admin_hs_dispo').val(parseInt(value.monto));
-                sum_total += parseInt(value.monto);
+                $('#admin_hs_dispo_cliente').val(parseFloat(value.monto_s_iva));
+                sum_total_cliente += parseFloat(value.monto_s_iva);
             break;
             default:
         }        
     });
-    $('#admin_total').val(sum_total);
+    $('#admin_total_cliente').val(sum_total_cliente);
+    $('#admin_total_proveedor').val(sum_total_proveedor);
 };
 
 $(function() {
