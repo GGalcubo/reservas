@@ -1711,7 +1711,7 @@
         ];
         var personascliente = [{% for personacliente in cliente.personacliente_set.all %}
         { "id" : "{{ personacliente.persona.id }}",
-           "nombre" : "{{ personacliente.persona.nombre}}",
+           "nombre" : "{{ personacliente.persona.nombre}} {{ personacliente.persona.apellido}}",
            "tipo_persona" : "{{ personacliente.persona.tipo_persona}}"
         },
         {% endfor %}

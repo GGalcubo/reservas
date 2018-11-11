@@ -12,10 +12,8 @@
             {% if t.id != trayectos.0.id %}
                 <tr>
                     <td>{{ t.id }}</td>
-                    <td>{{ t.provincia_desde }}</td>
-                    <td>{{ t.localidad_desde }}</td>
-                    <td>{{ t.provincia_hasta }}</td>
-                    <td>{{ t.localidad_hasta }}</td>
+                    <td>{{ t.desdeConcat }}</td>
+                    <td>{{ t.hastaConcat }}</td>
                     <td class="text-center">
                         <a href="#add_tramo" data-toggle="modal" class="edit_button"
                            data-id="{{ t.id }}"

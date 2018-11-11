@@ -104,7 +104,7 @@ $(document).ready( () => {
 
     $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
     $('#id_cliente').select2({ placeholder: 'Seleccionar Cliente', dropdownAutoWidth : true, width: 'auto'});
-    $("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
+    //$("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
     $('#unidad_id').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
     $('#centro_costos').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
 
@@ -137,8 +137,7 @@ $(document).ready( () => {
     });
 
     $('#tipo_viaje_obs').on('change', e => {
-        var optionSelected = $("option:selected", this);
-        var valueSelected = this.value;
+        var valueSelected = $('#tipo_viaje_obs').val();
         $('#detalle_obs').empty();
 
         $.each(tipo_observaciones, (i, value) => {
@@ -741,13 +740,13 @@ searchCliente = (_cliente_id) => {
         }
     }); 
     return cliente;
-}
+};
 
 updateFillsByUnidad = (name, evt) => {
-    var option_selected = evt.params.data.id - 1;
+    var option_selected = evt.params.data.id;
     $('#unidad_id').select2('val',unidades[option_selected].id);
     $('#unidad_id').val(unidades[option_selected].id).trigger("change");
-}
+};
 
 updateFillsByLocalidad = (name, evt) => {
     var localidad_id = evt.params.data.id,
@@ -790,7 +789,7 @@ updateFillsByLocalidad = (name, evt) => {
                 $('#modal_desde_vuelo').val('');
             }
             break;
-        case 'modal_desde_localidad':
+        case 'modal_hasta_localidad':
             html_direccion = 'modal_hasta_direccion';
             html_vuelo = 'modal_hasta_vuelo';
             if(!init) {
