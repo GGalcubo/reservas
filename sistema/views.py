@@ -409,7 +409,7 @@ def guardaItemViajeEspera(monto, tipo_item_viaje, tiempo, viaje, manual):
         item_viaje_otros = ItemViaje()
 
     monto       = round(float(monto), 2)
-    monto_s_iva = monto if manual else (int(tiempo)/15) * round(float(tarifa_extra.extra_precio_prov), 2)
+    monto_s_iva = monto if manual else round((int(tiempo)/15) * float(tarifa_extra.extra_precio_prov), 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = tiempo
