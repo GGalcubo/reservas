@@ -602,6 +602,8 @@ class Viaje(models.Model):
         for iv in self.itemviaje_set.all():
             if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18 or iv.tipo_items_viaje.id == 1 or iv.tipo_items_viaje.id == 3 or iv.tipo_items_viaje.id == 4 or iv.tipo_items_viaje.id == 5 or iv.tipo_items_viaje.id == 6 or iv.tipo_items_viaje.id == 17:                
                 retorno = retorno + iv.monto_s_iva
+            elif iv.tipo_items_viaje.id == 12:
+                retorno = retorno - iv.monto_s_iva
         return retorno - self.getMontoPeftCliente()
 
     def getIvaCliente(self):
@@ -682,7 +684,7 @@ class Viaje(models.Model):
     def getSubtotalProveedor(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18:
+            if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 13:
                 retorno = retorno + iv.monto_s_iva
         return retorno
 
