@@ -125,7 +125,7 @@ class Observacion(models.Model):
         return getFechaHora(self.fecha)
 
     class Meta:
-        verbose_name_plural = "Observaciones" 
+        verbose_name_plural = "Observaciones"
 
 class Mail(models.Model):
     mail = models.CharField(max_length=100)
@@ -210,7 +210,7 @@ class Persona(models.Model):
 
     def nombreCompleto(self):
         return self.nombre + " " + self.apellido
-    
+
     def getIdentificacion(self):
         return self.nombre + " " + self.apellido
 
@@ -236,7 +236,7 @@ class Persona(models.Model):
             return self.personacliente_set.all()[0].cliente.razon_social
         else:
             return 'Sin cliente'
-    
+
     def getTelefono(self):
         if len(self.telefonopersona_set.all()) > 0:
             return self.telefonopersona_set.all()[0].telefono.numero
@@ -266,7 +266,7 @@ class Persona(models.Model):
         if len(unidades) > 0:
             unidad = unidades[0]
         return unidad
-        
+
 
 class Vehiculo(models.Model):
     marca = models.CharField(max_length=30)
@@ -281,7 +281,7 @@ class Vehiculo(models.Model):
 
     def __unicode__(self):
         return u'%s' % self.nro_motor
-    
+
     def __str__(self):
         return self.nro_motor
 
@@ -345,7 +345,7 @@ class Unidad(models.Model):
         return licencias
 
     class Meta:
-        verbose_name_plural = "Unidades" 
+        verbose_name_plural = "Unidades"
 
 class Tarifario(models.Model):
     nombre = models.CharField(max_length=50)
@@ -357,7 +357,7 @@ class Tarifario(models.Model):
 
     def __str__(self):
         return self.nombre
-        
+
 class Cliente(models.Model):
     razon_social = models.CharField(max_length=60)
     calle = models.CharField(max_length=50, null=True, blank=True)
@@ -375,7 +375,7 @@ class Cliente(models.Model):
     alias = models.CharField(max_length=50, null=True, blank=True)
     dias_fechas_facturas = models.CharField(max_length=20, null=True, blank=True)
     baja = models.BooleanField(default=False)
-    
+
     def __unicode__(self):
         return u'%s' % self.razon_social
 
@@ -452,13 +452,13 @@ class CentroCosto(models.Model):
 
 class TipoPagoViaje(models.Model):
     tipo_pago_viaje = models.CharField(max_length=50, null=True, blank=True)
-	
+
     def __unicode__(self):
         return u'%s' % self.tipo_pago_viaje
 
     def __str__(self):
         return self.tipo_pago_viaje
-        
+
 class Viaje(models.Model):
     estado = models.ForeignKey(Estado, null=True, blank=True)
     fecha = models.CharField(max_length=12)
@@ -474,7 +474,7 @@ class Viaje(models.Model):
     tarifapasada = models.IntegerField(default=0)
     nro_aux= models.CharField(max_length=30, null=True, blank=True)
     tipo_pago = models.ForeignKey(TipoPagoViaje, null=True, blank=True, default=1)
-    
+
     def __unicode__(self):
         return u'%s' % self.fecha
 
@@ -600,7 +600,7 @@ class Viaje(models.Model):
     def getTotalCliente(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18 or iv.tipo_items_viaje.id == 1 or iv.tipo_items_viaje.id == 3 or iv.tipo_items_viaje.id == 4 or iv.tipo_items_viaje.id == 5 or iv.tipo_items_viaje.id == 6 or iv.tipo_items_viaje.id == 17:                
+            if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18 or iv.tipo_items_viaje.id == 1 or iv.tipo_items_viaje.id == 3 or iv.tipo_items_viaje.id == 4 or iv.tipo_items_viaje.id == 5 or iv.tipo_items_viaje.id == 6 or iv.tipo_items_viaje.id == 17:
                 retorno = retorno + iv.monto_s_iva
             elif iv.tipo_items_viaje.id == 12:
                 retorno = retorno - iv.monto_s_iva
@@ -617,7 +617,7 @@ class Viaje(models.Model):
     def getFinalCliente(self):
         retorno = self.getTotalCliente() + self.getIvaCliente()
         return retorno
-        
+
     def getPasajeros(self):
         pasajeros = []
         for pervi in self.viajepasajero_set.all():
@@ -691,7 +691,7 @@ class Viaje(models.Model):
     def getTotalProveedor(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 14 or iv.tipo_items_viaje.id == 9 or iv.tipo_items_viaje.id == 10 or iv.tipo_items_viaje.id == 15 or iv.tipo_items_viaje.id == 11 or iv.tipo_items_viaje.id == 16:                
+            if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 14 or iv.tipo_items_viaje.id == 9 or iv.tipo_items_viaje.id == 10 or iv.tipo_items_viaje.id == 15 or iv.tipo_items_viaje.id == 11 or iv.tipo_items_viaje.id == 16 or iv.tipo_items_viaje.id == 13:                
                 retorno = retorno + iv.monto_s_iva
         return retorno - self.getMontoPeftCliente()
 
@@ -723,7 +723,7 @@ class TipoItemViaje(models.Model):
         return u'%s' % self.item_desc
 
     def __str__(self):
-        return self.item_desc 
+        return self.item_desc
 
 class ItemViaje(models.Model):
     viaje = models.ForeignKey(Viaje)
@@ -744,13 +744,13 @@ class FacturaViaje(models.Model):
     fact_cliente = models.CharField(max_length=30, null=True, blank=True)
     prof_cliente = models.CharField(max_length=30, null=True, blank=True)
     fact_proveedor = models.CharField(max_length=30, null=True, blank=True)
-    
+
 
     def __unicode__(self):
         return u'%s' % self.viaje
 
     def __str__(self):
-        return self.viaje  
+        return self.viaje
 
 class ViajePasajero(models.Model):
     viaje = models.ForeignKey(Viaje)
@@ -764,7 +764,7 @@ class ViajePasajero(models.Model):
         return self.pasajero
 
     class Meta:
-        verbose_name_plural = "Pasajero Viaje" 
+        verbose_name_plural = "Pasajero Viaje"
 
 class ViajeHistorial(models.Model):
     viaje = models.ForeignKey(Viaje, null=True, blank=True)
@@ -787,7 +787,7 @@ class TrayectoDestino(models.Model):
     nombre = models.CharField(max_length=100, null=True, blank=True)
     terminal_flag = models.BooleanField(default=False)
     color = models.CharField(max_length=50, null=True)
-    
+
     def __unicode__(self):
         return u'%s' % self.nombre
 
@@ -837,7 +837,7 @@ class TarifaExtra(models.Model):
     extra_precio = models.CharField(max_length=20, null=True, blank=True)
     extra_precio_prov= models.CharField(max_length=20, null=True, blank=True)
     categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
-    
+
 
     def __unicode__(self):
         return u'%s' % self.extra_descripcion
@@ -896,13 +896,13 @@ class Trayecto(models.Model):
         if self.provincia_desde:
             retorno += self.provincia_desde.nombre + ", "
         if self.localidad_desde:
-            retorno += self.localidad_desde.nombre + ", "    
+            retorno += self.localidad_desde.nombre + ", "
         if self.calle_desde:
-            retorno += self.calle_desde + " " + self.altura_desde + ", " 
+            retorno += self.calle_desde + " " + self.altura_desde + ", "
         if self.compania_desde:
-            retorno += self.compania_desde + ", " 
+            retorno += self.compania_desde + ", "
         if self.vuelo_desde:
-            retorno += self.vuelo_desde + ", " 
+            retorno += self.vuelo_desde + ", "
         if self.entre_desde:
             retorno += self.entre_desde + ", "
         return retorno[:-2]
@@ -1027,7 +1027,7 @@ class MailPersona(models.Model):
         return u'%s' % self.mail
 
     def __str__(self):
-        return self.mail 
+        return self.mail
 
 class MailCliente(models.Model):
     mail = models.ForeignKey(Mail, null=True, blank=True)
@@ -1037,7 +1037,7 @@ class MailCliente(models.Model):
         return u'%s' % self.mail
 
     def __str__(self):
-        return self.mail 
+        return self.mail
 
 class TelefonoCliente(models.Model):
     telefono = models.ForeignKey(Telefono, null=True, blank=True)
@@ -1082,13 +1082,13 @@ class LicenciaVehiculo(models.Model):
 class TipoAdelanto (models.Model):
     descripcion = models.CharField(max_length=50, null=True, blank=True)
     logica = models.CharField(max_length=50, null=True, blank=True)
-    
+
     def __unicode__(self):
         return u'%s' % self.descripcion
 
     def __str__(self):
         return self.descripcion
-		
+
 class Adelanto (models.Model):
     proveedor = models.ForeignKey(Persona, null=True, blank=True)
     tipo_adelanto = models.ForeignKey(TipoAdelanto, null=True, blank=True)
