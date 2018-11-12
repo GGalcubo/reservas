@@ -602,8 +602,6 @@ class Viaje(models.Model):
         for iv in self.itemviaje_set.all():
             if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18 or iv.tipo_items_viaje.id == 1 or iv.tipo_items_viaje.id == 3 or iv.tipo_items_viaje.id == 4 or iv.tipo_items_viaje.id == 5 or iv.tipo_items_viaje.id == 6 or iv.tipo_items_viaje.id == 17:
                 retorno = retorno + iv.monto_s_iva
-            elif iv.tipo_items_viaje.id == 12:
-                retorno = retorno - iv.monto_s_iva
         return retorno - self.getMontoPeftCliente()
 
     def getIvaCliente(self):
@@ -691,7 +689,7 @@ class Viaje(models.Model):
     def getTotalProveedor(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 14 or iv.tipo_items_viaje.id == 9 or iv.tipo_items_viaje.id == 10 or iv.tipo_items_viaje.id == 15 or iv.tipo_items_viaje.id == 11 or iv.tipo_items_viaje.id == 16 or iv.tipo_items_viaje.id == 13:                
+            if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 14 or iv.tipo_items_viaje.id == 9 or iv.tipo_items_viaje.id == 10 or iv.tipo_items_viaje.id == 15 or iv.tipo_items_viaje.id == 11 or iv.tipo_items_viaje.id == 16 or iv.tipo_items_viaje.id == 13:
                 retorno = retorno + iv.monto_s_iva
         return retorno - self.getMontoPeftCliente()
 
@@ -699,7 +697,7 @@ class Viaje(models.Model):
         retorno = 0.00
         if self.categoria_viaje.iva_flag:
             for iv in self.itemviaje_set.all():
-                if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 14 or iv.tipo_items_viaje.id == 9 or iv.tipo_items_viaje.id == 10 or iv.tipo_items_viaje.id == 15 or iv.tipo_items_viaje.id == 11 or iv.tipo_items_viaje.id == 16:
+                if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 14 or iv.tipo_items_viaje.id == 9 or iv.tipo_items_viaje.id == 10 or iv.tipo_items_viaje.id == 15 or iv.tipo_items_viaje.id == 11 or iv.tipo_items_viaje.id == 16  or iv.tipo_items_viaje.id == 13:
                     retorno = retorno + iv.monto_iva
         return retorno
 
