@@ -1193,6 +1193,7 @@ def guardarObservacionViaje(request):
 
 	idViaje = request.POST.get('idViajeObser', False)
 	text_obs = request.POST.get('text_obs', False)
+	#hora_obs = request.POST.get('hora_obs', fecha())
 	detalle_obs = request.POST.get('detalle_obs', False)
 	observacion = Observacion()
 	observacion.fecha = fecha()

@@ -203,10 +203,10 @@ class Persona(models.Model):
     baja = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return u'%s' % self.nombre
+        return u'%s' % self.nombre + " " + self.apellido
 
     def __str__(self):
-        return self.nombre
+        return self.nombre + " " + self.apellido
 
     def nombreCompleto(self):
         return self.nombre + " " + self.apellido
