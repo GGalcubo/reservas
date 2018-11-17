@@ -38,7 +38,7 @@
                                     <div class="caption font-blue">
                                         <i class="icon-list font-blue mg-t-8"></i>
                                         <span class="caption-subject bold uppercase">Tarifario General</span>
-                                        <a href="/sistema/tarifario/" role="button" class="btn green btn-outline mg-l-20">Agregar tarifario</a>
+                                        <!--a href="/sistema/tarifario/" role="button" class="btn green btn-outline mg-l-20">Agregar tarifario</a-->
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -48,13 +48,13 @@
                                             <div class="row">
                                                 <div class="col-sm-1">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_1" value="22">
+                                                        <input type="text" class="form-control" id="id" name="id" value="{{tarifario.id}}">
                                                         <label for="form_control_1">ID</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_2" value="General">
+                                                        <input type="text" class="form-control" id="nombre" name="nombre" value="{{tarifario.nombre}}">
                                                         <label for="form_control_2">Nombre</label>
                                                     </div>
                                                 </div>
@@ -66,10 +66,10 @@
                                                 </div> -->                                       
                                             </div>
                                         </div>
-                                        <div class="form-actions noborder flex">
+                                        <!--div class="form-actions noborder flex">
                                             <button type="button" class="btn green btn-outline mg-r-10">Guardar</button>
                                             <button type="button" class="btn btn-outline red">Cancelar</button>
-                                        </div>
+                                        </div -->
                                     </form>
                                 </div>
                             </div>
@@ -133,12 +133,13 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
+                                                                                {% for trayecto in tarifario.getTarifaViaje %}
                                                                                 <tr>
                                                                                     <td class="text-center">
                                                                                         <a href="#add_tramo_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                                                                                     </td>
-                                                                                    <td>Centro</td>
-                                                                                    <td>Ezeiza</td>
+                                                                                    <td>{{trayecto.localidad_desde}}</td>
+                                                                                    <td>{{trayecto.localidad_hasta}}</td>
                                                                                     <td>850</td>
                                                                                     <td>900</td>
                                                                                     <td>950</td>
@@ -159,136 +160,7 @@
                                                                                     <td>4000</td>
                                                                                     <td>4000</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#add_tramo_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td>Centro</td>
-                                                                                    <td>Aeroparque</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#add_tramo_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td>Centro</td>
-                                                                                    <td>Retiro-Buquebus</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#add_tramo_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td>Centro</td>
-                                                                                    <td>Cardales</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#add_tramo_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td>Centro</td>
-                                                                                    <td>Lujan</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#add_tramo_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td>Centro</td>
-                                                                                    <td>Pilar</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
-                                                                                </tr>
+                                                                                {% endfor %}
                                                                             </tbody>
                                                                         </table>
                                                                         <div class="row">

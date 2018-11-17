@@ -1583,15 +1583,16 @@ def listadoCentroDeCosto(request):
 @login_required
 def listadoTarifario(request):
 	mensaje = ""
-
-	context = {'mensaje': mensaje}
+	tarifarios = Tarifario.objects.filter(baja=False)
+	context = {'tarifarios': tarifarios}
 	return render(request, 'sistema/listadoTarifario.html', context)
 
 @login_required
 def tarifario(request):
 	mensaje = ""
-
-	context = {'mensaje': mensaje}
+	idTarifario = request.GET.get('idTarifario', "")
+	tarifario = Tarifario.objects.get(id=idTarifario)
+	context = {'tarifario': tarifario}
 	return render(request, 'sistema/tarifario.html', context)
 
 @login_required
