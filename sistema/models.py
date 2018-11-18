@@ -860,7 +860,7 @@ class TarifaTrayecto(models.Model):
         return self.descripcion
 
 class TarifaTrayectoPrecio(models.Model):
-    tarifaTrayecto = models.ForeignKey(TarifaTrayecto)
+    tarifatrayecto = models.ForeignKey(TarifaTrayecto)
     precio_cliente = models.CharField(max_length=50, null=True, blank=True)
     precio_prov = models.CharField(max_length=50, null=True, blank=True)
     categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)

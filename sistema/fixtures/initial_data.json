@@ -18800,6 +18800,7 @@
        "localidad_hasta_id":162,
        "tarifario_id":1 }
 },
+
 {
         "model": "sistema.TarifaExtra","pk":1,
          "fields": {
