@@ -359,7 +359,7 @@ class Tarifario(models.Model):
         return self.nombre
 
     def getTarifaViaje(self):
-        return self.tarifaviaje_set.all()
+        return self.tarifatrayecto_set.all()
 
 class Cliente(models.Model):
     razon_social = models.CharField(max_length=60)
@@ -835,16 +835,24 @@ class Calle(models.Model):
 class TarifaExtra(models.Model):
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
     extra_descripcion = models.CharField(max_length=40, null=True, blank=True)
-    extra_precio = models.CharField(max_length=20, null=True, blank=True)
-    extra_precio_prov= models.CharField(max_length=20, null=True, blank=True)
-    categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
-
 
     def __unicode__(self):
         return u'%s' % self.extra_descripcion
 
     def __str__(self):
         return self.extra_descripcion
+
+class TarifaExtraPrecio(models.Model):
+    tarifa_extra = models.ForeignKey(TarifaExtra)
+    extra_precio = models.CharField(max_length=20, null=True, blank=True)
+    extra_precio_prov= models.CharField(max_length=20, null=True, blank=True)
+    categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.extra_precio
+
+    def __str__(self):
+        return self.extra_precio
 
 class TarifaTrayecto(models.Model):
     descripcion = models.CharField(max_length=50)
@@ -858,6 +866,14 @@ class TarifaTrayecto(models.Model):
 
     def __str__(self):
         return self.descripcion
+
+    def getTarifaByCategoria(self, idCat):
+        retorno = 0
+        for ttp in self.tarifatrayectoprecio_set.all():
+            if ttp.categoria_viaje.id == idCat:
+                retorno = retorno + int(ttp.precio_cliente)
+        return retorno
+    
 
 class TarifaTrayectoPrecio(models.Model):
     tarifatrayecto = models.ForeignKey(TarifaTrayecto)

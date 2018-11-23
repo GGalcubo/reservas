@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Permission
+from django.template.defaulttags import register
 from django.conf import settings
 from .models import *
 from django.http import HttpResponse
@@ -2149,3 +2150,7 @@ def fecha():
 
 def getAAAAMMDD(fecha):
 	return fecha[6:10] + fecha[3:5] + fecha[0:2]
+
+@register.filter
+def get_tarifa_by_cat(tarifaTrayecto, idCat):
+    return tarifaTrayecto.getTarifaByCategoria(idCat)
