@@ -507,6 +507,12 @@ class Viaje(models.Model):
             viaje_items.append(item)
         return viaje_items
 
+    def getViajeAdjuntos(self):
+        viaje_adjuntos = []
+        for adjunto in self.adjuntoviaje_set.all():
+            viaje_adjuntos.append(adjunto)
+        return viaje_adjuntos
+
     def getTrayectoPrincipal(self):
         trayecto = self.trayecto_set.filter()[:1].get()
         return trayecto

@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^guardaViajePasajeroPOST/', guardaViajePasajeroPOST, name='guardaViajePasajeroPOST'),
     url(r'^getViajesFuturosPorFecha/', getViajesFuturosPorFecha, name='getViajesFuturosPorFecha'),
     url(r'^getViajePasajeros/', getViajePasajeros, name='getViajePasajeros'),
+    url(r'^deleteViajeAdjunto/', deleteViajeAdjunto, name='deleteViajeAdjunto'),
     url(r'^deleteViajePasajero/', deleteViajePasajero, name='deleteViajePasajero'),
     url(r'^deleteAllViajePasajero/', deleteAllViajePasajero, name='deleteAllViajePasajero'),
     url(r'^getViajesEnProgresoPorFecha/', getViajesEnProgresoPorFecha, name='getViajesEnProgresoPorFecha'),

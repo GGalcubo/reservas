@@ -602,6 +602,11 @@ def guardaObsViaje(input_text, viaje, request):
 
 @login_required
 def guardarViajeAdjunto(request):
+    idViaje = request.POST["idViaje"]
+    viaje   = Viaje.objects.get(id=idViaje)
+    file    = request.FILES['file']
+    error   = False
+
     options = {
         "maxfilesize": 2 * 2 ** 20,  # 2 Mb
         "minfilesize": 1 * 2 ** 10,  # 1 Kb
@@ -612,92 +617,45 @@ def guardarViajeAdjunto(request):
             "application/msword",
         )
     }
+    # file size
+    if file.size > options["maxfilesize"]:
+        error = "maxFileSize"
+    if file.size < options["minfilesize"]:
+        error = "minFileSize"
+        # allowed file type
+    #if file.content_type not in options["acceptedformats"]:
+        #error = "acceptFileTypes"
 
-    if request.method == 'POST':
-        import uuid
+    response_data = {
+        "name": file.name,
+        "size": file.size,
+        "type": file.content_type
+    }
 
-        if not request.POST[u"uid"]:
-            return HttpResponseBadRequest("UID not specified.")
-        uid = request.POST[u"uid"]
+    if error:
+        response_data["error"] = error
+        response_data = json.dumps([response_data])
+        return HttpResponse(response_data, mimetype='application/json')
 
-        file = request.FILES[u'files[]']
+    adjunto = Adjunto()
+    adjunto.upload = request.FILES['file']
+    adjunto.fecha = '2018'
+    adjunto.save()
 
-        error = False
+    viajeAdjunto = AdjuntoViaje()
+    viajeAdjunto.adjunto = adjunto
+    viajeAdjunto.viaje_id = idViaje
+    viajeAdjunto.save()
 
-        # file size
-        if file.size > options["maxfilesize"]:
-            error = "maxFileSize"
-        if file.size < options["minfilesize"]:
-            error = "minFileSize"
-            # allowed file type
-        if file.content_type not in options["acceptedformats"]:
-            error = "acceptFileTypes"
+    context = {'viaje': viaje}
+    return render(request, 'sistema/grillaAdjuntos.html', context)
 
-        response_data = {
-            "name": file.name,
-            "size": file.size,
-            "type": file.content_type
-        }
+def deleteViajeAdjunto(request):
+    viaje = Viaje.objects.get(id=request.POST.get('viaje', False))
+    AdjuntoViaje.objects.filter(adjunto_id=request.POST.get('adjunto_id', False), viaje=viaje).delete()
 
-        if error:
-            response_data["error"] = error
-            response_data = json.dumps([response_data])
-            return HttpResponse(response_data, mimetype='application/json')
-
-        #filename = os.path.join('adjuntos/', str(uuid.uuid4()) + file.name)
-
-        adjunto = Adjunto()
-        adjunto.upload = request.FILES[u'files[]']
-        adjunto.fecha = '2018'
-        adjunto.save()
-
-        viajeAdjunto = AdjuntoViaje()
-        viajeAdjunto.adjunto = adjunto
-        viajeAdjunto.viaje_id = request.POST[u"idViaje"]
-        viajeAdjunto.save()
-
-        import urllib
-
-        #response_data["delete_url"] = request.path + "?" + urllib.urlencode(
-            #{"f": uid + "/" + os.path.split(filename)[1]})
-        #response_data["delete_type"] = "POST"
-        response_data["url"] = adjunto.upload.url
-        response_data["thumbnailUrl"] = adjunto.upload.url
-
-        response_data = {
-            'files': [response_data]
-        }
-
-        response_data = json.dumps(response_data)
-        response_type = "application/json"
-        if "text/html" in request.META["HTTP_ACCEPT"]:
-            response_type = "text/html"
-
-        # return the data to the uploading plugin
-        return HttpResponse(response_data, content_type=response_type)
-    else:
-
-        idViaje = request.GET.get('idViaje', '')
-        viajeAdjuntos = AdjuntoViaje.objects.filter(viaje_id=idViaje)
-
-        adjunto = ''
-        nombre = ''
-        adjuntos = {}
-        data = {
-            'files': []
-        }
-        for item in viajeAdjuntos:
-            data['files'].append({
-                'url':item.adjunto.upload.url,
-                'name':item.adjunto.upload.name,
-                'thumbnailUrl':item.adjunto.upload.url,
-                'delete_url': item.adjunto.upload.url,
-                'delete_type': "POST"
-            })
-
-
-        dump = json.dumps(data)
-        return HttpResponse(dump, content_type='application/json')
+    context = {'viaje': viaje}
+    return render(request, 'sistema/grillaAdjuntos.html', context)
 
 @login_required
 def guardarTrayecto(request):

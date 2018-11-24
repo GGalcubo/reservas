@@ -412,6 +412,28 @@ $(document).ready( () => {
 
     $( "#pasajero" ).change(updateFillsByPasajero);
 
+    $("#guardarAdjunto").submit( evt => { 
+       evt.preventDefault();
+       var formData = new FormData(document.getElementById("guardarAdjunto"));
+       formData.append("idViaje", viaje);
+       console.log(formData)
+       $.ajax({
+            url: '/sistema/guardarViajeAdjunto/',
+            type: 'POST',
+            headers: {'X-CSRFToken': csrf_token},
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            enctype: 'multipart/form-data',
+            processData: false,
+            success: data => {
+                $('#grillaAdjuntos').html(data);
+            }
+       });
+       return false;
+     });
+
     $('#tablaTramos').DataTable({
         responsive: true,
         // scrollY: 200,
@@ -541,6 +563,8 @@ guardaViajeAdmin = () => {
     });    
 }
 
+
+
 sumarPasajero = () => {
     let url = "/sistema/guardaViajePasajeroPOST/";
     $.ajax({
@@ -591,9 +615,22 @@ updateFillsByPasajero = () =>{
     });
 };
 
+deleteViajeAdjunto = adjunto_id =>{
+    let url       = "/sistema/deleteViajeAdjunto/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: {adjunto_id,viaje},
+        success: data => {
+            //console.table(data);
+            $('#grillaAdjuntos').html(data);
+        }
+    });
+};
+
 deleteViajePasajero = pasajero_id =>{
     let url       = "/sistema/deleteViajePasajero/";
-    let pasajeros = {};
     $.ajax({
         type: "POST",
         url: url,
@@ -1095,66 +1132,19 @@ fillViajeItems = () => {
     $('#admin_total_proveedor').val(sum_total_proveedor);
 };
 
-$(function() {
-    'use strict';
-    // Initialize the jQuery File Upload widget
-    // For a complete option reference go to
-    // https://github.com/blueimp/jQuery-File-Upload
-    $('#fileupload').fileupload({
-        // this formData is neccessary to pass the csrf and pass uid to django
-        formData: [
-            { name: "uid", value: uid},
-            { name: "idViaje", value: viaje},
-            { name: "csrfmiddlewaretoken", value: csrf_token}
-        ],
-        sequentialUploads: true,
-        getNumberOfFiles: function () {
-            return this.filesContainer.children()
-                .not('.processing').length;
-        },
-        maxNumberOfFiles: 3,
-        add: function(e, data) {
-            var uploadErrors = [];
-            var acceptFileTypes = /^image\/(gif|jpe?g|png)$|^application\/(pdf|msword)$|^text\/plain$/i;
-            if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
-                uploadErrors.push('Tipo de archivo no aceptado.');
-            }
-            if(data.originalFiles[0]['size'].length && data.originalFiles[0]['size'] > 3000000) {
-                uploadErrors.push('Máximo 3 mb.');
-            }
-            if(data.files.length>=3){
-                uploadErrors.push('Máximo 3 archivos.');
-            }
-            if(uploadErrors.length > 0) {
-                showMsg(uploadErrors.join("\n"));
-            } else {
-                data.submit();
-            }
-        },
-        change : function (e, data) {
-            if(data.files.length>=3){
-                showMsg("Máximo 3 archivos.");
-                return false;
-            }
-        },
+guardaAdjuntoViaje = () =>{
+    var formData = new FormData();
+    formData.append('file', $('#file')[0].files[0]);
+
+    $.ajax({
+           url : '/sistema/guardarViajeAdjunto/?idViaje={{ viaje.id }}',
+           type : 'POST',
+           data : formData,
+           processData: false,  // tell jQuery not to process the data
+           contentType: false,  // tell jQuery not to set contentType
+           success : function(data) {
+               console.log(data);
+               alert(data);
+           }
     });
-    // Load existing files
-    $.getJSON($('#fileupload form').prop('action'), function (files) {
-        var fu = $('#fileupload').data('fileupload');
-        fu._adjustMaxNumberOfFiles(-files.length);
-        fu._renderDownload(files)
-                .appendTo($('#fileupload .files'))
-                .fadeIn(function () {
-                    // Fix for IE7 and lower:
-                    $(this).show();
-                });
-    });
-    // Open download dialogs via iframes,
-    // to prevent aborting current uploads
-    $('body').on('click', '#fileupload .files a:not([target^=_blank])', function (e) {
-        e.preventDefault();
-        $('<iframe style="display:none;"></iframe>')
-                .prop('src', this.href)
-                .appendTo('body');
-    });
-});
+}
