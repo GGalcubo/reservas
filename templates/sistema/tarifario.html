@@ -375,181 +375,33 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
+                                                                                {% for trayecto in tarifario.getTarifaExtra %}
                                                                                 <tr>
                                                                                     <td class="text-center">
                                                                                         <a href="#add_extra_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                                                                                     </td>
-                                                                                    <td>Conexión</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
+                                                                                    <td>{{ trayecto.extra_descripcion }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:1 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:2 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:3 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:4 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:5 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:6 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:7 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:8 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:9 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:10 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:11 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:12 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:13 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:14 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:15 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:16 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:17 }}</td>
+                                                                                    <td>{{ trayecto|get_tarifa_extra_by_cat:18 }}</td>
+                                                                                    <td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#add_extra_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td>City Tour - 3 Horas</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#add_extra_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td>Nocturna - 3 Horas</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#add_extra_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td>Tigre - 5 Horas</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#add_extra_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td>Hora Dispo</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#add_extra_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td>Hora espera</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#add_extra_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td>Km</td>
-                                                                                    <td>500</td>
-                                                                                    <td>550</td>
-                                                                                    <td>600</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>650</td>
-                                                                                    <td>800</td>
-                                                                                    <td>1000</td>
-                                                                                    <td>1500</td>
-                                                                                    <td>3000</td>
-                                                                                    <td>3000</td>
-                                                                                </tr>
+                                                                                {% endfor %}
                                                                             </tbody>
                                                                         </table>
                                                                         <div class="row">

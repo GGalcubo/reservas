@@ -2154,3 +2154,7 @@ def getAAAAMMDD(fecha):
 @register.filter
 def get_tarifa_by_cat(tarifaTrayecto, idCat):
     return tarifaTrayecto.getTarifaByCategoria(idCat)
+
+@register.filter
+def get_tarifa_extra_by_cat(tarifaExtra, idCat):
+    return tarifaExtra.getTarifaExtraByCategoria(idCat)

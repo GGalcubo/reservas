@@ -361,6 +361,10 @@ class Tarifario(models.Model):
     def getTarifaViaje(self):
         return self.tarifatrayecto_set.all()
 
+    def getTarifaExtra(self):
+        return self.tarifaextra_set.all()
+    
+
 class Cliente(models.Model):
     razon_social = models.CharField(max_length=60)
     calle = models.CharField(max_length=50, null=True, blank=True)
@@ -841,6 +845,13 @@ class TarifaExtra(models.Model):
 
     def __str__(self):
         return self.extra_descripcion
+
+    def getTarifaExtraByCategoria(self, idCat):
+        retorno = 0
+        for ttp in self.tarifaextraprecio_set.all():
+            if ttp.categoria_viaje.id == idCat:
+                retorno = retorno + int(ttp.extra_precio)
+        return retorno
 
 class TarifaExtraPrecio(models.Model):
     tarifa_extra = models.ForeignKey(TarifaExtra)
