@@ -43,19 +43,20 @@
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <form role="form" class="form-datos-tarifario">
+                                    <form role="form" class="form-datos-tarifario" method="post" id="formGuardaTarifario" action="/sistema/guardarTarifario/">{% csrf_token %}
+                                        <input type="hidden" id="estado" name="estado" value="{{ estado }}">
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-sm-1">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="id" name="id" value="{{tarifario.id}}">
-                                                        <label for="form_control_1">ID</label>
+                                                        <input type="text" readonly class="form-control" id="idTarifario" name="idTarifario" value="{{tarifario.id}}">
+                                                        <label for="idTarifario">ID</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="nombre" name="nombre" value="{{tarifario.nombre}}">
-                                                        <label for="form_control_2">Nombre</label>
+                                                        <label for="nombre">Nombre</label>
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-sm-8">
@@ -70,6 +71,10 @@
                                             <button type="button" class="btn green btn-outline mg-r-10">Guardar</button>
                                             <button type="button" class="btn btn-outline red">Cancelar</button>
                                         </div -->
+                                        <div class="form-actions noborder flex">
+                                            <button type="submit" class="btn green btn-outline mg-r-10">Guardar</button>
+                                            <button type="button" onclick="location.href='/sistema/listadoTarifario/';" class="btn btn-outline red">Cancelar</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -99,7 +104,7 @@
                                                                         <div class="caption font-blue">
                                                                             <i class="icon-graph font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Tramos</span>
-                                                                            <a href="#add_tramo_tarifario" role="button" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar tramo</a>
+                                                                            <!--a href="#add_tramo_tarifario" role="button" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar tramo</a-->
                                                                             <a href="#" role="button" class="btn blue btn-outline mg-l-20">Modificación masiva</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
@@ -324,10 +329,6 @@
                                                                 <!-- END EXAMPLE TABLE PORTLET-->
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-actions noborder flex">
-                                                        <button type="button" class="btn green btn-outline mg-r-10">Guardar</button>
-                                                        <button type="button" class="btn btn-outline red">Cancelar</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -560,10 +561,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-actions noborder flex">
-                                                        <button type="button" class="btn green btn-outline mg-r-10">Guardar</button>
-                                                        <button type="button" class="btn btn-outline red">Cancelar</button>
-                                                    </div>
+                                                    
                                                 </form>
                                             </div>
                                         </div>

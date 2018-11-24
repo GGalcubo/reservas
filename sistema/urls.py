@@ -57,6 +57,7 @@ urlpatterns = [
     url(r'^listadoCentroDeCosto/', listadoCentroDeCosto, name='listadoCentroDeCosto'),
     url(r'^listadoTarifario/', listadoTarifario, name='listadoTarifario'),
     url(r'^tarifario/', tarifario, name='tarifario'),
+    url(r'^guardarTarifario/', guardarTarifario, name='guardarTarifario'),
     url(r'^listadoLicencia/', listadoLicencia, name='listadoLicencia'),
     url(r'^eliminarLicencia/', eliminarLicencia, name='eliminarLicencia'),
     url(r'^licencia/', licencia, name='licencia'),

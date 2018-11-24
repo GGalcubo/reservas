@@ -1597,6 +1597,18 @@ def tarifario(request):
 	return render(request, 'sistema/tarifario.html', context)
 
 @login_required
+def guardarTarifario(request):
+	mensaje = ""
+	idTarifario = request.POST.get('idTarifario', "")
+	nombre = request.POST.get('nombre', "")
+	print nombre
+	tarifario = Tarifario.objects.get(id=idTarifario)
+	tarifario.nombre = nombre
+	tarifario.save()
+	url = '/sistema/tarifario/?idTarifario='+str(tarifario.id)
+	return redirect(url)
+
+@login_required
 def listadoLicencia(request):
 	licencias = Licencia.objects.all()
 	
