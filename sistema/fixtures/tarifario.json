@@ -43,6 +43,1359 @@
     "nombre": "SC Johnson"
   }
   },
+  {"model": "sistema.TarifaExtra","pk":1,
+               "fields": {
+             "tarifario":1,
+             "extra_descripcion":"dispo" }
+      },
+  {"model": "sistema.TarifaExtra","pk":2,
+                   "fields": {
+                 "tarifario":1,
+                 "extra_descripcion":"espera" }
+  },
+  {"model": "sistema.TarifaExtra","pk":3,
+               "fields": {
+             "tarifario":1,
+             "extra_descripcion":"maletas" }
+  },
+  {"model": "sistema.TarifaExtra","pk":4,
+               "fields": {
+             "tarifario":2,
+             "extra_descripcion":"dispo" }
+      },
+  {"model": "sistema.TarifaExtra","pk":5,
+                   "fields": {
+                 "tarifario":2,
+                 "extra_descripcion":"espera" }
+  },
+  {"model": "sistema.TarifaExtra","pk":6,
+               "fields": {
+             "tarifario":2,
+             "extra_descripcion":"maletas" }
+  },
+  {"model": "sistema.TarifaExtra","pk":7,
+               "fields": {
+             "tarifario":3,
+             "extra_descripcion":"dispo" }
+      },
+  {"model": "sistema.TarifaExtra","pk":8,
+                   "fields": {
+                 "tarifario":3,
+                 "extra_descripcion":"espera" }
+  },
+  {"model": "sistema.TarifaExtra","pk":9,
+               "fields": {
+             "tarifario":3,
+             "extra_descripcion":"maletas" }
+  },
+  {"model": "sistema.TarifaExtra","pk":10,
+               "fields": {
+             "tarifario":4,
+             "extra_descripcion":"dispo" }
+      },
+  {"model": "sistema.TarifaExtra","pk":11,
+                   "fields": {
+                 "tarifario":4,
+                 "extra_descripcion":"espera" }
+  },
+  {"model": "sistema.TarifaExtra","pk":12,
+               "fields": {
+             "tarifario":4,
+             "extra_descripcion":"maletas" }
+  },
+  {"model": "sistema.TarifaExtra","pk":13,
+               "fields": {
+             "tarifario":5,
+             "extra_descripcion":"dispo" }
+      },
+  {"model": "sistema.TarifaExtra","pk":14,
+                   "fields": {
+                 "tarifario":5,
+                 "extra_descripcion":"espera" }
+  },
+  {"model": "sistema.TarifaExtra","pk":15,
+               "fields": {
+             "tarifario":5,
+             "extra_descripcion":"maletas" }
+  },
+  {"model": "sistema.TarifaExtra","pk":16,
+               "fields": {
+             "tarifario":6,
+             "extra_descripcion":"dispo" }
+      },
+  {"model": "sistema.TarifaExtra","pk":17,
+                   "fields": {
+                 "tarifario":6,
+                 "extra_descripcion":"espera" }
+  },
+  {"model": "sistema.TarifaExtra","pk":18,
+               "fields": {
+             "tarifario":6,
+             "extra_descripcion":"maletas" }
+  },
+  {"model": "sistema.TarifaExtra","pk":19,
+               "fields": {
+             "tarifario":7,
+             "extra_descripcion":"dispo" }
+      },
+  {"model": "sistema.TarifaExtra","pk":20,
+                   "fields": {
+                 "tarifario":7,
+                 "extra_descripcion":"espera" }
+  },
+  {"model": "sistema.TarifaExtra","pk":21,
+               "fields": {
+             "tarifario":7,
+             "extra_descripcion":"maletas" }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":1,
+           "fields": {
+         "tarifa_extra":1,
+         "extra_precio":640,
+         "extra_precio_prov":384,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":2,
+           "fields": {
+         "tarifa_extra":1,
+         "extra_precio":720,
+         "extra_precio_prov":432,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":3,
+           "fields": {
+         "tarifa_extra":1,
+         "extra_precio":720,
+         "extra_precio_prov":432,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":4,
+           "fields": {
+         "tarifa_extra":1,
+         "extra_precio":860,
+         "extra_precio_prov":516,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":5,
+           "fields": {
+         "tarifa_extra":1,
+         "extra_precio":1100,
+         "extra_precio_prov":660,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":6,
+           "fields": {
+         "tarifa_extra":1,
+         "extra_precio":1200,
+         "extra_precio_prov":720,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":7,
+           "fields": {
+         "tarifa_extra":1,
+         "extra_precio":1600,
+         "extra_precio_prov":960,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":8,
+           "fields": {
+         "tarifa_extra":1,
+         "extra_precio":3000,
+         "extra_precio_prov":1800,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":9,
+           "fields": {
+         "tarifa_extra":2,
+         "extra_precio":150,
+         "extra_precio_prov":90,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":10,
+           "fields": {
+         "tarifa_extra":2,
+         "extra_precio":170,
+         "extra_precio_prov":102,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":11,
+           "fields": {
+         "tarifa_extra":2,
+         "extra_precio":170,
+         "extra_precio_prov":102,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":12,
+           "fields": {
+         "tarifa_extra":2,
+         "extra_precio":200,
+         "extra_precio_prov":120,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":13,
+           "fields": {
+         "tarifa_extra":2,
+         "extra_precio":260,
+         "extra_precio_prov":156,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":14,
+           "fields": {
+         "tarifa_extra":2,
+         "extra_precio":290,
+         "extra_precio_prov":174,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":15,
+           "fields": {
+         "tarifa_extra":2,
+         "extra_precio":400,
+         "extra_precio_prov":240,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":16,
+           "fields": {
+         "tarifa_extra":2,
+         "extra_precio":750,
+         "extra_precio_prov":450,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":17,
+           "fields": {
+         "tarifa_extra":3,
+         "extra_precio":100,
+         "extra_precio_prov":60,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":18,
+           "fields": {
+         "tarifa_extra":3,
+         "extra_precio":110,
+         "extra_precio_prov":66,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":19,
+           "fields": {
+         "tarifa_extra":3,
+         "extra_precio":121,
+         "extra_precio_prov":73,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":20,
+           "fields": {
+         "tarifa_extra":3,
+         "extra_precio":133,
+         "extra_precio_prov":80,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":21,
+           "fields": {
+         "tarifa_extra":3,
+         "extra_precio":146,
+         "extra_precio_prov":88,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":22,
+           "fields": {
+         "tarifa_extra":3,
+         "extra_precio":161,
+         "extra_precio_prov":97,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":23,
+           "fields": {
+         "tarifa_extra":3,
+         "extra_precio":177,
+         "extra_precio_prov":106,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":24,
+           "fields": {
+         "tarifa_extra":3,
+         "extra_precio":195,
+         "extra_precio_prov":117,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":25,
+           "fields": {
+         "tarifa_extra":4,
+         "extra_precio":640,
+         "extra_precio_prov":384,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":26,
+           "fields": {
+         "tarifa_extra":4,
+         "extra_precio":720,
+         "extra_precio_prov":432,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":27,
+           "fields": {
+         "tarifa_extra":4,
+         "extra_precio":720,
+         "extra_precio_prov":432,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":28,
+           "fields": {
+         "tarifa_extra":4,
+         "extra_precio":860,
+         "extra_precio_prov":516,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":29,
+           "fields": {
+         "tarifa_extra":4,
+         "extra_precio":1100,
+         "extra_precio_prov":660,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":30,
+           "fields": {
+         "tarifa_extra":4,
+         "extra_precio":1200,
+         "extra_precio_prov":720,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":31,
+           "fields": {
+         "tarifa_extra":4,
+         "extra_precio":1600,
+         "extra_precio_prov":960,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":32,
+           "fields": {
+         "tarifa_extra":4,
+         "extra_precio":3000,
+         "extra_precio_prov":1800,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":33,
+           "fields": {
+         "tarifa_extra":5,
+         "extra_precio":150,
+         "extra_precio_prov":90,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":34,
+           "fields": {
+         "tarifa_extra":5,
+         "extra_precio":170,
+         "extra_precio_prov":102,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":35,
+           "fields": {
+         "tarifa_extra":5,
+         "extra_precio":170,
+         "extra_precio_prov":102,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":36,
+           "fields": {
+         "tarifa_extra":5,
+         "extra_precio":200,
+         "extra_precio_prov":120,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":37,
+           "fields": {
+         "tarifa_extra":5,
+         "extra_precio":260,
+         "extra_precio_prov":156,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":38,
+           "fields": {
+         "tarifa_extra":5,
+         "extra_precio":290,
+         "extra_precio_prov":174,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":39,
+           "fields": {
+         "tarifa_extra":5,
+         "extra_precio":400,
+         "extra_precio_prov":240,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":40,
+           "fields": {
+         "tarifa_extra":5,
+         "extra_precio":750,
+         "extra_precio_prov":450,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":41,
+           "fields": {
+         "tarifa_extra":6,
+         "extra_precio":100,
+         "extra_precio_prov":60,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":42,
+           "fields": {
+         "tarifa_extra":6,
+         "extra_precio":110,
+         "extra_precio_prov":66,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":43,
+           "fields": {
+         "tarifa_extra":6,
+         "extra_precio":121,
+         "extra_precio_prov":73,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":44,
+           "fields": {
+         "tarifa_extra":6,
+         "extra_precio":133,
+         "extra_precio_prov":80,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":45,
+           "fields": {
+         "tarifa_extra":6,
+         "extra_precio":146,
+         "extra_precio_prov":88,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":46,
+           "fields": {
+         "tarifa_extra":6,
+         "extra_precio":161,
+         "extra_precio_prov":97,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":47,
+           "fields": {
+         "tarifa_extra":6,
+         "extra_precio":177,
+         "extra_precio_prov":106,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":48,
+           "fields": {
+         "tarifa_extra":6,
+         "extra_precio":195,
+         "extra_precio_prov":117,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":49,
+           "fields": {
+         "tarifa_extra":7,
+         "extra_precio":608,
+         "extra_precio_prov":365,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":50,
+           "fields": {
+         "tarifa_extra":7,
+         "extra_precio":684,
+         "extra_precio_prov":410,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":51,
+           "fields": {
+         "tarifa_extra":7,
+         "extra_precio":684,
+         "extra_precio_prov":410,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":52,
+           "fields": {
+         "tarifa_extra":7,
+         "extra_precio":817,
+         "extra_precio_prov":490,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":53,
+           "fields": {
+         "tarifa_extra":7,
+         "extra_precio":1045,
+         "extra_precio_prov":627,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":54,
+           "fields": {
+         "tarifa_extra":7,
+         "extra_precio":1140,
+         "extra_precio_prov":684,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":55,
+           "fields": {
+         "tarifa_extra":7,
+         "extra_precio":1520,
+         "extra_precio_prov":912,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":56,
+           "fields": {
+         "tarifa_extra":7,
+         "extra_precio":2850,
+         "extra_precio_prov":1710,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":57,
+           "fields": {
+         "tarifa_extra":8,
+         "extra_precio":570,
+         "extra_precio_prov":342,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":58,
+           "fields": {
+         "tarifa_extra":8,
+         "extra_precio":650,
+         "extra_precio_prov":390,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":59,
+           "fields": {
+         "tarifa_extra":8,
+         "extra_precio":650,
+         "extra_precio_prov":390,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":60,
+           "fields": {
+         "tarifa_extra":8,
+         "extra_precio":760,
+         "extra_precio_prov":456,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":61,
+           "fields": {
+         "tarifa_extra":8,
+         "extra_precio":990,
+         "extra_precio_prov":594,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":62,
+           "fields": {
+         "tarifa_extra":8,
+         "extra_precio":1110,
+         "extra_precio_prov":666,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":63,
+           "fields": {
+         "tarifa_extra":8,
+         "extra_precio":1520,
+         "extra_precio_prov":912,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":64,
+           "fields": {
+         "tarifa_extra":8,
+         "extra_precio":2850,
+         "extra_precio_prov":1710,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":65,
+           "fields": {
+         "tarifa_extra":9,
+         "extra_precio":100,
+         "extra_precio_prov":60,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":66,
+           "fields": {
+         "tarifa_extra":9,
+         "extra_precio":110,
+         "extra_precio_prov":66,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":67,
+           "fields": {
+         "tarifa_extra":9,
+         "extra_precio":121,
+         "extra_precio_prov":73,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":68,
+           "fields": {
+         "tarifa_extra":9,
+         "extra_precio":133,
+         "extra_precio_prov":80,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":69,
+           "fields": {
+         "tarifa_extra":9,
+         "extra_precio":146,
+         "extra_precio_prov":88,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":70,
+           "fields": {
+         "tarifa_extra":9,
+         "extra_precio":161,
+         "extra_precio_prov":97,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":71,
+           "fields": {
+         "tarifa_extra":9,
+         "extra_precio":177,
+         "extra_precio_prov":106,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":72,
+           "fields": {
+         "tarifa_extra":9,
+         "extra_precio":195,
+         "extra_precio_prov":117,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":73,
+           "fields": {
+         "tarifa_extra":10,
+         "extra_precio":608,
+         "extra_precio_prov":365,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":74,
+           "fields": {
+         "tarifa_extra":10,
+         "extra_precio":684,
+         "extra_precio_prov":410,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":75,
+           "fields": {
+         "tarifa_extra":10,
+         "extra_precio":684,
+         "extra_precio_prov":410,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":76,
+           "fields": {
+         "tarifa_extra":10,
+         "extra_precio":817,
+         "extra_precio_prov":490,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":77,
+           "fields": {
+         "tarifa_extra":10,
+         "extra_precio":1045,
+         "extra_precio_prov":627,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":78,
+           "fields": {
+         "tarifa_extra":10,
+         "extra_precio":1140,
+         "extra_precio_prov":684,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":79,
+           "fields": {
+         "tarifa_extra":10,
+         "extra_precio":1520,
+         "extra_precio_prov":912,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":80,
+           "fields": {
+         "tarifa_extra":10,
+         "extra_precio":2850,
+         "extra_precio_prov":1710,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":81,
+           "fields": {
+         "tarifa_extra":11,
+         "extra_precio":570,
+         "extra_precio_prov":342,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":82,
+           "fields": {
+         "tarifa_extra":11,
+         "extra_precio":650,
+         "extra_precio_prov":390,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":83,
+           "fields": {
+         "tarifa_extra":11,
+         "extra_precio":650,
+         "extra_precio_prov":390,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":84,
+           "fields": {
+         "tarifa_extra":11,
+         "extra_precio":760,
+         "extra_precio_prov":456,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":85,
+           "fields": {
+         "tarifa_extra":11,
+         "extra_precio":990,
+         "extra_precio_prov":594,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":86,
+           "fields": {
+         "tarifa_extra":11,
+         "extra_precio":1110,
+         "extra_precio_prov":666,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":87,
+           "fields": {
+         "tarifa_extra":11,
+         "extra_precio":1520,
+         "extra_precio_prov":912,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":88,
+           "fields": {
+         "tarifa_extra":11,
+         "extra_precio":2850,
+         "extra_precio_prov":1710,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":89,
+           "fields": {
+         "tarifa_extra":12,
+         "extra_precio":100,
+         "extra_precio_prov":60,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":90,
+           "fields": {
+         "tarifa_extra":12,
+         "extra_precio":110,
+         "extra_precio_prov":66,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":91,
+           "fields": {
+         "tarifa_extra":12,
+         "extra_precio":121,
+         "extra_precio_prov":73,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":92,
+           "fields": {
+         "tarifa_extra":12,
+         "extra_precio":133,
+         "extra_precio_prov":80,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":93,
+           "fields": {
+         "tarifa_extra":12,
+         "extra_precio":146,
+         "extra_precio_prov":88,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":94,
+           "fields": {
+         "tarifa_extra":12,
+         "extra_precio":161,
+         "extra_precio_prov":97,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":95,
+           "fields": {
+         "tarifa_extra":12,
+         "extra_precio":177,
+         "extra_precio_prov":106,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":96,
+           "fields": {
+         "tarifa_extra":12,
+         "extra_precio":195,
+         "extra_precio_prov":117,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":97,
+           "fields": {
+         "tarifa_extra":13,
+         "extra_precio":720,
+         "extra_precio_prov":432,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":98,
+           "fields": {
+         "tarifa_extra":13,
+         "extra_precio":810,
+         "extra_precio_prov":486,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":99,
+           "fields": {
+         "tarifa_extra":13,
+         "extra_precio":810,
+         "extra_precio_prov":486,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":100,
+           "fields": {
+         "tarifa_extra":13,
+         "extra_precio":860,
+         "extra_precio_prov":516,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":101,
+           "fields": {
+         "tarifa_extra":13,
+         "extra_precio":1235,
+         "extra_precio_prov":741,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":102,
+           "fields": {
+         "tarifa_extra":13,
+         "extra_precio":1345,
+         "extra_precio_prov":807,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":103,
+           "fields": {
+         "tarifa_extra":13,
+         "extra_precio":1795,
+         "extra_precio_prov":1077,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":104,
+           "fields": {
+         "tarifa_extra":13,
+         "extra_precio":3360,
+         "extra_precio_prov":2016,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":105,
+           "fields": {
+         "tarifa_extra":14,
+         "extra_precio":675,
+         "extra_precio_prov":405,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":106,
+           "fields": {
+         "tarifa_extra":14,
+         "extra_precio":765,
+         "extra_precio_prov":459,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":107,
+           "fields": {
+         "tarifa_extra":14,
+         "extra_precio":765,
+         "extra_precio_prov":459,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":108,
+           "fields": {
+         "tarifa_extra":14,
+         "extra_precio":800,
+         "extra_precio_prov":480,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":109,
+           "fields": {
+         "tarifa_extra":14,
+         "extra_precio":1165,
+         "extra_precio_prov":699,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":110,
+           "fields": {
+         "tarifa_extra":14,
+         "extra_precio":1300,
+         "extra_precio_prov":780,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":111,
+           "fields": {
+         "tarifa_extra":14,
+         "extra_precio":1795,
+         "extra_precio_prov":1077,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":112,
+           "fields": {
+         "tarifa_extra":14,
+         "extra_precio":3360,
+         "extra_precio_prov":2016,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":113,
+           "fields": {
+         "tarifa_extra":15,
+         "extra_precio":100,
+         "extra_precio_prov":60,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":114,
+           "fields": {
+         "tarifa_extra":15,
+         "extra_precio":110,
+         "extra_precio_prov":66,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":115,
+           "fields": {
+         "tarifa_extra":15,
+         "extra_precio":121,
+         "extra_precio_prov":73,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":116,
+           "fields": {
+         "tarifa_extra":15,
+         "extra_precio":133,
+         "extra_precio_prov":80,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":117,
+           "fields": {
+         "tarifa_extra":15,
+         "extra_precio":146,
+         "extra_precio_prov":88,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":118,
+           "fields": {
+         "tarifa_extra":15,
+         "extra_precio":161,
+         "extra_precio_prov":97,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":119,
+           "fields": {
+         "tarifa_extra":15,
+         "extra_precio":177,
+         "extra_precio_prov":106,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":120,
+           "fields": {
+         "tarifa_extra":15,
+         "extra_precio":195,
+         "extra_precio_prov":117,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":121,
+           "fields": {
+         "tarifa_extra":16,
+         "extra_precio":720,
+         "extra_precio_prov":432,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":122,
+           "fields": {
+         "tarifa_extra":16,
+         "extra_precio":810,
+         "extra_precio_prov":486,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":123,
+           "fields": {
+         "tarifa_extra":16,
+         "extra_precio":810,
+         "extra_precio_prov":486,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":124,
+           "fields": {
+         "tarifa_extra":16,
+         "extra_precio":860,
+         "extra_precio_prov":516,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":125,
+           "fields": {
+         "tarifa_extra":16,
+         "extra_precio":1235,
+         "extra_precio_prov":741,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":126,
+           "fields": {
+         "tarifa_extra":16,
+         "extra_precio":1345,
+         "extra_precio_prov":807,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":127,
+           "fields": {
+         "tarifa_extra":16,
+         "extra_precio":1795,
+         "extra_precio_prov":1077,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":128,
+           "fields": {
+         "tarifa_extra":16,
+         "extra_precio":3360,
+         "extra_precio_prov":2016,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":129,
+           "fields": {
+         "tarifa_extra":17,
+         "extra_precio":675,
+         "extra_precio_prov":405,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":130,
+           "fields": {
+         "tarifa_extra":17,
+         "extra_precio":765,
+         "extra_precio_prov":459,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":131,
+           "fields": {
+         "tarifa_extra":17,
+         "extra_precio":765,
+         "extra_precio_prov":459,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":132,
+           "fields": {
+         "tarifa_extra":17,
+         "extra_precio":800,
+         "extra_precio_prov":480,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":133,
+           "fields": {
+         "tarifa_extra":17,
+         "extra_precio":1165,
+         "extra_precio_prov":699,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":134,
+           "fields": {
+         "tarifa_extra":17,
+         "extra_precio":1300,
+         "extra_precio_prov":780,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":135,
+           "fields": {
+         "tarifa_extra":17,
+         "extra_precio":1795,
+         "extra_precio_prov":1077,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":136,
+           "fields": {
+         "tarifa_extra":17,
+         "extra_precio":3360,
+         "extra_precio_prov":2016,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":137,
+           "fields": {
+         "tarifa_extra":18,
+         "extra_precio":100,
+         "extra_precio_prov":60,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":138,
+           "fields": {
+         "tarifa_extra":18,
+         "extra_precio":110,
+         "extra_precio_prov":66,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":139,
+           "fields": {
+         "tarifa_extra":18,
+         "extra_precio":121,
+         "extra_precio_prov":73,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":140,
+           "fields": {
+         "tarifa_extra":18,
+         "extra_precio":133,
+         "extra_precio_prov":80,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":141,
+           "fields": {
+         "tarifa_extra":18,
+         "extra_precio":146,
+         "extra_precio_prov":88,
+         "categoria_viaje":5 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":142,
+           "fields": {
+         "tarifa_extra":18,
+         "extra_precio":161,
+         "extra_precio_prov":97,
+         "categoria_viaje":6 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":143,
+           "fields": {
+         "tarifa_extra":18,
+         "extra_precio":177,
+         "extra_precio_prov":106,
+         "categoria_viaje":7 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":18,
+         "extra_precio":195,
+         "extra_precio_prov":117,
+         "categoria_viaje":8 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":19,
+         "extra_precio":580,
+         "extra_precio_prov":348,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":19,
+         "extra_precio":720,
+         "extra_precio_prov":432,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":19,
+         "extra_precio":720,
+         "extra_precio_prov":432,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":19,
+         "extra_precio":760,
+         "extra_precio_prov":456,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":20,
+         "extra_precio":540,
+         "extra_precio_prov":324,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":20,
+         "extra_precio":620,
+         "extra_precio_prov":372,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":20,
+         "extra_precio":620,
+         "extra_precio_prov":372,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":20,
+         "extra_precio":720,
+         "extra_precio_prov":432,
+         "categoria_viaje":4 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":21,
+         "extra_precio":100,
+         "extra_precio_prov":60,
+         "categoria_viaje":1 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":21,
+         "extra_precio":110,
+         "extra_precio_prov":66,
+         "categoria_viaje":2 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":21,
+         "extra_precio":121,
+         "extra_precio_prov":73,
+         "categoria_viaje":3 }
+  },
+  {
+          "model": "sistema.TarifaExtraPrecio","pk":144,
+           "fields": {
+         "tarifa_extra":21,
+         "extra_precio":133,
+         "extra_precio_prov":80,
+         "categoria_viaje":4 }
+  },
   {
           "model": "sistema.tarifatrayecto","pk":1,
            "fields": {
@@ -1680,439 +3033,6 @@
          "localidad_desde_id":1,
          "localidad_hasta_id":162,
          "tarifario_id":6 }
-  },
-
-  {
-          "model": "sistema.TarifaExtra","pk":1,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":1,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":2,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":1,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":3,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":1,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":4,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":2,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":5,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":2,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":6,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":2,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":7,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":3,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":8,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":3,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":9,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":3,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":10,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":4,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":11,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":4,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":12,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":4,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":13,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":5,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":14,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":5,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":15,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":5,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":16,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":6,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":17,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":6,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":18,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":6,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":19,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":7,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":20,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":7,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":21,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":7,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":22,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":8,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":23,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":8,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":24,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":8,
-                         "tarifario_id":1 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":25,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":1,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":26,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":1,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":27,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":1,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":28,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":2,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":29,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":2,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":30,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":2,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":31,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":3,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":32,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":3,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":33,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":3,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":34,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":4,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":35,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":4,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":36,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":4,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":37,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":5,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":38,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":5,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":39,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":5,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":40,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":6,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":41,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":6,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":42,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":6,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":43,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":7,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":44,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":7,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":45,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":7,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":46,
-           "fields": {
-                         "extra_descripcion":"dispo",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":8,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":47,
-           "fields": {
-                         "extra_descripcion":"espera",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":8,
-                         "tarifario_id":2 }
-  },
-  {
-          "model": "sistema.TarifaExtra","pk":48,
-           "fields": {
-                         "extra_descripcion":"maletas",
-                         "extra_precio":101,
-                         "extra_precio_prov":61,
-                         "categoria_viaje_id":8,
-                         "tarifario_id":2 }
   },
 {
         "model": "sistema.tarifatrayectoprecio","pk":1,
