@@ -1,0 +1,146 @@
+<!-- <div style="width:158px;margin:0 auto;padding-top: 40px;">
+    <span class="input-group-btn btn">
+        <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
+    </span>
+</div> -->
+<!-- /.modal -->
+<div id="add_extra_tarifario" class="modal fade" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" style="color:#888;">Agregar Extra</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="scroller" style="height:330px" data-always-visible="1" data-rail-visible1="1">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="extraName" name="extraName" value="{{tarifaExtra.extra_descripcion}}">
+                                    <label for="extraName">Extra</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoSTD" name="tramoSTD" value="{{ tarifaExtra|get_tarifa_extra_by_cat:1 }}">
+                                    <label for="tramoSTD">STD</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoVIP" name="tramoVIP" value="{{ tarifaExtra|get_tarifa_extra_by_cat:2 }}">
+                                    <label for="tramoVIP">VIP</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoUTI" name="tramoUTI" value="{{ tarifaExtra|get_tarifa_extra_by_cat:3 }}">
+                                    <label for="tramoUTI">UTI</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoEJEC" name="tramoEJEC" value="{{ tarifaExtra|get_tarifa_extra_by_cat:4 }}">
+                                    <label for="tramoEJEC">EJEC</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoVAN-C" name="tramoVAN-C" value="{{ tarifaExtra|get_tarifa_extra_by_cat:5 }}">
+                                    <label for="tramoVAN-C">VAN-C</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoVAN-L" name="tramoVAN-L" value="{{ tarifaExtra|get_tarifa_extra_by_cat:6 }}">
+                                    <label for="tramoVAN-L">VAN-L</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoMINI" name="tramoMINI" value="{{ tarifaExtra|get_tarifa_extra_by_cat:7 }}">
+                                    <label for="tramoMINI">MINI</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoBUS" name="tramoBUS" value="{{ tarifaExtra|get_tarifa_extra_by_cat:8 }}">
+                                    <label for="tramoBUS">BUS</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoBUSDP" name="tramoBUSDP" value="{{ tarifaExtra|get_tarifa_extra_by_cat:9 }}">
+                                    <label for="tramoBUSDP">BUS DP</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoLIM-BLI" name="tramoLIM-BLI" value="{{ tarifaExtra|get_tarifa_extra_by_cat:10 }}">
+                                    <label for="tramoLIM-BLI">LIMO/BLIN</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoFLETE" name="tramoFLETE" value="{{ tarifaExtra|get_tarifa_extra_by_cat:11 }}">
+                                    <label for="tramoFLETE">FLETE</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoMSJ" name="tramoMSJ" value="{{ tarifaExtra|get_tarifa_extra_by_cat:12 }}">
+                                    <label for="tramoMSJ">MSJ</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoVIANDA" name="tramoVIANDA" value="{{ tarifaExtra|get_tarifa_extra_by_cat:13 }}">
+                                    <label for="tramoVIANDA">VIANDA</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoGUIA" name="tramoGUIA" value="{{ tarifaExtra|get_tarifa_extra_by_cat:14 }}">
+                                    <label for="tramoGUIA">GUIA/COORD</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoVIATICO" name="tramoVIATICO" value="{{ tarifaExtra|get_tarifa_extra_by_cat:15 }}">
+                                    <label for="tramoVIATICO">VIATICO</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoREGU" name="tramoREGU" value="{{ tarifaExtra|get_tarifa_extra_by_cat:16 }}">
+                                    <label for="tramoREGU">REGULAR</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoH1" name="tramoH1" value="{{ tarifaExtra|get_tarifa_extra_by_cat:17 }}">
+                                    <label for="tramoH1">H1</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoMB" name="tramoMB" value="{{ tarifaExtra|get_tarifa_extra_by_cat:18 }}">
+                                    <label for="tramoMB">MB</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" id="tramoVIANO" name="tramoVIANO" value="{{ tarifaExtra|get_tarifa_extra_by_cat:19 }}">
+                                    <label for="tramoVIANO">VIANO</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer noborder flex">
+                    <button type="button" onclick="guardarTarifaExtra();" class="btn green">Guardar</button>
+                    <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1567,6 +1567,20 @@ def guardarTarifario(request):
 	return redirect(url)
 
 @login_required
+def editarTarifaTrayecto(request):
+	idTarifaTrayecto = request.POST.get('idTarifaTrayecto', "")
+	tramoTarifa = TarifaTrayecto.objects.get(id=idTarifaTrayecto)
+	context = {'tramoTarifa': tramoTarifa}
+	return render(request, 'sistema/tarifaTrayecto.html', context)
+
+@login_required
+def editarTarifaExtra(request):
+	idTarifaExtra = request.POST.get('idTarifaExtra', "")
+	tarifaExtra = TarifaExtra.objects.get(id=idTarifaExtra)
+	context = {'tarifaExtra': tarifaExtra}
+	return render(request, 'sistema/tarifaExtra.html', context)
+
+@login_required
 def listadoLicencia(request):
 	licencias = Licencia.objects.all()
 	
