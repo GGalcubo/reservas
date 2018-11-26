@@ -363,7 +363,7 @@ class Tarifario(models.Model):
 
     def getTarifaExtra(self):
         return self.tarifaextra_set.all()
-    
+
 
 class Cliente(models.Model):
     razon_social = models.CharField(max_length=60)
@@ -466,6 +466,26 @@ class TipoPagoViaje(models.Model):
     def __str__(self):
         return self.tipo_pago_viaje
 
+class UsrUnidad (models.Model):
+    usuario = models.ForeignKey(User, null=True, blank=True)
+    unidad = models.ForeignKey(Unidad, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.usuario
+
+    def __str__(self):
+        return self.usuario
+
+class UsrCliente (models.Model):
+    usuario = models.ForeignKey(User, null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.usuario
+
+    def __str__(self):
+        return self.usuario
+
 class Viaje(models.Model):
     estado = models.ForeignKey(Estado, null=True, blank=True)
     fecha = models.CharField(max_length=12)
@@ -481,6 +501,8 @@ class Viaje(models.Model):
     tarifapasada = models.IntegerField(default=0)
     nro_aux= models.CharField(max_length=30, null=True, blank=True)
     tipo_pago = models.ForeignKey(TipoPagoViaje, null=True, blank=True, default=1)
+    creadopor = models.ForeignKey(User, null=True, blank=True, default=1)
+    creadofecha = models.CharField(max_length=12, default=1)
 
     def __unicode__(self):
         return u'%s' % self.fecha
@@ -890,7 +912,7 @@ class TarifaTrayecto(models.Model):
             if ttp.categoria_viaje.id == idCat:
                 return ttp.precio_cliente
         return retorno
-    
+
 
 class TarifaTrayectoPrecio(models.Model):
     tarifatrayecto = models.ForeignKey(TarifaTrayecto)
