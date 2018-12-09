@@ -94,7 +94,7 @@
                                         </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tabTramosTarifario">
-                                                <form role="form" class="form-tramos-tarifario">
+                                                <form role="form" class="form-tramos-tarifario" id="formTarifaTrayecto">
                                                     <div class="form-body">
                                                         <div class="row">
                                                             <div class="col-sm-12">
@@ -141,7 +141,7 @@
                                                                                 {% for trayecto in tarifario.getTarifaViaje %}
                                                                                 <tr>
                                                                                     <td class="text-center">
-                                                                                        <a href="#add_tramo_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                        <a href="#" onclick="editarTarifaTrayecto('{{ trayecto.id }}');" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                                                                                     </td>
                                                                                     <td>{{trayecto.localidad_desde}}</td>
                                                                                     <td>{{trayecto.localidad_hasta}}</td>
@@ -169,159 +169,10 @@
                                                                             </tbody>
                                                                         </table>
                                                                         <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <!-- <div style="width:158px;margin:0 auto;padding-top: 40px;">
-                                                                                    <span class="input-group-btn btn">
-                                                                                        <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
-                                                                                    </span>
-                                                                                </div> -->
-                                                                                <!-- /.modal -->
-                                                                                <div id="add_tramo_tarifario" class="modal fade" tabindex="-1" aria-hidden="true">
-                                                                                    <div class="modal-dialog">
-                                                                                        <div class="modal-content">
-                                                                                            <div class="modal-header">
-                                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                                                                <h4 class="modal-title" style="color:#888;">Agregar Tramo</h4>
-                                                                                            </div>
-                                                                                            <div class="modal-body">
-                                                                                                <div class="scroller" style="height:330px" data-always-visible="1" data-rail-visible1="1">
-                                                                                                    <div class="row">
-                                                                                                        <div class="col-sm-6">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoDesde" name="tramoDesde">
-                                                                                                                <label for="tramoDesde">Desde</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-6">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="email" class="form-control" id="tramoHasta" name="tramoHasta">
-                                                                                                                <label for="tramoHasta">Hasta</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoSTD" name="tramoSTD">
-                                                                                                                <label for="tramoSTD">STD</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVIP" name="tramoVIP">
-                                                                                                                <label for="tramoVIP">VIP</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoUTI" name="tramoUTI">
-                                                                                                                <label for="tramoUTI">UTI</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoEJEC" name="tramoEJEC">
-                                                                                                                <label for="tramoEJEC">EJEC</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVAN-C" name="tramoVAN-C">
-                                                                                                                <label for="tramoVAN-C">VAN-C</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVAN-L" name="tramoVAN-L">
-                                                                                                                <label for="tramoVAN-L">VAN-L</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoMINI" name="tramoMINI">
-                                                                                                                <label for="tramoMINI">MINI</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoBUS" name="tramoBUS">
-                                                                                                                <label for="tramoBUS">BUS</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoBUSDP" name="tramoBUSDP">
-                                                                                                                <label for="tramoBUSDP">BUS DP</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoLIM-BLI" name="tramoLIM-BLI">
-                                                                                                                <label for="tramoLIM-BLI">LIMO/BLIN</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoFLETE" name="tramoFLETE">
-                                                                                                                <label for="tramoFLETE">FLETE</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoMSJ" name="tramoMSJ">
-                                                                                                                <label for="tramoMSJ">MSJ</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVIANDA" name="tramoVIANDA">
-                                                                                                                <label for="tramoVIANDA">VIANDA</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoGUIA" name="tramoGUIA">
-                                                                                                                <label for="tramoGUIA">GUIA/COORD</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVIATICO" name="tramoVIATICO">
-                                                                                                                <label for="tramoVIATICO">VIATICO</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoREGU" name="tramoREGU">
-                                                                                                                <label for="tramoREGU">REGULAR</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoH1" name="tramoH1">
-                                                                                                                <label for="tramoH1">H1</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoMB" name="tramoMB">
-                                                                                                                <label for="tramoMB">MB</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVIANO" name="tramoVIANO">
-                                                                                                                <label for="tramoVIANO">VIANO</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="modal-footer noborder flex">
-                                                                                              <button type="button" class="btn green">Guardar</button>
-                                                                                              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
+                                                                            <div class="col-md-12" id="divAddTarifaTrayecto" >
+
+
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -333,7 +184,7 @@
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="tabExtrasTarifario">
-                                                <form role="form" class="form-extras-tarifario">
+                                                <form role="form" class="form-extras-tarifario" id="formTarifasExtras">
                                                     <div class="form-body">
                                                         <div class="row">
                                                             <div class="col-sm-12">
@@ -379,7 +230,7 @@
                                                                                 {% for trayecto in tarifario.getTarifaExtra %}
                                                                                 <tr>
                                                                                     <td class="text-center">
-                                                                                        <a href="#add_extra_tarifario" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                        <a href="#" onclick="editarTarifaExtra('{{ trayecto.id }}')" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                                                                                     </td>
                                                                                     <td>{{ trayecto.extra_descripcion }}</td>
                                                                                     <td>{{ trayecto|get_tarifa_extra_by_cat:1 }}</td>
@@ -406,153 +257,8 @@
                                                                             </tbody>
                                                                         </table>
                                                                         <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <!-- <div style="width:158px;margin:0 auto;padding-top: 40px;">
-                                                                                    <span class="input-group-btn btn">
-                                                                                        <a data-toggle="modal" class="btn blue" href="#add_tramo">Agregar Tramo</a>
-                                                                                    </span>
-                                                                                </div> -->
-                                                                                <!-- /.modal -->
-                                                                                <div id="add_extra_tarifario" class="modal fade" tabindex="-1" aria-hidden="true">
-                                                                                    <div class="modal-dialog">
-                                                                                        <div class="modal-content">
-                                                                                            <div class="modal-header">
-                                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                                                                <h4 class="modal-title" style="color:#888;">Agregar Extra</h4>
-                                                                                            </div>
-                                                                                            <div class="modal-body">
-                                                                                                <div class="scroller" style="height:330px" data-always-visible="1" data-rail-visible1="1">
-                                                                                                    <div class="row">
-                                                                                                        <div class="col-sm-12">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="extraName" name="extraName">
-                                                                                                                <label for="extraName">Extra</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoSTD" name="tramoSTD">
-                                                                                                                <label for="tramoSTD">STD</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVIP" name="tramoVIP">
-                                                                                                                <label for="tramoVIP">VIP</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoUTI" name="tramoUTI">
-                                                                                                                <label for="tramoUTI">UTI</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoEJEC" name="tramoEJEC">
-                                                                                                                <label for="tramoEJEC">EJEC</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVAN-C" name="tramoVAN-C">
-                                                                                                                <label for="tramoVAN-C">VAN-C</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVAN-L" name="tramoVAN-L">
-                                                                                                                <label for="tramoVAN-L">VAN-L</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoMINI" name="tramoMINI">
-                                                                                                                <label for="tramoMINI">MINI</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoBUS" name="tramoBUS">
-                                                                                                                <label for="tramoBUS">BUS</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoBUSDP" name="tramoBUSDP">
-                                                                                                                <label for="tramoBUSDP">BUS DP</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoLIM-BLI" name="tramoLIM-BLI">
-                                                                                                                <label for="tramoLIM-BLI">LIMO/BLIN</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoFLETE" name="tramoFLETE">
-                                                                                                                <label for="tramoFLETE">FLETE</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoMSJ" name="tramoMSJ">
-                                                                                                                <label for="tramoMSJ">MSJ</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVIANDA" name="tramoVIANDA">
-                                                                                                                <label for="tramoVIANDA">VIANDA</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoGUIA" name="tramoGUIA">
-                                                                                                                <label for="tramoGUIA">GUIA/COORD</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVIATICO" name="tramoVIATICO">
-                                                                                                                <label for="tramoVIATICO">VIATICO</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoREGU" name="tramoREGU">
-                                                                                                                <label for="tramoREGU">REGULAR</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoH1" name="tramoH1">
-                                                                                                                <label for="tramoH1">H1</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoMB" name="tramoMB">
-                                                                                                                <label for="tramoMB">MB</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-3">
-                                                                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                                <input type="text" class="form-control" id="tramoVIANO" name="tramoVIANO">
-                                                                                                                <label for="tramoVIANO">VIANO</label>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="modal-footer noborder flex">
-                                                                                              <button type="button" class="btn green">Guardar</button>
-                                                                                              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
+                                                                            <div class="col-md-12" id="divAddTarifaExtra" >
+                                                                                
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -609,8 +315,73 @@
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
                         },
                     } );
+
+                    
                     
                 });
+
+                function editarTarifaTrayecto(idTarifaTrayecto){
+                    var url = "/sistema/editarTarifaTrayecto/";
+                    param = 'idTarifaTrayecto='+idTarifaTrayecto;
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: param,
+                        success: function(data){
+                            $('#divAddTarifaTrayecto').html(data);
+                            $('#add_tramo_tarifario').modal('toggle');
+                        }
+                    });
+                }
+
+                function editarTarifaExtra(idTarifaExtra){
+                    var url = "/sistema/editarTarifaExtra/";
+                    param = 'idTarifaExtra='+idTarifaExtra;
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: param,
+                        success: function(data){
+                            $('#divAddTarifaExtra').html(data);
+                            $('#add_extra_tarifario').modal('toggle');
+                        }
+                    });
+                }
+
+                function guardarTarifaTrayecto(){
+                    var url = "/sistema/guardarTarifaTrayecto/";
+                    param = 'idTarifaTrayecto='+idTarifaTrayecto;
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: param,
+                        success: function(data){
+                            $('#divAddTarifaExtra').html(data);
+                            $('#add_tramo_tarifario').modal('toggle');
+                        }
+                    });
+                }
+
+                function guardarTarifaExtra(){
+                    var url = "/sistema/guardarTarifaExtra/";
+                    param = 'idTarifaExtra='+idTarifaExtra;
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: param,
+                        success: function(data){
+                            $('#divAddTarifaExtra').html(data);
+                            $('#add_extra_tarifario').modal('toggle');
+                        }
+                    });
+                }
+
+
+
             </script>
 
         </div>
