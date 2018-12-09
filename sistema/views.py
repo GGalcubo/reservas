@@ -28,14 +28,18 @@ def operaciones(request):
     estados = Estado.objects.all()
     categoria_viajes = CategoriaViaje.objects.all()
 
-    context = {'mensaje': mensaje, 'viajes': viajes, 'clientes': clientes, 'unidades': unidades, 'estados': estados,'categoria_viajes': categoria_viajes}
+    context = {'mensaje': mensaje, 'estados': estados,'categoria_viajes': categoria_viajes}
     return render(request, 'sistema/operaciones.html', context)
 
 @login_required
 def asignaciones(request):
 	mensaje = ""
 
-	context = { 'mensaje':mensaje }
+    viajes = Viaje.objects.all()
+    unidades = Unidad.objects.all()
+    estados = Estado.objects.all()
+
+	context = { 'mensaje':mensaje, 'viajes': viajes, 'unidades': unidades, 'estados': estados, }
 	return render(request, 'sistema/asignaciones.html', context)
 
 @login_required

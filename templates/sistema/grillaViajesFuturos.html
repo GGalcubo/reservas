@@ -22,7 +22,7 @@
             <tr>
                 <td class="all text-center"><a href="/sistema/editaViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>
                 <td class="all">{{ v.categoria_viaje }}</td>
-                <td class="all">{{ v.fecha }}</td>
+                <td class="all">{{ v.getFecha }}</td>
                 <td class="all">{{ v.hora }}</td>
                 <td class="all">{{ v.hora_estimada }}</td>
                 <td class="all"><span class="label label-primary" style="background-color: {{ v.estado.color }}!important;"> {{ v.estado }} </span></td>

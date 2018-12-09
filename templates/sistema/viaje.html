@@ -388,7 +388,7 @@
                         <div class="portlet-body">
                             <div class="tabbable-line">
                                 <ul class="nav nav-tabs ">
-                                    <li class="">
+                                    <li class="active">
                                         <a href="#viaje" data-toggle="tab" aria-expanded="true"> Viaje </a>
                                     </li>
                                     <li class="">
@@ -403,12 +403,12 @@
                                     <li class="">
                                         <a href="#pasajeros" data-toggle="tab" aria-expanded="false"> Pasajeros </a>
                                     </li>
-                                    <li class="active">
+                                    <li class="">
                                         <a href="#adjuntos" data-toggle="tab" aria-expanded="false"> Adjuntos </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
-                                    <div class="tab-pane" id="viaje">
+                                    <div class="tab-pane active" id="viaje">
                                         <form role="form" class="form-viaje-trayecto" id="form-viaje-trayecto" method="post">{% csrf_token %}
                                             <input type="hidden" id="trayecto_principal" name="trayecto_principal" value="1">
                                             <div class="form-body">
@@ -1254,7 +1254,7 @@
                                             </div>-->
                                         </form>
                                     </div>
-                                    <div class="tab-pane active" id="adjuntos">
+                                    <div class="tab-pane" id="adjuntos">
                                         <form id="guardarAdjunto" action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
                                             <div class="form-body">
                                                 <div class="row">
