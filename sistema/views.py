@@ -33,14 +33,14 @@ def operaciones(request):
 
 @login_required
 def asignaciones(request):
-	mensaje = ""
+    mensaje = ""
 
     viajes = Viaje.objects.all()
     unidades = Unidad.objects.all()
     estados = Estado.objects.all()
 
-	context = { 'mensaje':mensaje, 'viajes': viajes, 'unidades': unidades, 'estados': estados, }
-	return render(request, 'sistema/asignaciones.html', context)
+    context = { 'mensaje':mensaje, 'viajes': viajes, 'unidades': unidades, 'estados': estados, }
+    return render(request, 'sistema/asignaciones.html', context)
 
 @login_required
 def altaViaje(request):
