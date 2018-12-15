@@ -39,8 +39,25 @@ def asignaciones(request):
     unidades = Unidad.objects.all()
     estados = Estado.objects.all()
 
-    context = { 'mensaje':mensaje, 'viajes': viajes, 'unidades': unidades, 'estados': estados, }
+    context = {'mensaje':mensaje, 'viajes': viajes, 'unidades': unidades, 'estados': estados, }
     return render(request, 'sistema/asignaciones.html', context)
+
+@login_required
+def getViajesAsignacionesPorFecha(request):
+    mensaje = ""
+    date = getAAAAMMDD(request.POST.get('date', False))
+
+    estados_get_seleccionados = request.POST.getlist('estados_selecionados[]', False)
+    estados_seleccionados = []
+    if estados_get_seleccionados == False:
+        estados_seleccionados = [1, 2, 4]
+    else:
+        for i in estados_get_seleccionados:
+            estados_seleccionados.append(i)
+
+    viajes = Viaje.objects.filter(fecha=date).filter(estado__in=estados_seleccionados)
+    context = {'mensaje': mensaje, 'viajes': viajes}
+    return render(request, 'sistema/grillaViajesAsignaciones.html', context)
 
 @login_required
 def altaViaje(request):
@@ -1224,6 +1241,23 @@ def getViajesEnProgresoPorFecha(request):
     viajes = Viaje.objects.filter(fecha=date)
     context = {'mensaje': mensaje, 'viajes':viajes}
     return render(request, 'sistema/grillaViajesEnProgreso.html', context)
+
+@login_required
+def editEstadoViajeAsignaciones(request):
+    mensaje = ""
+    viajes_get_seleccionado = request.POST.getlist('viajes_seleccionado[]')
+    viajes_seleccionados = []
+    for i in viajes_get_seleccionado:
+        viajes_seleccionados.append(i)
+    Viaje.objects.filter(id__in=viajes_seleccionados).update(estado=Estado.objects.get(id=request.POST.get('estado_seleccionado', False)))
+
+    data = {
+		'error': '0',
+		'msg': mensaje
+	}
+
+    dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
 
 @login_required
 def editEstadoViaje(request):
