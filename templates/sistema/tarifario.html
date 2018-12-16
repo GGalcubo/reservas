@@ -109,7 +109,7 @@
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
-                                                                    <div class="portlet-body">
+                                                                    <div class="portlet-body" id="divTablaTrayectoTramo">
                                                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaTramosTarifario">
                                                                             <thead>
                                                                                 <tr>
@@ -170,9 +170,6 @@
                                                                         </table>
                                                                         <div class="row">
                                                                             <div class="col-md-12" id="divAddTarifaTrayecto" >
-
-
-
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -199,7 +196,7 @@
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
-                                                                    <div class="portlet-body">
+                                                                    <div class="portlet-body"  id="divTablaTrayectoExtra">
                                                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaExtrasTarifario">
                                                                             <thead>
                                                                                 <tr>
@@ -345,36 +342,39 @@
                         data: param,
                         success: function(data){
                             $('#divAddTarifaExtra').html(data);
-                            $('#add_extra_tarifario').modal('toggle');
+                            $('#add_extra_tarifario').modal('show');
                         }
                     });
                 }
 
                 function guardarTarifaTrayecto(){
                     var url = "/sistema/guardarTarifaTrayecto/";
-                    param = 'idTarifaTrayecto='+idTarifaTrayecto;
+                    param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifaTrayecto").serialize();
+                    console.log(param);
+                    $('#add_tramo_tarifario').modal('hide');
                     $.ajax({
                         type: "POST",
                         url: url,
                         headers: {'X-CSRFToken': '{{ csrf_token }}'},
                         data: param,
                         success: function(data){
-                            $('#divAddTarifaExtra').html(data);
-                            $('#add_tramo_tarifario').modal('toggle');
+                            $('#divTablaTrayectoTramo').html("");
+                            $('#divTablaTrayectoTramo').html(data);
                         }
                     });
                 }
 
                 function guardarTarifaExtra(){
                     var url = "/sistema/guardarTarifaExtra/";
-                    param = 'idTarifaExtra='+idTarifaExtra;
+                    param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifaTrayecto").serialize();
+                    alert(param);
                     $.ajax({
                         type: "POST",
                         url: url,
                         headers: {'X-CSRFToken': '{{ csrf_token }}'},
                         data: param,
                         success: function(data){
-                            $('#divAddTarifaExtra').html(data);
+                            $('#divTablaTrayectoExtra').html(data);
                             $('#add_extra_tarifario').modal('toggle');
                         }
                     });

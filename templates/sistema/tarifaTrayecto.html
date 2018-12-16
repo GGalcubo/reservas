@@ -4,6 +4,7 @@
     </span>
 </div> -->
 <!-- /.modal -->
+<input type="hidden" id="idTarifaTrayecto" name="idTarifaTrayecto" value="{{ tramoTarifa.id }}">
 <div id="add_tramo_tarifario" class="modal fade" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -16,128 +17,128 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoDesde" name="tramoDesde" value="{{ tramoTarifa.localidad_desde }}">
+                                <input type="text" class="form-control" id="tramoDesde" name="tramoDesde" readonly value="{{ tramoTarifa.localidad_desde }}">
                                 <label for="tramoDesde">Desde</label>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="email" class="form-control" id="tramoHasta" name="tramoHasta" value="{{ tramoTarifa.localidad_hasta }}">
+                                <input type="email" class="form-control" id="tramoHasta" name="tramoHasta" readonly value="{{ tramoTarifa.localidad_hasta }}">
                                 <label for="tramoHasta">Hasta</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoSTD" name="tramoSTD" value="{{ tramoTarifa|get_tarifa_by_cat:1 }}">
-                                <label for="tramoSTD">STD</label>
+                                <input type="text" class="form-control" id="tramo1" name="tramo1" value="{{ tramoTarifa|get_tarifa_by_cat:1 }}">
+                                <label for="tramo1">STD</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoVIP" name="tramoVIP" value="{{ tramoTarifa|get_tarifa_by_cat:2 }}">
-                                <label for="tramoVIP">VIP</label>
+                                <input type="text" class="form-control" id="tramo2" name="tramo2" value="{{ tramoTarifa|get_tarifa_by_cat:2 }}">
+                                <label for="tramo2">VIP</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoUTI" name="tramoUTI" value="{{ tramoTarifa|get_tarifa_by_cat:3 }}">
-                                <label for="tramoUTI">UTI</label>
+                                <input type="text" class="form-control" id="tramo3" name="tramo3" value="{{ tramoTarifa|get_tarifa_by_cat:3 }}">
+                                <label for="tramo3">UTI</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoEJEC" name="tramoEJEC" value="{{ tramoTarifa|get_tarifa_by_cat:4 }}">
-                                <label for="tramoEJEC">EJEC</label>
+                                <input type="text" class="form-control" id="tramo4" name="tramo4" value="{{ tramoTarifa|get_tarifa_by_cat:4 }}">
+                                <label for="tramo4">EJEC</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoVAN-C" name="tramoVAN-C" value="{{ tramoTarifa|get_tarifa_by_cat:5 }}">
-                                <label for="tramoVAN-C">VAN-C</label>
+                                <input type="text" class="form-control" id="tramo5" name="tramo5" value="{{ tramoTarifa|get_tarifa_by_cat:5 }}">
+                                <label for="tramo5">VAN-C</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoVAN-L" name="tramoVAN-L" value="{{ tramoTarifa|get_tarifa_by_cat:6 }}">
-                                <label for="tramoVAN-L">VAN-L</label>
+                                <input type="text" class="form-control" id="tramo6" name="tramo6" value="{{ tramoTarifa|get_tarifa_by_cat:6 }}">
+                                <label for="tramo6">VAN-L</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoMINI" name="tramoMINI" value="{{ tramoTarifa|get_tarifa_by_cat:7 }}">
-                                <label for="tramoMINI">MINI</label>
+                                <input type="text" class="form-control" id="tramo7" name="tramo7" value="{{ tramoTarifa|get_tarifa_by_cat:7 }}">
+                                <label for="tramo7">MINI</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoBUS" name="tramoBUS" value="{{ tramoTarifa|get_tarifa_by_cat:8 }}">
-                                <label for="tramoBUS">BUS</label>
+                                <input type="text" class="form-control" id="tramo8" name="tramo8" value="{{ tramoTarifa|get_tarifa_by_cat:8 }}">
+                                <label for="tramo8">BUS</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoBUSDP" name="tramoBUSDP" value="{{ tramoTarifa|get_tarifa_by_cat:9 }}">
-                                <label for="tramoBUSDP">BUS DP</label>
+                                <input type="text" class="form-control" id="tramo9" name="tramo9" value="{{ tramoTarifa|get_tarifa_by_cat:9 }}">
+                                <label for="tramo9">BUS DP</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoLIM-BLI" name="tramoLIM-BLI" value="{{ tramoTarifa|get_tarifa_by_cat:10 }}">
-                                <label for="tramoLIM-BLI">LIMO/BLIN</label>
+                                <input type="text" class="form-control" id="tramo10" name="tramo10" value="{{ tramoTarifa|get_tarifa_by_cat:10 }}">
+                                <label for="tramo10">LIMO/BLIN</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoFLETE" name="tramoFLETE" value="{{ tramoTarifa|get_tarifa_by_cat:11 }}">
-                                <label for="tramoFLETE">FLETE</label>
+                                <input type="text" class="form-control" id="tramo11" name="tramo11" value="{{ tramoTarifa|get_tarifa_by_cat:11 }}">
+                                <label for="tramo11">FLETE</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoMSJ" name="tramoMSJ" value="{{ tramoTarifa|get_tarifa_by_cat:12 }}">
-                                <label for="tramoMSJ">MSJ</label>
+                                <input type="text" class="form-control" id="tramo12" name="tramo12" value="{{ tramoTarifa|get_tarifa_by_cat:12 }}">
+                                <label for="tramo12">MSJ</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoVIANDA" name="tramoVIANDA" value="{{ tramoTarifa|get_tarifa_by_cat:13 }}">
-                                <label for="tramoVIANDA">VIANDA</label>
+                                <input type="text" class="form-control" id="tramo13" name="tramo13" value="{{ tramoTarifa|get_tarifa_by_cat:13 }}">
+                                <label for="tramo13">VIANDA</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoGUIA" name="tramoGUIA" value="{{ tramoTarifa|get_tarifa_by_cat:14 }}">
-                                <label for="tramoGUIA">GUIA/COORD</label>
+                                <input type="text" class="form-control" id="tramo14" name="tramo14" value="{{ tramoTarifa|get_tarifa_by_cat:14 }}">
+                                <label for="tramo14">GUIA/COORD</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoVIATICO" name="tramoVIATICO" value="{{ tramoTarifa|get_tarifa_by_cat:15 }}">
-                                <label for="tramoVIATICO">VIATICO</label>
+                                <input type="text" class="form-control" id="tramo15" name="tramo15" value="{{ tramoTarifa|get_tarifa_by_cat:15 }}">
+                                <label for="tramo15">VIATICO</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoREGU" name="tramoREGU" value="{{ tramoTarifa|get_tarifa_by_cat:16 }}">
-                                <label for="tramoREGU">REGULAR</label>
+                                <input type="text" class="form-control" id="tramo16" name="tramo16" value="{{ tramoTarifa|get_tarifa_by_cat:16 }}">
+                                <label for="tramo16">REGULAR</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoH1" name="tramoH1" value="{{ tramoTarifa|get_tarifa_by_cat:17 }}">
-                                <label for="tramoH1">H1</label>
+                                <input type="text" class="form-control" id="tramo17" name="tramo17" value="{{ tramoTarifa|get_tarifa_by_cat:17 }}">
+                                <label for="tramo17">H1</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoMB" name="tramoMB" value="{{ tramoTarifa|get_tarifa_by_cat:18 }}">
-                                <label for="tramoMB">MB</label>
+                                <input type="text" class="form-control" id="tramo18" name="tramo18" value="{{ tramoTarifa|get_tarifa_by_cat:18 }}">
+                                <label for="tramo18">MB</label>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
-                                <input type="text" class="form-control" id="tramoVIANO" name="tramoVIANO" value="{{ tramoTarifa|get_tarifa_by_cat:19 }}">
-                                <label for="tramoVIANO">VIANO</label>
+                                <input type="text" class="form-control" id="tramo19" name="tramo19" value="{{ tramoTarifa|get_tarifa_by_cat:19 }}">
+                                <label for="tramo19">VIANO</label>
                             </div>
                         </div>
                     </div>
