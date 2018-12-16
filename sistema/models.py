@@ -878,7 +878,10 @@ class TarifaExtra(models.Model):
         retorno = 0
         for ttp in self.tarifaextraprecio_set.all():
             if ttp.categoria_viaje.id == idCat:
-                return ttp.extra_precio
+                if ttp.extra_precio:
+                    return ttp.extra_precio
+                else:
+                    return retorno
         return retorno
 
     def getTTPByCategoria(self, idCat):
@@ -887,7 +890,7 @@ class TarifaExtra(models.Model):
             if ttp.categoria_viaje.id == idCat:
                 return ttp
         cat = CategoriaViaje.objects.get(id=idCat)
-        retorno.tarifatrayecto = self
+        retorno.tarifa_extra = self
         retorno.categoria_viaje = cat
         return retorno
 
@@ -920,7 +923,11 @@ class TarifaTrayecto(models.Model):
         retorno = 0
         for ttp in self.tarifatrayectoprecio_set.all():
             if ttp.categoria_viaje.id == idCat:
-                return ttp.precio_cliente
+                if ttp.precio_cliente:
+                    return ttp.precio_cliente
+                else:
+                    return retorno
+
         return retorno
 
     def getTTPByCategoria(self, idCat):

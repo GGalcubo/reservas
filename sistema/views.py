@@ -1642,18 +1642,18 @@ def guardarTarifaTrayecto(request):
 @login_required
 def guardarTarifaExtra(request):
 	idTarifario		 = request.POST.get('idTarifario', "")
-	idTarifaExtra = request.POST.get('idTarifaExtra', "")
+	idTarifaExtra    = request.POST.get('idTarifaExtra', "")
 	
 	tarifaExtra = TarifaExtra.objects.get(id=idTarifaExtra)
 
 	for x in range(19):
 		cat = x+1
-		nameTramo='tramo'+str(cat)
+		nameTramo='extra'+str(cat)
 		valor = request.POST.get(nameTramo, "0")
 		if valor == "":
 			valor = 0
 		ttp = tarifaExtra.getTTPByCategoria(cat)
-		ttp.precio_cliente = valor
+		ttp.extra_precio = valor
 		ttp.save()
 
 	tarifario = Tarifario.objects.get(id=idTarifario)

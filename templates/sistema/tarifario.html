@@ -105,7 +105,7 @@
                                                                             <i class="icon-graph font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Tramos</span>
                                                                             <!--a href="#add_tramo_tarifario" role="button" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar tramo</a-->
-                                                                            <a href="#" role="button" class="btn blue btn-outline mg-l-20">Modificación masiva</a>
+                                                                            <a href="#" role="button" onclick="modificacionMasivaTramos();" class="btn blue btn-outline mg-l-20">Modificación masiva</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -191,8 +191,8 @@
                                                                         <div class="caption font-blue">
                                                                             <i class="icon-diamond font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Extras</span>
-                                                                            <a href="#add_extra_tarifario" role="button" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar extra</a>
-                                                                            <a href="#" role="button" class="btn blue btn-outline mg-l-20">Modificación masiva</a>
+                                                                            <!--a href="#add_extra_tarifario" role="button" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar extra</a-->
+                                                                            <a href="#" role="button" onclick="modificacionMasivaExtras();"  class="btn blue btn-outline mg-l-20">Modificación masiva</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -312,9 +312,6 @@
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
                         },
                     } );
-
-                    
-                    
                 });
 
                 function editarTarifaTrayecto(idTarifaTrayecto){
@@ -350,7 +347,6 @@
                 function guardarTarifaTrayecto(){
                     var url = "/sistema/guardarTarifaTrayecto/";
                     param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifaTrayecto").serialize();
-                    console.log(param);
                     $('#add_tramo_tarifario').modal('hide');
                     $.ajax({
                         type: "POST",
@@ -366,18 +362,27 @@
 
                 function guardarTarifaExtra(){
                     var url = "/sistema/guardarTarifaExtra/";
-                    param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifaTrayecto").serialize();
-                    alert(param);
+                    param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifasExtras").serialize();
+                    alert(param)
+                    $('#add_extra_tarifario').modal('hide');
                     $.ajax({
                         type: "POST",
                         url: url,
                         headers: {'X-CSRFToken': '{{ csrf_token }}'},
                         data: param,
                         success: function(data){
+                            $('#divTablaTrayectoExtra').html("");
                             $('#divTablaTrayectoExtra').html(data);
-                            $('#add_extra_tarifario').modal('toggle');
                         }
                     });
+                }
+                function modificacionMasivaTramos(){
+                    var url = "/sistema/modificacionMasivaTramos/";
+                    param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifasExtras").serialize();
+                }
+                function modificacionMasivaExtras(){
+                    var url = "/sistema/modificacionMasivaExtras/";
+                    param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifasExtras").serialize();
                 }
 
 

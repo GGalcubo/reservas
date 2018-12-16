@@ -4,8 +4,8 @@
     </span>
 </div> -->
 <!-- /.modal -->
-<input type="hidden" id="idTarifaExtra" name="idTarifaExtra" value="{{ tarifaExtra.id }}">
 <div id="add_extra_tarifario" class="modal fade" tabindex="-1" aria-hidden="true">
+    <input type="hidden" id="idTarifaExtra" name="idTarifaExtra" value="{{ tarifaExtra.id }}">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -29,20 +29,20 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="tramoVIP" name="extra2" value="{{ tarifaExtra|get_tarifa_extra_by_cat:2 }}">
-                                    <label for="tramoVIP">VIP</label>
+                                    <input type="text" class="form-control" id="extra3" name="extra3" value="{{ tarifaExtra|get_tarifa_extra_by_cat:2 }}">
+                                    <label for="extra3">VIP</label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="tramoUTI" name="extra3" value="{{ tarifaExtra|get_tarifa_extra_by_cat:3 }}">
-                                    <label for="tramoUTI">UTI</label>
+                                    <input type="text" class="form-control" id="extra3" name="extra3" value="{{ tarifaExtra|get_tarifa_extra_by_cat:3 }}">
+                                    <label for="extra3">UTI</label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="tramoEJEC" name="extra4" value="{{ tarifaExtra|get_tarifa_extra_by_cat:4 }}">
-                                    <label for="tramoEJEC">EJEC</label>
+                                    <input type="text" class="form-control" id="extra4" name="extra4" value="{{ tarifaExtra|get_tarifa_extra_by_cat:4 }}">
+                                    <label for="extra4">EJEC</label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
