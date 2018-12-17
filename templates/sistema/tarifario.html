@@ -105,7 +105,7 @@
                                                                             <i class="icon-graph font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Tramos</span>
                                                                             <!--a href="#add_tramo_tarifario" role="button" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar tramo</a-->
-                                                                            <a href="#" role="button" onclick="modificacionMasivaTramos();" class="btn blue btn-outline mg-l-20">Modificación masiva</a>
+                                                                            <a href="#" role="button" onclick="modificacionMasiva('1');" class="btn blue btn-outline mg-l-20">Modificación masiva</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -180,6 +180,36 @@
                                                     </div>
                                                 </form>
                                             </div>
+
+                                            <input type="hidden" id="tipoMasivo" name="tipoMasivo">
+                                            <div id="add_masiva" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                            <h4 class="modal-title" style="color:#888;">Modificacionmasiva</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="number" class="form-control" id="porcentaje" name="porcentaje">
+                                                                            <label for="porcentaje">Porcentaje</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer noborder flex">
+                                                            <button type="button" onclick="guardarMasivo();" class="btn green">Guardar</button>
+                                                            <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                             <div class="tab-pane" id="tabExtrasTarifario">
                                                 <form role="form" class="form-extras-tarifario" id="formTarifasExtras">
                                                     <div class="form-body">
@@ -192,7 +222,7 @@
                                                                             <i class="icon-diamond font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Extras</span>
                                                                             <!--a href="#add_extra_tarifario" role="button" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar extra</a-->
-                                                                            <a href="#" role="button" onclick="modificacionMasivaExtras();"  class="btn blue btn-outline mg-l-20">Modificación masiva</a>
+                                                                            <a href="#" role="button" onclick="modificacionMasiva('2');"  class="btn blue btn-outline mg-l-20">Modificación masiva</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -363,7 +393,6 @@
                 function guardarTarifaExtra(){
                     var url = "/sistema/guardarTarifaExtra/";
                     param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifasExtras").serialize();
-                    alert(param)
                     $('#add_extra_tarifario').modal('hide');
                     $.ajax({
                         type: "POST",
@@ -376,15 +405,33 @@
                         }
                     });
                 }
-                function modificacionMasivaTramos(){
-                    var url = "/sistema/modificacionMasivaTramos/";
-                    param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifasExtras").serialize();
+                function modificacionMasiva(tipoMasivo){
+                    $('#tipoMasivo').val(tipoMasivo);
+                    $('#add_masiva').modal('show');
                 }
-                function modificacionMasivaExtras(){
-                    var url = "/sistema/modificacionMasivaExtras/";
-                    param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifasExtras").serialize();
+                function guardarMasivo(){
+                    var url = "/sistema/guardarMasivo/";
+                    param = 'tipoMasivo='+$("#tipoMasivo").val()+"&porcentaje="+$("#porcentaje").val()+"&idTarifario="+$("#idTarifario").val();
+                    alert(param)
+                    $('#add_masiva').modal('hide');
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: param,
+                        success: function(data){
+                            if ($('#tipoMasivo').val() == "1"){
+                                $('#divTablaTrayectoTramo').html("");
+                                $('#divTablaTrayectoTramo').html(data);
+                            }
+                            if ($('#tipoMasivo').val() == "2"){
+                                $('#divTablaTrayectoExtra').html("");
+                                $('#divTablaTrayectoExtra').html(data);
+                            }
+                            
+                        }
+                    });
                 }
-
 
 
             </script>

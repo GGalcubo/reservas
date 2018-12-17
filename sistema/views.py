@@ -1661,6 +1661,51 @@ def guardarTarifaExtra(request):
 	return render(request, 'sistema/grillaTarifaExtra.html', context)
 
 @login_required
+def guardarMasivo(request):
+	idTarifario = request.POST.get('idTarifario', "")
+	tipoMasivo  = request.POST.get('tipoMasivo', "")
+	porcentaje  = request.POST.get('porcentaje', "")
+
+	print idTarifario
+	print tipoMasivo
+	print porcentaje
+
+	tarifario = Tarifario.objects.get(id=idTarifario)
+
+	if tipoMasivo == "1":
+		for tv in tarifario.getTarifaViaje():
+			for x in range(19):
+				cat = x+1
+				ttp = tv.getTTPByCategoria(cat)
+				if ttp.precio_cliente:
+					valor = ttp.precio_cliente
+				else:
+					valor = "0"
+				ttp.precio_cliente = int(valor) * int(float(porcentaje)) / 100 + int(valor)
+				ttp.save()
+
+		nombre_html = "sistema/grillaTrayectoTarifa.html"
+
+
+	if tipoMasivo == "2":
+		for te in tarifario.getTarifaExtra():
+			for x in range(19):
+				cat = x+1
+				ttp = te.getTTPByCategoria(cat)
+				if ttp.extra_precio:
+					valor = ttp.extra_precio
+				else:
+					valor = "0"
+				ttp.extra_precio = int(valor) * int(float(porcentaje)) / 100 + int(valor)
+				ttp.save()
+
+		nombre_html = "sistema/grillaTarifaExtra.html"
+
+	context = {'tarifario': tarifario}
+	return render(request, nombre_html, context)
+
+
+@login_required
 def listadoLicencia(request):
 	licencias = Licencia.objects.all()
 	

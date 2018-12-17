@@ -65,6 +65,7 @@ urlpatterns = [
     url(r'^editarTarifaExtra/', editarTarifaExtra, name='editarTarifaExtra'),
     url(r'^guardarTarifaTrayecto/', guardarTarifaTrayecto, name='guardarTarifaTrayecto'),
     url(r'^guardarTarifaExtra/', guardarTarifaExtra, name='guardarTarifaExtra'),
+    url(r'^guardarMasivo/', guardarMasivo, name='guardarMasivo'),
     url(r'^listadoLicencia/', listadoLicencia, name='listadoLicencia'),
     url(r'^eliminarLicencia/', eliminarLicencia, name='eliminarLicencia'),
     url(r'^licencia/', licencia, name='licencia'),
