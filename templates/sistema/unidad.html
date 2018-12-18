@@ -66,6 +66,7 @@
                                                     <div class="form-group form-md-checkboxes">
                                                         <div class="md-checkbox-inline">
                                                             <div class="md-checkbox">
+                                                                <input type="hidden" id="unidadPropiaValue" class="md-check" name="unidadPropiaValue" value="{{ unidad.unidad_propia }}">
                                                                 <input type="checkbox" id="unidadPropia" class="md-check" name="unidadPropia">
                                                                 <label for="unidadPropia">
                                                                     <span></span>
@@ -559,6 +560,10 @@
                         dropdownAutoWidth : true,
                         width: 'auto'
                     });
+
+                    if ($("#unidadPropiaValue").val() == "True"){
+                        $("#unidadPropia").prop( "checked", true );
+                    }
                 });
 
                 function guardarUnidad(){

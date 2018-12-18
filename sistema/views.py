@@ -1112,8 +1112,10 @@ def guardarCliente(request):
 		cliente = Cliente.objects.get(id=idCliente)
 		if len(cliente.telefonocliente_set.all()) > 0:
 			tel = cliente.telefonocliente_set.all()[0].telefono
+			telcli = cliente.telefonocliente_set.all()[0]
 		else:
 			tel = Telefono()
+			telcli = TelefonoCliente()
 		
 	cliente.razon_social = request.POST.get('razonSocial', "")
 	cliente.cuil = request.POST.get('cuil', "")
@@ -1140,12 +1142,9 @@ def guardarCliente(request):
 		tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
 		tel.numero = request.POST.get('telefono', False)
 		tel.save()
-
-		if idCliente == "0":
-			telcli = TelefonoCliente()
-			telcli.cliente = cliente
-			telcli.telefono = tel
-			telcli.save()
+		telcli.cliente = cliente
+		telcli.telefono = tel
+		telcli.save()
 
 	url = '/sistema/cliente/?idCliente='+str(cliente.id)
 	return redirect(url)
@@ -1372,12 +1371,20 @@ def guardarUnidad(request):
 		else:
 			vehiculo = Vehiculo()
 
+
+	
 	unidad.identificacion = request.POST.get('identificacion', "")
 	unidad.owner = Persona.objects.get(id=request.POST.get('selectOwners', ""))
 	unidad.porcentaje_owner = request.POST.get('porcFacturacionOwner', "")
 	if request.POST.get('selectChoferes', "") != "":
 		unidad.chofer = Persona.objects.get(id=request.POST.get('selectChoferes', ""))
 	unidad.porcentaje_chofer = request.POST.get('porcFacturacionChofer', "")
+
+	if request.POST.get('unidadPropia', "") == "on":
+		unidad.unidad_propia = True
+	else:
+		unidad.unidad_propia = False
+
 	if request.POST.get('patente', "") != "":
 		vehiculo.patente = request.POST.get('patente', "")
 		vehiculo.modelo = request.POST.get('modelo', "")

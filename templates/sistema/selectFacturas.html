@@ -1,5 +1,6 @@
 <select class="form-control select2me" id="factura" name="factura" multiple="multiple">
     <option value=""></option>
+    <option value="0">Sin factura</option>
     {% for valor in facturas %}
     <option value="{{valor}}">{{valor}}</option>
     {% endfor %}
