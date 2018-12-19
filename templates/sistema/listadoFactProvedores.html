@@ -67,6 +67,7 @@
                                             <div class="form-group form-md-line-input" id="selectFactura">
                                               <select class="form-control select2me" id="factura" name="factura" multiple="multiple">
                                                   <option value=""></option>
+                                                  <option value="0">Sin factura</option>
                                               </select>
                                               <label for="factura">Factura</label>
                                             </div>
@@ -388,7 +389,7 @@
 
                 function cambioUnidad(){
                     idUnidad = $('#unidad').val();
-                    cargarProveedores(idUnidad)
+                    //cargarProveedores(idUnidad)
                     cargarFactura(idUnidad);
                 }
 
@@ -457,11 +458,12 @@
                 }
 
                 function buscarFacturacion(){
-                    if ($("#unidad").val() == ""){
-                        alert("Debe seleccionar una Unidad.");
-                        return false;
+                    if ($("#factura").val() != "0"){
+                        if ($("#unidad").val() == ""){
+                            alert("Debe seleccionar una Unidad.");
+                            return false;
+                        }
                     }
-
                     if ($('#desde').val() == ""){
                         alert("El campo Fecha desde es obligatorio.")
                         return false;

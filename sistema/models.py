@@ -649,6 +649,8 @@ class Viaje(models.Model):
 
     def getFinalCliente(self):
         retorno = self.getTotalCliente() + self.getIvaCliente()
+        if self.tipo_pago.id==2:
+            retorno = retorno * 1.05
         return retorno
 
     def getPasajeros(self):

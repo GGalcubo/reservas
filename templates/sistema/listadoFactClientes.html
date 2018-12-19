@@ -440,11 +440,13 @@
                 }
 
                 function buscarFacturacion(){
-                    if ($("#cliente").val() == ""){
-                        alert("Debe seleccionar un Cliente.");
-                        return false;
-                    }
 
+                    if ($("#proforma").val() != "0" && $("#factura").val() != "0"){
+                        if ($("#cliente").val() == ""){
+                            alert("Debe seleccionar un Cliente.");
+                            return false;
+                        }
+                    }
                     if ($('#desde').val() == ""){
                         alert("El campo Fecha desde es obligatorio.")
                         return false;
