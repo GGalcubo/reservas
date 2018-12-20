@@ -82,6 +82,7 @@ urlpatterns = [
     url(r'^guardarAdelanto/', guardarAdelanto, name='guardarAdelanto'),
     url(r'^altaAdelanto/', altaAdelanto, name='altaAdelanto'),
     url(r'^buscarAdelantos/', buscarAdelantos, name='buscarAdelantos'),
+    url(r'^buscarViajes/', buscarViajes, name='buscarViajes'),
     url(r'^eliminarAdelanto/', eliminarAdelanto, name='eliminarAdelanto'),
     url(r'^facturarAdelantos/', facturarAdelantos, name='facturarAdelantos'),
     url(r'^listadoFactClientes/', listadoFactClientes, name='listadoFactClientes'),

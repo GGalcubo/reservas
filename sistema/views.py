@@ -60,6 +60,33 @@ def getViajesAsignacionesPorFecha(request):
     return render(request, 'sistema/grillaViajesAsignaciones.html', context)
 
 @login_required
+def buscarViajes(request):
+    mensaje = ""
+
+    chofer          = request.POST.get('chofer', False)
+    cliente         = request.POST.get('cliente', False)
+    pasajero        = request.POST.get('pasajero', False)
+    solicitante     = request.POST.get('solicitante', False)
+    centroDeCosto   = request.POST.get('centroDeCosto', False)
+    desde           = request.POST.get('desde', False)
+    hasta           = request.POST.get('hasta', False)
+
+    viajes = Viaje.objects.filter(cliente_id=cliente, fecha__gte=desde, fecha__lte=hasta)
+
+    if pasajero:
+        viajes = viajes.filter(pasajero_id=pasajero)
+
+    if solicitante:
+        viajes = viajes.filter(solicitante_id=solicitante)
+
+    if centroDeCosto:
+        viajes = viajes.filter(centro_costo_id=centroDeCosto)
+
+    #viajes = Viaje.objects.filter(fecha__gte=desde, fecha__lte=hasta, cliente_id=cliente, cliente__personacliente__persona_id__in=[solicitante, pasajero], cliente__viaje__centro_costo_id=centroDeCosto)
+    context = {'mensaje': mensaje, 'viajes': viajes}
+    return render(request, 'sistema/grillaViajesExportar.html', context)
+
+@login_required
 def altaViaje(request):
     mensaje     = ""
     es_nuevo    = 1
@@ -1825,10 +1852,10 @@ def cargarProvincia(request):
 
 @login_required
 def exportar(request):
-	mensaje = ""
+    mensaje = ""
 
-	context = {'mensaje': mensaje}
-	return render(request, 'sistema/exportar.html', context)
+    context = {'mensaje': mensaje, 'clientes': Cliente.objects.all(), 'personas':Persona.objects.all()}
+    return render(request, 'sistema/exportar.html', context)
 
 @login_required
 def usuario(request):

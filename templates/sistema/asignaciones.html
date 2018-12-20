@@ -93,7 +93,9 @@
                             getGrillasAsignaciones($('#fechaDeHoy').val());
                         }
                     });
-                    //loadEditable();
+                    $('#fechaDeHoy').change(function () {
+                        getGrillasAsignaciones($('#fechaDeHoy').val());
+                    });
                 });
 
                 getGrillasAsignaciones = fecha => {
