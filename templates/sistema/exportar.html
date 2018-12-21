@@ -43,17 +43,15 @@
                                           <div class="row">
                                             <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="chofer" name="chofer">
-                                                  <option value="">Seleccionar Chofer</option>
+                                                <select class="form-control select2me" id="unidad" name="unidad">
+                                                  <option value="">Seleccionar Unidad</option>
                                                   <!--<option value="1">456 - Jorge Gutierrez</option>
                                                   <option value="2">123 - Diego Fuentes</option>-->
-                                                    {% for p in personas %}
-                                                        {% if p.tipo_persona_id == 3 %}
-                                                            <option value="{{ p.id }}">{{ p.id }} - {{ p.nombre }} {{ p.apellido }}</option>
-                                                        {% endif %}
+                                                    {% for u in unidades %}
+                                                        <option value="{{ u.id }}">{{u.id}} - {{ u.identificacion }}</option>
                                                     {% endfor %}
                                                 </select>
-                                                <label for="chofer">Chofer</label>
+                                                <label for="unidad">Unidad</label>
                                               </div>
                                             </div>
                                             <div class="col-sm-3">
@@ -221,8 +219,8 @@
                         }
                     } );
 
-                    $("#chofer").select2({
-                        placeholder: "Seleccionar Chofer",
+                    $("#unidad").select2({
+                        placeholder: "Seleccionar Unidad",
                         allowClear: true,
                         dropdownAutoWidth : true,
                         width: 'auto'
@@ -316,7 +314,7 @@
                     }
 
                     let params = {
-                        chofer: $("#chofer").val(),
+                        unidad: $("#unidad").val(),
                         pasajero: $("#pasajero").val(),
                         centroDeCosto: $("#centroDeCosto").val(),
                         solicitante: $("#solicitante").val(),
@@ -342,7 +340,7 @@
                     $('#to').val("");
                     let table = $('#tablaExportar').DataTable();
                     table.clear().draw();
-                    $("#chofer").val('').trigger('change');
+                    $("unidad").val('').trigger('change');
                     $("#pasajero").val('').trigger('change').empty();
                     $("#centroDeCosto").val('').trigger('change').empty();
                     $("#solicitante").val('').trigger('change').empty();

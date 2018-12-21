@@ -63,7 +63,7 @@ def getViajesAsignacionesPorFecha(request):
 def buscarViajes(request):
     mensaje = ""
 
-    chofer          = request.POST.get('chofer', False)
+    unidad          = request.POST.get('unidad', False)
     cliente         = request.POST.get('cliente', False)
     pasajero        = request.POST.get('pasajero', False)
     solicitante     = request.POST.get('solicitante', False)
@@ -81,6 +81,9 @@ def buscarViajes(request):
 
     if centroDeCosto:
         viajes = viajes.filter(centro_costo_id=centroDeCosto)
+
+    if unidad:
+        viajes = viajes.filter(unidad_id=unidad)
 
     #viajes = Viaje.objects.filter(fecha__gte=desde, fecha__lte=hasta, cliente_id=cliente, cliente__personacliente__persona_id__in=[solicitante, pasajero], cliente__viaje__centro_costo_id=centroDeCosto)
     context = {'mensaje': mensaje, 'viajes': viajes}
@@ -1854,7 +1857,7 @@ def cargarProvincia(request):
 def exportar(request):
     mensaje = ""
 
-    context = {'mensaje': mensaje, 'clientes': Cliente.objects.all(), 'personas':Persona.objects.all()}
+    context = {'mensaje': mensaje, 'clientes': Cliente.objects.all(), 'personas':Persona.objects.all(),'unidades':Unidad.objects.all(),}
     return render(request, 'sistema/exportar.html', context)
 
 @login_required
