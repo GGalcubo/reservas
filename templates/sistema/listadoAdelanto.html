@@ -78,7 +78,7 @@
                                       <thead>
                                           <tr>
                                               <th class="all"></th>
-                                              <th class="all text-center" style="min-width: 120px;">Acciones</th>
+                                              <!-- <th class="all text-center" style="min-width: 120px;">Acciones</th> -->
                                               <!-- <th class="all text-center"><i class="fa fa-trash"></i></th> -->
                                               <th class="all">ID</th>
                                               <th class="all">Nombre</th>
@@ -168,10 +168,35 @@
                         buttons: [
                             'selectAll',
                             'selectNone',
-                            'copy',
-                            'excel',
-                            'pdf',
-                            'print'
+                            {
+                                extend: 'copyHtml5',
+                                exportOptions: {
+                                    columns: [ 1, 2, 3, 4, 5, 6, 7 ]
+                                }
+                            },
+                            {
+                                extend: 'excelHtml5',
+                                exportOptions: {
+                                    columns: [ 1, 2, 3, 4, 5, 6, 7 ]
+                                }
+                            },
+                            {
+                                extend: 'pdfHtml5',
+                                orientation: 'landscape',
+                                exportOptions: {
+                                    columns: [ 1, 2, 3, 4, 5, 6, 7 ]
+                                },
+                                customize: function(doc) {
+                                  doc.content[1].margin = [ 100, 0, 100, 0 ]  //left, top, right, bottom
+                                }
+                            },
+                            {
+                                extend: 'print',
+                                title: 'Listado Adelantos',
+                                exportOptions: {
+                                    columns: [ 1, 2, 3, 4, 5, 6, 7 ]
+                                }
+                            }
                         ],
                         lengthMenu: [
                                         [ 100, 50, 25, 10, -1 ],
