@@ -753,22 +753,36 @@ updateFillsByCliente = (name, evt) => {
         }
     }
     $.each(cliente.centro_costos, (i, value) => {
-      $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
+        if(value.id === centro_costos){
+            $('#centro_costos').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
+        }else{
+            $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
+        }
     });
     $.each(cliente.personascliente, (i, value) => {
         if(value.tipo_persona == 'Solicitante'){
-            $('#contacto').append($('<option>').text(value.nombre).attr('value', value.id));
+            if(value.id === solicitante){
+                $('#contacto').append($('<option selected="selected">').text(value.nombre).attr('value', value.id))
+            }else{
+                $('#contacto').append($('<option>').text(value.nombre).attr('value', value.id));
+            }
+
         }
     });
     $.each(cliente.personascliente, (i, value) => {
         if(value.tipo_persona == 'Pasajero'){
-            $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
+            if(value.id === pasajero){
+                $('#pasajero').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
+            }else{
+                $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
+            }
+
             if(value.id != $('#pasajero').val()){                
                 $('#suma_pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
             }
         }
     });
-}
+};
 
 searchCliente = (_cliente_id) => {
     let cliente = {};

@@ -85,7 +85,6 @@ def buscarViajes(request):
     if unidad:
         viajes = viajes.filter(unidad_id=unidad)
 
-    #viajes = Viaje.objects.filter(fecha__gte=desde, fecha__lte=hasta, cliente_id=cliente, cliente__personacliente__persona_id__in=[solicitante, pasajero], cliente__viaje__centro_costo_id=centroDeCosto)
     context = {'mensaje': mensaje, 'viajes': viajes}
     return render(request, 'sistema/grillaViajesExportar.html', context)
 

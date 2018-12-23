@@ -499,7 +499,7 @@ class Viaje(models.Model):
     hora_estimada = models.CharField(max_length=10, null=True, blank=True)
     Cod_ext_viaje = models.CharField(max_length=30, null=True, blank=True)
     tarifapasada = models.IntegerField(default=0)
-    nro_aux= models.CharField(max_length=30, null=True, blank=True)
+    nro_aux = models.CharField(max_length=30, null=True, blank=True)
     tipo_pago = models.ForeignKey(TipoPagoViaje, null=True, blank=True, default=1)
     creadopor = models.ForeignKey(User, null=True, blank=True, default=1)
     creadofecha = models.CharField(max_length=12, default=1)

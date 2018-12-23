@@ -95,14 +95,14 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cod_externo" name="cod_externo" value="{{ viaje.Cod_ext_viaje|default_if_none:"" }}">
+                                                <input type="text" class="form-control" id="cod_externo" name="cod_externo" value="{{ viaje.Cod_ext_viaje|default_if_none:'' }}">
                                                 <label for="cod_externo">Cod Externo</label>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="nro_aux" name="nro_aux" value="{{ viaje.nro_aux|default_if_none:"" }}">
-                                                <label for="id_aux">ID Aux</label>
+                                                <input type="text" class="form-control" id="nro_aux" name="nro_aux" value="{{ viaje.nro_aux|default_if_none:'' }}">
+                                                <label for="nro_aux">ID Aux</label>
                                             </div>
                                         </div>
                                     </div>
@@ -1865,6 +1865,9 @@
     var mensaje             = '{{ mensaje }}';
     var viaje               = '{{ viaje.id }}';
     var estado              = '{{ viaje.estado.id }}';
+    var solicitante         = '{{ viaje.solicitante.id }}';
+    var pasajero            = '{{ viaje.pasajero.id }}';
+    var centro_costo        = '{{ viaje.centro_costo.id }}';
     var html_select         = '';
 
     var cliente_id          = '{{ viaje.cliente.id|default_if_none:"" }}';
