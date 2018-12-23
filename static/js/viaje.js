@@ -733,6 +733,7 @@ updateFillsByCliente = (name, evt) => {
 
     $('#id_cliente').select2('val',cliente.id);
     $('#idClienteEnCC').val(cliente.id);
+    $('#idClientePasajeroModal').val(cliente.id);
     $('#idClientePasajero').val(cliente.id);
     $('#id_cliente').val(cliente.id).trigger("change");
     $('#cliente_direccion').val(cliente.direccion);
