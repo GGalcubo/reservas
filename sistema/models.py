@@ -907,7 +907,7 @@ class TarifaExtra(models.Model):
 class TarifaExtraPrecio(models.Model):
     tarifa_extra = models.ForeignKey(TarifaExtra)
     extra_precio = models.CharField(max_length=20, null=True, blank=True)
-    extra_precio_prov= models.CharField(max_length=20, null=True, blank=True)
+    extra_precio_prov = models.CharField(max_length=20, null=True, blank=True)
     categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
 
     def __unicode__(self):
