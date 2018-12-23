@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <title>PDF FACT CLIENTE</title>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta content="width=device-width, initial-scale=1" name="viewport" />
+            <meta content="Custom PDF by Jere" name="description" />
+            <meta content="Jere" name="author" />
+            <style>
+                .content-loader tr td {
+                    white-space: nowrap;
+                    font-size: 12px;
+                }
+            </style>
+        </head>    
+        <body>
+            <div style="background-color: #d5d5d5eb; padding: 20px 20px 20px 20px;border-top-style: solid;  border-bottom-style: solid;">
+                <b>Cliente: {{ cliente.id }} - {{ cliente.razon_social }}</b>
+                <br>
+                <b>Periodo: {{ desde }} - {{ hasta }}</b>
+            </div>
+            <br><br>
+            <div class="content-loader">
+                <table>   
+                    <thead>
+                        <tr style="font-size: 12px;color:grey;">
+                            <th class="all">FECHA</th>
+                            <th class="all">HORA</th>
+                            <th class="all">TS</th>
+                            <th class="all">N° SERV</th>
+                            <th class="all">ID AUX</th>
+                            <th class="all">SOLICIT&Oacute;</th>
+                            <th class="all">PAX</th>
+                            <th class="all">ORIGEN</th>
+                            <th class="all">DESTINO</th>
+                            <th class="all">SUBTOTAL</th>
+                            <th class="all">ESPERA</th>
+                            <th class="all">ESPERA (MIN)</th>
+                            <th class="all">BILINGUE</th>
+                            <th class="all">MALETAS</th>
+                            <th class="all">PEAJES</th>
+                            <th class="all">PARKING</th>
+                            <th class="all">OTROS</th>
+                            <th class="all">TOTAL</th>
+                            <th class="all">IVA</th>
+                            <th class="all">FINAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for v in viajes %}
+                        <tr>
+                            <td align="center">{{v.getFecha}}</td>
+                            <td align="center">{{v.getHora}}</td>
+                            <td align="center">{{v.categoria_viaje}}</td>
+                            <td align="center">{{v.id}}</td>
+                            <td align="center">{{v.nro_aux|default_if_none:""}}</td>
+                            <td align="center">{{v.solicitante}}</td>
+                            <td align="center">{{v.pasajero|default_if_none:""}}</td>
+                            <td align="center">{{v.getTrayectoPrincipal.desdeConcat}}</td>
+                            <td align="center">{{v.getTrayectoPrincipal.hastaConcat}}</td>
+                            <td align="center">${{v.getSubtotalCliente|floatformat:2}}</td>
+                            <td align="center">${{v.getMontoTiempoEsperaCliente|floatformat:2}}</td>
+                            <td align="center">{{v.getCantidadTiempoEsperaCliente}}</td>
+                            <td align="center">${{v.getMontoBilingueCliente|floatformat:2}}</td>
+                            <td align="center">${{v.getMontoMontoCliente|floatformat:2}}</td>
+                            <td align="center">${{v.getMontoPeajesCliente|floatformat:2}}</td>
+                            <td align="center">${{v.getMontoEstacionCliente|floatformat:2}}</td>
+                            <td align="center">${{v.getMontoOtrosCliente|floatformat:2}}</td>
+                            <td align="center">${{v.getTotalCliente|floatformat:2}}</td>
+                            <td align="center">${{v.getIvaCliente|floatformat:2}}</td>
+                            <td align="center">${{v.getFinalCliente|floatformat:2}}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td align="center">-</td>
+                            <td align="center">-</td>
+                            <td align="center">-</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><b>TOTALES</b></td>
+                            <td align="center"><b>${{total|floatformat:2}}</b></td>
+                            <td align="center"><b>${{iva|floatformat:2}}</b></td>
+                            <td align="center"><b>${{final|floatformat:2}}</b></td>
+                        </tr>
+                    </tfoot>  
+                </table>
+            </div>
+        </body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("tr:odd").css({
+                    "background-color":"#d5d5d5eb",
+                    "color":"#000"
+                });
+            });
+        </script>
+</html>

@@ -2301,6 +2301,30 @@ def cargarFacturaProveedor(request):
 	return render(request, 'sistema/selectFacturas.html', context)
 
 @login_required
+def exportarPdfFactCliente(request):
+	cliente 	= request.GET['cliente']
+	desde   	= request.GET['desde']
+	hasta   	= request.GET['hasta']
+	idsViaje	= request.GET['ids']
+
+	cliente = Cliente.objects.get(id=cliente)
+	idsList = []
+	for ids in idsViaje.split("-"):
+		if ids:
+			idsList.append(int(ids))
+
+	total = 0
+	iva   = 0
+	final = 0
+	viajes = Viaje.objects.filter(id__in=idsList)
+	for v in viajes:
+		total = total + v.getTotalCliente()
+		iva   = iva + v.getIvaCliente()
+		final = final + v.getFinalCliente()
+	context = {'cliente': cliente, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'total':total, 'iva': iva, 'final': final}
+	return render(request, 'sistema/pdfFactCliente.html', context)
+
+@login_required
 def cargarMenu(request):
 	print request.user
 	permisos = [x.name for x in Permission.objects.filter(user=request.user)]

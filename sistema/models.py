@@ -510,6 +510,14 @@ class Viaje(models.Model):
     def __str__(self):
         return self.fecha
 
+    def getHora(self):
+        if "PM" in self.hora:
+            hora = self.hora.split(':')[0].replace("1","13").replace("2","14").replace("3","15").replace("4","16").replace("5","17").replace("6","18").replace("7","19").replace("8","20").replace("9","21").replace("10","22").replace("11","23")
+            hora = hora + ':' + self.hora.split(':')[1]
+            return hora.replace("PM","")
+        else:
+            return self.hora.replace("AM","")
+
     def getObservaciones(self):
         observaciones = []
         for obsviaje in self.observacionviaje_set.all():

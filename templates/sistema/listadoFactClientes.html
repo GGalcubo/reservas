@@ -333,7 +333,7 @@
                                     columns: ':visible:not(:eq(0))'
                                 }
                             },
-                            {
+                            /*{
                                 extend: 'pdfHtml5',
                                 orientation: 'landscape',
                                 pageSize: 'TABLOID',
@@ -343,12 +343,18 @@
                                 customize: function(doc) {
                                   doc.defaultStyle.fontSize = 8;
                                }
-                            },
+                            },*/
                             {
                                 extend: 'print',
                                 messageTop: 'Facturación Provedores',
                                 exportOptions: {
                                     columns: ':visible:not(:eq(0))'
+                                }
+                            },
+                            {
+                                text: 'PDF',
+                                action: function ( e, dt, node, config ) {
+                                    exportarPdf( e, dt, node, config );
                                 }
                             }
                         ],
@@ -364,8 +370,9 @@
                                 selectAll: "Seleccionar Todo",
                                 selectNone: "Deseleccionar"
                             }
-                        }
-                    } );
+                        },
+                        
+                    });
 
                     $('#desde').datepicker({
                         language: 'es',
@@ -627,8 +634,23 @@
                             }
                         });
                     }
+                }
 
+                function exportarPdf( e, dt, node, config ){
+                    var table = $('#tablaListadoFactClientes').DataTable();
+                    var selectedRows = table.rows().ids(true);
+                    var ids = "";
+                    for (var i = 0; i < selectedRows.length; i++) {
+                        ids = ids + selectedRows[i].replace("#rowid","") + "-"
+                    }
 
+                    var params = '<input type="hidden" name="cliente" value="'+$("#cliente").val()+'">';
+                    params += '<input type="hidden" name="desde" value="'+$("#desde").val()+'">';
+                    params += '<input type="hidden" name="hasta" value="'+$("#hasta").val()+'">';
+                    params += '<input type="hidden" name="ids" value="'+ids+'">';
+
+                    document.body.innerHTML += '<form id="dynForm" target="_blank" action="/sistema/exportarPdfFactCliente/" method="get">'+params+'</form>';
+                    document.getElementById("dynForm").submit();
                 }
 
             </script>

@@ -87,6 +87,7 @@ urlpatterns = [
     url(r'^facturarAdelantos/', facturarAdelantos, name='facturarAdelantos'),
     url(r'^listadoFactClientes/', listadoFactClientes, name='listadoFactClientes'),
     url(r'^buscarFacturacionCliente/', buscarFacturacionCliente, name='buscarFacturacionCliente'),
+    url(r'^exportarPdfFactCliente/', exportarPdfFactCliente, name='exportarPdfFactCliente'),
     url(r'^buscarFacturacionProveedor/', buscarFacturacionProveedor, name='buscarFacturacionProveedor'),
     url(r'^facturarClientes/', facturarClientes, name='facturarClientes'),
     url(r'^proformarClientes/', proformarClientes, name='proformarClientes'),
