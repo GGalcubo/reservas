@@ -5241,7 +5241,9 @@ body.loading .preloader {
     padding: 11px 13px; } }
 /* FORMULARIOS */
 .form-group.form-md-line-input.form-md-floating-label .form-control ~ label {
-  font-size: 14px; }
+  font-size: 14px;
+  top: 0 !important;
+  transition: none !important; }
 
 .form-group.form-md-line-input {
   padding-top: 15px; }
