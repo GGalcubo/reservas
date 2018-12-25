@@ -355,6 +355,14 @@ span#estado_actual.label.label-info.estado-actual {
   font-size: 12px;
   padding: 6px 14px; }
 
+/*TOAST*/
+.toast {
+  opacity: 1 !important; }
+
+.toast-top-right {
+  top: 45px;
+  right: 12px; }
+
 /* LOADING */
 /* Start by setting display:none to make this hidden.
    Then we position it in relation to the viewport window
