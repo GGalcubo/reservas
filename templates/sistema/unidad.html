@@ -647,7 +647,7 @@
                                 $('#selectChoferes').append($("<option></option>").attr("value",data.persona_id).text(data.persona_apellido + " " + data.persona_nombre)); 
                                 $('#selectChoferes').val(data.persona_id)
                                 $('#porcFacturacionChofer').val(data.persona_porcentaje)
-                                balancearPorcentaje();
+                                balanceoChoferFacturacion();
                             }
                         });
                         $('#add_chofer').modal('toggle');
