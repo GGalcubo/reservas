@@ -214,7 +214,7 @@
                                                                             <label for="telfonoDuenio">Teléfono</label>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-sm-6">
+                                                                    <!--div class="col-sm-6">
                                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                                             <input type="text" class="form-control" id="dniDuenio" name="dniDuenio">
                                                                             <label for="dniDuenio">DNI</label>
@@ -237,7 +237,7 @@
                                                                             <input type="text" class="form-control" id="fecNacDuenio" name="fecNacDuenio">
                                                                             <label for="fecNacDuenio">Fecha Nacimiento</label>
                                                                         </div>
-                                                                    </div>
+                                                                    </div-->
 
                                                                 </div>
                                                             </div>
@@ -396,8 +396,7 @@
                                                                                             <a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}','{{ l.getAsignadoTipo }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                                                                                             <a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
                                                                                         </td>
-                                                                                        <td class="text-center"></td>
-                                                                                        <td>{{ l.getAsignadoNombre }} ({{ l.getAsignadoTipo }})</td>
+                                                                                        <td class="text-center">{{ l.getAsignadoNombre }} ({{ l.getAsignadoTipo }})</td>
                                                                                         <td>{{ l.tipo_licencia.tipo_licencia }}</td>
                                                                                         <td>{{ l.getFechaVencimiento }}</td>
                                                                                         <td>{{ l.comentario }}</td>
