@@ -753,7 +753,7 @@ updateFillsByCliente = (name, evt) => {
         }
     }
     $.each(cliente.centro_costos, (i, value) => {
-        if(value.id === centro_costos){
+        if(value.id === centro_costo){
             $('#centro_costos').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
         }else{
             $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));

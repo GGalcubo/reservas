@@ -194,7 +194,7 @@
                                                         </div>
                                                         <form role="form" id="form-datos-unidad-owner" class="form-owner-unidad">
                                                         <div class="modal-body">
-                                                            <div class="scroller" style="height:120px" data-always-visible="1" data-rail-visible1="1">
+                                                            <div class="scroller" style="height:220px" data-always-visible="1" data-rail-visible1="1">
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group form-md-line-input form-md-floating-label">
@@ -214,6 +214,31 @@
                                                                             <label for="telfonoDuenio">Teléfono</label>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="dniDuenio" name="dniDuenio">
+                                                                            <label for="dniDuenio">DNI</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="mailDuenio" name="mailDuenio">
+                                                                            <label for="mailDuenio">Mail</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="domDuenio" name="domDuenio">
+                                                                            <label for="domDuenio">Domicilio</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="fecNacDuenio" name="fecNacDuenio">
+                                                                            <label for="fecNacDuenio">Fecha Nacimiento</label>
+                                                                        </div>
+                                                                    </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -371,8 +396,7 @@
                                                                                             <a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}','{{ l.getAsignadoTipo }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                                                                                             <a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
                                                                                         </td>
-                                                                                        <td class="text-center"></td>
-                                                                                        <td>{{ l.getAsignadoNombre }} ({{ l.getAsignadoTipo }})</td>
+                                                                                        <td class="text-center">{{ l.getAsignadoNombre }} ({{ l.getAsignadoTipo }})</td>
                                                                                         <td>{{ l.tipo_licencia.tipo_licencia }}</td>
                                                                                         <td>{{ l.getFechaVencimiento }}</td>
                                                                                         <td>{{ l.comentario }}</td>
@@ -527,6 +551,14 @@
                         autoclose: true
                     });
 
+                    $('#fecNacDuenio').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+
                     var idUnidad = $("#idUnidad").val()
                     if (idUnidad == "0"){
                         $("#unidadDetalle").hide()
@@ -647,7 +679,7 @@
                                 $('#selectChoferes').append($("<option></option>").attr("value",data.persona_id).text(data.persona_apellido + " " + data.persona_nombre)); 
                                 $('#selectChoferes').val(data.persona_id)
                                 $('#porcFacturacionChofer').val(data.persona_porcentaje)
-                                balancearPorcentaje();
+                                balanceoChoferFacturacion();
                             }
                         });
                         $('#add_chofer').modal('toggle');

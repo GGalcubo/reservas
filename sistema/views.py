@@ -923,6 +923,11 @@ def guardarOwnerProspect(request):
 	persona = Persona()
 	persona.nombre = request.POST.get('nombreDuenio', "")
 	persona.apellido = request.POST.get('apellidoDuenio', "")
+	if request.POST.get('fecNacDuenio', "") != "":
+		persona.fecha_nacimiento = getAAAAMMDD(request.POST.get('fecNacDuenio', ""))
+	persona.documento = request.POST.get('dniDuenio', "")
+	persona.mail = request.POST.get('mailDuenio', "")
+	persona.calle = request.POST.get('domDuenio', "")
 	persona.tipo_persona_id = 4
 	persona.save()
 
