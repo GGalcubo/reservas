@@ -389,6 +389,39 @@ body.loading {
 body.loading .preloader {
   display: block; }
 
+.page-content {
+  background-image: url("../img/fondoBlancoLogin.png") !important; }
+
+/* LOGIN */
+.fondoLogin {
+  height: 100vh;
+  background-image: url("../img/fondoBlancoLogin.png"); }
+
+body.login {
+  background-color: transparent !important; }
+  body.login .logo {
+    margin: 15px 0 15px 30px;
+    text-align: left; }
+    body.login .logo h1 {
+      padding-left: 5px;
+      margin-top: 0; }
+  body.login .content {
+    padding: 10px 30px 0; }
+
+/* FUENTES LOGIN */
+@font-face {
+  font-family: DINProBold;
+  src: url("../fonts/DINProBold.otf") format("opentype"), local("DINProBold");
+  font-stretch: condensed; }
+.dinProBoldFont {
+  font-family: 'DINProBold' !important; }
+
+.naranja {
+  background-color: #E87E04 !important; }
+
+.naranja-text {
+  color: #E87E04 !important; }
+
 .top-0 {
   top: 0px !important; }
 
