@@ -215,7 +215,7 @@
                     );
 
                     $( api.column( 10 ).footer() ).html(
-                        '$'+total10
+                        total10
                     );
 
                     $( api.column( 11 ).footer() ).html(
@@ -308,12 +308,9 @@
                     }
                 },
                 {
-                    extend: 'pdfHtml5',
-                    footer: true,
-                    orientation: 'landscape',
-                    pageSize: 'TABLOID',
-                    customize: function(doc) {
-                        doc.defaultStyle.fontSize = 8;
+                    text: 'PDF',
+                    action: function ( e, dt, node, config ) {
+                        exportarPdf( e, dt, node, config );
                     }
                 },
                 {

@@ -2357,6 +2357,53 @@ def exportarPdfFactCliente(request):
 	return render(request, 'sistema/pdfFactCliente.html', context)
 
 @login_required
+def exportarPdfFactProv(request):
+	idunidad 	= request.GET['unidad']
+	desde   	= request.GET['desde']
+	hasta   	= request.GET['hasta']
+	idsViaje	= request.GET['ids']
+
+	prov = Unidad.objects.get(id=idunidad)
+	idsList = []
+	for ids in idsViaje.split("-"):
+		if ids:
+			idsList.append(int(ids))
+
+	subtotal = 0
+	cobrado = 0
+	tiempo = 0
+	mtiempo = 0
+	bilingue = 0
+	maletas = 0
+	peajes = 0
+	estacion = 0
+	otros = 0
+	total = 0
+	iva = 0
+	final = 0
+	pagar = 0
+
+	viajes = Viaje.objects.filter(id__in=idsList)
+	for v in viajes:
+		subtotal = subtotal + v.getSubtotalProveedor()
+		cobrado = cobrado + v.getCobradoProveedor()
+		tiempo = tiempo + v.getCantidadTiempoEsperaProveedor()
+		mtiempo = mtiempo + v.getMontoTiempoEsperaProveedor()
+		bilingue = bilingue + v.getMontoBilingueProveedor()
+		maletas = maletas + v.getMontoMaletasProveedor()
+		peajes = peajes + v.getMontoPeajesProveedor()
+		estacion = estacion + v.getMontoEstacionProveedor()
+		otros = otros + v.getMontoOtrosProveedor()
+		total = total + v.getTotalProveedor()
+		iva = iva + v.getIvaProveedor()
+		final = final + v.getFinalProveedor()
+		pagar = pagar + v.getPagarProveedor()
+
+	context = {'prov': prov, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'subtotal':subtotal,'cobrado':cobrado,'tiempo':tiempo,'mtiempo':mtiempo,'bilingue':bilingue,'maletas':maletas,'peajes':peajes,'estacion':estacion,'otros':otros,'total':total,'iva':iva,'final':final,'pagar':pagar}
+	return render(request, 'sistema/pdfFactProvedor.html', context)
+
+
+@login_required
 def cargarMenu(request):
 	print request.user
 	permisos = [x.name for x in Permission.objects.filter(user=request.user)]
