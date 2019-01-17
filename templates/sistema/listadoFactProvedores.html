@@ -140,21 +140,29 @@
                                       <!-- ESTO SE AGREGO PARA LA FILA DE TOTAL -->
                                       <tfoot>
                                           <tr>
-                                              <th colspan="8" style="text-align:right">Total:</th>
-                                              <th></th>
-                                              <th></th>
-                                              <th></th>
-                                              <th></th>
-                                              <th></th>
-                                              <th></th>
-                                              <th></th>
-                                              <th></th>
-                                              <th></th>
-                                              <th></th>
-                                              <th></th>
-                                              <!-- <th></th> -->
-                                              <th></th>
-                                              <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <!-- <th></th> -->
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                           </tr>
                                       </tfoot>
                                       <!-- HASTA ACA -->
@@ -234,25 +242,27 @@
                           };
                
                           // Total over all pages
-                          total = api
-                              .column( 7 )
-                              .data()
-                              .reduce( function (a, b) {
-                                  return intVal(a) + intVal(b);
-                              }, 0 );
-               
-                          // Total over this page
-                          pageTotal = api
-                              .column( 7, { page: 'current'} )
-                              .data()
-                              .reduce( function (a, b) {
-                                  return intVal(a) + intVal(b);
-                              }, 0 );
-               
-                          // Update footer
-                          $( api.column( 7 ).footer() ).html(
-                              '$'+pageTotal +' ( $'+ total +' total)'
-                          );
+                          // Total over all pages
+                        total = api
+                            .column( 8 )
+                            .data()
+                            .reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0 );
+            
+                        // Total over this page
+                        pageTotal = api
+                            .column( 8, { page: 'current'} )
+                            .data()
+                            .reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0 );
+            
+                        // Update footer
+                        $( api.column( 8 ).footer() ).html(
+                            '$'+total
+                        );
+                        
                       },
                       //////////////// HASTA ACA HARDCODEADO EL TOTAL SEGUN EL EJEMPLO DE DATATABLES //////////////
 

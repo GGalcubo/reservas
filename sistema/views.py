@@ -2326,6 +2326,15 @@ def exportarPdfFactCliente(request):
 		if ids:
 			idsList.append(int(ids))
 
+	subtotal = 0
+	peft = 0
+	tiempo = 0
+	mtiempo = 0
+	bilingue = 0
+	monto = 0
+	peaje = 0
+	estacion = 0
+	otros = 0
 	total = 0
 	iva   = 0
 	final = 0
@@ -2334,7 +2343,17 @@ def exportarPdfFactCliente(request):
 		total = total + v.getTotalCliente()
 		iva   = iva + v.getIvaCliente()
 		final = final + v.getFinalCliente()
-	context = {'cliente': cliente, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'total':total, 'iva': iva, 'final': final}
+		subtotal = subtotal + v.getSubtotalCliente()
+		peft = peft + v.getMontoPeftCliente()
+		mtiempo = mtiempo + v.getMontoTiempoEsperaCliente()
+		tiempo = tiempo + v.getMontoTiempoEsperaCliente()
+		bilingue = bilingue + v.getMontoBilingueCliente()
+		monto = monto + v.getMontoMontoCliente()
+		peaje = peaje + v.getMontoPeajesCliente()
+		estacion = estacion + v.getMontoEstacionCliente()
+		otros = otros + v.getMontoOtrosCliente()
+
+	context = {'cliente': cliente, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'total':total, 'iva': iva, 'final': final, 'subtotal':subtotal,'peft':peft,'tiempo':tiempo,'mtiempo':mtiempo, 'bilingue':bilingue,'monto':monto,'peaje':peaje,'estacion':estacion,'otros':otros}
 	return render(request, 'sistema/pdfFactCliente.html', context)
 
 @login_required
