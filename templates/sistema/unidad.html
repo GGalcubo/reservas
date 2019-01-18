@@ -83,7 +83,7 @@
                                                         <select class="form-control select2me" id="selectOwners" name="selectOwners">
                                                             <option value="">Seleccionar dueño</option>
                                                             {% for o in owners %}
-                                                                <option value="{{ o.id }}" >{{o.id}} - {{ o.apellido }} {{ o.nombre }}</option>
+                                                                <option value="{{ o.id }}" >{{ o.apellido }} {{ o.nombre }}</option>
                                                             {% endfor %}
                                                         </select>
                                                         <label for="selectOwners">Dueño</label>
@@ -107,7 +107,7 @@
                                                         <select class="form-control select2me" id="selectChoferes" name="selectChoferes">
                                                             <option value="">Seleccionar chofer</option>
                                                             {% for c in choferes %}
-                                                                <option value="{{ c.id }}" >{{c.id}} - {{ c.apellido }} {{ c.nombre }}</option>
+                                                                <option value="{{ c.id }}" >{{ c.apellido }} {{ c.nombre }}</option>
                                                             {% endfor %}
                                                         </select>
                                                         <label for="selectChoferes">Chofer</label>

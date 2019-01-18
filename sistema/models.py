@@ -413,14 +413,14 @@ class Cliente(models.Model):
     def getContactos(self):
         contacto = []
         for percli in self.personacliente_set.all():
-            if percli.persona.tipo_persona.id == 1:
+            if percli.persona.tipo_persona.id == 1 and not percli.persona.baja:
                 contacto.append(percli.persona)
         return contacto
 
     def getPasajeros(self):
         pasajeros = []
         for percli in self.personacliente_set.all():
-            if percli.persona.tipo_persona.id == 2:
+            if percli.persona.tipo_persona.id == 2 and not percli.persona.baja:
                 pasajeros.append(percli.persona)
         return pasajeros
 

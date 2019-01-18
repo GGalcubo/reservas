@@ -1370,7 +1370,7 @@ def guardarObservacionPersona(request):
 
 @login_required
 def listadoProvedor(request):
-	provedores = Persona.objects.filter(tipo_persona__id__in=[3,4])
+	provedores = Persona.objects.filter(tipo_persona__id__in=[3,4],baja=False)
 	context = {'provedores': provedores}
 	return render(request, 'sistema/listadoProvedor.html', context)
 
@@ -2312,6 +2312,30 @@ def cargarFacturaProveedor(request):
 
 	context = {'facturas': facturas}
 	return render(request, 'sistema/selectFacturas.html', context)
+
+@login_required
+def borrarSolicitanteCliente(request):
+	idPersona = request.POST.get('idPersona', False)
+	idCliente = request.POST.get('idCliente', False)
+	
+	persona = Persona.objects.get(id=idPersona)
+	persona.baja = True
+	persona.save()
+	cliente = Cliente.objects.get(id=idCliente)
+	context = {'cliente':cliente}
+	return render(request, 'sistema/grillaSolicitantes.html', context)
+
+@login_required
+def borrarPasajeroCliente(request):
+	idPersona = request.POST.get('idPersona', False)
+	idCliente = request.POST.get('idCliente', False)
+	
+	persona = Persona.objects.get(id=idPersona)
+	persona.baja = True
+	persona.save()
+	cliente = Cliente.objects.get(id=idCliente)
+	context = {'cliente':cliente}
+	return render(request, 'sistema/grillaPasajeros.html', context)
 
 @login_required
 def exportarPdfFactCliente(request):

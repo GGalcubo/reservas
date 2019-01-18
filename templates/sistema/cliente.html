@@ -332,6 +332,7 @@
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th class="all">Editar</th>
+                                                                                    <th class="all">Editar</th>
                                                                                     <th class="all">Nombre</th>
                                                                                     <th class="all">Apellido</th>
                                                                                     <th class="all">Puesto</th>
@@ -342,7 +343,12 @@
                                                                             <tbody>
                                                                                 {% for c in cliente.getContactos %}
                                                                                 <tr>
-                                                                                    <td class="text-center"><a href="#" onclick="editarSolicitante('{{ c.id }}','{{ cliente.id }}','{{ c.nombre }}','{{ c.apellido }}','{{ c.puesto|default_if_none:"" }}','{{ c.mail|default_if_none:"" }}','{{ c.getTelefono }}');"><i class="fa fa-pencil">
+                                                                                    <td class="text-center">
+                                                                                        <a href="#" onclick="editarSolicitante('{{ c.id }}','{{ cliente.id }}','{{ c.nombre }}','{{ c.apellido }}','{{ c.puesto|default_if_none:"" }}','{{ c.mail|default_if_none:"" }}','{{ c.getTelefono }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                    </td>
+                                                                                    <td class="text-center">
+                                                                                        <a href="#" onclick="borrarSolicitante('{{ c.id }}','{{ cliente.id }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-times"></i></a>
+                                                                                    </td>
                                                                                     <td>{{ c.nombre|default_if_none:"" }}</td>
                                                                                     <td>{{ c.apellido|default_if_none:"" }}</td>
                                                                                     <td>{{ c.puesto|default_if_none:"" }}</td>
@@ -444,6 +450,7 @@
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th class="all">Editar</th>
+                                                                                    <th class="all">Borrar</th>
                                                                                     <th class="all">Nombre</th>
                                                                                     <th class="all">Apellido</th>
                                                                                     <th class="all">DNI</th>
@@ -456,7 +463,12 @@
                                                                             <tbody>
                                                                                 {% for p in cliente.getPasajeros %}
                                                                                 <tr>
-                                                                                    <td class="text-center"><a href="#" onclick="editarPasajero('{{ p.id }}','{{ cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}','{{ p.getObservacion }}');"><i class="fa fa-pencil"></i></a></td>
+                                                                                    <td class="text-center">
+                                                                                        <a href="#" onclick="editarPasajero('{{ p.id }}','{{ cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                    </td>
+                                                                                    <td class="text-center">
+                                                                                        <a href="#" onclick="borrarPasajero('{{ p.id }}','{{ cliente.id }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-times"></i></a>
+                                                                                    </td>
                                                                                     <td>{{ p.nombre|default_if_none:"" }}</td>
                                                                                     <td>{{ p.apellido|default_if_none:"" }}</td>
                                                                                     <td>{{ p.documento|default_if_none:"" }}</td>
@@ -1039,6 +1051,40 @@
                     $('#cpPasajeroCliente').val(cp)
                     $('#comentarioPasajeroCliente').val(comentario)
                     $('#add_pasajero_cliente').modal('toggle');
+                }
+
+                function borrarSolicitante(ccid, idCliente){
+                    var r = confirm("Desea borrar el solicitante?");
+                    if (r == true) {
+                        var url = "/sistema/borrarSolicitanteCliente/";
+                        var params = "idPersona="+ccid+"&idCliente="+idCliente;
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                            data: params,
+                            success: function(data){
+                                $('#grillaSolicitante').html(data);
+                            }
+                        });
+                    }
+                }
+
+                function borrarPasajero(ccid, idCliente){
+                    var r = confirm("Desea borrar el pasajero?");
+                    if (r == true) {
+                        var url = "/sistema/borrarPasajeroCliente/";
+                        var params = "idPersona="+ccid+"&idCliente="+idCliente;
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                            data: params,
+                            success: function(data){
+                                $('#grillaPasajero').html(data);
+                            }
+                        });
+                    }
                 }
 
                 function guardarCentroCosto(){
