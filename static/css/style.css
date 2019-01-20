@@ -422,6 +422,28 @@ body.login {
 .naranja-text {
   color: #E87E04 !important; }
 
+#operaciones .page-content .portlet.light {
+  font-size: 12px;
+  padding: 7px 20px 7px; }
+  #operaciones .page-content .portlet.light > .portlet-title {
+    margin-bottom: 5px; }
+#operaciones table#futurosViajes tbody tr th,
+#operaciones table#futurosViajes tbody tr td,
+#operaciones table#futurosViajes thead tr th,
+#operaciones table#futurosViajes thead tr td,
+#operaciones table#viajesEnProgreso tbody tr th,
+#operaciones table#viajesEnProgreso tbody tr td,
+#operaciones table#viajesEnProgreso thead tr th,
+#operaciones table#viajesEnProgreso thead tr td {
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 4px; }
+#operaciones div.dataTables_wrapper div.dataTables_info {
+  padding-top: 8px; }
+#operaciones div.dataTables_wrapper div.dataTables_paginate {
+  font-size: 10px; }
+
 .top-0 {
   top: 0px !important; }
 
