@@ -20,16 +20,16 @@ def dashboard(request):
 
 @login_required
 def operaciones(request):
-    mensaje = ""
+	mensaje = ""
+	permiso = obtenerPermiso(request)
+	viajes = Viaje.objects.all()
+	clientes = Cliente.objects.all()
+	unidades = Unidad.objects.all()
+	estados = Estado.objects.all()
+	categoria_viajes = CategoriaViaje.objects.all()
 
-    viajes = Viaje.objects.all()
-    clientes = Cliente.objects.all()
-    unidades = Unidad.objects.all()
-    estados = Estado.objects.all()
-    categoria_viajes = CategoriaViaje.objects.all()
-
-    context = {'mensaje': mensaje, 'estados': estados,'categoria_viajes': categoria_viajes}
-    return render(request, 'sistema/operaciones.html', context)
+	context = {'mensaje': mensaje, 'estados': estados,'categoria_viajes': categoria_viajes,'permiso':permiso}
+	return render(request, 'sistema/operaciones.html', context)
 
 @login_required
 def asignaciones(request):
@@ -2321,7 +2321,12 @@ def borrarSolicitanteCliente(request):
 	persona = Persona.objects.get(id=idPersona)
 	persona.baja = True
 	persona.save()
+
 	cliente = Cliente.objects.get(id=idCliente)
+	for c in cliente.personacliente_set.all():
+		if c.persona.tipo_persona.id == 1 and c.persona.id == persona.id:
+			c.delete()
+
 	context = {'cliente':cliente}
 	return render(request, 'sistema/grillaSolicitantes.html', context)
 
@@ -2333,7 +2338,12 @@ def borrarPasajeroCliente(request):
 	persona = Persona.objects.get(id=idPersona)
 	persona.baja = True
 	persona.save()
+
 	cliente = Cliente.objects.get(id=idCliente)
+	for c in cliente.personacliente_set.all():
+		if c.persona.tipo_persona.id == 2 and c.persona.id == persona.id:
+			c.delete()
+
 	context = {'cliente':cliente}
 	return render(request, 'sistema/grillaPasajeros.html', context)
 
@@ -2459,3 +2469,19 @@ def get_tarifa_by_cat(tarifaTrayecto, idCat):
 @register.filter
 def get_tarifa_extra_by_cat(tarifaExtra, idCat):
     return tarifaExtra.getTarifaExtraByCategoria(idCat)
+
+def obtenerPermiso(request):
+	print request.user
+	permisos = [x.name for x in Permission.objects.filter(user=request.user)]
+	print permisos
+	menu_file = ""
+	if 'unidades' in permisos:
+		menu_file = 'unidades'
+	if 'operaciones' in permisos:
+		menu_file = 'operaciones'
+	if 'finanzas' in permisos:
+		menu_file = 'finanzas'
+	if 'superuser' in permisos:
+		menu_file = 'superuser'
+
+	return menu_file
