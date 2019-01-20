@@ -90,6 +90,7 @@
                 body > div.cabeceraPDF {
                     background-color: #f2f2f2 !important;
                 }
+
                 body div.content-loader table tbody tr:nth-child(odd) {
                     background-color: #f2f2f2 !important;
                 }
@@ -142,17 +143,17 @@
                         <td>{{v.pasajero|default_if_none:""}}</td>
                         <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
                         <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
-                        <td><span class="text-left">$</span><span class="text-right">{{v.getSubtotalCliente|floatformat:2}}</span></td>
-                        <td><span class="text-left">$</span><span class="text-right">{{v.getMontoTiempoEsperaCliente|floatformat:2}}</span></td>
-                        <td><span>{{v.getCantidadTiempoEsperaCliente}}</span></td>
-                        <td><span class="text-left">$</span><span class="text-right">{{v.getMontoBilingueCliente|floatformat:2}}</span></td>
-                        <td><span class="text-left">$</span><span class="text-right">{{v.getMontoMontoCliente|floatformat:2}}</span></td>
-                        <td><span class="text-left">$</span><span class="text-right">{{v.getMontoPeajesCliente|floatformat:2}}</span></td>
-                        <td><span class="text-left">$</span><span class="text-right">{{v.getMontoEstacionCliente|floatformat:2}}</span></td>
-                        <td><span class="text-left">$</span><span class="text-right">{{v.getMontoOtrosCliente|floatformat:2}}</span></td>
-                        <td><span class="text-left">$</span><span class="text-right">{{v.getTotalCliente|floatformat:2}}</span></td>
-                        <td><span class="text-left">$</span><span class="text-right">{{v.getIvaCliente|floatformat:2}}</span></td>
-                        <td><span class="text-left">$</span><span class="text-right">{{v.getFinalCliente|floatformat:2}}</span></td>
+                        <td align="right">${{v.getSubtotalCliente|floatformat:2}}</td>
+                        <td align="right">${{v.getMontoTiempoEsperaCliente|floatformat:2}}</td>
+                        <td align="right">{{v.getCantidadTiempoEsperaCliente}}</td>
+                        <td align="right">${{v.getMontoBilingueCliente|floatformat:2}}</td>
+                        <td align="right">${{v.getMontoMontoCliente|floatformat:2}}</td>
+                        <td align="right">${{v.getMontoPeajesCliente|floatformat:2}}</td>
+                        <td align="right">${{v.getMontoEstacionCliente|floatformat:2}}</td>
+                        <td align="right">${{v.getMontoOtrosCliente|floatformat:2}}</td>
+                        <td align="right">${{v.getTotalCliente|floatformat:2}}</td>
+                        <td align="right">${{v.getIvaCliente|floatformat:2}}</td>
+                        <td align="right">${{v.getFinalCliente|floatformat:2}}</td>
                     </tr>
                     {% endfor %}
                     <tr>

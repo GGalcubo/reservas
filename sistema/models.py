@@ -295,6 +295,7 @@ class Vehiculo(models.Model):
         return self.patente
 
 class Unidad(models.Model):
+    #id_fake = models.CharField(max_length=10, null=True, blank=True)
     identificacion = models.CharField(max_length=50)
     chofer = models.ForeignKey(Persona, related_name='chofer', null=True, blank=True)
     owner = models.ForeignKey(Persona, related_name='owner', null=True, blank=True)
@@ -412,14 +413,14 @@ class Cliente(models.Model):
     def getContactos(self):
         contacto = []
         for percli in self.personacliente_set.all():
-            if percli.persona.tipo_persona.id == 1:
+            if percli.persona.tipo_persona.id == 1 and not percli.persona.baja:
                 contacto.append(percli.persona)
         return contacto
 
     def getPasajeros(self):
         pasajeros = []
         for percli in self.personacliente_set.all():
-            if percli.persona.tipo_persona.id == 2:
+            if percli.persona.tipo_persona.id == 2 and not percli.persona.baja:
                 pasajeros.append(percli.persona)
         return pasajeros
 
