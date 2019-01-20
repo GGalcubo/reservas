@@ -191,7 +191,7 @@ table.dataTable td.select-checkbox:before {
   top: 35%;
 }
 table.dataTable tr.selected td.select-checkbox:after {
-  margin-top: -14px;
+  margin-top: -7px;
 }
 
 /* BOOTSTRAP TABLES */
@@ -469,7 +469,8 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
           &.buttons-excel {
             background-color: #26c281;
           }
-          &.buttons-pdf {
+          &.buttons-pdf,
+          &.botonDelPDF {
             background-color: #f36a5a;
           }
           &.buttons-print {

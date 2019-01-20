@@ -4,139 +4,219 @@
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
-        <head>
-            <meta charset="utf-8" />
-            <title>PDF FACT PROV</title>
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta content="width=device-width, initial-scale=1" name="viewport" />
-            <meta content="Custom PDF by Jere" name="description" />
-            <meta content="Jere" name="author" />
-            <style>
-                .content-loader tr td {
-                    white-space: nowrap;
-                    font-size: 12px;
+    <head>
+        <meta charset="utf-8" />
+        <title>FACTURACIÓN PROVEDOR</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="Custom PDF by Jere" name="description" />
+        <meta content="Jere" name="author" />
+
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <style>
+            body {
+                -webkit-print-color-adjust: exact;
+                font-size: 7.5px;
+            }
+
+            .cabeceraPDF {
+                background-color: #f2f2f2;
+                padding: 15px;
+                border-top-style: solid;
+                border-bottom-style: solid;
+                font-size: 20px;
+                min-height: 90px;
+            }
+
+            .cabeceraPDF .resumen {
+                float:  left;
+            }
+            .cabeceraPDF .resumen p {
+                margin-bottom: 0;
+            }
+
+            .cabeceraPDF .logoPDF {
+                float: right;
+                margin-top: 8px;
+            }
+
+            .content-loader tr {
+                color: grey;
+            }
+
+            .content-loader tr td {
+                white-space: nowrap;
+                text-transform: uppercase;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            table tbody tr:nth-child(odd) {
+                background-color: #f2f2f2;
+            }
+
+            table thead tr {
+                border-bottom: 1px solid;
+            }
+
+            table thead tr th {
+                text-align: center;
+                padding: 5px 0 5px 0;
+            }
+
+            table thead tr th:nth-child(n+10),
+            table tbody tr td:nth-child(n+10),
+            table tfoot tr td:nth-child(n+10) {
+                width: 55px !important;
+            }
+
+            table tbody tr td,
+            table tfoot tr td {
+                padding: 0 2.5px 0 2.5px;
+            }
+
+            table tbody tr:last-child td {
+                padding: 5px 0 5px 0;
+            }
+
+            table tfoot {
+                border-bottom: 2px solid;
+            }
+
+            @media print {
+                body > div.cabeceraPDF {
+                    background-color: #f2f2f2 !important;
                 }
-            </style>
-        </head>    
-        <body>
-            <div style="background-color: #d5d5d5eb; padding: 20px 20px 20px 20px;border-top-style: solid;  border-bottom-style: solid;">
-                <b>Unidad: {{ prov.id }} - {{ prov.identificacion }}</b>
-                <br>
-                <b>Periodo: {{ desde }} - {{ hasta }}</b>
+
+                body div.content-loader table tbody tr:nth-child(odd) {
+                    background-color: #f2f2f2 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cabeceraPDF">
+            <div class="resumen">
+                <p><b>Unidad:</b> {{ prov.id }} - {{ prov.identificacion }}</p>
+                <p><b>Periodo:</b> {{ desde }} - {{ hasta }}</p>
             </div>
-            <br><br>
-            <div class="content-loader">
-                <table>   
-                    <thead>
-                        <tr style="font-size: 12px;color:grey;">
-                            <th class="all">N°</th>
-                            <th class="all">Fecha</th>
-                            <th class="all">TS</th>
-                            <th class="all">Hora</th>
-                            <th class="all">Pasajero</th>
-                            <th class="all">Origen</th>
-                            <th class="all">Destino</th>
-                            <th class="all">Subtotal</th>
-                            <th class="all">P. Efect</th>
-                            <th class="all">T. Espera</th>
-                            <th class="all">Espera</th>
-                            <th class="all">Bilingue</th>
-                            <th class="all">Maletas</th>
-                            <th class="all">Peajes</th>
-                            <th class="all">Estación</th>
-                            <th class="all">Otros</th>
-                            <th class="all">Total</th>
-                            <th class="all">I.V.A.</th>
-                            <th class="all">Final</th>
-                            <th class="all">Pagar</th>
-                            <th class="all">Factura</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for v in viajes %}
-                        <tr>
-                            <td>{{v.id}}</td>
-                            <td>{{v.getFecha}}</td>
-                            <td>{{v.categoria_viaje}}</td>
-                            <td>{{v.hora}}</td>
-                            <td>{{v.pasajero.nombre}} {{v.pasajero.apellido}}</td>
-                            <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
-                            <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
-                            <td>${{v.getSubtotalProveedor|floatformat:0}}</td>
-                            <td>${{v.getCobradoProveedor|floatformat:0}}</td>
-                            <td>{{v.getCantidadTiempoEsperaProveedor}}</td>
-                            <td>${{v.getMontoTiempoEsperaProveedor|floatformat:0}}</td>
-                            <td>${{v.getMontoBilingueProveedor|floatformat:0}}</td>
-                            <td>${{v.getMontoMaletasProveedor|floatformat:0}}</td>
-                            <td>${{v.getMontoPeajesProveedor|floatformat:0}}</td>
-                            <td>${{v.getMontoEstacionProveedor|floatformat:0}}</td>
-                            <td>${{v.getMontoOtrosProveedor|floatformat:0}}</td>
-                            <td>${{v.getTotalProveedor|floatformat:0}}</td>
-                            <td>${{v.getIvaProveedor|floatformat:0}}</td>
-                            <td>${{v.getFinalProveedor|floatformat:0}}</td>
-                            <td>${{v.getPagarProveedor|floatformat:0}}</td>
-                            <td>{{v.getFacturaProveedor}}</td>
-                        </tr>
-                        {% endfor %}
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td align="center">-</td>
-                            <td align="center">-</td>
-                            <td align="center">-</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><b>TOTALES</b></td>
-                            <td align="center"><b>${{subtotal|floatformat:0}}</b></td>
-                            <td align="center"><b>${{cobrado|floatformat:0}}</b></td>
-                            <td align="center"><b>{{tiempo}}</b></td>
-                            <td align="center"><b>${{mtiempo|floatformat:0}}</b></td>
-                            <td align="center"><b>${{bilingue|floatformat:0}}</b></td>
-                            <td align="center"><b>${{maletas}}</b></td>
-                            <td align="center"><b>${{peajes|floatformat:0}}</b></td>
-                            <td align="center"><b>${{estacion|floatformat:0}}</b></td>
-                            <td align="center"><b>${{otros|floatformat:0}}</b></td>
-                            <td align="center"><b>${{total|floatformat:0}}</b></td>
-                            <td align="center"><b>${{iva|floatformat:0}}</b></td>
-                            <td align="center"><b>${{final|floatformat:0}}</b></td>
-                            <td align="center"><b>${{pagar|floatformat:0}}</b></td>
-                            <td></td>
-                        </tr>
-                    </tfoot>  
-                </table>
-            </div>
-        </body>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                $("tr:odd").css({
-                    "background-color":"#d5d5d5eb",
-                    "color":"#000"
-                });
+            <img class="logoPDF" src="{% static 'img/logoColor.png' %}" alt="" width="150px">
+        </div>
+        <div class="content-loader">
+            <table>   
+                <thead>
+                    <tr style="color:grey;">
+                        <th class="all">N°</th>
+                        <th class="all">Fecha</th>
+                        <th class="all">TS</th>
+                        <th class="all">Hora</th>
+                        <th class="all">Pasajero</th>
+                        <th class="all">Origen</th>
+                        <th class="all">Destino</th>
+                        <th class="all">Subtotal</th>
+                        <th class="all">P. Efect</th>
+                        <th class="all">T. Espera</th>
+                        <th class="all">Espera</th>
+                        <th class="all">Bilingue</th>
+                        <th class="all">Maletas</th>
+                        <th class="all">Peajes</th>
+                        <th class="all">Estación</th>
+                        <th class="all">Otros</th>
+                        <th class="all">Total</th>
+                        <th class="all">I.V.A.</th>
+                        <th class="all">Final</th>
+                        <th class="all">Pagar</th>
+                        <th class="all">Factura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for v in viajes %}
+                    <tr>
+                        <td>{{v.id}}</td>
+                        <td>{{v.getFecha}}</td>
+                        <td>{{v.categoria_viaje}}</td>
+                        <td>{{v.hora}}</td>
+                        <td>{{v.pasajero.nombre}} {{v.pasajero.apellido}}</td>
+                        <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
+                        <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
+                        <td align="right">${{v.getSubtotalProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getCobradoProveedor|floatformat:0}}</td>
+                        <td align="right">{{v.getCantidadTiempoEsperaProveedor}}</td>
+                        <td align="right">${{v.getMontoTiempoEsperaProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getMontoBilingueProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getMontoMaletasProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getMontoPeajesProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getMontoEstacionProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getMontoOtrosProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getTotalProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getIvaProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getFinalProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getPagarProveedor|floatformat:0}}</td>
+                        <td>{{v.getFacturaProveedor}}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>&nbsp;</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><b>TOTALES</b></td>
+                        <td align="right"><b>${{subtotal|floatformat:0}}</b></td>
+                        <td align="right"><b>${{cobrado|floatformat:0}}</b></td>
+                        <td align="right"><b>{{tiempo}}</b></td>
+                        <td align="right"><b>${{mtiempo|floatformat:0}}</b></td>
+                        <td align="right"><b>${{bilingue|floatformat:0}}</b></td>
+                        <td align="right"><b>${{maletas}}</b></td>
+                        <td align="right"><b>${{peajes|floatformat:0}}</b></td>
+                        <td align="right"><b>${{estacion|floatformat:0}}</b></td>
+                        <td align="right"><b>${{otros|floatformat:0}}</b></td>
+                        <td align="right"><b>${{total|floatformat:0}}</b></td>
+                        <td align="right"><b>${{iva|floatformat:0}}</b></td>
+                        <td align="right"><b>${{final|floatformat:0}}</b></td>
+                        <td align="right"><b>${{pagar|floatformat:0}}</b></td>
+                        <td></td>
+                    </tr>
+                </tfoot>  
+            </table>
+        </div>
+    </body>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("tr:odd").css({
+                "background-color":"#d5d5d5eb",
+                "color":"#000"
             });
-        </script>
+        });
+    </script> -->
 </html>

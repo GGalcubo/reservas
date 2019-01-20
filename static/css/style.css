@@ -149,7 +149,7 @@ table.dataTable td.select-checkbox:before {
   top: 35%; }
 
 table.dataTable tr.selected td.select-checkbox:after {
-  margin-top: -14px; }
+  margin-top: -7px; }
 
 /* BOOTSTRAP TABLES */
 .table > tbody > tr > td,
@@ -339,7 +339,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
         background-color: #3598dc; }
       .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-excel {
         background-color: #26c281; }
-      .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-pdf {
+      .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-pdf, .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.botonDelPDF {
         background-color: #f36a5a; }
       .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-print {
         background-color: #3598dc; }
