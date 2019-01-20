@@ -28,8 +28,16 @@
                 <td class="all"><span class="label label-primary" style="background-color: {{ v.estado.color }}!important;"> {{ v.estado }} </span></td>
                 <td class="all">{{ v.unidad.id }}</td>
                 <td class="all">{{ v.unidad.identificacion }}</td>
-                <td class="all"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.desdeConcat }}</span></td>
-                <td class="all"><span class="label label-sm label-warning">{{ v.getTrayectoPrincipal.hastaConcat }}</span></td>
+                {% ifequal v.getTrayectoPrincipal.destino_desde.nombre "Interior" %}
+                    <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ v.getTrayectoPrincipal.destino_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ v.getTrayectoPrincipal.desdeConcat }}</span></td>
+                {% else %}
+                    <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ v.getTrayectoPrincipal.localidad_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ v.getTrayectoPrincipal.desdeConcat }}</span></td>
+                {% endifequal %}
+                {% ifequal v.getTrayectoPrincipal.destino_hasta.nombre "Interior" %}
+                    <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ v.getTrayectoPrincipal.destino_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ v.getTrayectoPrincipal.hastaConcat }}</span></td>
+                {% else %}
+                    <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ v.getTrayectoPrincipal.localidad_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ v.getTrayectoPrincipal.hastaConcat }}</span></td>
+                {% endifequal %}
                 <td class="all">{{ v.pasajero }}</td>
                 <td class="all">{{ v.solicitante }}</td>
                 <td class="all">{{ v.centro_costo.nombre }}</td>
