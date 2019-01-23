@@ -171,6 +171,8 @@ class Licencia(models.Model):
         if len(self.licenciapersona_set.all()) > 0:
             return self.licenciapersona_set.all()[0].persona.nombre + " " + self.licenciapersona_set.all()[0].persona.apellido
         elif len(self.licenciavehiculo_set.all()) > 0:
+            if self.licenciavehiculo_set.all()[0].vehiculo.dueno:
+                return self.licenciavehiculo_set.all()[0].vehiculo.dueno.nombreCompleto()
             return self.licenciavehiculo_set.all()[0].vehiculo.patente
 
     def getAsignado(self):

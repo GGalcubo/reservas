@@ -258,7 +258,7 @@
                                                             <h4 class="modal-title" style="color:#888;">Agregar Chofer</h4>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <div class="scroller" style="height:120px" data-always-visible="1" data-rail-visible1="1">
+                                                            <div class="scroller" style="height:220px" data-always-visible="1" data-rail-visible1="1">
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group form-md-line-input form-md-floating-label">
@@ -278,6 +278,33 @@
                                                                             <label for="telefonoChofer">Teléfono</label>
                                                                         </div>
                                                                     </div>
+
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="dniChofer" name="dniChofer">
+                                                                            <label for="dniChofer">DNI</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="mailChofer" name="mailChofer">
+                                                                            <label for="mailChofer">Mail</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="domChofer" name="domChofer">
+                                                                            <label for="domChofer">Domicilio</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group form-md-line-input form-md-floating-label">
+                                                                            <input type="text" class="form-control" id="fecNacChofer" name="fecNacChofer">
+                                                                            <label for="fecNacChofer">Fecha Nacimiento</label>
+                                                                        </div>
+                                                                    </div>
+
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -552,6 +579,14 @@
                     });
 
                     $('#fecNacDuenio').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        // todayBtn: true,
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+
+                    $('#fecNacChofer').datepicker({
                         language: 'es',
                         dateFormat: 'dd/mm/yy',
                         // todayBtn: true,

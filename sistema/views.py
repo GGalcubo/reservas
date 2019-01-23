@@ -33,14 +33,14 @@ def operaciones(request):
 
 @login_required
 def asignaciones(request):
-    mensaje = ""
+	mensaje = ""
+	permiso = obtenerPermiso(request)
+	viajes = Viaje.objects.all()
+	unidades = Unidad.objects.all()
+	estados = Estado.objects.all()
 
-    viajes = Viaje.objects.all()
-    unidades = Unidad.objects.all()
-    estados = Estado.objects.all()
-
-    context = {'mensaje':mensaje, 'viajes': viajes, 'unidades': unidades, 'estados': estados, }
-    return render(request, 'sistema/asignaciones.html', context)
+	context = {'mensaje':mensaje, 'viajes': viajes, 'unidades': unidades, 'estados': estados,'permiso':permiso }
+	return render(request, 'sistema/asignaciones.html', context)
 
 @login_required
 def getViajesAsignacionesPorFecha(request):
@@ -956,6 +956,11 @@ def guardarChoferProspect(request):
 	persona.nombre = request.POST.get('nombreChofer', "")
 	persona.apellido = request.POST.get('apellidoChofer', "")
 	persona.porcentaje_viaje = request.POST.get('porcentajeChofer', "")
+	if request.POST.get('fecNacChofer', "") != "":
+		persona.fecha_nacimiento = getAAAAMMDD(request.POST.get('fecNacChofer', ""))
+	persona.documento = request.POST.get('dniChofer', "")
+	persona.mail = request.POST.get('mailChofer', "")
+	persona.calle = request.POST.get('domChofer', "")
 	persona.tipo_persona_id = 3
 	persona.save()
 
@@ -1051,38 +1056,34 @@ def guardarSolicitanteProspect(request):
 
 @login_required
 def guardarPasajeroProspect(request):
-    mensaje = ""
-    idClientePasajero = request.POST.get('idClientePasajero', "")
-    print idClientePasajero
-    cliente = Cliente.objects.get(id=idClientePasajero)
-    idPasajero = request.POST.get('idPasajero', "")
-    if idPasajero == "0":
+	mensaje = ""
+	idClientePasajero = request.POST.get('idClientePasajero', "")
+
+	cliente = Cliente.objects.get(id=idClientePasajero)
+	idPasajero = request.POST.get('idPasajero', "")
+	if idPasajero == "0":
 		persona = Persona()
 		persona.tipo_persona = TipoPersona.objects.get(id=2)
-    else:
+	else:
 		persona = Persona.objects.get(id=idPasajero)
 
-    persona.nombre = request.POST.get('nombrePasCliente', "")
-    persona.apellido = request.POST.get('apellidoPasCliente', "")
-    persona.documento = request.POST.get('documentoPasajeroCliente', "")
-    persona.mail = request.POST.get('mailPasajeroCliente', "")
-    persona.nacionalidad = request.POST.get('nacionalidadPasajeroCliente', "")
-    persona.calle = request.POST.get('callePasajeroCliente', "")
-    #persona.altura = request.POST.get('alturaPasajeroCliente', "")
-    #persona.piso = request.POST.get('pisoPasajeroCliente', "")
-    #persona.cp = request.POST.get('cpPasajeroCliente', "")
-    persona.save()
+	persona.nombre = request.POST.get('nombrePasCliente', "")
+	persona.apellido = request.POST.get('apellidoPasCliente', "")
+	persona.documento = request.POST.get('documentoPasajeroCliente', "")
+	persona.mail = request.POST.get('mailPasajeroCliente', "")
+	persona.nacionalidad = request.POST.get('nacionalidadPasajeroCliente', "")
+	persona.calle = request.POST.get('callePasajeroCliente', "")
+	persona.save()
+	telefono = request.POST.get('telefonoPasajeroCliente', "")
+	comentario = request.POST.get('comentarioPasajeroCliente', "")
 
-    telefono = request.POST.get('telefonoPasajeroCliente', "")
-    comentario = request.POST.get('comentarioPasajeroCliente', "")
-
-    if idPasajero == "0":
+	if idPasajero == "0":
 		perCli = PersonaCliente()
 		perCli.persona = persona
 		perCli.cliente = cliente
 		perCli.save()
 
-    if telefono != "" and telefono != "Sin telefono":
+	if telefono != "" and telefono != "Sin telefono":
 		if len(persona.telefonopersona_set.all()) > 0:
 			tel = persona.telefonopersona_set.all()[0].telefono
 			telcli = persona.telefonopersona_set.all()[0]
@@ -1098,23 +1099,23 @@ def guardarPasajeroProspect(request):
 		telcli.telefono = tel
 		telcli.save()
 
-    if comentario != "":
-        if len(persona.observacionpersona_set.all()) > 0:
-            obs = persona.observacionpersona_set.all()[0].observacion
-            obsper = persona.observacionpersona_set.all()[0]
-        else:
-            obsper = ObservacionPersona()
-            obs = Observacion()
-            obs.tipo_observacion = TipoObservacion.objects.get(id=16)
+	if comentario != "":
+		if len(persona.observacionpersona_set.all()) > 0:
+			obs = persona.observacionpersona_set.all()[0].observacion
+			obsper = persona.observacionpersona_set.all()[0]
+		else:
+			obsper = ObservacionPersona()
+			obs = Observacion()
+			obs.tipo_observacion = TipoObservacion.objects.get(id=16)
 
-        obs.fecha = fecha()
-        obs.usuario = request.user
-        obs.texto = comentario
-        obs.save()
+		obs.fecha = fecha()
+		obs.usuario = request.user
+		obs.texto = comentario
+		obs.save()
 
-        obsper.persona = persona
-        obsper.observacion = obs
-        obsper.save()
+		obsper.persona = persona
+		obsper.observacion = obs
+		obsper.save()
 
 	context = {'mensaje': mensaje, 'cliente':cliente}
 	return render(request, 'sistema/grillaPasajeros.html', context)
