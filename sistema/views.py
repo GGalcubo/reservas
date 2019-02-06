@@ -1341,13 +1341,6 @@ def guardarMailCliente(request):
 	return render(request, 'sistema/grillaMails.html', context)
 
 @login_required
-def provedor(request):
-	mensaje = ""
-
-	context = {'mensaje': mensaje}
-	return render(request, 'sistema/provedor.html', context)
-
-@login_required
 def guardarObservacionPersona(request):
 	mensaje = ""
 
@@ -1374,6 +1367,31 @@ def listadoProvedor(request):
 	provedores = Persona.objects.filter(tipo_persona__id__in=[3,4],baja=False)
 	context = {'provedores': provedores}
 	return render(request, 'sistema/listadoProvedor.html', context)
+
+@login_required
+def provedor(request):
+	mensaje = ""
+	idProv = request.GET.get('idProv', "")
+	prov = Persona.objects.get(id=idProv)
+	context = {'prov': prov}
+	return render(request, 'sistema/provedor.html', context)
+
+@login_required
+def borrarProvedor(request):
+	mensaje = ""
+	idProv = request.GET.get('idProv', "")
+	prov = Persona.objects.get(id=idProv)
+	prov.baja = True
+	prov.save()
+	uniChofer = Unidad.objects.filter(chofer__id=idProv)
+	for u in uniChofer:
+		u.chofer = None
+		u.save()
+	uniOwner = Unidad.objects.filter(owner__id=idProv)
+	for u in uniOwner:
+		u.owner = None
+		u.save()
+	return redirect('listadoProvedor')
 
 @login_required
 def unidad(request):
