@@ -1401,18 +1401,42 @@ def unidad(request):
 	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
 	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
 	tipo_licencias = TipoLicencia.objects.all()
-	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes, 'tipo_licencias':tipo_licencias}
+	ids_fake = []
+	ids_fake.append(unidad.id_fake)
+	unidades = Unidad.objects.values_list('id_fake', flat=True)
+	unidades = map(lambda x:int(x), unidades)
+	for number in range(1100):
+		if number not in unidades:
+			ids_fake.append(number)
+	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes, 'tipo_licencias':tipo_licencias,'ids_fake':ids_fake}
 	return render(request, 'sistema/unidad.html', context)
 
 @login_required
 def altaUnidad(request):
 	mensaje = ""
+	ids_fake = []
 	unidad = Unidad()
 	unidad.id = 0	
+	unidades = Unidad.objects.values_list('id_fake', flat=True)
+	unidades = map(lambda x:int(x), unidades)
+	for number in range(1100):
+		if number not in unidades:
+			ids_fake.append(number)
 	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
 	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
-	context = {'mensaje': mensaje, 'owners':owners, 'choferes':choferes, 'unidad': unidad}
+	context = {'mensaje': mensaje, 'owners':owners, 'choferes':choferes, 'unidad': unidad, 'ids_fake':ids_fake}
 	return render(request, 'sistema/unidad.html', context)
+
+@login_required
+def asignarIdFake(request):
+	unidades = Unidad.objects.filter(baja=False)
+	idFake = 0
+	for u in unidades:
+		idFake = idFake + 1
+		u.id_fake = idFake
+		u.save()
+	context = {'unidades':unidades}
+	return render(request, 'sistema/listadoUnidad.html', context)
 
 @login_required
 def listadoUnidad(request):
@@ -1434,7 +1458,7 @@ def guardarUnidad(request):
 			vehiculo = Vehiculo()
 
 
-	
+	unidad.id_fake = request.POST.get('selectIdFake', "")
 	unidad.identificacion = request.POST.get('identificacion', "")
 	unidad.owner = Persona.objects.get(id=request.POST.get('selectOwners', ""))
 	unidad.porcentaje_owner = request.POST.get('porcFacturacionOwner', "")

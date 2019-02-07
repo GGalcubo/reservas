@@ -51,9 +51,13 @@
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-sm-1">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" disabled="disabled" class="form-control" id="unidadid" name="unidadid" value="{{ unidad.id }}">
-                                                        <label for="unidadid">ID</label>
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control select2me" id="selectIdFake" name="selectIdFake">
+                                                            {% for i in ids_fake %}
+                                                                <option value="{{ i }}" >{{ i }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                        <label for="selectIdFake">Ids</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
@@ -634,6 +638,10 @@
                 });
 
                 function guardarUnidad(){
+                    if ($("#selectIdFake").val() == null){
+                        alert("El campo Id es obligatorio.");
+                        return false;
+                    }
 
                     if ($("#identificacion").val() == ""){
                         alert("El campo Nombre Unidad es obligatorio.");

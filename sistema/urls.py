@@ -49,6 +49,7 @@ urlpatterns = [
     url(r'^borrarProvedor/', borrarProvedor, name='borrarProvedor'),
     url(r'^unidad/$', unidad, name='unidad'),
     url(r'^altaUnidad/', altaUnidad, name='altaUnidad'),
+    url(r'^asignarIdFake/', asignarIdFake, name='asignarIdFake'),
     url(r'^listadoUnidad/', listadoUnidad, name='listadoUnidad'),
     url(r'^eliminarUnidad/', eliminarUnidad, name='eliminarUnidad'),
     url(r'^guardarUnidad/', guardarUnidad, name='guardarUnidad'),

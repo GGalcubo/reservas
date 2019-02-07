@@ -297,7 +297,7 @@ class Vehiculo(models.Model):
         return self.patente
 
 class Unidad(models.Model):
-    #id_fake = models.CharField(max_length=10, null=True, blank=True)
+    id_fake = models.CharField(max_length=10, null=True, blank=True)
     identificacion = models.CharField(max_length=50)
     chofer = models.ForeignKey(Persona, related_name='chofer', null=True, blank=True)
     owner = models.ForeignKey(Persona, related_name='owner', null=True, blank=True)
