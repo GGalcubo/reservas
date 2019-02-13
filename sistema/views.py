@@ -1767,7 +1767,7 @@ def guardarMasivo(request):
 
 	if tipoMasivo == "1":
 		for tv in tarifario.getTarifaViaje():
-			for x in range(19):
+			for x in range(9):
 				cat = x+1
 				ttp = tv.getTTPByCategoria(cat)
 				if ttp.precio_cliente:
@@ -2396,6 +2396,20 @@ def exportarPdfFactCliente(request):
 	desde   	= request.GET['desde']
 	hasta   	= request.GET['hasta']
 	idsViaje	= request.GET['ids']
+	centroCosto	= request.GET['centrosCosto']
+
+	retornoCC = ""
+	ccList = []
+	if centroCosto != "null":
+		for c in centroCosto.split(","):
+			ccList.append(int(c))
+	if ccList:
+		cc = CentroCosto.objects.filter(id__in=ccList)
+		print cc
+		for c in cc:
+			aux = str(c.id) +"-"+ c.nombre
+			retornoCC = retornoCC + aux + " / "
+
 
 	cliente = Cliente.objects.get(id=cliente)
 	idsList = []
@@ -2430,7 +2444,7 @@ def exportarPdfFactCliente(request):
 		estacion = estacion + v.getMontoEstacionCliente()
 		otros = otros + v.getMontoOtrosCliente()
 
-	context = {'cliente': cliente, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'total':total, 'iva': iva, 'final': final, 'subtotal':subtotal,'peft':peft,'tiempo':tiempo,'mtiempo':mtiempo, 'bilingue':bilingue,'monto':monto,'peaje':peaje,'estacion':estacion,'otros':otros}
+	context = {'cliente': cliente, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'total':total, 'iva': iva, 'final': final, 'subtotal':subtotal,'peft':peft,'tiempo':tiempo,'mtiempo':mtiempo, 'bilingue':bilingue,'monto':monto,'peaje':peaje,'estacion':estacion,'otros':otros, 'centroCosto':retornoCC}
 	return render(request, 'sistema/pdfFactCliente.html', context)
 
 @login_required

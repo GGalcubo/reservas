@@ -642,6 +642,7 @@
                     params += '<input type="hidden" name="desde" value="'+$("#desde").val()+'">';
                     params += '<input type="hidden" name="hasta" value="'+$("#hasta").val()+'">';
                     params += '<input type="hidden" name="ids" value="'+ids+'">';
+                    params += '<input type="hidden" name="centrosCosto" value="'+$("#centroDeCosto").val()+'">';
 
                     document.body.innerHTML += '<form id="dynForm" target="_blank" action="/sistema/exportarPdfFactCliente/" method="get">'+params+'</form>';
                     document.getElementById("dynForm").submit();
