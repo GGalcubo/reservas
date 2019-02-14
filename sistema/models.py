@@ -739,7 +739,7 @@ class Viaje(models.Model):
         for iv in self.itemviaje_set.all():
             if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 14 or iv.tipo_items_viaje.id == 9 or iv.tipo_items_viaje.id == 10 or iv.tipo_items_viaje.id == 15 or iv.tipo_items_viaje.id == 11 or iv.tipo_items_viaje.id == 16 or iv.tipo_items_viaje.id == 13:
                 retorno = retorno + iv.monto_s_iva
-        return retorno - self.getMontoPeftCliente()
+        return retorno 
 
     def getIvaProveedor(self):
         retorno = 0.00
