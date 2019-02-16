@@ -177,6 +177,10 @@ table.dataTable thead td {/* Mas angostas las rows */
     padding: 4px 8px;
 }
 
+.table>thead:first-child>tr:first-child>th {
+  white-space: nowrap;
+}
+
 /* PARA EL SELECCIONAR TODAS DE ADELANTOS */
 // table.dataTable tr th.select-checkbox.selected::after {
 //   content: "✔";
