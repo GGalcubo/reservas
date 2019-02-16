@@ -427,7 +427,7 @@ body.login {
 
 #operaciones .page-content .portlet.light {
   font-size: 12px;
-  padding: 7px 20px 7px; }
+  padding: 7px; }
   #operaciones .page-content .portlet.light > .portlet-title {
     margin-bottom: 5px; }
 #operaciones table#futurosViajes tbody tr th,
@@ -441,7 +441,8 @@ body.login {
   text-align: center;
   font-size: 10px;
   text-transform: uppercase;
-  padding: 4px; }
+  padding: 4px;
+  white-space: nowrap; }
 #operaciones div.dataTables_wrapper div.dataTables_info {
   padding-top: 8px; }
 #operaciones div.dataTables_wrapper div.dataTables_paginate {

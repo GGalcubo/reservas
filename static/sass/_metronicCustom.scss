@@ -616,7 +616,7 @@ body.login {
   .page-content {
     .portlet.light {
       font-size: 12px;
-      padding: 7px 20px 7px;
+      padding: 7px;
       & > .portlet-title {
           margin-bottom: 5px;
       }
@@ -633,6 +633,7 @@ body.login {
           font-size: 10px;
           text-transform: uppercase;
           padding: 4px;
+          white-space: nowrap;
         }
       } 
     }

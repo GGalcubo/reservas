@@ -581,7 +581,7 @@
             "trayectodestino_id":1,
             "provincia_id":24,
 			"terminal_flag":1,
-			"color":"#C0392B"
+			"color":"#f99a90"
         }
     },
 {
@@ -592,7 +592,7 @@
             "trayectodestino_id":1,
             "provincia_id":24,
 			"terminal_flag":1,
-			"color":"#F5B041"
+			"color":"#ffcf82"
 
 
         }
@@ -605,7 +605,7 @@
             "trayectodestino_id":1,
             "provincia_id":24,
 	        "terminal_flag":1,
-			"color":"#58D68D"
+			"color":"#87f1b3"
         }
     },
 {
@@ -1898,7 +1898,7 @@
             "trayectodestino_id":1,
             "provincia_id":24,
 	    "terminal_flag":1,
-	     "color":"#99A3A4"
+	     "color":"#cfd0d0"
         }
     },
 {
@@ -1909,7 +1909,7 @@
             "trayectodestino_id":2,
             "provincia_id":1,
 	    "terminal_flag":1,
-	     "color":"#b858d6"
+	     "color":"#e8abfb"
         }
     },
     {
@@ -17959,7 +17959,7 @@
   "pk": 3,
   "fields": {
     "nombre": "Interior",
-	  "color":"#F1C40F"
+	  "color":"#f3da78"
   }
 },
 
