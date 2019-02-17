@@ -180,11 +180,14 @@ $(document).ready( () => {
             showMsg("El campo categoria viaje es obligatorio.");
             return false;
         }
-        if(es_nuevo != '1'){
+        if($("#estado").val() == '6' || $("#estado").val() == '7'){
             if ($("#unidad_id").val() == ""){
                 showMsg("El campo unidad es obligatorio.");
                 return false;
             }
+        }
+        if(es_nuevo != '1'){
+
         }
         if ($("#estado").val() == ""){
             showMsg("El campo estado es obligatorio.");
