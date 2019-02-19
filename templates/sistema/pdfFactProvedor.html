@@ -123,7 +123,6 @@
                         <th class="all">Origen</th>
                         <th class="all">Destino</th>
                         <th class="all">Subtotal</th>
-                        <th class="all">P. Efect</th>
                         <th class="all">T. Espera</th>
                         <th class="all">Espera</th>
                         <th class="all">Bilingue</th>
@@ -134,6 +133,7 @@
                         <th class="all">Total</th>
                         <th class="all">I.V.A.</th>
                         <th class="all">Final</th>
+                        <th class="all">P. Efect</th>
                         <th class="all">Pagar</th>
                         <th class="all">Factura</th>
                     </tr>
@@ -149,7 +149,6 @@
                         <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
                         <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
                         <td align="right">${{v.getSubtotalProveedor|floatformat:0}}</td>
-                        <td align="right">${{v.getCobradoProveedor|floatformat:0}}</td>
                         <td align="right">{{v.getCantidadTiempoEsperaProveedor}}</td>
                         <td align="right">${{v.getMontoTiempoEsperaProveedor|floatformat:0}}</td>
                         <td align="right">${{v.getMontoBilingueProveedor|floatformat:0}}</td>
@@ -160,6 +159,7 @@
                         <td align="right">${{v.getTotalProveedor|floatformat:0}}</td>
                         <td align="right">${{v.getIvaProveedor|floatformat:0}}</td>
                         <td align="right">${{v.getFinalProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getCobradoProveedor|floatformat:0}}</td>
                         <td align="right">${{v.getPagarProveedor|floatformat:0}}</td>
                         <td>{{v.getFacturaProveedor}}</td>
                     </tr>
@@ -216,13 +216,10 @@
             </table>
         </div>
     </body>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
     <script>
         $(document).ready(function(){
-            $("tr:odd").css({
-                "background-color":"#d5d5d5eb",
-                "color":"#000"
-            });
+            window.print();  
         });
-    </script> -->
+    </script>
 </html>
