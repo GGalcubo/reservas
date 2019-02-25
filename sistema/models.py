@@ -296,6 +296,23 @@ class Vehiculo(models.Model):
     def getIdentificacion(self):
         return self.patente
 
+class Tarifario(models.Model):
+    nombre = models.CharField(max_length=50)
+    default = models.BooleanField(default=False)
+    baja = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return u'%s' % self.nombre
+
+    def __str__(self):
+        return self.nombre
+
+    def getTarifaViaje(self):
+        return self.tarifatrayecto_set.all()
+
+    def getTarifaExtra(self):
+        return self.tarifaextra_set.all()
+
 class Unidad(models.Model):
     id_fake = models.CharField(max_length=10, null=True, blank=True)
     identificacion = models.CharField(max_length=50)
@@ -306,6 +323,7 @@ class Unidad(models.Model):
     porcentaje_owner = models.CharField(max_length=20, null=True, blank=True)
     baja = models.BooleanField(default=False)
     unidad_propia = models.BooleanField(default=False)
+    tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.identificacion
@@ -331,6 +349,12 @@ class Unidad(models.Model):
         except Exception as inst:
             return ""
 
+    def getIdTarifario(self):
+        try:
+            return self.tarifario.id
+        except Exception as inst:
+            return ""
+
     def getObservaciones(self):
         observaciones = []
         for obscli in self.observacionunidad_set.all():
@@ -349,24 +373,6 @@ class Unidad(models.Model):
 
     class Meta:
         verbose_name_plural = "Unidades"
-
-class Tarifario(models.Model):
-    nombre = models.CharField(max_length=50)
-    default = models.BooleanField(default=False)
-    baja = models.BooleanField(default=False)
-
-    def __unicode__(self):
-        return u'%s' % self.nombre
-
-    def __str__(self):
-        return self.nombre
-
-    def getTarifaViaje(self):
-        return self.tarifatrayecto_set.all()
-
-    def getTarifaExtra(self):
-        return self.tarifaextra_set.all()
-
 
 class Cliente(models.Model):
     razon_social = models.CharField(max_length=60)
@@ -925,6 +931,14 @@ class TarifaTrayecto(models.Model):
     localidad_hasta = models.ForeignKey(Localidad, related_name='hasta_loc', null=True, blank=True)
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
     baja = models.BooleanField(default=False)
+    cat1 = models.FloatField(default=0)
+    cat2 = models.FloatField(default=0)
+    cat3 = models.FloatField(default=0)
+    cat4 = models.FloatField(default=0)
+    cat5 = models.FloatField(default=0)
+    cat6 = models.FloatField(default=0)
+    cat7 = models.FloatField(default=0)
+    cat8 = models.FloatField(default=0)
 
     def __unicode__(self):
         return u'%s' % self.descripcion
@@ -934,13 +948,29 @@ class TarifaTrayecto(models.Model):
 
     def getTarifaByCategoria(self, idCat):
         retorno = 0
-        for ttp in self.tarifatrayectoprecio_set.all():
-            if ttp.categoria_viaje.id == idCat:
-                if ttp.precio_cliente:
-                    return ttp.precio_cliente
-                else:
-                    return retorno
+        if idCat == "1":
+            retorno = self.cat1
+        if idCat == "2":
+            retorno = self.cat1
+        if idCat == "3":
+            retorno = self.cat1
+        if idCat == "4":
+            retorno = self.cat1
+        if idCat == "5":
+            retorno = self.cat1
+        if idCat == "6":
+            retorno = self.cat1
+        if idCat == "7":
+            retorno = self.cat1
+        if idCat == "8":
+            retorno = self.cat1
 
+        #for ttp in self.tarifatrayectoprecio_set.all():
+        #    if ttp.categoria_viaje.id == idCat:
+        #        if ttp.precio_cliente:
+        #            return ttp.precio_cliente
+        #        else:
+        #            return retorno
         return retorno
 
     def getTTPByCategoria(self, idCat):

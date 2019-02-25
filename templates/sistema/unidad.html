@@ -47,6 +47,7 @@
                                         <input type="hidden" id="idChofer" name="idChofer" value="{{ unidad.getIdChofer }}">
                                         <input type="hidden" id="idOwner" name="idOwner" value="{{ unidad.getIdOwner }}">
                                         <input type="hidden" id="idVehiculo" name="idVehiculo" value="{{ unidad.getIdVehiculo }}">
+                                        <input type="hidden" id="idTarifario" name="idTarifario" value="{{ unidad.getIdTarifario }}">
                                         <input type="hidden" id="idLicencia" name="idLicencia" value="0">
                                         <div class="form-body">
                                             <div class="row">
@@ -78,6 +79,17 @@
                                                                     <span class="box"></span> Unidad propia </label>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control select2me" id="selectTarifario" name="selectTarifario">
+                                                            <option value="">Seleccionar Tarifario</option>
+                                                            {% for o in tarifarios %}
+                                                                <option value="{{ o.id }}" >{{ o.nombre }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                        <label for="selectOwners">Tarifario</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -607,7 +619,8 @@
 
                     $("#selectChoferes").val($("#idChofer").val())
                     $("#selectOwners").val($("#idOwner").val())
-
+                    $("#selectTarifario").val($("#idTarifario").val())
+                    
                     if ($("#idChofer").val() != ""){
                         $('#personaLicencia').append($("<option></option>").attr("value",'chofer').text('{{ unidad.chofer.nombre }}' + " " + '{{ unidad.chofer.apellido }}' + " (chofer)")); 
                     }
@@ -627,6 +640,13 @@
 
                     $("#selectChoferes").select2({
                         placeholder: "Seleccionar chofer",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
+                    $("#selectTarifario").select2({
+                        placeholder: "Seleccionar tarifario",
                         allowClear: true,
                         dropdownAutoWidth : true,
                         width: 'auto'

@@ -1401,6 +1401,7 @@ def unidad(request):
 	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
 	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
 	tipo_licencias = TipoLicencia.objects.all()
+	tarifarios = Tarifario.objects.filter(baja=False)
 	ids_fake = []
 	ids_fake.append(unidad.id_fake)
 	unidades = Unidad.objects.filter(baja=False).values_list('id_fake', flat=True)
@@ -1408,7 +1409,7 @@ def unidad(request):
 	for number in range(1100):
 		if number not in unidades:
 			ids_fake.append(number)
-	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes, 'tipo_licencias':tipo_licencias,'ids_fake':ids_fake}
+	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes, 'tipo_licencias':tipo_licencias,'ids_fake':ids_fake,'tarifarios':tarifarios}
 	return render(request, 'sistema/unidad.html', context)
 
 @login_required
@@ -1465,6 +1466,8 @@ def guardarUnidad(request):
 	if request.POST.get('selectChoferes', "") != "":
 		unidad.chofer = Persona.objects.get(id=request.POST.get('selectChoferes', ""))
 	unidad.porcentaje_chofer = request.POST.get('porcFacturacionChofer', "")
+	if request.POST.get('selectTarifario', "") != "":
+		unidad.tarifario = Tarifario.objects.get(id=request.POST.get('selectTarifario', ""))
 
 	if request.POST.get('unidadPropia', "") == "on":
 		unidad.unidad_propia = True
