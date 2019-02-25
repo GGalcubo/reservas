@@ -1403,7 +1403,7 @@ def unidad(request):
 	tipo_licencias = TipoLicencia.objects.all()
 	ids_fake = []
 	ids_fake.append(unidad.id_fake)
-	unidades = Unidad.objects.values_list('id_fake', flat=True)
+	unidades = Unidad.objects.filter(baja=False).values_list('id_fake', flat=True)
 	unidades = map(lambda x:int(x), unidades)
 	for number in range(1100):
 		if number not in unidades:
