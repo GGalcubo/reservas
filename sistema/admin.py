@@ -32,6 +32,9 @@ class ClienteAdmin(admin.ModelAdmin):
     ]
     list_display = ('id', 'razon_social',)
 
+class TarifaTrayectoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'descripcion', 'cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6', 'cat7', 'cat8')
+
 admin.site.register(Viaje, ViajeAdmin)
 admin.site.register(Provincia)
 admin.site.register(Localidad)
@@ -79,7 +82,7 @@ admin.site.register(TipoItemViaje)
 admin.site.register(ItemViaje)
 admin.site.register(FacturaViaje)
 admin.site.register(Adelanto)
-admin.site.register(TarifaTrayecto)
+admin.site.register(TarifaTrayecto, TarifaTrayectoAdmin)
 admin.site.register(TarifaTrayectoPrecio)
 admin.site.register(UsrUnidad)
 admin.site.register(UsrCliente)

@@ -1727,9 +1727,24 @@ def guardarTarifaTrayecto(request):
 		valor = request.POST.get(nameTramo, "0")
 		if valor == "":
 			valor = 0
-		ttp = tarifaTrayecto.getTTPByCategoria(cat)
-		ttp.precio_cliente = valor
-		ttp.save()
+		if cat == 1:
+			tarifaTrayecto.cat1 = float(valor)
+		if cat == 2:
+			tarifaTrayecto.cat2 = float(valor)
+		if cat == 3:
+			tarifaTrayecto.cat3 = float(valor)
+		if cat == 4:
+			tarifaTrayecto.cat4 = float(valor)
+		if cat == 5:
+			tarifaTrayecto.cat5 = float(valor)
+		if cat == 6:
+			tarifaTrayecto.cat6 = float(valor)
+		if cat == 7:
+			tarifaTrayecto.cat7 = float(valor)
+		if cat == 8:
+			tarifaTrayecto.cat8 = float(valor)
+
+	tarifaTrayecto.save()
 
 	tarifario = Tarifario.objects.get(id=idTarifario)
 	context = {'tarifario': tarifario}

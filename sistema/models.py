@@ -948,22 +948,22 @@ class TarifaTrayecto(models.Model):
 
     def getTarifaByCategoria(self, idCat):
         retorno = 0
-        if idCat == "1":
+        if idCat == 1:
             retorno = self.cat1
-        if idCat == "2":
-            retorno = self.cat1
-        if idCat == "3":
-            retorno = self.cat1
-        if idCat == "4":
-            retorno = self.cat1
-        if idCat == "5":
-            retorno = self.cat1
-        if idCat == "6":
-            retorno = self.cat1
-        if idCat == "7":
-            retorno = self.cat1
-        if idCat == "8":
-            retorno = self.cat1
+        if idCat == 2:
+            retorno = self.cat2
+        if idCat == 3:
+            retorno = self.cat3
+        if idCat == 4:
+            retorno = self.cat4
+        if idCat == 5:
+            retorno = self.cat5
+        if idCat == 6:
+            retorno = self.cat6
+        if idCat == 7:
+            retorno = self.cat7
+        if idCat == 8:
+            retorno = self.cat8
 
         #for ttp in self.tarifatrayectoprecio_set.all():
         #    if ttp.categoria_viaje.id == idCat:
@@ -971,7 +971,7 @@ class TarifaTrayecto(models.Model):
         #            return ttp.precio_cliente
         #        else:
         #            return retorno
-        return retorno
+        return str(retorno)
 
     def getTTPByCategoria(self, idCat):
         retorno = TarifaTrayectoPrecio()
