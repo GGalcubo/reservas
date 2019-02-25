@@ -1777,24 +1777,29 @@ def guardarMasivo(request):
 	tipoMasivo  = request.POST.get('tipoMasivo', "")
 	porcentaje  = request.POST.get('porcentaje', "")
 
-	print idTarifario
-	print tipoMasivo
-	print porcentaje
-
 	tarifario = Tarifario.objects.get(id=idTarifario)
 
 	if tipoMasivo == "1":
 		for tv in tarifario.getTarifaViaje():
 			for x in range(9):
 				cat = x+1
-				ttp = tv.getTTPByCategoria(cat)
-				if ttp.precio_cliente:
-					valor = ttp.precio_cliente
-				else:
-					valor = "0"
-				ttp.precio_cliente = int(valor) * int(float(porcentaje)) / 100 + int(valor)
-				ttp.save()
-
+				if cat == 1:
+					tv.cat1 = int(tv.cat1) * int(float(porcentaje)) / 100 + int(tv.cat1)
+				if cat == 2:
+					tv.cat2 = int(tv.cat2) * int(float(porcentaje)) / 100 + int(tv.cat2)
+				if cat == 3:
+					tv.cat3 = int(tv.cat3) * int(float(porcentaje)) / 100 + int(tv.cat3)
+				if cat == 4:
+					tv.cat4 = int(tv.cat4) * int(float(porcentaje)) / 100 + int(tv.cat4)
+				if cat == 5:
+					tv.cat5 = int(tv.cat5) * int(float(porcentaje)) / 100 + int(tv.cat5)
+				if cat == 6:
+					tv.cat6 = int(tv.cat6) * int(float(porcentaje)) / 100 + int(tv.cat6)
+				if cat == 7:
+					tv.cat7 = int(tv.cat7) * int(float(porcentaje)) / 100 + int(tv.cat7)
+				if cat == 8:
+					tv.cat8 = int(tv.cat8) * int(float(porcentaje)) / 100 + int(tv.cat8)
+			tv.save()
 		nombre_html = "sistema/grillaTrayectoTarifa.html"
 
 
