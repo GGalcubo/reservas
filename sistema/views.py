@@ -20,27 +20,27 @@ def dashboard(request):
 
 @login_required
 def operaciones(request):
-    mensaje = ""
+	mensaje = ""
+	permiso = obtenerPermiso(request)
+	viajes = Viaje.objects.all()
+	clientes = Cliente.objects.all()
+	unidades = Unidad.objects.all()
+	estados = Estado.objects.all()
+	categoria_viajes = CategoriaViaje.objects.all()
 
-    viajes = Viaje.objects.all()
-    clientes = Cliente.objects.all()
-    unidades = Unidad.objects.all()
-    estados = Estado.objects.all()
-    categoria_viajes = CategoriaViaje.objects.all()
-
-    context = {'mensaje': mensaje, 'estados': estados,'categoria_viajes': categoria_viajes}
-    return render(request, 'sistema/operaciones.html', context)
+	context = {'mensaje': mensaje, 'estados': estados,'categoria_viajes': categoria_viajes,'permiso':permiso}
+	return render(request, 'sistema/operaciones.html', context)
 
 @login_required
 def asignaciones(request):
-    mensaje = ""
+	mensaje = ""
+	permiso = obtenerPermiso(request)
+	viajes = Viaje.objects.all()
+	unidades = Unidad.objects.all()
+	estados = Estado.objects.all()
 
-    viajes = Viaje.objects.all()
-    unidades = Unidad.objects.all()
-    estados = Estado.objects.all()
-
-    context = {'mensaje':mensaje, 'viajes': viajes, 'unidades': unidades, 'estados': estados, }
-    return render(request, 'sistema/asignaciones.html', context)
+	context = {'mensaje':mensaje, 'viajes': viajes, 'unidades': unidades, 'estados': estados,'permiso':permiso }
+	return render(request, 'sistema/asignaciones.html', context)
 
 @login_required
 def getViajesAsignacionesPorFecha(request):
@@ -923,6 +923,11 @@ def guardarOwnerProspect(request):
 	persona = Persona()
 	persona.nombre = request.POST.get('nombreDuenio', "")
 	persona.apellido = request.POST.get('apellidoDuenio', "")
+	if request.POST.get('fecNacDuenio', "") != "":
+		persona.fecha_nacimiento = getAAAAMMDD(request.POST.get('fecNacDuenio', ""))
+	persona.documento = request.POST.get('dniDuenio', "")
+	persona.mail = request.POST.get('mailDuenio', "")
+	persona.calle = request.POST.get('domDuenio', "")
 	persona.tipo_persona_id = 4
 	persona.save()
 
@@ -951,6 +956,11 @@ def guardarChoferProspect(request):
 	persona.nombre = request.POST.get('nombreChofer', "")
 	persona.apellido = request.POST.get('apellidoChofer', "")
 	persona.porcentaje_viaje = request.POST.get('porcentajeChofer', "")
+	if request.POST.get('fecNacChofer', "") != "":
+		persona.fecha_nacimiento = getAAAAMMDD(request.POST.get('fecNacChofer', ""))
+	persona.documento = request.POST.get('dniChofer', "")
+	persona.mail = request.POST.get('mailChofer', "")
+	persona.calle = request.POST.get('domChofer', "")
 	persona.tipo_persona_id = 3
 	persona.save()
 
@@ -1046,38 +1056,34 @@ def guardarSolicitanteProspect(request):
 
 @login_required
 def guardarPasajeroProspect(request):
-    mensaje = ""
-    idClientePasajero = request.POST.get('idClientePasajero', "")
-    print idClientePasajero
-    cliente = Cliente.objects.get(id=idClientePasajero)
-    idPasajero = request.POST.get('idPasajero', "")
-    if idPasajero == "0":
+	mensaje = ""
+	idClientePasajero = request.POST.get('idClientePasajero', "")
+
+	cliente = Cliente.objects.get(id=idClientePasajero)
+	idPasajero = request.POST.get('idPasajero', "")
+	if idPasajero == "0":
 		persona = Persona()
 		persona.tipo_persona = TipoPersona.objects.get(id=2)
-    else:
+	else:
 		persona = Persona.objects.get(id=idPasajero)
 
-    persona.nombre = request.POST.get('nombrePasCliente', "")
-    persona.apellido = request.POST.get('apellidoPasCliente', "")
-    persona.documento = request.POST.get('documentoPasajeroCliente', "")
-    persona.mail = request.POST.get('mailPasajeroCliente', "")
-    persona.nacionalidad = request.POST.get('nacionalidadPasajeroCliente', "")
-    persona.calle = request.POST.get('callePasajeroCliente', "")
-    #persona.altura = request.POST.get('alturaPasajeroCliente', "")
-    #persona.piso = request.POST.get('pisoPasajeroCliente', "")
-    #persona.cp = request.POST.get('cpPasajeroCliente', "")
-    persona.save()
+	persona.nombre = request.POST.get('nombrePasCliente', "")
+	persona.apellido = request.POST.get('apellidoPasCliente', "")
+	persona.documento = request.POST.get('documentoPasajeroCliente', "")
+	persona.mail = request.POST.get('mailPasajeroCliente', "")
+	persona.nacionalidad = request.POST.get('nacionalidadPasajeroCliente', "")
+	persona.calle = request.POST.get('callePasajeroCliente', "")
+	persona.save()
+	telefono = request.POST.get('telefonoPasajeroCliente', "")
+	comentario = request.POST.get('comentarioPasajeroCliente', "")
 
-    telefono = request.POST.get('telefonoPasajeroCliente', "")
-    comentario = request.POST.get('comentarioPasajeroCliente', "")
-
-    if idPasajero == "0":
+	if idPasajero == "0":
 		perCli = PersonaCliente()
 		perCli.persona = persona
 		perCli.cliente = cliente
 		perCli.save()
 
-    if telefono != "" and telefono != "Sin telefono":
+	if telefono != "" and telefono != "Sin telefono":
 		if len(persona.telefonopersona_set.all()) > 0:
 			tel = persona.telefonopersona_set.all()[0].telefono
 			telcli = persona.telefonopersona_set.all()[0]
@@ -1093,23 +1099,23 @@ def guardarPasajeroProspect(request):
 		telcli.telefono = tel
 		telcli.save()
 
-    if comentario != "":
-        if len(persona.observacionpersona_set.all()) > 0:
-            obs = persona.observacionpersona_set.all()[0].observacion
-            obsper = persona.observacionpersona_set.all()[0]
-        else:
-            obsper = ObservacionPersona()
-            obs = Observacion()
-            obs.tipo_observacion = TipoObservacion.objects.get(id=16)
+	if comentario != "":
+		if len(persona.observacionpersona_set.all()) > 0:
+			obs = persona.observacionpersona_set.all()[0].observacion
+			obsper = persona.observacionpersona_set.all()[0]
+		else:
+			obsper = ObservacionPersona()
+			obs = Observacion()
+			obs.tipo_observacion = TipoObservacion.objects.get(id=16)
 
-        obs.fecha = fecha()
-        obs.usuario = request.user
-        obs.texto = comentario
-        obs.save()
+		obs.fecha = fecha()
+		obs.usuario = request.user
+		obs.texto = comentario
+		obs.save()
 
-        obsper.persona = persona
-        obsper.observacion = obs
-        obsper.save()
+		obsper.persona = persona
+		obsper.observacion = obs
+		obsper.save()
 
 	context = {'mensaje': mensaje, 'cliente':cliente}
 	return render(request, 'sistema/grillaPasajeros.html', context)
@@ -1335,13 +1341,6 @@ def guardarMailCliente(request):
 	return render(request, 'sistema/grillaMails.html', context)
 
 @login_required
-def provedor(request):
-	mensaje = ""
-
-	context = {'mensaje': mensaje}
-	return render(request, 'sistema/provedor.html', context)
-
-@login_required
 def guardarObservacionPersona(request):
 	mensaje = ""
 
@@ -1365,9 +1364,34 @@ def guardarObservacionPersona(request):
 
 @login_required
 def listadoProvedor(request):
-	provedores = Persona.objects.filter(tipo_persona__id__in=[3,4])
+	provedores = Persona.objects.filter(tipo_persona__id__in=[3,4],baja=False)
 	context = {'provedores': provedores}
 	return render(request, 'sistema/listadoProvedor.html', context)
+
+@login_required
+def provedor(request):
+	mensaje = ""
+	idProv = request.GET.get('idProv', "")
+	prov = Persona.objects.get(id=idProv)
+	context = {'prov': prov}
+	return render(request, 'sistema/provedor.html', context)
+
+@login_required
+def borrarProvedor(request):
+	mensaje = ""
+	idProv = request.GET.get('idProv', "")
+	prov = Persona.objects.get(id=idProv)
+	prov.baja = True
+	prov.save()
+	uniChofer = Unidad.objects.filter(chofer__id=idProv)
+	for u in uniChofer:
+		u.chofer = None
+		u.save()
+	uniOwner = Unidad.objects.filter(owner__id=idProv)
+	for u in uniOwner:
+		u.owner = None
+		u.save()
+	return redirect('listadoProvedor')
 
 @login_required
 def unidad(request):
@@ -1377,18 +1401,42 @@ def unidad(request):
 	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
 	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
 	tipo_licencias = TipoLicencia.objects.all()
-	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes, 'tipo_licencias':tipo_licencias}
+	ids_fake = []
+	ids_fake.append(unidad.id_fake)
+	unidades = Unidad.objects.filter(baja=False).values_list('id_fake', flat=True)
+	unidades = map(lambda x:int(x), unidades)
+	for number in range(1100):
+		if number not in unidades:
+			ids_fake.append(number)
+	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes, 'tipo_licencias':tipo_licencias,'ids_fake':ids_fake}
 	return render(request, 'sistema/unidad.html', context)
 
 @login_required
 def altaUnidad(request):
 	mensaje = ""
+	ids_fake = []
 	unidad = Unidad()
 	unidad.id = 0	
+	unidades = Unidad.objects.values_list('id_fake', flat=True)
+	unidades = map(lambda x:int(x), unidades)
+	for number in range(1100):
+		if number not in unidades:
+			ids_fake.append(number)
 	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
 	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
-	context = {'mensaje': mensaje, 'owners':owners, 'choferes':choferes, 'unidad': unidad}
+	context = {'mensaje': mensaje, 'owners':owners, 'choferes':choferes, 'unidad': unidad, 'ids_fake':ids_fake}
 	return render(request, 'sistema/unidad.html', context)
+
+@login_required
+def asignarIdFake(request):
+	unidades = Unidad.objects.filter(baja=False)
+	idFake = 0
+	for u in unidades:
+		idFake = idFake + 1
+		u.id_fake = idFake
+		u.save()
+	context = {'unidades':unidades}
+	return render(request, 'sistema/listadoUnidad.html', context)
 
 @login_required
 def listadoUnidad(request):
@@ -1410,7 +1458,7 @@ def guardarUnidad(request):
 			vehiculo = Vehiculo()
 
 
-	
+	unidad.id_fake = request.POST.get('selectIdFake', "")
 	unidad.identificacion = request.POST.get('identificacion', "")
 	unidad.owner = Persona.objects.get(id=request.POST.get('selectOwners', ""))
 	unidad.porcentaje_owner = request.POST.get('porcFacturacionOwner', "")
@@ -1719,7 +1767,7 @@ def guardarMasivo(request):
 
 	if tipoMasivo == "1":
 		for tv in tarifario.getTarifaViaje():
-			for x in range(19):
+			for x in range(9):
 				cat = x+1
 				ttp = tv.getTTPByCategoria(cat)
 				if ttp.precio_cliente:
@@ -2309,11 +2357,59 @@ def cargarFacturaProveedor(request):
 	return render(request, 'sistema/selectFacturas.html', context)
 
 @login_required
+def borrarSolicitanteCliente(request):
+	idPersona = request.POST.get('idPersona', False)
+	idCliente = request.POST.get('idCliente', False)
+	
+	persona = Persona.objects.get(id=idPersona)
+	persona.baja = True
+	persona.save()
+
+	cliente = Cliente.objects.get(id=idCliente)
+	for c in cliente.personacliente_set.all():
+		if c.persona.tipo_persona.id == 1 and c.persona.id == persona.id:
+			c.delete()
+
+	context = {'cliente':cliente}
+	return render(request, 'sistema/grillaSolicitantes.html', context)
+
+@login_required
+def borrarPasajeroCliente(request):
+	idPersona = request.POST.get('idPersona', False)
+	idCliente = request.POST.get('idCliente', False)
+	
+	persona = Persona.objects.get(id=idPersona)
+	persona.baja = True
+	persona.save()
+
+	cliente = Cliente.objects.get(id=idCliente)
+	for c in cliente.personacliente_set.all():
+		if c.persona.tipo_persona.id == 2 and c.persona.id == persona.id:
+			c.delete()
+
+	context = {'cliente':cliente}
+	return render(request, 'sistema/grillaPasajeros.html', context)
+
+@login_required
 def exportarPdfFactCliente(request):
 	cliente 	= request.GET['cliente']
 	desde   	= request.GET['desde']
 	hasta   	= request.GET['hasta']
 	idsViaje	= request.GET['ids']
+	centroCosto	= request.GET['centrosCosto']
+
+	retornoCC = ""
+	ccList = []
+	if centroCosto != "null":
+		for c in centroCosto.split(","):
+			ccList.append(int(c))
+	if ccList:
+		cc = CentroCosto.objects.filter(id__in=ccList)
+		print cc
+		for c in cc:
+			aux = str(c.id) +"-"+ c.nombre
+			retornoCC = retornoCC + aux + " / "
+
 
 	cliente = Cliente.objects.get(id=cliente)
 	idsList = []
@@ -2321,6 +2417,15 @@ def exportarPdfFactCliente(request):
 		if ids:
 			idsList.append(int(ids))
 
+	subtotal = 0
+	peft = 0
+	tiempo = 0
+	mtiempo = 0
+	bilingue = 0
+	monto = 0
+	peaje = 0
+	estacion = 0
+	otros = 0
 	total = 0
 	iva   = 0
 	final = 0
@@ -2329,8 +2434,65 @@ def exportarPdfFactCliente(request):
 		total = total + v.getTotalCliente()
 		iva   = iva + v.getIvaCliente()
 		final = final + v.getFinalCliente()
-	context = {'cliente': cliente, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'total':total, 'iva': iva, 'final': final}
+		subtotal = subtotal + v.getSubtotalCliente()
+		peft = peft + v.getMontoPeftCliente()
+		mtiempo = mtiempo + v.getMontoTiempoEsperaCliente()
+		tiempo = tiempo + v.getMontoTiempoEsperaCliente()
+		bilingue = bilingue + v.getMontoBilingueCliente()
+		monto = monto + v.getMontoMontoCliente()
+		peaje = peaje + v.getMontoPeajesCliente()
+		estacion = estacion + v.getMontoEstacionCliente()
+		otros = otros + v.getMontoOtrosCliente()
+
+	context = {'cliente': cliente, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'total':total, 'iva': iva, 'final': final, 'subtotal':subtotal,'peft':peft,'tiempo':tiempo,'mtiempo':mtiempo, 'bilingue':bilingue,'monto':monto,'peaje':peaje,'estacion':estacion,'otros':otros, 'centroCosto':retornoCC}
 	return render(request, 'sistema/pdfFactCliente.html', context)
+
+@login_required
+def exportarPdfFactProv(request):
+	idunidad 	= request.GET['unidad']
+	desde   	= request.GET['desde']
+	hasta   	= request.GET['hasta']
+	idsViaje	= request.GET['ids']
+
+	prov = Unidad.objects.get(id=idunidad)
+	idsList = []
+	for ids in idsViaje.split("-"):
+		if ids:
+			idsList.append(int(ids))
+
+	subtotal = 0
+	cobrado = 0
+	tiempo = 0
+	mtiempo = 0
+	bilingue = 0
+	maletas = 0
+	peajes = 0
+	estacion = 0
+	otros = 0
+	total = 0
+	iva = 0
+	final = 0
+	pagar = 0
+
+	viajes = Viaje.objects.filter(id__in=idsList)
+	for v in viajes:
+		subtotal = subtotal + v.getSubtotalProveedor()
+		cobrado = cobrado + v.getCobradoProveedor()
+		tiempo = tiempo + v.getCantidadTiempoEsperaProveedor()
+		mtiempo = mtiempo + v.getMontoTiempoEsperaProveedor()
+		bilingue = bilingue + v.getMontoBilingueProveedor()
+		maletas = maletas + v.getMontoMaletasProveedor()
+		peajes = peajes + v.getMontoPeajesProveedor()
+		estacion = estacion + v.getMontoEstacionProveedor()
+		otros = otros + v.getMontoOtrosProveedor()
+		total = total + v.getTotalProveedor()
+		iva = iva + v.getIvaProveedor()
+		final = final + v.getFinalProveedor()
+		pagar = pagar + v.getPagarProveedor()
+
+	context = {'prov': prov, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'subtotal':subtotal,'cobrado':cobrado,'tiempo':tiempo,'mtiempo':mtiempo,'bilingue':bilingue,'maletas':maletas,'peajes':peajes,'estacion':estacion,'otros':otros,'total':total,'iva':iva,'final':final,'pagar':pagar}
+	return render(request, 'sistema/pdfFactProvedor.html', context)
+
 
 @login_required
 def cargarMenu(request):
@@ -2364,3 +2526,19 @@ def get_tarifa_by_cat(tarifaTrayecto, idCat):
 @register.filter
 def get_tarifa_extra_by_cat(tarifaExtra, idCat):
     return tarifaExtra.getTarifaExtraByCategoria(idCat)
+
+def obtenerPermiso(request):
+	print request.user
+	permisos = [x.name for x in Permission.objects.filter(user=request.user)]
+	print permisos
+	menu_file = ""
+	if 'unidades' in permisos:
+		menu_file = 'unidades'
+	if 'operaciones' in permisos:
+		menu_file = 'operaciones'
+	if 'finanzas' in permisos:
+		menu_file = 'finanzas'
+	if 'superuser' in permisos:
+		menu_file = 'superuser'
+
+	return menu_file

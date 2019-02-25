@@ -209,7 +209,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group form-md-line-input">
-                                                <textarea class="form-control" rows="1" value="{{ viaje.getObservacioneChofer }}" placeholder="" name="comentario_chofer" id="comentario_chofer"></textarea>
+                                                <textarea class="form-control" rows="1" placeholder="" name="comentario_chofer" id="comentario_chofer">{{ viaje.getObservacioneChofer }}</textarea>
                                                 <label for="comentario_chofer">Comentario para el chofer</label>
                                             </div>
                                         </div>
@@ -434,7 +434,7 @@
                                                                             {% endif %}
                                                                         {% endfor %}
                                                                     </select>
-                                                                    <label>Destino</label>
+                                                                    <label>Dirección</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 cont_desde_localidad">
@@ -530,7 +530,7 @@
                                                                             {% endif %}
                                                                         {% endfor %}
                                                                     </select>
-                                                                    <label>Destino</label>
+                                                                    <label>Dirección</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 cont_hasta_localidad">
@@ -1420,7 +1420,7 @@
                                                <option value="{{ d.id }}">{{ d.nombre }}</option>
                                             {% endfor %}
                                         </select>
-                                        <label>Destino</label>
+                                        <label>Dirección</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 cont_modal_desde_localidad">
@@ -1504,7 +1504,7 @@
                                                <option value="{{ d.id }}">{{ d.nombre }}</option>
                                             {% endfor %}
                                         </select>
-                                        <label>Destino</label>
+                                        <label>Dirección</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 cont_modal_hasta_localidad">
@@ -1526,7 +1526,7 @@
                                                <option value="{{ p.id }}">{{ p.nombre }}</option>
                                             {% endfor %}
                                         </select>
-                                        <label>Destino</label>
+                                        <label>Dirección</label>
                                     </div>
                                 </div>
                             </div>
@@ -1780,7 +1780,7 @@
         ];
         var personascliente = [{% for personacliente in cliente.personacliente_set.all %}
         { "id" : "{{ personacliente.persona.id }}",
-           "nombre" : "{{ personacliente.persona.nombre}} {{ personacliente.persona.apellido}}",
+           "nombre" : "{{ personacliente.persona.apellido}} {{ personacliente.persona.nombre}} ",
            "tipo_persona" : "{{ personacliente.persona.tipo_persona}}"
         },
         {% endfor %}

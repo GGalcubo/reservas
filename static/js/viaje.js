@@ -180,11 +180,14 @@ $(document).ready( () => {
             showMsg("El campo categoria viaje es obligatorio.");
             return false;
         }
-        if(es_nuevo != '1'){
+        if($("#estado").val() == '6' || $("#estado").val() == '7'){
             if ($("#unidad_id").val() == ""){
                 showMsg("El campo unidad es obligatorio.");
                 return false;
             }
+        }
+        if(es_nuevo != '1'){
+
         }
         if ($("#estado").val() == ""){
             showMsg("El campo estado es obligatorio.");
@@ -206,8 +209,8 @@ $(document).ready( () => {
         obj.centro_costos     = $("#centro_costos").val();
         obj.pasajero          = $("#pasajero").val();
         obj.fecha             = $("#fecha").val();
-        obj.hora              = $("#hora").val();
-        obj.hora_estimada     = $("#hora_estimada").val();
+        obj.hora              = ($("#hora").val().length == 5) ? $("#hora").val() : '0' + $("#hora").val();
+        obj.hora_estimada     = ($("#hora_estimada").val().length == 5) ? $("#hora_estimada").val() : '0' + $("#hora_estimada").val();
         obj.costo_proveedor   = $("#costo_proveedor").val();
         obj.tarifa_pasada     = $("#tarifa_pasada").val();
         obj.comentario_chofer = $("#comentario_chofer").val();

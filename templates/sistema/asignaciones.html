@@ -60,6 +60,7 @@
                     </div>
                 </div>
                 <!-- END CONTENT BODY -->
+                <input type="hidden" id="permiso" name="permiso" value="{{ permiso }}">
             </div>
             <!-- END CONTENT -->
             <!-- BEGIN QUICK SIDEBAR -->
@@ -74,6 +75,9 @@
                 let viajes_seleccionado = [];
 
                 $(document).ready(function(){
+                    if ($('#permiso').val() == 'unidades' || $('#permiso').val() == 'finanzas'){
+                        $('#barraLatDiv').hide();
+                    }
                     getGrillasAsignaciones($('#fechaDeHoy').val());
                     $('#exportExcel').click(function () {
                         $table.tableExport({

@@ -171,6 +171,8 @@ class Licencia(models.Model):
         if len(self.licenciapersona_set.all()) > 0:
             return self.licenciapersona_set.all()[0].persona.nombre + " " + self.licenciapersona_set.all()[0].persona.apellido
         elif len(self.licenciavehiculo_set.all()) > 0:
+            if self.licenciavehiculo_set.all()[0].vehiculo.dueno:
+                return self.licenciavehiculo_set.all()[0].vehiculo.dueno.nombreCompleto()
             return self.licenciavehiculo_set.all()[0].vehiculo.patente
 
     def getAsignado(self):
@@ -295,6 +297,7 @@ class Vehiculo(models.Model):
         return self.patente
 
 class Unidad(models.Model):
+    id_fake = models.CharField(max_length=10, null=True, blank=True)
     identificacion = models.CharField(max_length=50)
     chofer = models.ForeignKey(Persona, related_name='chofer', null=True, blank=True)
     owner = models.ForeignKey(Persona, related_name='owner', null=True, blank=True)
@@ -412,14 +415,14 @@ class Cliente(models.Model):
     def getContactos(self):
         contacto = []
         for percli in self.personacliente_set.all():
-            if percli.persona.tipo_persona.id == 1:
+            if percli.persona.tipo_persona.id == 1 and not percli.persona.baja:
                 contacto.append(percli.persona)
         return contacto
 
     def getPasajeros(self):
         pasajeros = []
         for percli in self.personacliente_set.all():
-            if percli.persona.tipo_persona.id == 2:
+            if percli.persona.tipo_persona.id == 2 and not percli.persona.baja:
                 pasajeros.append(percli.persona)
         return pasajeros
 
@@ -736,7 +739,7 @@ class Viaje(models.Model):
         for iv in self.itemviaje_set.all():
             if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 14 or iv.tipo_items_viaje.id == 9 or iv.tipo_items_viaje.id == 10 or iv.tipo_items_viaje.id == 15 or iv.tipo_items_viaje.id == 11 or iv.tipo_items_viaje.id == 16 or iv.tipo_items_viaje.id == 13:
                 retorno = retorno + iv.monto_s_iva
-        return retorno - self.getMontoPeftCliente()
+        return retorno 
 
     def getIvaProveedor(self):
         retorno = 0.00

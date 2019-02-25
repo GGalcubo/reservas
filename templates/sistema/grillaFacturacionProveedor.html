@@ -10,7 +10,6 @@
             <th class="all">Origen</th>
             <th class="all">Destino</th>
             <th class="all">Subtotal</th>
-            <th class="all">P. Efect</th>
             <th class="all">T. Espera</th>
             <th class="all">Espera</th>
             <th class="all">Bilingue</th>
@@ -21,7 +20,7 @@
             <th class="all">Total</th>
             <th class="all">I.V.A.</th>
             <th class="all">Final</th>
-            <!-- <th class="all">Cobrado</th> -->
+            <th class="all">P. Efect</th>
             <th class="all">Pagar</th>
             <th class="all">Factura</th>
         </tr>
@@ -30,7 +29,7 @@
         {% for v in viajes %}
         <tr id="rowid{{ v.id }}">
             <td></td>
-            <td>{{v.id}}</td>
+            <td class="text-center"><a href="/sistema/editaViaje/?idViaje={{v.id}}">{{v.id}}</a></td>
             <td>{{v.getFecha}}</td>
             <td>{{v.categoria_viaje}}</td>
             <td>{{v.hora}}</td>
@@ -38,7 +37,6 @@
             <td><span class="label label-sm label-info">{{v.getTrayectoPrincipal.desdeConcat}}</span></td>
             <td><span class="label label-sm label-primary">{{v.getTrayectoPrincipal.hastaConcat}}</span></td>
             <td>${{v.getSubtotalProveedor|floatformat:0}}</td>
-            <td>${{v.getCobradoProveedor|floatformat:0}}</td>
             <td>{{v.getCantidadTiempoEsperaProveedor}}</td>
             <td>${{v.getMontoTiempoEsperaProveedor|floatformat:0}}</td>
             <td>${{v.getMontoBilingueProveedor|floatformat:0}}</td>
@@ -49,7 +47,7 @@
             <td>${{v.getTotalProveedor|floatformat:0}}</td>
             <td>${{v.getIvaProveedor|floatformat:0}}</td>
             <td>${{v.getFinalProveedor|floatformat:0}}</td>
-            <!-- <td>${{v.getCobradoProveedor|floatformat:0}}</td> -->
+            <td>${{v.getCobradoProveedor|floatformat:0}}</td>
             <td>${{v.getPagarProveedor|floatformat:0}}</td>
             <td>{{v.getFacturaProveedor}}</td>
         </tr>
@@ -58,7 +56,6 @@
     <!-- ESTO SE AGREGO PARA LA FILA DE TOTAL -->
     <tfoot>
         <tr>
-            <th colspan="8" style="text-align:right">Total:</th>
             <th></th>
             <th></th>
             <th></th>
@@ -70,7 +67,15 @@
             <th></th>
             <th></th>
             <th></th>
-            <!-- <th></th> -->
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
             <th></th>
             <th></th>
         </tr>
@@ -97,26 +102,158 @@
                             i : 0;
                 };
     
-                // Total over all pages
-                total = api
-                    .column( 7 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
+                    // Total over all pages
+                    total8 = api
+                        .column( 8 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total9 = api
+                        .column( 9 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total10 = api
+                        .column( 10 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total11 = api
+                        .column( 11 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total12 = api
+                        .column( 12 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total13 = api
+                        .column( 13 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total14 = api
+                        .column( 14 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total15 = api
+                        .column( 15 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total16 = api
+                        .column( 16 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total17 = api
+                        .column( 17 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total18 = api
+                        .column( 18 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total19 = api
+                        .column( 19 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total20 = api
+                        .column( 20 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
     
-                // Total over this page
-                pageTotal = api
-                    .column( 7, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
-    
-                // Update footer
-                $( api.column( 7 ).footer() ).html(
-                    '$'+pageTotal +' ( $'+ total +' total)'
-                );
+                    // Total over this page
+                    pageTotal = api
+                        .column( 8, { page: 'current'} )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+        
+                    // Update footer
+                    $( api.column( 8 ).footer() ).html(
+                        '$'+total8
+                    );
+
+                    $( api.column( 9 ).footer() ).html(
+                        '$'+total9
+                    );
+
+                    $( api.column( 10 ).footer() ).html(
+                        total10
+                    );
+
+                    $( api.column( 11 ).footer() ).html(
+                        '$'+total11
+                    );
+
+                    $( api.column( 12 ).footer() ).html(
+                        '$'+total12
+                    );
+
+                    $( api.column( 13 ).footer() ).html(
+                        '$'+total13
+                    );
+
+                    $( api.column( 14 ).footer() ).html(
+                        '$'+total14
+                    );
+
+                    $( api.column( 15 ).footer() ).html(
+                        '$'+total15
+                    );
+
+                    $( api.column( 16 ).footer() ).html(
+                        '$'+total16
+                    );
+
+                    $( api.column( 17 ).footer() ).html(
+                        '$'+total17
+                    );
+
+                    $( api.column( 18).footer() ).html(
+                        '$'+total18
+                    );
+
+                    $( api.column( 19 ).footer() ).html(
+                        '$'+total19
+                    );
+
+                    $( api.column( 20 ).footer() ).html(
+                        '$'+total20
+                    );
             },
             //////////////// HASTA ACA HARDCODEADO EL TOTAL SEGUN EL EJEMPLO DE DATATABLES //////////////
 
@@ -137,7 +274,7 @@
                 });                    
             },
             ////////////////////////////// HASTA ACA LO DEL FOOTER ///////////////////////////////////
-
+            colReorder: true,
             responsive: true,
             scrollX: true,
             columnDefs: [ {
@@ -162,16 +299,16 @@
                 },
                 {
                     extend: 'excelHtml5',
+                    footer: true,
                     exportOptions: {
                         columns: ':visible:not(:eq(0))'
                     }
                 },
                 {
-                    extend: 'pdfHtml5',
-                    orientation: 'landscape',
-                    pageSize: 'TABLOID',
-                    customize: function(doc) {
-                        doc.defaultStyle.fontSize = 8;
+                    text: 'PDF',
+                    className: 'botonDelPDF',
+                    action: function ( e, dt, node, config ) {
+                        exportarPdf( e, dt, node, config );
                     }
                 },
                 {
@@ -186,8 +323,9 @@
                             [ 100, 50, 25, 10, -1 ],
                             [ '100', '50', '25', '10', 'Todos' ]
                         ],
+            "pageLength": -1,
             language: {
-                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json',
+                url: '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json',
                 buttons: {
                     copy: "Copiar",
                     print: "Imprimir",

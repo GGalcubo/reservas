@@ -142,6 +142,9 @@ table.dataTable thead td {
   /* Mas angostas las rows */
   padding: 4px 8px; }
 
+.table > thead:first-child > tr:first-child > th {
+  white-space: nowrap; }
+
 /* PARA EL SELECCIONAR TODAS DE ADELANTOS */
 table.dataTable td.select-checkbox:before {
   margin-top: unset;
@@ -149,7 +152,7 @@ table.dataTable td.select-checkbox:before {
   top: 35%; }
 
 table.dataTable tr.selected td.select-checkbox:after {
-  margin-top: -14px; }
+  margin-top: -7px; }
 
 /* BOOTSTRAP TABLES */
 .table > tbody > tr > td,
@@ -339,7 +342,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before
         background-color: #3598dc; }
       .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-excel {
         background-color: #26c281; }
-      .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-pdf {
+      .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-pdf, .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.botonDelPDF {
         background-color: #f36a5a; }
       .portlet.light .dataTables_wrapper .dt-buttons a.dt-button:hover.buttons-print {
         background-color: #3598dc; }
@@ -388,6 +391,65 @@ body.loading {
    modal element will be visible */
 body.loading .preloader {
   display: block; }
+
+.page-content {
+  background-image: url("../img/fondoBlancoLogin.png") !important; }
+
+/* LOGIN */
+.fondoLogin {
+  height: 100vh;
+  background-image: url("../img/fondoBlancoLogin.png"); }
+
+body.login {
+  background-color: transparent !important; }
+  body.login .logo {
+    margin: 15px 0 15px 30px;
+    text-align: left; }
+    body.login .logo h1 {
+      padding-left: 5px;
+      margin-top: 0; }
+  body.login .content {
+    padding: 10px 30px 0; }
+
+/* FUENTES LOGIN */
+@font-face {
+  font-family: DINProBold;
+  src: url("../fonts/DINProBold.otf") format("opentype"), local("DINProBold");
+  font-stretch: condensed; }
+.dinProBoldFont {
+  font-family: 'DINProBold' !important; }
+
+.naranja {
+  background-color: #E87E04 !important; }
+
+.naranja-text {
+  color: #E87E04 !important; }
+
+#operaciones .page-content .portlet.light {
+  font-size: 12px;
+  padding: 7px; }
+  #operaciones .page-content .portlet.light > .portlet-title {
+    margin-bottom: 5px; }
+#operaciones table#futurosViajes tbody tr th,
+#operaciones table#futurosViajes tbody tr td,
+#operaciones table#futurosViajes thead tr th,
+#operaciones table#futurosViajes thead tr td,
+#operaciones table#viajesEnProgreso tbody tr th,
+#operaciones table#viajesEnProgreso tbody tr td,
+#operaciones table#viajesEnProgreso thead tr th,
+#operaciones table#viajesEnProgreso thead tr td {
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 4px;
+  white-space: nowrap; }
+#operaciones div.dataTables_wrapper div.dataTables_info {
+  padding-top: 8px; }
+#operaciones div.dataTables_wrapper div.dataTables_paginate {
+  font-size: 10px; }
+
+div.dataTables_wrapper div.dataTables_info {
+  font-size: 12px; }
 
 .top-0 {
   top: 0px !important; }

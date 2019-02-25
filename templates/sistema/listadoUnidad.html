@@ -59,6 +59,7 @@
                                                     <th class="all">Modelo</th>
                                                     <th class="all">Marca</th>
                                                     <th class="all">Color</th>
+                                                    <th class="all">Propia</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -69,7 +70,7 @@
                                                             <a href="#" onclick="eliminarUnidad({{ unidad.id }},'{{ unidad.identificacion }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
                                                         </td>
                                                         <!-- <td class="text-center"></td> -->
-                                                        <td>{{ unidad.id }}</td>
+                                                        <td>{{ unidad.id_fake|default_if_none:"" }}</td>
                                                         <td>{{ unidad.identificacion }}</td>
                                                         <td>{{ unidad.chofer.nombreCompleto }}</td>
                                                         <td>{{ unidad.owner.nombreCompleto }}</td>
@@ -77,6 +78,11 @@
                                                         <td>{{ unidad.vehiculo.modelo }}</td>
                                                         <td>{{ unidad.vehiculo.marca }}</td>
                                                         <td>{{ unidad.vehiculo.color }}</td>
+                                                        {% if unidad.unidad_propia %}
+                                                            <td>SI</td>
+                                                        {% else %}
+                                                            <td>NO</td>
+                                                        {% endif %}
                                                     </tr>
                                                 {% endfor %}
                                             </tbody>

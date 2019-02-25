@@ -3,10 +3,10 @@
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>FACTURACIÓN CLIENTE</title>
+        <title>FACTURACIÓN PROVEDOR</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Custom PDF by Jere" name="description" />
@@ -26,7 +26,7 @@
                 border-top-style: solid;
                 border-bottom-style: solid;
                 font-size: 20px;
-                min-height: 115px;
+                min-height: 90px;
                 border-left: 1px solid #888;
                 border-right: 1px solid #888;
             }
@@ -67,9 +67,8 @@
             table thead tr th {
                 text-align: center;
                 padding: 5px 2px;
-                border-right: 1px solid #888;
                 border-left: 1px solid #888;
-                white-space: nowrap;
+                border-right: 1px solid #888;
             }
 
             table thead tr th:nth-child(n+10),
@@ -81,8 +80,8 @@
             table tbody tr td,
             table tfoot tr td {
                 padding: 0 2.5px 0 2.5px;
-                border-right: 1px solid #888;
                 border-left: 1px solid #888;
+                border-right: 1px solid #888;
             }
 
             table tbody tr:last-child td {
@@ -103,67 +102,66 @@
                 }
             }
         </style>
-    </head>    
+    </head>
     <body>
         <div class="cabeceraPDF">
             <div class="resumen">
-                <p><b>Cliente:</b> {{ cliente.id }} - {{ cliente.razon_social }}</p>
+                <p><b>Unidad:</b> {{ prov.id }} - {{ prov.identificacion }}</p>
                 <p><b>Periodo:</b> {{ desde }} - {{ hasta }}</p>
-                {% if centroCosto %}
-                    <p><b>Centro de costo:</b> {{ centroCosto }}</p>
-                {% endif %}
             </div>
             <img class="logoPDF" src="{% static 'img/logoColor.png' %}" alt="" width="150px">
         </div>
         <div class="content-loader">
             <table>   
                 <thead>
-                    <tr>
-                        <th class="all">FECHA</th>
-                        <th class="all">HORA</th>
+                    <tr style="color:grey;">
+                        <th class="all">N°</th>
+                        <th class="all">Fecha</th>
                         <th class="all">TS</th>
-                        <th class="all">N° SERV</th>
-                        <th class="all">ID AUX</th>
-                        <th class="all">SOLICIT&Oacute;</th>
-                        <th class="all">PAX</th>
-                        <th class="all">ORIGEN</th>
-                        <th class="all">DESTINO</th>
-                        <th class="all">SUBTOTAL</th>
-                        <th class="all">ESPERA</th>
-                        <th class="all">ESPERA (MIN)</th>
-                        <th class="all">BILINGUE</th>
-                        <th class="all">MALETAS</th>
-                        <th class="all">PEAJES</th>
-                        <th class="all">PARKING</th>
-                        <th class="all">OTROS</th>
-                        <th class="all">TOTAL</th>
-                        <th class="all">IVA</th>
-                        <th class="all">FINAL</th>
+                        <th class="all">Hora</th>
+                        <th class="all">Pasajero</th>
+                        <th class="all">Origen</th>
+                        <th class="all">Destino</th>
+                        <th class="all">Subtotal</th>
+                        <th class="all">T. Espera</th>
+                        <th class="all">Espera</th>
+                        <th class="all">Bilingue</th>
+                        <th class="all">Maletas</th>
+                        <th class="all">Peajes</th>
+                        <th class="all">Estación</th>
+                        <th class="all">Otros</th>
+                        <th class="all">Total</th>
+                        <th class="all">I.V.A.</th>
+                        <th class="all">Final</th>
+                        <th class="all">P. Efect</th>
+                        <th class="all">Pagar</th>
+                        <th class="all">Factura</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for v in viajes %}
                     <tr>
-                        <td>{{v.getFecha}}</td>
-                        <td>{{v.getHora}}</td>
-                        <td>{{v.categoria_viaje}}</td>
                         <td>{{v.id}}</td>
-                        <td>{{v.nro_aux|default_if_none:""}}</td>
-                        <td>{{v.solicitante}}</td>
-                        <td>{{v.pasajero|default_if_none:""}}</td>
+                        <td>{{v.getFecha}}</td>
+                        <td>{{v.categoria_viaje}}</td>
+                        <td>{{v.hora}}</td>
+                        <td>{{v.pasajero.nombre}} {{v.pasajero.apellido}}</td>
                         <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
                         <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
-                        <td align="right">${{v.getSubtotalCliente|floatformat:2}}</td>
-                        <td align="right">${{v.getMontoTiempoEsperaCliente|floatformat:2}}</td>
-                        <td align="right">{{v.getCantidadTiempoEsperaCliente}}</td>
-                        <td align="right">${{v.getMontoBilingueCliente|floatformat:2}}</td>
-                        <td align="right">${{v.getMontoMontoCliente|floatformat:2}}</td>
-                        <td align="right">${{v.getMontoPeajesCliente|floatformat:2}}</td>
-                        <td align="right">${{v.getMontoEstacionCliente|floatformat:2}}</td>
-                        <td align="right">${{v.getMontoOtrosCliente|floatformat:2}}</td>
-                        <td align="right">${{v.getTotalCliente|floatformat:2}}</td>
-                        <td align="right">${{v.getIvaCliente|floatformat:2}}</td>
-                        <td align="right">${{v.getFinalCliente|floatformat:2}}</td>
+                        <td align="right">${{v.getSubtotalProveedor|floatformat:0}}</td>
+                        <td align="right">{{v.getCantidadTiempoEsperaProveedor}}</td>
+                        <td align="right">${{v.getMontoTiempoEsperaProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getMontoBilingueProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getMontoMaletasProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getMontoPeajesProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getMontoEstacionProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getMontoOtrosProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getTotalProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getIvaProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getFinalProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getCobradoProveedor|floatformat:0}}</td>
+                        <td align="right">${{v.getPagarProveedor|floatformat:0}}</td>
+                        <td>{{v.getFacturaProveedor}}</td>
                     </tr>
                     {% endfor %}
                     <tr>
@@ -187,6 +185,7 @@
                         <td></td>
                         <td></td>
                         <td>&nbsp;</td>
+                        <td></td>
                     </tr>
                 </tbody>
                 <tfoot>
@@ -197,20 +196,21 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td><b>TOTALES</b></td>
+                        <td align="right"><b>${{subtotal|floatformat:0}}</b></td>
+                        <td align="right"><b>${{cobrado|floatformat:0}}</b></td>
+                        <td align="right"><b>{{tiempo}}</b></td>
+                        <td align="right"><b>${{mtiempo|floatformat:0}}</b></td>
+                        <td align="right"><b>${{bilingue|floatformat:0}}</b></td>
+                        <td align="right"><b>${{maletas}}</b></td>
+                        <td align="right"><b>${{peajes|floatformat:0}}</b></td>
+                        <td align="right"><b>${{estacion|floatformat:0}}</b></td>
+                        <td align="right"><b>${{otros|floatformat:0}}</b></td>
+                        <td align="right"><b>${{total|floatformat:0}}</b></td>
+                        <td align="right"><b>${{iva|floatformat:0}}</b></td>
+                        <td align="right"><b>${{final|floatformat:0}}</b></td>
+                        <td align="right"><b>${{pagar|floatformat:0}}</b></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"><b>TOTALES</b></td>
-                        <td align="right"><b>${{total|floatformat:2}}</b></td>
-                        <td align="right"><b>${{iva|floatformat:2}}</b></td>
-                        <td align="right"><b>${{final|floatformat:2}}</b></td>
                     </tr>
                 </tfoot>  
             </table>

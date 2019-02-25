@@ -1,7 +1,8 @@
 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaSolicitanteClientes">
     <thead>
         <tr>
-            <th class="all">Acciones</th>
+            <th class="all">Editar</th>
+            <th class="all">Borrar</th>
             <th class="all">Nombre</th>
             <th class="all">Apellido</th>
             <th class="all">Puesto</th>
@@ -14,6 +15,9 @@
         <tr>
             <td class="text-center">
                 <a href="#" onclick="editarSolicitante('{{ c.id }}','{{ cliente.id }}','{{ c.nombre }}','{{ c.apellido }}','{{ c.puesto|default_if_none:"" }}','{{ c.mail|default_if_none:"" }}','{{ c.getTelefono }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+            </td>
+            <td class="text-center">
+                <a href="#" onclick="borrarSolicitante('{{ c.id }}','{{ cliente.id }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-times"></i></a>
             </td>
             <td>{{ c.nombre|default_if_none:"" }}</td>
             <td>{{ c.apellido|default_if_none:"" }}</td>

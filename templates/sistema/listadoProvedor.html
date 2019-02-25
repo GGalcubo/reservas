@@ -43,7 +43,8 @@
                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoProvedor">
                                             <thead>
                                                 <tr>
-                                                    <!--th class="all">Editar</th-->
+                                                    <th class="all">Borrar</th>
+                                                    <th class="all">Editar</th>
                                                     <th class="all">ID</th>
                                                     <th class="all">Nombre</th>
                                                     <th class="all">CUIT/CUIL</th>
@@ -58,7 +59,8 @@
                                             <tbody>
                                                 {% for p in provedores %}
                                                 <tr>
-                                                    <!--td class="text-center"><a href="/sistema/provedor/"><i class="fa fa-pencil"></i></a></td-->
+                                                    <td class="text-center"><a href="/sistema/borrarProvedor/?idProv={{p.id}}"  class="btn btn-xs btn-outline blue"><i class="fa fa-times"></i></a></td>
+                                                    <td class="text-center"><a href="/sistema/provedor/?idProv={{p.id}}"  class="btn btn-xs btn-outline red"><i class="fa fa-pencil"></i></a></td>
                                                     <td>{{ p.id }}</td>
                                                     <td>{{ p.nombreCompleto|default_if_none:"" }}</td>
                                                     <td>{{ p.documento|default_if_none:"" }}</td>

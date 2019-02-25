@@ -124,10 +124,10 @@
                                   </form>
                               </div>
                               <hr>
-                              <div class="flex flex-j-end">
+                              <!-- <div class="flex flex-j-end">
                                   <button type="button" onclick="openFacturar();" class="btn green btn-outline mg-r-10 mg-b-5">Facturar</button>
                                   <button type="button" onclick="asignarProforma();" class="btn blue mg-b-5">Asignar N° proforma</button>
-                              </div>
+                              </div> -->
                               <div class="portlet-body" id="grillaFacturacion">
                                   <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoFactClientes">
                                       <thead>
@@ -185,6 +185,10 @@
                                       <!-- HASTA ACA -->
                                   </table>
                               </div>
+                              <div class="flex flex-j-start">
+                                  <button type="button" onclick="openFacturar();" class="btn green btn-outline mg-r-10 mg-b-5">Facturar</button>
+                                  <button type="button" onclick="asignarProforma();" class="btn blue mg-b-5">Asignar N° proforma</button>
+                              </div>
                           </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
@@ -202,18 +206,18 @@
                             <h4 class="modal-title" style="color:#888;">Facturar Clientes</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                            <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group form-md-line-input form-md-floating-label">
                                             <input type="text" class="form-control" id="primernumeroFactura" name="primernumeroFactura" onchange="completarPrimerNumeroFactura();" maxlength="4">
-                                            <label for="primernumeroFactura">Primer parte (0001).</label>
+                                            <label for="primernumeroFactura">Pto. Venta (0001)</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="form-group form-md-line-input form-md-floating-label">
                                             <input type="text" class="form-control" id="numeroFactura" name="numeroFactura" maxlength="8" onchange="completarNumeroFactura();">
-                                            <label for="numeroFactura">Numero de Factura (00000001)</label>
+                                            <label for="numeroFactura">Número de Factura (00000001)</label>
                                         </div>
                                     </div>
                                 </div>
@@ -277,7 +281,7 @@
                
                           // Update footer
                           $( api.column( 4 ).footer() ).html(
-                              '$'+pageTotal +' ( $'+ total +' total)'
+                              '$'+ total
                           );
                       },
                       //////////////// HASTA ACA HARDCODEADO EL TOTAL SEGUN EL EJEMPLO DE DATATABLES //////////////
@@ -299,7 +303,7 @@
                             });                    
                         },
                         ////////////////////////////// HASTA ACA LO DEL FOOTER ///////////////////////////////////
-
+                        colReorder: true,
                         responsive: true,
                         scrollX: true,
                         columnDefs: [ {
@@ -350,18 +354,13 @@
                                 exportOptions: {
                                     columns: ':visible:not(:eq(0))'
                                 }
-                            },
-                            {
-                                text: 'PDF',
-                                action: function ( e, dt, node, config ) {
-                                    exportarPdf( e, dt, node, config );
-                                }
                             }
                         ],
                         lengthMenu: [
                                         [ 100, 50, 25, 10, -1 ],
                                         [ '100', '50', '25', '10', 'Todos' ]
                                     ],
+                        "pageLength": -1,
                         language: {
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json',
                             buttons: {
@@ -648,6 +647,7 @@
                     params += '<input type="hidden" name="desde" value="'+$("#desde").val()+'">';
                     params += '<input type="hidden" name="hasta" value="'+$("#hasta").val()+'">';
                     params += '<input type="hidden" name="ids" value="'+ids+'">';
+                    params += '<input type="hidden" name="centrosCosto" value="'+$("#centroDeCosto").val()+'">';
 
                     document.body.innerHTML += '<form id="dynForm" target="_blank" action="/sistema/exportarPdfFactCliente/" method="get">'+params+'</form>';
                     document.getElementById("dynForm").submit();
