@@ -507,7 +507,7 @@ class Viaje(models.Model):
     categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
     hora_estimada = models.CharField(max_length=10, null=True, blank=True)
     Cod_ext_viaje = models.CharField(max_length=30, null=True, blank=True)
-    tarifapasada = models.IntegerField(default=0)
+    tarifapasada = models.CharField(max_length=50, null=True, blank=True)
     nro_aux = models.CharField(max_length=30, null=True, blank=True)
     tipo_pago = models.ForeignKey(TipoPagoViaje, null=True, blank=True, default=1)
     creadopor = models.ForeignKey(User, null=True, blank=True, default=1)
@@ -745,7 +745,7 @@ class Viaje(models.Model):
         for iv in self.itemviaje_set.all():
             if iv.tipo_items_viaje.id == 8 or iv.tipo_items_viaje.id == 14 or iv.tipo_items_viaje.id == 9 or iv.tipo_items_viaje.id == 10 or iv.tipo_items_viaje.id == 15 or iv.tipo_items_viaje.id == 11 or iv.tipo_items_viaje.id == 16 or iv.tipo_items_viaje.id == 13:
                 retorno = retorno + iv.monto_s_iva
-        return retorno 
+        return retorno
 
     def getIvaProveedor(self):
         retorno = 0.00
