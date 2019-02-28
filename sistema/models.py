@@ -886,6 +886,15 @@ class Calle(models.Model):
 class TarifaExtra(models.Model):
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
     extra_descripcion = models.CharField(max_length=40, null=True, blank=True)
+    baja = models.BooleanField(default=False)
+    cat1 = models.FloatField(default=0)
+    cat2 = models.FloatField(default=0)
+    cat3 = models.FloatField(default=0)
+    cat4 = models.FloatField(default=0)
+    cat5 = models.FloatField(default=0)
+    cat6 = models.FloatField(default=0)
+    cat7 = models.FloatField(default=0)
+    cat8 = models.FloatField(default=0)
 
     def __unicode__(self):
         return u'%s' % self.extra_descripcion
@@ -895,13 +904,35 @@ class TarifaExtra(models.Model):
 
     def getTarifaExtraByCategoria(self, idCat):
         retorno = 0
-        for ttp in self.tarifaextraprecio_set.all():
-            if ttp.categoria_viaje.id == idCat:
-                if ttp.extra_precio:
-                    return ttp.extra_precio
-                else:
-                    return retorno
-        return retorno
+        if idCat == 1:
+            retorno = self.cat1
+        if idCat == 2:
+            retorno = self.cat2
+        if idCat == 3:
+            retorno = self.cat3
+        if idCat == 4:
+            retorno = self.cat4
+        if idCat == 5:
+            retorno = self.cat5
+        if idCat == 6:
+            retorno = self.cat6
+        if idCat == 7:
+            retorno = self.cat7
+        if idCat == 8:
+            retorno = self.cat8
+
+        #retorno = 0
+        #for ttp in self.tarifaextraprecio_set.all():
+        #    if ttp.categoria_viaje.id == idCat:
+        #        if ttp.extra_precio:
+        #            return ttp.extra_precio
+        #        else:
+        #            return retorno
+        #return retorno
+
+        return str(retorno)
+
+
 
     def getTTPByCategoria(self, idCat):
         retorno = TarifaExtraPrecio()

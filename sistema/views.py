@@ -1595,7 +1595,7 @@ def editaContacto(request):
 
 @login_required
 def listadoContacto(request):
-	contactos = Persona.objects.filter(tipo_persona_id=1, baja=False)
+	contactos = Persona.objects.filter(tipo_persona__in=[1,2], baja=False)
 	context = {'contactos': contactos}
 	return render(request, 'sistema/listadoContacto.html', context)
 
@@ -1703,14 +1703,23 @@ def guardarTarifario(request):
 @login_required
 def editarTarifaTrayecto(request):
 	idTarifaTrayecto = request.POST.get('idTarifaTrayecto', "")
-	tramoTarifa = TarifaTrayecto.objects.get(id=idTarifaTrayecto)
+	if idTarifaTrayecto == "0":
+		tramoTarifa = TarifaTrayecto()
+		tramoTarifa.id = 0
+	else:
+		tramoTarifa = TarifaTrayecto.objects.get(id=idTarifaTrayecto)
 	context = {'tramoTarifa': tramoTarifa}
 	return render(request, 'sistema/tarifaTrayecto.html', context)
 
 @login_required
 def editarTarifaExtra(request):
 	idTarifaExtra = request.POST.get('idTarifaExtra', "")
-	tarifaExtra = TarifaExtra.objects.get(id=idTarifaExtra)
+	if idTarifaExtra == "0":
+		tarifaExtra = TarifaExtra()
+		tarifaExtra.id = 0
+	else:
+		tarifaExtra = TarifaExtra.objects.get(id=idTarifaExtra)
+
 	context = {'tarifaExtra': tarifaExtra}
 	return render(request, 'sistema/tarifaExtra.html', context)
 
@@ -1721,7 +1730,7 @@ def guardarTarifaTrayecto(request):
 	
 	tarifaTrayecto = TarifaTrayecto.objects.get(id=idTarifaTrayecto)
 
-	for x in range(19):
+	for x in range(9):
 		cat = x+1
 		nameTramo='tramo'+str(cat)
 		valor = request.POST.get(nameTramo, "0")
@@ -1754,18 +1763,32 @@ def guardarTarifaTrayecto(request):
 def guardarTarifaExtra(request):
 	idTarifario		 = request.POST.get('idTarifario', "")
 	idTarifaExtra    = request.POST.get('idTarifaExtra', "")
-	
+	nombre           = request.POST.get('extraName', "")
 	tarifaExtra = TarifaExtra.objects.get(id=idTarifaExtra)
-
-	for x in range(19):
+	tarifaExtra.extra_descripcion = nombre
+	for x in range(9):
 		cat = x+1
 		nameTramo='extra'+str(cat)
 		valor = request.POST.get(nameTramo, "0")
 		if valor == "":
 			valor = 0
-		ttp = tarifaExtra.getTTPByCategoria(cat)
-		ttp.extra_precio = valor
-		ttp.save()
+		if cat == 1:
+			tarifaExtra.cat1 = float(valor)
+		if cat == 2:
+			tarifaExtra.cat2 = float(valor)
+		if cat == 3:
+			tarifaExtra.cat3 = float(valor)
+		if cat == 4:
+			tarifaExtra.cat4 = float(valor)
+		if cat == 5:
+			tarifaExtra.cat5 = float(valor)
+		if cat == 6:
+			tarifaExtra.cat6 = float(valor)
+		if cat == 7:
+			tarifaExtra.cat7 = float(valor)
+		if cat == 8:
+			tarifaExtra.cat8 = float(valor)
+	tarifaExtra.save()
 
 	tarifario = Tarifario.objects.get(id=idTarifario)
 	context = {'tarifario': tarifario}
@@ -1805,15 +1828,25 @@ def guardarMasivo(request):
 
 	if tipoMasivo == "2":
 		for te in tarifario.getTarifaExtra():
-			for x in range(19):
+			for x in range(9):
 				cat = x+1
-				ttp = te.getTTPByCategoria(cat)
-				if ttp.extra_precio:
-					valor = ttp.extra_precio
-				else:
-					valor = "0"
-				ttp.extra_precio = int(valor) * int(float(porcentaje)) / 100 + int(valor)
-				ttp.save()
+				if cat == 1:
+					te.cat1 = int(te.cat1) * int(float(porcentaje)) / 100 + int(te.cat1)
+				if cat == 2:
+					te.cat2 = int(te.cat2) * int(float(porcentaje)) / 100 + int(te.cat2)
+				if cat == 3:
+					te.cat3 = int(te.cat3) * int(float(porcentaje)) / 100 + int(te.cat3)
+				if cat == 4:
+					te.cat4 = int(te.cat4) * int(float(porcentaje)) / 100 + int(te.cat4)
+				if cat == 5:
+					te.cat5 = int(te.cat5) * int(float(porcentaje)) / 100 + int(te.cat5)
+				if cat == 6:
+					te.cat6 = int(te.cat6) * int(float(porcentaje)) / 100 + int(te.cat6)
+				if cat == 7:
+					te.cat7 = int(te.cat7) * int(float(porcentaje)) / 100 + int(te.cat7)
+				if cat == 8:
+					te.cat8 = int(te.cat8) * int(float(porcentaje)) / 100 + int(te.cat8)
+			te.save()
 
 		nombre_html = "sistema/grillaTarifaExtra.html"
 

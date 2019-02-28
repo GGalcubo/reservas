@@ -104,7 +104,7 @@
                                                                         <div class="caption font-blue">
                                                                             <i class="icon-graph font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Tramos</span>
-                                                                            <!--a href="#add_tramo_tarifario" role="button" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar tramo</a-->
+                                                                            <a href="#" role="button" onclick="agregarTarifaTrayecto();" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar tramo</a>
                                                                             <a href="#" role="button" onclick="modificacionMasiva('1');" class="btn blue btn-outline mg-l-20">Modificación masiva</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
@@ -221,7 +221,7 @@
                                                                         <div class="caption font-blue">
                                                                             <i class="icon-diamond font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Extras</span>
-                                                                            <!--a href="#add_extra_tarifario" role="button" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar extra</a-->
+                                                                            <a href="#" role="button" onclick="agregarTarifaExtra();" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar extra</a-->
                                                                             <a href="#" role="button" onclick="modificacionMasiva('2');"  class="btn blue btn-outline mg-l-20">Modificación masiva</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
@@ -322,6 +322,14 @@
                     } );
                 });
 
+                function agregarTarifaTrayecto(){
+                    editarTarifaTrayecto("0")
+                }
+
+                function agregarTarifaExtra(){
+                    editarTarifaExtra("0")
+                }
+                
                 function editarTarifaTrayecto(idTarifaTrayecto){
                     var url = "/sistema/editarTarifaTrayecto/";
                     param = 'idTarifaTrayecto='+idTarifaTrayecto;
@@ -347,7 +355,7 @@
                         data: param,
                         success: function(data){
                             $('#divAddTarifaExtra').html(data);
-                            $('#add_extra_tarifario').modal('show');
+                            $('#add_extra_tarifario').modal('toggle');
                         }
                     });
                 }
@@ -390,7 +398,6 @@
                 function guardarMasivo(){
                     var url = "/sistema/guardarMasivo/";
                     param = 'tipoMasivo='+$("#tipoMasivo").val()+"&porcentaje="+$("#porcentaje").val()+"&idTarifario="+$("#idTarifario").val();
-                    alert(param)
                     $('#add_masiva').modal('hide');
                     $.ajax({
                         type: "POST",
