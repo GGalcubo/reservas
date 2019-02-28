@@ -1,0 +1,1127 @@
+[
+{
+    "model": "sistema.tarifario",
+    "pk": 1,
+    "fields": {
+      "nombre": "Extendido",
+  	"default":1
+    }
+  },
+  { "model": "sistema.tarifario",
+    "pk": 2,
+    "fields": {
+      "nombre": "National"
+    }
+  },
+  {"model": "sistema.tarifario",
+  "pk": 3,
+  "fields": {
+    "nombre": "Full Congress"
+  }
+  },
+  {"model": "sistema.tarifario",
+  "pk": 4,
+  "fields": {
+    "nombre": "Grizzlys"
+  }
+  },
+  {"model": "sistema.tarifario",
+  "pk": 5,
+  "fields": {
+    "nombre": "TTS"
+  }
+  },
+  {"model": "sistema.tarifario",
+  "pk": 6,
+  "fields": {
+    "nombre": "PECOM"
+  }
+  },
+  {"model": "sistema.tarifario",
+  "pk": 7,
+  "fields": {
+    "nombre": "SC Johnson"
+  }
+  },
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":179,
+        "localidad_hasta_id":8,
+        "baja": false,
+        "tarifario_id":1, "cat1":1335, "cat2":"1725", "cat3":"1725", "cat4":"1970", "cat5":"3150", "cat6":"4465", "cat7":"5910", "cat8":"10490"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":2,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":179,
+        "localidad_hasta_id":8,
+        "baja": false,
+        "tarifario_id":1, "cat1":1655, "cat2":"2225", "cat3":"2225", "cat4":"2550", "cat5":"3935", "cat6":"5570", "cat7":"7585", "cat8":"11800"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":3,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":179,
+        "localidad_hasta_id":8,
+        "baja": false,
+        "tarifario_id":1, "cat1":1725, "cat2":"2240", "cat3":"2240", "cat4":"2535", "cat5":"3935", "cat6":"570", "cat7":"7605", "cat8":"11800"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":4,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":12882, "cat2":"13159", "cat3":"9237", "cat4":"8941", "cat5":"2629", "cat6":"14752", "cat7":"3204", "cat8":"2817"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":5,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":13171, "cat2":"3573", "cat3":"2311", "cat4":"17591", "cat5":"13397", "cat6":"10758", "cat7":"16658", "cat8":"14018"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":6,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":3227, "cat2":"7075", "cat3":"9250", "cat4":"2275", "cat5":"1520", "cat6":"13317", "cat7":"3179", "cat8":"13113"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":7,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":4,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":7931, "cat2":"10692", "cat3":"9660", "cat4":"1742", "cat5":"17968", "cat6":"9802", "cat7":"2166", "cat8":"5178"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":8,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":6,
+        "baja": false,
+        "tarifario_id":1, "cat1":12530, "cat2":"9857", "cat3":"14717", "cat4":"7157", "cat5":"7200", "cat6":"6835", "cat7":"3500", "cat8":"5599"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":9,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":6,
+        "baja": false,
+        "tarifario_id":1, "cat1":16622, "cat2":"14638", "cat3":"14264", "cat4":"14446", "cat5":"7409", "cat6":"9845", "cat7":"4929", "cat8":"12412"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":10,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":6,
+        "baja": false,
+        "tarifario_id":1, "cat1":4046, "cat2":"3261", "cat3":"14261", "cat4":"13419", "cat5":"7883", "cat6":"15483", "cat7":"10182", "cat8":"5498"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":11,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":4,
+        "localidad_hasta_id":6,
+        "baja": false,
+        "tarifario_id":1, "cat1":3416, "cat2":"17981", "cat3":"9990", "cat4":"3677", "cat5":"15854", "cat6":"6602", "cat7":"5141", "cat8":"6933"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":12,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":7,
+        "baja": false,
+        "tarifario_id":1, "cat1":16739, "cat2":"15989", "cat3":"12980", "cat4":"1858", "cat5":"9332", "cat6":"15866", "cat7":"13643", "cat8":"10285"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":13,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":7,
+        "baja": false,
+        "tarifario_id":1, "cat1":8829, "cat2":"14525", "cat3":"7563", "cat4":"5933", "cat5":"1881", "cat6":"17127", "cat7":"13073", "cat8":"8848"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":14,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":7,
+        "baja": false,
+        "tarifario_id":1, "cat1":10377, "cat2":"1407", "cat3":"7216", "cat4":"16653", "cat5":"8682", "cat6":"3472", "cat7":"13492", "cat8":"16902"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":15,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":4,
+        "localidad_hasta_id":7,
+        "baja": false,
+        "tarifario_id":1, "cat1":12729, "cat2":"5943", "cat3":"15346", "cat4":"1982", "cat5":"10367", "cat6":"17263", "cat7":"12436", "cat8":"13544"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":16,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":8,
+        "baja": false,
+        "tarifario_id":1, "cat1":1886, "cat2":"9493", "cat3":"2938", "cat4":"9822", "cat5":"12943", "cat6":"7115", "cat7":"8525", "cat8":"5485"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":17,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":37,
+        "baja": false,
+        "tarifario_id":1, "cat1":7042, "cat2":"2684", "cat3":"9693", "cat4":"9659", "cat5":"11683", "cat6":"2896", "cat7":"16770", "cat8":"12535"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":18,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":154,
+        "baja": false,
+        "tarifario_id":1, "cat1":5621, "cat2":"4855", "cat3":"10556", "cat4":"13625", "cat5":"9619", "cat6":"10429", "cat7":"5109", "cat8":"5064"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":19,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":117,
+        "baja": false,
+        "tarifario_id":1, "cat1":10763, "cat2":"2662", "cat3":"7533", "cat4":"9592", "cat5":"3991", "cat6":"1194", "cat7":"709", "cat8":"14145"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":20,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":155,
+        "baja": false,
+        "tarifario_id":1, "cat1":10893, "cat2":"4754", "cat3":"6706", "cat4":"11286", "cat5":"1587", "cat6":"11841", "cat7":"13728", "cat8":"15755"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":21,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":147,
+        "baja": false,
+        "tarifario_id":1, "cat1":7652, "cat2":"10594", "cat3":"14531", "cat4":"17933", "cat5":"146", "cat6":"2586", "cat7":"5244", "cat8":"10703"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":22,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":62,
+        "baja": false,
+        "tarifario_id":1, "cat1":10647, "cat2":"931", "cat3":"8016", "cat4":"1136", "cat5":"4631", "cat6":"13790", "cat7":"9209", "cat8":"17029"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":23,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":14,
+        "baja": false,
+        "tarifario_id":1, "cat1":8182, "cat2":"11040", "cat3":"15529", "cat4":"14695", "cat5":"8653", "cat6":"7785", "cat7":"5548", "cat8":"1775"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":24,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":156,
+        "baja": false,
+        "tarifario_id":1, "cat1":14187, "cat2":"2802", "cat3":"14455", "cat4":"7936", "cat5":"13505", "cat6":"3180", "cat7":"14321", "cat8":"11951"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":25,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":157,
+        "baja": false,
+        "tarifario_id":1, "cat1":6449, "cat2":"12228", "cat3":"16971", "cat4":"17677", "cat5":"8735", "cat6":"15238", "cat7":"5191", "cat8":"7474"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":26,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":158,
+        "baja": false,
+        "tarifario_id":1, "cat1":4960, "cat2":"13756", "cat3":"8664", "cat4":"6190", "cat5":"10429", "cat6":"4912", "cat7":"11004", "cat8":"3179"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":27,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":159,
+        "baja": false,
+        "tarifario_id":1, "cat1":7367, "cat2":"12037", "cat3":"16841", "cat4":"15751", "cat5":"16494", "cat6":"17985", "cat7":"15309", "cat8":"12117"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":28,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":160,
+        "baja": false,
+        "tarifario_id":1, "cat1":6083, "cat2":"17878", "cat3":"5880", "cat4":"14276", "cat5":"6202", "cat6":"9017", "cat7":"6094", "cat8":"7767"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":29,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":143,
+        "baja": false,
+        "tarifario_id":1, "cat1":566, "cat2":"1448", "cat3":"3073", "cat4":"7493", "cat5":"15329", "cat6":"461", "cat7":"15793", "cat8":"11616"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":30,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":114,
+        "baja": false,
+        "tarifario_id":1, "cat1":17773, "cat2":"8241", "cat3":"6886", "cat4":"3643", "cat5":"15747", "cat6":"10519", "cat7":"9506", "cat8":"10004"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":31,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":161,
+        "baja": false,
+        "tarifario_id":1, "cat1":16103, "cat2":"4319", "cat3":"7112", "cat4":"13522", "cat5":"16000", "cat6":"8342", "cat7":"9570", "cat8":"6854"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":32,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":61,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":2215, "cat2":"15167", "cat3":"9641", "cat4":"13848", "cat5":"5709", "cat6":"3764", "cat7":"16632", "cat8":"15605"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":33,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":163,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":4248, "cat2":"7014", "cat3":"15967", "cat4":"15817", "cat5":"9136", "cat6":"5293", "cat7":"5023", "cat8":"2242"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":34,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":164,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":857, "cat2":"2405", "cat3":"7756", "cat4":"2459", "cat5":"9553", "cat6":"14537", "cat7":"8028", "cat8":"11903"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":35,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":14,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":2600, "cat2":"2309", "cat3":"8701", "cat4":"13502", "cat5":"1224", "cat6":"2818", "cat7":"15362", "cat8":"17805"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":36,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":40,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":1701, "cat2":"3829", "cat3":"11302", "cat4":"1858", "cat5":"375", "cat6":"2862", "cat7":"4323", "cat8":"11966"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":37,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":62,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":3264, "cat2":"16807", "cat3":"16136", "cat4":"14666", "cat5":"4512", "cat6":"8446", "cat7":"403", "cat8":"11600"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":38,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":165,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":1811, "cat2":"14882", "cat3":"1681", "cat4":"12983", "cat5":"12620", "cat6":"16586", "cat7":"1716", "cat8":"9245"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":39,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":166,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":16108, "cat2":"3310", "cat3":"1236", "cat4":"6343", "cat5":"5539", "cat6":"12865", "cat7":"14539", "cat8":"2528"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":40,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":167,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":15826, "cat2":"15128", "cat3":"13191", "cat4":"4930", "cat5":"16027", "cat6":"611", "cat7":"16693", "cat8":"10614"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":41,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":42,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":11719, "cat2":"4683", "cat3":"8611", "cat4":"4321", "cat5":"12056", "cat6":"901", "cat7":"2158", "cat8":"2987"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":42,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":168,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":122, "cat2":"12786", "cat3":"15016", "cat4":"16354", "cat5":"8354", "cat6":"17063", "cat7":"2463", "cat8":"684"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":43,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":49,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":16196, "cat2":"5312", "cat3":"9605", "cat4":"2630", "cat5":"17975", "cat6":"8024", "cat7":"7985", "cat8":"2310"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":44,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":144,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":815, "cat2":"2502", "cat3":"9985", "cat4":"9925", "cat5":"8617", "cat6":"5636", "cat7":"3017", "cat8":"9583"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":45,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":36,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":15583, "cat2":"14129", "cat3":"3420", "cat4":"4646", "cat5":"7232", "cat6":"334", "cat7":"12412", "cat8":"15541"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":46,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":117,
+        "localidad_hasta_id":8,
+        "baja": false,
+        "tarifario_id":1, "cat1":2505, "cat2":"9390", "cat3":"7464", "cat4":"14934", "cat5":"16020", "cat6":"1641", "cat7":"3751", "cat8":"11617"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":47,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":169,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":9705, "cat2":"6954", "cat3":"16396", "cat4":"6473", "cat5":"12706", "cat6":"14415", "cat7":"399", "cat8":"2174"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":48,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":170,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":8603, "cat2":"5552", "cat3":"7702", "cat4":"1245", "cat5":"6514", "cat6":"10987", "cat7":"16410", "cat8":"6397"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":49,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":171,
+        "localidad_hasta_id":8,
+        "baja": false,
+        "tarifario_id":1, "cat1":12585, "cat2":"5581", "cat3":"4139", "cat4":"8665", "cat5":"15636", "cat6":"9108", "cat7":"8507", "cat8":"12919"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":50,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":172,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":7022, "cat2":"17252", "cat3":"3999", "cat4":"2560", "cat5":"414", "cat6":"728", "cat7":"12039", "cat8":"13394"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":51,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":173,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":2989, "cat2":"4391", "cat3":"8786", "cat4":"16473", "cat5":"10522", "cat6":"8240", "cat7":"7725", "cat8":"4681"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":52,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":174,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":17802, "cat2":"7430", "cat3":"15257", "cat4":"2358", "cat5":"3754", "cat6":"15838", "cat7":"13245", "cat8":"2585"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":53,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":48,
+        "localidad_hasta_id":8,
+        "baja": false,
+        "tarifario_id":1, "cat1":5384, "cat2":"15024", "cat3":"3478", "cat4":"3037", "cat5":"15076", "cat6":"16151", "cat7":"6657", "cat8":"5770"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":54,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":45,
+        "localidad_hasta_id":8,
+        "baja": false,
+        "tarifario_id":1, "cat1":1484, "cat2":"17614", "cat3":"669", "cat4":"2525", "cat5":"12763", "cat6":"4267", "cat7":"11449", "cat8":"14800"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":55,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":26,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":16751, "cat2":"13385", "cat3":"9038", "cat4":"11776", "cat5":"12124", "cat6":"14188", "cat7":"12738", "cat8":"16459"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":56,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":28,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":13747, "cat2":"4167", "cat3":"12451", "cat4":"10776", "cat5":"4481", "cat6":"16966", "cat7":"910", "cat8":"16837"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":57,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":175,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":7698, "cat2":"9083", "cat3":"10521", "cat4":"4682", "cat5":"7906", "cat6":"9327", "cat7":"9077", "cat8":"1680"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":58,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":176,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":15255, "cat2":"12993", "cat3":"7756", "cat4":"15314", "cat5":"5234", "cat6":"12974", "cat7":"12358", "cat8":"13368"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":59,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":32,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":10505, "cat2":"11687", "cat3":"14384", "cat4":"16366", "cat5":"9638", "cat6":"9223", "cat7":"9296", "cat8":"15063"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":60,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":177,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":9828, "cat2":"3235", "cat3":"5309", "cat4":"3389", "cat5":"4053", "cat6":"4888", "cat7":"17656", "cat8":"7266"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":61,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":178,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":16634, "cat2":"7616", "cat3":"6641", "cat4":"315", "cat5":"565", "cat6":"1637", "cat7":"3486", "cat8":"4814"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":62,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":179,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":14354, "cat2":"6867", "cat3":"12761", "cat4":"16971", "cat5":"627", "cat6":"8081", "cat7":"6779", "cat8":"8230"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":63,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":179,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":10881, "cat2":"6921", "cat3":"10445", "cat4":"12807", "cat5":"171", "cat6":"2789", "cat7":"4494", "cat8":"14987"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":64,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":39,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":16691, "cat2":"11205", "cat3":"17048", "cat4":"4889", "cat5":"2942", "cat6":"9401", "cat7":"7653", "cat8":"10012"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":65,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":44,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":1655, "cat2":"14554", "cat3":"7160", "cat4":"5397", "cat5":"6027", "cat6":"15254", "cat7":"17919", "cat8":"13344"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":66,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":161,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":7094, "cat2":"3977", "cat3":"6459", "cat4":"5913", "cat5":"16469", "cat6":"16175", "cat7":"15801", "cat8":"16792"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":67,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":147,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":6034, "cat2":"16149", "cat3":"13692", "cat4":"16717", "cat5":"12738", "cat6":"7547", "cat7":"9449", "cat8":"6881"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":68,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":37,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":16209, "cat2":"15686", "cat3":"1894", "cat4":"7834", "cat5":"14640", "cat6":"14721", "cat7":"6563", "cat8":"8073"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":69,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":154,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":3805, "cat2":"8321", "cat3":"8076", "cat4":"1506", "cat5":"14695", "cat6":"1249", "cat7":"10770", "cat8":"2165"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":70,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":155,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":9348, "cat2":"16873", "cat3":"8573", "cat4":"11744", "cat5":"1748", "cat6":"5540", "cat7":"16850", "cat8":"4895"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":71,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":61,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":2036, "cat2":"14726", "cat3":"11616", "cat4":"7712", "cat5":"10584", "cat6":"1936", "cat7":"17038", "cat8":"15519"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":72,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":163,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":17730, "cat2":"4534", "cat3":"12446", "cat4":"3289", "cat5":"514", "cat6":"7645", "cat7":"16668", "cat8":"17275"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":73,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":164,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":13453, "cat2":"10768", "cat3":"8727", "cat4":"15556", "cat5":"14583", "cat6":"2998", "cat7":"14420", "cat8":"15472"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":74,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":14,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":8066, "cat2":"11089", "cat3":"7669", "cat4":"2747", "cat5":"11878", "cat6":"2629", "cat7":"8699", "cat8":"6927"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":75,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":40,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":1175, "cat2":"4899", "cat3":"6699", "cat4":"9993", "cat5":"13345", "cat6":"14675", "cat7":"7081", "cat8":"11157"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":76,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":62,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":10018, "cat2":"2976", "cat3":"2927", "cat4":"13416", "cat5":"9660", "cat6":"629", "cat7":"1744", "cat8":"17576"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":77,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":165,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":3410, "cat2":"1338", "cat3":"16245", "cat4":"1283", "cat5":"9979", "cat6":"16960", "cat7":"11443", "cat8":"2973"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":78,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":166,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":2147, "cat2":"3762", "cat3":"16692", "cat4":"8087", "cat5":"4760", "cat6":"11262", "cat7":"15364", "cat8":"9651"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":79,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":167,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":10778, "cat2":"12005", "cat3":"4546", "cat4":"464", "cat5":"7348", "cat6":"10547", "cat7":"8704", "cat8":"10374"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":80,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":42,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":10523, "cat2":"6538", "cat3":"5370", "cat4":"12944", "cat5":"3234", "cat6":"2759", "cat7":"8078", "cat8":"1827"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":81,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":168,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":15582, "cat2":"8112", "cat3":"12443", "cat4":"1523", "cat5":"10407", "cat6":"6242", "cat7":"1527", "cat8":"17148"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":82,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":49,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":9780, "cat2":"6640", "cat3":"13851", "cat4":"4624", "cat5":"1606", "cat6":"15145", "cat7":"14575", "cat8":"2794"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":83,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":144,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":3844, "cat2":"8268", "cat3":"2099", "cat4":"6598", "cat5":"13661", "cat6":"5290", "cat7":"1144", "cat8":"17621"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":84,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":36,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":13306, "cat2":"8648", "cat3":"12075", "cat4":"9481", "cat5":"15864", "cat6":"6934", "cat7":"14746", "cat8":"3697"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":85,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":117,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":3502, "cat2":"17726", "cat3":"908", "cat4":"7315", "cat5":"16777", "cat6":"5914", "cat7":"4558", "cat8":"8913"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":86,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":169,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":6922, "cat2":"16551", "cat3":"8125", "cat4":"6796", "cat5":"17595", "cat6":"14759", "cat7":"8840", "cat8":"6311"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":87,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":170,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":11868, "cat2":"13665", "cat3":"636", "cat4":"6862", "cat5":"4974", "cat6":"7036", "cat7":"10951", "cat8":"9546"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":88,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":171,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":16861, "cat2":"16252", "cat3":"4757", "cat4":"4106", "cat5":"4401", "cat6":"3575", "cat7":"9098", "cat8":"3241"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":89,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":172,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":7528, "cat2":"8925", "cat3":"2638", "cat4":"11552", "cat5":"15324", "cat6":"11361", "cat7":"12591", "cat8":"11494"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":90,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":173,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":14467, "cat2":"12720", "cat3":"10597", "cat4":"14844", "cat5":"8935", "cat6":"15246", "cat7":"223", "cat8":"2378"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":91,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":174,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":12477, "cat2":"3292", "cat3":"12954", "cat4":"13071", "cat5":"5777", "cat6":"12469", "cat7":"272", "cat8":"14615"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":92,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":48,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":1270, "cat2":"1374", "cat3":"16891", "cat4":"13315", "cat5":"11268", "cat6":"11378", "cat7":"6135", "cat8":"2883"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":93,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":45,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":2014, "cat2":"10131", "cat3":"15758", "cat4":"12603", "cat5":"7944", "cat6":"12986", "cat7":"10628", "cat8":"2505"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":94,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":26,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":3775, "cat2":"7899", "cat3":"13501", "cat4":"6977", "cat5":"5135", "cat6":"178", "cat7":"11051", "cat8":"17205"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":95,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":28,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":3704, "cat2":"9323", "cat3":"16443", "cat4":"384", "cat5":"4989", "cat6":"12287", "cat7":"7527", "cat8":"14583"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":96,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":175,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":6092, "cat2":"6512", "cat3":"9824", "cat4":"3531", "cat5":"14379", "cat6":"5020", "cat7":"9313", "cat8":"10130"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":97,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":176,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":14248, "cat2":"2400", "cat3":"1630", "cat4":"15042", "cat5":"12164", "cat6":"4258", "cat7":"676", "cat8":"11944"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":98,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":32,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":12230, "cat2":"4596", "cat3":"1579", "cat4":"8355", "cat5":"3721", "cat6":"16308", "cat7":"6720", "cat8":"278"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":99,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":177,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":4287, "cat2":"13579", "cat3":"12428", "cat4":"17061", "cat5":"1191", "cat6":"14505", "cat7":"3948", "cat8":"10319"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":100,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":178,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":3949, "cat2":"13481", "cat3":"13870", "cat4":"16404", "cat5":"16147", "cat6":"1648", "cat7":"11112", "cat8":"15319"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":101,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":179,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":8352, "cat2":"16967", "cat3":"7297", "cat4":"10517", "cat5":"16542", "cat6":"13890", "cat7":"12357", "cat8":"13127"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":102,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":179,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":7007, "cat2":"7670", "cat3":"7008", "cat4":"13595", "cat5":"7722", "cat6":"13762", "cat7":"10075", "cat8":"409"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":103,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":39,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":6267, "cat2":"17765", "cat3":"8876", "cat4":"12103", "cat5":"2909", "cat6":"1857", "cat7":"14181", "cat8":"12239"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":104,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":44,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":8426, "cat2":"7308", "cat3":"6253", "cat4":"5763", "cat5":"9481", "cat6":"11555", "cat7":"9114", "cat8":"16534"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":105,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":161,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":1679, "cat2":"3862", "cat3":"2873", "cat4":"13358", "cat5":"7887", "cat6":"10870", "cat7":"13175", "cat8":"14483"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":106,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":147,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":4177, "cat2":"15241", "cat3":"3873", "cat4":"13175", "cat5":"13994", "cat6":"16448", "cat7":"12100", "cat8":"5904"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":107,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":37,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":17885, "cat2":"6657", "cat3":"293", "cat4":"3337", "cat5":"5576", "cat6":"12371", "cat7":"5292", "cat8":"3449"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":108,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":154,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":13732, "cat2":"5608", "cat3":"4271", "cat4":"7989", "cat5":"3688", "cat6":"7201", "cat7":"12635", "cat8":"7896"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":109,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":155,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":15876, "cat2":"7219", "cat3":"16017", "cat4":"111", "cat5":"823", "cat6":"5252", "cat7":"17466", "cat8":"16270"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":110,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":55,
+        "baja": false,
+        "tarifario_id":1, "cat1":8103, "cat2":"8982", "cat3":"6172", "cat4":"9736", "cat5":"13886", "cat6":"2077", "cat7":"10599", "cat8":"6236"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":111,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":15,
+        "baja": false,
+        "tarifario_id":1, "cat1":6967, "cat2":"13016", "cat3":"9953", "cat4":"2182", "cat5":"8265", "cat6":"13011", "cat7":"5309", "cat8":"8730"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":112,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":45,
+        "baja": false,
+        "tarifario_id":1, "cat1":15675, "cat2":"13852", "cat3":"16410", "cat4":"4589", "cat5":"148", "cat6":"12471", "cat7":"759", "cat8":"2157"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":113,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":179,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":1, "cat1":1519, "cat2":"13516", "cat3":"17601", "cat4":"930", "cat5":"15321", "cat6":"2924", "cat7":"13007", "cat8":"14038"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":114,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":61,
+        "baja": false,
+        "tarifario_id":1, "cat1":2716, "cat2":"15756", "cat3":"3480", "cat4":"5470", "cat5":"15517", "cat6":"4638", "cat7":"16851", "cat8":"13553"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":115,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":162,
+        "baja": false,
+        "tarifario_id":1, "cat1":17493, "cat2":"7620", "cat3":"1380", "cat4":"10417", "cat5":"8798", "cat6":"8049", "cat7":"7633", "cat8":"15739"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":116,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":1, "cat1":13770, "cat2":"8039", "cat3":"6699", "cat4":"11189", "cat5":"17694", "cat6":"10105", "cat7":"15039", "cat8":"9081"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":117,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":6,
+        "baja": false,
+        "tarifario_id":1, "cat1":2184, "cat2":"2345", "cat3":"11549", "cat4":"9352", "cat5":"15872", "cat6":"7216", "cat7":"6820", "cat8":"11169"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":118,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":1, "cat1":5941, "cat2":"10020", "cat3":"7009", "cat4":"12171", "cat5":"4350", "cat6":"5595", "cat7":"8953", "cat8":"10503"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":119,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":8,
+        "baja": false,
+        "tarifario_id":1, "cat1":800, "cat2":"17434", "cat3":"15969", "cat4":"9072", "cat5":"5736", "cat6":"15115", "cat7":"10432", "cat8":"1539"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":120,
+   "fields": {
+      "descripcion": "0",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":7,
+        "baja": false,
+        "tarifario_id":1, "cat1":8618, "cat2":"1619", "cat3":"10274", "cat4":"16078", "cat5":"8435", "cat6":"10041", "cat7":"6259", "cat8":"17496"}}
+
+]
