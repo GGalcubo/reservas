@@ -3,7 +3,7 @@
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+<html lang="es">
     <!--<![endif]-->
     {% include "sistema/cabecera.html" %}
     <body id="operaciones" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
@@ -87,8 +87,12 @@
 
                 $(document).ready(function(){
 
-                    if ($('#permiso').val() == 'unidades' || $('#permiso').val() == 'finanzas'){
+                    if ($('#permiso').val() == 'unidades'){
                         $('#barraLatDiv').hide();
+                    }
+
+                    if ($('#permiso').val() == 'finanzas'){
+                        $('#barraLatDiv .portlet-body').hide();
                     }
 
                     $('#multiselect_estado').multiselect({

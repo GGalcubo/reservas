@@ -14,6 +14,7 @@
 
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" /> </head>
         <style>
             body {
                 -webkit-print-color-adjust: exact;
@@ -25,10 +26,13 @@
                 padding: 15px;
                 border-top-style: solid;
                 border-bottom-style: solid;
-                font-size: 20px;
+                font-size: 16px;
                 min-height: 115px;
                 border-left: 1px solid #888;
                 border-right: 1px solid #888;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .cabeceraPDF .resumen {
@@ -40,7 +44,7 @@
 
             .cabeceraPDF .logoPDF {
                 float: right;
-                margin-top: 8px;
+                /*margin-top: 8px;*/
             }
 
             .content-loader tr {

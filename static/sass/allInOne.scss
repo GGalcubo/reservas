@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+// BEGIN GLOBAL MANDATORY STYLES
+@import "_font-awesome.min.scss";
+@import "_simple-line-icons.min.scss";
+@import "_bootstrap.min.scss";
+@import "_bootstrap-switch.min.scss";
+// END GLOBAL MANDATORY STYLES
+// BEGIN PAGE LEVEL PLUGINS
+@import "_select2.min.scss";
+@import "_select2-bootstrap.min.scss";
+// COMIENZO CSS para el datepicker
+// @import "../css/daterangepicker.min.css";
+@import "_bootstrap-datepicker3.min.scss";
+@import "_bootstrap-timepicker.min.scss";
+// @import "../css/bootstrap-datetimepicker.min.css";
+// FIN CSS para el datepicker
+
+@import "_toastr.min.scss";
+@import "_datatables.min.scss";
+@import "_datatables.bootstrap.min.scss";
+@import "_bootstrap-fileinput.min.scss";
+@import "_jquery-ui.min.scss";
+
+@import "_bootstrap-multiselect.min.scss";
+
+@import "_bootstrap-table.min.scss";
+@import "_bootstrap-editable.min.scss";
+
+@import "_profile.min.scss";
+
+// END PAGE LEVEL PLUGINS
+// BEGIN THEME GLOBAL STYLES
+@import "_components.min.scss";
+@import "_plugins.min.scss";
+
+@import "_components-md.min.scss";
+@import "_plugins-md.min.scss";
+// END THEME GLOBAL STYLES
+// BEGIN THEME LAYOUT STYLES
+@import "_layout.min.scss";
+@import "_light.min.scss";
+//@import "../css/custom.min.css";
+// END THEME LAYOUT STYLES
+
