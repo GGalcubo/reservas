@@ -17,7 +17,7 @@
    "model": "sistema.TarifaExtra",
    "pk":3,
    "fields": {
-      "extra_descripcion": "maleta",
+      "extra_descripcion": "maletas",
         "baja": false,
         "tarifario":1, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -38,7 +38,7 @@
    "model": "sistema.TarifaExtra",
    "pk":6,
    "fields": {
-      "extra_descripcion": "maleta",
+      "extra_descripcion": "maletas",
         "baja": false,
         "tarifario":2, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -59,7 +59,7 @@
    "model": "sistema.TarifaExtra",
    "pk":9,
    "fields": {
-      "extra_descripcion": "maleta",
+      "extra_descripcion": "maletas",
         "baja": false,
         "tarifario":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -80,7 +80,7 @@
    "model": "sistema.TarifaExtra",
    "pk":12,
    "fields": {
-      "extra_descripcion": "maleta",
+      "extra_descripcion": "maletas",
         "baja": false,
         "tarifario":4, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -101,7 +101,7 @@
    "model": "sistema.TarifaExtra",
    "pk":15,
    "fields": {
-      "extra_descripcion": "maleta",
+      "extra_descripcion": "maletas",
         "baja": false,
         "tarifario":5, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -122,7 +122,7 @@
    "model": "sistema.TarifaExtra",
    "pk":18,
    "fields": {
-      "extra_descripcion": "maleta",
+      "extra_descripcion": "maletas",
         "baja": false,
         "tarifario":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -143,7 +143,28 @@
    "model": "sistema.TarifaExtra",
    "pk":21,
    "fields": {
-      "extra_descripcion": "maleta",
+      "extra_descripcion": "maletas",
         "baja": false,
-        "tarifario":7, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}}
+        "tarifario":7, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        {
+   "model": "sistema.TarifaExtra",
+   "pk":22,
+   "fields": {
+      "extra_descripcion": "dispo",
+        "baja": false,
+        "tarifario":8, "cat1":690, "cat2":"865", "cat3":"910", "cat4":"865", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.TarifaExtra",
+   "pk":23,
+   "fields": {
+      "extra_descripcion": "espera",
+        "baja": false,
+        "tarifario":8, "cat1":650, "cat2":"745", "cat3":"865", "cat4":"745", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.TarifaExtra",
+   "pk":24,
+   "fields": {
+      "extra_descripcion": "maletas",
+        "baja": false,
+        "tarifario":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}}
 ]
