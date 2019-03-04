@@ -2730,6 +2730,580 @@
    }
 },
 {
+   "model": "sistema.localidad",
+   "pk": 198,
+   "fields": {
+      "nombre": "RAFAEL CALZADA",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 199,
+   "fields": {
+      "nombre": "MUÑIZ",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 200,
+   "fields": {
+      "nombre": "DOCK SUD",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 201,
+   "fields": {
+      "nombre": "TERMINAL ESCOBAR",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": true,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 202,
+   "fields": {
+      "nombre": "TERMINAL PACHECO",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": true,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 203,
+   "fields": {
+      "nombre": "LA PLATA (PUERTO)",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 204,
+   "fields": {
+      "nombre": "PUERTO SAN MARTIN (San Lorenzo)",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 205,
+   "fields": {
+      "nombre": "LA PLATA - YPF",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 206,
+   "fields": {
+      "nombre": "BELLA VISTA",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 207,
+   "fields": {
+      "nombre": "ENSENADA",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 208,
+   "fields": {
+      "nombre": "ISLA DEMARCHI",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 209,
+   "fields": {
+      "nombre": "LAFERRERE",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 210,
+   "fields": {
+      "nombre": "SAN FRANCISCO SOLANO",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 211,
+   "fields": {
+      "nombre": "BECCAR",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 212,
+   "fields": {
+      "nombre": "BOULOGNE",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 213,
+   "fields": {
+      "nombre": "BURZACO",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 214,
+   "fields": {
+      "nombre": "RANELAGH",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 215,
+   "fields": {
+      "nombre": "CIUDADELA",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 216,
+   "fields": {
+      "nombre": "CLAYPOLE",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 217,
+   "fields": {
+      "nombre": "DON TORCUATO",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 218,
+   "fields": {
+      "nombre": "EL PATO",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 219,
+   "fields": {
+      "nombre": "EL TALAR",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 220,
+   "fields": {
+      "nombre": "MAQUINISTA SAVIO",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 221,
+   "fields": {
+      "nombre": "FLORIDA",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 222,
+   "fields": {
+      "nombre": "FRANCISCO ALVAREZ",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 223,
+   "fields": {
+      "nombre": "GUERNICA",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 224,
+   "fields": {
+      "nombre": "LA PLATA TERMINAL",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 225,
+   "fields": {
+      "nombre": "LAVALLOL",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 226,
+   "fields": {
+      "nombre": "LOMAS DEL MIRADOR",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 227,
+   "fields": {
+      "nombre": "LONGCHAMPS",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 228,
+   "fields": {
+      "nombre": "MONTE GRANDE",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 229,
+   "fields": {
+      "nombre": "PASO DEL REY",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 230,
+   "fields": {
+      "nombre": "SAN LORENZO",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 231,
+   "fields": {
+      "nombre": "SARANDI",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 232,
+   "fields": {
+      "nombre": "VILLA ADELINA",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 233,
+   "fields": {
+      "nombre": "VILLA CELINA",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 234,
+   "fields": {
+      "nombre": "VILLA MADERO",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 235,
+   "fields": {
+      "nombre": "VILLA MAIPU",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 236,
+   "fields": {
+      "nombre": "PLATANOS",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 237,
+   "fields": {
+      "nombre": "BENAVIDEZ",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
+   "model": "sistema.localidad",
+   "pk": 238,
+   "fields": {
+      "nombre": "GERLI",
+      "provincia": 1,
+      "id_externo": null,
+      "codigo_postal": null,
+      "trayectodestino": 2,
+      "terminal_flag": false,
+      "color": "#ffffff",
+      "baja": false
+   }
+},
+{
     "model": "sistema.tarifario",
     "pk": 1,
     "fields": {
@@ -9672,5 +10246,1393 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":162,
         "baja": false,
-        "tarifario_id":8, "cat1":925, "cat2":"1150", "cat3":"1150", "cat4":"1390", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}}        
+        "tarifario_id":8, "cat1":925, "cat2":"1150", "cat3":"1150", "cat4":"1390", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":767,
+   "fields": {
+      "descripcion": "DOCK SUD - AEP",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+
+        {
+   "model": "sistema.tarifatrayecto",
+   "pk":768,
+   "fields": {
+      "descripcion": "DOCK SUD - ZONA 1",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":769,
+   "fields": {
+      "descripcion": "AEP - BECCAR",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":211,
+        "baja": false,
+        "tarifario_id":2, "cat1":1240, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":770,
+   "fields": {
+      "descripcion": "AEP - SAN ISIDRO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":14,
+        "baja": false,
+        "tarifario_id":2, "cat1":1240, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":771,
+   "fields": {
+      "descripcion": "ENSENADA - AEP",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":2, "cat1":3385, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":772,
+   "fields": {
+      "descripcion": "CAMPANA - BECCAR",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":211,
+        "baja": false,
+        "tarifario_id":2, "cat1":2830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":773,
+   "fields": {
+      "descripcion": "CAMPANA - SAN ISIDRO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":14,
+        "baja": false,
+        "tarifario_id":2, "cat1":2830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":774,
+   "fields": {
+      "descripcion": "BERISSO - BERNAL",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":180,
+        "baja": false,
+        "tarifario_id":2, "cat1":1860, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":775,
+   "fields": {
+      "descripcion": "PUERTO SAN MARTIN (San Lorenzo) - BELLA VISTA",
+        "localidad_desde_id":204,
+        "localidad_hasta_id":206,
+        "baja": false,
+        "tarifario_id":2, "cat1":11730, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":776,
+   "fields": {
+      "descripcion": "TERMINAL PACHECO - BELLA VISTA",
+        "localidad_desde_id":202,
+        "localidad_hasta_id":206,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":777,
+   "fields": {
+      "descripcion": "BERISSO - SAN MIGUEL",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":45,
+        "baja": false,
+        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":778,
+   "fields": {
+      "descripcion": "BERISSO - BELLA VISTA",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":206,
+        "baja": false,
+        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":779,
+   "fields": {
+      "descripcion": "AEP - BERNAL",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":180,
+        "baja": false,
+        "tarifario_id":2, "cat1":1450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":780,
+   "fields": {
+      "descripcion": "AEP - RAFAEL CALZADA",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":198,
+        "baja": false,
+        "tarifario_id":2, "cat1":1310, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":781,
+   "fields": {
+      "descripcion": "ENSENADA - MUÑIZ",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":199,
+        "baja": false,
+        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":782,
+   "fields": {
+      "descripcion": "DOCK SUD - BENAVIDEZ",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":237,
+        "baja": false,
+        "tarifario_id":2, "cat1":1795, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":783,
+   "fields": {
+      "descripcion": "RETIRO  - BENAVIDEZ",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":237,
+        "baja": false,
+        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":784,
+   "fields": {
+      "descripcion": "BERISSO - BOULOGNE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":212,
+        "baja": false,
+        "tarifario_id":2, "cat1":3650, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":785,
+   "fields": {
+      "descripcion": "RETIRO  - BOULOGNE",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":212,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":786,
+   "fields": {
+      "descripcion": "DOCK SUD - BOULOGNE",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":212,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":787,
+   "fields": {
+      "descripcion": "BERISSO - SAN ISIDRO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":14,
+        "baja": false,
+        "tarifario_id":2, "cat1":3650, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":788,
+   "fields": {
+      "descripcion": "RETIRO  - SAN ISIDRO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":14,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":789,
+   "fields": {
+      "descripcion": "DOCK SUD - SAN ISIDRO",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":14,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":790,
+   "fields": {
+      "descripcion": "CAMPANA - HURLINGHAM",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":48,
+        "baja": false,
+        "tarifario_id":2, "cat1":3100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":791,
+   "fields": {
+      "descripcion": "CAMPANA - QUILMES",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":39,
+        "baja": false,
+        "tarifario_id":2, "cat1":3865, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":792,
+   "fields": {
+      "descripcion": "RETIRO  - BURZACO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":213,
+        "baja": false,
+        "tarifario_id":2, "cat1":1450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":793,
+   "fields": {
+      "descripcion": "AEP - BURZACO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":213,
+        "baja": false,
+        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":794,
+   "fields": {
+      "descripcion": "AEP - RANELAGH",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":214,
+        "baja": false,
+        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":795,
+   "fields": {
+      "descripcion": "RETIRO  - GENERAL PACHECO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":195,
+        "baja": false,
+        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":796,
+   "fields": {
+      "descripcion": "AEP - LANUS",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":28,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":797,
+   "fields": {
+      "descripcion": "AEP - SAN FERNANDO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":40,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":798,
+   "fields": {
+      "descripcion": "AEP - TIGRE",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":62,
+        "baja": false,
+        "tarifario_id":2, "cat1":1515, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":799,
+   "fields": {
+      "descripcion": "CAMPANA - ZONA 1",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":2970, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":800,
+   "fields": {
+      "descripcion": "BERISSO - ZONA 1",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":801,
+   "fields": {
+      "descripcion": "BERISSO - MERLO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":144,
+        "baja": false,
+        "tarifario_id":2, "cat1":3520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":802,
+   "fields": {
+      "descripcion": "ZARATE - ZONA 1",
+        "localidad_desde_id":114,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":3450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":803,
+   "fields": {
+      "descripcion": "AEP - ZONA 1",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":804,
+   "fields": {
+      "descripcion": "LA PLATA - YPF  - LUJAN",
+        "localidad_desde_id":205,
+        "localidad_hasta_id":117,
+        "baja": false,
+        "tarifario_id":2, "cat1":4690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":805,
+   "fields": {
+      "descripcion": "BERISSO - GENERAL PACHECO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":195,
+        "baja": false,
+        "tarifario_id":2, "cat1":3590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":806,
+   "fields": {
+      "descripcion": "BERISSO - CIUDADELA",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":215,
+        "baja": false,
+        "tarifario_id":2, "cat1":2900, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":807,
+   "fields": {
+      "descripcion": "DOCK SUD - SAN MIGUEL",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":45,
+        "baja": false,
+        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":808,
+   "fields": {
+      "descripcion": "ZARATE - CLAYPOLE",
+        "localidad_desde_id":114,
+        "localidad_hasta_id":216,
+        "baja": false,
+        "tarifario_id":2, "cat1":4280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":809,
+   "fields": {
+      "descripcion": "RETIRO  - CLAYPOLE",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":216,
+        "baja": false,
+        "tarifario_id":2, "cat1":1315, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":810,
+   "fields": {
+      "descripcion": "CAMPANA - EZEIZA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":811,
+   "fields": {
+      "descripcion": "BERISSO - CLAYPOLE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":216,
+        "baja": false,
+        "tarifario_id":2, "cat1":2660, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":812,
+   "fields": {
+      "descripcion": "BERISSO - CLAYPOLE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":216,
+        "baja": false,
+        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":813,
+   "fields": {
+      "descripcion": "AEP - DON TORCUATO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":217,
+        "baja": false,
+        "tarifario_id":2, "cat1":1315, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":814,
+   "fields": {
+      "descripcion": "DOCK SUD - FLORENCIO VARELA",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":138,
+        "baja": false,
+        "tarifario_id":2, "cat1":2145, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":815,
+   "fields": {
+      "descripcion": "DOCK SUD - TIGRE",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":62,
+        "baja": false,
+        "tarifario_id":2, "cat1":1590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":816,
+   "fields": {
+      "descripcion": "RETIRO  - EL PATO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":218,
+        "baja": false,
+        "tarifario_id":2, "cat1":1810, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":817,
+   "fields": {
+      "descripcion": "RETIRO  - RAFAEL CALZADA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":198,
+        "baja": false,
+        "tarifario_id":2, "cat1":1450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":818,
+   "fields": {
+      "descripcion": "TERMINAL PACHECO - EL TALAR",
+        "localidad_desde_id":202,
+        "localidad_hasta_id":219,
+        "baja": false,
+        "tarifario_id":2, "cat1":760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":819,
+   "fields": {
+      "descripcion": "BERISSO - RAFAEL CALZADA",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":198,
+        "baja": false,
+        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":820,
+   "fields": {
+      "descripcion": "AEP - ESCOBAR",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":53,
+        "baja": false,
+        "tarifario_id":2, "cat1":2485, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":821,
+   "fields": {
+      "descripcion": "LA PLATA (PUERTO) - CASTELAR",
+        "localidad_desde_id":203,
+        "localidad_hasta_id":168,
+        "baja": false,
+        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":822,
+   "fields": {
+      "descripcion": "CAMPANA - CAMPANA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":143,
+        "baja": false,
+        "tarifario_id":2, "cat1":210, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":823,
+   "fields": {
+      "descripcion": "AEP - MAQUINISTA SAVIO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":220,
+        "baja": false,
+        "tarifario_id":2, "cat1":2485, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":824,
+   "fields": {
+      "descripcion": "BERISSO - FLORIDA",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":221,
+        "baja": false,
+        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":825,
+   "fields": {
+      "descripcion": "CAMPANA - RAFAEL CALZADA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":198,
+        "baja": false,
+        "tarifario_id":2, "cat1":3520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":826,
+   "fields": {
+      "descripcion": "DOCK SUD - ESCOBAR",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":53,
+        "baja": false,
+        "tarifario_id":2, "cat1":2550, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":827,
+   "fields": {
+      "descripcion": "DOCK SUD - ADROGUE",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":178,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":828,
+   "fields": {
+      "descripcion": "BERISSO - LANUS",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":28,
+        "baja": false,
+        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":829,
+   "fields": {
+      "descripcion": "LA PLATA - WILDE",
+        "localidad_desde_id":147,
+        "localidad_hasta_id":179,
+        "baja": false,
+        "tarifario_id":2, "cat1":2140, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":830,
+   "fields": {
+      "descripcion": "RETIRO  - FLORIDA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":221,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":831,
+   "fields": {
+      "descripcion": "AEP - FRANCISCO ALVAREZ",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":222,
+        "baja": false,
+        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":832,
+   "fields": {
+      "descripcion": "DOCK SUD - GERLI",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":238,
+        "baja": false,
+        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":833,
+   "fields": {
+      "descripcion": "ENSENADA  - OLIVOS",
+        "localidad_desde_id":207,
+        "localidad_hasta_id":163,
+        "baja": false,
+        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":834,
+   "fields": {
+      "descripcion": "ISLA DEMARCHI - LAFERRERE",
+        "localidad_desde_id":208,
+        "localidad_hasta_id":209,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":835,
+   "fields": {
+      "descripcion": "BERISSO - ESCOBAR",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":53,
+        "baja": false,
+        "tarifario_id":2, "cat1":4415, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":836,
+   "fields": {
+      "descripcion": "BERISSO - NORDELTA",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":155,
+        "baja": false,
+        "tarifario_id":2, "cat1":3800, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":837,
+   "fields": {
+      "descripcion": "AEP - SAN MIGUEL",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":45,
+        "baja": false,
+        "tarifario_id":2, "cat1":1735, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":838,
+   "fields": {
+      "descripcion": "RETIRO  - GREGORIO DE LAFERRERE",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":209,
+        "baja": false,
+        "tarifario_id":2, "cat1":1590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":839,
+   "fields": {
+      "descripcion": "BERISSO - GREGORIO DE LAFERRERE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":209,
+        "baja": false,
+        "tarifario_id":2, "cat1":3800, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":840,
+   "fields": {
+      "descripcion": "AEP - BERAZATEGUI",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":44,
+        "baja": false,
+        "tarifario_id":2, "cat1":1650, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":841,
+   "fields": {
+      "descripcion": "BERISSO - JOSE C. PAZ",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":46,
+        "baja": false,
+        "tarifario_id":2, "cat1":1800, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":842,
+   "fields": {
+      "descripcion": "RETIRO  - GUERNICA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":223,
+        "baja": false,
+        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":843,
+   "fields": {
+      "descripcion": "BERISSO - LA PLATA TERMINAL",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":224,
+        "baja": false,
+        "tarifario_id":2, "cat1":625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":844,
+   "fields": {
+      "descripcion": "ENSENADA - LA PLATA TERMINAL",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":224,
+        "baja": false,
+        "tarifario_id":2, "cat1":625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":845,
+   "fields": {
+      "descripcion": "RETIRO  - QUILMES",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":39,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":846,
+   "fields": {
+      "descripcion": "ENSENADA - HURLINGHAM",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":48,
+        "baja": false,
+        "tarifario_id":2, "cat1":3725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":847,
+   "fields": {
+      "descripcion": "RETIRO  - LANUS",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":28,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":848,
+   "fields": {
+      "descripcion": "DOCK SUD - LAVALLOL",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":225,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":849,
+   "fields": {
+      "descripcion": "BERISSO - LAVALLOL",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":225,
+        "baja": false,
+        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":850,
+   "fields": {
+      "descripcion": "CAMPANA - LANUS",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":28,
+        "baja": false,
+        "tarifario_id":2, "cat1":3310, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":851,
+   "fields": {
+      "descripcion": "BERISSO - MORENO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":36,
+        "baja": false,
+        "tarifario_id":2, "cat1":3940, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":852,
+   "fields": {
+      "descripcion": "CAMPANA - AVELLANEDA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":26,
+        "baja": false,
+        "tarifario_id":2, "cat1":3100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":853,
+   "fields": {
+      "descripcion": "CAMPANA - MORON",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":42,
+        "baja": false,
+        "tarifario_id":2, "cat1":3100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":854,
+   "fields": {
+      "descripcion": "ENSENADA - SAN FERNANDO",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":40,
+        "baja": false,
+        "tarifario_id":2, "cat1":3590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":855,
+   "fields": {
+      "descripcion": "AEP - MERLO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":144,
+        "baja": false,
+        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":856,
+   "fields": {
+      "descripcion": "AEP - LOMAS DEL MIRADOR",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":226,
+        "baja": false,
+        "tarifario_id":2, "cat1":1090, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":857,
+   "fields": {
+      "descripcion": "RETIRO  - LOMAS DEL MIRADOR",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":226,
+        "baja": false,
+        "tarifario_id":2, "cat1":910, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":858,
+   "fields": {
+      "descripcion": "BERISSO - LUJAN",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":117,
+        "baja": false,
+        "tarifario_id":2, "cat1":4590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":859,
+   "fields": {
+      "descripcion": "LA PLATA - LOMAS DEL MIRADOR",
+        "localidad_desde_id":147,
+        "localidad_hasta_id":226,
+        "baja": false,
+        "tarifario_id":2, "cat1":3310, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":860,
+   "fields": {
+      "descripcion": "DOCK SUD - LONGCHAMPS",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":227,
+        "baja": false,
+        "tarifario_id":2, "cat1":1555, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":861,
+   "fields": {
+      "descripcion": "AEP - LONGCHAMPS",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":227,
+        "baja": false,
+        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":862,
+   "fields": {
+      "descripcion": "TERMINAL PACHECO - SAN FERNANDO",
+        "localidad_desde_id":202,
+        "localidad_hasta_id":40,
+        "baja": false,
+        "tarifario_id":2, "cat1":900, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":863,
+   "fields": {
+      "descripcion": "RETIRO  - ITUZAINGO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":49,
+        "baja": false,
+        "tarifario_id":2, "cat1":1590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":864,
+   "fields": {
+      "descripcion": "RETIRO  - LONGCHAMPS",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":227,
+        "baja": false,
+        "tarifario_id":2, "cat1":1730, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":865,
+   "fields": {
+      "descripcion": "RETIRO  - MORENO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":36,
+        "baja": false,
+        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":866,
+   "fields": {
+      "descripcion": "ENSENADA - LONGCHAMPS",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":227,
+        "baja": false,
+        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":867,
+   "fields": {
+      "descripcion": "TERMINAL ESCOBAR - MAQUINISTA SAVIO",
+        "localidad_desde_id":201,
+        "localidad_hasta_id":220,
+        "baja": false,
+        "tarifario_id":2, "cat1":760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":868,
+   "fields": {
+      "descripcion": "AEP - FLORENCIO VARELA",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":138,
+        "baja": false,
+        "tarifario_id":2, "cat1":2790, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":869,
+   "fields": {
+      "descripcion": "CAMPANA - SAN FERNANDO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":40,
+        "baja": false,
+        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":870,
+   "fields": {
+      "descripcion": "DOCK SUD - LA PLATA",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":147,
+        "baja": false,
+        "tarifario_id":2, "cat1":2485, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":871,
+   "fields": {
+      "descripcion": "CAMPANA - ITUZAINGO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":49,
+        "baja": false,
+        "tarifario_id":2, "cat1":2970, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":872,
+   "fields": {
+      "descripcion": "AEP - MONTE GRANDE",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":228,
+        "baja": false,
+        "tarifario_id":2, "cat1":1865, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":873,
+   "fields": {
+      "descripcion": "LA PLATA - OLIVOS",
+        "localidad_desde_id":147,
+        "localidad_hasta_id":163,
+        "baja": false,
+        "tarifario_id":2, "cat1":3090, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":874,
+   "fields": {
+      "descripcion": "BERISSO - AEP",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":2, "cat1":3385, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":875,
+   "fields": {
+      "descripcion": "EZEIZA - MONTE GRANDE",
+        "localidad_desde_id":43,
+        "localidad_hasta_id":228,
+        "baja": false,
+        "tarifario_id":2, "cat1":1925, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":876,
+   "fields": {
+      "descripcion": "AEP - QUILMES",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":39,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":877,
+   "fields": {
+      "descripcion": "CAMPANA - MORENO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":36,
+        "baja": false,
+        "tarifario_id":2, "cat1":4275, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":878,
+   "fields": {
+      "descripcion": "TERMINAL PACHECO - SAN MIGUEL",
+        "localidad_desde_id":202,
+        "localidad_hasta_id":45,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":879,
+   "fields": {
+      "descripcion": "RETIRO  - BANFIELD",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":176,
+        "baja": false,
+        "tarifario_id":2, "cat1":1100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":880,
+   "fields": {
+      "descripcion": "BERISSO - MONTE GRANDE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":228,
+        "baja": false,
+        "tarifario_id":2, "cat1":3450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":881,
+   "fields": {
+      "descripcion": "BERISSO - MORON",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":42,
+        "baja": false,
+        "tarifario_id":2, "cat1":3270, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":882,
+   "fields": {
+      "descripcion": "AEP - MORON",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":42,
+        "baja": false,
+        "tarifario_id":2, "cat1":1520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":883,
+   "fields": {
+      "descripcion": "AEP - OLIVOS",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":163,
+        "baja": false,
+        "tarifario_id":2, "cat1":965, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":884,
+   "fields": {
+      "descripcion": "LA PLATA - AEP",
+        "localidad_desde_id":147,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":2, "cat1":2830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":885,
+   "fields": {
+      "descripcion": "DOCK SUD - PASO DEL REY",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":229,
+        "baja": false,
+        "tarifario_id":2, "cat1":2070, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":886,
+   "fields": {
+      "descripcion": "RETIRO  - LA PLATA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":147,
+        "baja": false,
+        "tarifario_id":2, "cat1":2420, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":887,
+   "fields": {
+      "descripcion": "EZEIZA - MERLO",
+        "localidad_desde_id":43,
+        "localidad_hasta_id":144,
+        "baja": false,
+        "tarifario_id":2, "cat1":2620, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":888,
+   "fields": {
+      "descripcion": "DOCK SUD - OLIVOS",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":163,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":889,
+   "fields": {
+      "descripcion": "RETIRO  - PASO DEL REY",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":229,
+        "baja": false,
+        "tarifario_id":2, "cat1":1810, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":890,
+   "fields": {
+      "descripcion": "BERISSO - PILAR",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":37,
+        "baja": false,
+        "tarifario_id":2, "cat1":4480, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":891,
+   "fields": {
+      "descripcion": "ENSENADA - FLORENCIO VARELA",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":138,
+        "baja": false,
+        "tarifario_id":2, "cat1":2145, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":892,
+   "fields": {
+      "descripcion": "BERISSO - SAN FERNANDO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":40,
+        "baja": false,
+        "tarifario_id":2, "cat1":4480, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":893,
+   "fields": {
+      "descripcion": "AEP - PLATANOS",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":236,
+        "baja": false,
+        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":894,
+   "fields": {
+      "descripcion": "CAMPANA - FLORENCIO VARELA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":138,
+        "baja": false,
+        "tarifario_id":2, "cat1":4000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":895,
+   "fields": {
+      "descripcion": "RETIRO  - MERLO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":144,
+        "baja": false,
+        "tarifario_id":2, "cat1":1795, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":896,
+   "fields": {
+      "descripcion": "RETIRO  - PLATANOS",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":236,
+        "baja": false,
+        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":897,
+   "fields": {
+      "descripcion": "DOCK SUD - TORTUGUITAS",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":159,
+        "baja": false,
+        "tarifario_id":2, "cat1":2210, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":898,
+   "fields": {
+      "descripcion": "RETIRO  - RANELAGH",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":214,
+        "baja": false,
+        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":899,
+   "fields": {
+      "descripcion": "DOCK SUD - CHASCOMUS",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":15,
+        "baja": false,
+        "tarifario_id":2, "cat1":4695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":900,
+   "fields": {
+      "descripcion": "RETIRO  - FLORENCIO VARELA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":138,
+        "baja": false,
+        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":901,
+   "fields": {
+      "descripcion": "ENSENADA - ZONA 1",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":3174, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":902,
+   "fields": {
+      "descripcion": "RETIRO  - SAN FRANCISCO SOLANO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":210,
+        "baja": false,
+        "tarifario_id":2, "cat1":1275, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":903,
+   "fields": {
+      "descripcion": "DOCK SUD - LUJAN",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":117,
+        "baja": false,
+        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":904,
+   "fields": {
+      "descripcion": "DOCK SUD - RAMOS MEJIA",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":166,
+        "baja": false,
+        "tarifario_id":2, "cat1":1520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":905,
+   "fields": {
+      "descripcion": "CAMPANA - SAN FRANCISCO SOLANO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":210,
+        "baja": false,
+        "tarifario_id":2, "cat1":3935, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":906,
+   "fields": {
+      "descripcion": "CAMPANA - SAN LORENZO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":230,
+        "baja": false,
+        "tarifario_id":2, "cat1":8625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":907,
+   "fields": {
+      "descripcion": "CAMPANA - LUJAN",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":117,
+        "baja": false,
+        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":908,
+   "fields": {
+      "descripcion": "AEP - SARANDI",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":231,
+        "baja": false,
+        "tarifario_id":2, "cat1":830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":909,
+   "fields": {
+      "descripcion": "BERISSO - ZARATE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":114,
+        "baja": false,
+        "tarifario_id":2, "cat1":6625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":910,
+   "fields": {
+      "descripcion": "TERMINAL PACHECO - TIGRE",
+        "localidad_desde_id":202,
+        "localidad_hasta_id":62,
+        "baja": false,
+        "tarifario_id":2, "cat1":900, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":911,
+   "fields": {
+      "descripcion": "AEP - LUJAN",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":117,
+        "baja": false,
+        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":912,
+   "fields": {
+      "descripcion": "RETIRO  - VILLA ADELINA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":232,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":913,
+   "fields": {
+      "descripcion": "AEP - VILLA ADELINA",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":232,
+        "baja": false,
+        "tarifario_id":2, "cat1":1165, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":914,
+   "fields": {
+      "descripcion": "DOCK SUD - VILLA CELINA",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":233,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":915,
+   "fields": {
+      "descripcion": "RETIRO  - VILLA CELINA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":233,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":916,
+   "fields": {
+      "descripcion": "CAMPANA - BERNAL",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":180,
+        "baja": false,
+        "tarifario_id":2, "cat1":3450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":917,
+   "fields": {
+      "descripcion": "BERISSO - VILLA MADERO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":234,
+        "baja": false,
+        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":918,
+   "fields": {
+      "descripcion": "AEP - VILLA MADERO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":234,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":919,
+   "fields": {
+      "descripcion": "CAMPANA - RAMOS MEJIA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":166,
+        "baja": false,
+        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":920,
+   "fields": {
+      "descripcion": "CAMPANA - VILLA MAIPU",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":235,
+        "baja": false,
+        "tarifario_id":2, "cat1":2760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}}
+        
 ]
