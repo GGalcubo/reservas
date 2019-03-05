@@ -263,8 +263,10 @@ class Persona(models.Model):
         unidad = Unidad()
         if self.tipo_persona.id == 3:
             unidades = Unidad.objects.filter(chofer__id=self.id)
-        elif self.tipo_persona.id == 4:
+        if self.tipo_persona.id == 4:
             unidades = Unidad.objects.filter(owner__id=self.id)
+        elif  self.tipo_persona.id == 2 or self.tipo_persona.id == 1:
+            unidades = ""
         if len(unidades) > 0:
             unidad = unidades[0]
         return unidad

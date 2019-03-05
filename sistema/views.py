@@ -153,6 +153,7 @@ def guardarViaje(request):
         viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
         mensaje = 'El viaje se actualizo correctamente.'
 
+    print request.POST.get('estado', False)
     viaje.estado 				= Estado.objects.get(id=request.POST.get('estado', False))
     viaje.cliente 				= Cliente.objects.get(id=request.POST.get('cliente', False))
     viaje.categoria_viaje 		= CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
@@ -1034,7 +1035,7 @@ def guardarSolicitanteProspect(request):
 		perCli.persona = persona
 		perCli.cliente = cliente
 		perCli.save()
-	
+
 	if telefono != "" and telefono != "Sin telefono":
 		if len(persona.telefonopersona_set.all()) > 0:
 			tel = persona.telefonopersona_set.all()[0].telefono
@@ -1160,7 +1161,7 @@ def guardarCliente(request):
 		else:
 			tel = Telefono()
 			telcli = TelefonoCliente()
-		
+
 	cliente.razon_social = request.POST.get('razonSocial', "")
 	cliente.cuil = request.POST.get('cuil', "")
 	cliente.calle = request.POST.get('calle', "")
@@ -1364,7 +1365,7 @@ def guardarObservacionPersona(request):
 
 @login_required
 def listadoProvedor(request):
-	provedores = Persona.objects.filter(tipo_persona__id__in=[3,4],baja=False)
+	provedores = Persona.objects.filter(tipo_persona__id__in=[1,2,3,4],baja=False)
 	context = {'provedores': provedores}
 	return render(request, 'sistema/listadoProvedor.html', context)
 
@@ -1417,7 +1418,7 @@ def altaUnidad(request):
 	mensaje = ""
 	ids_fake = []
 	unidad = Unidad()
-	unidad.id = 0	
+	unidad.id = 0
 	unidades = Unidad.objects.values_list('id_fake', flat=True)
 	unidades = map(lambda x:int(x), unidades)
 	for number in range(1100):
@@ -1703,19 +1704,12 @@ def guardarTarifario(request):
 @login_required
 def editarTarifaTrayecto(request):
 	idTarifaTrayecto = request.POST.get('idTarifaTrayecto', "")
-	localidades = Localidad.objects.all().values_list('id', 'nombre').order_by('nombre')
-	localidades = map(lambda localidades:(int(localidades[0]),localidades[1]), localidades)
-	print localidades
 	if idTarifaTrayecto == "0":
 		tramoTarifa = TarifaTrayecto()
 		tramoTarifa.id = 0
-		idDesde = ""
-		idHasta = ""
 	else:
 		tramoTarifa = TarifaTrayecto.objects.get(id=idTarifaTrayecto)
-		idDesde = tramoTarifa.localidad_desde.id
-		idHasta = tramoTarifa.localidad_hasta.id
-	context = {'tramoTarifa': tramoTarifa, 'localidades':localidades, 'idDesde':idDesde, 'idHasta': idHasta}
+	context = {'tramoTarifa': tramoTarifa}
 	return render(request, 'sistema/tarifaTrayecto.html', context)
 
 @login_required
@@ -1734,7 +1728,7 @@ def editarTarifaExtra(request):
 def guardarTarifaTrayecto(request):
 	idTarifario		 = request.POST.get('idTarifario', "")
 	idTarifaTrayecto = request.POST.get('idTarifaTrayecto', "")
-	
+
 	tarifaTrayecto = TarifaTrayecto.objects.get(id=idTarifaTrayecto)
 
 	for x in range(9):
@@ -1864,7 +1858,7 @@ def guardarMasivo(request):
 @login_required
 def listadoLicencia(request):
 	licencias = Licencia.objects.all()
-	
+
 	context = {'licencias': licencias}
 	return render(request, 'sistema/listadoLicencia.html', context)
 
@@ -2017,11 +2011,11 @@ def adelanto(request):
 	provedorId = adelanto.proveedor.id
 	request.session['estadoAdelanto'] = ''
 
-	context = {'mensaje': mensaje, 
+	context = {'mensaje': mensaje,
 				'proveedores':proveedores,
-				'tipos_adelanto':tipos_adelanto, 
-				'estado':estado, 
-				'idAdelanto':idAdelanto,  
+				'tipos_adelanto':tipos_adelanto,
+				'estado':estado,
+				'idAdelanto':idAdelanto,
 				'tipoAdelantoId':tipoAdelantoId,
 				'adelanto':adelanto,
 				'provedorId':provedorId
@@ -2038,7 +2032,7 @@ def guardarAdelanto(request):
 	descripcion = request.POST.get('descripcion', False)
 	fecha = request.POST.get('fecha', False)
 	factura = request.POST.get('factura', False)
-	
+
 	if idAdelanto == "0":
 		adelanto = Adelanto()
 		request.session['estadoAdelanto'] = 'nuevo'
@@ -2224,7 +2218,7 @@ def buscarFacturacionCliente(request):
 			if c == "0":
 				sinFactura = True
 			facList.append(c)
-	
+
 	proList = []
 	sinProforma = False
 	if proformas != "null":
@@ -2257,7 +2251,7 @@ def buscarFacturacionCliente(request):
 			viajes = viajes.filter(centro_costo_id__in=ccList)
 		if solList:
 			viajes = viajes.filter(cliente__personacliente__persona_id__in=solList)
-		
+
 		if condEspecial == "1":
 			q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() == 0]
 			viajes = viajes.filter(id__in=q_ids)
@@ -2423,7 +2417,7 @@ def cargarFacturaProveedor(request):
 def borrarSolicitanteCliente(request):
 	idPersona = request.POST.get('idPersona', False)
 	idCliente = request.POST.get('idCliente', False)
-	
+
 	persona = Persona.objects.get(id=idPersona)
 	persona.baja = True
 	persona.save()
@@ -2440,7 +2434,7 @@ def borrarSolicitanteCliente(request):
 def borrarPasajeroCliente(request):
 	idPersona = request.POST.get('idPersona', False)
 	idCliente = request.POST.get('idCliente', False)
-	
+
 	persona = Persona.objects.get(id=idPersona)
 	persona.baja = True
 	persona.save()

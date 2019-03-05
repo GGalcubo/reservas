@@ -69,8 +69,8 @@
                                                     <td>{{ p.getTelefono }}</td>
                                                     <td>{{ p.mail|default_if_none:"" }}</td>
                                                     <td>{{ p.tipo_persona.tipo_persona|default_if_none:"" }}</td>
-                                                    <td>{{ p.getUnidad.id }}</td>
-                                                    <td>{{ p.getUnidad.identificacion }}</td>
+                                                    <td>{{ p.getUnidad.id|default_if_none:""  }}</td>
+                                                    <td>{{ p.getUnidad.identificacion |default_if_none:"" }}</td>
                                                 </tr>
                                                 {% endfor %}
                                             </tbody>
@@ -91,7 +91,7 @@
         </div>
         <!-- END CONTAINER -->
         {% include "sistema/footer.html" %}
-            
+
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 $(document).ready(function(){
@@ -140,7 +140,7 @@
                             }
                         }
                     } );
-                    
+
                 });
             </script>
 
