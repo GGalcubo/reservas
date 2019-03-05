@@ -30,6 +30,7 @@
         <tr>
             <td class="text-center">
                 <a href="#" onclick="editarTarifaTrayecto('{{ trayecto.id }}');" data-toggle="modal" role="button" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                <a href="#" onclick="borrarTarifaTrayecto('{{ trayecto.id }}');" data-toggle="modal" role="button" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
             </td>
             <td>{{trayecto.localidad_desde}}</td>
             <td>{{trayecto.localidad_hasta}}</td>
