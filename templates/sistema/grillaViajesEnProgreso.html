@@ -20,7 +20,32 @@
         <tbody>
             {% for v in viajes %}
                 {% if v.estado_id == 5 %}
-                    <tr>
+                    {% for t in v.getTrayectos %}
+                      <tr>
+                            <td class="all text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>
+                            <td class="all">{{ v.categoria_viaje }}</td>
+                            <td class="all">{{ v.getFecha }}</td>
+                            <td class="all">{{ v.hora }}</td>
+                            <td class="all">{{ v.hora_estimada }}</td>
+                            <td class="all"><span class="label label-primary" style="background-color: {{ v.estado.color }}!important;"> {{ v.estado }} </span></td>
+                            <td class="all">{{ v.unidad.id }}</td>
+                            <td class="all">{{ v.unidad.identificacion }}</td>
+                            {% ifequal t.destino_desde.nombre "Interior" %}
+                                <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.destino_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ t.desdeConcat }}</span></td>
+                            {% else %}
+                                <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ t.desdeConcat }}</span></td>
+                            {% endifequal %}
+                            {% ifequal t.destino_hasta.nombre "Interior" %}
+                                <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.destino_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ t.hastaConcat }}</span></td>
+                            {% else %}
+                                <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ t.hastaConcat }}</span></td>
+                            {% endifequal %}
+                            <td class="all">{{v.pasajero.apellido }},{{ v.pasajero.nombre }}{{v.getViajeBilingue}}</td>
+                            <td class="all">{{v.solicitante.apellido }},{{ v.solicitante.nombre }}</td>
+                            <td class="all">{{ v.centro_costo.nombre }}</td>
+                        </tr>
+                    {% empty %}
+                      <tr>
                         <td class="all text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>
                         <td class="all">{{ v.categoria_viaje }}</td>
                         <td class="all">{{ v.getFecha }}</td>
@@ -39,10 +64,11 @@
                         {% else %}
                             <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ v.getTrayectoPrincipal.localidad_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ v.getTrayectoPrincipal.hastaConcat }}</span></td>
                         {% endifequal %}
-                        <td class="all">{{ v.pasajero }}</td>
-                        <td class="all">{{ v.solicitante }}</td>
-                        <td class="all">{{ v.centro_costo }}</td>
+                        <td class="all">{{v.pasajero.apellido }},{{ v.pasajero.nombre }}{{v.getViajeBilingue}}</td>
+                        <td class="all">{{v.solicitante.apellido }},{{ v.solicitante.nombre }}</td>
+                        <td class="all">{{ v.centro_costo.nombre }}</td>
                     </tr>
+                    {% endfor %}
                 {% endif %}
         {% endfor %}
         </tbody>

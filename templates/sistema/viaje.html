@@ -193,9 +193,9 @@
                                                             <option value=""></option>
                                                             {% for u in unidades %}
                                                                 {% if u.id == viaje.unidad.id %}
-                                                                    <option selected="selected" value="{{ u.id }}">{{u.id}} - {{ u.identificacion }}</option>
+                                                                    <option selected="selected" value="{{ u.id }}">{{u.id_fake}} - {{ u.identificacion }}</option>
                                                                 {% else %}
-                                                                    <option value="{{ u.id }}">{{u.id}} - {{ u.identificacion }}</option>
+                                                                    <option value="{{ u.id }}">{{u.id_fake}} - {{ u.identificacion }}</option>
                                                                 {% endif %}
                                                             {% endfor %}
                                                         </select>
@@ -214,8 +214,8 @@
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
                                                             <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control"  id="tarifa_pasada" name="tarifa_pasada" value="{{ viaje.tarifapasada }}">
-                                                            <label for="tarifa_pasada">Tarifa pasada</label>
+                                                            <input type="text" class="form-control"  id="tarifa_pasada" name="tarifa_pasada" value="{{ viaje.tarifapasada|default_if_none:'' }}">
+                                                            <label for="tarifa_pasada">Comentario interno</label>
                                                         </div>
                                                     </div>
                                                 </div>

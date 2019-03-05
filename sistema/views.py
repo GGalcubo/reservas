@@ -100,12 +100,13 @@ def altaViaje(request):
                'tipoobservacion':TipoObservacion.objects.all(),
                #'observacion':Observacion.objects.all(),
                'tipo_pago':TipoPagoViaje.objects.all(),
+               #'unidades':Unidad.objects.values_list('id_fake', 'id', 'identificacion'),
                'unidades':Unidad.objects.all(),
                'estados':Estado.objects.all(),
                'categoria_viajes':CategoriaViaje.objects.all(),
-               'destinos':TrayectoDestino.objects.all(),
-               'localidades':CategoriaViaje.objects.all(),
-               'provincias':Provincia.objects.all(),
+               #'destinos':TrayectoDestino.objects.all(),
+               #'localidades':Localidad.objects.all(),
+               #'provincias':Provincia.objects.all(),
                'es_nuevo':es_nuevo,
                'viaje':viaje}
 
@@ -133,7 +134,7 @@ def editaViaje(request):
                'estados':Estado.objects.all(),
                'categoria_viajes':CategoriaViaje.objects.all(),
                'destinos':TrayectoDestino.objects.all(),
-               'localidades':Localidad.objects.all(),
+               'localidades':Localidad.objects.filter(baja=False),
                'provincias':Provincia.objects.all(),
                'es_nuevo':es_nuevo,
                'viaje':viaje,
@@ -149,11 +150,13 @@ def guardarViaje(request):
 
     if es_nuevo == "1":
         viaje = Viaje()
+        trayecto = Trayecto()
+        trayecto.viaje = viaje
+        trayecto.save()
     else:
         viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
         mensaje = 'El viaje se actualizo correctamente.'
 
-    print request.POST.get('estado', False)
     viaje.estado 				= Estado.objects.get(id=request.POST.get('estado', False))
     viaje.cliente 				= Cliente.objects.get(id=request.POST.get('cliente', False))
     viaje.categoria_viaje 		= CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
@@ -179,8 +182,6 @@ def guardarViaje(request):
         'msg': mensaje
     }
 
-    viaje.save()
-
     #guardaViajePasajero(pasajero, True, viaje)
     guardaItemViaje(request.POST.get('importe_efectivo', ''), 12, 1, viaje, False)
     guardaItemViaje(request.POST.get('otros', ''), 16, 1, viaje, False)
@@ -192,7 +193,7 @@ def guardarViaje(request):
     guardaItemViajeBilingue('', 9, request.POST.get('bilingue', ''), viaje, False)
     guardaItemViajeMaletas('', 10, request.POST.get('maletas', ''), viaje, False)
 
-    if viaje.estado.id == 6 or viaje.estado.id == 7:
+    if viaje.estado.id == 6 or viaje.estado.id == 7 and viaje.calculo_admin is False:
         guardaItemViajeCostoProveedor('', 8, 1, viaje, False)
 
         guardaItemViaje              (request.POST.get('otros', ''), 17, 1, viaje, False)
@@ -204,7 +205,9 @@ def guardarViaje(request):
         guardaItemViajeBilingueAdmin ('', 3, request.POST.get('bilingue', ''), viaje, False)
         guardaItemViajeMaletasAdmin  ('', 4, request.POST.get('maletas', ''), viaje, False)
 
-        items_viaje = serializers.serialize('json',ItemViaje.objects.filter(viaje=viaje))
+        viaje.calculo_admin = True
+
+        items_viaje = serializers.serialize('json', ItemViaje.objects.filter(viaje=viaje))
         return HttpResponse(items_viaje, content_type='application/json')
 
     if es_nuevo == "1":
@@ -212,6 +215,7 @@ def guardarViaje(request):
             'url': '/sistema/editaViaje/?idViaje=' + str(viaje.id) + '&msg=1',
         }
 
+    viaje.save()
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
 
@@ -239,21 +243,53 @@ def guardaViajeAdmin(request):
     items_viaje = serializers.serialize('json', ItemViaje.objects.filter(viaje=viaje))
     return HttpResponse(items_viaje, content_type='application/json')
 
+def getTarifaTrayecto(categoria_viaje, tarifario, trayecto):
+    if categoria_viaje == 1:
+        return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta).cat1
+    elif categoria_viaje == 2:
+        return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta).cat2
+    elif categoria_viaje == 3:
+        return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta).cat3
+    elif categoria_viaje == 4:
+        return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta).cat4
+    elif categoria_viaje == 5:
+        return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta).cat5
+    elif categoria_viaje == 6:
+        return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta).cat6
+    elif categoria_viaje == 7:
+        return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta).cat7
+    elif categoria_viaje == 8:
+        return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta).cat8
+
+def getTarifaTrayectoExtra(categoria_viaje, tarifario, extra_descripcion):
+    if categoria_viaje == 1:
+        return TarifaExtra.objects.get(tarifario=tarifario, extra_descripcion=extra_descripcion).cat1
+    elif categoria_viaje == 2:
+        return TarifaExtra.objects.get(tarifario=tarifario, extra_descripcion=extra_descripcion).cat2
+    elif categoria_viaje == 3:
+        return TarifaExtra.objects.get(tarifario=tarifario, extra_descripcion=extra_descripcion).cat3
+    elif categoria_viaje == 4:
+        return TarifaExtra.objects.get(tarifario=tarifario, extra_descripcion=extra_descripcion).cat4
+    elif categoria_viaje == 5:
+        return TarifaExtra.objects.get(tarifario=tarifario, extra_descripcion=extra_descripcion).cat5
+    elif categoria_viaje == 6:
+        return TarifaExtra.objects.get(tarifario=tarifario, extra_descripcion=extra_descripcion).cat6
+    elif categoria_viaje == 7:
+        return TarifaExtra.objects.get(tarifario=tarifario, extra_descripcion=extra_descripcion).cat7
+    elif categoria_viaje == 8:
+        return TarifaExtra.objects.get(tarifario=tarifario, extra_descripcion=extra_descripcion).cat8
+
+
 def guardaItemViajeCostoProveedor(monto, tipo_item_viaje, cant, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
-    centro_costo    = viaje.centro_costo
-    monto_s_iva     = 0
-    monto_iva       = 0
+    unidad          = viaje.unidad
 
     try:
-        trayecto = viaje.getTrayectoPrincipal()
-        tarifa_trayecto = TarifaTrayecto.objects.get(tarifario=centro_costo.tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta)
-        tarifa_trayecto_precio = TarifaTrayectoPrecio.objects.get(categoria_viaje=viaje.categoria_viaje, tarifatrayecto=tarifa_trayecto)
-        base = tarifa_trayecto_precio.precio_prov
+        base = getTarifaTrayecto(viaje.categoria_viaje, unidad.tarifario, viaje.getTrayectoPrincipal())
     except Exception as e:
         base = 0
     try:
-        item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
+        item_viaje_otros = ItemViaje.objects.get(viaje=viaje, tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
     except ItemViaje.DoesNotExist:
         monto = 0 if monto == '' else monto
@@ -275,17 +311,12 @@ def guardaItemViajeCostoProveedor(monto, tipo_item_viaje, cant, viaje, manual):
 def guardaItemViajeCostoCliente(monto, tipo_item_viaje, cant, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
     centro_costo    = viaje.centro_costo
-    monto_s_iva     = 0
-    monto_iva       = 0
     try:
-        trayecto = viaje.getTrayectoPrincipal()
-        tarifa_trayecto = TarifaTrayecto.objects.get(tarifario=centro_costo.tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta)
-        tarifa_trayecto_precio = TarifaTrayectoPrecio.objects.get(categoria_viaje=viaje.categoria_viaje, tarifatrayecto=tarifa_trayecto)
-        base = tarifa_trayecto_precio.precio_cliente
+        base = getTarifaTrayecto(viaje.categoria_viaje, centro_costo.tarifario, viaje.getTrayectoPrincipal())
     except Exception as e:
         base = 0
     try:
-        item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
+        item_viaje_otros = ItemViaje.objects.get(viaje=viaje, tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
     except ItemViaje.DoesNotExist:
         monto = 0 if monto == '' else monto
@@ -306,11 +337,12 @@ def guardaItemViajeCostoCliente(monto, tipo_item_viaje, cant, viaje, manual):
 
 def guardaItemViajeMaletas(monto, tipo_item_viaje, checkbox, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
-    centro_costo    = viaje.centro_costo
-    tarifa_extra = TarifaExtra.objects.get(tarifario=centro_costo.tarifario, extra_descripcion='maletas')
-    tarifa_extra_precio = TarifaExtraPrecio.objects.get(categoria_viaje=viaje.categoria_viaje, tarifa_extra=tarifa_extra)
-    monto_s_iva     = 0
-    monto_iva       = 0
+    unidad          = viaje.unidad
+
+    try:
+        base = getTarifaTrayectoExtra(viaje.categoria_viaje, unidad.tarifario, 'maletas')
+    except Exception as e:
+        base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
@@ -324,7 +356,7 @@ def guardaItemViajeMaletas(monto, tipo_item_viaje, checkbox, viaje, manual):
         item_viaje_otros = ItemViaje()
 
     monto = round(float(monto), 2)
-    monto_s_iva = monto if manual else round(float(tarifa_extra_precio.extra_precio_prov), 2)
+    monto_s_iva = monto if manual else round(float(base), 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = checkbox
@@ -339,10 +371,11 @@ def guardaItemViajeMaletas(monto, tipo_item_viaje, checkbox, viaje, manual):
 def guardaItemViajeMaletasAdmin(monto, tipo_item_viaje, checkbox, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
     centro_costo    = viaje.centro_costo
-    tarifa_extra = TarifaExtra.objects.get(tarifario=centro_costo.tarifario, extra_descripcion='maletas')
-    tarifa_extra_precio = TarifaExtraPrecio.objects.get(categoria_viaje=viaje.categoria_viaje, tarifa_extra=tarifa_extra)
-    monto_s_iva     = 0
-    monto_iva       = 0
+
+    try:
+        base = getTarifaTrayectoExtra(viaje.categoria_viaje, centro_costo.tarifario, 'maletas')
+    except Exception as e:
+        base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
@@ -356,7 +389,7 @@ def guardaItemViajeMaletasAdmin(monto, tipo_item_viaje, checkbox, viaje, manual)
         item_viaje_otros = ItemViaje()
 
     monto = round(float(monto), 2)
-    monto_s_iva = monto if manual else round(float(tarifa_extra_precio.extra_precio), 2)
+    monto_s_iva = monto if manual else round(float(base), 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = checkbox
@@ -370,15 +403,10 @@ def guardaItemViajeMaletasAdmin(monto, tipo_item_viaje, checkbox, viaje, manual)
 
 def guardaItemViajeBilingue(monto, tipo_item_viaje, checkbox, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
-    centro_costo    = viaje.centro_costo
-    monto_s_iva     = 0
-    monto_iva       = 0
+    unidad          = viaje.unidad
 
     try:
-        trayecto = viaje.getTrayectoPrincipal()
-        tarifa_trayecto = TarifaTrayecto.objects.get(tarifario=centro_costo.tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta)
-        tarifa_trayecto_precio = TarifaTrayectoPrecio.objects.get(categoria_viaje=viaje.categoria_viaje, tarifatrayecto=tarifa_trayecto)
-        base = tarifa_trayecto_precio.precio_prov
+        base = getTarifaTrayecto(viaje.categoria_viaje, unidad.tarifario, viaje.getTrayectoPrincipal())
     except Exception as e:
         base = 0
 
@@ -410,14 +438,9 @@ def guardaItemViajeBilingue(monto, tipo_item_viaje, checkbox, viaje, manual):
 def guardaItemViajeBilingueAdmin(monto, tipo_item_viaje, checkbox, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
     centro_costo    = viaje.centro_costo
-    monto_s_iva     = 0
-    monto_iva       = 0
 
     try:
-        trayecto = viaje.getTrayectoPrincipal()
-        tarifa_trayecto = TarifaTrayecto.objects.get(tarifario=centro_costo.tarifario, localidad_desde=trayecto.localidad_desde, localidad_hasta=trayecto.localidad_hasta)
-        tarifa_trayecto_precio = TarifaTrayectoPrecio.objects.get(categoria_viaje=viaje.categoria_viaje, tarifatrayecto=tarifa_trayecto)
-        base = tarifa_trayecto_precio.precio_cliente
+        base = getTarifaTrayecto(viaje.categoria_viaje, centro_costo.tarifario, viaje.getTrayectoPrincipal())
     except Exception as e:
         base = 0
 
@@ -448,12 +471,12 @@ def guardaItemViajeBilingueAdmin(monto, tipo_item_viaje, checkbox, viaje, manual
 
 def guardaItemViajeEspera(monto, tipo_item_viaje, tiempo, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
-    centro_costo    = viaje.centro_costo
-    tarifa_extra = TarifaExtra.objects.get(tarifario=centro_costo.tarifario, extra_descripcion='espera')
-    tarifa_extra_precio = TarifaExtraPrecio.objects.get(categoria_viaje=viaje.categoria_viaje, tarifa_extra=tarifa_extra)
-    monto_s_iva     = 0
-    monto_iva       = 0
+    unidad          = viaje.unidad
 
+    try:
+        base = getTarifaTrayectoExtra(viaje.categoria_viaje, unidad.tarifario, 'espera')
+    except Exception as e:
+        base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
@@ -467,7 +490,7 @@ def guardaItemViajeEspera(monto, tipo_item_viaje, tiempo, viaje, manual):
         item_viaje_otros = ItemViaje()
 
     monto       = round(float(monto), 2)
-    monto_s_iva = monto if manual else round((int(tiempo)/15) * float(tarifa_extra_precio.extra_precio_prov), 2)
+    monto_s_iva = monto if manual else round((int(tiempo)/15) * float(base), 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = tiempo
@@ -482,10 +505,10 @@ def guardaItemViajeEspera(monto, tipo_item_viaje, tiempo, viaje, manual):
 def guardaItemViajeEsperaAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
     centro_costo    = viaje.centro_costo
-    tarifa_extra    = TarifaExtra.objects.get(tarifario=centro_costo.tarifario, extra_descripcion='espera')
-    tarifa_extra_precio    = TarifaExtraPrecio.objects.get(categoria_viaje=viaje.categoria_viaje, tarifa_extra=tarifa_extra)
-    monto_s_iva     = 0
-    monto_iva       = 0
+    try:
+        base = getTarifaTrayectoExtra(viaje.categoria_viaje, centro_costo.tarifario, 'espera')
+    except Exception as e:
+        base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
@@ -499,7 +522,7 @@ def guardaItemViajeEsperaAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
         item_viaje_otros = ItemViaje()
 
     monto       = round(float(monto), 2)
-    monto_s_iva = monto if manual else round((int(tiempo)/15) * float(tarifa_extra_precio.extra_precio), 2)
+    monto_s_iva = monto if manual else round((int(tiempo)/15) * float(base), 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = tiempo
@@ -513,12 +536,11 @@ def guardaItemViajeEsperaAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
 
 def guardaItemViajeHsDispo(monto, tipo_item_viaje, tiempo, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
-    centro_costo    = viaje.centro_costo
-    tarifa_extra = TarifaExtra.objects.get(tarifario=centro_costo.tarifario, extra_descripcion='dispo')
-    tarifa_extra_precio = TarifaExtraPrecio.objects.get(categoria_viaje=viaje.categoria_viaje, tarifa_extra=tarifa_extra)
-    monto_s_iva     = 0
-    monto_iva       = 0
-
+    unidad          = viaje.unidad
+    try:
+        base = getTarifaTrayectoExtra(viaje.categoria_viaje, unidad.tarifario, 'dispo')
+    except Exception as e:
+        base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
@@ -532,7 +554,7 @@ def guardaItemViajeHsDispo(monto, tipo_item_viaje, tiempo, viaje, manual):
         item_viaje_otros = ItemViaje()
 
     monto       = round(float(monto), 2)
-    monto_s_iva = monto if manual else int(tiempo) * round(float(tarifa_extra_precio.extra_precio_prov))
+    monto_s_iva = monto if manual else int(tiempo) * round(float(base))
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = tiempo
@@ -547,11 +569,10 @@ def guardaItemViajeHsDispo(monto, tipo_item_viaje, tiempo, viaje, manual):
 def guardaItemViajeHsDispoAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
     centro_costo    = viaje.centro_costo
-    tarifa_extra = TarifaExtra.objects.get(tarifario=centro_costo.tarifario, extra_descripcion='dispo')
-    tarifa_extra_precio = TarifaExtraPrecio.objects.get(categoria_viaje=viaje.categoria_viaje, tarifa_extra=tarifa_extra)
-    monto_s_iva     = 0
-    monto_iva       = 0
-
+    try:
+        base = getTarifaTrayectoExtra(viaje.categoria_viaje, centro_costo.tarifario, 'dispo')
+    except Exception as e:
+        base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
@@ -565,7 +586,7 @@ def guardaItemViajeHsDispoAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
         item_viaje_otros = ItemViaje()
 
     monto       = round(float(monto), 2)
-    monto_s_iva = monto if manual else int(tiempo) * round(float(tarifa_extra_precio.extra_precio), 2)
+    monto_s_iva = monto if manual else int(tiempo) * round(float(base), 2)
     monto_iva   = monto_s_iva * tipo_item_viaje.iva_pct if manual else monto_s_iva * tipo_item_viaje.iva_pct
 
     item_viaje_otros.cant               = tiempo
@@ -580,7 +601,7 @@ def guardaItemViajeHsDispoAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
 def guardaItemViaje(monto, tipo_item_viaje, cant, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
     try:
-        item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
+        item_viaje_otros = ItemViaje.objects.get(viaje=viaje, tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
     except ItemViaje.DoesNotExist:
         if monto == '':

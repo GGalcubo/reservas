@@ -512,6 +512,7 @@ class Viaje(models.Model):
     tarifapasada = models.CharField(max_length=50, null=True, blank=True)
     nro_aux = models.CharField(max_length=30, null=True, blank=True)
     tipo_pago = models.ForeignKey(TipoPagoViaje, null=True, blank=True, default=1)
+    calculo_admin = models.BooleanField(default=False)
     creadopor = models.ForeignKey(User, null=True, blank=True, default=1)
     creadofecha = models.CharField(max_length=12, default=1)
 
@@ -548,6 +549,13 @@ class Viaje(models.Model):
             viaje_items.append(item)
         return viaje_items
 
+    def getViajeBilingue(self):
+        viaje_bilingue = ''
+        for item in self.itemviaje_set.all():
+            if item.tipo_items_viaje_id == 9:
+                viaje_bilingue = '(Bi)'
+        return viaje_bilingue
+
     def getViajeAdjuntos(self):
         viaje_adjuntos = []
         for adjunto in self.adjuntoviaje_set.all():
@@ -557,6 +565,13 @@ class Viaje(models.Model):
     def getTrayectoPrincipal(self):
         trayecto = self.trayecto_set.filter()[:1].get()
         return trayecto
+
+    def getTrayectos(self):
+        viaje_trayectos = []
+        for trayecto in self.trayecto_set.all():
+            print trayecto
+            viaje_trayectos.append(trayecto)
+        return viaje_trayectos
 
     def getProforma(self):
         if self.facturaviaje_set.all():
