@@ -1764,7 +1764,22 @@
         <!-- END FILE INPUT -->
 
         <script>
-            $(document).prop('title', 'Viaje - Central LT');
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+            };
+            var idViaje = getUrlParameter('idViaje');
+            $(document).prop('title', 'Viaje '+ idViaje+' - Central LT');
 
             var clientes = [];
             {% for cliente in clientes %}
