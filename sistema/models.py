@@ -938,19 +938,7 @@ class TarifaExtra(models.Model):
             retorno = self.cat7
         if idCat == 8:
             retorno = self.cat8
-
-        #retorno = 0
-        #for ttp in self.tarifaextraprecio_set.all():
-        #    if ttp.categoria_viaje.id == idCat:
-        #        if ttp.extra_precio:
-        #            return ttp.extra_precio
-        #        else:
-        #            return retorno
-        #return retorno
-
         return str(retorno)
-
-
 
     def getTTPByCategoria(self, idCat):
         retorno = TarifaExtraPrecio()
@@ -961,18 +949,6 @@ class TarifaExtra(models.Model):
         retorno.tarifa_extra = self
         retorno.categoria_viaje = cat
         return retorno
-
-class TarifaExtraPrecio(models.Model):
-    tarifa_extra = models.ForeignKey(TarifaExtra)
-    extra_precio = models.CharField(max_length=20, null=True, blank=True)
-    extra_precio_prov = models.CharField(max_length=20, null=True, blank=True)
-    categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.extra_precio
-
-    def __str__(self):
-        return self.extra_precio
 
 class TarifaTrayecto(models.Model):
     descripcion = models.CharField(max_length=50)
@@ -1013,13 +989,6 @@ class TarifaTrayecto(models.Model):
             retorno = self.cat7
         if idCat == 8:
             retorno = self.cat8
-
-        #for ttp in self.tarifatrayectoprecio_set.all():
-        #    if ttp.categoria_viaje.id == idCat:
-        #        if ttp.precio_cliente:
-        #            return ttp.precio_cliente
-        #        else:
-        #            return retorno
         return str(retorno)
 
     def getTTPByCategoria(self, idCat):
@@ -1031,19 +1000,6 @@ class TarifaTrayecto(models.Model):
         retorno.tarifatrayecto = self
         retorno.categoria_viaje = cat
         return retorno
-
-
-class TarifaTrayectoPrecio(models.Model):
-    tarifatrayecto = models.ForeignKey(TarifaTrayecto)
-    precio_cliente = models.CharField(max_length=50, null=True, blank=True)
-    precio_prov = models.CharField(max_length=50, null=True, blank=True)
-    categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.precio_cliente
-
-    def __str__(self):
-        return self.precio_cliente
 
 class Trayecto(models.Model):
     viaje = models.ForeignKey(Viaje, null=True, blank=True)

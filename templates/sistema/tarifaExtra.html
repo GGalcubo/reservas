@@ -16,9 +16,15 @@
                     <div class="scroller" style="height:230px" data-always-visible="1" data-rail-visible1="1">
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extraName" name="extraName" value="{{tarifaExtra.extra_descripcion}}">
-                                    <label for="extraName">Extra</label>
+                                <input type="hidden" class="form-control" id="extraDescripcion" name="extraDescripcion" value="{{ tarifaExtra.extra_descripcion }}">
+                                <div class="form-group form-md-line-input">
+                                    <select class="form-control select2me" id="extraName" name="extraName">
+                                        <option value="">Seleccionar extra</option>
+                                        <option value="maletas">Maletas</option>
+                                        <option value="espera">Espera</option>
+                                        <option value="dispo">Dispo</option>
+                                    </select>
+                                    <label for="localidadDesde">Extras</label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -69,72 +75,6 @@
                                     <label for="extra8">BUS</label>
                                 </div>
                             </div>
-                            <!--div class="col-sm-3">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extra9" name="extra9" value="{{ tarifaExtra|get_tarifa_extra_by_cat:9 }}">
-                                    <label for="extra9">BUS DP</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extra10" name="extra10" value="{{ tarifaExtra|get_tarifa_extra_by_cat:10 }}">
-                                    <label for="extra10">LIMO/BLIN</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extra11" name="extra11" value="{{ tarifaExtra|get_tarifa_extra_by_cat:11 }}">
-                                    <label for="extra11">FLETE</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extra12" name="extra12" value="{{ tarifaExtra|get_tarifa_extra_by_cat:12 }}">
-                                    <label for="extra12">MSJ</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extra13" name="extra13" value="{{ tarifaExtra|get_tarifa_extra_by_cat:13 }}">
-                                    <label for="extra13">VIANDA</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extra14" name="extra14" value="{{ tarifaExtra|get_tarifa_extra_by_cat:14 }}">
-                                    <label for="extra14">GUIA/COORD</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extra15" name="extra15" value="{{ tarifaExtra|get_tarifa_extra_by_cat:15 }}">
-                                    <label for="extra15">VIATICO</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extra16" name="extra16" value="{{ tarifaExtra|get_tarifa_extra_by_cat:16 }}">
-                                    <label for="extra16">REGULAR</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extra17" name="extra17" value="{{ tarifaExtra|get_tarifa_extra_by_cat:17 }}">
-                                    <label for="extra17">H1</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extra18" name="extra18" value="{{ tarifaExtra|get_tarifa_extra_by_cat:18 }}">
-                                    <label for="extra18">MB</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" id="extra19" name="extra19" value="{{ tarifaExtra|get_tarifa_extra_by_cat:19 }}">
-                                    <label for="extra19">VIANO</label>
-                                </div>
-                            </div-->
                         </div>
                     </div>
                 </div>
@@ -145,3 +85,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#extraName").select2({
+                placeholder: "Seleccionar Extra",
+                allowClear: true,
+                dropdownAutoWidth : true,
+                width: 'auto'
+            });
+            $("#extraName").val($("#extraDescripcion").val()).trigger('change');
+        });
+    </script> 
+
+
+
+
+
+
+    

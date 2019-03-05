@@ -7,7 +7,7 @@ from django.contrib.auth.models import Permission
 from django.template.defaulttags import register
 from django.conf import settings
 from .models import *
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 import json
 import os
@@ -860,7 +860,6 @@ def guardarSolicitanteDesdeViaje(request):
 def guardarPasajeroDesdeViaje(request):
     mensaje = ""
     idClientePasajero = request.POST.get('idClientePasajeroModal', "")
-    print idClientePasajero
     cliente = Cliente.objects.get(id=idClientePasajero)
     idPasajero = request.POST.get('idPasajeroModal', "")
     if idPasajero == "0":
@@ -1056,7 +1055,7 @@ def guardarSolicitanteProspect(request):
 		perCli.persona = persona
 		perCli.cliente = cliente
 		perCli.save()
-
+	
 	if telefono != "" and telefono != "Sin telefono":
 		if len(persona.telefonopersona_set.all()) > 0:
 			tel = persona.telefonopersona_set.all()[0].telefono
@@ -1182,7 +1181,7 @@ def guardarCliente(request):
 		else:
 			tel = Telefono()
 			telcli = TelefonoCliente()
-
+		
 	cliente.razon_social = request.POST.get('razonSocial', "")
 	cliente.cuil = request.POST.get('cuil', "")
 	cliente.calle = request.POST.get('calle', "")
@@ -1715,7 +1714,6 @@ def guardarTarifario(request):
 	mensaje = ""
 	idTarifario = request.POST.get('idTarifario', "")
 	nombre = request.POST.get('nombre', "")
-	print nombre
 	tarifario = Tarifario.objects.get(id=idTarifario)
 	tarifario.nombre = nombre
 	tarifario.save()
@@ -1725,13 +1723,47 @@ def guardarTarifario(request):
 @login_required
 def editarTarifaTrayecto(request):
 	idTarifaTrayecto = request.POST.get('idTarifaTrayecto', "")
+	localidades = Localidad.objects.all().values_list('id', 'nombre').order_by('nombre')
+	localidades = map(lambda localidades:(int(localidades[0]),localidades[1]), localidades)
 	if idTarifaTrayecto == "0":
 		tramoTarifa = TarifaTrayecto()
 		tramoTarifa.id = 0
+		idDesde = ""
+		idHasta = ""
 	else:
 		tramoTarifa = TarifaTrayecto.objects.get(id=idTarifaTrayecto)
-	context = {'tramoTarifa': tramoTarifa}
+		idDesde = tramoTarifa.localidad_desde.id
+		idHasta = tramoTarifa.localidad_hasta.id
+	context = {'tramoTarifa': tramoTarifa, 'localidades':localidades, 'idDesde':idDesde, 'idHasta': idHasta}
 	return render(request, 'sistema/tarifaTrayecto.html', context)
+
+@login_required
+def validarTarifaTrayecto(request):
+	response_data = {}
+	idTarifario = request.POST.get('idTarifario', "")
+	localidadDesde = request.POST.get('localidadDesde', "")
+	localidadHasta = request.POST.get('localidadHasta', "")
+
+	response_data['result'] = 'ok'
+	response_data['message'] = ''
+
+	if localidadDesde == "":
+		response_data['result'] = 'ok'
+		response_data['message'] = 'falta campo desde'
+	if localidadHasta == "":
+		response_data['result'] = 'ok'
+		response_data['message'] = 'falta campo hasta'
+
+	tarifario = Tarifario.objects.get(id=idTarifario)
+	for t in tarifario.getTarifaViaje():
+		if str(t.localidad_desde.id) == localidadDesde and str(t.localidad_hasta.id) == localidadHasta:
+			response_data['result'] = 'error'
+			response_data['message'] = 'Ya existe esta combinacion de localidades.'
+		if str(t.localidad_desde.id) == localidadHasta and str(t.localidad_hasta.id) == localidadDesde:
+			response_data['result'] = 'error'
+			response_data['message'] = 'Ya existe esta combinacion de localidades.'
+
+	return JsonResponse(response_data)
 
 @login_required
 def editarTarifaExtra(request):
@@ -1739,6 +1771,7 @@ def editarTarifaExtra(request):
 	if idTarifaExtra == "0":
 		tarifaExtra = TarifaExtra()
 		tarifaExtra.id = 0
+		tarifaExtra.extra_descripcion = ""
 	else:
 		tarifaExtra = TarifaExtra.objects.get(id=idTarifaExtra)
 
@@ -1746,11 +1779,31 @@ def editarTarifaExtra(request):
 	return render(request, 'sistema/tarifaExtra.html', context)
 
 @login_required
+def eliminarTarifaTrayecto(request):
+	idTarifaTrayecto = request.POST.get('idTarifaTrayecto', "")
+	tarifaTrayecto = TarifaTrayecto.objects.get(id=idTarifaTrayecto)
+	idTarifario = tarifaTrayecto.tarifario.id
+
+	tarifaTrayecto.delete()
+	tarifario = Tarifario.objects.get(id=idTarifario)
+	context = {'tarifario': tarifario}
+	return render(request, 'sistema/grillaTrayectoTarifa.html', context)
+
+
+@login_required
 def guardarTarifaTrayecto(request):
 	idTarifario		 = request.POST.get('idTarifario', "")
 	idTarifaTrayecto = request.POST.get('idTarifaTrayecto', "")
-
-	tarifaTrayecto = TarifaTrayecto.objects.get(id=idTarifaTrayecto)
+	
+	if idTarifaTrayecto == "0":
+		localidadDesde = request.POST.get('localidadDesde', "")
+		localidadHasta = request.POST.get('localidadHasta', "")
+		tarifaTrayecto = TarifaTrayecto()
+		tarifaTrayecto.localidad_desde = Localidad.objects.get(id=localidadDesde)
+		tarifaTrayecto.localidad_hasta = Localidad.objects.get(id=localidadHasta)
+		tarifaTrayecto.tarifario = Tarifario.objects.get(id=idTarifario)
+	else:
+		tarifaTrayecto = TarifaTrayecto.objects.get(id=idTarifaTrayecto)
 
 	for x in range(9):
 		cat = x+1
@@ -1786,8 +1839,14 @@ def guardarTarifaExtra(request):
 	idTarifario		 = request.POST.get('idTarifario', "")
 	idTarifaExtra    = request.POST.get('idTarifaExtra', "")
 	nombre           = request.POST.get('extraName', "")
-	tarifaExtra = TarifaExtra.objects.get(id=idTarifaExtra)
-	tarifaExtra.extra_descripcion = nombre
+
+	if idTarifaExtra == "0":
+		tarifaExtra = TarifaExtra()
+		tarifaExtra.extra_descripcion = nombre
+		tarifaExtra.tarifario = Tarifario.objects.get(id=idTarifario)
+	else:
+		tarifaExtra = TarifaExtra.objects.get(id=idTarifaExtra)
+
 	for x in range(9):
 		cat = x+1
 		nameTramo='extra'+str(cat)
@@ -1879,7 +1938,7 @@ def guardarMasivo(request):
 @login_required
 def listadoLicencia(request):
 	licencias = Licencia.objects.all()
-
+	
 	context = {'licencias': licencias}
 	return render(request, 'sistema/listadoLicencia.html', context)
 
@@ -1979,11 +2038,8 @@ def cargarLocalidadByDestino(request):
 @login_required
 def cargarProvincia(request):
 	idLocalidad = request.POST.get('idLocalidad', False)
-	print idLocalidad
 	localidad = Localidad.objects.get(id=idLocalidad)
-	print localidad.provincia.id
 	provincias = Provincia.objects.filter(id=localidad.provincia.id)
-	print provincias
 	context = {'provincias':provincias}
 	return render(request, 'sistema/selectProvincia.html', context)
 
@@ -2084,10 +2140,8 @@ def buscarAdelantos(request):
 
 	adelantos = []
 	if provedor:
-		print 'if'
 		adelantos = Adelanto.objects.filter(proveedor_id=provedor,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 	else:
-		print 'else'
 		adelantos = Adelanto.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 
 	context = {'adelantos': adelantos}
@@ -2239,7 +2293,7 @@ def buscarFacturacionCliente(request):
 			if c == "0":
 				sinFactura = True
 			facList.append(c)
-
+	
 	proList = []
 	sinProforma = False
 	if proformas != "null":
@@ -2272,7 +2326,7 @@ def buscarFacturacionCliente(request):
 			viajes = viajes.filter(centro_costo_id__in=ccList)
 		if solList:
 			viajes = viajes.filter(cliente__personacliente__persona_id__in=solList)
-
+		
 		if condEspecial == "1":
 			q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() == 0]
 			viajes = viajes.filter(id__in=q_ids)
@@ -2438,7 +2492,7 @@ def cargarFacturaProveedor(request):
 def borrarSolicitanteCliente(request):
 	idPersona = request.POST.get('idPersona', False)
 	idCliente = request.POST.get('idCliente', False)
-
+	
 	persona = Persona.objects.get(id=idPersona)
 	persona.baja = True
 	persona.save()
@@ -2455,7 +2509,7 @@ def borrarSolicitanteCliente(request):
 def borrarPasajeroCliente(request):
 	idPersona = request.POST.get('idPersona', False)
 	idCliente = request.POST.get('idCliente', False)
-
+	
 	persona = Persona.objects.get(id=idPersona)
 	persona.baja = True
 	persona.save()
@@ -2483,7 +2537,6 @@ def exportarPdfFactCliente(request):
 			ccList.append(int(c))
 	if ccList:
 		cc = CentroCosto.objects.filter(id__in=ccList)
-		print cc
 		for c in cc:
 			aux = str(c.id) +"-"+ c.nombre
 			retornoCC = retornoCC + aux + " / "
@@ -2574,9 +2627,7 @@ def exportarPdfFactProv(request):
 
 @login_required
 def cargarMenu(request):
-	print request.user
 	permisos = [x.name for x in Permission.objects.filter(user=request.user)]
-	print permisos
 	if 'unidades' in permisos:
 		menu_file = "sistema/unidadesMenu.html"
 	if 'operaciones' in permisos:
@@ -2606,9 +2657,7 @@ def get_tarifa_extra_by_cat(tarifaExtra, idCat):
     return tarifaExtra.getTarifaExtraByCategoria(idCat)
 
 def obtenerPermiso(request):
-	print request.user
 	permisos = [x.name for x in Permission.objects.filter(user=request.user)]
-	print permisos
 	menu_file = ""
 	if 'unidades' in permisos:
 		menu_file = 'unidades'
