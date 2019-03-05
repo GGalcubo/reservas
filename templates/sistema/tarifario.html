@@ -381,7 +381,7 @@
                 function guardarTarifaExtra(){
                     var url = "/sistema/guardarTarifaExtra/";
                     param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifasExtras").serialize();
-                    $('#add_extra_tarifario').modal('hide');
+                    
                     $.ajax({
                         type: "POST",
                         url: url,
@@ -390,8 +390,10 @@
                         success: function(data){
                             $('#divTablaTrayectoExtra').html("");
                             $('#divTablaTrayectoExtra').html(data);
+                            $('#add_extra_tarifario').modal('hide');
                         }
                     });
+                    $('#add_extra_tarifario').modal('hide');
                 }
                 function modificacionMasiva(tipoMasivo){
                     $('#tipoMasivo').val(tipoMasivo);

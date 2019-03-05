@@ -1703,12 +1703,19 @@ def guardarTarifario(request):
 @login_required
 def editarTarifaTrayecto(request):
 	idTarifaTrayecto = request.POST.get('idTarifaTrayecto', "")
+	localidades = Localidad.objects.all().values_list('id', 'nombre').order_by('nombre')
+	localidades = map(lambda localidades:(int(localidades[0]),localidades[1]), localidades)
+	print localidades
 	if idTarifaTrayecto == "0":
 		tramoTarifa = TarifaTrayecto()
 		tramoTarifa.id = 0
+		idDesde = ""
+		idHasta = ""
 	else:
 		tramoTarifa = TarifaTrayecto.objects.get(id=idTarifaTrayecto)
-	context = {'tramoTarifa': tramoTarifa}
+		idDesde = tramoTarifa.localidad_desde.id
+		idHasta = tramoTarifa.localidad_hasta.id
+	context = {'tramoTarifa': tramoTarifa, 'localidades':localidades, 'idDesde':idDesde, 'idHasta': idHasta}
 	return render(request, 'sistema/tarifaTrayecto.html', context)
 
 @login_required
