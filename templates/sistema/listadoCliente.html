@@ -54,7 +54,6 @@
                                         <thead>
                                             <tr>
                                                 <th class="all" style="min-width: 120px;">Acciones</th>
-                                                <!-- <th class="all" style="width: 40px;" >Eliminar</th> -->
                                                 <th class="min-tablet">ID</th>
                                                 <th class="min-phone-l">Cliente</th>
                                                 <th class="desktop">Teléfono</th>
@@ -68,7 +67,6 @@
                                                     <a href="/sistema/cliente/?idCliente={{ c.id }}" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                                                     <a href="#" onclick="eliminarCliente({{ c.id }},'{{ c.razon_social }}');" class="btn btn-xs btn-outline red" ><i class="fa fa-times"></i></a>
                                                 </td>
-                                                <!-- <td class="text-center"></td> -->
                                                 <td>{{ c.id }}</td>
                                                 <td>{{ c.razon_social }}</td>
                                                 <td>{{ c.telefonoPrincipal }}</td>
