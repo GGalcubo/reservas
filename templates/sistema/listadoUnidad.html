@@ -68,8 +68,7 @@
                                                             <a href="/sistema/unidad/?idUnidad={{ unidad.id }}" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                                                             <a href="#" onclick="eliminarUnidad({{ unidad.id }},'{{ unidad.identificacion }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
                                                         </td>
-                                                        <!-- <td>{{ unidad.id_fake|default_if_none:"" }}</td> -->
-                                                        <td>{{ unidad.id}}</td>
+                                                        <td>{{ unidad.id_fake|default_if_none:"" }}</td>
                                                         <td>{{ unidad.identificacion }}</td>
                                                         <td>{{ unidad.chofer.nombreCompleto }}</td>
                                                         <td>{{ unidad.owner.nombreCompleto }}</td>
