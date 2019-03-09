@@ -29,7 +29,7 @@
         {% for v in viajes %}
         <tr id="rowid{{ v.id }}">
             <td></td>
-            <td class="text-center"><a href="/sistema/editaViaje/?idViaje={{v.id}}">{{v.id}}</a></td>
+            <td class="text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{v.id}}">{{v.id}}</a></td>
             <td>{{v.getFecha}}</td>
             <td>{{v.categoria_viaje}}</td>
             <td>{{v.hora}}</td>
