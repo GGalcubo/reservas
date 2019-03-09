@@ -2415,17 +2415,22 @@ def buscarFacturacionProveedor(request):
 	if estados != "null":
 		for c in estados.split(","):
 			estList.append(int(c))
+			
+	uniList = []
+	if idUnidad != "null":
+		for c in idUnidad.split(","):
+			uniList.append(int(c))
 
 	if sinFactura:
 		if idUnidad:
-			viajes = Viaje.objects.filter(unidad_id=idUnidad,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+			viajes = Viaje.objects.filter(unidad_id__in=uniList,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		else:
 			viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		q_ids = [o.id for o in viajes if o.getFacturaProveedor()==""]
 		viajes = viajes.filter(id__in=q_ids)
 
 	else:
-		viajes = Viaje.objects.filter(unidad_id=idUnidad,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+		viajes = Viaje.objects.filter(unidad_id__in=uniList,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		if facList:
 			q_ids = [o.id for o in viajes if o.getFacturaProveedor() in facList]
 			viajes = viajes.filter(id__in=q_ids)
