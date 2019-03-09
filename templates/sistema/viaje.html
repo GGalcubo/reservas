@@ -1779,7 +1779,11 @@
                 }
             };
             var idViaje = getUrlParameter('idViaje');
-            $(document).prop('title', 'Viaje '+ idViaje+' - Central LT');
+            if(idViaje == undefined){
+                $(document).prop('title', 'Nuevo viaje - Central LT');
+            } else {
+                $(document).prop('title', 'Viaje '+ idViaje+' - Central LT');   
+            }
 
             var clientes = [];
             {% for cliente in clientes %}
