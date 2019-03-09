@@ -102,6 +102,8 @@ $(document).ready( () => {
         fillViajeItems();
     }
 
+    $('#categoria_viaje').select2({ placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+
     $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
     $('#id_cliente').select2({ placeholder: 'Seleccionar Cliente', dropdownAutoWidth : true, width: 'auto'});
     //$("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
@@ -152,12 +154,12 @@ $(document).ready( () => {
             showMsg("El campo cliente es obligatorio.");
             return false;
         }
-        if ($("#contacto").val() == ""){
-            showMsg("El campo solicitante es obligatorio.");
-            return false;
-        }
         if ($("#centro_costos").val() == ""){
             showMsg("El campo centro de costo es obligatorio.");
+            return false;
+        }
+        if ($("#contacto").val() == ""){
+            showMsg("El campo solicitante es obligatorio.");
             return false;
         }
         if ($("#pasajero").val() == ""){
@@ -759,6 +761,7 @@ updateFillsByCliente = (name, evt) => {
             deleteAllViajePasajero();
         }
     }
+    $('#centro_costos').append($('<option>').text('').attr('value', ''));
     $.each(cliente.centro_costos, (i, value) => {
         if(value.id === centro_costo){
             $('#centro_costos').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
@@ -766,6 +769,7 @@ updateFillsByCliente = (name, evt) => {
             $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
         }
     });
+    $('#contacto').append($('<option>').text('').attr('value', ''));
     $.each(cliente.personascliente, (i, value) => {
         if(value.tipo_persona == 'Solicitante'){
             if(value.id === solicitante){
@@ -776,6 +780,7 @@ updateFillsByCliente = (name, evt) => {
 
         }
     });
+    $('#pasajero').append($('<option>').text('').attr('value', ''));
     $.each(cliente.personascliente, (i, value) => {
         if(value.tipo_persona == 'Pasajero'){
             if(value.id === pasajero){

@@ -113,7 +113,7 @@
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="form-group form-md-line-input">
-                                                                <select class="form-control" id="contacto" name="contacto"></select>
+                                                                <select class="form-control select2me" id="contacto" name="contacto"></select>
                                                                 <label for="contacto">Solicitante</label>
                                                             </div>
                                                         </div>
@@ -124,7 +124,7 @@
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="form-group form-md-line-input">
-                                                                <select class="form-control" id="pasajero" name="pasajero"></select>
+                                                                <select class="form-control select2me" id="pasajero" name="pasajero"></select>
                                                                 <label for="pasajero">Pasajero</label>
                                                             </div>
                                                         </div>
@@ -158,6 +158,7 @@
                                                         <div class="col-md-5">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="categoria_viaje" name="categoria_viaje">
+                                                                    <option selected="selected" value=""></option>
                                                                     {% for cv in categoria_viajes %}
                                                                         {% if cv.id == viaje.categoria_viaje.id %}
                                                                             <option selected="selected" value="{{ cv.id }}">{{ cv.categoria }}</option>
