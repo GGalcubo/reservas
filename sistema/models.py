@@ -515,6 +515,7 @@ class Viaje(models.Model):
     calculo_admin = models.BooleanField(default=False)
     creadopor = models.ForeignKey(User, null=True, blank=True, default=1)
     creadofecha = models.CharField(max_length=12, default=1)
+    nropasajeros = models.CharField(max_length=2, default=1)
 
     def __unicode__(self):
         return u'%s' % self.fecha
