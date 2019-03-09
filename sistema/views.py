@@ -1171,6 +1171,7 @@ def guardarCliente(request):
 	if idCliente == "0":
 		cliente = Cliente()
 		tel = Telefono()
+		telcli = TelefonoCliente()
 	else:
 		cliente = Cliente.objects.get(id=idCliente)
 		if len(cliente.telefonocliente_set.all()) > 0:
