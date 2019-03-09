@@ -150,9 +150,6 @@ def guardarViaje(request):
 
     if es_nuevo == "1":
         viaje = Viaje()
-        trayecto = Trayecto()
-        trayecto.viaje = viaje
-        trayecto.save()
     else:
         viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
         mensaje = 'El viaje se actualizo correctamente.'
