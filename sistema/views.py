@@ -207,12 +207,13 @@ def guardarViaje(request):
         items_viaje = serializers.serialize('json', ItemViaje.objects.filter(viaje=viaje))
         return HttpResponse(items_viaje, content_type='application/json')
 
+    viaje.save()
+
     if es_nuevo == "1":
         data = {
             'url': '/sistema/editaViaje/?idViaje=' + str(viaje.id) + '&msg=1',
         }
 
-    viaje.save()
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
 
