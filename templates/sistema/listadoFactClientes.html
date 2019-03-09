@@ -82,6 +82,17 @@
                                           </div>
                                           <div class="row">
                                             <div class="col-sm-3">
+                                                <div class="form-group form-md-line-input">
+                                                    <select class="form-control select2me" id="estado" name="estado" multiple="multiple">
+                                                    <option value="">Seleccionar Estado</option>
+                                                    {% for e in estados %}
+                                                        <option value="{{ e.id }}">{{ e.estado }}</option>
+                                                    {% endfor %}
+                                                    </select>
+                                                    <label for="estado">Seleccionar Estado</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
                                               <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="condEspecial" name="condEspecial">
                                                   <option value="">Seleccionar Condicion Especial</option>
@@ -91,7 +102,7 @@
                                                 <label for="condEspecial">Cond. Especial</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-2">
                                               <div class="form-group form-md-line-input"  id="selectSolicitante">
                                                 <select class="form-control select2me" id="solicitantes" name="solicitantes" multiple="multiple">
                                                   <option value=""></option>
@@ -99,7 +110,7 @@
                                                 <label for="solicitantes">Solicitante</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-2">
                                               <div class="form-group form-md-line-input" id="selectProforma">
                                                 <select class="form-control select2me" id="proforma" name="proforma" multiple="multiple">
                                                   <option value="0">Sin proforma</option>
@@ -107,7 +118,7 @@
                                                 <label for="proforma">Proforma</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-2">
                                               <div class="form-group form-md-line-input" id="selectFactura">
                                                 <select class="form-control select2me" id="factura" name="factura" multiple="multiple">
                                                   <option value="0">Sin factura</option>
@@ -231,7 +242,7 @@
                     </div>
                 </div>
                 </form>
-
+                <div id="formularioPdf"></div>
                 <!-- END CONTENT BODY -->
             </div>
             <!-- END CONTENT -->
@@ -405,6 +416,13 @@
                         width: 'auto'
                     });
 
+                    $("#estado").select2({
+                        placeholder: "Seleccionar Estados",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
                     $("#categViaje").select2({
                         placeholder: "Seleccionar Categoria",
                         allowClear: true,
@@ -477,6 +495,7 @@
 
                     var params = "categorias="+$("#categViaje").val();
                     params += "&centroDeCosto="+$("#centroDeCosto").val();
+                    params += "&estados="+$("#estado").val();
                     params += "&condEspecial="+$("#condEspecial").val();
                     params += "&solicitantes="+$("#solicitantes").val();
                     params += "&facturas="+$("#factura").val();
@@ -579,7 +598,8 @@
                             alert("Viajes Facturados.")
                             $("#idViajes").val("");
                             $('#facturarClientesModal').modal('toggle');
-                            resetFiltros();
+                            //resetFiltros();
+                            buscarFacturacion();
                         }
                     });
                 }
@@ -631,7 +651,8 @@
                             success: function(data){
                                 alert("Se asigno el numero de proformar: "+data.return);
                                 $("#idViajes").val("");
-                                resetFiltros();
+                                buscarFacturacion();
+                                //resetFiltros();
                             }
                         });
                     }
@@ -651,8 +672,9 @@
                     params += '<input type="hidden" name="ids" value="'+ids+'">';
                     params += '<input type="hidden" name="centrosCosto" value="'+$("#centroDeCosto").val()+'">';
 
-                    document.body.innerHTML += '<form id="dynForm" target="_blank" action="/sistema/exportarPdfFactCliente/" method="get">'+params+'</form>';
-                    document.getElementById("dynForm").submit();
+                    $("#formularioPdf").html('');
+                    $("#formularioPdf").html('<form id="dynForm" target="_blank" action="/sistema/exportarPdfFactCliente/" method="get">'+params+'</form>');
+                    $("#dynForm").submit();
                 }
 
             </script>

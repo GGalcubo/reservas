@@ -41,7 +41,7 @@
                                   <form role="form" method="post" id="" action="">
                                       <div class="form-body">
                                           <div class="row">
-                                              <div class="col-sm-4">
+                                              <div class="col-sm-3">
                                                   <div class="form-group mg-b-10">
                                                       <label class="control-label mg-b-0" style="color: #888;">Fecha</label>
                                                       <div class="input-group date-picker input-daterange" data-date-format="dd/mm/yyyy">
@@ -51,7 +51,7 @@
                                                       </div>
                                                   </div>
                                               </div>
-                                              <div class="col-sm-4">
+                                              <div class="col-sm-3">
                                                 <div class="form-group form-md-line-input">
                                                   <select class="form-control select2me" id="unidad" name="unidad" onchange="cambioUnidad();">
                                                       <option value="">Seleccionar Unidad</option>
@@ -62,7 +62,7 @@
                                                   <label for="unidad">Unidad</label>
                                                 </div>
                                               </div>
-                                              <div class="col-sm-4">
+                                              <div class="col-sm-3">
                                                 <div class="form-group form-md-line-input" id="selectFactura">
                                                   <select class="form-control select2me" id="factura" name="factura" multiple="multiple">
                                                       <option value=""></option>
@@ -70,6 +70,17 @@
                                                   </select>
                                                   <label for="factura">Factura</label>
                                                 </div>
+                                              </div>
+                                              <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control select2me" id="estado" name="estado" multiple="multiple">
+                                                        <option value="">Seleccionar Estado</option>
+                                                        {% for e in estados %}
+                                                            <option value="{{ e.id }}">{{ e.estado }}</option>
+                                                        {% endfor %}
+                                                        </select>
+                                                        <label for="estado">Seleccionar Estado</label>
+                                                    </div>
                                               </div>
                                           </div>
                                           <div class="row">
@@ -389,6 +400,13 @@
                         width: 'auto'
                     });
 
+                    $("#estado").select2({
+                        placeholder: "Seleccionar Estado",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
                 });
 
                 function resetFiltros(){
@@ -496,6 +514,7 @@
 
                     var params = "condEspecial="+$("#condEspecial").val();
                     params += "&facturas="+$("#factura").val();
+                    params += "&estados="+$("#estado").val();
                     params += "&proveedor="+$("#proveedor").val();
                     params += "&unidad="+$("#unidad").val();
                     params += "&desde="+$("#desde").val();

@@ -129,6 +129,9 @@
                         <th class="all">N° SERV</th>
                         <th class="all">ID AUX</th>
                         <th class="all">SOLICIT&Oacute;</th>
+                        {% if centroCosto == "" %}
+                            <th class="all">CC</th>
+                        {% endif %}
                         <th class="all">PAX</th>
                         <th class="all">ORIGEN</th>
                         <th class="all">DESTINO</th>
@@ -154,6 +157,9 @@
                         <td>{{v.id}}</td>
                         <td>{{v.nro_aux|default_if_none:""}}</td>
                         <td>{{v.solicitante}}</td>
+                        {% if centroCosto == "" %}
+                            <td>{{v.centro_costo|default_if_none:""}}</td>
+                        {% endif %}
                         <td>{{v.pasajero|default_if_none:""}}</td>
                         <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
                         <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
@@ -190,6 +196,9 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        {% if centroCosto == "" %}
+                        <td></td>
+                        {% endif %}
                         <td>&nbsp;</td>
                     </tr>
                 </tbody>
@@ -204,6 +213,9 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        {% if centroCosto == "" %}
+                            <td></td>
+                        {% endif %}
                         <td align="right"></td>
                         <td align="right"></td>
                         <td align="right"></td>

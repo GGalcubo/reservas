@@ -1440,12 +1440,13 @@ def altaUnidad(request):
 	unidad.id = 0
 	unidades = Unidad.objects.values_list('id_fake', flat=True)
 	unidades = map(lambda x:int(x), unidades)
+	tarifarios = Tarifario.objects.filter(baja=False)
 	for number in range(1100):
 		if number not in unidades:
 			ids_fake.append(number)
 	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
 	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
-	context = {'mensaje': mensaje, 'owners':owners, 'choferes':choferes, 'unidad': unidad, 'ids_fake':ids_fake}
+	context = {'mensaje': mensaje, 'owners':owners, 'choferes':choferes, 'unidad': unidad, 'ids_fake':ids_fake, 'tarifarios':tarifarios}
 	return render(request, 'sistema/unidad.html', context)
 
 @login_required
@@ -2178,7 +2179,8 @@ def listadoFactClientes(request):
 	clientes = Cliente.objects.filter(baja=False)
 	categorias = CategoriaViaje.objects.all()
 	condicionesPago = CondicionPago.objects.all()
-	context = {'clientes': clientes, 'categorias':categorias, 'condicionesPago':condicionesPago}
+	estados = Estado.objects.all()
+	context = {'clientes': clientes, 'categorias':categorias, 'condicionesPago':condicionesPago, 'estados':estados}
 	return render(request, 'sistema/listadoFactClientes.html', context)
 
 @login_required
@@ -2262,6 +2264,7 @@ def cargarProveedores(request):
 def buscarFacturacionCliente(request):
 	idCliente 		= request.POST.get('cliente', False)
 	categorias 		= request.POST.get('categorias', False)
+	estados 		= request.POST.get('estados', False)
 	centroDeCosto 	= request.POST.get('centroDeCosto', False)
 	condEspecial 	= request.POST.get('condEspecial', False)
 	solicitantes 	= request.POST.get('solicitantes', False)
@@ -2279,6 +2282,11 @@ def buscarFacturacionCliente(request):
 	if categorias != "null":
 		for c in categorias.split(","):
 			catList.append(int(c))
+
+	estList = []
+	if estados != "null":
+		for c in estados.split(","):
+			estList.append(int(c))
 
 	ccList = []
 	if centroDeCosto != "null":
@@ -2308,17 +2316,19 @@ def buscarFacturacionCliente(request):
 
 	if sinProforma or sinFactura:
 		if idCliente:
-			viajes = Viaje.objects.filter(cliente_id=idCliente,estado_id=7,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+			viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		else:
-			viajes = Viaje.objects.filter(estado_id=7,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+			viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		if sinProforma:
 			q_ids = [o.id for o in viajes if o.getProforma() == ""]
 			viajes = viajes.filter(id__in=q_ids)
 		if sinFactura:
 			q_ids = [o.id for o in viajes if o.getFacturaCliente() == ""]
 			viajes = viajes.filter(id__in=q_ids)
+		if estList:
+			viajes = viajes.filter(estado_id__in=estList)			
 	else:
-		viajes = Viaje.objects.filter(cliente_id=idCliente,estado_id=7,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+		viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		if catList:
 			viajes = viajes.filter(categoria_viaje_id__in=catList)
 		if ccList:
@@ -2341,6 +2351,9 @@ def buscarFacturacionCliente(request):
 			q_ids = [o.id for o in viajes if o.getProforma() in proList]
 			viajes = viajes.filter(id__in=q_ids)
 
+	if estList:
+		viajes = viajes.filter(estado_id__in=estList)
+
 	context = {'viajes': viajes}
 	return render(request, 'sistema/grillaFacturacionCliente.html', context)
 
@@ -2350,6 +2363,7 @@ def buscarFacturacionProveedor(request):
 	condEspecial 	= request.POST.get('condEspecial', False)
 	facturas 		= request.POST.get('facturas', False)
 	proveedor 		= request.POST.get('proveedor', False)
+	estados 		= request.POST.get('estados', False)
 	desde 			= request.POST.get('desde', False)
 	hasta 			= request.POST.get('hasta', False)
 
@@ -2366,18 +2380,27 @@ def buscarFacturacionProveedor(request):
 				sinFactura = True
 			facList.append(c)
 
+	estList = []
+	if estados != "null":
+		for c in estados.split(","):
+			estList.append(int(c))
+
 	if sinFactura:
 		if idUnidad:
-			viajes = Viaje.objects.filter(unidad_id=idUnidad,estado_id=7,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+			viajes = Viaje.objects.filter(unidad_id=idUnidad,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		else:
-			viajes = Viaje.objects.filter(estado_id=7,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+			viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		q_ids = [o.id for o in viajes if o.getFacturaProveedor()==""]
 		viajes = viajes.filter(id__in=q_ids)
+
 	else:
-		viajes = Viaje.objects.filter(unidad_id=idUnidad,estado_id=7,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+		viajes = Viaje.objects.filter(unidad_id=idUnidad,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		if facList:
 			q_ids = [o.id for o in viajes if o.getFacturaProveedor() in facList]
 			viajes = viajes.filter(id__in=q_ids)
+
+	if estList:
+		viajes = viajes.filter(estado_id__in=estList)
 
 	context = {'viajes': viajes}
 	return render(request, 'sistema/grillaFacturacionProveedor.html', context)
@@ -2469,8 +2492,8 @@ def proformarClientes(request):
 @login_required
 def listadoFactProvedores(request):
 	unidades = Unidad.objects.all()
-
-	context = {'unidades': unidades}
+	estados = Estado.objects.all()
+	context = {'unidades': unidades,'estados':estados}
 	return render(request, 'sistema/listadoFactProvedores.html', context)
 
 @login_required
