@@ -53,8 +53,7 @@
                                               </div>
                                               <div class="col-sm-3">
                                                 <div class="form-group form-md-line-input">
-                                                  <select class="form-control select2me" id="unidad" name="unidad" onchange="cambioUnidad();">
-                                                      <option value="">Seleccionar Unidad</option>
+                                                  <select class="form-control select2me" id="unidad" name="unidad" multiple="multiple" onchange="cambioUnidad();">
                                                       {% for u in unidades %}
                                                         <option value="{{u.id}}">{{u.identificacion}}</option>
                                                       {% endfor %}

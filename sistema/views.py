@@ -2220,9 +2220,14 @@ def cargarFactura(request):
 @login_required
 def cargarFacturaUnidad(request):
 	idUnidad = request.GET.get('idUnidad', False)
+	uniList = []
+	if idUnidad != "null":
+		for c in idUnidad.split(","):
+			uniList.append(int(c))
+
 	facturas = []
-	if idUnidad:
-		viajes = FacturaViaje.objects.filter(viaje__unidad_id=idUnidad).order_by('fact_proveedor')
+	if uniList:
+		viajes = FacturaViaje.objects.filter(viaje__unidad_id__in=uniList).order_by('fact_proveedor')
 		for v in viajes:
 			if v.fact_proveedor not in facturas:
 				if v.fact_proveedor:
@@ -2315,24 +2320,30 @@ def buscarFacturacionCliente(request):
 			solList.append(int(c))
 
 	if sinProforma or sinFactura:
+
 		if idCliente:
 			viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		else:
 			viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+			
 		if sinProforma:
 			q_ids = [o.id for o in viajes if o.getProforma() == ""]
 			viajes = viajes.filter(id__in=q_ids)
+
 		if sinFactura:
 			q_ids = [o.id for o in viajes if o.getFacturaCliente() == ""]
 			viajes = viajes.filter(id__in=q_ids)
-		if estList:
-			viajes = viajes.filter(estado_id__in=estList)			
+
 	else:
+
 		viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+
 		if catList:
 			viajes = viajes.filter(categoria_viaje_id__in=catList)
+			
 		if ccList:
 			viajes = viajes.filter(centro_costo_id__in=ccList)
+			
 		if solList:
 			viajes = viajes.filter(cliente__personacliente__persona_id__in=solList)
 		
@@ -2342,6 +2353,10 @@ def buscarFacturacionCliente(request):
 		elif condEspecial == "2":
 			q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() > 0]
 			viajes = viajes.filter(id__in=q_ids)
+		elif condEspecial == "3":
+			viajes = viajes.filter(categoria_viaje_id__in=[1,2,3,4,17,18,19])
+		elif condEspecial == "4":
+			viajes = viajes.filter(categoria_viaje_id__in=[5,6,7,8,9])
 
 		if facList:
 			q_ids = [o.id for o in viajes if o.getFacturaCliente() in facList]
