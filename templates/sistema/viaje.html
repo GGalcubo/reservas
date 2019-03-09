@@ -1817,6 +1817,7 @@
             {% for unidad in unidades %}
                 var obj = {
                     id : '{{ unidad.id }}',
+                    id_fake : '{{ unidad.id_fake }}',
                     identificacion:'{{ unidad.identificacion }}'};
                 unidades.push(obj);
             {% endfor %}

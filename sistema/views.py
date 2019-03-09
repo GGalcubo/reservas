@@ -50,7 +50,7 @@ def getViajesAsignacionesPorFecha(request):
     estados_get_seleccionados = request.POST.getlist('estados_selecionados[]', False)
     estados_seleccionados = []
     if estados_get_seleccionados == False:
-        estados_seleccionados = [1, 2, 4]
+        estados_seleccionados = [1, 2, 3, 4]
     else:
         for i in estados_get_seleccionados:
             estados_seleccionados.append(i)
@@ -98,10 +98,8 @@ def altaViaje(request):
     context = {'mensaje': mensaje,
                'clientes':Cliente.objects.all(),
                'tipoobservacion':TipoObservacion.objects.all(),
-               #'observacion':Observacion.objects.all(),
                'tipo_pago':TipoPagoViaje.objects.all(),
-               #'unidades':Unidad.objects.values_list('id_fake', 'id', 'identificacion'),
-               'unidades':Unidad.objects.all(),
+               'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake'),
                'estados':Estado.objects.all(),
                'categoria_viajes':CategoriaViaje.objects.all(),
                #'destinos':TrayectoDestino.objects.all(),
@@ -120,17 +118,13 @@ def editaViaje(request):
     if request.GET.get('msg', "") == '1':
         mensaje = 'El viaje se creo correctamente.'
     viaje = Viaje.objects.get(id=id_viaje)
-    # used to generate random unique id
-    #import uuid #uid = uuid.uuid4()
 
     context = {'mensaje': mensaje,
                'clientes':Cliente.objects.all(),
-               #'uid':uuid.uuid4(),
                'tipoobservacion':TipoObservacion.objects.all(),
-               #'observaciones':Observacion.objects.all(),
                'tipo_pago':TipoPagoViaje.objects.all(),
                'itemsviaje':ItemViaje.objects.filter(viaje_id=id_viaje),
-               'unidades':Unidad.objects.all(),
+               'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake'),
                'estados':Estado.objects.all(),
                'categoria_viajes':CategoriaViaje.objects.all(),
                'destinos':TrayectoDestino.objects.all(),
@@ -173,11 +167,18 @@ def guardarViaje(request):
     if unidad != '':
         viaje.unidad 			= Unidad.objects.get(id=unidad)
 
-
     data = {
         'error': '0',
         'msg': mensaje
     }
+
+    if viaje.fecha > viaje.centro_costo.fecha_fin:
+        data = {
+            'error': '1',
+            'msg': 'La fecha del viaje es posterior al vencimiento del centro de costos'
+        }
+        dump = json.dumps(data)
+        return HttpResponse(dump, content_type='application/json')
 
     #guardaViajePasajero(pasajero, True, viaje)
     guardaItemViaje(request.POST.get('importe_efectivo', ''), 12, 1, viaje, False)
