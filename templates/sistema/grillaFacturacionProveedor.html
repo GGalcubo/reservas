@@ -30,7 +30,7 @@
         <tr id="rowid{{ v.id }}">
             <td></td>
             <td class="text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{v.id}}">{{v.id}}</a></td>
-            <td>{{v.getFecha}}</td>
+            <td class="all"><span class='hide'>{{ v.fecha }}</span>{{ v.getFecha }}</td>
             <td>{{v.categoria_viaje}}</td>
             <td>{{v.hora}}</td>
             <td>{{v.pasajero.nombre}} {{v.pasajero.apellido}}</td>
