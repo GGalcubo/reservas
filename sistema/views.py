@@ -61,32 +61,47 @@ def getViajesAsignacionesPorFecha(request):
 
 @login_required
 def buscarViajes(request):
-    mensaje = ""
+	mensaje = ""
 
-    unidad          = request.POST.get('unidad', False)
-    cliente         = request.POST.get('cliente', False)
-    pasajero        = request.POST.get('pasajero', False)
-    solicitante     = request.POST.get('solicitante', False)
-    centroDeCosto   = request.POST.get('centroDeCosto', False)
-    desde           = request.POST.get('desde', False)
-    hasta           = request.POST.get('hasta', False)
+	unidad          = request.POST.get('unidad', False)
+	cliente         = request.POST.get('cliente', False)
+	pasajero        = request.POST.get('pasajero', False)
+	solicitante     = request.POST.get('solicitante', False)
+	centroDeCosto   = request.POST.get('centroDeCosto', False)
+	estados 		= request.POST.get('estados', False)
+	desde           = request.POST.get('desde', False)
+	hasta           = request.POST.get('hasta', False)
+	
+	print estados
 
-    viajes = Viaje.objects.filter(cliente_id=cliente, fecha__gte=desde, fecha__lte=hasta)
+	estList = []
+	if estados != "":
+		for c in estados.split(","):
+			if c != "":
+				estList.append(int(c))
 
-    if pasajero:
-        viajes = viajes.filter(pasajero_id=pasajero)
+	viajes = Viaje.objects.filter(fecha__gte=desde, fecha__lte=hasta)
 
-    if solicitante:
-        viajes = viajes.filter(solicitante_id=solicitante)
+	if pasajero:
+		viajes = viajes.filter(pasajero_id=pasajero)
 
-    if centroDeCosto:
-        viajes = viajes.filter(centro_costo_id=centroDeCosto)
+	if solicitante:
+		viajes = viajes.filter(solicitante_id=solicitante)
 
-    if unidad:
-        viajes = viajes.filter(unidad_id=unidad)
+	if centroDeCosto:
+		viajes = viajes.filter(centro_costo_id=centroDeCosto)
 
-    context = {'mensaje': mensaje, 'viajes': viajes}
-    return render(request, 'sistema/grillaViajesExportar.html', context)
+	if unidad:
+		viajes = viajes.filter(unidad_id=unidad)
+
+	if cliente:
+		viajes = viajes.filter(cliente_id=cliente)
+
+	if estList:
+		viajes = viajes.filter(estado_id__in=estList)
+
+	context = {'mensaje': mensaje, 'viajes': viajes}
+	return render(request, 'sistema/grillaViajesExportar.html', context)
 
 @login_required
 def altaViaje(request):
@@ -2047,7 +2062,7 @@ def cargarProvincia(request):
 def exportar(request):
     mensaje = ""
 
-    context = {'mensaje': mensaje, 'clientes': Cliente.objects.all(), 'personas':Persona.objects.all(),'unidades':Unidad.objects.all(),}
+    context = {'mensaje': mensaje, 'clientes': Cliente.objects.all(), 'personas':Persona.objects.all(),'unidades':Unidad.objects.all(),'estados':Estado.objects.all()}
     return render(request, 'sistema/exportar.html', context)
 
 @login_required
@@ -2343,7 +2358,7 @@ def buscarFacturacionCliente(request):
 			
 		if ccList:
 			viajes = viajes.filter(centro_costo_id__in=ccList)
-			
+
 		if solList:
 			viajes = viajes.filter(cliente__personacliente__persona_id__in=solList)
 		

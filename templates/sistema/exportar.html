@@ -91,7 +91,17 @@
                                                 <label for="centroDeCosto">Centro de costo</label>
                                               </div>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-3">
+                                                <div class="form-group form-md-line-input">
+                                                    <select class="form-control select2me" id="estado" name="estado" multiple="multiple">
+                                                    {% for e in estados %}
+                                                        <option value="{{ e.id }}">{{ e.estado }}</option>
+                                                    {% endfor %}
+                                                    </select>
+                                                    <label for="estado">Seleccionar Estado</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
                                                 <div class="form-group mg-neg-t-5">
                                                     <label class="control-label">Fecha</label>
                                                     <div class="input-group input-large date-picker input-daterange" data-date-format="dd/mm/yyyy">
@@ -256,6 +266,13 @@
                         width: 'auto'
                     });
 
+                    $("#estado").select2({
+                        placeholder: "Seleccionar Estados",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
                 });
 
                 updateFillsByCliente = (name, evt) => {
@@ -293,9 +310,9 @@
                 };
 
                 buscarViaje = () => {
-
-                    if ($('#cliente').val() === ""){
-                        showMsg("El campo Cliente es obligatorio.", 'error');
+                    
+                    if ($('#cliente').val() === "" && $('#unidad').val() === ""){
+                        showMsg("El campo Cliente o Unidad es obligatorio.", 'error');
                         return false;
                     }
                     if ($('#desde').val() == ""){
@@ -315,12 +332,22 @@
                         return false;
                     }
 
+                    let estados = ""
+                    if ($("#estado").val() == null) {
+                        estados = "";
+                    }else{
+                        for (var i = 0; i < $("#estado").val().length; i++) {
+                            estados = estados + $("#estado").val()[i] + ","
+                        }
+                    }
+
                     let params = {
                         unidad: $("#unidad").val(),
                         pasajero: $("#pasajero").val(),
                         centroDeCosto: $("#centroDeCosto").val(),
                         solicitante: $("#solicitante").val(),
                         cliente: $("#cliente").val(),
+                        estados: estados,
                         desde,
                         hasta
                     };
@@ -342,11 +369,12 @@
                     $('#to').val("");
                     let table = $('#tablaExportar').DataTable();
                     table.clear().draw();
-                    $("unidad").val('').trigger('change');
+                    $("#unidad").val('').trigger('change');
                     $("#pasajero").val('').trigger('change').empty();
                     $("#centroDeCosto").val('').trigger('change').empty();
                     $("#solicitante").val('').trigger('change').empty();
                     $("#cliente").val('').trigger('change');
+                    $("#estado").val('').trigger('change');
                 };
 
             </script>

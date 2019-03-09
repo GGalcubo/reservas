@@ -84,7 +84,6 @@
                                             <div class="col-sm-3">
                                                 <div class="form-group form-md-line-input">
                                                     <select class="form-control select2me" id="estado" name="estado" multiple="multiple">
-                                                    <option value="">Seleccionar Estado</option>
                                                     {% for e in estados %}
                                                         <option value="{{ e.id }}">{{ e.estado }}</option>
                                                     {% endfor %}
@@ -524,6 +523,7 @@
                     var table = $('#tablaListadoFactClientes').DataTable();
                     table.clear().draw();
                     $("#cliente").val('').trigger('change')
+                    $("#estado").val('').trigger('change')
                     cambioCliente();
                 }
 

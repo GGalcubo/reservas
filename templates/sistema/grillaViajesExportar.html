@@ -15,10 +15,10 @@
         <tbody>
             {% for v in viajes %}
                 <tr>
-                    <td class="all">{{ v.getFecha }}</td>
+                    <td class="all"><span class='hide'>{{ v.fecha }}</span>{{ v.getFecha }}</td>
                     <td class="all">{{ v.hora }}</td>
                     <td class="all">{{ v.categoria_viaje }}</td>
-                    <td class="all">{{ v.unidad.id }}</td>
+                    <td class="text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{v.id}}">{{v.id}}</a></td>
                     <td class="all">{{ v.pasajero }}</td>
                     <td class="all"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.desdeConcat }}</span></td>
                     <td class="all"><span class="label label-sm label-warning">{{ v.getTrayectoPrincipal.hastaConcat }}</span></td>
