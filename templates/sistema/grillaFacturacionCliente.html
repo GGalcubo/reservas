@@ -34,7 +34,7 @@
         {% for v in viajes %}
         <tr id="rowid{{ v.id }}">
             <td></td>
-            <td>{{v.getFecha}}</td>
+            <td class="all"><span class='hide'>{{ v.fecha }}</span>{{ v.getFecha }}</td>
             <td>{{v.categoria_viaje}}</td>
             <td>{{v.hora}}</td>
             <td>{{v.unidad.identificacion}}</td>
