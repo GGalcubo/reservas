@@ -732,7 +732,7 @@
                                                                                     <tr>
                                                                                         <td>{{ o.tipo_observacion.tipo_observacion }}</td>
                                                                                         <td>{{ o.tipo_observacion.detalle_tipo_obs }}</td>
-                                                                                        <td>{{ o.getFechaHora }}</td>
+                                                                                        <td>{{ o.fecha }}</td>
                                                                                         <td>{{ o.texto }}</td>
                                                                                     </tr>
                                                                                     {% endfor %}
@@ -774,12 +774,12 @@
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div class="row">
-                                                                                                        <!--<div class="col-md-6">
+                                                                                                        <div class="col-md-6">
                                                                                                             <div class="form-group form-md-line-input ">
                                                                                                                 <input type="text" class="form-control timepicker timepicker-24" name="hora_obs" id="hora_obs" value="">
                                                                                                                 <label>Hora</label>
                                                                                                             </div>
-                                                                                                        </div>-->
+                                                                                                        </div>
                                                                                                         <div class="col-md-6">
                                                                                                             <div class="form-group form-md-line-input">
                                                                                                                 <textarea class="form-control" rows="3" placeholder="" id="texto_obs" name="text_obs"></textarea>
@@ -1308,7 +1308,7 @@
                                                                                 </tbody>
                                                                             </table>
                                                                         </div>
-                                                                        <div class="row">
+                                                                        <!--<div class="row">
                                                                             <div class="col-md-12">
                                                                                 <input type="hidden" id="idViajeObser" name="idViajeObser" value="{{ viaje.id }}">
                                                                                 <div id="add_observacion_viaje" class="modal fade" tabindex="-1" aria-hidden="true">
@@ -1343,12 +1343,12 @@
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div class="row">
-                                                                                                        <!--<div class="col-md-6">
+                                                                                                        &lt;!&ndash;<div class="col-md-6">
                                                                                                             <div class="form-group form-md-line-input ">
                                                                                                                 <input type="text" class="form-control timepicker timepicker-24" name="hora_obs" id="hora_obs" value="">
                                                                                                                 <label>Hora</label>
                                                                                                             </div>
-                                                                                                        </div>-->
+                                                                                                        </div>&ndash;&gt;
                                                                                                         <div class="col-md-6">
                                                                                                             <div class="form-group form-md-line-input">
                                                                                                                 <textarea class="form-control" rows="3" placeholder="" id="texto_obs" name="text_obs"></textarea>
@@ -1366,7 +1366,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
+                                                                        </div>-->
                                                                     </div>
                                                                 </div>
                                                                 <!-- END EXAMPLE TABLE PORTLET-->
