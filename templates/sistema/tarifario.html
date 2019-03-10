@@ -383,7 +383,7 @@
 
                 function validarTarifaTrayecto(){
                     var url = "/sistema/validarTarifaTrayecto/";
-                    param = 'idTarifario='+$("#idTarifario").val()+"&localidadDesde="+$("#localidadDesde").val()+"&localidadHasta="+$("#").val();
+                    param = 'idTarifario='+$("#idTarifario").val()+"&localidadDesde="+$("#localidadDesde").val()+"&localidadHasta="+$("#localidadHasta").val();
                     $.ajax({
                         type: "POST",
                         url: url,
@@ -422,6 +422,7 @@
                             $('#add_tramo_tarifario').modal('hide');
                         }
                     });
+
                 }
 
                 function guardarTarifaExtra(){
@@ -438,9 +439,9 @@
                         headers: {'X-CSRFToken': '{{ csrf_token }}'},
                         data: param,
                         success: function(data){
+                            $('#add_extra_tarifario').modal('hide');
                             $('#divTablaTrayectoExtra').html("");
                             $('#divTablaTrayectoExtra').html(data);
-                            $('#add_extra_tarifario').modal('hide');
                         }
                     });
                 }

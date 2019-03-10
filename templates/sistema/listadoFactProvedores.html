@@ -219,6 +219,7 @@
                     </form>
 
                 </div>
+                <div id="formularioPdf"></div>
                 <!-- END CONTENT BODY -->
             </div>
             <!-- END CONTENT -->
@@ -699,8 +700,9 @@
                     params += '<input type="hidden" name="hasta" value="'+$("#hasta").val()+'">';
                     params += '<input type="hidden" name="ids" value="'+ids+'">';
 
-                    document.body.innerHTML += '<form id="dynForm" target="_blank" action="/sistema/exportarPdfFactProv/" method="get">'+params+'</form>';
-                    document.getElementById("dynForm").submit();
+                    $("#formularioPdf").html('');
+                    $("#formularioPdf").html('<form id="dynForm" target="_blank" action="/sistema/exportarPdfFactProv/" method="get">'+params+'</form>');
+                    $("#dynForm").submit();
                 }
 
             </script>

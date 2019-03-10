@@ -14,12 +14,22 @@ import os
 
 @login_required
 def dashboard(request):
-    mensaje = ""
-    context = { 'mensaje':mensaje }
-    return render(request, 'sistema/dashboard.html', context)
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
+	mensaje = ""
+	context = { 'mensaje':mensaje }
+	return render(request, 'sistema/dashboard.html', context)
 
 @login_required
 def operaciones(request):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
 	mensaje = ""
 	permiso = obtenerPermiso(request)
 	viajes = Viaje.objects.all()
@@ -33,6 +43,11 @@ def operaciones(request):
 
 @login_required
 def asignaciones(request):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
 	mensaje = ""
 	permiso = obtenerPermiso(request)
 	viajes = Viaje.objects.all()
@@ -105,26 +120,31 @@ def buscarViajes(request):
 
 @login_required
 def altaViaje(request):
-    mensaje     = ""
-    es_nuevo    = 1
-    viaje       = Viaje()
-    viaje.id    = 0
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
 
-    context = {'mensaje': mensaje,
-               'clientes':Cliente.objects.all(),
-               'tipoobservacion':TipoObservacion.objects.all(),
-               'tipo_pago':TipoPagoViaje.objects.all(),
-               'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake'),
-               'estados':Estado.objects.all(),
-               'categoria_viajes':CategoriaViaje.objects.all(),
-               'tarifarios':Tarifario.objects.all(),
-               #'destinos':TrayectoDestino.objects.all(),
-               #'localidades':Localidad.objects.all(),
-               #'provincias':Provincia.objects.all(),
-               'es_nuevo':es_nuevo,
-               'viaje':viaje}
+	mensaje     = ""
+	es_nuevo    = 1
+	viaje       = Viaje()
+	viaje.id    = 0
 
-    return render(request, 'sistema/viaje.html', context)
+	context = {'mensaje': mensaje,
+				'clientes':Cliente.objects.all(),
+				'tipoobservacion':TipoObservacion.objects.all(),
+				'tipo_pago':TipoPagoViaje.objects.all(),
+				'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake'),
+				'estados':Estado.objects.all(),
+				'categoria_viajes':CategoriaViaje.objects.all(),
+				'tarifarios':Tarifario.objects.all(),
+				#'destinos':TrayectoDestino.objects.all(),
+				#'localidades':Localidad.objects.all(),
+				#'provincias':Provincia.objects.all(),
+				'es_nuevo':es_nuevo,
+				'viaje':viaje}
+
+	return render(request, 'sistema/viaje.html', context)
 
 @login_required
 def editaViaje(request):
@@ -1185,6 +1205,11 @@ def guardarPasajeroProspect(request):
 
 @login_required
 def listadoCliente(request, **kwargs):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
 	clientes = Cliente.objects.filter(baja=False)
 	context = {'clientes': clientes}
 	return render(request, 'sistema/listadoCliente.html', context)
@@ -1428,6 +1453,11 @@ def guardarObservacionPersona(request):
 
 @login_required
 def listadoProvedor(request):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
 	provedores = Persona.objects.filter(tipo_persona__id__in=[1,2,3,4],baja=False)
 	context = {'provedores': provedores}
 	return render(request, 'sistema/listadoProvedor.html', context)
@@ -1506,6 +1536,11 @@ def asignarIdFake(request):
 
 @login_required
 def listadoUnidad(request):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
 	unidades = Unidad.objects.filter(baja=False)
 	context = {'unidades':unidades}
 	return render(request, 'sistema/listadoUnidad.html', context)
@@ -1660,6 +1695,11 @@ def editaContacto(request):
 
 @login_required
 def listadoContacto(request):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
 	contactos = Persona.objects.filter(tipo_persona__in=[1,2], baja=False)
 	context = {'contactos': contactos}
 	return render(request, 'sistema/listadoContacto.html', context)
@@ -1733,6 +1773,11 @@ def editaCentroDeCosto(request):
 
 @login_required
 def listadoCentroDeCosto(request):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
 	centroCostos = CentroCosto.objects.filter(baja=False)
 
 	context = {'centroCostos': centroCostos}
@@ -1740,6 +1785,11 @@ def listadoCentroDeCosto(request):
 
 @login_required
 def listadoTarifario(request):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
 	mensaje = ""
 	tarifarios = Tarifario.objects.filter(baja=False)
 	context = {'tarifarios': tarifarios}
@@ -1790,6 +1840,10 @@ def validarTarifaTrayecto(request):
 
 	response_data['result'] = 'ok'
 	response_data['message'] = ''
+
+	print '*-*-*-*'
+	print localidadDesde
+	print localidadHasta
 
 	if localidadDesde == "":
 		response_data['result'] = 'ok'
@@ -1981,6 +2035,11 @@ def guardarMasivo(request):
 
 @login_required
 def listadoLicencia(request):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
 	licencias = Licencia.objects.all()
 	
 	context = {'licencias': licencias}
@@ -2089,10 +2148,15 @@ def cargarProvincia(request):
 
 @login_required
 def exportar(request):
-    mensaje = ""
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
 
-    context = {'mensaje': mensaje, 'clientes': Cliente.objects.all(), 'personas':Persona.objects.all(),'unidades':Unidad.objects.all(),'estados':Estado.objects.all()}
-    return render(request, 'sistema/exportar.html', context)
+	mensaje = ""
+
+	context = {'mensaje': mensaje, 'clientes': Cliente.objects.all(), 'personas':Persona.objects.all(),'unidades':Unidad.objects.all(),'estados':Estado.objects.all()}
+	return render(request, 'sistema/exportar.html', context)
 
 @login_required
 def usuario(request):
@@ -2103,6 +2167,11 @@ def usuario(request):
 
 @login_required
 def listadoAdelanto(request):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
 	mensaje = ""
 	proveedores = Persona.objects.filter(tipo_persona__in=[3,4])
 	context = {'mensaje': mensaje, 'proveedores':proveedores}
@@ -2220,6 +2289,11 @@ def facturarAdelantos(request):
 
 @login_required
 def listadoFactClientes(request):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+
 	clientes = Cliente.objects.filter(baja=False)
 	categorias = CategoriaViaje.objects.all()
 	condicionesPago = CondicionPago.objects.all()
@@ -2555,6 +2629,11 @@ def proformarClientes(request):
 
 @login_required
 def listadoFactProvedores(request):
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
+		
 	unidades = Unidad.objects.all()
 	estados = Estado.objects.all()
 	context = {'unidades': unidades,'estados':estados}
@@ -2671,7 +2750,14 @@ def exportarPdfFactProv(request):
 	hasta   	= request.GET['hasta']
 	idsViaje	= request.GET['ids']
 
-	prov = Unidad.objects.get(id=idunidad)
+	unidades = ""
+	for ids in idunidad.split(","):
+		if ids:
+			prov = Unidad.objects.get(id=ids)
+			unidades = unidades + prov.id_fake + " - " + prov.identificacion + " // "
+
+
+
 	idsList = []
 	for ids in idsViaje.split("-"):
 		if ids:
@@ -2707,7 +2793,7 @@ def exportarPdfFactProv(request):
 		final = final + v.getFinalProveedor()
 		pagar = pagar + v.getPagarProveedor()
 
-	context = {'prov': prov, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'subtotal':subtotal,'cobrado':cobrado,'tiempo':tiempo,'mtiempo':mtiempo,'bilingue':bilingue,'maletas':maletas,'peajes':peajes,'estacion':estacion,'otros':otros,'total':total,'iva':iva,'final':final,'pagar':pagar}
+	context = {'unidades': unidades, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'subtotal':subtotal,'cobrado':cobrado,'tiempo':tiempo,'mtiempo':mtiempo,'bilingue':bilingue,'maletas':maletas,'peajes':peajes,'estacion':estacion,'otros':otros,'total':total,'iva':iva,'final':final,'pagar':pagar}
 	return render(request, 'sistema/pdfFactProvedor.html', context)
 
 
@@ -2755,3 +2841,13 @@ def obtenerPermiso(request):
 		menu_file = 'superuser'
 
 	return menu_file
+
+def validarUrlPorRol(request):
+	urls = ['altaViaje','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoFactClientes']
+	permisos = obtenerPermiso(request)
+	if 'unidades' in permisos:
+		for url in urls:
+			if url in request.build_absolute_uri():
+				return False
+	return True
+
