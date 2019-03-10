@@ -32,7 +32,15 @@ def operaciones(request):
 
 	mensaje = ""
 	permiso = obtenerPermiso(request)
-	viajes = Viaje.objects.all()
+	if 'unidades' in permiso:
+		viajes = []
+		viajesQ = Viaje.objects.filter(estado_id__in=[4,5,6])
+		for v in viajesQ:
+			if validaViajeUnidad(request, v):
+				viajes.append(v)
+	else:
+		viajes = Viaje.objects.all()
+
 	clientes = Cliente.objects.all()
 	unidades = Unidad.objects.all()
 	estados = Estado.objects.all()
@@ -148,30 +156,34 @@ def altaViaje(request):
 
 @login_required
 def editaViaje(request):
-    mensaje     = ""
-    es_nuevo    = 0
-    id_viaje    = request.GET.get('idViaje', "")
-    if request.GET.get('msg', "") == '1':
-        mensaje = 'El viaje se creo correctamente.'
-    viaje = Viaje.objects.get(id=id_viaje)
+	mensaje     = ""
+	es_nuevo    = 0
+	id_viaje    = request.GET.get('idViaje', "")
+	if request.GET.get('msg', "") == '1':
+		mensaje = 'El viaje se creo correctamente.'
+	viaje = Viaje.objects.get(id=id_viaje)
 
-    context = {'mensaje': mensaje,
-               'clientes':Cliente.objects.all(),
-               'tipoobservacion':TipoObservacion.objects.all(),
-               'tipo_pago':TipoPagoViaje.objects.all(),
-               'itemsviaje':ItemViaje.objects.filter(viaje_id=id_viaje),
-               'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake'),
-               'estados':Estado.objects.all(),
-               'categoria_viajes':CategoriaViaje.objects.all(),
-               'tarifarios':Tarifario.objects.all(),
-               'destinos':TrayectoDestino.objects.all(),
-               'localidades':Localidad.objects.filter(baja=False),
-               'provincias':Provincia.objects.all(),
-               'es_nuevo':es_nuevo,
-               'viaje':viaje,
-               'trayectos':Trayecto.objects.filter(viaje_id=id_viaje)}
-    return render(request, 'sistema/viaje.html', context)
+	if not validarViajeUsuarioUnidad(request, viaje):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
 
+	context = {'mensaje': mensaje,
+				'clientes':Cliente.objects.all(),
+				'tipoobservacion':TipoObservacion.objects.all(),
+				'tipo_pago':TipoPagoViaje.objects.all(),
+				'itemsviaje':ItemViaje.objects.filter(viaje_id=id_viaje),
+				'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake'),
+				'estados':Estado.objects.all(),
+				'categoria_viajes':CategoriaViaje.objects.all(),
+				'tarifarios':Tarifario.objects.all(),
+				'destinos':TrayectoDestino.objects.all(),
+				'localidades':Localidad.objects.filter(baja=False),
+				'provincias':Provincia.objects.all(),
+				'es_nuevo':es_nuevo,
+				'viaje':viaje,
+				'trayectos':Trayecto.objects.filter(viaje_id=id_viaje)}
+	return render(request, 'sistema/viaje.html', context)
 
 @login_required
 def guardarViaje(request):
@@ -2633,7 +2645,7 @@ def listadoFactProvedores(request):
 		mensaje = ""
 		context = { 'mensaje':mensaje }
 		return render(request, 'sistema/urlBloqueada.html', context)
-		
+
 	unidades = Unidad.objects.all()
 	estados = Estado.objects.all()
 	context = {'unidades': unidades,'estados':estados}
@@ -2843,11 +2855,38 @@ def obtenerPermiso(request):
 	return menu_file
 
 def validarUrlPorRol(request):
-	urls = ['altaViaje','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoFactClientes']
 	permisos = obtenerPermiso(request)
 	if 'unidades' in permisos:
-		for url in urls:
-			if url in request.build_absolute_uri():
-				return False
-	return True
+		urls = ['operaciones','exportar','listadoLicencia','listadoAdelanto','listadoFactProvedores','password_change','editaViaje']
+	if 'operaciones' in permisos:
+		urls = ['operaciones','altaViaje','exportar','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje']
+	if 'finanzas' in permisos:
+		urls = ['operaciones','altaViaje','exportar','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje']
+	if 'superuser' in permisos:
+		urls = ['operaciones','altaViaje','exportar','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje']
 
+	for url in urls:
+		if url in request.build_absolute_uri():
+			return True
+	return False
+
+def validarViajeUsuarioUnidad(request, viaje):
+	if validaViajeUnidad(request, viaje):
+		return viaje
+	else:
+		return False
+
+def validaViajeUnidad(request, viaje):
+	usrunidad = request.user.usrunidad_set.all()
+	unidades = []
+	permisos = obtenerPermiso(request)
+	for u in usrunidad:
+		unidades.append(u.unidad.id)
+
+	if 'unidades' in permisos:
+		if viaje.unidad:
+			if viaje.unidad.id in unidades:
+				return viaje
+			else:
+				return False
+	return viaje
