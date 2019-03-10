@@ -240,6 +240,8 @@ def guardarViaje(request):
     guardaItemViajeBilingue('', 9, request.POST.get('bilingue', ''), viaje, False)
     guardaItemViajeMaletas('', 10, request.POST.get('maletas', ''), viaje, False)
 
+    print viaje.calculo_admin
+
     if viaje.estado.id == 6 or viaje.estado.id == 7 and viaje.calculo_admin is False:
         guardaItemViajeCostoProveedor('', 8, 1, viaje, False)
 
@@ -547,7 +549,6 @@ def guardaItemViajeEspera(monto, tipo_item_viaje, tiempo, viaje, manual):
         item_viaje_otros = ItemViaje()
 
     monto       = round(float(monto), 2)
-    print base
     monto_s_iva = monto if manual else round((int(tiempo)/15) * float(base), 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
@@ -635,6 +636,8 @@ def guardaItemViajeHsDispoAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
         base = getTarifaTrayectoExtra(viaje.categoria_viaje, centro_costo.tarifario, 'dispo')
     except Exception as e:
         base = 0
+    if base == None:
+        base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
@@ -646,7 +649,6 @@ def guardaItemViajeHsDispoAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
             monto = 0 if monto == '' else monto
             tiempo = 0 if tiempo == '' else tiempo
         item_viaje_otros = ItemViaje()
-
     monto       = round(float(monto), 2)
     monto_s_iva = monto if manual else int(tiempo) * round(float(base), 2)
     monto_iva   = monto_s_iva * tipo_item_viaje.iva_pct if manual else monto_s_iva * tipo_item_viaje.iva_pct
