@@ -117,6 +117,7 @@ def altaViaje(request):
                'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake'),
                'estados':Estado.objects.all(),
                'categoria_viajes':CategoriaViaje.objects.all(),
+               'tarifarios':Tarifario.objects.all(),
                #'destinos':TrayectoDestino.objects.all(),
                #'localidades':Localidad.objects.all(),
                #'provincias':Provincia.objects.all(),
@@ -142,6 +143,7 @@ def editaViaje(request):
                'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake'),
                'estados':Estado.objects.all(),
                'categoria_viajes':CategoriaViaje.objects.all(),
+               'tarifarios':Tarifario.objects.all(),
                'destinos':TrayectoDestino.objects.all(),
                'localidades':Localidad.objects.filter(baja=False),
                'provincias':Provincia.objects.all(),
@@ -1019,6 +1021,32 @@ def guardarChoferProspect(request):
 	}
 	dump = json.dumps(data)
 	return HttpResponse(dump, content_type='application/json')
+
+@login_required
+def guardarCentroCostoProspectDesdeViaje(request):
+    idCC = request.POST.get('idClienteCC', "")
+    if idCC == "0":
+        cc = CentroCosto()
+        cliente = Cliente.objects.get(id=request.POST.get('idClienteEnCC', ""))
+        cc.cliente = cliente
+    else:
+        cc = CentroCosto.objects.get(id=idCC)
+        cliente = cc.cliente
+
+    cc.nombre = request.POST.get('codigoCCCliente', "")
+    cc.fecha_inicio = getAAAAMMDD(request.POST.get('desdeCC', ""))
+    cc.fecha_fin = getAAAAMMDD(request.POST.get('hastaCC', ""))
+    cc.descripcion = request.POST.get('descripcionCCCliente', "")
+    cc.tarifario = Tarifario.objects.get(id=request.POST.get('selectTarifariosCCCliente', ""))
+    cc.save()
+    idCliente = request.POST.get('idClienteEnCC', False)
+    centrosDeCosto = []
+    print idCliente
+    if idCliente:
+        centrosDeCosto = CentroCosto.objects.filter(cliente_id=idCliente)
+
+    context = {'centrosDeCosto': centrosDeCosto}
+    return render(request, 'sistema/selectCentroCosto.html', context)
 
 @login_required
 def guardarCentroCostoProspect(request):

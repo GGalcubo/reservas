@@ -104,11 +104,16 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="row">
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-3">
                                                             <div class="form-group form-md-line-input">
-                                                                <select class="form-control select2me" id="centro_costos" name="centro_costos">
+                                                                <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto">
                                                                 </select>
-                                                                <label for="centro_costos">Centro de Costos</label>
+                                                                <label for="centroDeCosto">Centro de Costos</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1 pd-0">
+                                                            <div class="form-group form-md-line-input">
+                                                               <a href="#add_centro_costo" role="button" data-toggle="modal" class="btn btn-success btn-xs">+</a>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
@@ -1583,7 +1588,7 @@
         <!-- MODAL AGREGAR SOLICITANTE -->
         <div id="add_solicitante" class="modal fade" tabindex="-1" aria-hidden="true">    
             <form role="form" id="form-datos-cliente-solicitante" class="form-datos-cliente-solicitante">
-                <input type="hidden" id="idClienteEnCC" name="idClienteEnSol" value="{{ viaje.cliente.id }}">
+                <input type="hidden" id="idClienteEnSol" name="idClienteEnSol" value="{{ viaje.cliente.id }}">
                 <input type="hidden" id="idSolicitante" name="idSolicitante" value="0">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -1611,7 +1616,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group form-md-line-input form-md-floating-label">
                                             <input type="text" class="form-control" id="puestoSol" name="puestoSol">
-                                            <label for="puesto">Puesto</label>
+                                            <label for="puestoSol">Puesto</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -1734,6 +1739,66 @@
                           <button type="button" class="btn btn-outline red" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
+                </div>
+            </form>
+        </div>
+        <!-- END MODAL AGREGAR PASAJERO -->
+        <!-- MODAL AGREGAR PASAJERO -->
+        <div id="add_centro_costo" class="modal fade" tabindex="-1" aria-hidden="true">
+            <form role="form" class="form-datos-centro-de-costo" id="form-datos-centro-de-costo">
+                <input type="hidden" id="idClienteCC" name="idClienteCC" value="0">
+                <input type="hidden" id="idClienteEnCC" name="idClienteEnCC" value="{{ cliente.id }}">
+                    <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                    <h4 class="modal-title" style="color:#888;">Agregar Centro de Costo</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="scroller" style="height:150px" data-always-visible="1" data-rail-visible1="1">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="text" onkeypress="return soloLetras(event);" class="form-control" id="codigoCCCliente" name="codigoCCCliente">
+                                                    <label for="codigoCCCliente">Código Centro de Costo</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="email" class="form-control" id="descripcionCCCliente" name="descripcionCCCliente">
+                                                    <label for="descripcionCCCliente">Descripción</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group form-md-line-input">
+                                                    <select class="form-control" id="selectTarifariosCCCliente" name="selectTarifariosCCCliente" >
+                                                        {% for t in tarifarios %}
+                                                            <option value="{{ t.id }}">{{ t.nombre }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                    <label for="selectTarifariosCCCliente">Tarifarios</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mg-t-20">
+                                            <div class="col-sm-6">
+                                                <label for="desdeCC">Válido Desde</label>
+                                                <input class="form-control form-control-inline input-medium date-picker" id="desdeCC" name="desdeCC" size="16" type="text" value="" autocomplete="off" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="hastaCC">Válido Hasta</label>
+                                                <input class="form-control form-control-inline input-medium date-picker" id="hastaCC" name="hastaCC" size="16" type="text" value="" autocomplete="off" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer noborder flex">
+                                  <button type="button" onclick="guardarCentroCosto();" class="btn green">Guardar</button>
+                                  <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+
                 </div>
             </form>
         </div>

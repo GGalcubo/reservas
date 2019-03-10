@@ -103,12 +103,14 @@ $(document).ready( () => {
     }
 
     $('#categoria_viaje').select2({ placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#contacto').select2({ placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#pasajero').select2({ placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
 
     $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
     $('#id_cliente').select2({ placeholder: 'Seleccionar Cliente', dropdownAutoWidth : true, width: 'auto'});
     //$("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
     $('#unidad_id').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
-    $('#centro_costos').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#centroDeCosto').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
 
 
     $("#desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
@@ -208,7 +210,7 @@ $(document).ready( () => {
         obj.estado            = $("#estado").val();
         obj.cliente           = $("#id_cliente").val();
         obj.contacto          = $("#contacto").val();
-        obj.centro_costos     = $("#centro_costos").val();
+        obj.centro_costos     = $("#centroDeCosto").val();
         obj.pasajero          = $("#pasajero").val();
         obj.fecha             = $("#fecha").val();
         obj.hora              = ($("#hora").val().length == 5) ? $("#hora").val() : '0' + $("#hora").val();
@@ -741,6 +743,7 @@ updateFillsByCliente = (name, evt) => {
     cliente = searchCliente(evt.params.data.id);
 
     $('#id_cliente').select2('val',cliente.id);
+    $('#idClienteEnSol').val(cliente.id);
     $('#idClienteEnCC').val(cliente.id);
     $('#idClientePasajeroModal').val(cliente.id);
     $('#idClientePasajero').val(cliente.id);
@@ -749,9 +752,9 @@ updateFillsByCliente = (name, evt) => {
     $('#cliente_categoria').val(cliente.categoria_id);
     $('#cliente_tel').val(cliente.telefono);
 
-    $('#centro_costos').empty();
-    $('#contacto').empty();
-    $('#pasajero').empty();
+    $('#centroDeCosto').empty().append($('<option>').text('').attr('value', ''));
+    $('#contacto').empty().append($('<option>').text('').attr('value', ''));
+    $('#pasajero').empty().append($('<option>').text('').attr('value', ''));
     $('#suma_pasajero').empty();
 
     if(evt.params.data.no_borrar_pasajeros){
@@ -761,17 +764,17 @@ updateFillsByCliente = (name, evt) => {
             deleteAllViajePasajero();
         }
     }
-    $('#centro_costos').append($('<option>').text('').attr('value', ''));
+
     $.each(cliente.centro_costos, (i, value) => {
         if(value.id === centro_costo){
-            $('#centro_costos').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
+            $('#centroDeCosto').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
         }else{
-            $('#centro_costos').append($('<option>').text(value.nombre).attr('value', value.id));
+            $('#centroDeCosto').append($('<option>').text(value.nombre).attr('value', value.id));
         }
     });
-    $('#contacto').append($('<option>').text('').attr('value', ''));
+
     $.each(cliente.personascliente, (i, value) => {
-        if(value.tipo_persona == 'Solicitante'){
+        if(value.tipo_persona === 'Solicitante'){
             if(value.id === solicitante){
                 $('#contacto').append($('<option selected="selected">').text(value.nombre).attr('value', value.id))
             }else{
@@ -780,9 +783,9 @@ updateFillsByCliente = (name, evt) => {
 
         }
     });
-    $('#pasajero').append($('<option>').text('').attr('value', ''));
+
     $.each(cliente.personascliente, (i, value) => {
-        if(value.tipo_persona == 'Pasajero'){
+        if(value.tipo_persona === 'Pasajero'){
             if(value.id === pasajero){
                 $('#pasajero').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
             }else{
@@ -1174,4 +1177,72 @@ guardaAdjuntoViaje = () =>{
                alert(data);
            }
     });
+};
+
+guardarCentroCosto = () =>{
+    if ($('#codigoCCCliente').val() == ""){
+        showMsg("El Codigo es obligatorio.", 'error');
+        return false;
+    }
+    if ($('#desdeCC').val() == ""){
+        showMsg("La fecha desde es obligatoria.", 'error');
+        return false;
+    }
+
+    if ($("#idClienteCC").val() == "0"){
+        let url = "/sistema/validarCodigoCentroCosto/?codigoCC="+$("#codigoCCCliente").val();
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function(data){
+                if (data.mensaje === ""){
+                    guardarCCmetodo()
+                }else{
+                    showMsg(data.mensaje, 'error');
+                }
+
+            }
+        });
+    }else{
+        guardarCCmetodo()
+    }
+};
+
+
+guardarCCmetodo = () =>{
+    let url = "/sistema/guardarCentroCostoProspectDesdeViaje/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: $("#form-datos-centro-de-costo").serialize(),
+        success: function(data){
+            $('#codigoCCCliente').val("");
+            $('#descripcionCCCliente').val("");
+            $('#selectTarifariosCCCliente').val("");
+            $('#desdeCC').val("");
+            $('#hastaCC').val("");
+            $("#centroDeCosto").html(data);
+            $('#add_centro_costo').modal('toggle');
+        }
+    });
+};
+
+//Se utiliza para que el campo de texto solo acepte letras
+soloLetras = e =>{
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toString();
+    letras = "áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789";//Se define todo el abecedario que se quiere que se muestre.
+    especiales = [8, 39, 6]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if(letras.indexOf(tecla) == -1 && !tecla_especial){
+        return false;
+    }
 }
