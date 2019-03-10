@@ -156,7 +156,7 @@ $(document).ready( () => {
             showMsg("El campo cliente es obligatorio.");
             return false;
         }
-        if ($("#centro_costos").val() == ""){
+        if ($("#centroDeCosto").val() == ""){
             showMsg("El campo centro de costo es obligatorio.");
             return false;
         }
