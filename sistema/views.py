@@ -253,6 +253,7 @@ def guardarViaje(request):
         guardaItemViajeMaletasAdmin  ('', 4, request.POST.get('maletas', ''), viaje, False)
 
         viaje.calculo_admin = True
+        viaje.save()
 
         items_viaje = serializers.serialize('json', ItemViaje.objects.filter(viaje=viaje))
         return HttpResponse(items_viaje, content_type='application/json')
