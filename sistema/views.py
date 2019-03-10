@@ -392,6 +392,9 @@ def guardaItemViajeMaletas(monto, tipo_item_viaje, checkbox, viaje, manual):
         base = getTarifaTrayectoExtra(viaje.categoria_viaje, unidad.tarifario, 'maletas')
     except Exception as e:
         base = 0
+    if base == None:
+        base = 0
+
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
@@ -424,6 +427,8 @@ def guardaItemViajeMaletasAdmin(monto, tipo_item_viaje, checkbox, viaje, manual)
     try:
         base = getTarifaTrayectoExtra(viaje.categoria_viaje, centro_costo.tarifario, 'maletas')
     except Exception as e:
+        base = 0
+    if base == None:
         base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
@@ -526,6 +531,9 @@ def guardaItemViajeEspera(monto, tipo_item_viaje, tiempo, viaje, manual):
         base = getTarifaTrayectoExtra(viaje.categoria_viaje, unidad.tarifario, 'espera')
     except Exception as e:
         base = 0
+    if base == None:
+        base = 0
+
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
@@ -539,6 +547,7 @@ def guardaItemViajeEspera(monto, tipo_item_viaje, tiempo, viaje, manual):
         item_viaje_otros = ItemViaje()
 
     monto       = round(float(monto), 2)
+    print base
     monto_s_iva = monto if manual else round((int(tiempo)/15) * float(base), 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
@@ -557,6 +566,8 @@ def guardaItemViajeEsperaAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
     try:
         base = getTarifaTrayectoExtra(viaje.categoria_viaje, centro_costo.tarifario, 'espera')
     except Exception as e:
+        base = 0
+    if base == None:
         base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
@@ -589,6 +600,8 @@ def guardaItemViajeHsDispo(monto, tipo_item_viaje, tiempo, viaje, manual):
     try:
         base = getTarifaTrayectoExtra(viaje.categoria_viaje, unidad.tarifario, 'dispo')
     except Exception as e:
+        base = 0
+    if base == None:
         base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
