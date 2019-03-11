@@ -187,7 +187,6 @@ def editaViaje(request):
 
 @login_required
 def guardarViaje(request):
-
     es_nuevo = request.POST.get('es_nuevo', "1")
     mensaje = ''
 
@@ -239,8 +238,6 @@ def guardarViaje(request):
     guardaItemViajeEspera('', 14, request.POST.get('tiempo_espera', ''), viaje, False)
     guardaItemViajeBilingue('', 9, request.POST.get('bilingue', ''), viaje, False)
     guardaItemViajeMaletas('', 10, request.POST.get('maletas', ''), viaje, False)
-
-    print viaje.calculo_admin
 
     if viaje.estado.id == 6 or viaje.estado.id == 7 and viaje.calculo_admin is False:
         guardaItemViajeCostoProveedor('', 8, 1, viaje, False)
