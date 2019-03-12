@@ -336,6 +336,8 @@ def guardaItemViajeCostoProveedor(monto, tipo_item_viaje, cant, viaje, manual):
         base = getTarifaTrayecto(viaje.categoria_viaje_id, unidad.tarifario, viaje.getTrayectoPrincipal())
     except Exception as e:
         base = 0
+    if base == None:
+        base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje, tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
@@ -362,6 +364,8 @@ def guardaItemViajeCostoCliente(monto, tipo_item_viaje, cant, viaje, manual):
     try:
         base = getTarifaTrayecto(viaje.categoria_viaje_id, centro_costo.tarifario, viaje.getTrayectoPrincipal())
     except Exception as e:
+        base = 0
+    if base == None:
         base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje, tipo_items_viaje=tipo_item_viaje)
@@ -462,7 +466,8 @@ def guardaItemViajeBilingue(monto, tipo_item_viaje, checkbox, viaje, manual):
         base = getTarifaTrayecto(viaje.categoria_viaje_id, unidad.tarifario, viaje.getTrayectoPrincipal())
     except Exception as e:
         base = 0
-
+    if base == None:
+        base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
@@ -496,7 +501,8 @@ def guardaItemViajeBilingueAdmin(monto, tipo_item_viaje, checkbox, viaje, manual
         base = getTarifaTrayecto(viaje.categoria_viaje_id, centro_costo.tarifario, viaje.getTrayectoPrincipal())
     except Exception as e:
         base = 0
-
+    if base == None:
+        base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto

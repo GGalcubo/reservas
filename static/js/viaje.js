@@ -255,20 +255,22 @@ $(document).ready( () => {
                 }else{
                     data.url ? window.location.replace(data.url) : showMsg('Los datos se han actualizado correctamente.', 'success');
                     if(obj.estado == 6 || obj.estado == 7){
-                        viaje_items = [];
-                        $.each(data, (k, item) => {
-                            let obj = {
-                                id : item.pk,
-                                monto : item.fields.monto,
-                                monto_s_iva : item.fields.monto_s_iva,
-                                monto_iva : item.fields.monto_iva,
-                                tipo_items_viaje : item.fields.tipo_items_viaje.toString() ,
-                                cant: item.fields.cant};
-                            viaje_items.push(obj);
-                        });
-                        fillViajeItems();
-                        //$("#administracion").show();
-                        $("#administracion_tab_btn a").show();
+                        if(data.error != 0){
+                            viaje_items = [];
+                            $.each(data, (k, item) => {
+                                let obj = {
+                                    id : item.pk,
+                                    monto : item.fields.monto,
+                                    monto_s_iva : item.fields.monto_s_iva,
+                                    monto_iva : item.fields.monto_iva,
+                                    tipo_items_viaje : item.fields.tipo_items_viaje.toString() ,
+                                    cant: item.fields.cant};
+                                viaje_items.push(obj);
+                            });
+                            fillViajeItems();
+                            //$("#administracion").show();
+                            $("#administracion_tab_btn a").show();
+                        }
                     }else{
                         //$("#administracion").hide();
                         $("#administracion_tab_btn a").hide();
