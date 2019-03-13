@@ -13222,5 +13222,636 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":235,
         "baja": false,
-        "tarifario_id":2, "cat1":2760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}}
+        "tarifario_id":2, "cat1":2760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        {
+   "model": "sistema.tarifatrayecto",
+   "pk":1093,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 1",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":1, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1094,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 2",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":1, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1095,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 3",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":1, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1096,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 4",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":1, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1097,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 3",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":1, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1098,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 4",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":1, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1099,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 2",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":1, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1100,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 3",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":1, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1101,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 4",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":1, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1102,
+   "fields": {
+      "descripcion": "ZONA 4 - ZONA 4",
+        "localidad_desde_id":4,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":1, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1103,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 1",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1104,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 2",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1105,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 3",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1106,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 4",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1107,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 3",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1108,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 4",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1109,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 2",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1110,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 3",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1111,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 4",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1112,
+   "fields": {
+      "descripcion": "ZONA 4 - ZONA 4",
+        "localidad_desde_id":4,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1113,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 1",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1114,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 2",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1115,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 3",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1116,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 4",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1117,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 3",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1118,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 4",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1119,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 2",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1120,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 3",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1121,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 4",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1122,
+   "fields": {
+      "descripcion": "ZONA 4 - ZONA 4",
+        "localidad_desde_id":4,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1123,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 1",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":4, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1124,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 2",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":4, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1125,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 3",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":4, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1126,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 4",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":4, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1127,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 3",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":4, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1128,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 4",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":4, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1129,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 2",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":4, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1130,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 3",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":3, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1131,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 4",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":4, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1132,
+   "fields": {
+      "descripcion": "ZONA 4 - ZONA 4",
+        "localidad_desde_id":4,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":4, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1133,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 1",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":5, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1134,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 2",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":5, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1135,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 3",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":5, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1136,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 4",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":5, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1137,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 3",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":5, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1138,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 4",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":5, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1139,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 2",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":5, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1140,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 3",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":5, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1141,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 4",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":5, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1142,
+   "fields": {
+      "descripcion": "ZONA 4 - ZONA 4",
+        "localidad_desde_id":4,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":5, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1143,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 1",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1144,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 2",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1145,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 3",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1146,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 4",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1147,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 3",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1148,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 4",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1149,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 2",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1150,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 3",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1151,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 4",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1152,
+   "fields": {
+      "descripcion": "ZONA 4 - ZONA 4",
+        "localidad_desde_id":4,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1153,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 1",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1154,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 2",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1155,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 3",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1156,
+   "fields": {
+      "descripcion": "ZONA 1 - ZONA 4",
+        "localidad_desde_id":1,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1157,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 3",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1158,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 4",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1159,
+   "fields": {
+      "descripcion": "ZONA 2 - ZONA 2",
+        "localidad_desde_id":2,
+        "localidad_hasta_id":2,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1160,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 3",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":3,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1161,
+   "fields": {
+      "descripcion": "ZONA 3 - ZONA 4",
+        "localidad_desde_id":3,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1162,
+   "fields": {
+      "descripcion": "ZONA 4 - ZONA 4",
+        "localidad_desde_id":4,
+        "localidad_hasta_id":4,
+        "baja": false,
+        "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}}
+
  ]
