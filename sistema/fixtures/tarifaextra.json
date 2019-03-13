@@ -152,14 +152,14 @@
    "fields": {
       "extra_descripcion": "dispo",
         "baja": false,
-        "tarifario":8, "cat1":690, "cat2":"865", "cat3":"910", "cat4":"865", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario":8, "cat1":480, "cat2":"550", "cat3":"550", "cat4":"610", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.TarifaExtra",
    "pk":23,
    "fields": {
       "extra_descripcion": "espera",
         "baja": false,
-        "tarifario":8, "cat1":650, "cat2":"745", "cat3":"865", "cat4":"745", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario":8, "cat1":370, "cat2":"480", "cat3":"480", "cat4":"550", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.TarifaExtra",
    "pk":24,

@@ -3619,7 +3619,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":157,
         "baja": false,
-        "tarifario_id":1, "cat1":11905, "cat2":"15625", "cat3":"15625", "cat4":"19345", "cat5":"26040", "cat6":"34225", "cat7":"38400", "cat8":"7214"}},
+        "tarifario_id":1, "cat1":11905, "cat2":"15625", "cat3":"15625", "cat4":"19345", "cat5":"26040", "cat6":"34225", "cat7":"38400", "cat8":"14262"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":26,
@@ -9316,7 +9316,7 @@
         "localidad_desde_id":179,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":8, "cat1":960, "cat2":"1010", "cat3":"1010", "cat4":"1080", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1075, "cat2":"1130", "cat3":"1130", "cat4":"1200", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":659,
@@ -9325,7 +9325,7 @@
         "localidad_desde_id":179,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":8, "cat1":980, "cat2":"1060", "cat3":"1060", "cat4":"1220", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1100, "cat2":"1190", "cat3":"1190", "cat4":"1375", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":660,
@@ -9334,7 +9334,7 @@
         "localidad_desde_id":179,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":8, "cat1":1020, "cat2":"1110", "cat3":"1110", "cat4":"1340", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1145, "cat2":"1240", "cat3":"1240", "cat4":"1510", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":661,
@@ -9343,7 +9343,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":350, "cat2":"432", "cat3":"432", "cat4":"530", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":405, "cat2":"490", "cat3":"490", "cat4":"610", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":662,
@@ -9352,7 +9352,7 @@
         "localidad_desde_id":2,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":355, "cat2":"430", "cat3":"430", "cat4":"535", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":410, "cat2":"500", "cat3":"500", "cat4":"615", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":663,
@@ -9361,7 +9361,7 @@
         "localidad_desde_id":3,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":365, "cat2":"460", "cat3":"460", "cat4":"580", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":420, "cat2":"530", "cat3":"530", "cat4":"665", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":664,
@@ -9370,7 +9370,7 @@
         "localidad_desde_id":4,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":462, "cat2":"580", "cat3":"580", "cat4":"645", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":530, "cat2":"665", "cat3":"665", "cat4":"740", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":665,
@@ -9379,7 +9379,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":6,
         "baja": false,
-        "tarifario_id":8, "cat1":350, "cat2":"432", "cat3":"432", "cat4":"530", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":405, "cat2":"490", "cat3":"490", "cat4":"610", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":666,
@@ -9388,7 +9388,7 @@
         "localidad_desde_id":2,
         "localidad_hasta_id":6,
         "baja": false,
-        "tarifario_id":8, "cat1":355, "cat2":"430", "cat3":"430", "cat4":"535", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":410, "cat2":"500", "cat3":"500", "cat4":"615", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":667,
@@ -9397,7 +9397,7 @@
         "localidad_desde_id":3,
         "localidad_hasta_id":6,
         "baja": false,
-        "tarifario_id":8, "cat1":365, "cat2":"460", "cat3":"460", "cat4":"580", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":420, "cat2":"530", "cat3":"530", "cat4":"665", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":668,
@@ -9406,7 +9406,7 @@
         "localidad_desde_id":4,
         "localidad_hasta_id":6,
         "baja": false,
-        "tarifario_id":8, "cat1":462, "cat2":"580", "cat3":"580", "cat4":"645", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":530, "cat2":"665", "cat3":"665", "cat4":"740", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":669,
@@ -9415,7 +9415,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":7,
         "baja": false,
-        "tarifario_id":8, "cat1":350, "cat2":"432", "cat3":"432", "cat4":"530", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":405, "cat2":"490", "cat3":"490", "cat4":"610", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":670,
@@ -9424,7 +9424,7 @@
         "localidad_desde_id":2,
         "localidad_hasta_id":7,
         "baja": false,
-        "tarifario_id":8, "cat1":355, "cat2":"430", "cat3":"430", "cat4":"535", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":410, "cat2":"500", "cat3":"500", "cat4":"615", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":671,
@@ -9433,7 +9433,7 @@
         "localidad_desde_id":3,
         "localidad_hasta_id":7,
         "baja": false,
-        "tarifario_id":8, "cat1":365, "cat2":"460", "cat3":"460", "cat4":"580", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":420, "cat2":"530", "cat3":"530", "cat4":"665", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":672,
@@ -9442,7 +9442,7 @@
         "localidad_desde_id":4,
         "localidad_hasta_id":7,
         "baja": false,
-        "tarifario_id":8, "cat1":462, "cat2":"580", "cat3":"580", "cat4":"645", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":530, "cat2":"665", "cat3":"665", "cat4":"740", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":673,
@@ -9451,7 +9451,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":8, "cat1":1020, "cat2":"1100", "cat3":"1100", "cat4":"1340", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1145, "cat2":"1235", "cat3":"1235", "cat4":"1510", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":674,
@@ -9460,7 +9460,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":37,
         "baja": false,
-        "tarifario_id":8, "cat1":1210, "cat2":"1365", "cat3":"1365", "cat4":"1570", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1375, "cat2":"1550", "cat3":"1550", "cat4":"1780", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":675,
@@ -9469,7 +9469,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":154,
         "baja": false,
-        "tarifario_id":8, "cat1":1338, "cat2":"1524", "cat3":"1524", "cat4":"1705", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1520, "cat2":"1735", "cat3":"1735", "cat4":"1940", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":676,
@@ -9478,7 +9478,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":117,
         "baja": false,
-        "tarifario_id":8, "cat1":1500, "cat2":"1740", "cat3":"1740", "cat4":"1920", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1690, "cat2":"1965", "cat3":"1965", "cat4":"2175", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":677,
@@ -9487,7 +9487,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":155,
         "baja": false,
-        "tarifario_id":8, "cat1":900, "cat2":"1260", "cat3":"1260", "cat4":"1705", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1020, "cat2":"1430", "cat3":"1430", "cat4":"1945", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":678,
@@ -9496,7 +9496,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":147,
         "baja": false,
-        "tarifario_id":8, "cat1":1330, "cat2":"1620", "cat3":"1620", "cat4":"1800", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1515, "cat2":"1850", "cat3":"1850", "cat4":"2055", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":679,
@@ -9505,7 +9505,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":62,
         "baja": false,
-        "tarifario_id":8, "cat1":696, "cat2":"780", "cat3":"780", "cat4":"875", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":785, "cat2":"880", "cat3":"880", "cat4":"990", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":680,
@@ -9514,7 +9514,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":14,
         "baja": false,
-        "tarifario_id":8, "cat1":530, "cat2":"610", "cat3":"610", "cat4":"680", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":600, "cat2":"690", "cat3":"690", "cat4":"770", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":681,
@@ -9523,7 +9523,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":156,
         "baja": false,
-        "tarifario_id":8, "cat1":430, "cat2":"490", "cat3":"490", "cat4":"552", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":495, "cat2":"565", "cat3":"565", "cat4":"635", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":682,
@@ -9532,7 +9532,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":157,
         "baja": false,
-        "tarifario_id":8, "cat1":6285, "cat2":"8200", "cat3":"8200", "cat4":"8400", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":7190, "cat2":"9200", "cat3":"9200", "cat4":"9600", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":683,
@@ -9541,7 +9541,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":158,
         "baja": false,
-        "tarifario_id":8, "cat1":9120, "cat2":"10080", "cat3":"10080", "cat4":"11640", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":10400, "cat2":"11500", "cat3":"11500", "cat4":"13000", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":684,
@@ -9550,7 +9550,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":7,
         "baja": false,
-        "tarifario_id":8, "cat1":430, "cat2":"490", "cat3":"490", "cat4":"550", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":495, "cat2":"565", "cat3":"565", "cat4":"630", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":685,
@@ -9559,7 +9559,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":4,
         "baja": false,
-        "tarifario_id":8, "cat1":960, "cat2":"1115", "cat3":"1115", "cat4":"1260", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1070, "cat2":"1250", "cat3":"1250", "cat4":"1415", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":686,
@@ -9568,7 +9568,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":6,
         "baja": false,
-        "tarifario_id":8, "cat1":445, "cat2":"540", "cat3":"540", "cat4":"600", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":510, "cat2":"620", "cat3":"620", "cat4":"690", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":687,
@@ -9577,7 +9577,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":505, "cat2":"575", "cat3":"575", "cat4":"645", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":580, "cat2":"660", "cat3":"660", "cat4":"740", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":688,
@@ -9586,7 +9586,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":8, "cat1":935, "cat2":"1080", "cat3":"1080", "cat4":"1210", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1060, "cat2":"1225", "cat3":"1225", "cat4":"1375", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":689,
@@ -9595,7 +9595,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":159,
         "baja": false,
-        "tarifario_id":8, "cat1":1000, "cat2":"1140", "cat3":"1140", "cat4":"1270", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1130, "cat2":"1295", "cat3":"1295", "cat4":"1440", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":690,
@@ -9604,7 +9604,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":160,
         "baja": false,
-        "tarifario_id":8, "cat1":720, "cat2":"792", "cat3":"792", "cat4":"900", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":810, "cat2":"895", "cat3":"895", "cat4":"1020", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":691,
@@ -9613,7 +9613,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":143,
         "baja": false,
-        "tarifario_id":8, "cat1":1740, "cat2":"1920", "cat3":"1920", "cat4":"2220", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1985, "cat2":"2190", "cat3":"2190", "cat4":"2535", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":692,
@@ -9622,7 +9622,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":114,
         "baja": false,
-        "tarifario_id":8, "cat1":2040, "cat2":"2220", "cat3":"2220", "cat4":"2520", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":2330, "cat2":"2535", "cat3":"2535", "cat4":"2800", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":693,
@@ -9631,7 +9631,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":161,
         "baja": false,
-        "tarifario_id":8, "cat1":840, "cat2":"925", "cat3":"925", "cat4":"1045", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":950, "cat2":"1050", "cat3":"1050", "cat4":"1185", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":694,
@@ -9640,7 +9640,7 @@
         "localidad_desde_id":61,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1105, "cat2":"1245", "cat3":"1245", "cat4":"1380", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1250, "cat2":"1410", "cat3":"1410", "cat4":"1565", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":695,
@@ -9649,7 +9649,7 @@
         "localidad_desde_id":163,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1160, "cat2":"1345", "cat3":"1345", "cat4":"1510", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1315, "cat2":"1525", "cat3":"1525", "cat4":"1715", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":696,
@@ -9658,7 +9658,7 @@
         "localidad_desde_id":164,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1260, "cat2":"1475", "cat3":"1475", "cat4":"1570", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1430, "cat2":"1675", "cat3":"1675", "cat4":"1785", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":697,
@@ -9667,7 +9667,7 @@
         "localidad_desde_id":14,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1380, "cat2":"1640", "cat3":"1645", "cat4":"1825", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1555, "cat2":"1855", "cat3":"1855", "cat4":"2065", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":698,
@@ -9676,7 +9676,7 @@
         "localidad_desde_id":40,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1415, "cat2":"1945", "cat3":"1945", "cat4":"2135", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":2515, "cat2":"2210", "cat3":"2210", "cat4":"2420", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":699,
@@ -9685,7 +9685,7 @@
         "localidad_desde_id":62,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1440, "cat2":"2040", "cat3":"2040", "cat4":"2280", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1620, "cat2":"2310", "cat3":"2310", "cat4":"2580", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":700,
@@ -9694,7 +9694,7 @@
         "localidad_desde_id":165,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":960, "cat2":"1080", "cat3":"1080", "cat4":"1210", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1215, "cat2":"1250", "cat3":"1250", "cat4":"1520", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":701,
@@ -9703,7 +9703,7 @@
         "localidad_desde_id":166,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":960, "cat2":"1080", "cat3":"1080", "cat4":"1210", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1260, "cat2":"1270", "cat3":"1270", "cat4":"1570", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":702,
@@ -9712,7 +9712,7 @@
         "localidad_desde_id":167,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1030, "cat2":"1175", "cat3":"1175", "cat4":"1295", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1140, "cat2":"1310", "cat3":"1310", "cat4":"1440", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":703,
@@ -9721,7 +9721,7 @@
         "localidad_desde_id":42,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1116, "cat2":"1245", "cat3":"1245", "cat4":"1380", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1240, "cat2":"1390", "cat3":"1390", "cat4":"1540", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":704,
@@ -9730,7 +9730,7 @@
         "localidad_desde_id":168,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1235, "cat2":"1450", "cat3":"1450", "cat4":"1605", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1380, "cat2":"1625", "cat3":"1625", "cat4":"1800", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":705,
@@ -9739,7 +9739,7 @@
         "localidad_desde_id":49,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1368, "cat2":"1510", "cat3":"1510", "cat4":"1705", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1530, "cat2":"1695", "cat3":"1695", "cat4":"1910", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":706,
@@ -9748,7 +9748,7 @@
         "localidad_desde_id":144,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1560, "cat2":"1775", "cat3":"1775", "cat4":"1860", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1750, "cat2":"2000", "cat3":"2000", "cat4":"2090", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":707,
@@ -9757,7 +9757,7 @@
         "localidad_desde_id":36,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1760, "cat2":"2005", "cat3":"2005", "cat4":"2245", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1980, "cat2":"2265", "cat3":"2265", "cat4":"2530", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":708,
@@ -9766,7 +9766,7 @@
         "localidad_desde_id":117,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":8, "cat1":2100, "cat2":"2365", "cat3":"2365", "cat4":"2700", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":2370, "cat2":"2675", "cat3":"2675", "cat4":"3060", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":709,
@@ -9775,7 +9775,7 @@
         "localidad_desde_id":169,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":960, "cat2":"1080", "cat3":"1080", "cat4":"1210", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1190, "cat2":"1360", "cat3":"1360", "cat4":"1615", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":710,
@@ -9784,7 +9784,7 @@
         "localidad_desde_id":170,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":985, "cat2":"1080", "cat3":"1080", "cat4":"1225", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1190, "cat2":"1360", "cat3":"1360", "cat4":"1615", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":711,
@@ -9793,7 +9793,7 @@
         "localidad_desde_id":171,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":8, "cat1":1080, "cat2":"1180", "cat3":"1180", "cat4":"1330", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1220, "cat2":"1340", "cat3":"1340", "cat4":"1510", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":712,
@@ -9802,7 +9802,7 @@
         "localidad_desde_id":172,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1115, "cat2":"1245", "cat3":"1245", "cat4":"1380", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1260, "cat2":"1410", "cat3":"1410", "cat4":"1570", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":713,
@@ -9811,7 +9811,7 @@
         "localidad_desde_id":173,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":960, "cat2":"1080", "cat3":"1080", "cat4":"1210", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1235, "cat2":"1440", "cat3":"1440", "cat4":"1700", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":714,
@@ -9820,7 +9820,7 @@
         "localidad_desde_id":174,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1115, "cat2":"1245", "cat3":"1245", "cat4":"1380", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1260, "cat2":"1410", "cat3":"1410", "cat4":"1565", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":715,
@@ -9829,7 +9829,7 @@
         "localidad_desde_id":48,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":8, "cat1":1236, "cat2":"1450", "cat3":"1450", "cat4":"1605", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1400, "cat2":"1650", "cat3":"1650", "cat4":"1825", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":716,
@@ -9838,7 +9838,7 @@
         "localidad_desde_id":45,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":8, "cat1":1800, "cat2":"2040", "cat3":"2040", "cat4":"2265", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":2030, "cat2":"2185", "cat3":"2185", "cat4":"2565", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":717,
@@ -9847,7 +9847,7 @@
         "localidad_desde_id":26,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":960, "cat2":"1044", "cat3":"1044", "cat4":"1200", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1075, "cat2":"1170", "cat3":"1170", "cat4":"1355", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":718,
@@ -9856,7 +9856,7 @@
         "localidad_desde_id":28,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1005, "cat2":"1056", "cat3":"1056", "cat4":"1140", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1125, "cat2":"1185", "cat3":"1185", "cat4":"1280", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":719,
@@ -9865,7 +9865,7 @@
         "localidad_desde_id":175,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1055, "cat2":"1128", "cat3":"1128", "cat4":"1185", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1185, "cat2":"1270", "cat3":"1270", "cat4":"1335", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":720,
@@ -9874,7 +9874,7 @@
         "localidad_desde_id":176,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1105, "cat2":"1175", "cat3":"1175", "cat4":"1235", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1240, "cat2":"1320", "cat3":"1320", "cat4":"1390", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":721,
@@ -9883,7 +9883,7 @@
         "localidad_desde_id":32,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1380, "cat2":"1225", "cat3":"1225", "cat4":"1245", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1560, "cat2":"1380", "cat3":"1380", "cat4":"1400", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":722,
@@ -9892,7 +9892,7 @@
         "localidad_desde_id":177,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1185, "cat2":"1260", "cat3":"1260", "cat4":"1440", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1335, "cat2":"1420", "cat3":"1420", "cat4":"1625", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":723,
@@ -9901,7 +9901,7 @@
         "localidad_desde_id":178,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1235, "cat2":"1450", "cat3":"1450", "cat4":"1605", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1390, "cat2":"1640", "cat3":"1640", "cat4":"1815", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":724,
@@ -9910,7 +9910,7 @@
         "localidad_desde_id":179,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1050, "cat2":"1125", "cat3":"1125", "cat4":"1185", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1165, "cat2":"1290", "cat3":"1290", "cat4":"1320", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":725,
@@ -9919,7 +9919,7 @@
         "localidad_desde_id":179,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1005, "cat2":"1055", "cat3":"1055", "cat4":"1140", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1115, "cat2":"1175", "cat3":"1175", "cat4":"1270", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":726,
@@ -9928,7 +9928,7 @@
         "localidad_desde_id":39,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1150, "cat2":"1230", "cat3":"1230", "cat4":"1320", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1280, "cat2":"1375", "cat3":"1375", "cat4":"1475", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":727,
@@ -9937,7 +9937,7 @@
         "localidad_desde_id":44,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1105, "cat2":"1285", "cat3":"1285", "cat4":"1345", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1230, "cat2":"1435", "cat3":"1435", "cat4":"1500", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":728,
@@ -9946,7 +9946,7 @@
         "localidad_desde_id":161,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1475, "cat2":"1665", "cat3":"1665", "cat4":"1860", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1655, "cat2":"1870", "cat3":"1870", "cat4":"2090", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":729,
@@ -9955,7 +9955,7 @@
         "localidad_desde_id":147,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":2130, "cat2":"2185", "cat3":"2185", "cat4":"2400", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":2400, "cat2":"2470", "cat3":"2470", "cat4":"2715", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":730,
@@ -9964,7 +9964,7 @@
         "localidad_desde_id":37,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1720, "cat2":"1955", "cat3":"1955", "cat4":"2195", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1940, "cat2":"2140", "cat3":"2140", "cat4":"2480", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":731,
@@ -9973,7 +9973,7 @@
         "localidad_desde_id":154,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1860, "cat2":"2135", "cat3":"2135", "cat4":"2375", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":2100, "cat2":"2345", "cat3":"2345", "cat4":"2695", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":732,
@@ -9982,7 +9982,7 @@
         "localidad_desde_id":155,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":1620, "cat2":"1750", "cat3":"1750", "cat4":"2325", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1830, "cat2":"1900", "cat3":"1900", "cat4":"2630", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":733,
@@ -9991,7 +9991,7 @@
         "localidad_desde_id":61,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":355, "cat2":"430", "cat3":"430", "cat4":"534", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":410, "cat2":"495", "cat3":"495", "cat4":"615", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":734,
@@ -10000,7 +10000,7 @@
         "localidad_desde_id":163,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":430, "cat2":"490", "cat3":"490", "cat4":"550", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":495, "cat2":"565", "cat3":"565", "cat4":"630", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":735,
@@ -10009,7 +10009,7 @@
         "localidad_desde_id":164,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":455, "cat2":"525", "cat3":"525", "cat4":"600", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":520, "cat2":"600", "cat3":"600", "cat4":"690", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":736,
@@ -10018,7 +10018,7 @@
         "localidad_desde_id":14,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":530, "cat2":"610", "cat3":"610", "cat4":"690", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":570, "cat2":"660", "cat3":"660", "cat4":"780", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":737,
@@ -10027,7 +10027,7 @@
         "localidad_desde_id":40,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":636, "cat2":"714", "cat3":"714", "cat4":"780", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":715, "cat2":"800", "cat3":"800", "cat4":"880", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":738,
@@ -10036,7 +10036,7 @@
         "localidad_desde_id":62,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":695, "cat2":"780", "cat3":"780", "cat4":"875", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":785, "cat2":"880", "cat3":"880", "cat4":"990", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":739,
@@ -10045,7 +10045,7 @@
         "localidad_desde_id":165,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":550, "cat2":"625", "cat3":"625", "cat4":"720", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":620, "cat2":"665", "cat3":"665", "cat4":"815", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":740,
@@ -10054,7 +10054,7 @@
         "localidad_desde_id":166,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":550, "cat2":"625", "cat3":"625", "cat4":"720", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":620, "cat2":"665", "cat3":"665", "cat4":"815", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":741,
@@ -10063,7 +10063,7 @@
         "localidad_desde_id":167,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":650, "cat2":"730", "cat3":"730", "cat4":"815", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":720, "cat2":"855", "cat3":"855", "cat4":"910", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":742,
@@ -10072,7 +10072,7 @@
         "localidad_desde_id":42,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":705, "cat2":"815", "cat3":"815", "cat4":"910", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":785, "cat2":"950", "cat3":"950", "cat4":"1020", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":743,
@@ -10081,7 +10081,7 @@
         "localidad_desde_id":168,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":765, "cat2":"875", "cat3":"875", "cat4":"1005", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":855, "cat2":"1020", "cat3":"1020", "cat4":"1130", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":744,
@@ -10090,7 +10090,7 @@
         "localidad_desde_id":49,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":820, "cat2":"910", "cat3":"910", "cat4":"1045", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":920, "cat2":"965", "cat3":"965", "cat4":"1175", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":745,
@@ -10099,7 +10099,7 @@
         "localidad_desde_id":144,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":910, "cat2":"1030", "cat3":"1030", "cat4":"1150", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1030, "cat2":"1100", "cat3":"1100", "cat4":"1290", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":746,
@@ -10108,7 +10108,7 @@
         "localidad_desde_id":36,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":995, "cat2":"1175", "cat3":"1175", "cat4":"1345", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1120, "cat2":"1270", "cat3":"1270", "cat4":"1520", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":747,
@@ -10117,7 +10117,7 @@
         "localidad_desde_id":117,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":1500, "cat2":"1740", "cat3":"1740", "cat4":"1920", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1700, "cat2":"1920", "cat3":"1920", "cat4":"2185", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":748,
@@ -10126,7 +10126,7 @@
         "localidad_desde_id":169,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":460, "cat2":"525", "cat3":"525", "cat4":"600", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":530, "cat2":"600", "cat3":"600", "cat4":"690", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":749,
@@ -10135,7 +10135,7 @@
         "localidad_desde_id":170,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":462, "cat2":"525", "cat3":"525", "cat4":"600", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":530, "cat2":"600", "cat3":"600", "cat4":"690", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":750,
@@ -10144,7 +10144,7 @@
         "localidad_desde_id":171,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":540, "cat2":"730", "cat3":"730", "cat4":"845", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":620, "cat2":"840", "cat3":"840", "cat4":"970", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":751,
@@ -10153,7 +10153,7 @@
         "localidad_desde_id":172,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":620, "cat2":"845", "cat3":"845", "cat4":"935", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":700, "cat2":"970", "cat3":"970", "cat4":"1075", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":752,
@@ -10162,7 +10162,7 @@
         "localidad_desde_id":173,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":460, "cat2":"525", "cat3":"525", "cat4":"600", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":530, "cat2":"600", "cat3":"600", "cat4":"690", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":753,
@@ -10171,7 +10171,7 @@
         "localidad_desde_id":174,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":552, "cat2":"625", "cat3":"625", "cat4":"720", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":635, "cat2":"720", "cat3":"720", "cat4":"825", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":754,
@@ -10180,7 +10180,7 @@
         "localidad_desde_id":48,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":648, "cat2":"720", "cat3":"720", "cat4":"805", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":745, "cat2":"830", "cat3":"830", "cat4":"925", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":755,
@@ -10189,7 +10189,7 @@
         "localidad_desde_id":45,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":900, "cat2":"1030", "cat3":"1030", "cat4":"1150", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1020, "cat2":"1170", "cat3":"1170", "cat4":"1300", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":756,
@@ -10198,7 +10198,7 @@
         "localidad_desde_id":26,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":360, "cat2":"430", "cat3":"430", "cat4":"540", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":415, "cat2":"495", "cat3":"495", "cat4":"620", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":757,
@@ -10207,7 +10207,7 @@
         "localidad_desde_id":28,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":462, "cat2":"525", "cat3":"525", "cat4":"600", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":530, "cat2":"605", "cat3":"605", "cat4":"690", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":758,
@@ -10216,7 +10216,7 @@
         "localidad_desde_id":175,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":505, "cat2":"575", "cat3":"575", "cat4":"660", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":580, "cat2":"660", "cat3":"660", "cat4":"760", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":759,
@@ -10225,7 +10225,7 @@
         "localidad_desde_id":176,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":552, "cat2":"625", "cat3":"625", "cat4":"720", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":635, "cat2":"720", "cat3":"720", "cat4":"828", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":760,
@@ -10234,7 +10234,7 @@
         "localidad_desde_id":32,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":600, "cat2":"695", "cat3":"695", "cat4":"790", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":690, "cat2":"800", "cat3":"800", "cat4":"910", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":761,
@@ -10243,7 +10243,7 @@
         "localidad_desde_id":177,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":645, "cat2":"720", "cat3":"720", "cat4":"805", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":740, "cat2":"830", "cat3":"830", "cat4":"925", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":762,
@@ -10252,7 +10252,7 @@
         "localidad_desde_id":178,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":732, "cat2":"825", "cat3":"825", "cat4":"925", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":840, "cat2":"950", "cat3":"950", "cat4":"1050", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":763,
@@ -10261,7 +10261,7 @@
         "localidad_desde_id":179,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":510, "cat2":"575", "cat3":"575", "cat4":"660", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":575, "cat2":"650", "cat3":"650", "cat4":"745", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":764,
@@ -10270,7 +10270,7 @@
         "localidad_desde_id":179,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":550, "cat2":"625", "cat3":"625", "cat4":"720", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":620, "cat2":"705", "cat3":"705", "cat4":"815", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":765,
@@ -10279,7 +10279,7 @@
         "localidad_desde_id":39,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":630, "cat2":"720", "cat3":"745", "cat4":"925", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":710, "cat2":"815", "cat3":"815", "cat4":"1050", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":766,
@@ -10288,7 +10288,7 @@
         "localidad_desde_id":44,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":720, "cat2":"815", "cat3":"815", "cat4":"945", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":815, "cat2":"925", "cat3":"925", "cat4":"1075", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":767,
@@ -10297,7 +10297,7 @@
         "localidad_desde_id":161,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":1030, "cat2":"1175", "cat3":"1175", "cat4":"1305", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1170, "cat2":"1335", "cat3":"1335", "cat4":"1485", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":768,
@@ -10306,7 +10306,7 @@
         "localidad_desde_id":147,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":1600, "cat2":"1705", "cat3":"1705", "cat4":"1945", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1825, "cat2":"1945", "cat3":"1945", "cat4":"2220", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":769,
@@ -10315,7 +10315,7 @@
         "localidad_desde_id":37,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":1210, "cat2":"1365", "cat3":"1365", "cat4":"1570", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1375, "cat2":"1550", "cat3":"1550", "cat4":"1790", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":770,
@@ -10324,7 +10324,7 @@
         "localidad_desde_id":154,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":1335, "cat2":"1525", "cat3":"1525", "cat4":"1705", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1520, "cat2":"1735", "cat3":"1735", "cat4":"1945", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":771,
@@ -10333,7 +10333,7 @@
         "localidad_desde_id":155,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":8, "cat1":900, "cat2":"1105", "cat3":"1105", "cat4":"1310", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":1020, "cat2":"1255", "cat3":"1255", "cat4":"1490", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":772,
@@ -10342,7 +10342,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":55,
         "baja": false,
-        "tarifario_id":8, "cat1":2340, "cat2":"2640", "cat3":"2640", "cat4":"300", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":2675, "cat2":"3020", "cat3":"3020", "cat4":"3430", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":773,
@@ -10360,7 +10360,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":15,
         "baja": false,
-        "tarifario_id":8, "cat1":2520, "cat2":"2880", "cat3":"2880", "cat4":"3360", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":2865, "cat2":"3275", "cat3":"3275", "cat4":"3825", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":775,
@@ -10378,7 +10378,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":192,
         "baja": false,
-        "tarifario_id":8, "cat1":505, "cat2":"575", "cat3":"575", "cat4":"645", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":777,
@@ -10387,7 +10387,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":45,
         "baja": false,
-        "tarifario_id":8, "cat1":900, "cat2":"1030", "cat3":"1030", "cat4":"1150", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":778,
@@ -10423,7 +10423,7 @@
         "localidad_desde_id":179,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":8, "cat1":2160, "cat2":"2400", "cat3":"2400", "cat4":"2760", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":2450, "cat2":"2645", "cat3":"2645", "cat4":"3140", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":782,
@@ -10459,7 +10459,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":786,
@@ -10468,7 +10468,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":1,
         "baja": false,
-        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":787,
@@ -10477,7 +10477,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":211,
         "baja": false,
-        "tarifario_id":2, "cat1":1240, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":788,
@@ -10486,7 +10486,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":14,
         "baja": false,
-        "tarifario_id":2, "cat1":1240, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":789,
@@ -10495,7 +10495,7 @@
         "localidad_desde_id":148,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":2, "cat1":3385, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":790,
@@ -10504,7 +10504,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":211,
         "baja": false,
-        "tarifario_id":2, "cat1":2830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":791,
@@ -10513,7 +10513,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":14,
         "baja": false,
-        "tarifario_id":2, "cat1":2830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":792,
@@ -10522,7 +10522,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":180,
         "baja": false,
-        "tarifario_id":2, "cat1":1860, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":793,
@@ -10531,7 +10531,7 @@
         "localidad_desde_id":204,
         "localidad_hasta_id":206,
         "baja": false,
-        "tarifario_id":2, "cat1":11730, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":794,
@@ -10540,7 +10540,7 @@
         "localidad_desde_id":202,
         "localidad_hasta_id":206,
         "baja": false,
-        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":795,
@@ -10549,7 +10549,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":45,
         "baja": false,
-        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":796,
@@ -10558,7 +10558,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":206,
         "baja": false,
-        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":797,
@@ -10567,7 +10567,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":180,
         "baja": false,
-        "tarifario_id":2, "cat1":1450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":798,
@@ -10576,7 +10576,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":198,
         "baja": false,
-        "tarifario_id":2, "cat1":1310, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":799,
@@ -10585,7 +10585,7 @@
         "localidad_desde_id":148,
         "localidad_hasta_id":199,
         "baja": false,
-        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":800,
@@ -10594,7 +10594,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":237,
         "baja": false,
-        "tarifario_id":2, "cat1":1795, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":801,
@@ -10603,7 +10603,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":237,
         "baja": false,
-        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":802,
@@ -10612,7 +10612,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":212,
         "baja": false,
-        "tarifario_id":2, "cat1":3650, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":803,
@@ -10621,7 +10621,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":212,
         "baja": false,
-        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":804,
@@ -10630,7 +10630,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":212,
         "baja": false,
-        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":805,
@@ -10639,7 +10639,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":14,
         "baja": false,
-        "tarifario_id":2, "cat1":3650, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":806,
@@ -10648,7 +10648,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":14,
         "baja": false,
-        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":807,
@@ -10657,7 +10657,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":14,
         "baja": false,
-        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":808,
@@ -10666,7 +10666,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":48,
         "baja": false,
-        "tarifario_id":2, "cat1":3100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":809,
@@ -10675,7 +10675,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":39,
         "baja": false,
-        "tarifario_id":2, "cat1":3865, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":810,
@@ -10684,7 +10684,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":213,
         "baja": false,
-        "tarifario_id":2, "cat1":1450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":811,
@@ -10693,7 +10693,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":213,
         "baja": false,
-        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":812,
@@ -10702,7 +10702,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":214,
         "baja": false,
-        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":813,
@@ -10711,7 +10711,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":195,
         "baja": false,
-        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":814,
@@ -10720,7 +10720,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":28,
         "baja": false,
-        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":815,
@@ -10729,7 +10729,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":40,
         "baja": false,
-        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":816,
@@ -10738,7 +10738,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":62,
         "baja": false,
-        "tarifario_id":2, "cat1":1515, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":817,
@@ -10747,7 +10747,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":1,
         "baja": false,
-        "tarifario_id":2, "cat1":2970, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":818,
@@ -10756,7 +10756,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":1,
         "baja": false,
-        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":819,
@@ -10765,7 +10765,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":144,
         "baja": false,
-        "tarifario_id":2, "cat1":3520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":820,
@@ -10774,7 +10774,7 @@
         "localidad_desde_id":114,
         "localidad_hasta_id":1,
         "baja": false,
-        "tarifario_id":2, "cat1":3450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":821,
@@ -10783,7 +10783,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":1,
         "baja": false,
-        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":822,
@@ -10792,7 +10792,7 @@
         "localidad_desde_id":205,
         "localidad_hasta_id":117,
         "baja": false,
-        "tarifario_id":2, "cat1":4690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":823,
@@ -10801,7 +10801,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":195,
         "baja": false,
-        "tarifario_id":2, "cat1":3590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":824,
@@ -10810,7 +10810,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":215,
         "baja": false,
-        "tarifario_id":2, "cat1":2900, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":825,
@@ -10819,7 +10819,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":45,
         "baja": false,
-        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":826,
@@ -10828,7 +10828,7 @@
         "localidad_desde_id":114,
         "localidad_hasta_id":216,
         "baja": false,
-        "tarifario_id":2, "cat1":4280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":827,
@@ -10837,7 +10837,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":216,
         "baja": false,
-        "tarifario_id":2, "cat1":1315, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":828,
@@ -10846,7 +10846,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":43,
         "baja": false,
-        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":829,
@@ -10855,7 +10855,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":216,
         "baja": false,
-        "tarifario_id":2, "cat1":2660, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":830,
@@ -10864,7 +10864,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":216,
         "baja": false,
-        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":831,
@@ -10873,7 +10873,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":217,
         "baja": false,
-        "tarifario_id":2, "cat1":1315, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":832,
@@ -10882,7 +10882,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":138,
         "baja": false,
-        "tarifario_id":2, "cat1":2145, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":833,
@@ -10891,7 +10891,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":62,
         "baja": false,
-        "tarifario_id":2, "cat1":1590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":834,
@@ -10900,7 +10900,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":218,
         "baja": false,
-        "tarifario_id":2, "cat1":1810, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":835,
@@ -10909,7 +10909,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":198,
         "baja": false,
-        "tarifario_id":2, "cat1":1450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":836,
@@ -10918,7 +10918,7 @@
         "localidad_desde_id":202,
         "localidad_hasta_id":219,
         "baja": false,
-        "tarifario_id":2, "cat1":760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":837,
@@ -10927,7 +10927,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":198,
         "baja": false,
-        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":838,
@@ -10936,7 +10936,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":53,
         "baja": false,
-        "tarifario_id":2, "cat1":2485, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":839,
@@ -10945,7 +10945,7 @@
         "localidad_desde_id":203,
         "localidad_hasta_id":168,
         "baja": false,
-        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":840,
@@ -10954,7 +10954,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":143,
         "baja": false,
-        "tarifario_id":2, "cat1":210, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":841,
@@ -10963,7 +10963,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":220,
         "baja": false,
-        "tarifario_id":2, "cat1":2485, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":842,
@@ -10972,7 +10972,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":221,
         "baja": false,
-        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":843,
@@ -10981,7 +10981,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":198,
         "baja": false,
-        "tarifario_id":2, "cat1":3520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":844,
@@ -10990,7 +10990,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":53,
         "baja": false,
-        "tarifario_id":2, "cat1":2550, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":845,
@@ -10999,7 +10999,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":178,
         "baja": false,
-        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":846,
@@ -11008,7 +11008,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":28,
         "baja": false,
-        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":847,
@@ -11017,7 +11017,7 @@
         "localidad_desde_id":147,
         "localidad_hasta_id":179,
         "baja": false,
-        "tarifario_id":2, "cat1":2140, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":848,
@@ -11026,7 +11026,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":221,
         "baja": false,
-        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":849,
@@ -11035,7 +11035,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":222,
         "baja": false,
-        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":850,
@@ -11044,7 +11044,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":238,
         "baja": false,
-        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":851,
@@ -11053,7 +11053,7 @@
         "localidad_desde_id":207,
         "localidad_hasta_id":163,
         "baja": false,
-        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":852,
@@ -11062,7 +11062,7 @@
         "localidad_desde_id":208,
         "localidad_hasta_id":209,
         "baja": false,
-        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":853,
@@ -11071,7 +11071,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":53,
         "baja": false,
-        "tarifario_id":2, "cat1":4415, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":854,
@@ -11080,7 +11080,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":155,
         "baja": false,
-        "tarifario_id":2, "cat1":3800, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":855,
@@ -11089,7 +11089,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":45,
         "baja": false,
-        "tarifario_id":2, "cat1":1735, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":856,
@@ -11098,7 +11098,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":209,
         "baja": false,
-        "tarifario_id":2, "cat1":1590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":857,
@@ -11107,7 +11107,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":209,
         "baja": false,
-        "tarifario_id":2, "cat1":3800, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":858,
@@ -11116,7 +11116,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":44,
         "baja": false,
-        "tarifario_id":2, "cat1":1650, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":859,
@@ -11125,7 +11125,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":46,
         "baja": false,
-        "tarifario_id":2, "cat1":1800, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":860,
@@ -11134,7 +11134,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":223,
         "baja": false,
-        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":861,
@@ -11143,7 +11143,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":224,
         "baja": false,
-        "tarifario_id":2, "cat1":625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":862,
@@ -11152,7 +11152,7 @@
         "localidad_desde_id":148,
         "localidad_hasta_id":224,
         "baja": false,
-        "tarifario_id":2, "cat1":625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":863,
@@ -11161,7 +11161,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":39,
         "baja": false,
-        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":864,
@@ -11170,7 +11170,7 @@
         "localidad_desde_id":148,
         "localidad_hasta_id":48,
         "baja": false,
-        "tarifario_id":2, "cat1":3725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":865,
@@ -11179,7 +11179,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":28,
         "baja": false,
-        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":866,
@@ -11188,7 +11188,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":225,
         "baja": false,
-        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":867,
@@ -11197,7 +11197,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":225,
         "baja": false,
-        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":868,
@@ -11206,7 +11206,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":28,
         "baja": false,
-        "tarifario_id":2, "cat1":3310, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":869,
@@ -11215,7 +11215,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":36,
         "baja": false,
-        "tarifario_id":2, "cat1":3940, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":870,
@@ -11224,7 +11224,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":26,
         "baja": false,
-        "tarifario_id":2, "cat1":3100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":871,
@@ -11233,7 +11233,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":42,
         "baja": false,
-        "tarifario_id":2, "cat1":3100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":872,
@@ -11242,7 +11242,7 @@
         "localidad_desde_id":148,
         "localidad_hasta_id":40,
         "baja": false,
-        "tarifario_id":2, "cat1":3590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":873,
@@ -11251,7 +11251,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":144,
         "baja": false,
-        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":874,
@@ -11260,7 +11260,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":226,
         "baja": false,
-        "tarifario_id":2, "cat1":1090, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":875,
@@ -11269,7 +11269,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":226,
         "baja": false,
-        "tarifario_id":2, "cat1":910, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":876,
@@ -11278,7 +11278,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":117,
         "baja": false,
-        "tarifario_id":2, "cat1":4590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":877,
@@ -11287,7 +11287,7 @@
         "localidad_desde_id":147,
         "localidad_hasta_id":226,
         "baja": false,
-        "tarifario_id":2, "cat1":3310, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":878,
@@ -11296,7 +11296,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":227,
         "baja": false,
-        "tarifario_id":2, "cat1":1555, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":879,
@@ -11305,7 +11305,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":227,
         "baja": false,
-        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":880,
@@ -11314,7 +11314,7 @@
         "localidad_desde_id":202,
         "localidad_hasta_id":40,
         "baja": false,
-        "tarifario_id":2, "cat1":900, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":881,
@@ -11323,7 +11323,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":49,
         "baja": false,
-        "tarifario_id":2, "cat1":1590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":882,
@@ -11332,7 +11332,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":227,
         "baja": false,
-        "tarifario_id":2, "cat1":1730, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":883,
@@ -11341,7 +11341,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":36,
         "baja": false,
-        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":884,
@@ -11350,7 +11350,7 @@
         "localidad_desde_id":148,
         "localidad_hasta_id":227,
         "baja": false,
-        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":885,
@@ -11359,7 +11359,7 @@
         "localidad_desde_id":201,
         "localidad_hasta_id":220,
         "baja": false,
-        "tarifario_id":2, "cat1":760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":886,
@@ -11368,7 +11368,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":138,
         "baja": false,
-        "tarifario_id":2, "cat1":2790, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":887,
@@ -11377,7 +11377,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":40,
         "baja": false,
-        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":888,
@@ -11386,7 +11386,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":147,
         "baja": false,
-        "tarifario_id":2, "cat1":2485, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":889,
@@ -11395,7 +11395,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":49,
         "baja": false,
-        "tarifario_id":2, "cat1":2970, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":890,
@@ -11404,7 +11404,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":228,
         "baja": false,
-        "tarifario_id":2, "cat1":1865, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":891,
@@ -11413,7 +11413,7 @@
         "localidad_desde_id":147,
         "localidad_hasta_id":163,
         "baja": false,
-        "tarifario_id":2, "cat1":3090, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":892,
@@ -11422,7 +11422,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":2, "cat1":3385, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":893,
@@ -11431,7 +11431,7 @@
         "localidad_desde_id":43,
         "localidad_hasta_id":228,
         "baja": false,
-        "tarifario_id":2, "cat1":1925, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":894,
@@ -11440,7 +11440,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":39,
         "baja": false,
-        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":895,
@@ -11449,7 +11449,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":36,
         "baja": false,
-        "tarifario_id":2, "cat1":4275, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":896,
@@ -11458,7 +11458,7 @@
         "localidad_desde_id":202,
         "localidad_hasta_id":45,
         "baja": false,
-        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":897,
@@ -11467,7 +11467,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":176,
         "baja": false,
-        "tarifario_id":2, "cat1":1100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":898,
@@ -11476,7 +11476,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":228,
         "baja": false,
-        "tarifario_id":2, "cat1":3450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":899,
@@ -11485,7 +11485,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":42,
         "baja": false,
-        "tarifario_id":2, "cat1":3270, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":900,
@@ -11494,7 +11494,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":42,
         "baja": false,
-        "tarifario_id":2, "cat1":1520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":901,
@@ -11503,7 +11503,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":163,
         "baja": false,
-        "tarifario_id":2, "cat1":965, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":902,
@@ -11512,7 +11512,7 @@
         "localidad_desde_id":147,
         "localidad_hasta_id":5,
         "baja": false,
-        "tarifario_id":2, "cat1":2830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":903,
@@ -11521,7 +11521,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":229,
         "baja": false,
-        "tarifario_id":2, "cat1":2070, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":904,
@@ -11530,7 +11530,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":147,
         "baja": false,
-        "tarifario_id":2, "cat1":2420, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":905,
@@ -11539,7 +11539,7 @@
         "localidad_desde_id":43,
         "localidad_hasta_id":144,
         "baja": false,
-        "tarifario_id":2, "cat1":2620, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":906,
@@ -11548,7 +11548,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":163,
         "baja": false,
-        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":907,
@@ -11557,7 +11557,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":229,
         "baja": false,
-        "tarifario_id":2, "cat1":1810, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":908,
@@ -11566,7 +11566,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":37,
         "baja": false,
-        "tarifario_id":2, "cat1":4480, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":909,
@@ -11575,7 +11575,7 @@
         "localidad_desde_id":148,
         "localidad_hasta_id":138,
         "baja": false,
-        "tarifario_id":2, "cat1":2145, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":910,
@@ -11584,7 +11584,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":40,
         "baja": false,
-        "tarifario_id":2, "cat1":4480, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":911,
@@ -11593,7 +11593,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":236,
         "baja": false,
-        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":912,
@@ -11602,7 +11602,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":138,
         "baja": false,
-        "tarifario_id":2, "cat1":4000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":913,
@@ -11611,7 +11611,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":144,
         "baja": false,
-        "tarifario_id":2, "cat1":1795, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":914,
@@ -11620,7 +11620,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":236,
         "baja": false,
-        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":915,
@@ -11629,7 +11629,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":159,
         "baja": false,
-        "tarifario_id":2, "cat1":2210, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":916,
@@ -11638,7 +11638,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":214,
         "baja": false,
-        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":917,
@@ -11647,7 +11647,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":15,
         "baja": false,
-        "tarifario_id":2, "cat1":4695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":918,
@@ -11656,7 +11656,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":138,
         "baja": false,
-        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":919,
@@ -11665,7 +11665,7 @@
         "localidad_desde_id":148,
         "localidad_hasta_id":1,
         "baja": false,
-        "tarifario_id":2, "cat1":3174, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":920,
@@ -11674,7 +11674,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":210,
         "baja": false,
-        "tarifario_id":2, "cat1":1275, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":921,
@@ -11683,7 +11683,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":117,
         "baja": false,
-        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":922,
@@ -11692,7 +11692,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":166,
         "baja": false,
-        "tarifario_id":2, "cat1":1520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":923,
@@ -11701,7 +11701,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":210,
         "baja": false,
-        "tarifario_id":2, "cat1":3935, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":924,
@@ -11710,7 +11710,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":230,
         "baja": false,
-        "tarifario_id":2, "cat1":8625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":925,
@@ -11719,7 +11719,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":117,
         "baja": false,
-        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":926,
@@ -11728,7 +11728,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":231,
         "baja": false,
-        "tarifario_id":2, "cat1":830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":927,
@@ -11737,7 +11737,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":114,
         "baja": false,
-        "tarifario_id":2, "cat1":6625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":928,
@@ -11746,7 +11746,7 @@
         "localidad_desde_id":202,
         "localidad_hasta_id":62,
         "baja": false,
-        "tarifario_id":2, "cat1":900, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":929,
@@ -11755,7 +11755,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":117,
         "baja": false,
-        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":930,
@@ -11764,7 +11764,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":232,
         "baja": false,
-        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":931,
@@ -11773,7 +11773,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":232,
         "baja": false,
-        "tarifario_id":2, "cat1":1165, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":932,
@@ -11782,7 +11782,7 @@
         "localidad_desde_id":200,
         "localidad_hasta_id":233,
         "baja": false,
-        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":933,
@@ -11791,7 +11791,7 @@
         "localidad_desde_id":6,
         "localidad_hasta_id":233,
         "baja": false,
-        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":934,
@@ -11800,7 +11800,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":180,
         "baja": false,
-        "tarifario_id":2, "cat1":3450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":935,
@@ -11809,7 +11809,7 @@
         "localidad_desde_id":69,
         "localidad_hasta_id":234,
         "baja": false,
-        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":936,
@@ -11818,7 +11818,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":234,
         "baja": false,
-        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":937,
@@ -11827,7 +11827,7 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":166,
         "baja": false,
-        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":938,
@@ -11836,5 +11836,1391 @@
         "localidad_desde_id":143,
         "localidad_hasta_id":235,
         "baja": false,
-        "tarifario_id":2, "cat1":2760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}}        
-]
+        "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":939,
+   "fields": {
+      "descripcion": "DOCK SUD - AEP",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":940,
+   "fields": {
+      "descripcion": "DOCK SUD - ZONA 1",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":941,
+   "fields": {
+      "descripcion": "AEP - BECCAR",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":211,
+        "baja": false,
+        "tarifario_id":2, "cat1":1240, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":942,
+   "fields": {
+      "descripcion": "AEP - SAN ISIDRO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":14,
+        "baja": false,
+        "tarifario_id":2, "cat1":1240, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":943,
+   "fields": {
+      "descripcion": "ENSENADA - AEP",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":2, "cat1":3385, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":944,
+   "fields": {
+      "descripcion": "CAMPANA - BECCAR",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":211,
+        "baja": false,
+        "tarifario_id":2, "cat1":2830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":945,
+   "fields": {
+      "descripcion": "CAMPANA - SAN ISIDRO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":14,
+        "baja": false,
+        "tarifario_id":2, "cat1":2830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":946,
+   "fields": {
+      "descripcion": "BERISSO - BERNAL",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":180,
+        "baja": false,
+        "tarifario_id":2, "cat1":1860, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":947,
+   "fields": {
+      "descripcion": "PUERTO SAN MARTIN (San Lorenzo) - BELLA VISTA",
+        "localidad_desde_id":204,
+        "localidad_hasta_id":206,
+        "baja": false,
+        "tarifario_id":2, "cat1":11730, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":948,
+   "fields": {
+      "descripcion": "TERMINAL PACHECO - BELLA VISTA",
+        "localidad_desde_id":202,
+        "localidad_hasta_id":206,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":949,
+   "fields": {
+      "descripcion": "BERISSO - SAN MIGUEL",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":45,
+        "baja": false,
+        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":950,
+   "fields": {
+      "descripcion": "BERISSO - BELLA VISTA",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":206,
+        "baja": false,
+        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":951,
+   "fields": {
+      "descripcion": "AEP - BERNAL",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":180,
+        "baja": false,
+        "tarifario_id":2, "cat1":1450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":952,
+   "fields": {
+      "descripcion": "AEP - RAFAEL CALZADA",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":198,
+        "baja": false,
+        "tarifario_id":2, "cat1":1310, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":953,
+   "fields": {
+      "descripcion": "ENSENADA - MUÑIZ",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":199,
+        "baja": false,
+        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":954,
+   "fields": {
+      "descripcion": "DOCK SUD - BENAVIDEZ",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":237,
+        "baja": false,
+        "tarifario_id":2, "cat1":1795, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":955,
+   "fields": {
+      "descripcion": "RETIRO  - BENAVIDEZ",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":237,
+        "baja": false,
+        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":956,
+   "fields": {
+      "descripcion": "BERISSO - BOULOGNE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":212,
+        "baja": false,
+        "tarifario_id":2, "cat1":3650, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":957,
+   "fields": {
+      "descripcion": "RETIRO  - BOULOGNE",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":212,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":958,
+   "fields": {
+      "descripcion": "DOCK SUD - BOULOGNE",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":212,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":959,
+   "fields": {
+      "descripcion": "BERISSO - SAN ISIDRO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":14,
+        "baja": false,
+        "tarifario_id":2, "cat1":3650, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":960,
+   "fields": {
+      "descripcion": "RETIRO  - SAN ISIDRO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":14,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":961,
+   "fields": {
+      "descripcion": "DOCK SUD - SAN ISIDRO",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":14,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":962,
+   "fields": {
+      "descripcion": "CAMPANA - HURLINGHAM",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":48,
+        "baja": false,
+        "tarifario_id":2, "cat1":3100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":963,
+   "fields": {
+      "descripcion": "CAMPANA - QUILMES",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":39,
+        "baja": false,
+        "tarifario_id":2, "cat1":3865, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":964,
+   "fields": {
+      "descripcion": "RETIRO  - BURZACO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":213,
+        "baja": false,
+        "tarifario_id":2, "cat1":1450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":965,
+   "fields": {
+      "descripcion": "AEP - BURZACO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":213,
+        "baja": false,
+        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":966,
+   "fields": {
+      "descripcion": "AEP - RANELAGH",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":214,
+        "baja": false,
+        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":967,
+   "fields": {
+      "descripcion": "RETIRO  - GENERAL PACHECO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":195,
+        "baja": false,
+        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":968,
+   "fields": {
+      "descripcion": "AEP - LANUS",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":28,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":969,
+   "fields": {
+      "descripcion": "AEP - SAN FERNANDO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":40,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":970,
+   "fields": {
+      "descripcion": "AEP - TIGRE",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":62,
+        "baja": false,
+        "tarifario_id":2, "cat1":1515, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":971,
+   "fields": {
+      "descripcion": "CAMPANA - ZONA 1",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":2970, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":972,
+   "fields": {
+      "descripcion": "BERISSO - ZONA 1",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":973,
+   "fields": {
+      "descripcion": "BERISSO - MERLO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":144,
+        "baja": false,
+        "tarifario_id":2, "cat1":3520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":974,
+   "fields": {
+      "descripcion": "ZARATE - ZONA 1",
+        "localidad_desde_id":114,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":3450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":975,
+   "fields": {
+      "descripcion": "AEP - ZONA 1",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":976,
+   "fields": {
+      "descripcion": "LA PLATA - YPF  - LUJAN",
+        "localidad_desde_id":205,
+        "localidad_hasta_id":117,
+        "baja": false,
+        "tarifario_id":2, "cat1":4690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":977,
+   "fields": {
+      "descripcion": "BERISSO - GENERAL PACHECO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":195,
+        "baja": false,
+        "tarifario_id":2, "cat1":3590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":978,
+   "fields": {
+      "descripcion": "BERISSO - CIUDADELA",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":215,
+        "baja": false,
+        "tarifario_id":2, "cat1":2900, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":979,
+   "fields": {
+      "descripcion": "DOCK SUD - SAN MIGUEL",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":45,
+        "baja": false,
+        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":980,
+   "fields": {
+      "descripcion": "ZARATE - CLAYPOLE",
+        "localidad_desde_id":114,
+        "localidad_hasta_id":216,
+        "baja": false,
+        "tarifario_id":2, "cat1":4280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":981,
+   "fields": {
+      "descripcion": "RETIRO  - CLAYPOLE",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":216,
+        "baja": false,
+        "tarifario_id":2, "cat1":1315, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":982,
+   "fields": {
+      "descripcion": "CAMPANA - EZEIZA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":43,
+        "baja": false,
+        "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":983,
+   "fields": {
+      "descripcion": "BERISSO - CLAYPOLE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":216,
+        "baja": false,
+        "tarifario_id":2, "cat1":2660, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":984,
+   "fields": {
+      "descripcion": "BERISSO - CLAYPOLE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":216,
+        "baja": false,
+        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":985,
+   "fields": {
+      "descripcion": "AEP - DON TORCUATO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":217,
+        "baja": false,
+        "tarifario_id":2, "cat1":1315, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":986,
+   "fields": {
+      "descripcion": "DOCK SUD - FLORENCIO VARELA",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":138,
+        "baja": false,
+        "tarifario_id":2, "cat1":2145, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":987,
+   "fields": {
+      "descripcion": "DOCK SUD - TIGRE",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":62,
+        "baja": false,
+        "tarifario_id":2, "cat1":1590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":988,
+   "fields": {
+      "descripcion": "RETIRO  - EL PATO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":218,
+        "baja": false,
+        "tarifario_id":2, "cat1":1810, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":989,
+   "fields": {
+      "descripcion": "RETIRO  - RAFAEL CALZADA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":198,
+        "baja": false,
+        "tarifario_id":2, "cat1":1450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":990,
+   "fields": {
+      "descripcion": "TERMINAL PACHECO - EL TALAR",
+        "localidad_desde_id":202,
+        "localidad_hasta_id":219,
+        "baja": false,
+        "tarifario_id":2, "cat1":760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":991,
+   "fields": {
+      "descripcion": "BERISSO - RAFAEL CALZADA",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":198,
+        "baja": false,
+        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":992,
+   "fields": {
+      "descripcion": "AEP - ESCOBAR",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":53,
+        "baja": false,
+        "tarifario_id":2, "cat1":2485, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":993,
+   "fields": {
+      "descripcion": "LA PLATA (PUERTO) - CASTELAR",
+        "localidad_desde_id":203,
+        "localidad_hasta_id":168,
+        "baja": false,
+        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":994,
+   "fields": {
+      "descripcion": "CAMPANA - CAMPANA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":143,
+        "baja": false,
+        "tarifario_id":2, "cat1":210, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":995,
+   "fields": {
+      "descripcion": "AEP - MAQUINISTA SAVIO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":220,
+        "baja": false,
+        "tarifario_id":2, "cat1":2485, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":996,
+   "fields": {
+      "descripcion": "BERISSO - FLORIDA",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":221,
+        "baja": false,
+        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":997,
+   "fields": {
+      "descripcion": "CAMPANA - RAFAEL CALZADA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":198,
+        "baja": false,
+        "tarifario_id":2, "cat1":3520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":998,
+   "fields": {
+      "descripcion": "DOCK SUD - ESCOBAR",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":53,
+        "baja": false,
+        "tarifario_id":2, "cat1":2550, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":999,
+   "fields": {
+      "descripcion": "DOCK SUD - ADROGUE",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":178,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1000,
+   "fields": {
+      "descripcion": "BERISSO - LANUS",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":28,
+        "baja": false,
+        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1001,
+   "fields": {
+      "descripcion": "LA PLATA - WILDE",
+        "localidad_desde_id":147,
+        "localidad_hasta_id":179,
+        "baja": false,
+        "tarifario_id":2, "cat1":2140, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1002,
+   "fields": {
+      "descripcion": "RETIRO  - FLORIDA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":221,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1003,
+   "fields": {
+      "descripcion": "AEP - FRANCISCO ALVAREZ",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":222,
+        "baja": false,
+        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1004,
+   "fields": {
+      "descripcion": "DOCK SUD - GERLI",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":238,
+        "baja": false,
+        "tarifario_id":2, "cat1":690, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1005,
+   "fields": {
+      "descripcion": "ENSENADA  - OLIVOS",
+        "localidad_desde_id":207,
+        "localidad_hasta_id":163,
+        "baja": false,
+        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1006,
+   "fields": {
+      "descripcion": "ISLA DEMARCHI - LAFERRERE",
+        "localidad_desde_id":208,
+        "localidad_hasta_id":209,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1007,
+   "fields": {
+      "descripcion": "BERISSO - ESCOBAR",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":53,
+        "baja": false,
+        "tarifario_id":2, "cat1":4415, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1008,
+   "fields": {
+      "descripcion": "BERISSO - NORDELTA",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":155,
+        "baja": false,
+        "tarifario_id":2, "cat1":3800, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1009,
+   "fields": {
+      "descripcion": "AEP - SAN MIGUEL",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":45,
+        "baja": false,
+        "tarifario_id":2, "cat1":1735, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1010,
+   "fields": {
+      "descripcion": "RETIRO  - GREGORIO DE LAFERRERE",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":209,
+        "baja": false,
+        "tarifario_id":2, "cat1":1590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1011,
+   "fields": {
+      "descripcion": "BERISSO - GREGORIO DE LAFERRERE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":209,
+        "baja": false,
+        "tarifario_id":2, "cat1":3800, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1012,
+   "fields": {
+      "descripcion": "AEP - BERAZATEGUI",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":44,
+        "baja": false,
+        "tarifario_id":2, "cat1":1650, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1013,
+   "fields": {
+      "descripcion": "BERISSO - JOSE C. PAZ",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":46,
+        "baja": false,
+        "tarifario_id":2, "cat1":1800, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1014,
+   "fields": {
+      "descripcion": "RETIRO  - GUERNICA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":223,
+        "baja": false,
+        "tarifario_id":2, "cat1":2280, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1015,
+   "fields": {
+      "descripcion": "BERISSO - LA PLATA TERMINAL",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":224,
+        "baja": false,
+        "tarifario_id":2, "cat1":625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1016,
+   "fields": {
+      "descripcion": "ENSENADA - LA PLATA TERMINAL",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":224,
+        "baja": false,
+        "tarifario_id":2, "cat1":625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1017,
+   "fields": {
+      "descripcion": "RETIRO  - QUILMES",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":39,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1018,
+   "fields": {
+      "descripcion": "ENSENADA - HURLINGHAM",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":48,
+        "baja": false,
+        "tarifario_id":2, "cat1":3725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1019,
+   "fields": {
+      "descripcion": "RETIRO  - LANUS",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":28,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1020,
+   "fields": {
+      "descripcion": "DOCK SUD - LAVALLOL",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":225,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1021,
+   "fields": {
+      "descripcion": "BERISSO - LAVALLOL",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":225,
+        "baja": false,
+        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1022,
+   "fields": {
+      "descripcion": "CAMPANA - LANUS",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":28,
+        "baja": false,
+        "tarifario_id":2, "cat1":3310, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1023,
+   "fields": {
+      "descripcion": "BERISSO - MORENO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":36,
+        "baja": false,
+        "tarifario_id":2, "cat1":3940, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1024,
+   "fields": {
+      "descripcion": "CAMPANA - AVELLANEDA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":26,
+        "baja": false,
+        "tarifario_id":2, "cat1":3100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1025,
+   "fields": {
+      "descripcion": "CAMPANA - MORON",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":42,
+        "baja": false,
+        "tarifario_id":2, "cat1":3100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1026,
+   "fields": {
+      "descripcion": "ENSENADA - SAN FERNANDO",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":40,
+        "baja": false,
+        "tarifario_id":2, "cat1":3590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1027,
+   "fields": {
+      "descripcion": "AEP - MERLO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":144,
+        "baja": false,
+        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1028,
+   "fields": {
+      "descripcion": "AEP - LOMAS DEL MIRADOR",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":226,
+        "baja": false,
+        "tarifario_id":2, "cat1":1090, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1029,
+   "fields": {
+      "descripcion": "RETIRO  - LOMAS DEL MIRADOR",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":226,
+        "baja": false,
+        "tarifario_id":2, "cat1":910, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1030,
+   "fields": {
+      "descripcion": "BERISSO - LUJAN",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":117,
+        "baja": false,
+        "tarifario_id":2, "cat1":4590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1031,
+   "fields": {
+      "descripcion": "LA PLATA - LOMAS DEL MIRADOR",
+        "localidad_desde_id":147,
+        "localidad_hasta_id":226,
+        "baja": false,
+        "tarifario_id":2, "cat1":3310, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1032,
+   "fields": {
+      "descripcion": "DOCK SUD - LONGCHAMPS",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":227,
+        "baja": false,
+        "tarifario_id":2, "cat1":1555, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1033,
+   "fields": {
+      "descripcion": "AEP - LONGCHAMPS",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":227,
+        "baja": false,
+        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1034,
+   "fields": {
+      "descripcion": "TERMINAL PACHECO - SAN FERNANDO",
+        "localidad_desde_id":202,
+        "localidad_hasta_id":40,
+        "baja": false,
+        "tarifario_id":2, "cat1":900, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1035,
+   "fields": {
+      "descripcion": "RETIRO  - ITUZAINGO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":49,
+        "baja": false,
+        "tarifario_id":2, "cat1":1590, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1036,
+   "fields": {
+      "descripcion": "RETIRO  - LONGCHAMPS",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":227,
+        "baja": false,
+        "tarifario_id":2, "cat1":1730, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1037,
+   "fields": {
+      "descripcion": "RETIRO  - MORENO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":36,
+        "baja": false,
+        "tarifario_id":2, "cat1":2000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1038,
+   "fields": {
+      "descripcion": "ENSENADA - LONGCHAMPS",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":227,
+        "baja": false,
+        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1039,
+   "fields": {
+      "descripcion": "TERMINAL ESCOBAR - MAQUINISTA SAVIO",
+        "localidad_desde_id":201,
+        "localidad_hasta_id":220,
+        "baja": false,
+        "tarifario_id":2, "cat1":760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1040,
+   "fields": {
+      "descripcion": "AEP - FLORENCIO VARELA",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":138,
+        "baja": false,
+        "tarifario_id":2, "cat1":2790, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1041,
+   "fields": {
+      "descripcion": "CAMPANA - SAN FERNANDO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":40,
+        "baja": false,
+        "tarifario_id":2, "cat1":2695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1042,
+   "fields": {
+      "descripcion": "DOCK SUD - LA PLATA",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":147,
+        "baja": false,
+        "tarifario_id":2, "cat1":2485, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1043,
+   "fields": {
+      "descripcion": "CAMPANA - ITUZAINGO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":49,
+        "baja": false,
+        "tarifario_id":2, "cat1":2970, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1044,
+   "fields": {
+      "descripcion": "AEP - MONTE GRANDE",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":228,
+        "baja": false,
+        "tarifario_id":2, "cat1":1865, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1045,
+   "fields": {
+      "descripcion": "LA PLATA - OLIVOS",
+        "localidad_desde_id":147,
+        "localidad_hasta_id":163,
+        "baja": false,
+        "tarifario_id":2, "cat1":3090, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1046,
+   "fields": {
+      "descripcion": "BERISSO - AEP",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":2, "cat1":3385, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1047,
+   "fields": {
+      "descripcion": "EZEIZA - MONTE GRANDE",
+        "localidad_desde_id":43,
+        "localidad_hasta_id":228,
+        "baja": false,
+        "tarifario_id":2, "cat1":1925, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1048,
+   "fields": {
+      "descripcion": "AEP - QUILMES",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":39,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1049,
+   "fields": {
+      "descripcion": "CAMPANA - MORENO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":36,
+        "baja": false,
+        "tarifario_id":2, "cat1":4275, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1050,
+   "fields": {
+      "descripcion": "TERMINAL PACHECO - SAN MIGUEL",
+        "localidad_desde_id":202,
+        "localidad_hasta_id":45,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1051,
+   "fields": {
+      "descripcion": "RETIRO  - BANFIELD",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":176,
+        "baja": false,
+        "tarifario_id":2, "cat1":1100, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1052,
+   "fields": {
+      "descripcion": "BERISSO - MONTE GRANDE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":228,
+        "baja": false,
+        "tarifario_id":2, "cat1":3450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1053,
+   "fields": {
+      "descripcion": "BERISSO - MORON",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":42,
+        "baja": false,
+        "tarifario_id":2, "cat1":3270, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1054,
+   "fields": {
+      "descripcion": "AEP - MORON",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":42,
+        "baja": false,
+        "tarifario_id":2, "cat1":1520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1055,
+   "fields": {
+      "descripcion": "AEP - OLIVOS",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":163,
+        "baja": false,
+        "tarifario_id":2, "cat1":965, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1056,
+   "fields": {
+      "descripcion": "LA PLATA - AEP",
+        "localidad_desde_id":147,
+        "localidad_hasta_id":5,
+        "baja": false,
+        "tarifario_id":2, "cat1":2830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1057,
+   "fields": {
+      "descripcion": "DOCK SUD - PASO DEL REY",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":229,
+        "baja": false,
+        "tarifario_id":2, "cat1":2070, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1058,
+   "fields": {
+      "descripcion": "RETIRO  - LA PLATA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":147,
+        "baja": false,
+        "tarifario_id":2, "cat1":2420, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1059,
+   "fields": {
+      "descripcion": "EZEIZA - MERLO",
+        "localidad_desde_id":43,
+        "localidad_hasta_id":144,
+        "baja": false,
+        "tarifario_id":2, "cat1":2620, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1060,
+   "fields": {
+      "descripcion": "DOCK SUD - OLIVOS",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":163,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1061,
+   "fields": {
+      "descripcion": "RETIRO  - PASO DEL REY",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":229,
+        "baja": false,
+        "tarifario_id":2, "cat1":1810, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1062,
+   "fields": {
+      "descripcion": "BERISSO - PILAR",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":37,
+        "baja": false,
+        "tarifario_id":2, "cat1":4480, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1063,
+   "fields": {
+      "descripcion": "ENSENADA - FLORENCIO VARELA",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":138,
+        "baja": false,
+        "tarifario_id":2, "cat1":2145, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1064,
+   "fields": {
+      "descripcion": "BERISSO - SAN FERNANDO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":40,
+        "baja": false,
+        "tarifario_id":2, "cat1":4480, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1065,
+   "fields": {
+      "descripcion": "AEP - PLATANOS",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":236,
+        "baja": false,
+        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1066,
+   "fields": {
+      "descripcion": "CAMPANA - FLORENCIO VARELA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":138,
+        "baja": false,
+        "tarifario_id":2, "cat1":4000, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1067,
+   "fields": {
+      "descripcion": "RETIRO  - MERLO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":144,
+        "baja": false,
+        "tarifario_id":2, "cat1":1795, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1068,
+   "fields": {
+      "descripcion": "RETIRO  - PLATANOS",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":236,
+        "baja": false,
+        "tarifario_id":2, "cat1":1655, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1069,
+   "fields": {
+      "descripcion": "DOCK SUD - TORTUGUITAS",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":159,
+        "baja": false,
+        "tarifario_id":2, "cat1":2210, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1070,
+   "fields": {
+      "descripcion": "RETIRO  - RANELAGH",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":214,
+        "baja": false,
+        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1071,
+   "fields": {
+      "descripcion": "DOCK SUD - CHASCOMUS",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":15,
+        "baja": false,
+        "tarifario_id":2, "cat1":4695, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1072,
+   "fields": {
+      "descripcion": "RETIRO  - FLORENCIO VARELA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":138,
+        "baja": false,
+        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1073,
+   "fields": {
+      "descripcion": "ENSENADA - ZONA 1",
+        "localidad_desde_id":148,
+        "localidad_hasta_id":1,
+        "baja": false,
+        "tarifario_id":2, "cat1":3174, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1074,
+   "fields": {
+      "descripcion": "RETIRO  - SAN FRANCISCO SOLANO",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":210,
+        "baja": false,
+        "tarifario_id":2, "cat1":1275, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1075,
+   "fields": {
+      "descripcion": "DOCK SUD - LUJAN",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":117,
+        "baja": false,
+        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1076,
+   "fields": {
+      "descripcion": "DOCK SUD - RAMOS MEJIA",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":166,
+        "baja": false,
+        "tarifario_id":2, "cat1":1520, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1077,
+   "fields": {
+      "descripcion": "CAMPANA - SAN FRANCISCO SOLANO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":210,
+        "baja": false,
+        "tarifario_id":2, "cat1":3935, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1078,
+   "fields": {
+      "descripcion": "CAMPANA - SAN LORENZO",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":230,
+        "baja": false,
+        "tarifario_id":2, "cat1":8625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1079,
+   "fields": {
+      "descripcion": "CAMPANA - LUJAN",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":117,
+        "baja": false,
+        "tarifario_id":2, "cat1":1725, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1080,
+   "fields": {
+      "descripcion": "AEP - SARANDI",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":231,
+        "baja": false,
+        "tarifario_id":2, "cat1":830, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1081,
+   "fields": {
+      "descripcion": "BERISSO - ZARATE",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":114,
+        "baja": false,
+        "tarifario_id":2, "cat1":6625, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1082,
+   "fields": {
+      "descripcion": "TERMINAL PACHECO - TIGRE",
+        "localidad_desde_id":202,
+        "localidad_hasta_id":62,
+        "baja": false,
+        "tarifario_id":2, "cat1":900, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1083,
+   "fields": {
+      "descripcion": "AEP - LUJAN",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":117,
+        "baja": false,
+        "tarifario_id":2, "cat1":3175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1084,
+   "fields": {
+      "descripcion": "RETIRO  - VILLA ADELINA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":232,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1085,
+   "fields": {
+      "descripcion": "AEP - VILLA ADELINA",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":232,
+        "baja": false,
+        "tarifario_id":2, "cat1":1165, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1086,
+   "fields": {
+      "descripcion": "DOCK SUD - VILLA CELINA",
+        "localidad_desde_id":200,
+        "localidad_hasta_id":233,
+        "baja": false,
+        "tarifario_id":2, "cat1":1040, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1087,
+   "fields": {
+      "descripcion": "RETIRO  - VILLA CELINA",
+        "localidad_desde_id":6,
+        "localidad_hasta_id":233,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1088,
+   "fields": {
+      "descripcion": "CAMPANA - BERNAL",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":180,
+        "baja": false,
+        "tarifario_id":2, "cat1":3450, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1089,
+   "fields": {
+      "descripcion": "BERISSO - VILLA MADERO",
+        "localidad_desde_id":69,
+        "localidad_hasta_id":234,
+        "baja": false,
+        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1090,
+   "fields": {
+      "descripcion": "AEP - VILLA MADERO",
+        "localidad_desde_id":5,
+        "localidad_hasta_id":234,
+        "baja": false,
+        "tarifario_id":2, "cat1":1175, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1091,
+   "fields": {
+      "descripcion": "CAMPANA - RAMOS MEJIA",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":166,
+        "baja": false,
+        "tarifario_id":2, "cat1":3035, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+{
+   "model": "sistema.tarifatrayecto",
+   "pk":1092,
+   "fields": {
+      "descripcion": "CAMPANA - VILLA MAIPU",
+        "localidad_desde_id":143,
+        "localidad_hasta_id":235,
+        "baja": false,
+        "tarifario_id":2, "cat1":2760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}}
+ ]
