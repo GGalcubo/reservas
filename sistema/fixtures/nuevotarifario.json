@@ -3400,16 +3400,16 @@
    "pk":1,
    "fields": {
       "descripcion": "BARRIOS A - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":182,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":1, "cat1":1405, "cat2":"1815", "cat3":"1815", "cat4":"2070", "cat5":"3315", "cat6":"4695", "cat7":"6220", "cat8":"11040"}},
+        "tarifario_id":1, "cat1":1400, "cat2":"1810", "cat3":"1810", "cat4":"2070", "cat5":"3310", "cat6":"4690", "cat7":"6220", "cat8":"11040"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":2,
    "fields": {
       "descripcion": "BARRIOS B - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":183,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":1740, "cat2":"2340", "cat3":"2340", "cat4":"2680", "cat5":"4140", "cat6":"5860", "cat7":"7980", "cat8":"12420"}},
@@ -3418,10 +3418,10 @@
    "pk":3,
    "fields": {
       "descripcion": "BARRIOS C - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":184,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":1, "cat1":1815, "cat2":"2355", "cat3":"2355", "cat4":"2665", "cat5":"4140", "cat6":"5950", "cat7":"8005", "cat8":"12420"}},
+        "tarifario_id":1, "cat1":1810, "cat2":"2350", "cat3":"2350", "cat4":"2660", "cat5":"4140", "cat6":"5950", "cat7":"8000", "cat8":"12420"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":4,
@@ -3538,7 +3538,7 @@
         "localidad_desde_id":5,
         "localidad_hasta_id":8,
         "baja": false,
-        "tarifario_id":1, "cat1":2520, "cat2":"3315", "cat3":"3315", "cat4":"4140", "cat5":"6350", "cat6":"8280", "cat7":"9385", "cat8":"14520"}},
+        "tarifario_id":1, "cat1":1810, "cat2":"2350", "cat3":"2350", "cat4":"2660", "cat5":"4140", "cat6":"5950", "cat7":"8000", "cat8":"12420"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":17,
@@ -3572,7 +3572,7 @@
    "fields": {
       "descripcion": "ZONA 1 - NORDELTA",
         "localidad_desde_id":1,
-        "localidad_hasta_id":155,
+        "localidad_hasta_id":24.1,
         "baja": false,
         "tarifario_id":1, "cat1":1870, "cat2":"2340", "cat3":"2340", "cat4":"2760", "cat5":"4695", "cat6":"5800", "cat7":"7040", "cat8":"12420"}},
 {
@@ -3610,7 +3610,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":156,
         "baja": false,
-        "tarifario_id":1, "cat1":1045, "cat2":"1250", "cat3":"1250", "cat4":"1525", "cat5":"2760", "cat6":"3590", "cat7":"4420", "cat8":"9660"}},
+        "tarifario_id":1, "cat1":1040, "cat2":"1250", "cat3":"1250", "cat4":"1520", "cat5":"2760", "cat6":"3600", "cat7":"4420", "cat8":"9660"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":25,
@@ -3619,7 +3619,7 @@
         "localidad_desde_id":1,
         "localidad_hasta_id":157,
         "baja": false,
-        "tarifario_id":1, "cat1":11905, "cat2":"15625", "cat3":"15625", "cat4":"19345", "cat5":"26040", "cat6":"34225", "cat7":"38400", "cat8":"14262"}},
+        "tarifario_id":1, "cat1":11900, "cat2":"15620", "cat3":"15620", "cat4":"19340", "cat5":"26040", "cat6":"34220", "cat7":"38400", "cat8":"2447"}},
 {
    "model": "sistema.tarifatrayecto",
    "pk":26,
@@ -3635,7 +3635,7 @@
    "fields": {
       "descripcion": "ZONA 1 - SIEMENS (MUNRO)",
         "localidad_desde_id":1,
-        "localidad_hasta_id":7,
+        "localidad_hasta_id":189,
         "baja": false,
         "tarifario_id":1, "cat1":1070, "cat2":"1345", "cat3":"1345", "cat4":"1540", "cat5":"1660", "cat6":"3495", "cat7":"4490", "cat8":"0"}},
 {
@@ -3644,7 +3644,7 @@
    "fields": {
       "descripcion": "ZONA 1 - MASSALIN",
         "localidad_desde_id":1,
-        "localidad_hasta_id":4,
+        "localidad_hasta_id":185,
         "baja": false,
         "tarifario_id":1, "cat1":2390, "cat2":"2930", "cat3":"2930", "cat4":"1550", "cat5":"5275", "cat6":"6985", "cat7":"9360", "cat8":"0"}},
 {
@@ -3653,7 +3653,7 @@
    "fields": {
       "descripcion": "ZONA 1 - ABB",
         "localidad_desde_id":1,
-        "localidad_hasta_id":6,
+        "localidad_hasta_id":186,
         "baja": false,
         "tarifario_id":1, "cat1":995, "cat2":"1230", "cat3":"1230", "cat4":"1370", "cat5":"2305", "cat6":"3385", "cat7":"4445", "cat8":"0"}},
 {
@@ -3662,7 +3662,7 @@
    "fields": {
       "descripcion": "ZONA 1 - PEUGEOT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":5,
+        "localidad_hasta_id":187,
         "baja": false,
         "tarifario_id":1, "cat1":1805, "cat2":"2305", "cat3":"2305", "cat4":"2720", "cat5":"4430", "cat6":"5800", "cat7":"63080", "cat8":"0"}},
 {
@@ -3671,7 +3671,7 @@
    "fields": {
       "descripcion": "ZONA 1 - KRAFT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":8,
+        "localidad_hasta_id":188,
         "baja": false,
         "tarifario_id":1, "cat1":1805, "cat2":"2305", "cat3":"2305", "cat4":"2720", "cat5":"4430", "cat6":"5800", "cat7":"6805", "cat8":"0"}},
 {
@@ -3725,7 +3725,7 @@
    "fields": {
       "descripcion": "VICENTE LOPEZ - EZEIZA",
         "localidad_desde_id":61,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":1850, "cat2":"2415", "cat3":"2415", "cat4":"2900", "cat5":"3755", "cat6":"5620", "cat7":"6475", "cat8":"0"}},
 {
@@ -3734,7 +3734,7 @@
    "fields": {
       "descripcion": "OLIVOS - EZEIZA",
         "localidad_desde_id":163,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2015, "cat2":"2555", "cat3":"2555", "cat4":"3065", "cat5":"4255", "cat6":"6145", "cat7":"6805", "cat8":"0"}},
 {
@@ -3743,7 +3743,7 @@
    "fields": {
       "descripcion": "MARTINEZ - EZEIZA",
         "localidad_desde_id":164,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2185, "cat2":"2985", "cat3":"2985", "cat4":"3245", "cat5":"4680", "cat6":"6310", "cat7":"7660", "cat8":"0"}},
 {
@@ -3752,7 +3752,7 @@
    "fields": {
       "descripcion": "SAN ISIDRO - EZEIZA",
         "localidad_desde_id":14,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2360, "cat2":"3245", "cat3":"3245", "cat4":"3495", "cat5":"5110", "cat6":"6985", "cat7":"8505", "cat8":"0"}},
 {
@@ -3761,7 +3761,7 @@
    "fields": {
       "descripcion": "SAN FERNANDO - EZEIZA",
         "localidad_desde_id":40,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":3245, "cat2":"3675", "cat3":"3675", "cat4":"4085", "cat5":"5730", "cat6":"7495", "cat7":"9030", "cat8":"0"}},
 {
@@ -3770,7 +3770,7 @@
    "fields": {
       "descripcion": "TIGRE - EZEIZA",
         "localidad_desde_id":62,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":3150, "cat2":"4085", "cat3":"4085", "cat4":"4765", "cat5":"7330", "cat6":"9870", "cat7":"10890", "cat8":"0"}},
 {
@@ -3779,7 +3779,7 @@
    "fields": {
       "descripcion": "SAN JUSTO - EZEIZA",
         "localidad_desde_id":165,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":1850, "cat2":"2415", "cat3":"2415", "cat4":"2820", "cat5":"4350", "cat6":"5965", "cat7":"7660", "cat8":"0"}},
 {
@@ -3788,7 +3788,7 @@
    "fields": {
       "descripcion": "RAMOS MEJIA - EZEIZA",
         "localidad_desde_id":166,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":1895, "cat2":"2475", "cat3":"2475", "cat4":"2900", "cat5":"4610", "cat6":"6310", "cat7":"8005", "cat8":"0"}},
 {
@@ -3797,7 +3797,7 @@
    "fields": {
       "descripcion": "HAEDO - EZEIZA",
         "localidad_desde_id":167,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2040, "cat2":"2640", "cat3":"2640", "cat4":"3065", "cat5":"4775", "cat6":"6475", "cat7":"8505", "cat8":"0"}},
 {
@@ -3806,7 +3806,7 @@
    "fields": {
       "descripcion": "MORON - EZEIZA",
         "localidad_desde_id":42,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2210, "cat2":"2845", "cat3":"2845", "cat4":"3245", "cat5":"5065", "cat6":"6805", "cat7":"9360", "cat8":"0"}},
 {
@@ -3815,7 +3815,7 @@
    "fields": {
       "descripcion": "CASTELAR - EZEIZA",
         "localidad_desde_id":168,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2385, "cat2":"2985", "cat3":"2985", "cat4":"3575", "cat5":"5535", "cat6":"7660", "cat7":"9870", "cat8":"0"}},
 {
@@ -3824,7 +3824,7 @@
    "fields": {
       "descripcion": "ITUZAINGO - EZEIZA",
         "localidad_desde_id":49,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2555, "cat2":"3175", "cat3":"3175", "cat4":"3840", "cat5":"5965", "cat6":"8170", "cat7":"10215", "cat8":"0"}},
 {
@@ -3833,7 +3833,7 @@
    "fields": {
       "descripcion": "MERLO - EZEIZA",
         "localidad_desde_id":144,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2720, "cat2":"3450", "cat3":"3436.2", "cat4":"4005", "cat5":"6640", "cat6":"8930", "cat7":"11910", "cat8":"0"}},
 {
@@ -3842,7 +3842,7 @@
    "fields": {
       "descripcion": "MORENO - EZEIZA",
         "localidad_desde_id":36,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":3245, "cat2":"4085", "cat3":"4085", "cat4":"4600", "cat5":"7165", "cat6":"9055", "cat7":"12590", "cat8":"0"}},
 {
@@ -3860,7 +3860,7 @@
    "fields": {
       "descripcion": "SANTOS LUGARES - EZEIZA",
         "localidad_desde_id":169,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":1895, "cat2":"2475", "cat3":"2475", "cat4":"2900", "cat5":"4610", "cat6":"6210", "cat7":"7840", "cat8":"0"}},
 {
@@ -3869,7 +3869,7 @@
    "fields": {
       "descripcion": "SAN MARTIN - EZEIZA",
         "localidad_desde_id":170,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":1895, "cat2":"2475", "cat3":"2475", "cat4":"2900", "cat5":"4610", "cat6":"6210", "cat7":"7840", "cat8":"0"}},
 {
@@ -3887,7 +3887,7 @@
    "fields": {
       "descripcion": "JOSE L SUAREZ - EZEIZA",
         "localidad_desde_id":172,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2720, "cat2":"3495", "cat3":"3495", "cat4":"4085", "cat5":"5965", "cat6":"8170", "cat7":"10130", "cat8":"0"}},
 {
@@ -3896,7 +3896,7 @@
    "fields": {
       "descripcion": "CASEROS - EZEIZA",
         "localidad_desde_id":173,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":1895, "cat2":"2475", "cat3":"2475", "cat4":"2900", "cat5":"4610", "cat6":"6210", "cat7":"7840", "cat8":"0"}},
 {
@@ -3905,7 +3905,7 @@
    "fields": {
       "descripcion": "PALOMAR - EZEIZA",
         "localidad_desde_id":174,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2040, "cat2":"2640", "cat3":"2640", "cat4":"2985", "cat5":"4775", "cat6":"6445", "cat7":"8505", "cat8":"0"}},
 {
@@ -3932,7 +3932,7 @@
    "fields": {
       "descripcion": "AVELLANEDA - EZEIZA",
         "localidad_desde_id":26,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":1550, "cat2":"1895", "cat3":"1895", "cat4":"2305", "cat5":"3245", "cat6":"4445", "cat7":"6475", "cat8":"0"}},
 {
@@ -3941,7 +3941,7 @@
    "fields": {
       "descripcion": "LANUS - EZEIZA",
         "localidad_desde_id":28,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":1795, "cat2":"2195", "cat3":"2195", "cat4":"2475", "cat5":"3920", "cat6":"5290", "cat7":"6805", "cat8":"0"}},
 {
@@ -3950,7 +3950,7 @@
    "fields": {
       "descripcion": "R DE ESCALADA - EZEIZA",
         "localidad_desde_id":175,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":1875, "cat2":"2335", "cat3":"2335", "cat4":"2555", "cat5":"4060", "cat6":"5620", "cat7":"7330", "cat8":"0"}},
 {
@@ -3959,7 +3959,7 @@
    "fields": {
       "descripcion": "BANFIELD - EZEIZA",
         "localidad_desde_id":176,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":1960, "cat2":"2475", "cat3":"2475", "cat4":"2820", "cat5":"4445", "cat6":"5965", "cat7":"7495", "cat8":"0"}},
 {
@@ -3968,7 +3968,7 @@
    "fields": {
       "descripcion": "LOMAS DE ZAMORA - EZEIZA",
         "localidad_desde_id":32,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2130, "cat2":"2665", "cat3":"2665", "cat4":"2860", "cat5":"4770", "cat6":"6475", "cat7":"8505", "cat8":"0"}},
 {
@@ -3977,7 +3977,7 @@
    "fields": {
       "descripcion": "TEMPERLEY - EZEIZA",
         "localidad_desde_id":177,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2300, "cat2":"2900", "cat3":"2900", "cat4":"3330", "cat5":"5110", "cat6":"6985", "cat7":"8860", "cat8":"0"}},
 {
@@ -3986,7 +3986,7 @@
    "fields": {
       "descripcion": "ADROGUE - EZEIZA",
         "localidad_desde_id":178,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2475, "cat2":"3150", "cat3":"3150", "cat4":"3575", "cat5":"5620", "cat6":"7840", "cat7":"9360", "cat8":"0"}},
 {
@@ -3995,7 +3995,7 @@
    "fields": {
       "descripcion": "WILDE - EZEIZA",
         "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2300, "cat2":"2900", "cat3":"2900", "cat4":"3330", "cat5":"5110", "cat6":"6985", "cat7":"8860", "cat8":"0"}},
 {
@@ -4003,8 +4003,8 @@
    "pk":68,
    "fields": {
       "descripcion": "BERNAL - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":180,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2475, "cat2":"3150", "cat3":"3150", "cat4":"3575", "cat5":"5620", "cat6":"7840", "cat7":"9360", "cat8":"0"}},
 {
@@ -4013,7 +4013,7 @@
    "fields": {
       "descripcion": "QUILMES - EZEIZA",
         "localidad_desde_id":39,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2720, "cat2":"3495", "cat3":"3495", "cat4":"3920", "cat5":"6475", "cat6":"8505", "cat7":"10215", "cat8":"0"}},
 {
@@ -4022,7 +4022,7 @@
    "fields": {
       "descripcion": "BERAZATEGUI - EZEIZA",
         "localidad_desde_id":44,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":2985, "cat2":"3755", "cat3":"3755", "cat4":"4255", "cat5":"6805", "cat6":"9030", "cat7":"10890", "cat8":"0"}},
 {
@@ -4031,7 +4031,7 @@
    "fields": {
       "descripcion": "HUDSON - EZEIZA",
         "localidad_desde_id":161,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":3145, "cat2":"3920", "cat3":"3920", "cat4":"4555", "cat5":"8170", "cat6":"11250", "cat7":"13610", "cat8":"0"}},
 {
@@ -4040,7 +4040,7 @@
    "fields": {
       "descripcion": "LA PLATA - EZEIZA",
         "localidad_desde_id":147,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":4085, "cat2":"5205", "cat3":"5205", "cat4":"5965", "cat5":"8585", "cat6":"12255", "cat7":"15140", "cat8":"0"}},
 {
@@ -4049,7 +4049,7 @@
    "fields": {
       "descripcion": "PILAR - EZEIZA",
         "localidad_desde_id":37,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":4255, "cat2":"5205", "cat3":"5205", "cat4":"5965", "cat5":"8585", "cat6":"12255", "cat7":"15140", "cat8":"0"}},
 {
@@ -4058,7 +4058,7 @@
    "fields": {
       "descripcion": "CARDALES - EZEIZA",
         "localidad_desde_id":154,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":4420, "cat2":"5800", "cat3":"5800", "cat4":"6210", "cat5":"9540", "cat6":"12765", "cat7":"15485", "cat8":"0"}},
 {
@@ -4067,7 +4067,7 @@
    "fields": {
       "descripcion": "NORDELTA - EZEIZA",
         "localidad_desde_id":155,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":3490, "cat2":"3920", "cat3":"3920", "cat4":"4255", "cat5":"7165", "cat6":"9030", "cat7":"10050", "cat8":"0"}},
 {
@@ -4354,7 +4354,7 @@
    "pk":107,
    "fields": {
       "descripcion": "BERNAL - AEROPUERTO DE AEROPARQUE",
-        "localidad_desde_id":179,
+        "localidad_desde_id":180,
         "localidad_hasta_id":5,
         "baja": false,
         "tarifario_id":1, "cat1":1670, "cat2":"2130", "cat3":"2130", "cat4":"2390", "cat5":"4085", "cat6":"5620", "cat7":"7165", "cat8":"0"}},
@@ -4507,8 +4507,8 @@
    "pk":124,
    "fields": {
       "descripcion": "SAN CEFERINO - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":181,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":1, "cat1":4255, "cat2":"5620", "cat3":"5620", "cat4":"6460", "cat5":"9965", "cat6":"13280", "cat7":"16080", "cat8":"0"}},
 {
@@ -4543,7 +4543,7 @@
    "pk":128,
    "fields": {
       "descripcion": "BARRIOS A - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":182,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1335, "cat2":"1725", "cat3":"1725", "cat4":"1970", "cat5":"3150", "cat6":"4465", "cat7":"5910", "cat8":"10490"}},
@@ -4552,7 +4552,7 @@
    "pk":129,
    "fields": {
       "descripcion": "BARRIOS B - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":183,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1655, "cat2":"2225", "cat3":"2225", "cat4":"2550", "cat5":"3935", "cat6":"5570", "cat7":"7585", "cat8":"11800"}},
@@ -4561,7 +4561,7 @@
    "pk":130,
    "fields": {
       "descripcion": "BARRIOS C - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":184,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1725, "cat2":"2240", "cat3":"2240", "cat4":"2535", "cat5":"3935", "cat6":"570", "cat7":"7605", "cat8":"11800"}},
@@ -4778,7 +4778,7 @@
    "fields": {
       "descripcion": "ZONA 1 - SIEMENS (MUNRO)",
         "localidad_desde_id":1,
-        "localidad_hasta_id":7,
+        "localidad_hasta_id":189,
         "baja": false,
         "tarifario_id":4, "cat1":1020, "cat2":"1280", "cat3":"1280", "cat4":"1465", "cat5":"1580", "cat6":"3325", "cat7":"4270", "cat8":"0"}},
 {
@@ -4787,7 +4787,7 @@
    "fields": {
       "descripcion": "ZONA 1 - MASSALIN",
         "localidad_desde_id":1,
-        "localidad_hasta_id":4,
+        "localidad_hasta_id":185,
         "baja": false,
         "tarifario_id":4, "cat1":2275, "cat2":"2785", "cat3":"2785", "cat4":"1475", "cat5":"5015", "cat6":"6640", "cat7":"8895", "cat8":"0"}},
 {
@@ -4796,7 +4796,7 @@
    "fields": {
       "descripcion": "ZONA 1 - ABB",
         "localidad_desde_id":1,
-        "localidad_hasta_id":6,
+        "localidad_hasta_id":186,
         "baja": false,
         "tarifario_id":4, "cat1":950, "cat2":"1170", "cat3":"1170", "cat4":"1305", "cat5":"2190", "cat6":"3220", "cat7":"4225", "cat8":"0"}},
 {
@@ -4805,7 +4805,7 @@
    "fields": {
       "descripcion": "ZONA 1 - PEUGEOT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":5,
+        "localidad_hasta_id":187,
         "baja": false,
         "tarifario_id":4, "cat1":1715, "cat2":"2190", "cat3":"2190", "cat4":"2585", "cat5":"4210", "cat6":"5510", "cat7":"59930", "cat8":"12130"}},
 {
@@ -4814,7 +4814,7 @@
    "fields": {
       "descripcion": "ZONA 1 - KRAFT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":8,
+        "localidad_hasta_id":188,
         "baja": false,
         "tarifario_id":4, "cat1":1715, "cat2":"2190", "cat3":"2190", "cat4":"2585", "cat5":"4210", "cat6":"5510", "cat7":"6465", "cat8":"0"}},
 {
@@ -4868,7 +4868,7 @@
    "fields": {
       "descripcion": "VICENTE LOPEZ - EZEIZA",
         "localidad_desde_id":61,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1760, "cat2":"2295", "cat3":"2295", "cat4":"2755", "cat5":"3570", "cat6":"5340", "cat7":"6155", "cat8":"0"}},
 {
@@ -4877,7 +4877,7 @@
    "fields": {
       "descripcion": "OLIVOS - EZEIZA",
         "localidad_desde_id":163,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1915, "cat2":"2430", "cat3":"2430", "cat4":"2915", "cat5":"4045", "cat6":"5840", "cat7":"6465", "cat8":"0"}},
 {
@@ -4886,7 +4886,7 @@
    "fields": {
       "descripcion": "MARTINEZ - EZEIZA",
         "localidad_desde_id":164,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2080, "cat2":"2840", "cat3":"2840", "cat4":"3085", "cat5":"4450", "cat6":"5995", "cat7":"7280", "cat8":"0"}},
 {
@@ -4895,7 +4895,7 @@
    "fields": {
       "descripcion": "SAN ISIDRO - EZEIZA",
         "localidad_desde_id":14,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2245, "cat2":"3085", "cat3":"3085", "cat4":"3325", "cat5":"4855", "cat6":"6640", "cat7":"8080", "cat8":"0"}},
 {
@@ -4904,7 +4904,7 @@
    "fields": {
       "descripcion": "SAN FERNANDO - EZEIZA",
         "localidad_desde_id":40,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":3085, "cat2":"3495", "cat3":"3495", "cat4":"3885", "cat5":"5445", "cat6":"7125", "cat7":"8580", "cat8":"0"}},
 {
@@ -4913,7 +4913,7 @@
    "fields": {
       "descripcion": "TIGRE - EZEIZA",
         "localidad_desde_id":62,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2995, "cat2":"3885", "cat3":"3885", "cat4":"4530", "cat5":"6965", "cat6":"9380", "cat7":"10350", "cat8":"0"}},
 {
@@ -4922,7 +4922,7 @@
    "fields": {
       "descripcion": "SAN JUSTO - EZEIZA",
         "localidad_desde_id":165,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1760, "cat2":"2295", "cat3":"2295", "cat4":"2680", "cat5":"4135", "cat6":"5670", "cat7":"7280", "cat8":"0"}},
 {
@@ -4931,7 +4931,7 @@
    "fields": {
       "descripcion": "RAMOS MEJIA - EZEIZA",
         "localidad_desde_id":166,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1805, "cat2":"2355", "cat3":"2355", "cat4":"2755", "cat5":"4380", "cat6":"5995", "cat7":"7605", "cat8":"0"}},
 {
@@ -4940,7 +4940,7 @@
    "fields": {
       "descripcion": "HAEDO - EZEIZA",
         "localidad_desde_id":167,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1940, "cat2":"2510", "cat3":"2510", "cat4":"2915", "cat5":"4540", "cat6":"6155", "cat7":"8080", "cat8":"0"}},
 {
@@ -4949,7 +4949,7 @@
    "fields": {
       "descripcion": "MORON - EZEIZA",
         "localidad_desde_id":42,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2100, "cat2":"2705", "cat3":"2705", "cat4":"3085", "cat5":"4815", "cat6":"6465", "cat7":"8895", "cat8":"0"}},
 {
@@ -4958,7 +4958,7 @@
    "fields": {
       "descripcion": "CASTELAR - EZEIZA",
         "localidad_desde_id":168,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2270, "cat2":"2840", "cat3":"2840", "cat4":"3400", "cat5":"5260", "cat6":"7280", "cat7":"9380", "cat8":"0"}},
 {
@@ -4967,7 +4967,7 @@
    "fields": {
       "descripcion": "ITUZAINGO - EZEIZA",
         "localidad_desde_id":49,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2430, "cat2":"3020", "cat3":"3020", "cat4":"3650", "cat5":"5670", "cat6":"7765", "cat7":"9705", "cat8":"0"}},
 {
@@ -4976,7 +4976,7 @@
    "fields": {
       "descripcion": "MERLO - EZEIZA",
         "localidad_desde_id":144,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2585, "cat2":"3280", "cat3":"3280", "cat4":"3805", "cat5":"6310", "cat6":"8485", "cat7":"11315", "cat8":"0"}},
 {
@@ -4985,7 +4985,7 @@
    "fields": {
       "descripcion": "MORENO - EZEIZA",
         "localidad_desde_id":36,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":3085, "cat2":"3885", "cat3":"3885", "cat4":"4370", "cat5":"6810", "cat6":"8605", "cat7":"11965", "cat8":"0"}},
 {
@@ -5003,7 +5003,7 @@
    "fields": {
       "descripcion": "SANTOS LUGARES - EZEIZA",
         "localidad_desde_id":169,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1805, "cat2":"2355", "cat3":"2355", "cat4":"2755", "cat5":"4380", "cat6":"5900", "cat7":"7450", "cat8":"0"}},
 {
@@ -5012,7 +5012,7 @@
    "fields": {
       "descripcion": "SAN MARTIN - EZEIZA",
         "localidad_desde_id":170,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1805, "cat2":"2355", "cat3":"2355", "cat4":"2755", "cat5":"4380", "cat6":"5900", "cat7":"7450", "cat8":"0"}},
 {
@@ -5030,7 +5030,7 @@
    "fields": {
       "descripcion": "JOSE L SUAREZ - EZEIZA",
         "localidad_desde_id":172,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2585, "cat2":"3325", "cat3":"3325", "cat4":"3885", "cat5":"5670", "cat6":"7765", "cat7":"9625", "cat8":"0"}},
 {
@@ -5039,7 +5039,7 @@
    "fields": {
       "descripcion": "CASEROS - EZEIZA",
         "localidad_desde_id":173,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1805, "cat2":"2355", "cat3":"2355", "cat4":"2755", "cat5":"4380", "cat6":"5900", "cat7":"7450", "cat8":"0"}},
 {
@@ -5048,7 +5048,7 @@
    "fields": {
       "descripcion": "PALOMAR - EZEIZA",
         "localidad_desde_id":174,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1940, "cat2":"2510", "cat3":"2510", "cat4":"2840", "cat5":"4540", "cat6":"6125", "cat7":"8080", "cat8":"0"}},
 {
@@ -5075,7 +5075,7 @@
    "fields": {
       "descripcion": "AVELLANEDA - EZEIZA",
         "localidad_desde_id":26,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1475, "cat2":"1805", "cat3":"1805", "cat4":"2190", "cat5":"3085", "cat6":"4225", "cat7":"6155", "cat8":"0"}},
 {
@@ -5084,7 +5084,7 @@
    "fields": {
       "descripcion": "LANUS - EZEIZA",
         "localidad_desde_id":28,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1710, "cat2":"2090", "cat3":"2090", "cat4":"2355", "cat5":"3725", "cat6":"5030", "cat7":"6465", "cat8":"0"}},
 {
@@ -5093,7 +5093,7 @@
    "fields": {
       "descripcion": "R DE ESCALADA - EZEIZA",
         "localidad_desde_id":175,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1785, "cat2":"2220", "cat3":"2220", "cat4":"2430", "cat5":"3860", "cat6":"5340", "cat7":"6965", "cat8":"0"}},
 {
@@ -5102,7 +5102,7 @@
    "fields": {
       "descripcion": "BANFIELD - EZEIZA",
         "localidad_desde_id":176,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":1865, "cat2":"2355", "cat3":"2355", "cat4":"2680", "cat5":"4225", "cat6":"5670", "cat7":"7125", "cat8":"0"}},
 {
@@ -5111,7 +5111,7 @@
    "fields": {
       "descripcion": "LOMAS DE ZAMORA - EZEIZA",
         "localidad_desde_id":32,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2025, "cat2":"2535", "cat3":"2535", "cat4":"2720", "cat5":"4535", "cat6":"6155", "cat7":"8080", "cat8":"0"}},
 {
@@ -5120,7 +5120,7 @@
    "fields": {
       "descripcion": "TEMPERLEY - EZEIZA",
         "localidad_desde_id":177,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2185, "cat2":"2755", "cat3":"2755", "cat4":"3165", "cat5":"4855", "cat6":"6640", "cat7":"8420", "cat8":"0"}},
 {
@@ -5129,7 +5129,7 @@
    "fields": {
       "descripcion": "ADROGUE - EZEIZA",
         "localidad_desde_id":178,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2355, "cat2":"2995", "cat3":"2995", "cat4":"3400", "cat5":"5340", "cat6":"7450", "cat7":"8895", "cat8":"0"}},
 {
@@ -5138,7 +5138,7 @@
    "fields": {
       "descripcion": "WILDE - EZEIZA",
         "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2185, "cat2":"2755", "cat3":"2755", "cat4":"3165", "cat5":"4855", "cat6":"6640", "cat7":"8420", "cat8":"0"}},
 {
@@ -5146,8 +5146,8 @@
    "pk":195,
    "fields": {
       "descripcion": "BERNAL - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":180,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2355, "cat2":"2995", "cat3":"2995", "cat4":"3400", "cat5":"5340", "cat6":"7450", "cat7":"8895", "cat8":"0"}},
 {
@@ -5156,7 +5156,7 @@
    "fields": {
       "descripcion": "QUILMES - EZEIZA",
         "localidad_desde_id":39,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2585, "cat2":"3325", "cat3":"3325", "cat4":"3725", "cat5":"6155", "cat6":"8080", "cat7":"9705", "cat8":"0"}},
 {
@@ -5165,7 +5165,7 @@
    "fields": {
       "descripcion": "BERAZATEGUI - EZEIZA",
         "localidad_desde_id":44,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2840, "cat2":"3570", "cat3":"3570", "cat4":"4045", "cat5":"6465", "cat6":"8580", "cat7":"10350", "cat8":"0"}},
 {
@@ -5174,7 +5174,7 @@
    "fields": {
       "descripcion": "HUDSON - EZEIZA",
         "localidad_desde_id":161,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":2990, "cat2":"3725", "cat3":"3725", "cat4":"4330", "cat5":"7765", "cat6":"10690", "cat7":"12930", "cat8":"0"}},
 {
@@ -5183,7 +5183,7 @@
    "fields": {
       "descripcion": "LA PLATA - EZEIZA",
         "localidad_desde_id":147,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":3885, "cat2":"4945", "cat3":"4945", "cat4":"5670", "cat5":"8160", "cat6":"11650", "cat7":"14385", "cat8":"0"}},
 {
@@ -5192,7 +5192,7 @@
    "fields": {
       "descripcion": "PILAR - EZEIZA",
         "localidad_desde_id":37,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":4045, "cat2":"4945", "cat3":"4945", "cat4":"5670", "cat5":"8160", "cat6":"11650", "cat7":"14385", "cat8":"0"}},
 {
@@ -5201,7 +5201,7 @@
    "fields": {
       "descripcion": "CARDALES - EZEIZA",
         "localidad_desde_id":154,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":4200, "cat2":"5510", "cat3":"5510", "cat4":"5900", "cat5":"9065", "cat6":"12130", "cat7":"14715", "cat8":"0"}},
 {
@@ -5210,7 +5210,7 @@
    "fields": {
       "descripcion": "NORDELTA - EZEIZA",
         "localidad_desde_id":155,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":3320, "cat2":"3725", "cat3":"3725", "cat4":"4045", "cat5":"6810", "cat6":"8580", "cat7":"9550", "cat8":"0"}},
 {
@@ -5497,7 +5497,7 @@
    "pk":234,
    "fields": {
       "descripcion": "BERNAL - AEROPUERTO DE AEROPARQUE",
-        "localidad_desde_id":179,
+        "localidad_desde_id":180,
         "localidad_hasta_id":5,
         "baja": false,
         "tarifario_id":4, "cat1":1590, "cat2":"2025", "cat3":"2025", "cat4":"2275", "cat5":"3885", "cat6":"5340", "cat7":"6810", "cat8":"0"}},
@@ -5650,8 +5650,8 @@
    "pk":251,
    "fields": {
       "descripcion": "SAN CEFERINO - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":181,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":4, "cat1":4045, "cat2":"5340", "cat3":"5340", "cat4":"6140", "cat5":"9470", "cat6":"12620", "cat7":"15280", "cat8":"0"}},
 {
@@ -5686,7 +5686,7 @@
    "pk":255,
    "fields": {
       "descripcion": "BARRIOS A - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":182,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":1575, "cat2":"2035", "cat3":"2035", "cat4":"2320", "cat5":"3715", "cat6":"5260", "cat7":"6970", "cat8":"12365"}},
@@ -5695,7 +5695,7 @@
    "pk":256,
    "fields": {
       "descripcion": "BARRIOS B - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":183,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":1950, "cat2":"2625", "cat3":"2625", "cat4":"3005", "cat5":"4640", "cat6":"6565", "cat7":"8940", "cat8":"13915"}},
@@ -5704,7 +5704,7 @@
    "pk":257,
    "fields": {
       "descripcion": "BARRIOS C - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":184,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2035, "cat2":"2640", "cat3":"2640", "cat4":"2985", "cat5":"4640", "cat6":"670", "cat7":"8970", "cat8":"13915"}},
@@ -5921,7 +5921,7 @@
    "fields": {
       "descripcion": "ZONA 1 - SIEMENS (MUNRO)",
         "localidad_desde_id":1,
-        "localidad_hasta_id":7,
+        "localidad_hasta_id":189,
         "baja": false,
         "tarifario_id":6, "cat1":1200, "cat2":"1510", "cat3":"1510", "cat4":"1725", "cat5":"1860", "cat6":"3915", "cat7":"5030", "cat8":"0"}},
 {
@@ -5930,7 +5930,7 @@
    "fields": {
       "descripcion": "ZONA 1 - MASSALIN",
         "localidad_desde_id":1,
-        "localidad_hasta_id":4,
+        "localidad_hasta_id":185,
         "baja": false,
         "tarifario_id":6, "cat1":2680, "cat2":"3285", "cat3":"3285", "cat4":"1740", "cat5":"5910", "cat6":"7825", "cat7":"10485", "cat8":"0"}},
 {
@@ -5939,7 +5939,7 @@
    "fields": {
       "descripcion": "ZONA 1 - ABB",
         "localidad_desde_id":1,
-        "localidad_hasta_id":6,
+        "localidad_hasta_id":186,
         "baja": false,
         "tarifario_id":6, "cat1":1115, "cat2":"1380", "cat3":"1380", "cat4":"1535", "cat5":"2585", "cat6":"3795", "cat7":"4980", "cat8":"0"}},
 {
@@ -5948,7 +5948,7 @@
    "fields": {
       "descripcion": "ZONA 1 - PEUGEOT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":5,
+        "localidad_hasta_id":187,
         "baja": false,
         "tarifario_id":6, "cat1":2025, "cat2":"2585", "cat3":"2585", "cat4":"3050", "cat5":"4965", "cat6":"6500", "cat7":"70650", "cat8":"14300"}},
 {
@@ -5957,7 +5957,7 @@
    "fields": {
       "descripcion": "ZONA 1 - KRAFT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":8,
+        "localidad_hasta_id":188,
         "baja": false,
         "tarifario_id":6, "cat1":2025, "cat2":"2585", "cat3":"2585", "cat4":"3050", "cat5":"4965", "cat6":"6500", "cat7":"7625", "cat8":"0"}},
 {
@@ -6011,7 +6011,7 @@
    "fields": {
       "descripcion": "VICENTE LOPEZ - EZEIZA",
         "localidad_desde_id":61,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2075, "cat2":"2705", "cat3":"2705", "cat4":"3250", "cat5":"4210", "cat6":"6295", "cat7":"7255", "cat8":"0"}},
 {
@@ -6020,7 +6020,7 @@
    "fields": {
       "descripcion": "OLIVOS - EZEIZA",
         "localidad_desde_id":163,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2260, "cat2":"2865", "cat3":"2865", "cat4":"3435", "cat5":"4770", "cat6":"6885", "cat7":"7625", "cat8":"0"}},
 {
@@ -6029,7 +6029,7 @@
    "fields": {
       "descripcion": "MARTINEZ - EZEIZA",
         "localidad_desde_id":164,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2450, "cat2":"3345", "cat3":"3345", "cat4":"3635", "cat5":"5245", "cat6":"7070", "cat7":"8580", "cat8":"0"}},
 {
@@ -6038,7 +6038,7 @@
    "fields": {
       "descripcion": "SAN ISIDRO - EZEIZA",
         "localidad_desde_id":14,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2645, "cat2":"3635", "cat3":"3635", "cat4":"3915", "cat5":"5725", "cat6":"7825", "cat7":"9530", "cat8":"0"}},
 {
@@ -6047,7 +6047,7 @@
    "fields": {
       "descripcion": "SAN FERNANDO - EZEIZA",
         "localidad_desde_id":40,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":3635, "cat2":"4120", "cat3":"4120", "cat4":"4580", "cat5":"6420", "cat6":"8395", "cat7":"10115", "cat8":"0"}},
 {
@@ -6056,7 +6056,7 @@
    "fields": {
       "descripcion": "TIGRE - EZEIZA",
         "localidad_desde_id":62,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":3530, "cat2":"4580", "cat3":"4580", "cat4":"5340", "cat5":"8210", "cat6":"11055", "cat7":"12200", "cat8":"0"}},
 {
@@ -6065,7 +6065,7 @@
    "fields": {
       "descripcion": "SAN JUSTO - EZEIZA",
         "localidad_desde_id":165,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2075, "cat2":"2705", "cat3":"2705", "cat4":"3160", "cat5":"4875", "cat6":"6685", "cat7":"8580", "cat8":"0"}},
 {
@@ -6074,7 +6074,7 @@
    "fields": {
       "descripcion": "RAMOS MEJIA - EZEIZA",
         "localidad_desde_id":166,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2125, "cat2":"2775", "cat3":"2775", "cat4":"3250", "cat5":"5165", "cat6":"7070", "cat7":"8970", "cat8":"0"}},
 {
@@ -6083,7 +6083,7 @@
    "fields": {
       "descripcion": "HAEDO - EZEIZA",
         "localidad_desde_id":167,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2285, "cat2":"2960", "cat3":"2960", "cat4":"3435", "cat5":"5350", "cat6":"7255", "cat7":"9530", "cat8":"0"}},
 {
@@ -6092,7 +6092,7 @@
    "fields": {
       "descripcion": "MORON - EZEIZA",
         "localidad_desde_id":42,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2480, "cat2":"3190", "cat3":"3190", "cat4":"3635", "cat5":"5675", "cat6":"7625", "cat7":"10485", "cat8":"0"}},
 {
@@ -6101,7 +6101,7 @@
    "fields": {
       "descripcion": "CASTELAR - EZEIZA",
         "localidad_desde_id":168,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2675, "cat2":"3345", "cat3":"3345", "cat4":"4005", "cat5":"6200", "cat6":"8580", "cat7":"11055", "cat8":"0"}},
 {
@@ -6110,7 +6110,7 @@
    "fields": {
       "descripcion": "ITUZAINGO - EZEIZA",
         "localidad_desde_id":49,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2865, "cat2":"3560", "cat3":"3560", "cat4":"4305", "cat5":"6685", "cat6":"9155", "cat7":"10445", "cat8":"0"}},
 {
@@ -6119,7 +6119,7 @@
    "fields": {
       "descripcion": "MERLO - EZEIZA",
         "localidad_desde_id":144,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":3050, "cat2":"3865", "cat3":"3865", "cat4":"4490", "cat5":"7440", "cat6":"10005", "cat7":"13340", "cat8":"0"}},
 {
@@ -6128,7 +6128,7 @@
    "fields": {
       "descripcion": "MORENO - EZEIZA",
         "localidad_desde_id":36,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":3635, "cat2":"4580", "cat3":"4580", "cat4":"5155", "cat5":"8025", "cat6":"10145", "cat7":"14105", "cat8":"0"}},
 {
@@ -6146,7 +6146,7 @@
    "fields": {
       "descripcion": "SANTOS LUGARES - EZEIZA",
         "localidad_desde_id":169,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2125, "cat2":"2775", "cat3":"2775", "cat4":"3250", "cat5":"5165", "cat6":"6960", "cat7":"8785", "cat8":"0"}},
 {
@@ -6155,7 +6155,7 @@
    "fields": {
       "descripcion": "SAN MARTIN - EZEIZA",
         "localidad_desde_id":170,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2125, "cat2":"2775", "cat3":"2775", "cat4":"3250", "cat5":"5165", "cat6":"6960", "cat7":"8785", "cat8":"0"}},
 {
@@ -6173,7 +6173,7 @@
    "fields": {
       "descripcion": "JOSE L SUAREZ - EZEIZA",
         "localidad_desde_id":172,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":3050, "cat2":"3915", "cat3":"3915", "cat4":"4580", "cat5":"6685", "cat6":"9155", "cat7":"11350", "cat8":"0"}},
 {
@@ -6182,7 +6182,7 @@
    "fields": {
       "descripcion": "CASEROS - EZEIZA",
         "localidad_desde_id":173,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2125, "cat2":"2775", "cat3":"2775", "cat4":"3250", "cat5":"5165", "cat6":"6960", "cat7":"8785", "cat8":"0"}},
 {
@@ -6191,7 +6191,7 @@
    "fields": {
       "descripcion": "PALOMAR - EZEIZA",
         "localidad_desde_id":174,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2285, "cat2":"2960", "cat3":"2960", "cat4":"3345", "cat5":"5350", "cat6":"7220", "cat7":"9530", "cat8":"0"}},
 {
@@ -6218,7 +6218,7 @@
    "fields": {
       "descripcion": "AVELLANEDA - EZEIZA",
         "localidad_desde_id":26,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":1740, "cat2":"2125", "cat3":"2125", "cat4":"2585", "cat5":"3635", "cat6":"4980", "cat7":"7255", "cat8":"0"}},
 {
@@ -6227,7 +6227,7 @@
    "fields": {
       "descripcion": "LANUS - EZEIZA",
         "localidad_desde_id":28,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2015, "cat2":"2460", "cat3":"2460", "cat4":"2775", "cat5":"4395", "cat6":"5925", "cat7":"7625", "cat8":"0"}},
 {
@@ -6236,7 +6236,7 @@
    "fields": {
       "descripcion": "R DE ESCALADA - EZEIZA",
         "localidad_desde_id":175,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2100, "cat2":"2620", "cat3":"2620", "cat4":"2865", "cat5":"4550", "cat6":"6295", "cat7":"8210", "cat8":"0"}},
 {
@@ -6245,7 +6245,7 @@
    "fields": {
       "descripcion": "BANFIELD - EZEIZA",
         "localidad_desde_id":176,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2200, "cat2":"2775", "cat3":"2775", "cat4":"3160", "cat5":"4980", "cat6":"6685", "cat7":"8395", "cat8":"0"}},
 {
@@ -6254,7 +6254,7 @@
    "fields": {
       "descripcion": "LOMAS DE ZAMORA - EZEIZA",
         "localidad_desde_id":32,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2390, "cat2":"2985", "cat3":"2985", "cat4":"3205", "cat5":"5345", "cat6":"7255", "cat7":"9530", "cat8":"0"}},
 {
@@ -6263,7 +6263,7 @@
    "fields": {
       "descripcion": "TEMPERLEY - EZEIZA",
         "localidad_desde_id":177,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2580, "cat2":"3250", "cat3":"3250", "cat4":"3730", "cat5":"5725", "cat6":"7825", "cat7":"9925", "cat8":"0"}},
 {
@@ -6272,7 +6272,7 @@
    "fields": {
       "descripcion": "ADROGUE - EZEIZA",
         "localidad_desde_id":178,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2775, "cat2":"3530", "cat3":"3530", "cat4":"4005", "cat5":"6295", "cat6":"8785", "cat7":"10485", "cat8":"0"}},
 {
@@ -6281,7 +6281,7 @@
    "fields": {
       "descripcion": "WILDE - EZEIZA",
         "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2580, "cat2":"3250", "cat3":"3250", "cat4":"3730", "cat5":"5725", "cat6":"7825", "cat7":"9925", "cat8":"0"}},
 {
@@ -6289,8 +6289,8 @@
    "pk":322,
    "fields": {
       "descripcion": "BERNAL - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":180,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":2775, "cat2":"3530", "cat3":"3530", "cat4":"4005", "cat5":"6295", "cat6":"8785", "cat7":"10485", "cat8":"0"}},
 {
@@ -6299,7 +6299,7 @@
    "fields": {
       "descripcion": "QUILMES - EZEIZA",
         "localidad_desde_id":39,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":3050, "cat2":"3915", "cat3":"3915", "cat4":"4395", "cat5":"7255", "cat6":"9530", "cat7":"11445", "cat8":"0"}},
 {
@@ -6308,7 +6308,7 @@
    "fields": {
       "descripcion": "BERAZATEGUI - EZEIZA",
         "localidad_desde_id":44,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":3345, "cat2":"4210", "cat3":"4210", "cat4":"4770", "cat5":"7625", "cat6":"10115", "cat7":"12200", "cat8":"0"}},
 {
@@ -6317,7 +6317,7 @@
    "fields": {
       "descripcion": "HUDSON - EZEIZA",
         "localidad_desde_id":161,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":3525, "cat2":"4395", "cat3":"4395", "cat4":"5105", "cat5":"9155", "cat6":"12600", "cat7":"15245", "cat8":"0"}},
 {
@@ -6326,7 +6326,7 @@
    "fields": {
       "descripcion": "LA PLATA - EZEIZA",
         "localidad_desde_id":147,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":4580, "cat2":"5830", "cat3":"5830", "cat4":"6685", "cat5":"9620", "cat6":"13730", "cat7":"16960", "cat8":"0"}},
 {
@@ -6335,7 +6335,7 @@
    "fields": {
       "descripcion": "PILAR - EZEIZA",
         "localidad_desde_id":37,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":4770, "cat2":"5830", "cat3":"5830", "cat4":"6685", "cat5":"9620", "cat6":"13730", "cat7":"16960", "cat8":"0"}},
 {
@@ -6344,7 +6344,7 @@
    "fields": {
       "descripcion": "CARDALES - EZEIZA",
         "localidad_desde_id":154,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":4955, "cat2":"6500", "cat3":"6500", "cat4":"6960", "cat5":"10685", "cat6":"14300", "cat7":"17345", "cat8":"0"}},
 {
@@ -6353,7 +6353,7 @@
    "fields": {
       "descripcion": "NORDELTA - EZEIZA",
         "localidad_desde_id":155,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":3910, "cat2":"4395", "cat3":"4395", "cat4":"4770", "cat5":"8025", "cat6":"10115", "cat7":"11260", "cat8":"0"}},
 {
@@ -6640,7 +6640,7 @@
    "pk":361,
    "fields": {
       "descripcion": "BERNAL - AEROPUERTO DE AEROPARQUE",
-        "localidad_desde_id":179,
+        "localidad_desde_id":180,
         "localidad_hasta_id":5,
         "baja": false,
         "tarifario_id":6, "cat1":1875, "cat2":"2390", "cat3":"2390", "cat4":"2680", "cat5":"4580", "cat6":"6295", "cat7":"8025", "cat8":"0"}},
@@ -6793,8 +6793,8 @@
    "pk":378,
    "fields": {
       "descripcion": "SAN CEFERINO - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":181,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":6, "cat1":4770, "cat2":"6295", "cat3":"6295", "cat4":"7240", "cat5":"11165", "cat6":"14875", "cat7":"18010", "cat8":"0"}},
 {
@@ -6829,7 +6829,7 @@
    "pk":382,
    "fields": {
       "descripcion": "BARRIOS A - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":182,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":1575, "cat2":"2035", "cat3":"2035", "cat4":"2320", "cat5":"3715", "cat6":"5260", "cat7":"6970", "cat8":"12365"}},
@@ -6838,7 +6838,7 @@
    "pk":383,
    "fields": {
       "descripcion": "BARRIOS B - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":183,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":1950, "cat2":"2625", "cat3":"2625", "cat4":"3005", "cat5":"4640", "cat6":"6565", "cat7":"8940", "cat8":"13915"}},
@@ -6847,7 +6847,7 @@
    "pk":384,
    "fields": {
       "descripcion": "BARRIOS C - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":184,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2035, "cat2":"2640", "cat3":"2640", "cat4":"2985", "cat5":"4640", "cat6":"670", "cat7":"8970", "cat8":"13915"}},
@@ -7064,7 +7064,7 @@
    "fields": {
       "descripcion": "ZONA 1 - SIEMENS (MUNRO)",
         "localidad_desde_id":1,
-        "localidad_hasta_id":7,
+        "localidad_hasta_id":189,
         "baja": false,
         "tarifario_id":5, "cat1":1200, "cat2":"1510", "cat3":"1510", "cat4":"1725", "cat5":"1860", "cat6":"3915", "cat7":"5030", "cat8":"0"}},
 {
@@ -7073,7 +7073,7 @@
    "fields": {
       "descripcion": "ZONA 1 - MASSALIN",
         "localidad_desde_id":1,
-        "localidad_hasta_id":4,
+        "localidad_hasta_id":185,
         "baja": false,
         "tarifario_id":5, "cat1":2680, "cat2":"3285", "cat3":"3285", "cat4":"1740", "cat5":"5910", "cat6":"7825", "cat7":"10485", "cat8":"0"}},
 {
@@ -7082,7 +7082,7 @@
    "fields": {
       "descripcion": "ZONA 1 - ABB",
         "localidad_desde_id":1,
-        "localidad_hasta_id":6,
+        "localidad_hasta_id":186,
         "baja": false,
         "tarifario_id":5, "cat1":1115, "cat2":"1380", "cat3":"1380", "cat4":"1535", "cat5":"2585", "cat6":"3795", "cat7":"4980", "cat8":"0"}},
 {
@@ -7091,7 +7091,7 @@
    "fields": {
       "descripcion": "ZONA 1 - PEUGEOT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":5,
+        "localidad_hasta_id":187,
         "baja": false,
         "tarifario_id":5, "cat1":2025, "cat2":"2585", "cat3":"2585", "cat4":"3050", "cat5":"4965", "cat6":"6500", "cat7":"70650", "cat8":"14300"}},
 {
@@ -7100,7 +7100,7 @@
    "fields": {
       "descripcion": "ZONA 1 - KRAFT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":8,
+        "localidad_hasta_id":188,
         "baja": false,
         "tarifario_id":5, "cat1":2025, "cat2":"2585", "cat3":"2585", "cat4":"3050", "cat5":"4965", "cat6":"6500", "cat7":"7625", "cat8":"0"}},
 {
@@ -7154,7 +7154,7 @@
    "fields": {
       "descripcion": "VICENTE LOPEZ - EZEIZA",
         "localidad_desde_id":61,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2075, "cat2":"2705", "cat3":"2705", "cat4":"3250", "cat5":"4210", "cat6":"6295", "cat7":"7255", "cat8":"0"}},
 {
@@ -7163,7 +7163,7 @@
    "fields": {
       "descripcion": "OLIVOS - EZEIZA",
         "localidad_desde_id":163,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2260, "cat2":"2865", "cat3":"2865", "cat4":"3435", "cat5":"4770", "cat6":"6885", "cat7":"7625", "cat8":"0"}},
 {
@@ -7172,7 +7172,7 @@
    "fields": {
       "descripcion": "MARTINEZ - EZEIZA",
         "localidad_desde_id":164,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2450, "cat2":"3345", "cat3":"3345", "cat4":"3635", "cat5":"5245", "cat6":"7070", "cat7":"8580", "cat8":"0"}},
 {
@@ -7181,7 +7181,7 @@
    "fields": {
       "descripcion": "SAN ISIDRO - EZEIZA",
         "localidad_desde_id":14,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2645, "cat2":"3635", "cat3":"3635", "cat4":"3915", "cat5":"5725", "cat6":"7825", "cat7":"9530", "cat8":"0"}},
 {
@@ -7190,7 +7190,7 @@
    "fields": {
       "descripcion": "SAN FERNANDO - EZEIZA",
         "localidad_desde_id":40,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":3635, "cat2":"4120", "cat3":"4120", "cat4":"4580", "cat5":"6420", "cat6":"8395", "cat7":"10115", "cat8":"0"}},
 {
@@ -7199,7 +7199,7 @@
    "fields": {
       "descripcion": "TIGRE - EZEIZA",
         "localidad_desde_id":62,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":3530, "cat2":"4580", "cat3":"4580", "cat4":"5340", "cat5":"8210", "cat6":"11055", "cat7":"12200", "cat8":"0"}},
 {
@@ -7208,7 +7208,7 @@
    "fields": {
       "descripcion": "SAN JUSTO - EZEIZA",
         "localidad_desde_id":165,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2075, "cat2":"2705", "cat3":"2705", "cat4":"3160", "cat5":"4875", "cat6":"6685", "cat7":"8580", "cat8":"0"}},
 {
@@ -7217,7 +7217,7 @@
    "fields": {
       "descripcion": "RAMOS MEJIA - EZEIZA",
         "localidad_desde_id":166,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2125, "cat2":"2775", "cat3":"2775", "cat4":"3250", "cat5":"5165", "cat6":"7070", "cat7":"8970", "cat8":"0"}},
 {
@@ -7226,7 +7226,7 @@
    "fields": {
       "descripcion": "HAEDO - EZEIZA",
         "localidad_desde_id":167,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2285, "cat2":"2960", "cat3":"2960", "cat4":"3435", "cat5":"5350", "cat6":"7255", "cat7":"9530", "cat8":"0"}},
 {
@@ -7235,7 +7235,7 @@
    "fields": {
       "descripcion": "MORON - EZEIZA",
         "localidad_desde_id":42,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2480, "cat2":"3190", "cat3":"3190", "cat4":"3635", "cat5":"5675", "cat6":"7625", "cat7":"10485", "cat8":"0"}},
 {
@@ -7244,7 +7244,7 @@
    "fields": {
       "descripcion": "CASTELAR - EZEIZA",
         "localidad_desde_id":168,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2675, "cat2":"3345", "cat3":"3345", "cat4":"4005", "cat5":"6200", "cat6":"8580", "cat7":"11055", "cat8":"0"}},
 {
@@ -7253,7 +7253,7 @@
    "fields": {
       "descripcion": "ITUZAINGO - EZEIZA",
         "localidad_desde_id":49,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2865, "cat2":"3560", "cat3":"3560", "cat4":"4305", "cat5":"6685", "cat6":"9155", "cat7":"10445", "cat8":"0"}},
 {
@@ -7262,7 +7262,7 @@
    "fields": {
       "descripcion": "MERLO - EZEIZA",
         "localidad_desde_id":144,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":3050, "cat2":"3865", "cat3":"3865", "cat4":"4490", "cat5":"7440", "cat6":"10005", "cat7":"13340", "cat8":"0"}},
 {
@@ -7271,7 +7271,7 @@
    "fields": {
       "descripcion": "MORENO - EZEIZA",
         "localidad_desde_id":36,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":3635, "cat2":"4580", "cat3":"4580", "cat4":"5155", "cat5":"8025", "cat6":"10145", "cat7":"14105", "cat8":"0"}},
 {
@@ -7289,7 +7289,7 @@
    "fields": {
       "descripcion": "SANTOS LUGARES - EZEIZA",
         "localidad_desde_id":169,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2125, "cat2":"2775", "cat3":"2775", "cat4":"3250", "cat5":"5165", "cat6":"6960", "cat7":"8785", "cat8":"0"}},
 {
@@ -7298,7 +7298,7 @@
    "fields": {
       "descripcion": "SAN MARTIN - EZEIZA",
         "localidad_desde_id":170,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2125, "cat2":"2775", "cat3":"2775", "cat4":"3250", "cat5":"5165", "cat6":"6960", "cat7":"8785", "cat8":"0"}},
 {
@@ -7316,7 +7316,7 @@
    "fields": {
       "descripcion": "JOSE L SUAREZ - EZEIZA",
         "localidad_desde_id":172,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":3050, "cat2":"3915", "cat3":"3915", "cat4":"4580", "cat5":"6685", "cat6":"9155", "cat7":"11350", "cat8":"0"}},
 {
@@ -7325,7 +7325,7 @@
    "fields": {
       "descripcion": "CASEROS - EZEIZA",
         "localidad_desde_id":173,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2125, "cat2":"2775", "cat3":"2775", "cat4":"3250", "cat5":"5165", "cat6":"6960", "cat7":"8785", "cat8":"0"}},
 {
@@ -7334,7 +7334,7 @@
    "fields": {
       "descripcion": "PALOMAR - EZEIZA",
         "localidad_desde_id":174,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2285, "cat2":"2960", "cat3":"2960", "cat4":"3345", "cat5":"5350", "cat6":"7220", "cat7":"9530", "cat8":"0"}},
 {
@@ -7361,7 +7361,7 @@
    "fields": {
       "descripcion": "AVELLANEDA - EZEIZA",
         "localidad_desde_id":26,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":1740, "cat2":"2125", "cat3":"2125", "cat4":"2585", "cat5":"3635", "cat6":"4980", "cat7":"7255", "cat8":"0"}},
 {
@@ -7370,7 +7370,7 @@
    "fields": {
       "descripcion": "LANUS - EZEIZA",
         "localidad_desde_id":28,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2015, "cat2":"2460", "cat3":"2460", "cat4":"2775", "cat5":"4395", "cat6":"5925", "cat7":"7625", "cat8":"0"}},
 {
@@ -7379,7 +7379,7 @@
    "fields": {
       "descripcion": "R DE ESCALADA - EZEIZA",
         "localidad_desde_id":175,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2100, "cat2":"2620", "cat3":"2620", "cat4":"2865", "cat5":"4550", "cat6":"6295", "cat7":"8210", "cat8":"0"}},
 {
@@ -7388,7 +7388,7 @@
    "fields": {
       "descripcion": "BANFIELD - EZEIZA",
         "localidad_desde_id":176,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2200, "cat2":"2775", "cat3":"2775", "cat4":"3160", "cat5":"4980", "cat6":"6685", "cat7":"8395", "cat8":"0"}},
 {
@@ -7397,7 +7397,7 @@
    "fields": {
       "descripcion": "LOMAS DE ZAMORA - EZEIZA",
         "localidad_desde_id":32,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2390, "cat2":"2985", "cat3":"2985", "cat4":"3205", "cat5":"5345", "cat6":"7255", "cat7":"9530", "cat8":"0"}},
 {
@@ -7406,7 +7406,7 @@
    "fields": {
       "descripcion": "TEMPERLEY - EZEIZA",
         "localidad_desde_id":177,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2580, "cat2":"3250", "cat3":"3250", "cat4":"3730", "cat5":"5725", "cat6":"7825", "cat7":"9925", "cat8":"0"}},
 {
@@ -7415,7 +7415,7 @@
    "fields": {
       "descripcion": "ADROGUE - EZEIZA",
         "localidad_desde_id":178,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2775, "cat2":"3530", "cat3":"3530", "cat4":"4005", "cat5":"6295", "cat6":"8785", "cat7":"10485", "cat8":"0"}},
 {
@@ -7424,7 +7424,7 @@
    "fields": {
       "descripcion": "WILDE - EZEIZA",
         "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2580, "cat2":"3250", "cat3":"3250", "cat4":"3730", "cat5":"5725", "cat6":"7825", "cat7":"9925", "cat8":"0"}},
 {
@@ -7432,8 +7432,8 @@
    "pk":449,
    "fields": {
       "descripcion": "BERNAL - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":180,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":2775, "cat2":"3530", "cat3":"3530", "cat4":"4005", "cat5":"6295", "cat6":"8785", "cat7":"10485", "cat8":"0"}},
 {
@@ -7442,7 +7442,7 @@
    "fields": {
       "descripcion": "QUILMES - EZEIZA",
         "localidad_desde_id":39,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":3050, "cat2":"3915", "cat3":"3915", "cat4":"4395", "cat5":"7255", "cat6":"9530", "cat7":"11445", "cat8":"0"}},
 {
@@ -7451,7 +7451,7 @@
    "fields": {
       "descripcion": "BERAZATEGUI - EZEIZA",
         "localidad_desde_id":44,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":3345, "cat2":"4210", "cat3":"4210", "cat4":"4770", "cat5":"7625", "cat6":"10115", "cat7":"12200", "cat8":"0"}},
 {
@@ -7460,7 +7460,7 @@
    "fields": {
       "descripcion": "HUDSON - EZEIZA",
         "localidad_desde_id":161,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":3525, "cat2":"4395", "cat3":"4395", "cat4":"5105", "cat5":"9155", "cat6":"12600", "cat7":"15245", "cat8":"0"}},
 {
@@ -7469,7 +7469,7 @@
    "fields": {
       "descripcion": "LA PLATA - EZEIZA",
         "localidad_desde_id":147,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":4580, "cat2":"5830", "cat3":"5830", "cat4":"6685", "cat5":"9620", "cat6":"13730", "cat7":"16960", "cat8":"0"}},
 {
@@ -7478,7 +7478,7 @@
    "fields": {
       "descripcion": "PILAR - EZEIZA",
         "localidad_desde_id":37,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":4770, "cat2":"5830", "cat3":"5830", "cat4":"6685", "cat5":"9620", "cat6":"13730", "cat7":"16960", "cat8":"0"}},
 {
@@ -7487,7 +7487,7 @@
    "fields": {
       "descripcion": "CARDALES - EZEIZA",
         "localidad_desde_id":154,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":4955, "cat2":"6500", "cat3":"6500", "cat4":"6960", "cat5":"10685", "cat6":"14300", "cat7":"17345", "cat8":"0"}},
 {
@@ -7496,7 +7496,7 @@
    "fields": {
       "descripcion": "NORDELTA - EZEIZA",
         "localidad_desde_id":155,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":3910, "cat2":"4395", "cat3":"4395", "cat4":"4770", "cat5":"8025", "cat6":"10115", "cat7":"11260", "cat8":"0"}},
 {
@@ -7783,7 +7783,7 @@
    "pk":488,
    "fields": {
       "descripcion": "BERNAL - AEROPUERTO DE AEROPARQUE",
-        "localidad_desde_id":179,
+        "localidad_desde_id":180,
         "localidad_hasta_id":5,
         "baja": false,
         "tarifario_id":5, "cat1":1875, "cat2":"2390", "cat3":"2390", "cat4":"2680", "cat5":"4580", "cat6":"6295", "cat7":"8025", "cat8":"0"}},
@@ -7936,8 +7936,8 @@
    "pk":505,
    "fields": {
       "descripcion": "SAN CEFERINO - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":181,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":5, "cat1":4770, "cat2":"6295", "cat3":"6295", "cat4":"7240", "cat5":"11165", "cat6":"14875", "cat7":"18010", "cat8":"0"}},
 {
@@ -7972,7 +7972,7 @@
    "pk":509,
    "fields": {
       "descripcion": "BARRIOS A - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":182,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1335, "cat2":"1725", "cat3":"1725", "cat4":"1970", "cat5":"3150", "cat6":"4465", "cat7":"5910", "cat8":"10490"}},
@@ -7981,7 +7981,7 @@
    "pk":510,
    "fields": {
       "descripcion": "BARRIOS B - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":183,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1655, "cat2":"2225", "cat3":"2225", "cat4":"2550", "cat5":"3935", "cat6":"5570", "cat7":"7585", "cat8":"11800"}},
@@ -7990,7 +7990,7 @@
    "pk":511,
    "fields": {
       "descripcion": "BARRIOS C - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":184,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1725, "cat2":"2240", "cat3":"2240", "cat4":"2535", "cat5":"3935", "cat6":"570", "cat7":"7605", "cat8":"11800"}},
@@ -8207,7 +8207,7 @@
    "fields": {
       "descripcion": "ZONA 1 - SIEMENS (MUNRO)",
         "localidad_desde_id":1,
-        "localidad_hasta_id":7,
+        "localidad_hasta_id":189,
         "baja": false,
         "tarifario_id":3, "cat1":1020, "cat2":"1280", "cat3":"1280", "cat4":"1465", "cat5":"1580", "cat6":"3325", "cat7":"4270", "cat8":"0"}},
 {
@@ -8216,7 +8216,7 @@
    "fields": {
       "descripcion": "ZONA 1 - MASSALIN",
         "localidad_desde_id":1,
-        "localidad_hasta_id":4,
+        "localidad_hasta_id":185,
         "baja": false,
         "tarifario_id":3, "cat1":2275, "cat2":"2785", "cat3":"2785", "cat4":"1475", "cat5":"5015", "cat6":"6640", "cat7":"8895", "cat8":"0"}},
 {
@@ -8225,7 +8225,7 @@
    "fields": {
       "descripcion": "ZONA 1 - ABB",
         "localidad_desde_id":1,
-        "localidad_hasta_id":6,
+        "localidad_hasta_id":186,
         "baja": false,
         "tarifario_id":3, "cat1":950, "cat2":"1170", "cat3":"1170", "cat4":"1305", "cat5":"2190", "cat6":"3220", "cat7":"4225", "cat8":"0"}},
 {
@@ -8234,7 +8234,7 @@
    "fields": {
       "descripcion": "ZONA 1 - PEUGEOT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":5,
+        "localidad_hasta_id":187,
         "baja": false,
         "tarifario_id":3, "cat1":1715, "cat2":"2190", "cat3":"2190", "cat4":"2585", "cat5":"4210", "cat6":"5510", "cat7":"59930", "cat8":"12130"}},
 {
@@ -8243,7 +8243,7 @@
    "fields": {
       "descripcion": "ZONA 1 - KRAFT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":8,
+        "localidad_hasta_id":188,
         "baja": false,
         "tarifario_id":3, "cat1":1715, "cat2":"2190", "cat3":"2190", "cat4":"2585", "cat5":"4210", "cat6":"5510", "cat7":"6465", "cat8":"0"}},
 {
@@ -8297,7 +8297,7 @@
    "fields": {
       "descripcion": "VICENTE LOPEZ - EZEIZA",
         "localidad_desde_id":61,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1760, "cat2":"2295", "cat3":"2295", "cat4":"2755", "cat5":"3570", "cat6":"5340", "cat7":"6155", "cat8":"0"}},
 {
@@ -8306,7 +8306,7 @@
    "fields": {
       "descripcion": "OLIVOS - EZEIZA",
         "localidad_desde_id":163,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1915, "cat2":"2430", "cat3":"2430", "cat4":"2915", "cat5":"4045", "cat6":"5840", "cat7":"6465", "cat8":"0"}},
 {
@@ -8315,7 +8315,7 @@
    "fields": {
       "descripcion": "MARTINEZ - EZEIZA",
         "localidad_desde_id":164,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2080, "cat2":"2840", "cat3":"2840", "cat4":"3085", "cat5":"4450", "cat6":"5995", "cat7":"7280", "cat8":"0"}},
 {
@@ -8324,7 +8324,7 @@
    "fields": {
       "descripcion": "SAN ISIDRO - EZEIZA",
         "localidad_desde_id":14,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2245, "cat2":"3085", "cat3":"3085", "cat4":"3325", "cat5":"4855", "cat6":"6640", "cat7":"8080", "cat8":"0"}},
 {
@@ -8333,7 +8333,7 @@
    "fields": {
       "descripcion": "SAN FERNANDO - EZEIZA",
         "localidad_desde_id":40,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":3085, "cat2":"3495", "cat3":"3495", "cat4":"3885", "cat5":"5445", "cat6":"7125", "cat7":"8580", "cat8":"0"}},
 {
@@ -8342,7 +8342,7 @@
    "fields": {
       "descripcion": "TIGRE - EZEIZA",
         "localidad_desde_id":62,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2995, "cat2":"3885", "cat3":"3885", "cat4":"4530", "cat5":"6965", "cat6":"9380", "cat7":"10350", "cat8":"0"}},
 {
@@ -8351,7 +8351,7 @@
    "fields": {
       "descripcion": "SAN JUSTO - EZEIZA",
         "localidad_desde_id":165,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1760, "cat2":"2295", "cat3":"2295", "cat4":"2680", "cat5":"4135", "cat6":"5670", "cat7":"7280", "cat8":"0"}},
 {
@@ -8360,7 +8360,7 @@
    "fields": {
       "descripcion": "RAMOS MEJIA - EZEIZA",
         "localidad_desde_id":166,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1805, "cat2":"2355", "cat3":"2355", "cat4":"2755", "cat5":"4380", "cat6":"5995", "cat7":"7605", "cat8":"0"}},
 {
@@ -8369,7 +8369,7 @@
    "fields": {
       "descripcion": "HAEDO - EZEIZA",
         "localidad_desde_id":167,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1940, "cat2":"2510", "cat3":"2510", "cat4":"2915", "cat5":"4540", "cat6":"6155", "cat7":"8080", "cat8":"0"}},
 {
@@ -8378,7 +8378,7 @@
    "fields": {
       "descripcion": "MORON - EZEIZA",
         "localidad_desde_id":42,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2100, "cat2":"2705", "cat3":"2705", "cat4":"3085", "cat5":"4815", "cat6":"6465", "cat7":"8895", "cat8":"0"}},
 {
@@ -8387,7 +8387,7 @@
    "fields": {
       "descripcion": "CASTELAR - EZEIZA",
         "localidad_desde_id":168,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2270, "cat2":"2840", "cat3":"2840", "cat4":"3400", "cat5":"5260", "cat6":"7280", "cat7":"9380", "cat8":"0"}},
 {
@@ -8396,7 +8396,7 @@
    "fields": {
       "descripcion": "ITUZAINGO - EZEIZA",
         "localidad_desde_id":49,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2430, "cat2":"3020", "cat3":"3020", "cat4":"3650", "cat5":"5670", "cat6":"7765", "cat7":"9705", "cat8":"0"}},
 {
@@ -8405,7 +8405,7 @@
    "fields": {
       "descripcion": "MERLO - EZEIZA",
         "localidad_desde_id":144,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2585, "cat2":"3280", "cat3":"3280", "cat4":"3805", "cat5":"6310", "cat6":"8485", "cat7":"11315", "cat8":"0"}},
 {
@@ -8414,7 +8414,7 @@
    "fields": {
       "descripcion": "MORENO - EZEIZA",
         "localidad_desde_id":36,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":3085, "cat2":"3885", "cat3":"3885", "cat4":"4370", "cat5":"6810", "cat6":"8605", "cat7":"11965", "cat8":"0"}},
 {
@@ -8432,7 +8432,7 @@
    "fields": {
       "descripcion": "SANTOS LUGARES - EZEIZA",
         "localidad_desde_id":169,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1805, "cat2":"2355", "cat3":"2355", "cat4":"2755", "cat5":"4380", "cat6":"5900", "cat7":"7450", "cat8":"0"}},
 {
@@ -8441,7 +8441,7 @@
    "fields": {
       "descripcion": "SAN MARTIN - EZEIZA",
         "localidad_desde_id":170,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1805, "cat2":"2355", "cat3":"2355", "cat4":"2755", "cat5":"4380", "cat6":"5900", "cat7":"7450", "cat8":"0"}},
 {
@@ -8459,7 +8459,7 @@
    "fields": {
       "descripcion": "JOSE L SUAREZ - EZEIZA",
         "localidad_desde_id":172,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2585, "cat2":"3325", "cat3":"3325", "cat4":"3885", "cat5":"5670", "cat6":"7765", "cat7":"9625", "cat8":"0"}},
 {
@@ -8468,7 +8468,7 @@
    "fields": {
       "descripcion": "CASEROS - EZEIZA",
         "localidad_desde_id":173,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1805, "cat2":"2355", "cat3":"2355", "cat4":"2755", "cat5":"4380", "cat6":"5900", "cat7":"7450", "cat8":"0"}},
 {
@@ -8477,7 +8477,7 @@
    "fields": {
       "descripcion": "PALOMAR - EZEIZA",
         "localidad_desde_id":174,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1940, "cat2":"2510", "cat3":"2510", "cat4":"2840", "cat5":"4540", "cat6":"6125", "cat7":"8080", "cat8":"0"}},
 {
@@ -8504,7 +8504,7 @@
    "fields": {
       "descripcion": "AVELLANEDA - EZEIZA",
         "localidad_desde_id":26,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1475, "cat2":"1805", "cat3":"1805", "cat4":"2190", "cat5":"3085", "cat6":"4225", "cat7":"6155", "cat8":"0"}},
 {
@@ -8513,7 +8513,7 @@
    "fields": {
       "descripcion": "LANUS - EZEIZA",
         "localidad_desde_id":28,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1710, "cat2":"2090", "cat3":"2090", "cat4":"2355", "cat5":"3725", "cat6":"5030", "cat7":"6465", "cat8":"0"}},
 {
@@ -8522,7 +8522,7 @@
    "fields": {
       "descripcion": "R DE ESCALADA - EZEIZA",
         "localidad_desde_id":175,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1785, "cat2":"2220", "cat3":"2220", "cat4":"2430", "cat5":"3860", "cat6":"5340", "cat7":"6965", "cat8":"0"}},
 {
@@ -8531,7 +8531,7 @@
    "fields": {
       "descripcion": "BANFIELD - EZEIZA",
         "localidad_desde_id":176,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":1865, "cat2":"2355", "cat3":"2355", "cat4":"2680", "cat5":"4225", "cat6":"5670", "cat7":"7125", "cat8":"0"}},
 {
@@ -8540,7 +8540,7 @@
    "fields": {
       "descripcion": "LOMAS DE ZAMORA - EZEIZA",
         "localidad_desde_id":32,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2025, "cat2":"2535", "cat3":"2535", "cat4":"2720", "cat5":"4535", "cat6":"6155", "cat7":"8080", "cat8":"0"}},
 {
@@ -8549,7 +8549,7 @@
    "fields": {
       "descripcion": "TEMPERLEY - EZEIZA",
         "localidad_desde_id":177,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2185, "cat2":"2755", "cat3":"2755", "cat4":"3165", "cat5":"4855", "cat6":"6640", "cat7":"8420", "cat8":"0"}},
 {
@@ -8558,7 +8558,7 @@
    "fields": {
       "descripcion": "ADROGUE - EZEIZA",
         "localidad_desde_id":178,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2355, "cat2":"2995", "cat3":"2995", "cat4":"3400", "cat5":"5340", "cat6":"7450", "cat7":"8895", "cat8":"0"}},
 {
@@ -8567,7 +8567,7 @@
    "fields": {
       "descripcion": "WILDE - EZEIZA",
         "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2185, "cat2":"2755", "cat3":"2755", "cat4":"3165", "cat5":"4855", "cat6":"6640", "cat7":"8420", "cat8":"0"}},
 {
@@ -8575,8 +8575,8 @@
    "pk":576,
    "fields": {
       "descripcion": "BERNAL - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":180,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2355, "cat2":"2995", "cat3":"2995", "cat4":"3400", "cat5":"5340", "cat6":"7450", "cat7":"8895", "cat8":"0"}},
 {
@@ -8585,7 +8585,7 @@
    "fields": {
       "descripcion": "QUILMES - EZEIZA",
         "localidad_desde_id":39,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2585, "cat2":"3325", "cat3":"3325", "cat4":"3725", "cat5":"6155", "cat6":"8080", "cat7":"9705", "cat8":"0"}},
 {
@@ -8594,7 +8594,7 @@
    "fields": {
       "descripcion": "BERAZATEGUI - EZEIZA",
         "localidad_desde_id":44,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2840, "cat2":"3570", "cat3":"3570", "cat4":"4045", "cat5":"6465", "cat6":"8580", "cat7":"10350", "cat8":"0"}},
 {
@@ -8603,7 +8603,7 @@
    "fields": {
       "descripcion": "HUDSON - EZEIZA",
         "localidad_desde_id":161,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":2990, "cat2":"3725", "cat3":"3725", "cat4":"4330", "cat5":"7765", "cat6":"10690", "cat7":"12930", "cat8":"0"}},
 {
@@ -8612,7 +8612,7 @@
    "fields": {
       "descripcion": "LA PLATA - EZEIZA",
         "localidad_desde_id":147,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":3885, "cat2":"4945", "cat3":"4945", "cat4":"5670", "cat5":"8160", "cat6":"11650", "cat7":"14385", "cat8":"0"}},
 {
@@ -8621,7 +8621,7 @@
    "fields": {
       "descripcion": "PILAR - EZEIZA",
         "localidad_desde_id":37,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":4045, "cat2":"4945", "cat3":"4945", "cat4":"5670", "cat5":"8160", "cat6":"11650", "cat7":"14385", "cat8":"0"}},
 {
@@ -8630,7 +8630,7 @@
    "fields": {
       "descripcion": "CARDALES - EZEIZA",
         "localidad_desde_id":154,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":4200, "cat2":"5510", "cat3":"5510", "cat4":"5900", "cat5":"9065", "cat6":"12130", "cat7":"14715", "cat8":"0"}},
 {
@@ -8639,7 +8639,7 @@
    "fields": {
       "descripcion": "NORDELTA - EZEIZA",
         "localidad_desde_id":155,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":3320, "cat2":"3725", "cat3":"3725", "cat4":"4045", "cat5":"6810", "cat6":"8580", "cat7":"9550", "cat8":"0"}},
 {
@@ -8926,7 +8926,7 @@
    "pk":615,
    "fields": {
       "descripcion": "BERNAL - AEROPUERTO DE AEROPARQUE",
-        "localidad_desde_id":179,
+        "localidad_desde_id":180,
         "localidad_hasta_id":5,
         "baja": false,
         "tarifario_id":3, "cat1":1590, "cat2":"2025", "cat3":"2025", "cat4":"2275", "cat5":"3885", "cat6":"5340", "cat7":"6810", "cat8":"0"}},
@@ -9079,8 +9079,8 @@
    "pk":632,
    "fields": {
       "descripcion": "SAN CEFERINO - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":181,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":3, "cat1":4045, "cat2":"5340", "cat3":"5340", "cat4":"6140", "cat5":"9470", "cat6":"12620", "cat7":"15280", "cat8":"0"}},
 {
@@ -9115,7 +9115,7 @@
    "pk":636,
    "fields": {
       "descripcion": "BARRIOS A - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":182,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":7, "cat1":1345, "cat2":"1680", "cat3":"1920", "cat4":"1680", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
@@ -9197,7 +9197,7 @@
    "fields": {
       "descripcion": "NORDELTA - EZEIZA",
         "localidad_desde_id":155,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":7, "cat1":2580, "cat2":"3000", "cat3":"3960", "cat4":"3000", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9313,7 +9313,7 @@
    "pk":658,
    "fields": {
       "descripcion": "BARRIOS A - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":182,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1075, "cat2":"1130", "cat3":"1130", "cat4":"1200", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
@@ -9322,7 +9322,7 @@
    "pk":659,
    "fields": {
       "descripcion": "BARRIOS B - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":183,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1100, "cat2":"1190", "cat3":"1190", "cat4":"1375", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
@@ -9331,7 +9331,7 @@
    "pk":660,
    "fields": {
       "descripcion": "BARRIOS C - AEROPUERTO EZEIZA",
-        "localidad_desde_id":179,
+        "localidad_desde_id":184,
         "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1145, "cat2":"1240", "cat3":"1240", "cat4":"1510", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
@@ -9548,7 +9548,7 @@
    "fields": {
       "descripcion": "ZONA 1 - SIEMENS (MUNRO)",
         "localidad_desde_id":1,
-        "localidad_hasta_id":7,
+        "localidad_hasta_id":189,
         "baja": false,
         "tarifario_id":8, "cat1":495, "cat2":"565", "cat3":"565", "cat4":"630", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9557,7 +9557,7 @@
    "fields": {
       "descripcion": "ZONA 1 - MASSALIN",
         "localidad_desde_id":1,
-        "localidad_hasta_id":4,
+        "localidad_hasta_id":185,
         "baja": false,
         "tarifario_id":8, "cat1":1070, "cat2":"1250", "cat3":"1250", "cat4":"1415", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9566,7 +9566,7 @@
    "fields": {
       "descripcion": "ZONA 1 - ABB",
         "localidad_desde_id":1,
-        "localidad_hasta_id":6,
+        "localidad_hasta_id":186,
         "baja": false,
         "tarifario_id":8, "cat1":510, "cat2":"620", "cat3":"620", "cat4":"690", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9575,7 +9575,7 @@
    "fields": {
       "descripcion": "ZONA 1 - PEUGEOT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":5,
+        "localidad_hasta_id":187,
         "baja": false,
         "tarifario_id":8, "cat1":580, "cat2":"660", "cat3":"660", "cat4":"740", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9584,7 +9584,7 @@
    "fields": {
       "descripcion": "ZONA 1 - KRAFT",
         "localidad_desde_id":1,
-        "localidad_hasta_id":8,
+        "localidad_hasta_id":188,
         "baja": false,
         "tarifario_id":8, "cat1":1060, "cat2":"1225", "cat3":"1225", "cat4":"1375", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9638,7 +9638,7 @@
    "fields": {
       "descripcion": "VICENTE LOPEZ - EZEIZA",
         "localidad_desde_id":61,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1250, "cat2":"1410", "cat3":"1410", "cat4":"1565", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9647,7 +9647,7 @@
    "fields": {
       "descripcion": "OLIVOS - EZEIZA",
         "localidad_desde_id":163,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1315, "cat2":"1525", "cat3":"1525", "cat4":"1715", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9656,7 +9656,7 @@
    "fields": {
       "descripcion": "MARTINEZ - EZEIZA",
         "localidad_desde_id":164,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1430, "cat2":"1675", "cat3":"1675", "cat4":"1785", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9665,7 +9665,7 @@
    "fields": {
       "descripcion": "SAN ISIDRO - EZEIZA",
         "localidad_desde_id":14,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1555, "cat2":"1855", "cat3":"1855", "cat4":"2065", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9674,7 +9674,7 @@
    "fields": {
       "descripcion": "SAN FERNANDO - EZEIZA",
         "localidad_desde_id":40,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":2515, "cat2":"2210", "cat3":"2210", "cat4":"2420", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9683,7 +9683,7 @@
    "fields": {
       "descripcion": "TIGRE - EZEIZA",
         "localidad_desde_id":62,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1620, "cat2":"2310", "cat3":"2310", "cat4":"2580", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9692,7 +9692,7 @@
    "fields": {
       "descripcion": "SAN JUSTO - EZEIZA",
         "localidad_desde_id":165,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1215, "cat2":"1250", "cat3":"1250", "cat4":"1520", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9701,7 +9701,7 @@
    "fields": {
       "descripcion": "RAMOS MEJIA - EZEIZA",
         "localidad_desde_id":166,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1260, "cat2":"1270", "cat3":"1270", "cat4":"1570", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9710,7 +9710,7 @@
    "fields": {
       "descripcion": "HAEDO - EZEIZA",
         "localidad_desde_id":167,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1140, "cat2":"1310", "cat3":"1310", "cat4":"1440", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9719,7 +9719,7 @@
    "fields": {
       "descripcion": "MORON - EZEIZA",
         "localidad_desde_id":42,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1240, "cat2":"1390", "cat3":"1390", "cat4":"1540", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9728,7 +9728,7 @@
    "fields": {
       "descripcion": "CASTELAR - EZEIZA",
         "localidad_desde_id":168,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1380, "cat2":"1625", "cat3":"1625", "cat4":"1800", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9737,7 +9737,7 @@
    "fields": {
       "descripcion": "ITUZAINGO - EZEIZA",
         "localidad_desde_id":49,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1530, "cat2":"1695", "cat3":"1695", "cat4":"1910", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9746,7 +9746,7 @@
    "fields": {
       "descripcion": "MERLO - EZEIZA",
         "localidad_desde_id":144,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1750, "cat2":"2000", "cat3":"2000", "cat4":"2090", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9755,7 +9755,7 @@
    "fields": {
       "descripcion": "MORENO - EZEIZA",
         "localidad_desde_id":36,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1980, "cat2":"2265", "cat3":"2265", "cat4":"2530", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9773,7 +9773,7 @@
    "fields": {
       "descripcion": "SANTOS LUGARES - EZEIZA",
         "localidad_desde_id":169,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1190, "cat2":"1360", "cat3":"1360", "cat4":"1615", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9782,7 +9782,7 @@
    "fields": {
       "descripcion": "SAN MARTIN - EZEIZA",
         "localidad_desde_id":170,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1190, "cat2":"1360", "cat3":"1360", "cat4":"1615", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9800,7 +9800,7 @@
    "fields": {
       "descripcion": "JOSE L SUAREZ - EZEIZA",
         "localidad_desde_id":172,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1260, "cat2":"1410", "cat3":"1410", "cat4":"1570", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9809,7 +9809,7 @@
    "fields": {
       "descripcion": "CASEROS - EZEIZA",
         "localidad_desde_id":173,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1235, "cat2":"1440", "cat3":"1440", "cat4":"1700", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9818,7 +9818,7 @@
    "fields": {
       "descripcion": "PALOMAR - EZEIZA",
         "localidad_desde_id":174,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1260, "cat2":"1410", "cat3":"1410", "cat4":"1565", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9845,7 +9845,7 @@
    "fields": {
       "descripcion": "AVELLANEDA - EZEIZA",
         "localidad_desde_id":26,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1075, "cat2":"1170", "cat3":"1170", "cat4":"1355", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9854,7 +9854,7 @@
    "fields": {
       "descripcion": "LANUS - EZEIZA",
         "localidad_desde_id":28,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1125, "cat2":"1185", "cat3":"1185", "cat4":"1280", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9863,7 +9863,7 @@
    "fields": {
       "descripcion": "R DE ESCALADA - EZEIZA",
         "localidad_desde_id":175,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1185, "cat2":"1270", "cat3":"1270", "cat4":"1335", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9872,7 +9872,7 @@
    "fields": {
       "descripcion": "BANFIELD - EZEIZA",
         "localidad_desde_id":176,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1240, "cat2":"1320", "cat3":"1320", "cat4":"1390", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9881,7 +9881,7 @@
    "fields": {
       "descripcion": "LOMAS DE ZAMORA - EZEIZA",
         "localidad_desde_id":32,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1560, "cat2":"1380", "cat3":"1380", "cat4":"1400", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9890,7 +9890,7 @@
    "fields": {
       "descripcion": "TEMPERLEY - EZEIZA",
         "localidad_desde_id":177,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1335, "cat2":"1420", "cat3":"1420", "cat4":"1625", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9899,7 +9899,7 @@
    "fields": {
       "descripcion": "ADROGUE - EZEIZA",
         "localidad_desde_id":178,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1390, "cat2":"1640", "cat3":"1640", "cat4":"1815", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9908,7 +9908,7 @@
    "fields": {
       "descripcion": "WILDE - EZEIZA",
         "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1165, "cat2":"1290", "cat3":"1290", "cat4":"1320", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9916,8 +9916,8 @@
    "pk":725,
    "fields": {
       "descripcion": "BERNAL - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":180,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1115, "cat2":"1175", "cat3":"1175", "cat4":"1270", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9926,7 +9926,7 @@
    "fields": {
       "descripcion": "QUILMES - EZEIZA",
         "localidad_desde_id":39,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1280, "cat2":"1375", "cat3":"1375", "cat4":"1475", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9935,7 +9935,7 @@
    "fields": {
       "descripcion": "BERAZATEGUI - EZEIZA",
         "localidad_desde_id":44,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1230, "cat2":"1435", "cat3":"1435", "cat4":"1500", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9944,7 +9944,7 @@
    "fields": {
       "descripcion": "HUDSON - EZEIZA",
         "localidad_desde_id":161,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1655, "cat2":"1870", "cat3":"1870", "cat4":"2090", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9953,7 +9953,7 @@
    "fields": {
       "descripcion": "LA PLATA - EZEIZA",
         "localidad_desde_id":147,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":2400, "cat2":"2470", "cat3":"2470", "cat4":"2715", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9962,7 +9962,7 @@
    "fields": {
       "descripcion": "PILAR - EZEIZA",
         "localidad_desde_id":37,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1940, "cat2":"2140", "cat3":"2140", "cat4":"2480", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9971,7 +9971,7 @@
    "fields": {
       "descripcion": "CARDALES - EZEIZA",
         "localidad_desde_id":154,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":2100, "cat2":"2345", "cat3":"2345", "cat4":"2695", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -9980,7 +9980,7 @@
    "fields": {
       "descripcion": "NORDELTA - EZEIZA",
         "localidad_desde_id":155,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":1830, "cat2":"1900", "cat3":"1900", "cat4":"2630", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -10267,7 +10267,7 @@
    "pk":764,
    "fields": {
       "descripcion": "BERNAL - AEROPUERTO DE AEROPARQUE",
-        "localidad_desde_id":179,
+        "localidad_desde_id":180,
         "localidad_hasta_id":5,
         "baja": false,
         "tarifario_id":8, "cat1":620, "cat2":"705", "cat3":"705", "cat4":"815", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
@@ -10420,8 +10420,8 @@
    "pk":781,
    "fields": {
       "descripcion": "SAN CEFERINO - EZEIZA",
-        "localidad_desde_id":179,
-        "localidad_hasta_id":43,
+        "localidad_desde_id":181,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":2450, "cat2":"2645", "cat3":"2645", "cat4":"3140", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -10844,7 +10844,7 @@
    "fields": {
       "descripcion": "CAMPANA - EZEIZA",
         "localidad_desde_id":143,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":8, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -12230,7 +12230,7 @@
    "fields": {
       "descripcion": "CAMPANA - EZEIZA",
         "localidad_desde_id":143,
-        "localidad_hasta_id":43,
+        "localidad_hasta_id":8,
         "baja": false,
         "tarifario_id":2, "cat1":3580, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
@@ -13223,7 +13223,7 @@
         "localidad_hasta_id":235,
         "baja": false,
         "tarifario_id":2, "cat1":2760, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
-        {
+{
    "model": "sistema.tarifatrayecto",
    "pk":1093,
    "fields": {
@@ -13853,5 +13853,4 @@
         "localidad_hasta_id":4,
         "baja": false,
         "tarifario_id":6, "cat1":0, "cat2":"0", "cat3":"0", "cat4":"0", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}}
-
  ]
