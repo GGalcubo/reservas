@@ -77,6 +77,48 @@
             <!-- END QUICK SIDEBAR -->
         </div>
         <!-- END CONTAINER -->
+
+        <!-- MODAL CAMBIAR UNIDAD -->
+        <div id="change_unidad" class="modal fade" tabindex="-1" aria-hidden="true">
+            <form role="form" class="form-cambiar-unidad-viaje" id="form-cambiar-unidad-viaje">
+
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <h4 class="modal-title" style="color:#888;">Modificar Unidad del Viaje</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="scroller" style="height:250px" data-always-visible="1" data-rail-visible1="1">
+                                <input type="hidden" id="idViaje" name="idViaje" value="">
+                                <div class="form-group form-md-line-input">
+                                    <select class="form-control select2me" id="unidad_id" name="unidad_id">
+                                        <option value=""></option>
+                                        {% for u in unidades %}
+                                            {% if u.id == viaje.unidad.id %}
+                                                <option selected="selected" value="{{ u.id }}">{{u.id_fake}} - {{ u.identificacion }}</option>
+                                            {% else %}
+                                                <option value="{{ u.id }}">{{u.id_fake}} - {{ u.identificacion }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                    <label for="unidad_id">Unidad</label>
+                                </div>
+                                <br>
+                                <br>
+                                <div id="unidad_especificaciones"></div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer noborder flex">
+                          <button type="button" onclick="cambiarUnidad()" class="btn btn-outline green mg-r-10">Guardar</button>
+                          <button type="button" class="btn btn-outline red" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- END MODAL AGREGAR PASAJERO -->
         {% include "sistema/footer.html" %}
             
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
@@ -203,6 +245,9 @@
                     $('#fechaDeHoy').change(function () {
                         getGrillasViajes($('#fechaDeHoy').val());
                     });
+
+                    $("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
+                    $('#unidad_id').select2({ placeholder: 'Seleccionar Unidad', dropdownAutoWidth : true, width: 'auto'});
                 });
 
 
@@ -242,8 +287,8 @@
                     editEstadoViaje('8');
                 });
 
-                function editEstadoViaje(estado_seleccionado){
-                    var url = "/sistema/editEstadoViaje/";
+                editEstadoViaje = estado_seleccionado => {
+                    let url = "/sistema/editEstadoViaje/";
                     $.ajax({
                        type: "POST",
                        url: url,
@@ -257,28 +302,28 @@
                            row_seleccionado.addClass('selected');*/
                        }
                      });
-                }
-
-                function getGrillasViajes(fecha) {
+                };
+                getGrillasViajes = fecha => {
                     getGrillasViajesFuturos(fecha);
                     getGrillasViajesEnProgreso(fecha);
-                }
+                };
 
-                function getGrillasViajesFuturos(fecha) {
-                    var url = "/sistema/getViajesFuturosPorFecha/";
+
+                getGrillasViajesFuturos = fecha => {
+                    let url = "/sistema/getViajesFuturosPorFecha/";
                     $.ajax({
-                       type: "POST",
-                       url: url,
-                       headers: {'X-CSRFToken': '{{ csrf_token }}'},
-                       data: {date:fecha,estados_selecionados:estados_selecionados},
-                       success: function(data)
-                       {
-                           $('#cont_futurosViajes').html(data);
-                       }
-                     });
-                }
-                function getGrillasViajesEnProgreso(fecha) {
-                    var url = "/sistema/getViajesEnProgresoPorFecha/";
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: {date:fecha,estados_selecionados:estados_selecionados},
+                        success: function(data)
+                        {
+                            $('#cont_futurosViajes').html(data);
+                        }
+                    });
+                };
+                getGrillasViajesEnProgreso = fecha => {
+                    let url = "/sistema/getViajesEnProgresoPorFecha/";
                     $.ajax({
                        type: "POST",
                        url: url,
@@ -289,6 +334,59 @@
                            $('#cont_viajesEnProgreso').html(data);
                        }
                      });
+                };
+
+                cambiarUnidad = () => {
+                    let url = "/sistema/cambiarUnidadViaje/";
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: $("#form-cambiar-unidad-viaje").serialize(),
+                        success: data => {
+                            $('#change_unidad').modal('toggle');
+                            getGrillasViajes($('#fechaDeHoy').val());
+                        }
+                    });
+                };
+                $(document).on("click", ".open_change_modal", function () {
+                     let viaje_select = $(this).data('viaje-id');
+                     let unidad_select = $(this).data('unidad-id');
+                     $(".modal-body #idViaje").val( viaje_select );
+                     //$(".modal-body #unidad_id").val( unidad_select );
+                     $('#unidad_id').select2('val',unidad_select);
+                     $('#unidad_id').val(unidad_select).trigger("change");
+                     let evt = {};
+
+                     evt.params = {};
+                     evt.params.data = {};
+                     evt.params.data.id = unidad_select;
+                     updateFillsByUnidad('update', evt);
+                     // As pointed out in comments,
+                     // it is superfluous to have to manually call the modal.
+                     $('#change_unidad').modal('show');
+                });
+
+                updateFillsByUnidad = (name, evt) => {
+                    let unidad_id = evt.params.data.id;
+                    let url = "/sistema/getDatosUnidad/";
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: {unidad_id},
+                        success: data => {
+                            $('#unidad_especificaciones').html(data.identificacion + checkField(data.telefono) + checkField(data.mail) + checkField(data.marca) + checkField(data.modelo) + checkField(data.color) + checkField(data.patente));
+                        }
+                    });
+                };
+
+                checkField = field =>{
+                    if(field != ''){
+                        return ' - ' + field;
+                    }else {
+                        return '';
+                    }
                 }
             </script>
 

@@ -28,8 +28,8 @@
                             <td class="all">{{ v.hora }}</td>
                             <td class="all">{{ v.hora_estimada }}</td>
                             <td class="all"><span class="label label-primary" style="background-color: {{ v.estado.color }}!important;"> {{ v.estado }} </span></td>
-                            <td class="all">{{ v.unidad.id }}</td>
-                            <td class="all">{{ v.unidad.identificacion }}</td>
+                            <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.id|default_if_none:"" }}</a></td>
+                            <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.identificacion|default_if_none:"" }}</a></td>
                             {% ifequal t.destino_desde.nombre "Interior" %}
                                 <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.destino_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ t.desdeConcat }}</span></td>
                             {% else %}
@@ -52,8 +52,8 @@
                         <td class="all">{{ v.hora }}</td>
                         <td class="all">{{ v.hora_estimada }}</td>
                         <td class="all"><span class="label label-primary" style="background-color: {{ v.estado.color }}!important;"> {{ v.estado }} </span></td>
-                        <td class="all">{{ v.unidad.id }}</td>
-                        <td class="all">{{ v.unidad.identificacion }}</td>
+                        <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.id|default_if_none:"" }}</a></td>
+                        <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.identificacion|default_if_none:"" }}</a></td>
                         {% ifequal v.getTrayectoPrincipal.destino_desde.nombre "Interior" %}
                             <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ v.getTrayectoPrincipal.destino_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ v.getTrayectoPrincipal.desdeConcat }}</span></td>
                         {% else %}

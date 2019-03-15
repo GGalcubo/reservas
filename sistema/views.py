@@ -25,29 +25,27 @@ def dashboard(request):
 
 @login_required
 def operaciones(request):
-	if not validarUrlPorRol(request):
-		mensaje = ""
-		context = { 'mensaje':mensaje }
-		return render(request, 'sistema/urlBloqueada.html', context)
+    if not validarUrlPorRol(request):
+        mensaje = ""
+        context = { 'mensaje':mensaje }
+        return render(request, 'sistema/urlBloqueada.html', context)
 
-	mensaje = ""
-	permiso = obtenerPermiso(request)
-	if 'unidades' in permiso:
-		viajes = []
-		viajesQ = Viaje.objects.filter(estado_id__in=[4,5,6])
-		for v in viajesQ:
-			if validaViajeUnidad(request, v):
-				viajes.append(v)
-	else:
-		viajes = Viaje.objects.all()
+    mensaje = ""
+    permiso = obtenerPermiso(request)
+    if 'unidades' in permiso:
+        viajes = []
+        viajesQ = Viaje.objects.filter(estado_id__in=[4,5,6])
+        for v in viajesQ:
+            if validaViajeUnidad(request, v):
+                viajes.append(v)
+    else:
+        viajes = Viaje.objects.all()
+    estados = Estado.objects.all()
+    categoria_viajes = CategoriaViaje.objects.all()
+    unidades = Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake')
 
-	clientes = Cliente.objects.all()
-	unidades = Unidad.objects.all()
-	estados = Estado.objects.all()
-	categoria_viajes = CategoriaViaje.objects.all()
-
-	context = {'mensaje': mensaje, 'estados': estados,'categoria_viajes': categoria_viajes,'permiso':permiso}
-	return render(request, 'sistema/operaciones.html', context)
+    context = {'mensaje': mensaje, 'estados': estados,'categoria_viajes': categoria_viajes, 'unidades': unidades,'permiso':permiso}
+    return render(request, 'sistema/operaciones.html', context)
 
 @login_required
 def asignaciones(request):
@@ -146,9 +144,6 @@ def altaViaje(request):
 				'estados':Estado.objects.all(),
 				'categoria_viajes':CategoriaViaje.objects.all(),
 				'tarifarios':Tarifario.objects.all(),
-				#'destinos':TrayectoDestino.objects.all(),
-				#'localidades':Localidad.objects.all(),
-				#'provincias':Provincia.objects.all(),
 				'es_nuevo':es_nuevo,
 				'viaje':viaje}
 
@@ -184,6 +179,43 @@ def editaViaje(request):
 				'viaje':viaje,
 				'trayectos':Trayecto.objects.filter(viaje_id=id_viaje)}
 	return render(request, 'sistema/viaje.html', context)
+
+
+@login_required
+def cambiarUnidadViaje(request):
+    viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
+    unidad = request.POST.get('unidad_id', '')
+    if unidad != '':
+        viaje.unidad = Unidad.objects.get(id=unidad)
+
+    viaje.save()
+
+    data = {
+        'error': '0',
+        'msg': 'La unidad ha sido modificada'
+    }
+    dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
+
+
+@login_required
+def getDatosUnidad(request):
+    unidad = Unidad.objects.get(id=request.POST.get('unidad_id', False))
+
+    if unidad:
+        data = {
+            'identificacion': unidad.identificacion if unidad.identificacion else '',
+            'telefono': unidad.telefono if unidad.telefono else '',
+            'mail': unidad.mail if unidad.mail else '',
+            'marca': unidad.vehiculo.marca if unidad.vehiculo and unidad.vehiculo.marca else '',
+            'modelo': unidad.vehiculo.modelo if unidad.vehiculo and unidad.vehiculo.modelo else '',
+            'color': unidad.vehiculo.color if unidad.vehiculo and unidad.vehiculo.color else '',
+            'patente': unidad.vehiculo.patente if unidad.vehiculo and unidad.vehiculo.patente else ''
+        }
+    else:
+        data = {}
+    dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
 
 @login_required
 def guardarViaje(request):
@@ -1485,7 +1517,7 @@ def listadoProvedor(request):
 		context = { 'mensaje':mensaje }
 		return render(request, 'sistema/urlBloqueada.html', context)
 
-	provedores = Persona.objects.filter(tipo_persona__id__in=[1,2],baja=False)
+	provedores = Persona.objects.filter(tipo_persona__id__in=[1,2,3,4],baja=False)
 	context = {'provedores': provedores}
 	return render(request, 'sistema/listadoProvedor.html', context)
 
@@ -1504,6 +1536,14 @@ def borrarProvedor(request):
 	prov = Persona.objects.get(id=idProv)
 	prov.baja = True
 	prov.save()
+	uniChofer = Unidad.objects.filter(chofer__id=idProv)
+	for u in uniChofer:
+		u.chofer = None
+		u.save()
+	uniOwner = Unidad.objects.filter(owner__id=idProv)
+	for u in uniOwner:
+		u.owner = None
+		u.save()
 	return redirect('listadoProvedor')
 
 @login_required
@@ -1511,6 +1551,8 @@ def unidad(request):
 	mensaje = ""
 	idUnidad = request.GET.get('idUnidad', "")
 	unidad = Unidad.objects.get(id=idUnidad)
+	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
+	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
 	tipo_licencias = TipoLicencia.objects.all()
 	tarifarios = Tarifario.objects.filter(baja=False)
 	ids_fake = []
@@ -1520,7 +1562,7 @@ def unidad(request):
 	for number in range(1100):
 		if number not in unidades:
 			ids_fake.append(number)
-	context = {'mensaje': mensaje, 'unidad': unidad, 'tipo_licencias':tipo_licencias,'ids_fake':ids_fake,'tarifarios':tarifarios}
+	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes, 'tipo_licencias':tipo_licencias,'ids_fake':ids_fake,'tarifarios':tarifarios}
 	return render(request, 'sistema/unidad.html', context)
 
 @login_required
@@ -1535,7 +1577,9 @@ def altaUnidad(request):
 	for number in range(1100):
 		if number not in unidades:
 			ids_fake.append(number)
-	context = {'mensaje': mensaje, 'unidad': unidad, 'ids_fake':ids_fake, 'tarifarios':tarifarios}
+	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
+	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
+	context = {'mensaje': mensaje, 'owners':owners, 'choferes':choferes, 'unidad': unidad, 'ids_fake':ids_fake, 'tarifarios':tarifarios}
 	return render(request, 'sistema/unidad.html', context)
 
 @login_required
@@ -1576,12 +1620,11 @@ def guardarUnidad(request):
 
 	unidad.id_fake = request.POST.get('selectIdFake', "")
 	unidad.identificacion = request.POST.get('identificacion', "")
-	unidad.calle = request.POST.get('calle', "")
-	unidad.documento = request.POST.get('documento', "")
-	if request.POST.get('fecha_nac', "") != "":
-		unidad.fecha_nacimiento = getAAAAMMDD(request.POST.get('fecha_nac', ""))
-	unidad.mail = request.POST.get('mail', "")
-	unidad.telefono = request.POST.get('telefono', "")
+	unidad.owner = Persona.objects.get(id=request.POST.get('selectOwners', ""))
+	unidad.porcentaje_owner = request.POST.get('porcFacturacionOwner', "")
+	if request.POST.get('selectChoferes', "") != "":
+		unidad.chofer = Persona.objects.get(id=request.POST.get('selectChoferes', ""))
+	unidad.porcentaje_chofer = request.POST.get('porcFacturacionChofer', "")
 	if request.POST.get('selectTarifario', "") != "":
 		unidad.tarifario = Tarifario.objects.get(id=request.POST.get('selectTarifario', ""))
 
@@ -1638,25 +1681,41 @@ def guardarObservacionUnidad(request):
 @login_required
 def guardarLicenciaUnidad(request):
 	idLicencia = request.POST.get('idLicencia', False)
-	idUnidad = request.POST.get('idUnidad', False)
+	personaLicencia = request.POST.get('personaLicencia', False)
 	descripcion = request.POST.get('descripcionLicencia', False)
 	tipo = TipoLicencia.objects.get(id=request.POST.get('tipoLicencia', False))
 	fv = request.POST.get('vencimientoLicencia', False)
 	fecha = fv[6:10] + fv[3:5] + fv[0:2]
 
-	unidad = Unidad.objects.get(id=request.POST.get('idUnidad', False))
-
 	if idLicencia == "0":
 		licencia = Licencia()
 	else:
+		LicenciaPersona.objects.filter(licencia_id=idLicencia).delete()
+		LicenciaVehiculo.objects.filter(licencia_id=idLicencia).delete()
 		licencia = Licencia.objects.get(id=idLicencia)
 
 	licencia.comentario = descripcion
 	licencia.tipo_licencia = tipo
 	licencia.fecha_vencimiento = fecha
-	licencia.unidad = unidad
 	licencia.save()
 
+	if personaLicencia == "chofer":
+		lp = LicenciaPersona()
+		lp.persona = Persona.objects.get(id=request.POST.get('idChofer', False))
+		lp.licencia = licencia
+		lp.save()
+	elif personaLicencia == "owner":
+		lp = LicenciaPersona()
+		lp.persona = Persona.objects.get(id=request.POST.get('idOwner', False))
+		lp.licencia = licencia
+		lp.save()
+	else:
+		lv = LicenciaVehiculo()
+		lv.vehiculo = Vehiculo.objects.get(id=request.POST.get('idVehiculo', False))
+		lv.licencia = licencia
+		lv.save()
+
+	unidad = Unidad.objects.get(id=request.POST.get('idUnidad', False))
 	context = {'unidad':unidad}
 	return render(request, 'sistema/grillaLicencias.html', context)
 
@@ -1892,7 +1951,7 @@ def eliminarTarifaTrayecto(request):
 def guardarTarifaTrayecto(request):
 	idTarifario		 = request.POST.get('idTarifario', "")
 	idTarifaTrayecto = request.POST.get('idTarifaTrayecto', "")
-	
+
 	if idTarifaTrayecto == "0":
 		localidadDesde = request.POST.get('localidadDesde', "")
 		localidadHasta = request.POST.get('localidadHasta', "")
@@ -2041,7 +2100,7 @@ def listadoLicencia(request):
 		return render(request, 'sistema/urlBloqueada.html', context)
 
 	licencias = Licencia.objects.all()
-	
+
 	context = {'licencias': licencias}
 	return render(request, 'sistema/listadoLicencia.html', context)
 
@@ -2173,18 +2232,18 @@ def listadoAdelanto(request):
 		return render(request, 'sistema/urlBloqueada.html', context)
 
 	mensaje = ""
-	unidades = Unidad.objects.filter(baja=False)
-	context = {'mensaje': mensaje, 'unidades':unidades}
+	proveedores = Persona.objects.filter(tipo_persona__in=[3,4])
+	context = {'mensaje': mensaje, 'proveedores':proveedores}
 	return render(request, 'sistema/listadoAdelanto.html', context)
 
 @login_required
 def altaAdelanto(request):
 	mensaje = ""
-	unidades = Unidad.objects.filter(baja=False)
+	proveedores = Persona.objects.filter(tipo_persona__in=[3,4])
 	tipos_adelanto = TipoAdelanto.objects.all()
 	adelanto = Adelanto()
 	adelanto.id = 0
-	context = {'mensaje': mensaje, 'unidades':unidades,'tipos_adelanto':tipos_adelanto,'adelanto':adelanto}
+	context = {'mensaje': mensaje, 'proveedores':proveedores,'tipos_adelanto':tipos_adelanto,'adelanto':adelanto}
 	return render(request, 'sistema/adelanto.html', context)
 
 @login_required
@@ -2195,20 +2254,20 @@ def adelanto(request):
 	idAdelanto = request.GET.get('idAdelanto', "")
 	adelanto = Adelanto.objects.get(id=idAdelanto)
 	tipos_adelanto = TipoAdelanto.objects.all()
-	unidades = Unidad.objects.filter(baja=False)
+	proveedores = Persona.objects.filter(tipo_persona__in=[3,4])
 
 	tipoAdelantoId = adelanto.tipo_adelanto.id
-	unidadId = adelanto.unidad.id
+	provedorId = adelanto.proveedor.id
 	request.session['estadoAdelanto'] = ''
 
 	context = {'mensaje': mensaje,
-				'unidades':unidades,
+				'proveedores':proveedores,
 				'tipos_adelanto':tipos_adelanto,
 				'estado':estado,
 				'idAdelanto':idAdelanto,
 				'tipoAdelantoId':tipoAdelantoId,
 				'adelanto':adelanto,
-				'unidadId':unidadId
+				'provedorId':provedorId
 			}
 	return render(request, 'sistema/adelanto.html', context)
 
@@ -2216,7 +2275,7 @@ def adelanto(request):
 def guardarAdelanto(request):
 	mensaje = ""
 	idAdelanto = request.POST.get('idAdelanto', False)
-	unidad = request.POST.get('unidad', False)
+	provedor = request.POST.get('provedor', False)
 	monto = request.POST.get('monto', False)
 	tipoAdelanto = request.POST.get('tipoAdelanto', False)
 	descripcion = request.POST.get('descripcion', False)
@@ -2230,7 +2289,7 @@ def guardarAdelanto(request):
 		adelanto = Adelanto.objects.get(id=idAdelanto)
 		request.session['estadoAdelanto'] = 'editado'
 
-	adelanto.unidad = Unidad.objects.get(id=unidad)
+	adelanto.proveedor = Persona.objects.get(id=provedor)
 	adelanto.monto = monto
 	adelanto.tipo_adelanto = TipoAdelanto.objects.get(id=tipoAdelanto)
 	adelanto.descripcion = descripcion
@@ -2246,14 +2305,14 @@ def buscarAdelantos(request):
 
 	fechaDesde = request.POST.get('desde', False)
 	fechaHasta = request.POST.get('hasta', False)
-	unidad = request.POST.get('unidad', False)
+	provedor = request.POST.get('provedor', False)
 
 	fechaDesde =  getAAAAMMDD(fechaDesde)
 	fechaHasta =  getAAAAMMDD(fechaHasta)
 
 	adelantos = []
-	if unidad:
-		adelantos = Adelanto.objects.filter(unidad_id=unidad,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+	if provedor:
+		adelantos = Adelanto.objects.filter(proveedor_id=provedor,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 	else:
 		adelantos = Adelanto.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 
