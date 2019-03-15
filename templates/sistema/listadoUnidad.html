@@ -52,8 +52,8 @@
                                                     <th class="all" style="min-width: 120px;">Acciones</th>
                                                     <th class="all">ID</th>
                                                     <th class="all">Nombre</th>
-                                                    <th class="all">Chofer</th>
-                                                    <th class="all">Dueño</th>
+                                                    <th class="all">Telefono</th>
+                                                    <th class="all">Mail</th>
                                                     <th class="all">Patente</th>
                                                     <th class="all">Modelo</th>
                                                     <th class="all">Marca</th>
@@ -70,8 +70,8 @@
                                                         </td>
                                                         <td>{{ unidad.id_fake|default_if_none:"" }}</td>
                                                         <td>{{ unidad.identificacion }}</td>
-                                                        <td>{{ unidad.chofer.nombreCompleto }}</td>
-                                                        <td>{{ unidad.owner.nombreCompleto }}</td>
+                                                        <td>{{ unidad.telefono|default_if_none:"" }}</td>
+                                                        <td>{{ unidad.mail|default_if_none:"" }}</td>
                                                         <td>{{ unidad.vehiculo.patente }}</td>
                                                         <td>{{ unidad.vehiculo.modelo }}</td>
                                                         <td>{{ unidad.vehiculo.marca }}</td>

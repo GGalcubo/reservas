@@ -138,49 +138,6 @@ class Mail(models.Model):
     def __str__(self):
         return self.mail
 
-class Licencia(models.Model):
-    comentario = models.CharField(max_length=200, null=True, blank=True)
-    tipo_licencia = models.ForeignKey(TipoLicencia, null=True, blank=True)
-    fecha_vencimiento = models.CharField(max_length=8, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.fecha_vencimiento
-
-    def __str__(self):
-        return self.fecha_vencimiento
-
-    def getFechaVencimiento(self):
-        return getFecha(self.fecha_vencimiento)
-
-    def getAsignadoTipo(self):
-        if len(self.licenciapersona_set.all()) > 0:
-            return self.licenciapersona_set.all()[0].persona.tipo_persona.tipo_persona
-        elif len(self.licenciavehiculo_set.all()) > 0:
-            return 'Vehiculo'
-
-    def getAsignadoTipoId(self):
-        if len(self.licenciapersona_set.all()) > 0:
-            if self.licenciapersona_set.all()[0].persona.tipo_persona.id == 3:
-                return 0
-            elif self.licenciapersona_set.all()[0].persona.tipo_persona.id == 4:
-                return 1
-        elif len(self.licenciavehiculo_set.all()) > 0:
-            return 2
-
-    def getAsignadoNombre(self):
-        if len(self.licenciapersona_set.all()) > 0:
-            return self.licenciapersona_set.all()[0].persona.nombre + " " + self.licenciapersona_set.all()[0].persona.apellido
-        elif len(self.licenciavehiculo_set.all()) > 0:
-            if self.licenciavehiculo_set.all()[0].vehiculo.dueno:
-                return self.licenciavehiculo_set.all()[0].vehiculo.dueno.nombreCompleto()
-            return self.licenciavehiculo_set.all()[0].vehiculo.patente
-
-    def getAsignado(self):
-        if len(self.licenciapersona_set.all()) > 0:
-            return self.licenciapersona_set.all()[0].persona
-        elif len(self.licenciavehiculo_set.all()) > 0:
-            return self.licenciavehiculo_set.all()[0].vehiculo
-
 class Persona(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
@@ -318,32 +275,22 @@ class Tarifario(models.Model):
 class Unidad(models.Model):
     id_fake = models.CharField(max_length=10, null=True, blank=True)
     identificacion = models.CharField(max_length=50)
-    chofer = models.ForeignKey(Persona, related_name='chofer', null=True, blank=True)
-    owner = models.ForeignKey(Persona, related_name='owner', null=True, blank=True)
     vehiculo = models.ForeignKey(Vehiculo, null=True, blank=True)
-    porcentaje_chofer = models.CharField(max_length=20, null=True, blank=True)
-    porcentaje_owner = models.CharField(max_length=20, null=True, blank=True)
     baja = models.BooleanField(default=False)
     unidad_propia = models.BooleanField(default=False)
     tarifario = models.ForeignKey(Tarifario, null=True, blank=True)
+
+    calle = models.CharField(max_length=100, null=True, blank=True)
+    documento = models.CharField(max_length=20, null=True, blank=True)
+    fecha_nacimiento = models.CharField(max_length=8, null=True, blank=True)
+    mail = models.CharField(max_length=100, null=True, blank=True)
+    telefono = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.identificacion
 
     def __str__(self):
         return self.identificacion
-
-    def getIdChofer(self):
-        try:
-            return self.chofer.id
-        except Exception as inst:
-            return ""
-
-    def getIdOwner(self):
-        try:
-            return self.owner.id
-        except Exception as inst:
-            return ""
 
     def getIdVehiculo(self):
         try:
@@ -364,17 +311,28 @@ class Unidad(models.Model):
         return observaciones
 
     def getLicencias(self):
-        licencias = []
-        if self.chofer:
-            licencias.extend(self.chofer.getLicencias())
-        if self.owner:
-            licencias.extend(self.owner.getLicencias())
-        if self.vehiculo:
-            licencias.extend(self.vehiculo.getLicencias())
-        return licencias
+        return self.licencia_set.all()
+
+    def getFechaNacimiento(self):
+        return getFecha(self.fecha_nacimiento)
 
     class Meta:
         verbose_name_plural = "Unidades"
+
+class Licencia(models.Model):
+    comentario = models.CharField(max_length=200, null=True, blank=True)
+    tipo_licencia = models.ForeignKey(TipoLicencia, null=True, blank=True)
+    fecha_vencimiento = models.CharField(max_length=8, null=True, blank=True)
+    unidad = models.ForeignKey(Unidad, null=True, blank=True)
+
+    def __unicode__(self):
+        return u'%s' % self.fecha_vencimiento
+
+    def __str__(self):
+        return self.fecha_vencimiento
+
+    def getFechaVencimiento(self):
+        return getFecha(self.fecha_vencimiento)
 
 class Cliente(models.Model):
     razon_social = models.CharField(max_length=60)
@@ -1200,26 +1158,6 @@ class AdjuntoViaje(models.Model):
     def __str__(self):
         return self.adjunto
 
-class LicenciaPersona(models.Model):
-    licencia = models.ForeignKey(Licencia, null=True, blank=True)
-    persona = models.ForeignKey(Persona, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.licencia
-
-    def __str__(self):
-        return self.licencia
-
-class LicenciaVehiculo(models.Model):
-    licencia = models.ForeignKey(Licencia, null=True, blank=True)
-    vehiculo = models.ForeignKey(Vehiculo, null=True, blank=True)
-
-    def __unicode__(self):
-        return u'%s' % self.licencia
-
-    def __str__(self):
-        return self.licencia
-
 class TipoAdelanto (models.Model):
     descripcion = models.CharField(max_length=50, null=True, blank=True)
     logica = models.CharField(max_length=50, null=True, blank=True)
@@ -1231,7 +1169,7 @@ class TipoAdelanto (models.Model):
         return self.descripcion
 
 class Adelanto (models.Model):
-    proveedor = models.ForeignKey(Persona, null=True, blank=True)
+    unidad = models.ForeignKey(Unidad, null=True, blank=True)
     tipo_adelanto = models.ForeignKey(TipoAdelanto, null=True, blank=True)
     fecha = models.CharField(max_length=8, null=True, blank=True)
     monto = models.CharField(max_length=25, null=True, blank=True)
@@ -1239,10 +1177,10 @@ class Adelanto (models.Model):
     descripcion = models.CharField(max_length=250, null=True, blank=True)
 
     def __unicode__(self):
-        return u'%s' % self.proveedor
+        return u'%s' % self.unidad
 
     def __str__(self):
-        return self.proveedor
+        return self.unidad
 
     def getFecha(self):
         return getFecha(self.fecha)

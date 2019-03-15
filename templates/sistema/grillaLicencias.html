@@ -2,8 +2,6 @@
     <thead>
         <tr>
             <th class="all" style="min-width: 120px;">Acciones</th>
-            <!-- <th class="all">Eliminar</th> -->
-            <th class="all">Asignada</th>
             <th class="all">Licencia</th>
             <th class="all">Vencimiento</th>
             <th class="all">Comentario</th>
@@ -16,7 +14,6 @@
                 <a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}','{{ l.getAsignadoTipo }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                 <a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
             </td>
-            <td>{{ l.getAsignadoNombre }} ({{ l.getAsignadoTipo }})</td>
             <td>{{ l.tipo_licencia.tipo_licencia }}</td>
             <td>{{ l.getFechaVencimiento }}</td>
             <td>{{ l.comentario }}</td>
@@ -31,7 +28,7 @@
         $('#tablaLicenciasUnidad').DataTable( {
             responsive: true,
             // scrollY: 200,
-            order: [[ 4, "asc" ]],
+            order: [[ 2, "asc" ]],
             lengthMenu: [
                             [ -1, 500, 100, 50, 25, 10 ],
                             [ 'Todos', '500', '100', '50', '25', '10' ]

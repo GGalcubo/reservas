@@ -44,8 +44,6 @@
                                 <div class="portlet-body">
                                     <form role="form" method="post" id="formGuardarUnidad" action="/sistema/guardarUnidad/">{% csrf_token %}
                                         <input type="hidden" id="idUnidad" name="idUnidad" value="{{ unidad.id }}">
-                                        <input type="hidden" id="idChofer" name="idChofer" value="{{ unidad.getIdChofer }}">
-                                        <input type="hidden" id="idOwner" name="idOwner" value="{{ unidad.getIdOwner }}">
                                         <input type="hidden" id="idVehiculo" name="idVehiculo" value="{{ unidad.getIdVehiculo }}">
                                         <input type="hidden" id="idTarifario" name="idTarifario" value="{{ unidad.getIdTarifario }}">
                                         <input type="hidden" id="idLicencia" name="idLicencia" value="0">
@@ -94,6 +92,38 @@
                                                 </div>
                                             </div>
                                             <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" value="{{unidad.calle|default_if_none:""}}" id="calle" name="calle">
+                                                        <label for="calle">Calle</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" value="{{unidad.documento|default_if_none:""}}" id="documento" name="documento">
+                                                        <label for="documento">Documento</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" value="{{unidad.getFechaNacimiento|default_if_none:""}}" id="fecha_nac" name="fecha_nac">
+                                                        <label for="fecha_nac">F. Nacimiento</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" value="{{unidad.mail|default_if_none:""}}" id="mail" name="mail">
+                                                        <label for="mail">Mail</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" value="{{unidad.telefono|default_if_none:""}}" id="telefono" name="telefono">
+                                                        <label for="telefono">Telefono</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--div class="row">
                                                 <div class="col-sm-5">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" id="selectOwners" name="selectOwners">
@@ -140,7 +170,7 @@
                                                         <label for="porcFacturacionChofer">% de Facturación</label>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div-->
                                             <hr>
                                             <div class="portlet-title">
                                                 <div class="caption font-blue">
@@ -201,136 +231,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="add_duenio" class="modal fade" tabindex="-1" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                            <h4 class="modal-title" style="color:#888;">Agregar Dueño</h4>
-                                                        </div>
-                                                        <form role="form" id="form-datos-unidad-owner" class="form-owner-unidad">
-                                                        <div class="modal-body">
-                                                            <div class="scroller" style="height:220px" data-always-visible="1" data-rail-visible1="1">
-                                                                <div class="row">
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="nombreDuenio" name="nombreDuenio">
-                                                                            <label for="nombreDuenio">Nombre</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="email" class="form-control" id="apellidoDuenio" name="apellidoDuenio">
-                                                                            <label for="apellidoDuenio">Apellido</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="telefonoDuenio" name="telefonoDuenio">
-                                                                            <label for="telfonoDuenio">Teléfono</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="dniDuenio" name="dniDuenio">
-                                                                            <label for="dniDuenio">DNI</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="mailDuenio" name="mailDuenio">
-                                                                            <label for="mailDuenio">Mail</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="domDuenio" name="domDuenio">
-                                                                            <label for="domDuenio">Domicilio</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="fecNacDuenio" name="fecNacDuenio">
-                                                                            <label for="fecNacDuenio">Fecha Nacimiento</label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer noborder flex">
-                                                          <button type="button" onclick="agregarOwner()" class="btn green">Guardar</button>
-                                                          <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
-                                                        </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="add_chofer" class="modal fade" tabindex="-1" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                            <h4 class="modal-title" style="color:#888;">Agregar Chofer</h4>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="scroller" style="height:220px" data-always-visible="1" data-rail-visible1="1">
-                                                                <div class="row">
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="nombreChofer" name="nombreChofer">
-                                                                            <label for="nombreChofer">Nombre</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="email" class="form-control" id="apellidoChofer" name="apellidoChofer">
-                                                                            <label for="apellidoChofer">Apellido</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="telefonoChofer" name="telefonoChofer">
-                                                                            <label for="telefonoChofer">Teléfono</label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="dniChofer" name="dniChofer">
-                                                                            <label for="dniChofer">DNI</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="mailChofer" name="mailChofer">
-                                                                            <label for="mailChofer">Mail</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="domChofer" name="domChofer">
-                                                                            <label for="domChofer">Domicilio</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                                            <input type="text" class="form-control" id="fecNacChofer" name="fecNacChofer">
-                                                                            <label for="fecNacChofer">Fecha Nacimiento</label>
-                                                                        </div>
-                                                                    </div>
-
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer noborder flex flex-j-between">
-                                                          <button type="button" onclick="agregarChofer()" class="btn green">Guardar</button>
-                                                          <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
+                                            
                                             <div id="add_licencia" class="modal fade" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
@@ -341,16 +243,9 @@
                                                         <div class="modal-body">
                                                             <div class="scroller" style="height:120px" data-always-visible="1" data-rail-visible1="1">
                                                                 <div class="row">
-                                                                    <div class="col-sm-6">
+                                                                    <div class="col-sm-4">
                                                                         <div class="form-group form-md-line-input">
-                                                                            <select id="personaLicencia" class="form-control" name="personaLicencia">
-                                                                            </select>
-                                                                            <label for="personas">Asignar licencia a:</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="form-group form-md-line-input">
-                                                                            <select class="form-control" id="tipoLicencia" name="tipoLicencia">
+                                                                            <select class="form-control select2me" id="tipoLicencia" name="tipoLicencia">
                                                                                 {% for tl in tipo_licencias %}
                                                                                 <option value="{{ tl.id }}">{{ tl.tipo_licencia }}</option>
                                                                                 {% endfor %}
@@ -358,13 +253,11 @@
                                                                             <label for="tipoLicencia">Tipo de Licencia</label>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-sm-6">
+                                                                    <div class="col-sm-4">
                                                                         <label for="vencimientoLicencia">Vencimiento</label>
                                                                         <input class="form-control" id="vencimientoLicencia" name="vencimientoLicencia" size="12" type="text" />
                                                                     </div>
-                                                                    <div class="col-sm-6">
+                                                                    <div class="col-sm-4">
                                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                                             <input type="text" class="form-control" id="descripcionLicencia" name="descripcionLicencia" placeholder="">
                                                                             <label for="descripcionLicencia">Descripción</label>
@@ -425,8 +318,6 @@
                                                                                 <thead>
                                                                                     <tr>
                                                                                         <th class="all" style="min-width: 120px;">Acciones</th>
-                                                                                        <!-- <th class="all">Eliminar</th> -->
-                                                                                        <th class="all">Asignada</th>
                                                                                         <th class="all">Licencia</th>
                                                                                         <th class="all">Vencimiento</th>
                                                                                         <th class="all">Comentario</th>
@@ -436,10 +327,9 @@
                                                                                     {% for l in unidad.getLicencias %}
                                                                                     <tr>
                                                                                         <td class="text-center">
-                                                                                            <a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ unidad.id }}','{{ l.getAsignadoTipo }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                            <a href="#" onclick="editarLicenciaPropect('{{ l.id }}','{{ l.tipo_licencia.id }}','{{ l.getFechaVencimiento }}','{{ l.comentario }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                                                                                             <a href="#" onclick="eliminarLicenciaPropect('{{ l.id }}','{{ unidad.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
                                                                                         </td>
-                                                                                        <td class="text-center">{{ l.getAsignadoNombre }} ({{ l.getAsignadoTipo }})</td>
                                                                                         <td>{{ l.tipo_licencia.tipo_licencia }}</td>
                                                                                         <td>{{ l.getFechaVencimiento }}</td>
                                                                                         <td>{{ l.comentario }}</td>
@@ -565,7 +455,7 @@
                     $('#tablaLicenciasUnidad').DataTable( {
                         responsive: true,
                         // scrollY: 200,
-                        order: [[ 4, "asc" ]],
+                        order: [[ 2, "asc" ]],
                         lengthMenu: [
                                         [ 100, 50, 25, 10, -1 ],
                                         [ '100', '50', '25', '10', 'Todos' ]
@@ -596,15 +486,7 @@
                         autoclose: true
                     });
 
-                    $('#fecNacDuenio').datepicker({
-                        language: 'es',
-                        dateFormat: 'dd/mm/yy',
-                        // todayBtn: true,
-                        todayHighlight: true,
-                        autoclose: true
-                    });
-
-                    $('#fecNacChofer').datepicker({
+                    $('#fecha_nac').datepicker({
                         language: 'es',
                         dateFormat: 'dd/mm/yy',
                         // todayBtn: true,
@@ -619,29 +501,14 @@
                         $("#unidadDetalle").show()
                     }
 
-                    $("#selectChoferes").val($("#idChofer").val())
-                    $("#selectOwners").val($("#idOwner").val())
                     $("#selectTarifario").val($("#idTarifario").val())
                     
-                    if ($("#idChofer").val() != ""){
-                        $('#personaLicencia').append($("<option></option>").attr("value",'chofer').text('{{ unidad.chofer.nombre }}' + " " + '{{ unidad.chofer.apellido }}' + " (chofer)")); 
-                    }
-                    if ($("#idOwner").val() != ""){
-                        $('#personaLicencia').append($("<option></option>").attr("value",'owner').text('{{ unidad.owner.nombre }}' + " " + '{{ unidad.owner.apellido }}' + " (dueño)")); 
-                    }
                     if ($("#idVehiculo").val() != ""){
                         $('#personaLicencia').append($("<option></option>").attr("value",'vehiculo').text('{{ unidad.vehiculo.patente }}' + " (vehiculo)")); 
                     }
 
-                    $("#selectOwners").select2({
-                        placeholder: "Seleccionar dueño",
-                        allowClear: true,
-                        dropdownAutoWidth : true,
-                        width: 'auto'
-                    });
-
-                    $("#selectChoferes").select2({
-                        placeholder: "Seleccionar chofer",
+                    $("#tipoLicencia").select2({
+                        placeholder: "Seleccionar Tipo",
                         allowClear: true,
                         dropdownAutoWidth : true,
                         width: 'auto'
@@ -667,10 +534,6 @@
 
                     if ($("#identificacion").val() == ""){
                         alert("El campo Nombre Unidad es obligatorio.");
-                        return false;
-                    }
-                    if ($("#selectOwners").val() == ""){
-                        alert("El campo Dueño es obligatorio");
                         return false;
                     }
                     
@@ -709,74 +572,6 @@
                     });
                 }
 
-                function agregarOwner(){
-                    if ($('#nombreDuenio').val() == ""){
-                        alert("Campo nombre es obligatorio.");
-                    }else if ($('#apellidoDuenio').val() == ""){
-                        alert("Campo apellido es obligatorio");
-                    }else{
-                        var url = "/sistema/guardarOwnerProspect/";
-                        $.ajax({
-                            type: "POST",
-                            url: url,
-                            data: $("#formGuardarUnidad").serialize(),
-                            success: function(data){
-                                $('#selectOwners').append($("<option></option>").attr("value",data.persona_id).text(data.persona_apellido + " " + data.persona_nombre)); 
-                                $('#selectOwners').val(data.persona_id)
-                            }
-                        });
-                        $('#add_duenio').modal('toggle');
-                    }
-                }
-
-                function agregarChofer(){
-                    if ($('#nombreChofer').val() == ""){
-                        alert("Campo nombre es obligatorio.");
-                    }else if ($('#apellidoChofer').val() == ""){
-                        alert("Campo apellido es obligatorio");
-                    }else{
-                        var url = "/sistema/guardarChoferProspect/";
-                        $.ajax({
-                            type: "POST",
-                            url: url,
-                            data: $("#formGuardarUnidad").serialize(),
-                            success: function(data){
-                                $('#selectChoferes').append($("<option></option>").attr("value",data.persona_id).text(data.persona_apellido + " " + data.persona_nombre)); 
-                                $('#selectChoferes').val(data.persona_id)
-                                $('#porcFacturacionChofer').val(data.persona_porcentaje)
-                                balanceoChoferFacturacion();
-                            }
-                        });
-                        $('#add_chofer').modal('toggle');
-                    }
-                }
-
-                function balanceoChoferFacturacion(){
-                    var porcChofer = $('#porcFacturacionChofer').val();
-                    if (porcChofer != ""){
-                        if (porcChofer > 100){
-                            porcChofer = 100;
-                            $('#porcFacturacionChofer').val(100);
-                        }
-                        $('#porcFacturacionOwner').val(100 - porcChofer);
-                    }else{
-                        $('#porcFacturacionOwner').val(100);
-                    }
-                }
-
-                function balanceoOwnerFacturacion(){
-                    var porcOwner = $('#porcFacturacionOwner').val();
-                    if (porcOwner != ""){
-                        if (porcOwner > 100){
-                            porcOwner = 100;
-                            $('#porcFacturacionOwner').val(100);
-                        }
-                        $('#porcFacturacionChofer').val(100 - porcOwner);
-                    }else{
-                        $('#porcFacturacionChofer').val(100);
-                    }
-                }
-
                 function cerrarModalLicencia(){
                     $('#idLicencia').val("0");
                     $('#vencimientoLicencia').val("");
@@ -784,14 +579,7 @@
                     $('#add_licencia').modal('toggle');
                 }
 
-                function editarLicenciaPropect(idLicencia, idUnidad, asignado, tipo, vencimiento, descripcion){
-                    if (asignado == "Chofer"){
-                        $('#personaLicencia').val("chofer");
-                    }else if (asignado == "Vehiculo"){
-                        $('#personaLicencia').val("vehiculo");
-                    }else{
-                        $('#personaLicencia').val("owner");
-                    }
+                function editarLicenciaPropect(idLicencia, tipo, vencimiento, descripcion){
                     $('#idLicencia').val(idLicencia);
                     $('#tipoLicencia').val(tipo);
                     $('#vencimientoLicencia').val(vencimiento);

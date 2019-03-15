@@ -49,13 +49,13 @@
                                             <div class="row">
                                                 <div class="col-sm-5">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control select2me" id="provedor" name="provedor">
+                                                        <select class="form-control select2me" id="unidad" name="unidad">
                                                           <option value="">Seleccionar Provedor</option>
-                                                            {% for p in proveedores %}
-                                                                <option value="{{ p.id }}">{{p.id}} - {{ p.nombreCompleto }}</option>
+                                                            {% for p in unidades %}
+                                                                <option value="{{ p.id }}">{{p.id_fake}} {{p.identificacion}}</option>
                                                             {% endfor %}
                                                         </select>
-                                                        <label for="provedor">Provedor</label>
+                                                        <label for="unidad">Unidad</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
@@ -140,11 +140,11 @@
                             alert("Se guardó el adelanto correctamente.");
                         }
                         $("#tipoAdelanto").val('{{ tipoAdelantoId }}')
-                        $('#provedor').val('{{ provedorId }}');
+                        $('#unidad').val('{{ unidadId }}');
                     }
 
-                    $("#provedor").select2({
-                        placeholder: "Seleccionar Provedor",
+                    $("#unidad").select2({
+                        placeholder: "Seleccionar Unidad",
                         allowClear: true,
                         dropdownAutoWidth : true,
                         width: 'auto'
@@ -152,8 +152,8 @@
                 });
 
                 function guardarAdelanto(){
-                    if ($("#provedor").val() == ""){
-                        alert("El campo Provedor es obligatorio.");
+                    if ($("#unidad").val() == ""){
+                        alert("El campo Unidad es obligatorio.");
                         return false;
                     }
                     if ($("#tipoAdelanto").val() == ""){
