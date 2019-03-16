@@ -161,6 +161,7 @@ def editaViaje(request):
 	if not validarViajeUsuarioUnidad(request, viaje):
 		mensaje = ""
 		context = { 'mensaje':mensaje }
+
 		return render(request, 'sistema/urlBloqueada.html', context)
 
 	context = {'mensaje': mensaje,

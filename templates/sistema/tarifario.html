@@ -222,7 +222,7 @@
                                                                         <div class="caption font-blue">
                                                                             <i class="icon-diamond font-blue mg-t-8"></i>
                                                                             <span class="caption-subject bold uppercase">Extras</span>
-                                                                            <a href="#" role="button" onclick="agregarTarifaExtra();" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar extra</a-->
+                                                                            <a href="#" role="button" onclick="agregarTarifaExtra();" class="btn green btn-outline mg-l-20" data-toggle="modal">Agregar extra</a>
                                                                             <a href="#" role="button" onclick="modificacionMasiva('2');"  class="btn blue btn-outline mg-l-20">Modificación masiva</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
@@ -264,7 +264,29 @@
                                                                         </table>
                                                                         <div class="row">
                                                                             <div class="col-md-12" id="divAddTarifaExtra" >
-                                                                                
+
+                                                                                <div id="add_extra_tarifario" class="modal fade" tabindex="-1" aria-hidden="true">
+                                                                                    <div class="modal-dialog">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header">
+                                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                                                <h4 class="modal-title" style="color:#888;">Modificación masiva</h4>
+                                                                                            </div>
+                                                                                            <div class="modal-body">
+                                                                                                <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
+                                                                                                    <div class="row">
+
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="modal-footer noborder flex">
+                                                                                                <button type="button" onclick="guardarMasivo();" class="btn green">Guardar</button>
+                                                                                                <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -432,7 +454,7 @@
                     }
                     var url = "/sistema/guardarTarifaExtra/";
                     param = 'idTarifario='+$("#idTarifario").val()+"&"+$("#formTarifasExtras").serialize();
-                    $('#add_extra_tarifario').modal('toggle');
+                    //$('#add_extra_tarifario').modal('toggle');
                     $.ajax({
                         type: "POST",
                         url: url,
@@ -440,8 +462,11 @@
                         data: param,
                         success: function(data){
                             $('#add_extra_tarifario').modal('hide');
-                            $('#divTablaTrayectoExtra').html("");
-                            $('#divTablaTrayectoExtra').html(data);
+                            setTimeout(function () {
+                                $('#divTablaTrayectoExtra').html("");
+                                $('#divTablaTrayectoExtra').html(data);
+                            },300)
+
                         }
                     });
                 }
