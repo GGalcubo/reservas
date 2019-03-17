@@ -400,10 +400,10 @@
                                             </li>
                                             <li class="">
                                                 <a href="#historial" data-toggle="tab" aria-expanded="false"> Historial </a>
-                                            </li>
+                                            </li><!--
                                             <li class="">
                                                 <a href="#pasajeros" data-toggle="tab" aria-expanded="false"> Pasajeros </a>
-                                            </li>
+                                            </li>-->
                                             <li class="">
                                                 <a href="#adjuntos" data-toggle="tab" aria-expanded="false"> Adjuntos </a>
                                             </li>
@@ -638,6 +638,7 @@
                                                                                                         <th class="all">Id</th>
                                                                                                         <th class="all">Origen</th>
                                                                                                         <th class="all">Destino</th>
+                                                                                                        <th class="all">Pasajero</th>
                                                                                                         <th class="all">Opciones</th>
                                                                                                     </tr>
                                                                                                 </thead>
@@ -648,25 +649,27 @@
                                                                                                                 <td>{{ t.id }}</td>
                                                                                                                 <td>{{ t.desdeConcat }}</td>
                                                                                                                 <td>{{ t.hastaConcat }}</td>
+                                                                                                                <td>{{ t.pasajero }}</td>
                                                                                                                 <td class="text-center">
                                                                                                                     <a href="#add_tramo" data-toggle="modal" class="edit_button"
                                                                                                                        data-id="{{ t.id }}"
-                                                                                                                       data-destino_desde="{{ t.destino_desde.id|default_if_none:"" }}"
-                                                                                                                       data-provincia_desde="{{ t.provincia_desde.id|default_if_none:"" }}"
-                                                                                                                       data-localidad_desde="{{ t.localidad_desde.id|default_if_none:"" }}"
-                                                                                                                       data-destino_hasta="{{ t.destino_hasta.id|default_if_none:"" }}"
-                                                                                                                       data-provincia_hasta="{{ t.provincia_hasta.id|default_if_none:"" }}"
-                                                                                                                       data-localidad_hasta="{{ t.localidad_hasta.id|default_if_none:"" }}"
-                                                                                                                       data-vuelo_desde="{{ t.vuelo_desde|default_if_none:"" }}"
-                                                                                                                       data-compania_desde="{{ t.compania_desde|default_if_none:"" }}"
-                                                                                                                       data-calle_desde="{{ t.calle_desde|default_if_none:"" }}"
-                                                                                                                       data-altura_desde="{{ t.altura_desde|default_if_none:"" }}"
-                                                                                                                       data-entre_desde="{{ t.entre_desde|default_if_none:"" }}"
-                                                                                                                       data-vuelo_hasta="{{ t.vuelo_hasta|default_if_none:"" }}"
-                                                                                                                       data-compania_hasta="{{ t.compania_hasta|default_if_none:"" }}"
-                                                                                                                       data-calle_hasta="{{ t.calle_hasta|default_if_none:"" }}"
-                                                                                                                       data-altura_hasta="{{ t.altura_hasta|default_if_none:"" }}"
-                                                                                                                       data-entre_hasta="{{ t.entre_hasta|default_if_none:"" }}">
+                                                                                                                       data-destino_desde="{{ t.destino_desde.id|default_if_none:'' }}"
+                                                                                                                       data-provincia_desde="{{ t.provincia_desde.id|default_if_none:'' }}"
+                                                                                                                       data-localidad_desde="{{ t.localidad_desde.id|default_if_none:'' }}"
+                                                                                                                       data-destino_hasta="{{ t.destino_hasta.id|default_if_none:'' }}"
+                                                                                                                       data-provincia_hasta="{{ t.provincia_hasta.id|default_if_none:'' }}"
+                                                                                                                       data-localidad_hasta="{{ t.localidad_hasta.id|default_if_none:'' }}"
+                                                                                                                       data-vuelo_desde="{{ t.vuelo_desde|default_if_none:'' }}"
+                                                                                                                       data-compania_desde="{{ t.compania_desde|default_if_none:'' }}"
+                                                                                                                       data-calle_desde="{{ t.calle_desde|default_if_none:'' }}"
+                                                                                                                       data-altura_desde="{{ t.altura_desde|default_if_none:'' }}"
+                                                                                                                       data-entre_desde="{{ t.entre_desde|default_if_none:'' }}"
+                                                                                                                       data-vuelo_hasta="{{ t.vuelo_hasta|default_if_none:'' }}"
+                                                                                                                       data-compania_hasta="{{ t.compania_hasta|default_if_none:'' }}"
+                                                                                                                       data-calle_hasta="{{ t.calle_hasta|default_if_none:'' }}"
+                                                                                                                       data-altura_hasta="{{ t.altura_hasta|default_if_none:'' }}"
+                                                                                                                       data-entre_hasta="{{ t.entre_hasta|default_if_none:'' }}"
+                                                                                                                       data-pasajero_trayecto="{{ t.pasajero.id|default_if_none:'' }}">
                                                                                                                        <i class="fa fa-pencil"></i>
                                                                                                                     </a>
                                                                                                                     <a href="#" class="delete_button" data-id="{{ t.id }}">
@@ -1569,6 +1572,16 @@
                                                     <input type="text" class="form-control" id="modal_hasta_vuelo" value="modal_hasta_vuelo">
                                                     <label>Número de Vuelo</label>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group form-md-line-input">
+                                                <select class="form-control select2me" id="pasajero_trayecto" name="pasajero_trayecto"></select>
+                                                <label for="pasajero_trayecto">Pasajero</label>
                                             </div>
                                         </div>
                                     </div>

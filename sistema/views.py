@@ -333,14 +333,10 @@ def validateGetTarifaTrayecto(tarifario, viaje):
         elif tarifario == 'unidad':
             tarifario = viaje.unidad.tarifario
 
-        if getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_desde,
-                             viaje.getTrayectoPrincipal().localidad_hasta):
-            base = getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_desde,
-                                     viaje.getTrayectoPrincipal().localidad_hasta)
-        elif getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_hasta,
-                               viaje.getTrayectoPrincipal().localidad_desde):
-            base = getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_hasta,
-                                     viaje.getTrayectoPrincipal().localidad_desde)
+        if getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_desde, viaje.getTrayectoPrincipal().localidad_hasta):
+            base = getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_desde, viaje.getTrayectoPrincipal().localidad_hasta)
+        elif getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_hasta, viaje.getTrayectoPrincipal().localidad_desde):
+            base = getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_hasta, viaje.getTrayectoPrincipal().localidad_desde)
         else:
             base = 0
     except Exception as e:
@@ -885,6 +881,9 @@ def guardarTrayecto(request):
         trayecto.entre_hasta = request.POST.get('hasta_entre', '')
         trayecto.compania_hasta = request.POST.get('hasta_compania', '')
         trayecto.vuelo_hasta = request.POST.get('hasta_vuelo', '')
+        if request.POST.get('pasajero', False):
+            pasajero = Persona.objects.get(id=request.POST.get('pasajero', False))
+            trayecto.pasajero = pasajero
         trayecto.save()
 
         if principal == '1':

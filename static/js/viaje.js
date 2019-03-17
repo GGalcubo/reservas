@@ -105,6 +105,7 @@ $(document).ready( () => {
     $('#categoria_viaje').select2({ placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
     $('#contacto').select2({ placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
     $('#pasajero').select2({ placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#pasajero_trayecto').select2({ placeholder: 'Seleccionar Pasajero', dropdownAutoWidth : true, width: 'auto'});
 
     $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
     $('#id_cliente').select2({ placeholder: 'Seleccionar Cliente', dropdownAutoWidth : true, width: 'auto'});
@@ -317,6 +318,7 @@ $(document).ready( () => {
         obj.hasta_entre       = $("#hasta_entre").val();
         obj.hasta_compania    = $("#hasta_compania").val();
         obj.hasta_vuelo       = $("#hasta_vuelo").val();
+        obj.pasajero          = $("#pasajero").val();
         obj.principal         = 1;
         obj.idViaje           = viaje;
 
@@ -376,38 +378,41 @@ $(document).ready( () => {
         $("#modal_hasta_entre").val('');
         $("#modal_hasta_vuelo").val('');
         $("#modal_hasta_compania").val('');
+        $("#pasajero_trayecto").val('');
     });
 
-    $(document).on( "click", '.edit_button', e => {
 
-        var id              = $(this).data('id');
+    $('.edit_button').click(function() {
 
-        var provincia_desde = $(this).data('provincia_desde');
-        var localidad_desde = $(this).data('localidad_desde');
-        var destino_desde   = $(this).data('destino_desde');
-        var provincia_hasta = $(this).data('provincia_hasta');
-        var localidad_hasta = $(this).data('localidad_hasta');
-        var destino_hasta   = $(this).data('destino_hasta');
+        var id                  = $(this).data('id');
 
-        var calle_desde     = $(this).data('calle_desde');
-        var altura_desde    = $(this).data('altura_desde');
-        var entre_desde     = $(this).data('entre_desde');
-        var compania_desde  = $(this).data('compania_desde');
-        var vuelo_desde     = $(this).data('vuelo_desde');
-        var calle_hasta     = $(this).data('calle_hasta');
-        var altura_hasta    = $(this).data('altura_hasta');
-        var entre_hasta     = $(this).data('entre_hasta');
-        var compania_hasta  = $(this).data('compania_hasta');
-        var vuelo_hasta     = $(this).data('vuelo_hasta');
+        var provincia_desde     = $(this).data('provincia_desde');
+        var localidad_desde     = $(this).data('localidad_desde');
+        var destino_desde       = $(this).data('destino_desde');
+        var provincia_hasta     = $(this).data('provincia_hasta');
+        var localidad_hasta     = $(this).data('localidad_hasta');
+        var destino_hasta       = $(this).data('destino_hasta');
+
+        var calle_desde         = $(this).data('calle_desde');
+        var altura_desde        = $(this).data('altura_desde');
+        var entre_desde         = $(this).data('entre_desde');
+        var compania_desde      = $(this).data('compania_desde');
+        var vuelo_desde         = $(this).data('vuelo_desde');
+        var calle_hasta         = $(this).data('calle_hasta');
+        var altura_hasta        = $(this).data('altura_hasta');
+        var entre_hasta         = $(this).data('entre_hasta');
+        var compania_hasta      = $(this).data('compania_hasta');
+        var vuelo_hasta         = $(this).data('vuelo_hasta');
+        var pasajero_trayecto   = $(this).data('pasajero_trayecto');
 
         $("#modal_id").val(id);
 
-        $("#modal_desde_destino").val(destino_desde);
-        $("#modal_desde_localidad").val(localidad_desde);
-        $("#modal_desde_provincia").val(provincia_desde);
-        $("#modal_hasta_destino").val(destino_hasta);
-        $("#modal_hasta_localidad").val(localidad_hasta);
-        $("#modal_hasta_provincia").val(provincia_hasta);
+        $("#modal_desde_destino").val(destino_desde).trigger('change');
+        $("#modal_desde_localidad").val(localidad_desde).trigger('change');
+        $("#modal_desde_provincia").val(provincia_desde).trigger('change');
+        $("#modal_hasta_destino").val(destino_hasta).trigger('change');
+        $("#modal_hasta_localidad").val(localidad_hasta).trigger('change');
+        $("#modal_hasta_provincia").val(provincia_hasta).trigger('change');
 
         $("#modal_desde_calle").val(calle_desde);
         $("#modal_desde_altura").val(altura_desde);
@@ -419,6 +424,7 @@ $(document).ready( () => {
         $("#modal_hasta_entre").val(entre_hasta);
         $("#modal_hasta_compania").val(compania_hasta);
         $("#modal_hasta_vuelo").val(vuelo_hasta);
+        $("#pasajero_trayecto").val(pasajero_trayecto).trigger('change');
 
         //$(".modal-title").text('Editar Tramo');
     });
@@ -573,7 +579,7 @@ guardaViajeAdmin = () => {
             });
             fillViajeItems();
         }
-    });    
+    });
 }
 
 
@@ -757,6 +763,7 @@ updateFillsByCliente = (name, evt) => {
     $('#centroDeCosto').empty().append($('<option>').text('').attr('value', ''));
     $('#contacto').empty().append($('<option>').text('').attr('value', ''));
     $('#pasajero').empty().append($('<option>').text('').attr('value', ''));
+    $('#pasajero_trayecto').empty().append($('<option>').text('').attr('value', ''));
     $('#suma_pasajero').empty();
 
     if(evt.params.data.no_borrar_pasajeros){
@@ -797,6 +804,8 @@ updateFillsByCliente = (name, evt) => {
             if(value.id != $('#pasajero').val()){                
                 $('#suma_pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
             }
+
+            $('#pasajero_trayecto').append($('<option>').text(value.nombre).attr('value', value.id));
         }
     });
 };
@@ -1034,6 +1043,7 @@ agregarTramo = () => {
     obj.hasta_entre       = $("#modal_hasta_entre").val();
     obj.hasta_compania    = $("#modal_hasta_compania").val();
     obj.hasta_vuelo       = $("#modal_hasta_vuelo").val();
+    obj.pasajero          = $("#pasajero_trayecto").val();
     obj.principal         = 0;
     obj.idViaje           = viaje;
     obj.id                = $("#modal_id").val();
