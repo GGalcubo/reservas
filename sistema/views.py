@@ -201,7 +201,9 @@ def cambiarUnidadViaje(request):
 
 @login_required
 def getDatosUnidad(request):
-    unidad = Unidad.objects.get(id=request.POST.get('unidad_id', False))
+    unidad = ''
+    if request.POST.get('unidad_id', False) != '':
+        unidad = Unidad.objects.get(id=request.POST.get('unidad_id', False))
 
     if unidad:
         data = {
@@ -253,8 +255,6 @@ def guardarViaje(request):
         'msg': mensaje
     }
 
-    viaje.save()
-
     if viaje.fecha > viaje.centro_costo.fecha_fin:
         data = {
             'error': '1',
@@ -262,6 +262,8 @@ def guardarViaje(request):
         }
         dump = json.dumps(data)
         return HttpResponse(dump, content_type='application/json')
+
+    viaje.save()
 
     #guardaViajePasajero(pasajero, True, viaje)
     guardaItemViaje(request.POST.get('importe_efectivo', ''), 12, 1, viaje, False)

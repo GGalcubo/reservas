@@ -978,6 +978,7 @@ class Trayecto(models.Model):
     compania_hasta = models.CharField(max_length=30, null=True, blank=True)
     vuelo_hasta = models.CharField(max_length=20, null=True, blank=True)
     destino_hasta = models.ForeignKey(TrayectoDestino, null=True, blank=True, related_name='destino_hasta')
+    pasajero = models.ForeignKey(Persona, null=True, blank=True)
     comentario = models.TextField(null=True, blank=True)
     tramoppalflag = models.BooleanField(default=False)
 

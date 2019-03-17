@@ -384,8 +384,6 @@
                      evt.params.data = {};
                      evt.params.data.id = unidad_select;
                      updateFillsByUnidad('update', evt);
-                     // As pointed out in comments,
-                     // it is superfluous to have to manually call the modal.
                      $('#change_unidad').modal('show');
                 });
                 $(document).on("click", ".open_pasajero_modal", function () {
@@ -406,7 +404,10 @@
                         headers: {'X-CSRFToken': '{{ csrf_token }}'},
                         data: {unidad_id},
                         success: data => {
-                            $('#unidad_especificaciones').html(data.identificacion + checkField(data.telefono) + checkField(data.mail) + checkField(data.marca) + checkField(data.modelo) + checkField(data.color) + checkField(data.patente));
+                            if(data.identificacion){
+                                $('#unidad_especificaciones').html(data.identificacion + checkField(data.telefono) + checkField(data.mail) + checkField(data.marca) + checkField(data.modelo) + checkField(data.color) + checkField(data.patente));
+                            }
+
                         }
                     });
                 };
