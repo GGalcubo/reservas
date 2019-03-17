@@ -265,6 +265,11 @@ def guardarViaje(request):
 
     viaje.save()
 
+    if viaje.getTrayectoPrincipal():
+        trayecto = viaje.getTrayectoPrincipal()
+        trayecto.pasajero = pasajero
+        trayecto.save()
+
     #guardaViajePasajero(pasajero, True, viaje)
     guardaItemViaje(request.POST.get('importe_efectivo', ''), 12, 1, viaje, False)
     guardaItemViaje(request.POST.get('otros', ''), 16, 1, viaje, False)
