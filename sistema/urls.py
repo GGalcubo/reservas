@@ -48,6 +48,7 @@ urlpatterns = [
     url(r'^borrarSolicitanteCliente/', borrarSolicitanteCliente, name='borrarSolicitanteCliente'),
     url(r'^borrarPasajeroCliente/', borrarPasajeroCliente, name='borrarPasajeroCliente'),
     url(r'^provedor/', provedor, name='provedor'),
+    url(r'^getHistorial/', getHistorial, name='getHistorial'),
     url(r'^listadoProvedor/', listadoProvedor, name='listadoProvedor'),
     url(r'^borrarProvedor/', borrarProvedor, name='borrarProvedor'),
     url(r'^unidad/$', unidad, name='unidad'),

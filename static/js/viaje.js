@@ -60,6 +60,7 @@ $(document).ready( () => {
         $('#estado').attr("disabled", true);
     }else{
         $("#viaje-tab").show();
+        getGrillasHistorial();
         if(estado == '6' || estado == '7'){
             //$("#administracion").show();
             $("#administracion_tab_btn a").show();
@@ -277,6 +278,7 @@ $(document).ready( () => {
                         $("#administracion_tab_btn a").hide();
                     }
                 }
+                getGrillasHistorial();
            }
         });
 
@@ -523,6 +525,23 @@ $(document).ready( () => {
     });
     
 });
+
+
+
+
+getGrillasHistorial = () => {
+    let url = "/sistema/getHistorial/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: {idViaje},
+        success: function(data)
+        {
+            $('#cont_table_historial').empty().html(data);
+        }
+    });
+};
 
 /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
 guardarSolicitante = () => {

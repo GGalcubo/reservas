@@ -1,0 +1,36 @@
+<table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaHistorialViaje">
+    <thead>
+        <tr>
+            <th class="all">Fecha</th>
+            <th class="all">Dato</th>
+            <th class="all">Valor Anterior</th>
+            <th class="all">Valor Actual</th>
+            <th class="all">Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for h in historial %}
+        <tr>
+            <td>{{ h.fecha|default_if_none:"" }}</td>
+            <td>{{ h.campo_modificado|default_if_none:"" }}</td>
+            <td>{{ h.valor_anterior|default_if_none:"" }}</td>
+            <td>{{ h.valor_actual|default_if_none:"" }}</td>
+            <td>{{ h.usuario|default_if_none:"" }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<script>
+    $('#tablaHistorialViaje').DataTable( {
+        responsive: true,
+        // scrollY: 200,
+        order: [[ 1, "asc" ]],
+        lengthMenu: [
+                        [ -1, 500, 100, 50, 25, 10 ],
+                        [ 'Todos', '500', '100', '50', '25', '10' ]
+                    ],
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+        },
+    } );
+</script>

@@ -798,8 +798,8 @@ class ViajeHistorial(models.Model):
     viaje = models.ForeignKey(Viaje, null=True, blank=True)
     usuario = models.ForeignKey(User, null=True, blank=True)
     fecha = models.CharField(max_length=12)
-    valor_anterior = models.CharField(max_length=100)
-    valor_actual = models.CharField(max_length=100)
+    valor_anterior = models.CharField(max_length=200)
+    valor_actual = models.CharField(max_length=200)
     campo_modificado = models.CharField(max_length=50)
 
     def __unicode__(self):
