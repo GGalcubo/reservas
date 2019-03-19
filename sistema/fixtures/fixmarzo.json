@@ -1,0 +1,758 @@
+[
+{
+  "model": "sistema.licencia",
+  "pk": 2,
+  "fields": {
+    "unidad_id":101
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 4,
+  "fields": {
+    "unidad_id":101
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 3,
+  "fields": {
+    "unidad_id":101
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 5,
+  "fields": {
+    "unidad_id":101
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 7,
+  "fields": {
+    "unidad_id":102
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 16,
+  "fields": {
+    "unidad_id":900
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 17,
+  "fields": {
+    "unidad_id":900
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 18,
+  "fields": {
+    "unidad_id":102
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 29,
+  "fields": {
+    "unidad_id":113
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 62,
+  "fields": {
+    "unidad_id":143
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 88,
+  "fields": {
+    "unidad_id":143
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 89,
+  "fields": {
+    "unidad_id":204
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 26,
+  "fields": {
+    "unidad_id":109
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 69,
+  "fields": {
+    "unidad_id":161
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 100,
+  "fields": {
+    "unidad_id":161
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 101,
+  "fields": {
+    "unidad_id":154
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 102,
+  "fields": {
+    "unidad_id":133
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 19,
+  "fields": {
+    "unidad_id":108
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 20,
+  "fields": {
+    "unidad_id":108
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 21,
+  "fields": {
+    "unidad_id":108
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 22,
+  "fields": {
+    "unidad_id":108
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 37,
+  "fields": {
+    "unidad_id":132
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 38,
+  "fields": {
+    "unidad_id":132
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 39,
+  "fields": {
+    "unidad_id":132
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 40,
+  "fields": {
+    "unidad_id":132
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 41,
+  "fields": {
+    "unidad_id":133
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 42,
+  "fields": {
+    "unidad_id":133
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 43,
+  "fields": {
+    "unidad_id":133
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 66,
+  "fields": {
+    "unidad_id":161
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 67,
+  "fields": {
+    "unidad_id":161
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 68,
+  "fields": {
+    "unidad_id":161
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 73,
+  "fields": {
+    "unidad_id":168
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 76,
+  "fields": {
+    "unidad_id":168
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 90,
+  "fields": {
+    "unidad_id":901
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 91,
+  "fields": {
+    "unidad_id":901
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 92,
+  "fields": {
+    "unidad_id":901
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 93,
+  "fields": {
+    "unidad_id":901
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 94,
+  "fields": {
+    "unidad_id":106
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 95,
+  "fields": {
+    "unidad_id":106
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 96,
+  "fields": {
+    "unidad_id":106
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 97,
+  "fields": {
+    "unidad_id":106
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 98,
+  "fields": {
+    "unidad_id":106
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 99,
+  "fields": {
+    "unidad_id":175
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 74,
+  "fields": {
+    "unidad_id":168
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 75,
+  "fields": {
+    "unidad_id":168
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 77,
+  "fields": {
+    "unidad_id":168
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 104,
+  "fields": {
+    "unidad_id":115
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 105,
+  "fields": {
+    "unidad_id":115
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 106,
+  "fields": {
+    "unidad_id":115
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 109,
+  "fields": {
+    "unidad_id":122
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 110,
+  "fields": {
+    "unidad_id":122
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 111,
+  "fields": {
+    "unidad_id":122
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 112,
+  "fields": {
+    "unidad_id":122
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 6,
+  "fields": {
+    "unidad_id":102
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 9,
+  "fields": {
+    "unidad_id":900
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 10,
+  "fields": {
+    "unidad_id":900
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 11,
+  "fields": {
+    "unidad_id":900
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 23,
+  "fields": {
+    "unidad_id":109
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 24,
+  "fields": {
+    "unidad_id":109
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 25,
+  "fields": {
+    "unidad_id":109
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 28,
+  "fields": {
+    "unidad_id":113
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 30,
+  "fields": {
+    "unidad_id":114
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 31,
+  "fields": {
+    "unidad_id":114
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 32,
+  "fields": {
+    "unidad_id":114
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 44,
+  "fields": {
+    "unidad_id":137
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 45,
+  "fields": {
+    "unidad_id":137
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 46,
+  "fields": {
+    "unidad_id":137
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 50,
+  "fields": {
+    "unidad_id":141
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 51,
+  "fields": {
+    "unidad_id":141
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 52,
+  "fields": {
+    "unidad_id":143
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 53,
+  "fields": {
+    "unidad_id":143
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 54,
+  "fields": {
+    "unidad_id":146
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 55,
+  "fields": {
+    "unidad_id":149
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 57,
+  "fields": {
+    "unidad_id":149
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 58,
+  "fields": {
+    "unidad_id":151
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 59,
+  "fields": {
+    "unidad_id":151
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 60,
+  "fields": {
+    "unidad_id":154
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 61,
+  "fields": {
+    "unidad_id":154
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 63,
+  "fields": {
+    "unidad_id":158
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 64,
+  "fields": {
+    "unidad_id":158
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 65,
+  "fields": {
+    "unidad_id":158
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 71,
+  "fields": {
+    "unidad_id":167
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 72,
+  "fields": {
+    "unidad_id":167
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 78,
+  "fields": {
+    "unidad_id":201
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 79,
+  "fields": {
+    "unidad_id":201
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 80,
+  "fields": {
+    "unidad_id":202
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 81,
+  "fields": {
+    "unidad_id":202
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 82,
+  "fields": {
+    "unidad_id":203
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 83,
+  "fields": {
+    "unidad_id":203
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 84,
+  "fields": {
+    "unidad_id":203
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 85,
+  "fields": {
+    "unidad_id":204
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 86,
+  "fields": {
+    "unidad_id":204
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 87,
+  "fields": {
+    "unidad_id":204
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 56,
+  "fields": {
+    "unidad_id":149
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 103,
+  "fields": {
+    "unidad_id":141
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 27,
+  "fields": {
+    "unidad_id":113
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 13,
+  "fields": {
+    "unidad_id":104
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 15,
+  "fields": {
+    "unidad_id":104
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 14,
+  "fields": {
+    "unidad_id":104
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 12,
+  "fields": {
+    "unidad_id":104
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 47,
+  "fields": {
+    "unidad_id":136
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 49,
+  "fields": {
+    "unidad_id":136
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 107,
+  "fields": {
+    "unidad_id":136
+  }
+},
+{
+  "model": "sistema.licencia",
+  "pk": 108,
+  "fields": {
+    "unidad_id":151
+  }
+},
+{
+   "model": "sistema.unidad",
+   "pk": 108,
+   "fields": {
+      "calle":"",
+      "documento": "94879584",
+      "fecha_nacimiento":27996,
+      "mail":"RGGODOY96@GMAIL.COM",
+      "telefono":"11 3195-7096"
+   }
+},
+{
+   "model": "sistema.unidad",
+   "pk": 106,
+   "fields": {
+      "id_fake": "1",
+      "identificacion": "FRANCISCO LENCINAS",
+      "vehiculo": null,
+      "baja": false,
+      "unidad_propia": true,
+      "tarifario": 8,
+      "calle":"CAP. FED., JULIAN ALVAREZ, 1130, 14",
+      "documento": "11237158",
+      "fecha_nacimiento":56457,
+      "mail":"EDGARDOOLAVARRIA@OUTLOOK.COM",
+      "telefono":"1523716966"
+   }
+}
+]
