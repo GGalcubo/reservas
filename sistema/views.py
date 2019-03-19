@@ -232,36 +232,26 @@ def guardarViaje(request):
         mensaje = 'El viaje se actualizo correctamente.'
 
     viaje.estado 				= Estado.objects.get(id=request.POST.get('estado', False))
-    guardarHistorial(viaje, 'estado', viaje.estado.estado)
     viaje.cliente 				= Cliente.objects.get(id=request.POST.get('cliente', False))
-    guardarHistorial(viaje, 'cliente', viaje.cliente.razon_social)
     viaje.categoria_viaje 		= CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
-    guardarHistorial(viaje, 'categoria_viaje', viaje.categoria_viaje.categoria)
     viaje.solicitante 			= Persona.objects.get(id=request.POST.get('contacto', False))
-    guardarHistorial(viaje, 'solicitante', viaje.solicitante.apellido + ' ' + viaje.solicitante.nombre)
     viaje.centro_costo 			= CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
-    guardarHistorial(viaje, 'centro_costo', viaje.centro_costo.nombre)
     pasajero                    = Persona.objects.get(id=request.POST.get('pasajero', False))
     viaje.pasajero 				= pasajero
-    guardarHistorial(viaje, 'pasajero', viaje.pasajero.apellido + ' ' + viaje.pasajero.nombre)
     fecha_tmp 					= request.POST.get('fecha', "")
     viaje.fecha 				= fecha_tmp[6:10] + fecha_tmp[3:5] + fecha_tmp[0:2]
     viaje.hora 					= request.POST.get('hora', "")
-    guardarHistorial(viaje, 'hora', viaje.hora)
     viaje.hora_estimada 		= request.POST.get('hora_estimada', "")
-    guardarHistorial(viaje, 'hora_estimada', viaje.hora_estimada)
     viaje.tarifapasada 			= request.POST.get('tarifa_pasada', "")
-    guardarHistorial(viaje, 'tarifapasada', viaje.tarifapasada)
     viaje.Cod_ext_viaje         = request.POST.get('cod_externo', "")
-    guardarHistorial(viaje, 'Cod_ext_viaje', viaje.Cod_ext_viaje)
     viaje.nro_aux               = request.POST.get('nro_aux', "")
-    guardarHistorial(viaje, 'nro_aux', viaje.nro_aux)
     viaje.tipo_pago             = TipoPagoViaje.objects.get(id=request.POST.get('tipo_pago', False))
-    guardarHistorial(viaje, 'tipo_pago', viaje.tipo_pago.tipo_pago_viaje)
+    viaje.creadofecha           = fecha()
+
     unidad 						= request.POST.get('unidad', '')
     if unidad != '':
         viaje.unidad 			= Unidad.objects.get(id=unidad)
-        guardarHistorial(viaje, 'unidad', viaje.unidad.id_fake + ' ' + viaje.unidad.identificacion)
+
 
     data = {
         'error': '0',
@@ -278,7 +268,22 @@ def guardarViaje(request):
 
     viaje.save()
 
-    if viaje.getTrayectoPrincipal():
+    guardarHistorial(viaje, 'estado', viaje.estado.estado)
+    guardarHistorial(viaje, 'cliente', viaje.cliente.razon_social)
+    guardarHistorial(viaje, 'categoria viaje', viaje.categoria_viaje.categoria)
+    guardarHistorial(viaje, 'solicitante', viaje.solicitante.apellido + ' ' + viaje.solicitante.nombre)
+    guardarHistorial(viaje, 'centro costo', viaje.centro_costo.nombre)
+    guardarHistorial(viaje, 'pasajero', viaje.pasajero.apellido + ' ' + viaje.pasajero.nombre)
+    guardarHistorial(viaje, 'hora', viaje.hora)
+    guardarHistorial(viaje, 'hora estimada', viaje.hora_estimada)
+    guardarHistorial(viaje, 'tarifa pasada', viaje.tarifapasada)
+    guardarHistorial(viaje, 'cod ext viaje', viaje.Cod_ext_viaje)
+    guardarHistorial(viaje, 'nro aux', viaje.nro_aux)
+    guardarHistorial(viaje, 'tipo pago', viaje.tipo_pago.tipo_pago_viaje)
+    if unidad != '':
+        guardarHistorial(viaje, 'unidad', viaje.unidad.id_fake + ' ' + viaje.unidad.identificacion)
+
+    if viaje.getTrayectoPrincipal() != '':
         trayecto = viaje.getTrayectoPrincipal()
         trayecto.pasajero = pasajero
         trayecto.save()
@@ -1454,7 +1459,7 @@ def guardarObservacionCliente(request):
 def getHistorial(request):
     mensaje = ""
 
-    historial = ViajeHistorial.objects.filter(viaje_id=request.POST.get('idViaje', False))
+    historial = ViajeHistorial.objects.filter(viaje_id=request.POST.get('idViaje', False)).order_by('-id')
     context = {'mensaje': mensaje, 'historial':historial}
     return render(request, 'sistema/grillaHistorial.html', context)
 

@@ -522,8 +522,10 @@ class Viaje(models.Model):
         return viaje_adjuntos
 
     def getTrayectoPrincipal(self):
-        trayecto = self.trayecto_set.filter()[:1].get()
-        return trayecto
+        try:
+            return self.trayecto_set.filter()[:1].get()
+        except Trayecto.DoesNotExist:
+            return ''
 
     def getTrayectos(self):
         viaje_trayectos = []
@@ -807,6 +809,9 @@ class ViajeHistorial(models.Model):
 
     def __str__(self):
         return self.campo_modificado
+
+    def getFecha(self):
+        return getFecha(self.fecha)
 
     class Meta:
         verbose_name_plural = "Historial de viajes"

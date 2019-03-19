@@ -10,13 +10,17 @@
     </thead>
     <tbody>
     {% for h in historial %}
-        <tr>
-            <td>{{ h.fecha|default_if_none:"" }}</td>
-            <td>{{ h.campo_modificado|default_if_none:"" }}</td>
-            <td>{{ h.valor_anterior|default_if_none:"" }}</td>
-            <td>{{ h.valor_actual|default_if_none:"" }}</td>
-            <td>{{ h.usuario|default_if_none:"" }}</td>
-        </tr>
+        {% ifequal h.valor_anterior "" %}
+
+        {% else %}
+            <tr>
+                <td>{{ h.getFecha|default_if_none:"" }}</td>
+                <td>{{ h.campo_modificado|default_if_none:"" }}</td>
+                <td>{{ h.valor_anterior|default_if_none:"" }}</td>
+                <td>{{ h.valor_actual|default_if_none:"" }}</td>
+                <td>{{ h.usuario|default_if_none:"" }}</td>
+            </tr>
+        {% endifequal %}
     {% endfor %}
     </tbody>
 </table>
