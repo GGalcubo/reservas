@@ -110,6 +110,9 @@ urlpatterns = [
     url(r'^cargarProforma/', cargarProforma, name='cargarProforma'),
     url(r'^cargarSolicitante/', cargarSolicitantes, name='cargarSolicitantes'),
     url(r'^cargarProveedores/', cargarProveedores, name='cargarProveedores'),
-    url(r'^cargarMenu/', cargarMenu, name='cargarMenu')
+    url(r'^cargarMenu/', cargarMenu, name='cargarMenu'),
+    url(r'^urlBloqueada/', urlBloqueada, name='urlBloqueada'),
+    url(r'^error404/', error404, name='error404'),
+    url(r'^error500/', error500, name='error500')
     #url(r'^$', 'sistema.views.index', name='index'),
 ]

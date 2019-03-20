@@ -3002,3 +3002,24 @@ def validaViajeUnidad(request, viaje):
 			else:
 				return False
 	return viaje
+
+@login_required
+def urlBloqueada(request):
+    mensaje = ""
+
+    context = {'mensaje': mensaje}
+    return render(request, 'sistema/urlBloqueada.html', context)
+
+@login_required
+def error404(request):
+    mensaje = ""
+
+    context = {'mensaje': mensaje}
+    return render(request, 'sistema/error404.html', context)
+
+@login_required
+def error500(request):
+    mensaje = ""
+
+    context = {'mensaje': mensaje}
+    return render(request, 'sistema/error500.html', context)
