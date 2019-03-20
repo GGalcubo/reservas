@@ -102,9 +102,9 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-9">
                                                     <div class="row">
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-2">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto">
                                                                 </select>
@@ -112,7 +112,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-1 pd-0">
-                                                            <div class="form-group form-md-line-input">
+                                                            <div class="form-group form-md-line-input flex align-i-center" style="height: 49px;">
                                                                <a href="#add_centro_costo" role="button" data-toggle="modal" class="btn btn-success btn-xs">+</a>
                                                             </div>
                                                         </div>
@@ -123,44 +123,44 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-1 pd-0">
-                                                            <div class="form-group form-md-line-input">
+                                                            <div class="form-group form-md-line-input flex align-i-center" style="height: 49px;">
                                                                <a href="#add_solicitante" role="button" data-toggle="modal" class="btn btn-success btn-xs">+</a>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-4">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="pasajero" name="pasajero"></select>
                                                                 <label for="pasajero">Pasajero</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-1 pd-0">
-                                                            <div class="form-group form-md-line-input">
+                                                            <div class="form-group form-md-line-input flex align-i-center" style="height: 49px;">
                                                                 <a href="#add_pasajero" role="button" data-toggle="modal" class="btn btn-success btn-xs">+</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     <div class="row">
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-6">
                                                             <div class="form-group form-md-line-input">
                                                                 <input type="text" class="form-control" id="fecha" value="{{ viaje.getFecha }}" name="fecha">
                                                                 <label for="fecha">Fecha</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-3">
                                                             <div class="form-group form-md-line-input">
                                                                 <input type="text" class="form-control timepicker timepicker-24" id="hora" value="{{ viaje.hora|default_if_none:'' }}" name="hora">
                                                                 <label for="hora">Hora</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-3">
                                                             <div class="form-group form-md-line-input">
                                                                 <input type="text" class="form-control timepicker timepicker-24" id="hora_estimada" value="{{ viaje.hora_estimada|default_if_none:'' }}" name="hora_estimada">
                                                                 <label for="hora_estimada">H. E.</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-5">
+                                                        <!-- <div class="col-md-5">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="categoria_viaje" name="categoria_viaje">
                                                                     <option selected="selected" value=""></option>
@@ -174,12 +174,27 @@
                                                                 </select>
                                                                 <label for="categoria_viaje">C. Viaje</label>
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3">
+                                                <div class="col-md-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control select2me" id="categoria_viaje" name="categoria_viaje">
+                                                            <option selected="selected" value=""></option>
+                                                            {% for cv in categoria_viajes %}
+                                                                {% if cv.id == viaje.categoria_viaje.id %}
+                                                                    <option selected="selected" value="{{ cv.id }}">{{ cv.categoria }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ cv.id }}">{{ cv.categoria }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                        <label for="categoria_viaje">C. Viaje</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" name="estado" id="estado">
                                                             {% for e in estados %}
@@ -193,7 +208,7 @@
                                                         <label for="estado">Estado</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5">
+                                                <div class="col-md-2">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" id="unidad_id" name="unidad_id">
                                                             <option value=""></option>
@@ -208,23 +223,20 @@
                                                         <label for="unidad_id">Unidad</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <textarea class="form-control" rows="1" placeholder="" name="comentario_chofer" id="comentario_chofer">{{ viaje.getObservacioneChofer }}</textarea>
+                                                        <textarea class="form-control" rows="2" placeholder="" name="comentario_chofer" id="comentario_chofer">{{ viaje.getObservacioneChofer }}</textarea>
                                                         <label for="comentario_chofer">Comentario para el chofer</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-md-line-input">
+                                                        <textarea class="form-control" rows="2" placeholder="" name="tarifa_pasada" id="tarifa_pasada">{{ viaje.tarifapasada|default_if_none:'' }}</textarea>
+                                                        <label for="tarifa_pasada">Comentario interno</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group form-md-line-input">
-                                                        <div class="input-group left-addon right-addon">
-                                                            <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control"  id="tarifa_pasada" name="tarifa_pasada" value="{{ viaje.tarifapasada|default_if_none:'' }}">
-                                                            <label for="tarifa_pasada">Comentario interno</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control" id="tipo_pago" name="tipo_pago">
@@ -248,7 +260,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-1">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control" id="tiempo_espera" name="tiempo_espera">
                                                             <option value="" selected="selected">Elegir tiempo</option>
@@ -268,7 +280,7 @@
                                                         <label for="tiempo_espera">Espera</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-1">
                                                     <div class="form-group form-md-line-input">
                                                         <input type="text" class="form-control" id="tiempo_hs_dispo" name="tiempo_hs_dispo">
                                                         <label for="tiempo_hs_dispo">Horas Disp</label>
@@ -294,35 +306,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <!--<div class="col-md-2">
-                                                    <div class="form-group form-md-line-input">
-                                                        <div class="input-group left-addon right-addon">
-                                                            <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="costo_proveedor" name="costo_proveedor" value="">
-                                                            <label for="costo_proveedor">Costo Proveedor</label>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-                                                <!--<div class="col-md-2">
-                                                    <div class="form-group form-md-line-input">
-                                                        <div class="input-group left-addon right-addon">
-                                                            <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="espera" value="" name="espera">
-                                                            <label for="espera">Espera</label>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-                                                <!--<div class="col-md-2 hidden">
-                                                    <div class="form-group form-md-line-input">
-                                                        <div class="input-group left-addon right-addon">
-                                                            <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="hs_dispo" value="" name="hs_dispo">
-                                                            <label for="hs_dispo">Horas Disp</label>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
                                                 <div class="col-md-1">
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
@@ -350,29 +333,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!--<div class="col-md-1">
-                                                    <div class="form-group form-md-line-input">
-                                                        <div class="input-group left-addon right-addon">
-                                                            <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="costo_maletas" value="" name="costo_maletas">
-                                                            <label for="costo_maletas">Maletas</label>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-                                                <!--<div class="col-md-1">
-                                                    <div class="form-group form-md-line-input">
-                                                        <div class="input-group left-addon right-addon">
-                                                            <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="costo_bilingue" value="" name="costo_bilingue">
-                                                            <label for="costo_bilingue">Bilingüe</label>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-                                                <!-- <div class="col-md-2">
-                                                    <span class="input-group-btn btn">
-                                                        <button class="btn green-haze" type="submit">Guardar</button>
-                                                    </span>
-                                                </div> -->
                                             </div>
                                         </div>
                                         <div class="form-footer flex">
