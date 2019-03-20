@@ -1574,7 +1574,7 @@ def listadoProvedor(request):
 		context = { 'mensaje':mensaje }
 		return render(request, 'sistema/urlBloqueada.html', context)
 
-	provedores = Persona.objects.filter(tipo_persona__id__in=[1,2,3,4],baja=False)
+	provedores = Persona.objects.filter(tipo_persona__id__in=[1,2],baja=False)
 	context = {'provedores': provedores}
 	return render(request, 'sistema/listadoProvedor.html', context)
 
@@ -2288,9 +2288,17 @@ def listadoAdelanto(request):
 		context = { 'mensaje':mensaje }
 		return render(request, 'sistema/urlBloqueada.html', context)
 
+	unidades = []
+	permisos = obtenerPermiso(request)
+	if 'unidades' in permisos:
+		usrunidad = request.user.usrunidad_set.all()
+		for u in usrunidad:
+			unidades.append(u.unidad)
+	else:
+		unidades = Unidad.objects.filter(baja=False)
+
 	mensaje = ""
-	proveedores = Persona.objects.filter(tipo_persona__in=[3,4])
-	context = {'mensaje': mensaje, 'proveedores':proveedores}
+	context = {'mensaje': mensaje, 'unidades':unidades}
 	return render(request, 'sistema/listadoAdelanto.html', context)
 
 @login_required
