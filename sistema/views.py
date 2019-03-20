@@ -126,7 +126,6 @@ def buscarViajes(request):
 
 @login_required
 def altaViaje(request):
-	Unidad.objects.get(id=223232)
 	if not validarUrlPorRol(request):
 		mensaje = ""
 		context = { 'mensaje':mensaje }
