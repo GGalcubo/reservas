@@ -37,7 +37,7 @@
                                 <div class="portlet-title">
                                     <div class="caption font-blue">
                                         <i class="icon-speedometer font-blue"></i>
-                                        <span class="caption-subject bold uppercase">Alta/edición de Provedor</span>
+                                        <span class="caption-subject bold uppercase">Alta/edición de Persona</span>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -51,40 +51,55 @@
                                                         <label for="idProv">ID</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_2" value="{{prov.nombre}}">
-                                                        <label for="form_control_2">Nombre o Razón Social</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_3" value="{{prov.documento}}">
-                                                        <label for="form_control_3">CUIL/CUIT</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_4" value="{{prov.getTelefono}}">
-                                                        <label for="form_control_4">Teléfono</label>
-                                                    </div>
-                                                </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="form_control_5" value="{{prov.getMail}}">
-                                                        <label for="form_control_5">Mail</label>
+                                                        <input type="text" class="form-control" id="provNombre" value="{{prov.nombre}} {{prov.apellido}}">
+                                                        <label for="provNombre">Nombre y Apellido</label>
                                                     </div>
-                                                </div>                                          
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="provDNI" value="{{prov.documento}}">
+                                                        <label for="provDNI">DNI</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="provNacimiento" value="{{prov.nacimiento}}">
+                                                        <label for="provNacimiento">Fecha Nac.</label>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="provTelefono" value="{{prov.getTelefono}}">
+                                                        <label for="provTelefono">Teléfono</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" id="provMail" value="{{prov.getMail}}">
+                                                        <label for="provMail">Mail</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control" id="provEstadoCivil">
+                                                            <option value=""></option>
+                                                            <option value="1" selected="selected">Soltero</option>
+                                                            <option value="2">Casado</option>
+                                                        </select>
+                                                        <label for="provEstadoCivil">Estado civil</label>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-sm-3">
+                                                <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="calle" name="calle">
                                                         <label for="calle">Calle</label>
                                                     </div>
                                                 </div>
-
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-1">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" id="altura" name="altura" >
                                                         <label for="altura">Altura</label>
@@ -122,16 +137,14 @@
                                                         <label for="localidad">Provincia</label>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control" id="form_control_6">
+                                                        <select class="form-control" id="form_control_6" disabled>
                                                             <option value=""></option>
                                                             <option value="1" selected="selected">Dueño</option>
                                                             <option value="2">Chofer</option>
                                                         </select>
-                                                        <label for="form_control_6">Tipo de provedor</label>
+                                                        <label for="form_control_6">Tipo de persona</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -344,13 +357,13 @@
                                                                     </div>
                                                                     <div class="portlet-body">
                                                                         <div class="row">
-                                                                            <div class="col-sm-3">
+                                                                            <div class="col-sm-2">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <input type="text" class="form-control" id="form_control_1" value="30-12345678-2">
                                                                                     <label for="form_control_1">CUIT</label>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-sm-3">
+                                                                            <div class="col-sm-2">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <select class="form-control" id="form_control_2">
                                                                                         <option value=""></option>
@@ -362,7 +375,7 @@
                                                                                     <label for="form_control_2">IVA</label>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-sm-3">
+                                                                            <div class="col-sm-2">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <select class="form-control" id="form_control_3">
                                                                                         <option value=""></option>
@@ -374,27 +387,24 @@
                                                                                     <label for="form_control_3">Condición de Pago</label>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-sm-3">
+                                                                            <div class="col-sm-2">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <input type="text" class="form-control" id="form_control_7" value="15 días">
                                                                                     <label for="form_control_7">Días fecha factura</label>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-sm-4">
+                                                                            <div class="col-sm-2">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <input type="text" class="form-control" id="form_control_5" value="12345678910123456789012">
                                                                                     <label for="form_control_5">CBU</label>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-sm-4">
+                                                                            <div class="col-sm-2">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <input type="text" class="form-control" id="form_control_6" value="perro.caca.pis">
                                                                                     <label for="form_control_6">Alias</label>
                                                                                 </div>
                                                                             </div>
-                                                                            
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -631,7 +641,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-actions noborder flex">
-                                                        <button type="button" class="btn btn-outline green">Guardar</button>
+                                                        <button type="button" class="btn btn-outline green mg-r-10">Guardar</button>
                                                         <button type="button" class="btn btn-outline red">Cancelar</button>
                                                     </div>
                                                 </form>
@@ -672,7 +682,7 @@
                         }
                     };
                     var idProv = getUrlParameter('idProv');
-                    $(document).prop('title', 'Provedor '+ idProv+' - Central LT');
+                    $(document).prop('title', 'Persona '+ idProv+' - Central LT');
 
                     $('#tablaUnidadesProvedor').DataTable( {
                         responsive: true,
