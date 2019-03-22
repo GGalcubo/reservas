@@ -125,6 +125,38 @@ def buscarViajes(request):
 	return render(request, 'sistema/grillaViajesExportar.html', context)
 
 @login_required
+def getClientes(request):
+    clientes = serializers.serialize('json', Cliente.objects.filter(baja=False))
+    return HttpResponse(clientes, content_type='application/json')
+
+@login_required
+def getClienteById(request):
+    cliente = Cliente.objects.get(id=request.POST.get('cliente_id', False))
+    personacliente = []
+    for i in cliente.personacliente_set.all():
+        personacliente.append({'id':i.persona.id,'nombre':i.persona.apellido + ' ' + i.persona.nombre,'tipo_persona':i.persona.tipo_persona.tipo_persona})
+
+    centrocosto = []
+    for c in cliente.centrocosto_set.filter(baja=False):
+        centrocosto.append({'id':c.id,'nombre':c.nombre})
+
+    data = {
+        'id': cliente.id,
+        'calle': cliente.calle,
+        'altura': cliente.altura,
+        'piso': cliente.piso,
+        'depto': cliente.depto,
+        'razon_social': cliente.razon_social,
+        'telefono': cliente.telefonoPrincipal(),
+        'centro_costos': list(centrocosto),
+        'personascliente': list(personacliente)
+    }
+
+    dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
+
+
+@login_required
 def altaViaje(request):
 	if not validarUrlPorRol(request):
 		mensaje = ""
@@ -137,13 +169,13 @@ def altaViaje(request):
 	viaje.id    = 0
 
 	context = {'mensaje': mensaje,
-				'clientes':Cliente.objects.all(),
+				#'clientes':Cliente.objects.filter(baja=False),
 				'tipoobservacion':TipoObservacion.objects.all(),
 				'tipo_pago':TipoPagoViaje.objects.all(),
-				'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake'),
+				'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake').filter(baja=False),
 				'estados':Estado.objects.all(),
 				'categoria_viajes':CategoriaViaje.objects.all(),
-				'tarifarios':Tarifario.objects.all(),
+				'tarifarios':Tarifario.objects.filter(baja=False),
 				'es_nuevo':es_nuevo,
 				'viaje':viaje}
 
@@ -165,14 +197,14 @@ def editaViaje(request):
 		return render(request, 'sistema/urlBloqueada.html', context)
 
 	context = {'mensaje': mensaje,
-				'clientes':Cliente.objects.all(),
+				#'clientes':Cliente.objects.filter(baja=False),
 				'tipoobservacion':TipoObservacion.objects.all(),
 				'tipo_pago':TipoPagoViaje.objects.all(),
-				'itemsviaje':ItemViaje.objects.filter(viaje_id=id_viaje),
-				'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake'),
+				#'itemsviaje':ItemViaje.objects.filter(viaje_id=id_viaje),
+				'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake').filter(baja=False),
 				'estados':Estado.objects.all(),
 				'categoria_viajes':CategoriaViaje.objects.all(),
-				'tarifarios':Tarifario.objects.all(),
+				'tarifarios':Tarifario.objects.filter(baja=False),
 				'destinos':TrayectoDestino.objects.all(),
 				'localidades':Localidad.objects.filter(baja=False),
 				'provincias':Provincia.objects.all(),

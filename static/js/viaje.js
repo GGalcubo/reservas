@@ -1,5 +1,7 @@
 $(document).ready( () => {
 
+    getClientes();
+
     $('#fecha').datepicker({
         language: 'es',
         dateFormat: 'dd/mm/yy',
@@ -526,9 +528,37 @@ $(document).ready( () => {
     
 });
 
+/**
+ *
+ */
+getClientes = () => {
+    let url = "/sistema/getClientes/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: {},
+        success: function(data)
+        {
+            $.each(data, (k, item) => {
+                let obj = {
+                    id : item.pk,
+                    razon_social : item.fields.razon_social
+                };
+                clientes.push(obj);
+                if(item.pk === cliente_id){
+                    $('#id_cliente').append($('<option selected="selected">').text(item.pk + ' - ' + item.fields.razon_social).attr('value', item.pk));
+                }else{
+                    $('#id_cliente').append($('<option>').text(item.pk + ' - ' + item.fields.razon_social).attr('value', item.pk));
+                }
+            });
+        }
+    });
+};
 
-
-
+/**
+ *
+ */
 getGrillasHistorial = () => {
     let url = "/sistema/getHistorial/";
     $.ajax({
@@ -543,7 +573,10 @@ getGrillasHistorial = () => {
     });
 };
 
-/*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
+/**
+ * Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado
+ * @returns {boolean}
+ */
 guardarSolicitante = () => {
     if ($('#nombrePasajeroCliente').val() == ""){
         showMsg("El Nombre es obligatorio.")
@@ -572,6 +605,9 @@ guardarSolicitante = () => {
     });
 };
 
+/**
+ *
+ */
 guardaViajeAdmin = () => {
     let url = "/sistema/guardaViajeAdmin/";
     $.ajax({
@@ -599,10 +635,11 @@ guardaViajeAdmin = () => {
             fillViajeItems();
         }
     });
-}
+};
 
-
-
+/**
+ *
+ */
 sumarPasajero = () => {
     let url = "/sistema/guardaViajePasajeroPOST/";
     $.ajax({
@@ -615,8 +652,11 @@ sumarPasajero = () => {
             $('#grillaPasajero').html(data);
         }
     });    
-}
+};
 
+/**
+ *
+ */
 getViajePasajeros = () => {
     let url       = "/sistema/getViajePasajeros/";
     let pasajeros = {};
@@ -633,6 +673,9 @@ getViajePasajeros = () => {
     return pasajeros;
 };
 
+/**
+ *
+ */
 updateFillsByPasajero = () =>{
     $('#suma_pasajero').empty();
     let pasajeros = getViajePasajeros;
@@ -653,6 +696,10 @@ updateFillsByPasajero = () =>{
     });
 };
 
+/**
+ *
+ * @param adjunto_id
+ */
 deleteViajeAdjunto = adjunto_id =>{
     let url       = "/sistema/deleteViajeAdjunto/";
     $.ajax({
@@ -667,6 +714,10 @@ deleteViajeAdjunto = adjunto_id =>{
     });
 };
 
+/**
+ *
+ * @param pasajero_id
+ */
 deleteViajePasajero = pasajero_id =>{
     let url       = "/sistema/deleteViajePasajero/";
     $.ajax({
@@ -681,6 +732,9 @@ deleteViajePasajero = pasajero_id =>{
     });
 };
 
+/**
+ *
+ */
 deleteAllViajePasajero = () =>{
     let url       = "/sistema/deleteAllViajePasajero/";
     let pasajeros = {};
@@ -696,14 +750,18 @@ deleteAllViajePasajero = () =>{
     });
 };
 
- /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
+
+/**
+ * Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado
+ * @returns {boolean}
+ */
 guardarPasajeroModal = () => {
     if ($('#nombrePasClienteModal').val() == ""){
-        showMsg("El Nombre es obligatorio.")
+        showMsg("El Nombre es obligatorio.");
         return false;
     }
     if ($('#apellidoPasClienteModal').val() == ""){
-        showMsg("El Apellido es obligatorio.")
+        showMsg("El Apellido es obligatorio.");
         return false;
     }
     let url = "/sistema/guardarPasajeroDesdeViaje/";
@@ -729,9 +787,13 @@ guardarPasajeroModal = () => {
             $('#pasajero').html(data);
         }
     });
-}
+};
 
- /*Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado*/
+
+/**
+ * Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado
+ * @returns {boolean}
+ */
 guardarPasajero = () => {
     if ($('#nombrePasCliente').val() == ''){
         showMsg("El Nombre es obligatorio.");
@@ -766,85 +828,110 @@ guardarPasajero = () => {
     });
 };
 
+/**
+ *
+ * @param name
+ * @param evt
+ */
 updateFillsByCliente = (name, evt) => {
-    cliente = searchCliente(evt.params.data.id);
+    let url = "/sistema/getClienteById/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: {cliente_id:evt.params.data.id},
+        success: function(data)
+        {
+            let cliente = {};
+            cliente.id = data.id;
+            cliente.calle = data.calle ? data.calle : '';
+            cliente.altura = data.altura ? data.altura : '';
+            cliente.piso = data.piso ? data.piso : '';
+            cliente.depto = data.depto ? data.depto : '';
+            cliente.direccion = data.calle + ' ' + cliente.altura + ' ' + cliente.piso + ' ' + cliente.depto;
+            cliente.telefono = data.telefono;
+            cliente.personascliente = data.personascliente;
+            cliente.centro_costos = data.centro_costos;
 
-    $('#id_cliente').select2('val',cliente.id);
-    $('#idClienteEnSol').val(cliente.id);
-    $('#idClienteEnCC').val(cliente.id);
-    $('#idClientePasajeroModal').val(cliente.id);
-    $('#idClientePasajero').val(cliente.id);
-    $('#id_cliente').val(cliente.id).trigger("change");
-    $('#cliente_direccion').val(cliente.direccion);
-    $('#cliente_categoria').val(cliente.categoria_id);
-    $('#cliente_tel').val(cliente.telefono);
+            //$('#id_cliente').select2('val',cliente.id);
+            $('#idClienteEnSol').val(cliente.id);
+            $('#idClienteEnCC').val(cliente.id);
+            $('#idClientePasajeroModal').val(cliente.id);
+            $('#idClientePasajero').val(cliente.id);
+            $('#id_cliente').val(cliente.id).trigger("change");
+            $('#cliente_direccion').val(cliente.direccion);
+            $('#cliente_categoria').val(cliente.categoria_id);
+            $('#cliente_tel').val(cliente.telefono);
 
-    $('#centroDeCosto').empty().append($('<option>').text('').attr('value', ''));
-    $('#contacto').empty().append($('<option>').text('').attr('value', ''));
-    $('#pasajero').empty().append($('<option>').text('').attr('value', ''));
-    $('#pasajero_trayecto').empty().append($('<option>').text('').attr('value', ''));
-    $('#suma_pasajero').empty();
+            $('#centroDeCosto').empty().append($('<option>').text('').attr('value', ''));
+            $('#contacto').empty().append($('<option>').text('').attr('value', ''));
+            $('#pasajero').empty().append($('<option>').text('').attr('value', ''));
+            $('#pasajero_trayecto').empty().append($('<option>').text('').attr('value', ''));
+            $('#suma_pasajero').empty();
 
-    if(evt.params.data.no_borrar_pasajeros){
+            if(evt.params.data.no_borrar_pasajeros){
 
-    }else{
-        if(es_nuevo != 1){
-            deleteAllViajePasajero();
-        }
-    }
-
-    $.each(cliente.centro_costos, (i, value) => {
-        if(value.id === centro_costo){
-            $('#centroDeCosto').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
-        }else{
-            $('#centroDeCosto').append($('<option>').text(value.nombre).attr('value', value.id));
-        }
-    });
-
-    $.each(cliente.personascliente, (i, value) => {
-        if(value.tipo_persona === 'Solicitante'){
-            if(value.id === solicitante){
-                $('#contacto').append($('<option selected="selected">').text(value.nombre).attr('value', value.id))
             }else{
-                $('#contacto').append($('<option>').text(value.nombre).attr('value', value.id));
+                if(es_nuevo != 1){
+                    deleteAllViajePasajero();
+                }
             }
 
-        }
-    });
+            $.each(cliente.centro_costos, (i, value) => {
+                if(value.id == centro_costo){
+                    $('#centroDeCosto').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
+                }else{
+                    $('#centroDeCosto').append($('<option>').text(value.nombre).attr('value', value.id));
+                }
+            });
 
-    $.each(cliente.personascliente, (i, value) => {
-        if(value.tipo_persona === 'Pasajero'){
-            if(value.id === pasajero){
-                $('#pasajero').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
-            }else{
-                $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
-            }
+            $.each(cliente.personascliente, (i, value) => {
+                if(value.tipo_persona === 'Solicitante'){
+                    if(value.id == solicitante){
+                        $('#contacto').append($('<option selected="selected">').text(value.nombre).attr('value', value.id))
+                    }else{
+                        $('#contacto').append($('<option>').text(value.nombre).attr('value', value.id));
+                    }
 
-            if(value.id != $('#pasajero').val()){                
-                $('#suma_pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
-            }
+                }
+            });
 
-            $('#pasajero_trayecto').append($('<option>').text(value.nombre).attr('value', value.id));
+            $.each(cliente.personascliente, (i, value) => {
+                if(value.tipo_persona === 'Pasajero'){
+                    if(value.id == pasajero){
+                        $('#pasajero').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
+                    }else{
+                        $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
+                    }
+
+                    if(value.id != $('#pasajero').val()){
+                        $('#suma_pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
+                    }
+
+                    $('#pasajero_trayecto').append($('<option>').text(value.nombre).attr('value', value.id));
+                }
+            });
         }
     });
 };
 
-searchCliente = (_cliente_id) => {
-    let cliente = {};
-    $.each(clientes, (i, value) => {
-        if(value.id == _cliente_id){
-            cliente = value;
-        }
-    }); 
-    return cliente;
-};
 
+/**
+ *
+ * @param name
+ * @param evt
+ */
 updateFillsByUnidad = (name, evt) => {
     var option_selected = evt.params.data.id;
     $('#unidad_id').select2('val',unidades[option_selected].id);
     $('#unidad_id').val(unidades[option_selected].id).trigger("change");
 };
 
+/**
+ *
+ * @param name
+ * @param evt
+ */
 updateFillsByLocalidad = (name, evt) => {
     var localidad_id = evt.params.data.id,
         init = evt.params.data.init,
@@ -913,7 +1000,13 @@ updateFillsByLocalidad = (name, evt) => {
         $('.' + html_direccion).show();
         $("." + html_vuelo).hide();
     }
-}
+};
+
+/**
+ *
+ * @param name
+ * @param evt
+ */
 updateFillsByDestino = (name, evt) => {
     var destino_id          = evt.params.data.id,
         localidad_select_id = evt.params.data.localidad_select_id,
@@ -1025,8 +1118,11 @@ updateFillsByDestino = (name, evt) => {
             }
         });
     }
-}
+};
 
+/**
+ *
+ */
 agregarTramo = () => {
     /*if ($("#modal_desde_destino").val() == ""){
         showMsg("El campo desde destino es obligatorio.");
@@ -1083,7 +1179,11 @@ agregarTramo = () => {
            }
        }
      });
-}
+};
+
+/**
+ *
+ */
 agregarObservacion = () => {
     if ($('#textAreaObservacion').val() == ""){
         showMsg("Campo observacion es obligatorio", 'error');
@@ -1102,6 +1202,9 @@ agregarObservacion = () => {
     }
 };
 
+/**
+ *
+ */
 fillViajeItems = () => {
     let sum_total_proveedor = 0;
     let sum_total_cliente = 0;
@@ -1193,6 +1296,9 @@ fillViajeItems = () => {
     $('#admin_total_proveedor').val(sum_total_proveedor);
 };
 
+/**
+ *
+ */
 guardaAdjuntoViaje = () =>{
     var formData = new FormData();
     formData.append('file', $('#file')[0].files[0]);
@@ -1210,6 +1316,10 @@ guardaAdjuntoViaje = () =>{
     });
 };
 
+/**
+ *
+ * @returns {boolean}
+ */
 guardarCentroCosto = () =>{
     if ($('#codigoCCCliente').val() == ""){
         showMsg("El Codigo es obligatorio.", 'error');
@@ -1239,7 +1349,9 @@ guardarCentroCosto = () =>{
     }
 };
 
-
+/**
+ *
+ */
 guardarCCmetodo = () =>{
     let url = "/sistema/guardarCentroCostoProspectDesdeViaje/";
     $.ajax({
@@ -1260,6 +1372,11 @@ guardarCCmetodo = () =>{
 };
 
 //Se utiliza para que el campo de texto solo acepte letras
+/**
+ *
+ * @param e
+ * @returns {boolean}
+ */
 soloLetras = e =>{
     key = e.keyCode || e.which;
     tecla = String.fromCharCode(key).toString();
