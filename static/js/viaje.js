@@ -1,7 +1,5 @@
 $(document).ready( () => {
 
-    getClientes();
-
     $('#fecha').datepicker({
         language: 'es',
         dateFormat: 'dd/mm/yy',
@@ -60,6 +58,7 @@ $(document).ready( () => {
         $('#fecha').datepicker('setDate', 'today');
         $("#viaje-tab").hide();
         $('#estado').attr("disabled", true);
+        getClientes();
     }else{
         $("#viaje-tab").show();
         getGrillasHistorial();
@@ -70,39 +69,61 @@ $(document).ready( () => {
         if(mensaje != ''){showMsg(mensaje, 'success')}
         $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
         //HAGO ESTO PARA SIMULAR UN EVENTO QUE PIDE LA FUNCION DE SELECT2ME
-        var evt = {};
+        let url = "/sistema/getClientes/";
+        $.ajax({
+            type: "POST",
+            url: url,
+            headers: {'X-CSRFToken': csrf_token},
+            data: {},
+            success: function(data)
+            {
+                $.each(data, (k, item) => {
+                    let obj = {
+                        id : item.pk,
+                        razon_social : item.fields.razon_social
+                    };
+                    clientes.push(obj);
+                    if(item.pk === cliente_id){
+                        $('#id_cliente').append($('<option selected="selected">').text(item.pk + ' - ' + item.fields.razon_social).attr('value', item.pk));
+                    }else{
+                        $('#id_cliente').append($('<option>').text(item.pk + ' - ' + item.fields.razon_social).attr('value', item.pk));
+                    }
+                });
+                var evt = {};
 
-        evt.params = {};
-        evt.params.data = {};
-        evt.params.data.id = cliente_id;
-        evt.params.data.no_borrar_pasajeros = true;
-        updateFillsByCliente('', evt);
+                evt.params = {};
+                evt.params.data = {};
+                evt.params.data.id = cliente_id;
+                evt.params.data.no_borrar_pasajeros = true;
+                updateFillsByCliente('', evt);
 
-        evt.params.data.id = destino_desde_id;
-        evt.params.data.provincia_select_id = provincia_desde_id;
-        evt.params.data.localidad_select_id = localidad_desde_id;
-        evt.params.data.init = true;
-        evt.currentTarget = {};
-        evt.currentTarget.id = 'desde_destino';
-        updateFillsByDestino('', evt);
+                evt.params.data.id = destino_desde_id;
+                evt.params.data.provincia_select_id = provincia_desde_id;
+                evt.params.data.localidad_select_id = localidad_desde_id;
+                evt.params.data.init = true;
+                evt.currentTarget = {};
+                evt.currentTarget.id = 'desde_destino';
+                updateFillsByDestino('', evt);
 
-        evt.currentTarget.id = 'desde_localidad';
-        evt.params.data.id = localidad_desde_id;
-        updateFillsByLocalidad('', evt);
+                evt.currentTarget.id = 'desde_localidad';
+                evt.params.data.id = localidad_desde_id;
+                updateFillsByLocalidad('', evt);
 
-        evt.params.data.id = destino_hasta_id;
-        evt.params.data.provincia_select_id = provincia_hasta_id;
-        evt.params.data.localidad_select_id = localidad_hasta_id;
-        evt.params.data.init = true;
-        evt.currentTarget = {};
-        evt.currentTarget.id = 'hasta_destino';
-        updateFillsByDestino('', evt);
+                evt.params.data.id = destino_hasta_id;
+                evt.params.data.provincia_select_id = provincia_hasta_id;
+                evt.params.data.localidad_select_id = localidad_hasta_id;
+                evt.params.data.init = true;
+                evt.currentTarget = {};
+                evt.currentTarget.id = 'hasta_destino';
+                updateFillsByDestino('', evt);
 
-        evt.params.data.id = localidad_hasta_id;
-        evt.currentTarget.id = 'hasta_localidad';
-        updateFillsByLocalidad('', evt);
+                evt.params.data.id = localidad_hasta_id;
+                evt.currentTarget.id = 'hasta_localidad';
+                updateFillsByLocalidad('', evt);
 
-        fillViajeItems();
+                fillViajeItems();
+            }
+        });
     }
 
     $('#categoria_viaje').select2({ placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
@@ -858,7 +879,7 @@ updateFillsByCliente = (name, evt) => {
             $('#idClienteEnCC').val(cliente.id);
             $('#idClientePasajeroModal').val(cliente.id);
             $('#idClientePasajero').val(cliente.id);
-            $('#id_cliente').val(cliente.id).trigger("change");
+            $('#id_cliente').val(cliente.id).trigger('change');
             $('#cliente_direccion').val(cliente.direccion);
             $('#cliente_categoria').val(cliente.categoria_id);
             $('#cliente_tel').val(cliente.telefono);
