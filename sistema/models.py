@@ -205,23 +205,10 @@ class Persona(models.Model):
     def getDomicilio(self):
         return self.direccion
 
-    def getUnidad(self):
-        unidad = Unidad()
-        if self.tipo_persona.id == 3:
-            unidades = Unidad.objects.filter(chofer__id=self.id)
-        if self.tipo_persona.id == 4:
-            unidades = Unidad.objects.filter(owner__id=self.id)
-        elif  self.tipo_persona.id == 2 or self.tipo_persona.id == 1:
-            unidades = ""
-        if len(unidades) > 0:
-            unidad = unidades[0]
-        return unidad
-
     def getNacimiento(self):
         if self.fecha_nacimiento == "":
             return ""
         return getFecha(self.fecha_nacimiento)
-
 
 class Vehiculo(models.Model):
     marca = models.CharField(max_length=30)

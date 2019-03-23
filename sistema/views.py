@@ -1660,17 +1660,9 @@ def altaProvedor(request):
 def borrarProvedor(request):
 	mensaje = ""
 	idProv = request.GET.get('idProv', "")
-	prov = Persona.objects.get(id=idProv)
+	unidad = Unidad.objects.get(id=idProv)
 	prov.baja = True
 	prov.save()
-	uniChofer = Unidad.objects.filter(chofer__id=idProv)
-	for u in uniChofer:
-		u.chofer = None
-		u.save()
-	uniOwner = Unidad.objects.filter(owner__id=idProv)
-	for u in uniOwner:
-		u.owner = None
-		u.save()
 	return redirect('listadoProvedor')
 
 @login_required
@@ -1678,8 +1670,6 @@ def unidad(request):
 	mensaje = ""
 	idUnidad = request.GET.get('idUnidad', "")
 	unidad = Unidad.objects.get(id=idUnidad)
-	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
-	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
 	tipo_licencias = TipoLicencia.objects.all()
 	tarifarios = Tarifario.objects.filter(baja=False)
 	ids_fake = []
@@ -1689,7 +1679,7 @@ def unidad(request):
 	for number in range(1100):
 		if number not in unidades:
 			ids_fake.append(number)
-	context = {'mensaje': mensaje, 'unidad': unidad, 'owners': owners, 'choferes': choferes, 'tipo_licencias':tipo_licencias,'ids_fake':ids_fake,'tarifarios':tarifarios}
+	context = {'mensaje': mensaje, 'unidad': unidad, 'tipo_licencias':tipo_licencias,'ids_fake':ids_fake,'tarifarios':tarifarios}
 	return render(request, 'sistema/unidad.html', context)
 
 @login_required
@@ -1704,9 +1694,8 @@ def altaUnidad(request):
 	for number in range(1100):
 		if number not in unidades:
 			ids_fake.append(number)
-	owners = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=4),baja=False)
-	choferes = Persona.objects.filter(tipo_persona_id=TipoPersona.objects.get(id=3),baja=False)
-	context = {'mensaje': mensaje, 'owners':owners, 'choferes':choferes, 'unidad': unidad, 'ids_fake':ids_fake, 'tarifarios':tarifarios}
+
+	context = {'mensaje': mensaje, 'unidad': unidad, 'ids_fake':ids_fake, 'tarifarios':tarifarios}
 	return render(request, 'sistema/unidad.html', context)
 
 @login_required
@@ -1747,11 +1736,6 @@ def guardarUnidad(request):
 
 	unidad.id_fake = request.POST.get('selectIdFake', "")
 	unidad.identificacion = request.POST.get('identificacion', "")
-	unidad.owner = Persona.objects.get(id=request.POST.get('selectOwners', ""))
-	unidad.porcentaje_owner = request.POST.get('porcFacturacionOwner', "")
-	if request.POST.get('selectChoferes', "") != "":
-		unidad.chofer = Persona.objects.get(id=request.POST.get('selectChoferes', ""))
-	unidad.porcentaje_chofer = request.POST.get('porcFacturacionChofer', "")
 	if request.POST.get('selectTarifario', "") != "":
 		unidad.tarifario = Tarifario.objects.get(id=request.POST.get('selectTarifario', ""))
 
@@ -1808,7 +1792,6 @@ def guardarObservacionUnidad(request):
 @login_required
 def guardarLicenciaUnidad(request):
 	idLicencia = request.POST.get('idLicencia', False)
-	personaLicencia = request.POST.get('personaLicencia', False)
 	descripcion = request.POST.get('descripcionLicencia', False)
 	tipo = TipoLicencia.objects.get(id=request.POST.get('tipoLicencia', False))
 	fv = request.POST.get('vencimientoLicencia', False)
@@ -1817,32 +1800,16 @@ def guardarLicenciaUnidad(request):
 	if idLicencia == "0":
 		licencia = Licencia()
 	else:
-		LicenciaPersona.objects.filter(licencia_id=idLicencia).delete()
-		LicenciaVehiculo.objects.filter(licencia_id=idLicencia).delete()
 		licencia = Licencia.objects.get(id=idLicencia)
+
+	unidad = Unidad.objects.get(id=request.POST.get('idUnidad', False))
 
 	licencia.comentario = descripcion
 	licencia.tipo_licencia = tipo
 	licencia.fecha_vencimiento = fecha
+	licencia.unidad = unidad
 	licencia.save()
 
-	if personaLicencia == "chofer":
-		lp = LicenciaPersona()
-		lp.persona = Persona.objects.get(id=request.POST.get('idChofer', False))
-		lp.licencia = licencia
-		lp.save()
-	elif personaLicencia == "owner":
-		lp = LicenciaPersona()
-		lp.persona = Persona.objects.get(id=request.POST.get('idOwner', False))
-		lp.licencia = licencia
-		lp.save()
-	else:
-		lv = LicenciaVehiculo()
-		lv.vehiculo = Vehiculo.objects.get(id=request.POST.get('idVehiculo', False))
-		lv.licencia = licencia
-		lv.save()
-
-	unidad = Unidad.objects.get(id=request.POST.get('idUnidad', False))
 	context = {'unidad':unidad}
 	return render(request, 'sistema/grillaLicencias.html', context)
 
@@ -2374,11 +2341,20 @@ def listadoAdelanto(request):
 @login_required
 def altaAdelanto(request):
 	mensaje = ""
-	proveedores = Persona.objects.filter(tipo_persona__in=[3,4])
+
+	unidades = []
+	permisos = obtenerPermiso(request)
+	if 'unidades' in permisos:
+		usrunidad = request.user.usrunidad_set.all()
+		for u in usrunidad:
+			unidades.append(u.unidad)
+	else:
+		unidades = Unidad.objects.filter(baja=False)
+
 	tipos_adelanto = TipoAdelanto.objects.all()
 	adelanto = Adelanto()
 	adelanto.id = 0
-	context = {'mensaje': mensaje, 'proveedores':proveedores,'tipos_adelanto':tipos_adelanto,'adelanto':adelanto}
+	context = {'mensaje': mensaje, 'unidades':unidades,'tipos_adelanto':tipos_adelanto,'adelanto':adelanto}
 	return render(request, 'sistema/adelanto.html', context)
 
 @login_required
@@ -2389,20 +2365,28 @@ def adelanto(request):
 	idAdelanto = request.GET.get('idAdelanto', "")
 	adelanto = Adelanto.objects.get(id=idAdelanto)
 	tipos_adelanto = TipoAdelanto.objects.all()
-	proveedores = Persona.objects.filter(tipo_persona__in=[3,4])
+
+	unidades = []
+	permisos = obtenerPermiso(request)
+	if 'unidades' in permisos:
+		usrunidad = request.user.usrunidad_set.all()
+		for u in usrunidad:
+			unidades.append(u.unidad)
+	else:
+		unidades = Unidad.objects.filter(baja=False)
 
 	tipoAdelantoId = adelanto.tipo_adelanto.id
-	provedorId = adelanto.proveedor.id
+	unidadId = adelanto.unidad.id
 	request.session['estadoAdelanto'] = ''
 
 	context = {'mensaje': mensaje,
-				'proveedores':proveedores,
+				'unidades':unidades,
 				'tipos_adelanto':tipos_adelanto,
 				'estado':estado,
 				'idAdelanto':idAdelanto,
 				'tipoAdelantoId':tipoAdelantoId,
 				'adelanto':adelanto,
-				'provedorId':provedorId
+				'unidadId':unidadId
 			}
 	return render(request, 'sistema/adelanto.html', context)
 
@@ -2410,7 +2394,7 @@ def adelanto(request):
 def guardarAdelanto(request):
 	mensaje = ""
 	idAdelanto = request.POST.get('idAdelanto', False)
-	provedor = request.POST.get('provedor', False)
+	unidad = request.POST.get('unidad', False)
 	monto = request.POST.get('monto', False)
 	tipoAdelanto = request.POST.get('tipoAdelanto', False)
 	descripcion = request.POST.get('descripcion', False)
@@ -2424,7 +2408,7 @@ def guardarAdelanto(request):
 		adelanto = Adelanto.objects.get(id=idAdelanto)
 		request.session['estadoAdelanto'] = 'editado'
 
-	adelanto.proveedor = Persona.objects.get(id=provedor)
+	adelanto.unidad = Unidad.objects.get(id=unidad)
 	adelanto.monto = monto
 	adelanto.tipo_adelanto = TipoAdelanto.objects.get(id=tipoAdelanto)
 	adelanto.descripcion = descripcion
@@ -2440,14 +2424,14 @@ def buscarAdelantos(request):
 
 	fechaDesde = request.POST.get('desde', False)
 	fechaHasta = request.POST.get('hasta', False)
-	provedor = request.POST.get('provedor', False)
+	unidad = request.POST.get('unidad', False)
 
 	fechaDesde =  getAAAAMMDD(fechaDesde)
 	fechaHasta =  getAAAAMMDD(fechaHasta)
 
 	adelantos = []
-	if provedor:
-		adelantos = Adelanto.objects.filter(proveedor_id=provedor,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+	if unidad:
+		adelantos = Adelanto.objects.filter(unidad_id=unidad,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 	else:
 		adelantos = Adelanto.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 
@@ -2563,19 +2547,6 @@ def cargarProforma(request):
 
 	context = {'proformas': proformas}
 	return render(request, 'sistema/selectProformas.html', context)
-
-@login_required
-def cargarProveedores(request):
-	idUnidad = request.GET.get('idUnidad', False)
-	proveedores = []
-	if idUnidad:
-		unidad = Unidad.objects.get(id=idUnidad)
-		if unidad.chofer:
-			proveedores.append(unidad.chofer)
-		if unidad.owner:
-			proveedores.append(unidad.owner)
-	context = {'proveedores': proveedores}
-	return render(request, 'sistema/selectProveedores.html', context)
 
 @login_required
 def buscarFacturacionCliente(request):
