@@ -46,7 +46,7 @@
                                                     <th class="all">Acciones</th>
                                                     <th class="all">ID</th>
                                                     <th class="all">Nombre</th>
-                                                    <th class="all">CUIT/CUIL</th>
+                                                    <th class="all">DNI</th>
                                                     <th class="all">Domicilio</th>
                                                     <th class="all">Teléfono</th>
                                                     <th class="all">Mail</th>
@@ -63,8 +63,8 @@
                                                     <td>{{ p.id }}</td>
                                                     <td>{{ p.nombreCompleto|default_if_none:"" }}</td>
                                                     <td>{{ p.documento|default_if_none:"" }}</td>
-                                                    <td>{{ p.getDomicilio }}</td>
-                                                    <td>{{ p.getTelefono }}</td>
+                                                    <td>{{ p.calle|default_if_none:"" }}</td>
+                                                    <td>{{ p.telefono|default_if_none:"" }}</td>
                                                     <td>{{ p.mail|default_if_none:"" }}</td>
                                                     <td>{{ p.tipo_persona.tipo_persona|default_if_none:"" }}</td>
                                                 </tr>

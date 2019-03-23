@@ -1615,8 +1615,37 @@ def provedor(request):
 	mensaje = ""
 	idProv = request.GET.get('idProv', "")
 	prov = Persona.objects.get(id=idProv)
-	context = {'prov': prov}
+	estadosCivil = EstadoCivil.objects.all()
+	context = {'prov': prov, 'estadosCivil':estadosCivil}
 	return render(request, 'sistema/provedor.html', context)
+
+@login_required
+def guardarProvedor(request):
+	mensaje = ""
+	idProv = request.GET.get('idProv', "")
+	if idProv == "0":
+		persona = Persona()
+	else:
+		persona = Persona.objects.get(id=idProv)
+
+	persona.nombre = request.GET.get('provNombre', "")
+	persona.apellido = request.GET.get('provApellido', "")
+	persona.documento = request.GET.get('provDNI', "")
+	persona.fache_nacimiento = request.GET.get('provNacimiento', "")
+	persona.telefono = request.GET.get('provTelefono', "")
+	persona.mail = request.GET.get('provMail', "")
+	persona.estado_civil_id = request.GET.get('provEstadoCivil', "")
+	persona.direccion = request.GET.get('direccion', "")
+	persona.cp = request.GET.get('cp', "")
+	persona.localidad = request.GET.get('localidad', "")
+	persona.provincia = request.GET.get('provincia', "")
+	persona.tipo_persona_id = request.GET.get('provTipoPersona', "")
+
+	persona.save()
+	
+	url = '/sistema/provedor/?idProv='+str(persona.id)
+	return redirect(url)
+
 
 @login_required
 def borrarProvedor(request):

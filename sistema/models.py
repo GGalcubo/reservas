@@ -146,12 +146,12 @@ class Persona(models.Model):
     cuil = models.CharField(max_length=20, null=True, blank=True)
     tipo_persona = models.ForeignKey(TipoPersona, null=True, blank=True)
     estado_civil = models.ForeignKey(EstadoCivil, null=True, blank=True)
-    calle = models.CharField(max_length=100, null=True, blank=True)
-    altura = models.CharField(max_length=10, null=True, blank=True)
-    piso = models.CharField(max_length=10, null=True, blank=True)
+    direccion = models.CharField(max_length=200, null=True, blank=True)
     localidad = models.CharField(max_length=50, null=True, blank=True)
+    provincia = models.CharField(max_length=50, null=True, blank=True)
     cp = models.CharField(max_length=10, null=True, blank=True)
     mail = models.CharField(max_length=100, null=True, blank=True)
+    telefono = models.CharField(max_length=50, null=True, blank=True)
     puesto = models.CharField(max_length=100, null=True, blank=True)
     iva = models.CharField(max_length=100, null=True, blank=True)
     condicion_pago = models.CharField(max_length=100, null=True, blank=True)
@@ -197,24 +197,13 @@ class Persona(models.Model):
             return 'Sin cliente'
 
     def getTelefono(self):
-        if len(self.telefonopersona_set.all()) > 0:
-            return self.telefonopersona_set.all()[0].telefono.numero
-        else:
-            return 'Sin telefono'
+        return self.telefono
 
     def getMail(self):
-        if len(self.mailpersona_set.all()) > 0:
-            return self.mailpersona_set.all()[0].mail.mail
-        else:
-            return 'Sin mail'
+        return self.mail
 
     def getDomicilio(self):
-        retorno = ""
-        if self.calle != None:
-            retorno = retorno + self.calle
-            if self.altura != None:
-                retorno = retorno + " "+ self.altura
-        return retorno
+        return self.direccion
 
     def getUnidad(self):
         unidad = Unidad()
@@ -227,6 +216,9 @@ class Persona(models.Model):
         if len(unidades) > 0:
             unidad = unidades[0]
         return unidad
+
+    def getNacimiento(self):
+        return getFecha(self.fecha_nacimiento)
 
 
 class Vehiculo(models.Model):
