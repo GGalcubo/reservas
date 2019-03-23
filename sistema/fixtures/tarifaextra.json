@@ -12,7 +12,7 @@
    "fields": {
       "extra_descripcion": "espera",
         "baja": false,
-        "tarifario":1, "cat1":770, "cat2":"865", "cat3":"865", "cat4":"1035", "cat5":"1320", "cat6":"1440", "cat7":"1920", "cat8":"3600"}},
+        "tarifario":1, "cat1":192.5, "cat2":"216.25", "cat3":"216.25", "cat4":"258.75", "cat5":"330", "cat6":"360", "cat7":"480", "cat8":"900"}},
 {
    "model": "sistema.TarifaExtra",
    "pk":3,
@@ -33,7 +33,7 @@
    "fields": {
       "extra_descripcion": "espera",
         "baja": false,
-        "tarifario":2, "cat1":770, "cat2":"865", "cat3":"865", "cat4":"1035", "cat5":"1320", "cat6":"1440", "cat7":"1920", "cat8":"3600"}},
+        "tarifario":2, "cat1":192.5, "cat2":"216.25", "cat3":"216.25", "cat4":"258.75", "cat5":"330", "cat6":"360", "cat7":"480", "cat8":"900"}},
 {
    "model": "sistema.TarifaExtra",
    "pk":6,
@@ -54,7 +54,7 @@
    "fields": {
       "extra_descripcion": "espera",
         "baja": false,
-        "tarifario":3, "cat1":685, "cat2":"780", "cat3":"780", "cat4":"915", "cat5":"1190", "cat6":"1330", "cat7":"1825", "cat8":"3420"}},
+        "tarifario":3, "cat1":171.25, "cat2":"195", "cat3":"195", "cat4":"228.75", "cat5":"297.5", "cat6":"332.5", "cat7":"456.25", "cat8":"855"}},
 {
    "model": "sistema.TarifaExtra",
    "pk":9,
@@ -75,7 +75,7 @@
    "fields": {
       "extra_descripcion": "espera",
         "baja": false,
-        "tarifario":4, "cat1":685, "cat2":"780", "cat3":"780", "cat4":"915", "cat5":"1190", "cat6":"1330", "cat7":"1825", "cat8":"3420"}},
+        "tarifario":4, "cat1":171.25, "cat2":"195", "cat3":"195", "cat4":"228.75", "cat5":"297.5", "cat6":"332.5", "cat7":"456.25", "cat8":"855"}},
 {
    "model": "sistema.TarifaExtra",
    "pk":12,
@@ -96,7 +96,7 @@
    "fields": {
       "extra_descripcion": "espera",
         "baja": false,
-        "tarifario":5, "cat1":810, "cat2":"920", "cat3":"920", "cat4":"1080", "cat5":"1400", "cat6":"1565", "cat7":"2155", "cat8":"4035"}},
+        "tarifario":5, "cat1":202.5, "cat2":"230", "cat3":"230", "cat4":"270", "cat5":"350", "cat6":"391.25", "cat7":"538.75", "cat8":"1008.75"}},
 {
    "model": "sistema.TarifaExtra",
    "pk":15,
@@ -117,7 +117,7 @@
    "fields": {
       "extra_descripcion": "espera",
         "baja": false,
-        "tarifario":6, "cat1":810, "cat2":"920", "cat3":"920", "cat4":"1080", "cat5":"1400", "cat6":"1565", "cat7":"2155", "cat8":"4035"}},
+        "tarifario":6, "cat1":202.5, "cat2":"230", "cat3":"230", "cat4":"270", "cat5":"350", "cat6":"391.25", "cat7":"538.75", "cat8":"1008.75"}},
 {
    "model": "sistema.TarifaExtra",
    "pk":18,
@@ -138,7 +138,7 @@
    "fields": {
       "extra_descripcion": "espera",
         "baja": false,
-        "tarifario":7, "cat1":650, "cat2":"745", "cat3":"865", "cat4":"745", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
+        "tarifario":7, "cat1":162.5, "cat2":"186.25", "cat3":"216.25", "cat4":"186.25", "cat5":"0", "cat6":"0", "cat7":"0", "cat8":"0"}},
 {
    "model": "sistema.TarifaExtra",
    "pk":21,
