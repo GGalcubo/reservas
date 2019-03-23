@@ -42,48 +42,48 @@
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <form role="form" class="form-datos-provedor">
+                                    <form role="form" method="post" id="form-datos-provedor" class="form-datos-provedor" action="/sistema/guardarProvedor/">{% csrf_token %}
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-sm-1">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="idProv" value="{{prov.id}}">
+                                                        <input type="text" class="form-control" id="idProv" name="idProv" value="{{prov.id}}" readonly>
                                                         <label for="idProv">ID</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="provNombre" value="{{prov.nombre}}">
+                                                        <input type="text" class="form-control" id="provNombre" name="provNombre" value="{{prov.nombre|default_if_none:""}}">
                                                         <label for="provNombre">Nombre</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="provApellido" value="{{prov.apellido}}">
+                                                        <input type="text" class="form-control" id="provApellido" name="provApellido" value="{{prov.apellido|default_if_none:""}}">
                                                         <label for="provApellido">Apellido</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="provDNI" value="{{prov.documento}}">
+                                                        <input type="text" class="form-control" id="provDNI" name="provDNI" value="{{prov.documento|default_if_none:""}}">
                                                         <label for="provDNI">DNI</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="provNacimiento" value="{{prov.getNacimiento}}">
+                                                        <input type="text" class="form-control" id="provNacimiento" name="provNacimiento" value="{{prov.getNacimiento}}">
                                                         <label for="provNacimiento">Fecha Nac.</label>
                                                     </div>
                                                 </div> 
                                                 <div class="col-sm-1">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="provTelefono" value="{{prov.telefono|default_if_none:""}}">
+                                                        <input type="text" class="form-control" id="provTelefono" name="provTelefono" value="{{prov.telefono|default_if_none:""}}">
                                                         <label for="provTelefono">Teléfono</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="provMail" value="{{prov.mail|default_if_none:""}}">
+                                                        <input type="text" class="form-control" id="provMail" name="provMail" value="{{prov.mail|default_if_none:""}}">
                                                         <label for="provMail">Mail</label>
                                                     </div>
                                                 </div>
@@ -258,19 +258,23 @@
                         $('#provTipoPersona').val({{ prov.tipo_persona.id }});
                     }
                     
+                    if ($('#idProv').val() == "0"){
+                        $('#provTipoPersona').prop('disabled', false);
+                    }
 
                 });
                 
                 function guardarProvedor(){
-                    var url = "/sistema/guardarProvedor/";
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: $("#form-datos-provedor").serialize(),
-                        success: function(data){
-                            alert("Se ha guardado la persona.")
-                        }
-                    });
+                    if ($("#provNombre").val() == ""){
+                        alert("El campo Nombre es obligatorio.");
+                        return false;
+                    }
+
+                    if ($("#provApellido").val() == ""){
+                        alert("El campo Apellido es obligatorio.");
+                        return false;
+                    }
+                    $("#form-datos-provedor").submit();
                 }
 
                 function agregarObservacion(){

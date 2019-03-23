@@ -1622,30 +1622,39 @@ def provedor(request):
 @login_required
 def guardarProvedor(request):
 	mensaje = ""
-	idProv = request.GET.get('idProv', "")
+	idProv = request.POST.get('idProv', "")
 	if idProv == "0":
 		persona = Persona()
+		persona.tipo_persona_id = request.POST.get('provTipoPersona', "")
 	else:
 		persona = Persona.objects.get(id=idProv)
 
-	persona.nombre = request.GET.get('provNombre', "")
-	persona.apellido = request.GET.get('provApellido', "")
-	persona.documento = request.GET.get('provDNI', "")
-	persona.fache_nacimiento = request.GET.get('provNacimiento', "")
-	persona.telefono = request.GET.get('provTelefono', "")
-	persona.mail = request.GET.get('provMail', "")
-	persona.estado_civil_id = request.GET.get('provEstadoCivil', "")
-	persona.direccion = request.GET.get('direccion', "")
-	persona.cp = request.GET.get('cp', "")
-	persona.localidad = request.GET.get('localidad', "")
-	persona.provincia = request.GET.get('provincia', "")
-	persona.tipo_persona_id = request.GET.get('provTipoPersona', "")
-
+	persona.nombre = request.POST.get('provNombre', "")
+	persona.apellido = request.POST.get('provApellido', "")
+	persona.documento = request.POST.get('provDNI', "")
+	if request.POST.get('provNacimiento', "") == "":
+		persona.fecha_nacimiento = ""
+	else:
+		persona.fecha_nacimiento = getAAAAMMDD(request.POST.get('provNacimiento', ""))
+	persona.telefono = request.POST.get('provTelefono', "")
+	persona.mail = request.POST.get('provMail', "")
+	persona.estado_civil_id = request.POST.get('provEstadoCivil', "")
+	persona.direccion = request.POST.get('direccion', "")
+	persona.cp = request.POST.get('cp', "")
+	persona.localidad = request.POST.get('localidad', "")
+	persona.provincia = request.POST.get('provincia', "")
 	persona.save()
 	
 	url = '/sistema/provedor/?idProv='+str(persona.id)
 	return redirect(url)
 
+@login_required
+def altaProvedor(request):
+	prov = Persona()
+	prov.id = 0
+	estadosCivil = EstadoCivil.objects.all()
+	context = {'estadosCivil': estadosCivil, 'prov':prov}
+	return render(request, 'sistema/provedor.html', context)
 
 @login_required
 def borrarProvedor(request):

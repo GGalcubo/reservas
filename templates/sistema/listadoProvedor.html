@@ -34,7 +34,7 @@
                                     <div class="caption font-blue">
                                         <i class="icon-speedometer font-blue"></i>
                                         <span class="caption-subject bold uppercase">AGENDA</span>
-                                        <!-- <a href="#" role="button" class="btn green btn-outline mg-l-20">Agregar provedor</a> -->
+                                        <a href="/sistema/altaProvedor/" role="button" class="btn green btn-outline mg-l-20">Agregar provedor</a>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -63,7 +63,7 @@
                                                     <td>{{ p.id }}</td>
                                                     <td>{{ p.nombreCompleto|default_if_none:"" }}</td>
                                                     <td>{{ p.documento|default_if_none:"" }}</td>
-                                                    <td>{{ p.calle|default_if_none:"" }}</td>
+                                                    <td>{{ p.direccion|default_if_none:"" }}</td>
                                                     <td>{{ p.telefono|default_if_none:"" }}</td>
                                                     <td>{{ p.mail|default_if_none:"" }}</td>
                                                     <td>{{ p.tipo_persona.tipo_persona|default_if_none:"" }}</td>

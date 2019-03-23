@@ -218,6 +218,8 @@ class Persona(models.Model):
         return unidad
 
     def getNacimiento(self):
+        if self.fecha_nacimiento == "":
+            return ""
         return getFecha(self.fecha_nacimiento)
 
 
