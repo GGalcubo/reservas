@@ -133,7 +133,7 @@ def getClientes(request):
 def getClienteById(request):
     cliente = Cliente.objects.get(id=request.POST.get('cliente_id', False))
     personacliente = []
-    for i in cliente.personacliente_set.all():
+    for i in cliente.personacliente_set.filter(baja=False):
         personacliente.append({'id':i.persona.id,'nombre':i.persona.apellido + ' ' + i.persona.nombre,'tipo_persona':i.persona.tipo_persona.tipo_persona})
 
     centrocosto = []
@@ -1696,9 +1696,9 @@ def altaProvedor(request):
 def borrarProvedor(request):
 	mensaje = ""
 	idProv = request.GET.get('idProv', "")
-	per = Persona.objects.get(id=idProv)
-	per.baja = True
-	per.save()
+	unidad = Unidad.objects.get(id=idProv)
+	prov.baja = True
+	prov.save()
 	return redirect('listadoProvedor')
 
 @login_required
