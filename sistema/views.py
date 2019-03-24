@@ -279,6 +279,7 @@ def guardarViaje(request):
     viaje.nro_aux               = request.POST.get('nro_aux', "")
     viaje.tipo_pago             = TipoPagoViaje.objects.get(id=request.POST.get('tipo_pago', False))
     viaje.creadofecha           = fecha()
+    viaje.creadopor             = request.user
 
     unidad 						= request.POST.get('unidad', '')
     if unidad != '':
@@ -330,6 +331,16 @@ def guardarViaje(request):
     guardaItemViajeEspera('', 14, request.POST.get('tiempo_espera', ''), viaje, False)
     guardaItemViajeBilingue('', 9, request.POST.get('bilingue', ''), viaje, False)
     guardaItemViajeMaletas('', 10, request.POST.get('maletas', ''), viaje, False)
+
+    guardarHistorial(viaje, 'importe_efectivo', request.POST.get('importe_efectivo', ''))
+    guardarHistorial(viaje, 'otros', request.POST.get('otros', ''))
+    guardarHistorial(viaje, 'peaje', request.POST.get('peaje', ''))
+    guardarHistorial(viaje, 'estacionamiento', request.POST.get('estacionamiento', ''))
+    guardarHistorial(viaje, 'comentario_chofer', request.POST.get('comentario_chofer', ''))
+    guardarHistorial(viaje, 'tiempo_hs_dispo', request.POST.get('tiempo_hs_dispo', ''))
+    guardarHistorial(viaje, 'tiempo_espera', request.POST.get('tiempo_espera', ''))
+    guardarHistorial(viaje, 'bilingue', request.POST.get('bilingue', ''))
+    guardarHistorial(viaje, 'maletas', request.POST.get('maletas', ''))
 
     if viaje.estado.id == 6 or viaje.estado.id == 7 and viaje.calculo_admin is False:
         guardaItemViajeCostoProveedor('', 8, 1, viaje, False)
@@ -405,20 +416,21 @@ def guardaViajeAdmin(request):
     return HttpResponse(items_viaje, content_type='application/json')
 
 def validateGetTarifaTrayecto(tarifario, viaje):
-    try:
-        if tarifario == 'centro_costo':
-            tarifario = viaje.centro_costo.tarifario
-        elif tarifario == 'unidad':
-            tarifario = viaje.unidad.tarifario
+    if tarifario == 'centro_costo':
+        tarifario = viaje.centro_costo.tarifario
+    elif tarifario == 'unidad':
+        tarifario = viaje.unidad.tarifario
 
-        if getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_desde, viaje.getTrayectoPrincipal().localidad_hasta):
-            base = getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_desde, viaje.getTrayectoPrincipal().localidad_hasta)
-        elif getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_hasta, viaje.getTrayectoPrincipal().localidad_desde):
-            base = getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_hasta, viaje.getTrayectoPrincipal().localidad_desde)
-        else:
-            base = 0
+    try:
+        base = getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_desde, viaje.getTrayectoPrincipal().localidad_hasta)
     except Exception as e:
         base = 0
+
+    if base == 0:
+        try:
+            base = getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_hasta, viaje.getTrayectoPrincipal().localidad_desde)
+        except Exception as e:
+            base = 0
 
     return base
 
@@ -430,7 +442,7 @@ def getTarifaTrayecto(categoria_viaje, tarifario, desde, hasta):
     elif categoria_viaje == 3:
         return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=desde, localidad_hasta=hasta).cat3
     elif categoria_viaje == 4:
-        return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=desde, localidad_hasta=hasta).cat4
+        return TarifaTrayecto.objects.get(tarifario_=tarifario, localidad_desde=desde, localidad_hasta=hasta).cat4
     elif categoria_viaje == 5:
         return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=desde, localidad_hasta=hasta).cat5
     elif categoria_viaje == 6:
@@ -873,8 +885,8 @@ def guardarViajeAdjunto(request):
     # file size
     if file.size > options["maxfilesize"]:
         error = "maxFileSize"
-    if file.size < options["minfilesize"]:
-        error = "minFileSize"
+    #if file.size < options["minfilesize"]:
+        #error = "minFileSize"
         # allowed file type
     #if file.content_type not in options["acceptedformats"]:
         #error = "acceptFileTypes"
@@ -886,9 +898,13 @@ def guardarViajeAdjunto(request):
     }
 
     if error:
-        response_data["error"] = error
-        response_data = json.dumps([response_data])
-        return HttpResponse(response_data, mimetype='application/json')
+        data = {
+            'error': '1',
+            'msg': error
+        }
+
+        dump = json.dumps(data)
+        return HttpResponse(dump, content_type='application/json')
 
     adjunto = Adjunto()
     adjunto.upload = request.FILES['file']
@@ -963,6 +979,24 @@ def guardarTrayecto(request):
             pasajero = Persona.objects.get(id=request.POST.get('pasajero', False))
             trayecto.pasajero = pasajero
         trayecto.save()
+
+        guardarHistorial(viaje, 'desde_destino', request.POST.get('desde_destino', ''))
+        guardarHistorial(viaje, 'desde_localidad', request.POST.get('desde_localidad', ''))
+        guardarHistorial(viaje, 'desde_provincia', request.POST.get('desde_provincia', ''))
+        guardarHistorial(viaje, 'desde_altura', request.POST.get('desde_altura', ''))
+        guardarHistorial(viaje, 'desde_calle', request.POST.get('desde_calle', ''))
+        guardarHistorial(viaje, 'desde_compania', request.POST.get('desde_compania', ''))
+        guardarHistorial(viaje, 'desde_vuelo', request.POST.get('desde_vuelo', ''))
+
+        guardarHistorial(viaje, 'hasta_destino', request.POST.get('hasta_destino', ''))
+        guardarHistorial(viaje, 'hasta_localidad', request.POST.get('hasta_localidad', ''))
+        guardarHistorial(viaje, 'hasta_provincia', request.POST.get('hasta_provincia', ''))
+        guardarHistorial(viaje, 'hasta_altura', request.POST.get('hasta_altura', ''))
+        guardarHistorial(viaje, 'hasta_calle', request.POST.get('hasta_calle', ''))
+        guardarHistorial(viaje, 'hasta_compania', request.POST.get('hasta_compania', ''))
+        guardarHistorial(viaje, 'hasta_vuelo', request.POST.get('hasta_vuelo', ''))
+
+
 
         if principal == '1':
             data = {
