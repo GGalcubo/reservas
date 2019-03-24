@@ -416,11 +416,13 @@ def guardaViajeAdmin(request):
     return HttpResponse(items_viaje, content_type='application/json')
 
 def validateGetTarifaTrayecto(tarifario, viaje):
-    if tarifario == 'centro_costo':
-        tarifario = viaje.centro_costo.tarifario
-    elif tarifario == 'unidad':
-        tarifario = viaje.unidad.tarifario
-
+    try:
+        if tarifario == 'centro_costo':
+            tarifario = viaje.centro_costo.tarifario
+        elif tarifario == 'unidad':
+            tarifario = viaje.unidad.tarifario
+    except Exception as e:
+        tarifario = ''
     try:
         base = getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_desde, viaje.getTrayectoPrincipal().localidad_hasta)
     except Exception as e:
