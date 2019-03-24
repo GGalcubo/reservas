@@ -1772,6 +1772,14 @@ def guardarUnidad(request):
 
 	unidad.id_fake = request.POST.get('selectIdFake', "")
 	unidad.identificacion = request.POST.get('identificacion', "")
+	unidad.mail = request.POST.get('mail', "")
+	unidad.telefono = request.POST.get('telefono', "")
+	unidad.documento = request.POST.get('documento', "")
+	if request.POST.get('fecha_nac', "") != "":
+		unidad.fecha_nacimiento = getAAAAMMDD(request.POST.get('fecha_nac', ""))
+
+	unidad.calle = request.POST.get('calle', "")
+
 	if request.POST.get('selectTarifario', "") != "":
 		unidad.tarifario = Tarifario.objects.get(id=request.POST.get('selectTarifario', ""))
 
