@@ -1696,7 +1696,7 @@ def altaProvedor(request):
 def borrarProvedor(request):
 	mensaje = ""
 	idProv = request.GET.get('idProv', "")
-	unidad = Unidad.objects.get(id=idProv)
+	prov = Persona.objects.get(id=idProv)
 	prov.baja = True
 	prov.save()
 	return redirect('listadoProvedor')
