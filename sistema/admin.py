@@ -32,6 +32,9 @@ class ClienteAdmin(admin.ModelAdmin):
     ]
     list_display = ('id', 'razon_social',)
 
+class UnidadAdmin(admin.ModelAdmin):
+    list_display = ('id', 'id_fake',)
+
 class TarifaTrayectoAdmin(admin.ModelAdmin):
     list_display = ('id', 'descripcion', 'cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6', 'cat7', 'cat8')
 
@@ -55,7 +58,7 @@ admin.site.register(Mail)
 admin.site.register(Licencia)
 admin.site.register(Persona)
 admin.site.register(Vehiculo)
-admin.site.register(Unidad)
+admin.site.register(Unidad, UnidadAdmin)
 admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(ViajeHistorial)
 admin.site.register(Trayecto)

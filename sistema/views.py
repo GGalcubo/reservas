@@ -25,27 +25,28 @@ def dashboard(request):
 
 @login_required
 def operaciones(request):
-    if not validarUrlPorRol(request):
-        mensaje = ""
-        context = { 'mensaje':mensaje }
-        return render(request, 'sistema/urlBloqueada.html', context)
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
 
-    mensaje = ""
-    permiso = obtenerPermiso(request)
-    if 'unidades' in permiso:
-        viajes = []
-        viajesQ = Viaje.objects.filter(estado_id__in=[4,5,6])
-        for v in viajesQ:
-            if validaViajeUnidad(request, v):
-                viajes.append(v)
-    else:
-        viajes = Viaje.objects.all()
-    estados = Estado.objects.all()
-    categoria_viajes = CategoriaViaje.objects.all()
-    unidades = Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake')
+	mensaje = ""
+	permiso = obtenerPermiso(request)
+	if 'unidades' in permiso:
+		viajes = []
+		viajesQ = Viaje.objects.filter(estado_id__in=[4,5,6])
+		for v in viajesQ:
+			if validaViajeUnidad(request, v):
+				viajes.append(v)
+	else:
+		viajes = Viaje.objects.all()
+	estados = Estado.objects.all()
+	categoria_viajes = CategoriaViaje.objects.all()
+	#unidades = Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake')
+	unidades = Unidad.objects.filter(baja=False).order_by('id_fake')
 
-    context = {'mensaje': mensaje, 'estados': estados,'categoria_viajes': categoria_viajes, 'unidades': unidades,'permiso':permiso}
-    return render(request, 'sistema/operaciones.html', context)
+	context = {'mensaje': mensaje, 'estados': estados,'categoria_viajes': categoria_viajes, 'unidades': unidades,'permiso':permiso}
+	return render(request, 'sistema/operaciones.html', context)
 
 @login_required
 def asignaciones(request):
@@ -173,7 +174,7 @@ def altaViaje(request):
 				#'clientes':Cliente.objects.filter(baja=False),
 				'tipoobservacion':TipoObservacion.objects.all(),
 				'tipo_pago':TipoPagoViaje.objects.all(),
-				'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake').filter(baja=False),
+				'unidades':Unidad.objects.filter(baja=False).order_by('id_fake'),
 				'estados':Estado.objects.all(),
 				'categoria_viajes':CategoriaViaje.objects.all(),
 				'tarifarios':Tarifario.objects.filter(baja=False),
