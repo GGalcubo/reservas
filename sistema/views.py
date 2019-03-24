@@ -133,8 +133,9 @@ def getClientes(request):
 def getClienteById(request):
     cliente = Cliente.objects.get(id=request.POST.get('cliente_id', False))
     personacliente = []
-    for i in cliente.personacliente_set.filter(baja=False):
-        personacliente.append({'id':i.persona.id,'nombre':i.persona.apellido + ' ' + i.persona.nombre,'tipo_persona':i.persona.tipo_persona.tipo_persona})
+    for i in cliente.personacliente_set.all():
+        if i.persona.baja is False:
+            personacliente.append({'id':i.persona.id,'nombre':i.persona.apellido + ' ' + i.persona.nombre,'tipo_persona':i.persona.tipo_persona.tipo_persona})
 
     centrocosto = []
     for c in cliente.centrocosto_set.filter(baja=False):
