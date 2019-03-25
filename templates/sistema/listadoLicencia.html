@@ -59,7 +59,7 @@
                                                         <a href="#" onclick="eliminarLicencia({{ l.id }});" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
                                                     </td>
                                                     <!-- <td class="text-center"></td> -->
-                                                    <td>{{ l.getAsignadoNombre }}</td>
+                                                    <td>{{ l.unidad.getIdentificacion }}</td>
                                                     <td>{{ l.tipo_licencia.tipo_licencia }}</td>
                                                     <td>{{ l.getFechaVencimiento }}</td>
                                                     <td>{{ l.comentario }}</td>

@@ -1863,8 +1863,6 @@ def guardarLicenciaUnidad(request):
 @login_required
 def eliminarLicencia(request):
 	idLicencia = request.GET.get('idLicencia', False)
-	LicenciaPersona.objects.filter(licencia_id=idLicencia).delete()
-	LicenciaVehiculo.objects.filter(licencia_id=idLicencia).delete()
 	Licencia.objects.get(id=idLicencia).delete()
 	return redirect('listadoLicencia')
 
@@ -2247,11 +2245,11 @@ def listadoLicencia(request):
 
 @login_required
 def altaLicencia(request):
-	listaAsignoLicencia = Persona.objects.filter(tipo_persona=3,baja=False)
+	unidades = Unidad.objects.filter(baja=False)
 	tipo_licencias = TipoLicencia.objects.all()
 	licencia = Licencia()
 	licencia.id = 0
-	context = {'licencia': licencia, 'listaAsignoLicencia': listaAsignoLicencia, 'tipo_licencias':tipo_licencias}
+	context = {'licencia': licencia, 'unidades': unidades, 'tipo_licencias':tipo_licencias}
 	return render(request, 'sistema/licencia.html', context)
 
 @login_required
@@ -2260,22 +2258,18 @@ def licencia(request):
 	idLicencia = request.GET.get('idLicencia', "")
 	licencia = Licencia.objects.get(id=idLicencia)
 	tipo_licencias = TipoLicencia.objects.all()
-	asignoLicencia = []
-	asignoLicencia.append(licencia.getAsignado())
-	tipoAsignadoId = licencia.getAsignadoTipoId()
-	tipoAsignado = licencia.getAsignadoTipo()
+	unidades = Unidad.objects.filter(baja=False)
 	request.session['estadoLicencia'] = ''
-	context = {'tipo_licencias':tipo_licencias, 'estado':estado, 'licencia':licencia, 'listaAsignoLicencia':asignoLicencia, 'tipoAsignadoId':tipoAsignadoId, 'tipoAsignado':tipoAsignado}
+	context = {'tipo_licencias':tipo_licencias, 'estado':estado, 'licencia':licencia,'unidades':unidades}
 	return render(request, 'sistema/licencia.html', context)
 
 @login_required
 def guardarLicencia(request):
 	idLicencia = request.POST.get('idLicencia', False)
-	tipoPersonaLicencia = request.POST.get('tipoPersonaLicencia', False)
-	personaLicencia = request.POST.get('personaLicencia', False)
 	tipoLicencia = request.POST.get('tipoLicencia', False)
 	vencimientoLicencia = request.POST.get('vencimientoLicencia', False)
 	descripcionLicencia = request.POST.get('descripcionLicencia', False)
+	unidades = request.POST.get('unidades', False)
 
 	if idLicencia == "0":
 		licencia = Licencia()
@@ -2284,24 +2278,11 @@ def guardarLicencia(request):
 		licencia = Licencia.objects.get(id=idLicencia)
 		request.session['estadoLicencia'] = 'editado'
 
+	licencia.unidad_id = unidades
 	licencia.comentario = descripcionLicencia
 	licencia.tipo_licencia = TipoLicencia.objects.get(id=tipoLicencia)
 	licencia.fecha_vencimiento = getAAAAMMDD(vencimientoLicencia)
 	licencia.save()
-
-	if idLicencia == "0":
-		if tipoPersonaLicencia == "0":
-			lp = LicenciaPersona()
-			lp.persona = Persona.objects.get(id=personaLicencia)
-		elif tipoPersonaLicencia == "1":
-			lp = LicenciaPersona()
-			lp.persona = Persona.objects.get(id=personaLicencia)
-		elif tipoPersonaLicencia == "2":
-			lp = LicenciaVehiculo()
-			lp.vehiculo = Vehiculo.objects.get(id=personaLicencia)
-
-		lp.licencia = licencia
-		lp.save()
 
 	url = '/sistema/licencia/?idLicencia='+str(licencia.id)
 	return redirect(url)

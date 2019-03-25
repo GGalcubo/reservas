@@ -273,6 +273,9 @@ class Unidad(models.Model):
     def __str__(self):
         return self.identificacion
 
+    def getIdentificacion(self):
+        return self.id_fake + " - " + self.identificacion
+
     def getIdVehiculo(self):
         try:
             return self.vehiculo.id
