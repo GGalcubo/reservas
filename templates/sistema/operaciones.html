@@ -89,7 +89,7 @@
                             <h4 class="modal-title" style="color:#888;">Modificar Unidad del Viaje</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="scroller" style="height:250px" data-always-visible="1" data-rail-visible1="1">
+                            <div class="scroller" style="height:150px" data-always-visible="1" data-rail-visible1="1">
                                 <input type="hidden" id="idViaje" name="idViaje" value="">
                                 <div class="form-group form-md-line-input">
                                     <select class="form-control select2me" id="unidad_id" name="unidad_id">
@@ -130,7 +130,7 @@
                             <h4 class="modal-title" style="color:#888;">Ver Pasajero Detalles</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="scroller" style="height:250px" data-always-visible="1" data-rail-visible1="1">
+                            <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
                                 <div id="pasajero_detalles"></div>
 
                             </div>
@@ -267,7 +267,7 @@
                     });
 
                     $("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
-                    $('#unidad_id').select2({ placeholder: 'Seleccionar Unidad', dropdownAutoWidth : true, width: 'auto'});
+                    $('#unidad_id').select2({ placeholder: 'Seleccionar Unidad', dropdownAutoWidth : true, width: 'auto', dropdownParent: $('#change_unidad')});
 
                     $('[data-toggle="tooltip"]').tooltip();
                 });

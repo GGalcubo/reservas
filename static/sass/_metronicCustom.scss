@@ -695,7 +695,7 @@ body.login {
       tr {
         th,
         td {
-          text-align: center;
+          text-align: left;
           font-size: 10px;
           font-weight: 700;
           text-transform: uppercase;
@@ -711,10 +711,10 @@ body.login {
             box-shadow: none;
           }
         }
-        td:nth-of-type(9),
-        td:nth-of-type(10) {
-          text-align: left;
-        }
+        // td:nth-of-type(9),
+        // td:nth-of-type(10) {
+        //   text-align: left;
+        // }
         th {
           padding: 4px 20px 4px 4px;
         }
