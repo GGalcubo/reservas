@@ -1332,7 +1332,7 @@
                     </div>
                     <div class="modal-body">
                         <input type="hidden" id="modal_id" value="modal_id">
-                        <div class="scroller" style="height:250px" data-always-visible="1" data-rail-visible1="1">
+                        <div class="scroller" style="height:260px" data-always-visible="1" data-rail-visible1="1">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="row">
@@ -1345,7 +1345,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="modal_desde_destino" name="modal_desde_destino">
+                                                <select class="form-control select2me" id="modal_desde_destino" name="modal_desde_destino" style="width: 100%;">
                                                     <option value=""></option>
                                                     {% for d in destinos %}
                                                        <option value="{{ d.id }}">{{ d.nombre }}</option>
@@ -1356,7 +1356,7 @@
                                         </div>
                                         <div class="col-md-6 cont_modal_desde_localidad">
                                             <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="modal_desde_localidad" name="modal_desde_localidad">
+                                                <select class="form-control select2me" id="modal_desde_localidad" name="modal_desde_localidad" style="width: 100%;">
                                                     <option value=""></option>
                                                     {% for l in localidades %}
                                                        <option value="{{ l.id }}">{{ l.nombre }}</option>
@@ -1367,7 +1367,7 @@
                                         </div>
                                         <div class="col-md-6 cont_modal_desde_provincia">
                                             <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="modal_desde_provincia" name="modal_desde_provincia">
+                                                <select class="form-control select2me" id="modal_desde_provincia" name="modal_desde_provincia" style="width: 100%;">
                                                     <option value=""></option>
                                                     {% for p in provincias %}
                                                        <option value="{{ p.id }}">{{ p.nombre }}</option>
@@ -1429,7 +1429,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="modal_hasta_destino" name="modal_hasta_destino">
+                                                <select class="form-control select2me" id="modal_hasta_destino" name="modal_hasta_destino" style="width: 100%;">
                                                     <option value=""></option>
                                                     {% for d in destinos %}
                                                        <option value="{{ d.id }}">{{ d.nombre }}</option>
@@ -1440,7 +1440,7 @@
                                         </div>
                                         <div class="col-md-6 cont_modal_hasta_localidad">
                                             <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="modal_hasta_localidad" name="modal_hasta_localidad">
+                                                <select class="form-control select2me" id="modal_hasta_localidad" name="modal_hasta_localidad" style="width: 100%;">
                                                     <option value=""></option>
                                                     {% for l in localidades %}
                                                        <option value="{{ l.id }}">{{ l.nombre }}</option>
@@ -1451,7 +1451,7 @@
                                         </div>
                                         <div class="col-md-6 cont_modal_hasta_provincia">
                                             <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="modal_hasta_provincia" name="modal_hasta_provincia">
+                                                <select class="form-control select2me" id="modal_hasta_provincia" name="modal_hasta_provincia" style="width: 100%;">
                                                     <option value=""></option>
                                                     {% for p in provincias %}
                                                        <option value="{{ p.id }}">{{ p.nombre }}</option>
@@ -1507,7 +1507,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group form-md-line-input">
-                                                <select class="form-control select2me" id="pasajero_trayecto" name="pasajero_trayecto"></select>
+                                                <select class="form-control select2me" id="pasajero_trayecto" name="pasajero_trayecto"  style="width: 100%;"></select>
                                                 <label for="pasajero_trayecto">Pasajero</label>
                                             </div>
                                         </div>

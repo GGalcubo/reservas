@@ -126,35 +126,35 @@ $(document).ready( () => {
         });
     }
 
-    $('#categoria_viaje').select2({ placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
-    $('#contacto').select2({ placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
-    $('#pasajero').select2({ placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
-    $('#pasajero_trayecto').select2({ placeholder: 'Seleccionar Pasajero', dropdownAutoWidth : true, width: 'auto'});
+    $('#categoria_viaje').select2({ placeholder: 'Seleccionar'});
+    $('#contacto').select2({ placeholder: 'Seleccionar'});
+    $('#pasajero').select2({ placeholder: 'Seleccionar'});
+    $('#pasajero_trayecto').select2({ placeholder: 'Seleccionar Pasajero', dropdownParent: $('#add_tramo')});
 
     $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
-    $('#id_cliente').select2({ placeholder: 'Seleccionar Cliente', dropdownAutoWidth : true, width: 'auto'});
+    $('#id_cliente').select2({ placeholder: 'Seleccionar Cliente'});
     //$("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
-    $('#unidad_id').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
-    $('#centroDeCosto').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#unidad_id').select2({placeholder: 'Seleccionar'});
+    $('#centroDeCosto').select2({placeholder: 'Seleccionar'});
 
 
     $("#desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
-    $('#desde_destino').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#desde_destino').select2({placeholder: 'Seleccionar'});
     $("#hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
-    $('#hasta_destino').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#hasta_destino').select2({placeholder: 'Seleccionar'});
     $("#modal_desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
-    $('#modal_desde_destino').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#modal_desde_destino').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
     $("#modal_hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
-    $('#modal_hasta_destino').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#modal_hasta_destino').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
 
     $("#desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
-    $('#desde_localidad').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#desde_localidad').select2({placeholder: 'Seleccionar'});
     $("#hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
-    $('#hasta_localidad').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#hasta_localidad').select2({placeholder: 'Seleccionar'});
     $("#modal_desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
-    $('#modal_desde_localidad').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#modal_desde_localidad').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
     $("#modal_hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
-    $('#modal_hasta_localidad').select2({placeholder: 'Seleccionar', dropdownAutoWidth : true, width: 'auto'});
+    $('#modal_hasta_localidad').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
 
     var tmp_tipo_observacion;
     $('#tipo_viaje_obs').append($('<option>').text('').attr('value', ''));
