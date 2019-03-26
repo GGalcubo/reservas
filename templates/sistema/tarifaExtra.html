@@ -15,10 +15,10 @@
             <div class="modal-body">
                 <div class="scroller" style="height:230px" data-always-visible="1" data-rail-visible1="1">
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                             <input type="hidden" class="form-control" id="extraDescripcion" name="extraDescripcion" value="{{ tarifaExtra.extra_descripcion }}">
                             <div class="form-group form-md-line-input">
-                                <select class="form-control select2me" id="extraName" name="extraName">
+                                <select class="form-control select2me" id="extraName" name="extraName" style="width: 100%;">
                                     <option value="">Seleccionar extra</option>
                                     <option value="maletas">Maletas</option>
                                     <option value="espera">Espera</option>
@@ -27,6 +27,8 @@
                                 <label for="extraName">Extras</label>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-sm-3">
                             <div class="form-group form-md-line-input form-md-floating-label">
                                 <input type="text" class="form-control" id="tramoSTD" name="extra1" value="{{ tarifaExtra|get_tarifa_extra_by_cat:1 }}">
@@ -91,8 +93,7 @@
         $("#extraName").select2({
             placeholder: "Seleccionar Extra",
             allowClear: true,
-            dropdownAutoWidth : true,
-            width: 'auto'
+            dropdownParent: $('#add_extra_tarifario')
         });
         $("#extraName").val($("#extraDescripcion").val()).trigger('change');
     });
