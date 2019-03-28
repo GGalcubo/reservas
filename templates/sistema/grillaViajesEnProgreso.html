@@ -22,7 +22,11 @@
                 {% if v.estado_id == 5 %}
                     {% for t in v.getTrayectos %}
                       <tr>
+                            {% if t.id != v.getTrayectos.0.id %}
+                            <td class="all text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{ v.id }}"></a></td>
+                            {% else %}
                             <td class="all text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>
+                            {% endif %}
                             <td class="all">{{ v.categoria_viaje }}</td>
                             <td class="all">{{ v.getFecha }}</td>
                             <td class="all">{{ v.hora }}</td>
