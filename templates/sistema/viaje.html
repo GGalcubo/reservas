@@ -1873,7 +1873,7 @@
             {% endfor %}*/
 
             var viaje_items = [];
-            /*{% for viaje_item in viaje.getViajeItems %}
+            {% for viaje_item in viaje.getViajeItems %}
                 var obj = {
                     id : '{{ viaje_item.id }}',
                     monto : '{{ viaje_item.monto }}',
@@ -1882,7 +1882,7 @@
                     tipo_items_viaje : '{{ viaje_item.tipo_items_viaje_id }}',
                     cant:'{{ viaje_item.cant }}'};
                 viaje_items.push(obj);
-            {% endfor %}*/
+            {% endfor %}
 
             var es_nuevo            = '{{ es_nuevo }}';
             var mensaje             = '{{ mensaje }}';
