@@ -2336,7 +2336,7 @@ def exportar(request):
 
 	mensaje = ""
 
-	context = {'mensaje': mensaje, 'clientes': Cliente.objects.all(), 'personas':Persona.objects.all(),'unidades':Unidad.objects.all(),'estados':Estado.objects.all()}
+	context = {'mensaje': mensaje, 'clientes': Cliente.objects.all(), 'personas':Persona.objects.all(),'unidades':Unidad.objects.filter(baja=False),'estados':Estado.objects.all()}
 	return render(request, 'sistema/exportar.html', context)
 
 @login_required
