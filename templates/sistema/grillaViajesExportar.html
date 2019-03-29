@@ -4,6 +4,7 @@
             <tr>
                 <!--<th data-checkbox="true"></th>-->
                 <th class="all">Fecha</th>
+                <th class="all">Fecha</th>
                 <th class="all">Hora</th>
                 <th class="all">Categoría</th>
                 <th class="all">N° Res</th>
@@ -15,6 +16,7 @@
         <tbody>
             {% for v in viajes %}
                 <tr>
+                    <td class="all">{{ v.getFecha }}</td>
                     <td class="all"><span class='hide'>{{ v.fecha }}</span>{{ v.getFecha }}</td>
                     <td class="all">{{ v.hora }}</td>
                     <td class="all">{{ v.categoria_viaje }}</td>
@@ -34,7 +36,19 @@
         order: [[ 0, "asc" ]],
         dom: 'lfBrtip',
         buttons: [
-            'copy', 'excel', 'pdf', 'print'
+            'copy', 'pdf', 'print',
+                            {
+                            extend: 'excelHtml5',
+                            exportOptions: {
+                                columns: [0, 2, 3, 4, 5, 6, 7]
+                            }}
+        ],
+        columnDefs: [
+            {
+                "targets": [ 0 ],
+                "visible": false,
+                "searchable": false
+            }
         ],
         lengthMenu: [
                         [ 100, 50, 25, 10, -1 ],

@@ -216,7 +216,19 @@
                         order: [[ 0, "asc" ]],
                         dom: 'lfBrtip',
                         buttons: [
-                            'copy', 'excel', 'pdf', 'print'
+                            'copy', 'pdf', 'print',
+                            {
+                            extend: 'excelHtml5',
+                            exportOptions: {
+                                columns: [1, 2, 3, 4, 5, 6]
+                            }}
+                        ],
+                        columnDefs: [
+                            {
+                                "targets": [ 1 ],
+                                "visible": false,
+                                "searchable": false
+                            }
                         ],
                         lengthMenu: [
                                         [ 100, 50, 25, 10, -1 ],
