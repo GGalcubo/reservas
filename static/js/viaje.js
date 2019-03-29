@@ -146,6 +146,7 @@ $(document).ready( () => {
     $('#modal_desde_destino').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
     $("#modal_hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
     $('#modal_hasta_destino').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
+    $('#modal_hasta_provincia').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
 
     $("#desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
     $('#desde_localidad').select2({placeholder: 'Seleccionar'});
@@ -155,6 +156,7 @@ $(document).ready( () => {
     $('#modal_desde_localidad').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
     $("#modal_hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
     $('#modal_hasta_localidad').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
+    $('#modal_desde_provincia').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
 
     var tmp_tipo_observacion;
     $('#tipo_viaje_obs').append($('<option>').text('').attr('value', ''));
@@ -386,12 +388,12 @@ $(document).ready( () => {
     $(document).on( "click", '#add_button', e => {
         $("#modal_id").val('0');
 
-        $("#modal_desde_destino").val('');
-        $("#modal_desde_provincia").val('');
-        $("#modal_desde_localidad").val('');
-        $("#modal_hasta_destino").val('');
-        $("#modal_hasta_provincia").val('');
-        $("#modal_hasta_localidad").val('');
+        $("#modal_desde_destino").val('').trigger('change');
+        $("#modal_desde_provincia").val('').trigger('change');
+        $("#modal_desde_localidad").val('').trigger('change');
+        $("#modal_hasta_destino").val('').trigger('change');
+        $("#modal_hasta_provincia").val('').trigger('change');
+        $("#modal_hasta_localidad").val('').trigger('change');
 
         $("#modal_desde_calle").val('');
         $("#modal_desde_altura").val('');
@@ -403,32 +405,41 @@ $(document).ready( () => {
         $("#modal_hasta_entre").val('');
         $("#modal_hasta_vuelo").val('');
         $("#modal_hasta_compania").val('');
-        $("#pasajero_trayecto").val('');
+        $("#pasajero_trayecto").val('').trigger('change');
+
+        $(".cont_modal_hasta_localidad").show();
+        $(".cont_modal_desde_localidad").show();
+        $(".modal_hasta_direccion").show();
+        $(".modal_desde_direccion").show();
+        $(".cont_modal_desde_provincia").hide();
+        $(".cont_modal_hasta_provincia").hide();
+        $(".modal_desde_vuelo").hide();
+        $(".modal_hasta_vuelo").hide();
     });
 
 
     $('.edit_button').click(function() {
 
-        var id                  = $(this).data('id');
+        let id                  = $(this).data('id');
 
-        var provincia_desde     = $(this).data('provincia_desde');
-        var localidad_desde     = $(this).data('localidad_desde');
-        var destino_desde       = $(this).data('destino_desde');
-        var provincia_hasta     = $(this).data('provincia_hasta');
-        var localidad_hasta     = $(this).data('localidad_hasta');
-        var destino_hasta       = $(this).data('destino_hasta');
+        let provincia_desde     = $(this).data('provincia_desde');
+        let localidad_desde     = $(this).data('localidad_desde');
+        let destino_desde       = $(this).data('destino_desde');
+        let provincia_hasta     = $(this).data('provincia_hasta');
+        let localidad_hasta     = $(this).data('localidad_hasta');
+        let destino_hasta       = $(this).data('destino_hasta');
 
-        var calle_desde         = $(this).data('calle_desde');
-        var altura_desde        = $(this).data('altura_desde');
-        var entre_desde         = $(this).data('entre_desde');
-        var compania_desde      = $(this).data('compania_desde');
-        var vuelo_desde         = $(this).data('vuelo_desde');
-        var calle_hasta         = $(this).data('calle_hasta');
-        var altura_hasta        = $(this).data('altura_hasta');
-        var entre_hasta         = $(this).data('entre_hasta');
-        var compania_hasta      = $(this).data('compania_hasta');
-        var vuelo_hasta         = $(this).data('vuelo_hasta');
-        var pasajero_trayecto   = $(this).data('pasajero_trayecto');
+        let calle_desde         = $(this).data('calle_desde');
+        let altura_desde        = $(this).data('altura_desde');
+        let entre_desde         = $(this).data('entre_desde');
+        let compania_desde      = $(this).data('compania_desde');
+        let vuelo_desde         = $(this).data('vuelo_desde');
+        let calle_hasta         = $(this).data('calle_hasta');
+        let altura_hasta        = $(this).data('altura_hasta');
+        let entre_hasta         = $(this).data('entre_hasta');
+        let compania_hasta      = $(this).data('compania_hasta');
+        let vuelo_hasta         = $(this).data('vuelo_hasta');
+        let pasajero_trayecto   = $(this).data('pasajero_trayecto');
 
         $("#modal_id").val(id);
 
@@ -450,6 +461,69 @@ $(document).ready( () => {
         $("#modal_hasta_compania").val(compania_hasta);
         $("#modal_hasta_vuelo").val(vuelo_hasta);
         $("#pasajero_trayecto").val(pasajero_trayecto).trigger('change');
+
+        if(provincia_desde != ''){
+            $(".cont_modal_desde_localidad").hide();
+            $(".modal_desde_direccion").show();
+            $(".cont_modal_desde_provincia").show();
+            $(".modal_desde_vuelo").hide();
+        }else{
+            $(".cont_modal_desde_localidad").show();
+            $(".modal_desde_direccion").show();
+            $(".cont_modal_desde_provincia").hide();
+            $(".modal_desde_vuelo").hide();
+        }
+
+        if(provincia_hasta != ''){
+            $(".cont_modal_hasta_localidad").hide();
+            $(".modal_hasta_direccion").show();
+            $(".cont_modal_hasta_provincia").show();
+            $(".modal_hasta_vuelo").hide();
+        }else{
+            $(".cont_modal_hasta_localidad").show();
+            $(".modal_hasta_direccion").show();
+            $(".cont_modal_hasta_provincia").hide();
+            $(".modal_hasta_vuelo").hide();
+        }
+        /*if(localidad_desde == 9){
+            $(".cont_modal_desde_localidad").show();
+            $(".modal_desde_vuelo").show();
+        }
+        if(localidad_hasta == 9){
+            $(".cont_modal_hasta_localidad").show();
+            $(".modal_hasta_vuelo").show();
+        }*/
+
+        var terminal_flag_desde;
+        var terminal_flag_hasta;
+        $.each(localidades, function(i, value) {
+            if(value.id == localidad_desde){
+                terminal_flag_desde = value.terminal_flag;
+            }
+        });
+
+        if(terminal_flag_desde == 'True'){
+            $(".modal_desde_direccion").hide();
+            $(".modal_desde_vuelo").show();
+        }else{
+            $(".modal_desde_direccion").show();
+            $(".modal_desde_vuelo").hide();
+        }
+        $.each(localidades, function(i, value) {
+            if(value.id == localidad_hasta){
+                terminal_flag_hasta = value.terminal_flag;
+            }
+        });
+
+        if(terminal_flag_hasta == 'True'){
+            $(".modal_hasta_direccion").hide();
+            $(".modal_hasta_vuelo").show();
+        }else{
+            $(".modal_hasta_direccion").show();
+            $(".modal_hasta_vuelo").hide();
+        }
+
+        debugger
 
         //$(".modal-title").text('Editar Tramo');
     });
@@ -1145,22 +1219,6 @@ updateFillsByDestino = (name, evt) => {
  *
  */
 agregarTramo = () => {
-    /*if ($("#modal_desde_destino").val() == ""){
-        showMsg("El campo desde destino es obligatorio.");
-        return false;
-    }
-    if ($("#modal_desde_localidad").val() == ""){
-        showMsg("El campo desde localidad es obligatorio.");
-        return false;
-    }
-    if ($("#modal_hasta_destino").val() == ""){
-        showMsg("El campo hasta destino es obligatorio.");
-        return false;
-    }
-    if ($("#modal_hasta_localidad").val() == ""){
-        showMsg("El campo hasta localidad es obligatorio.");
-        return false;
-    }*/
 
     let obj               = {};
     obj.desde_destino     = $("#modal_desde_destino").val();
