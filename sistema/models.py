@@ -514,7 +514,6 @@ class Viaje(models.Model):
     def getTrayectos(self):
         viaje_trayectos = []
         for trayecto in self.trayecto_set.all():
-            print trayecto
             viaje_trayectos.append(trayecto)
         return viaje_trayectos
 
