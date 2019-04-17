@@ -219,7 +219,6 @@ class Vehiculo(models.Model):
     patente = models.CharField(max_length=20, null=True, blank=True)
     nro_motor = models.CharField(max_length=20, null=True, blank=True)
     nro_chasis = models.CharField(max_length=30, null=True, blank=True)
-    dueno = models.ForeignKey(Persona, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s' % self.nro_motor

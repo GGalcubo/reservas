@@ -43,7 +43,7 @@
             <td>{{v.getProforma}}</td>
             <td>{{v.getFacturaCliente}}</td>
             <td>{{v.solicitante}}</td>
-            <td>{{v.centro_costo|default_if_none:""}}</td>
+            <td>{{v.centro_costo.nombre|default_if_none:""}}</td>
             <td>{{v.pasajero|default_if_none:""}}</td>
             <td><span class="label label-sm label-info">{{v.getTrayectoPrincipal.desdeConcat}}</span></td>
             <td><span class="label label-sm label-primary">{{v.getTrayectoPrincipal.hastaConcat}}</span></td>
