@@ -173,6 +173,9 @@ class Persona(models.Model):
     def getIdentificacion(self):
         return self.nombre + " " + self.apellido
 
+    def nombreCompletoExportar(self):
+        return self.apellido + " " + self.nombre
+
     def getObservaciones(self):
         observaciones = []
         for obspe in self.observacionpersona_set.all():

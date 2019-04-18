@@ -2881,6 +2881,34 @@ def borrarPasajeroCliente(request):
 	return render(request, 'sistema/grillaPasajeros.html', context)
 
 @login_required
+def exportarExcelFactCliente(request):
+	ids = request.POST.get('ids', False)
+	print ids
+	from openpyxl import Workbook
+	wb = Workbook()
+
+	# grab the active worksheet
+	ws = wb.active
+
+	# Data can be assigned directly to cells
+	ws['A1'] = 42
+
+	# Rows can also be appended
+	ws.append([1, 2, 3])
+
+	# Python types will automatically be converted
+	import datetime
+	ws['A2'] = datetime.datetime.now()
+
+	# Save the file
+	wb.save('/static/excel_fact_clie/excel_fact_cliente.xls')
+
+	file_name = '/static/excel_fact_clie/excel_fact_cliente.xls'
+	data = {'file_name': file_name}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
+@login_required
 def exportarPdfFactCliente(request):
 	cliente 	= request.GET['cliente']
 	desde   	= request.GET['desde']

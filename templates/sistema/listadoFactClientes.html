@@ -806,6 +806,21 @@
                     $("#dynForm").submit();
                 }
 
+                function exportarExcel( e, dt, node, config ){
+                    var ids = "ids=1,2,3"
+                    var url = "/sistema/exportarExcelFactCliente/";
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: ids,
+                        success: function(data){
+                            console.log(data)
+                            window.location.href = data
+                        }
+                    });
+                }
+
             </script>
 
         </div>
