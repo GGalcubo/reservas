@@ -18,20 +18,30 @@
         </thead>
         <tbody>
             {% for v in viajes %}
-                <tr>
-                    <td class="all">{{ v.getFecha }}</td>
-                    <td class="all"><span class='hide'>{{ v.fecha }}</span>{{ v.getFecha }}</td>
-                    <td class="all">{{ v.hora }}</td>
-                    <td class="all">{{ v.categoria_viaje }}</td>
-                    <td class="text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{v.id}}">{{v.id}}</a></td>
-                    <td class="all">{{ v.centro_costo.nombre }}</td>
-                    <td class="all">{{ v.cliente }}</td>
-                    <td class="all">{{ v.pasajero.nombreCompletoExportar }}</td>
-                    <td class="all">{{ v.getViajeBilingue }}</td>
-                    <td class="all"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.desdeConcat }}</span></td>
-                    <td class="all"><span class="label label-sm label-warning">{{ v.getTrayectoPrincipal.hastaConcat }}</span></td>
-                </tr>
-        {% endfor %}
+                {% for t in v.getTrayectos %}
+                    <tr>
+                        <td class="all">{{ v.getFecha }}</td>
+                        <td class="all"><span class='hide'>{{ v.fecha }}</span>{{ v.getFecha }}</td>
+                        <td class="all">{{ v.hora }}</td>
+                        <td class="all">{{ v.categoria_viaje }}</td>
+                        {% if t.id != v.getTrayectos.0.id %}
+                            <td class="text-center"></td>
+                        {% else %}
+                            <td class="text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{v.id}}">{{v.id}}</a></td>
+                        {% endif %}
+                        <td class="all">{{ v.centro_costo.nombre }}</td>
+                        <td class="all">{{ v.cliente }}</td>
+                        {% if t.id != v.getTrayectos.0.id %}
+                            <td class="all">{{ t.pasajero.nombreCompletoExportar }}</td>
+                        {% else %}
+                            <td class="all">{{ v.pasajero.nombreCompletoExportar }}</td>
+                        {% endif %}
+                        <td class="all">{{ v.getViajeBilingue }}</td>
+                        <td class="all"><span class="label label-sm label-danger">{{ t.desdeConcat }}</span></td>
+                        <td class="all"><span class="label label-sm label-warning">{{ t.hastaConcat }}</span></td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
         </tbody>
     </table>
 </div>
