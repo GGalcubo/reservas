@@ -158,6 +158,8 @@
                                               <th class="all">Pasajero</th>
                                               <th class="all">Origen</th>
                                               <th class="all">Destino</th>
+                                              <th class="all">Hs Dispo</th>
+                                              <th class="all">Dispo</th>
                                               <th class="all">Subtotal</th>
                                               <th class="all">P. Efect</th>
                                               <th class="all">T. Espera</th>
@@ -179,6 +181,8 @@
                                       <!-- ESTO SE AGREGO PARA LA FILA DE TOTAL -->
                                       <tfoot>
                                           <tr>
+                                              <th></th>
+                                              <th></th>
                                               <th></th>
                                               <th></th>
                                               <th></th>
@@ -270,161 +274,77 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 $(document).ready(function(){
-                  $(document).prop('title', 'Listado Facturación Clientes - Central LT');
-
-
+                    $(document).prop('title', 'Listado Facturación Clientes - Central LT');
                     let table = $('#tablaListadoFactClientes').DataTable( {
-                      ///////////////// EJEMPLO DE DATATABLES CON TABLE FOOTER PARA FILAS CON TOTAL /////////////
-                      /*
-                      Se puede usar esto que entiendo es una API de datatables o bien clavar una ultima fila y que algún
-                      método haga la magia de sumar los valores de las filas anteriores. Como diría Jelinek, lo dejo a tu
-                      criterio.
-                      */
-                      "footerCallback": function ( row, data, start, end, display ) {
-                          var api = this.api(), data;
+                        ///////////////// EJEMPLO DE DATATABLES CON TABLE FOOTER PARA FILAS CON TOTAL /////////////
+                        /*
+                        Se puede usar esto que entiendo es una API de datatables o bien clavar una ultima fila y que algún
+                        método haga la magia de sumar los valores de las filas anteriores. Como diría Jelinek, lo dejo a tu
+                        criterio.
+                        */
+                        "footerCallback": function ( row, data, start, end, display ) {
+                            var api = this.api(), data;
+                
+                            // Remove the formatting to get integer data for summation
+                            var intVal = function ( i ) {
+                                return typeof i === 'string' ?
+                                    i.replace(/[\$,]/g, '')*1 :
+                                    typeof i === 'number' ?
+                                        i : 0;
+                            };
                
-                          // Remove the formatting to get integer data for summation
-                          var intVal = function ( i ) {
-                              return typeof i === 'string' ?
-                                  i.replace(/[\$,]/g, '')*1 :
-                                  typeof i === 'number' ?
-                                      i : 0;
-                          };
-               
-                          // Total over all pages
-                            total14 = api
-                              .column( 14 )
-                              .data()
-                              .reduce( function (a, b) {
-                                  return intVal(a) + intVal(b);
+                            // Total over all pages
+                            total15 = api.column( 15 ).data().reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
                             }, 0 );
-
-                            total15 = api
-                              .column( 15 )
-                              .data()
-                              .reduce( function (a, b) {
-                                  return intVal(a) + intVal(b);
+                            total16 = api.column( 16 ).data().reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
                             }, 0 );
-
-                            total16 = api
-                              .column( 16 )
-                              .data()
-                              .reduce( function (a, b) {
-                                  return intVal(a) + intVal(b);
+                            total17 = api.column( 17 ).data().reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
                             }, 0 );
-
-                            total17 = api
-                              .column( 17 )
-                              .data()
-                              .reduce( function (a, b) {
-                                  return intVal(a) + intVal(b);
+                            total18 = api.column( 18 ).data().reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
                             }, 0 );
-
-                            total18 = api
-                                .column( 18 )
-                                .data()
-                                .reduce( function (a, b) {
-                                    return intVal(a) + intVal(b);
+                            total19 = api.column( 19 ).data().reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
                             }, 0 );
-
-                            total19 = api
-                                .column( 19 )
-                                .data()
-                                .reduce( function (a, b) {
-                                    return intVal(a) + intVal(b);
+                            total20 = api.column( 20 ).data() .reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
                             }, 0 );
-
-                            total20 = api
-                                .column( 20 )
-                                .data()
-                                .reduce( function (a, b) {
-                                    return intVal(a) + intVal(b);
+                            total21 = api.column( 21 ).data().reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
                             }, 0 );
-
-                            total21 = api
-                                .column( 21 )
-                                .data()
-                                .reduce( function (a, b) {
-                                    return intVal(a) + intVal(b);
+                            total22 = api.column( 22 ).data().reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
                             }, 0 );
-
-                            total22 = api
-                                .column( 22 )
-                                .data()
-                                .reduce( function (a, b) {
-                                    return intVal(a) + intVal(b);
+                            total23 = api.column( 23 ).data().reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
                             }, 0 );
-
-                            total23 = api
-                                .column( 23 )
-                                .data()
-                                .reduce( function (a, b) {
-                                    return intVal(a) + intVal(b);
+                            total24 = api.column( 24 ).data().reduce( function (a, b) {
+                                return intVal(a) + intVal(b);
                             }, 0 );
-
-                            total24 = api
-                                .column( 24 )
-                                .data()
-                                .reduce( function (a, b) {
-                                    return parseFloat(a) + parseFloat(b.replace("$","").replace(",","."));
+                            total25 = api.column( 25 ).data().reduce( function (a, b) {
+                                return parseFloat(a) + parseFloat(b.replace("$","").replace(",","."));
                             }, 0 );
-
-                            total25 = api
-                                .column( 25 )
-                                .data()
-                                .reduce( function (a, b) {
-                                    return parseFloat(a) + parseFloat(b.replace("$","").replace(",","."));
+                            total26 = api.column( 26 ).data().reduce( function (a, b) {
+                                return parseFloat(a) + parseFloat(b.replace("$","").replace(",","."));
                             }, 0 );
                
                             // Update footer
-                            $( api.column( 14 ).footer() ).html(
-                                '$'+ total14
-                            );
-
-                            $( api.column( 15 ).footer() ).html(
-                                '$'+ total15
-                            );
-
-                            $( api.column( 16 ).footer() ).html(
-                                '$'+ total16
-                            );
-
-                            $( api.column( 17 ).footer() ).html(
-                                '$'+ total17
-                            );
-
-                            $( api.column( 18 ).footer() ).html(
-                                '$'+ total18
-                            );
-
-                            $( api.column( 19 ).footer() ).html(
-                                '$'+ total19
-                            );
-
-                            $( api.column( 20 ).footer() ).html(
-                                '$'+ total20
-                            );
-
-                            $( api.column( 21 ).footer() ).html(
-                                '$'+ total21
-                            );
-
-                            $( api.column( 22 ).footer() ).html(
-                                '$'+ total22
-                            );
-
-                            $( api.column( 23 ).footer() ).html(
-                                '$'+ total23
-                            );
-
-                            $( api.column( 24 ).footer() ).html(
-                                '$'+ total24
-                            );
-
-                            $( api.column( 25 ).footer() ).html(
-                                '$'+ total25
-                            );
-                      },
+                            $( api.column( 15 ).footer() ).html('$'+ total15);
+                            $( api.column( 16 ).footer() ).html('$'+ total16);
+                            $( api.column( 17 ).footer() ).html(total17);
+                            $( api.column( 18 ).footer() ).html('$'+ total18);
+                            $( api.column( 19 ).footer() ).html('$'+ total19);
+                            $( api.column( 20 ).footer() ).html('$'+ total20);
+                            $( api.column( 21 ).footer() ).html('$'+ total21);
+                            $( api.column( 22 ).footer() ).html('$'+ total22);
+                            $( api.column( 23 ).footer() ).html('$'+ total23);
+                            $( api.column( 24 ).footer() ).html('$'+ total24);
+                            $( api.column( 25 ).footer() ).html('$'+ total25);
+                            $( api.column( 26 ).footer() ).html('$'+ total26);
+                        },
                       //////////////// HASTA ACA HARDCODEADO EL TOTAL SEGUN EL EJEMPLO DE DATATABLES //////////////
 
                       //////////////////// ESTO PARA QUE EL SCROLL ESTÉ DESPUÉS DEL FOOTER ////////////////////////

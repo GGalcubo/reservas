@@ -138,6 +138,8 @@
                         <th class="all">PAX</th>
                         <th class="all">ORIGEN</th>
                         <th class="all">DESTINO</th>
+                        <th class="all">HS DISPO</th>
+                        <th class="all">DISPO</th>
                         <th class="all">SUBTOTAL</th>
                         <th class="all">ESPERA</th>
                         <th class="all">ESPERA (MIN)</th>
@@ -166,6 +168,8 @@
                         <td>{{v.pasajero|default_if_none:""}}</td>
                         <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
                         <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
+                        <td align="right">{{v.getHsDispoCliente}}</td>
+                        <td align="right">${{v.getMontoDispoCliente|floatformat:2}}</td>
                         <td align="right">${{v.getSubtotalCliente|floatformat:2}}</td>
                         <td align="right">${{v.getMontoTiempoEsperaCliente|floatformat:2}}</td>
                         <td align="right">{{v.getCantidadTiempoEsperaCliente}}</td>
@@ -203,6 +207,8 @@
                         <td></td>
                         {% endif %}
                         <td>&nbsp;</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
                 <tfoot>
@@ -226,7 +232,9 @@
                         <td align="right"></td>
                         <td align="right"></td>
                         <td align="right"></td>
-                        <td align="right"><b>TOTALES</b></td>
+                        <td align="right"></td>
+                        <td align="right"></td>
+                        <td align="right"></td>
                         <td align="right"><b>${{total|floatformat:2}}</b></td>
                         <td align="right"><b>${{iva|floatformat:2}}</b></td>
                         <td align="right"><b>${{final|floatformat:2}}</b></td>

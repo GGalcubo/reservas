@@ -549,6 +549,20 @@ class Viaje(models.Model):
     def getFecha(self):
         return getFecha(self.fecha)
 
+    def getHsDispoCliente(self):
+        retorno = 0
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 18:
+                retorno = retorno + iv.cant
+        return retorno    
+
+    def getMontoDispoCliente(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 18:
+                retorno = retorno + iv.monto_s_iva
+        return retorno   
+
     def getCantidadTiempoEsperaCliente(self):
         retorno = 0
         for iv in self.itemviaje_set.all():
@@ -608,7 +622,8 @@ class Viaje(models.Model):
     def getSubtotalCliente(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():
-            if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18:
+            if iv.tipo_items_viaje.id == 2:
+                # or iv.tipo_items_viaje.id == 18:
                 retorno = retorno + iv.monto_s_iva
         return retorno
 
