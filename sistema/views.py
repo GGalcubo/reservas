@@ -2668,6 +2668,8 @@ def buscarFacturacionCliente(request):
 			viajes = viajes.filter(categoria_viaje_id__in=[1,2,3,4,17,18,19])
 		elif condEspecial == "4":
 			viajes = viajes.filter(categoria_viaje_id__in=[5,6,7,8,9])
+		elif condEspecial == "5":
+			viajes = viajes.filter(estado_id__in=[1,2,3,4,5,6,8,9])
 
 		if facList:
 			q_ids = [o.id for o in viajes if o.getFacturaCliente() in facList]
@@ -2934,6 +2936,8 @@ def exportarPdfFactCliente(request):
 		if ids:
 			idsList.append(int(ids))
 
+	hsdispo = 0
+	dispo = 0
 	subtotal = 0
 	peft = 0
 	tiempo = 0
@@ -2951,17 +2955,19 @@ def exportarPdfFactCliente(request):
 		total = total + v.getTotalCliente()
 		iva   = iva + v.getIvaCliente()
 		final = final + v.getFinalCliente()
+		hsdispo = hsdispo + v.getHsDispoCliente()
+		dispo = dispo + v.getMontoDispoCliente()
 		subtotal = subtotal + v.getSubtotalCliente()
 		peft = peft + v.getMontoPeftCliente()
 		mtiempo = mtiempo + v.getMontoTiempoEsperaCliente()
-		tiempo = tiempo + v.getMontoTiempoEsperaCliente()
+		tiempo = tiempo + v.getCantidadTiempoEsperaCliente()
 		bilingue = bilingue + v.getMontoBilingueCliente()
 		monto = monto + v.getMontoMontoCliente()
 		peaje = peaje + v.getMontoPeajesCliente()
 		estacion = estacion + v.getMontoEstacionCliente()
 		otros = otros + v.getMontoOtrosCliente()
 
-	context = {'cliente': cliente, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'total':total, 'iva': iva, 'final': final, 'subtotal':subtotal,'peft':peft,'tiempo':tiempo,'mtiempo':mtiempo, 'bilingue':bilingue,'monto':monto,'peaje':peaje,'estacion':estacion,'otros':otros, 'centroCosto':retornoCC}
+	context = {'cliente': cliente, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'total':total, 'iva': iva, 'final': final, 'subtotal':subtotal,'peft':peft,'tiempo':tiempo,'mtiempo':mtiempo, 'bilingue':bilingue,'monto':monto,'peaje':peaje,'estacion':estacion,'otros':otros, 'centroCosto':retornoCC, 'hsdispo':hsdispo, 'dispo': dispo}
 	return render(request, 'sistema/pdfFactCliente.html', context)
 
 @login_required
