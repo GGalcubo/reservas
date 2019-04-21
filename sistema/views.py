@@ -504,7 +504,7 @@ def getTarifaTrayecto(categoria_viaje, tarifario, desde, hasta):
     elif categoria_viaje == 3:
         return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=desde, localidad_hasta=hasta).cat3
     elif categoria_viaje == 4:
-        return TarifaTrayecto.objects.get(tarifario_=tarifario, localidad_desde=desde, localidad_hasta=hasta).cat4
+        return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=desde, localidad_hasta=hasta).cat4
     elif categoria_viaje == 5:
         return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=desde, localidad_hasta=hasta).cat5
     elif categoria_viaje == 6:
