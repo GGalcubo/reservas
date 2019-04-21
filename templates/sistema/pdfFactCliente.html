@@ -225,16 +225,16 @@
                         {% if centroCosto == "" %}
                             <td></td>
                         {% endif %}
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
-                        <td align="right"></td>
+                        <td align="right">{{hsdispo|floatformat:0}}</td>
+                        <td align="right">${{dispo|floatformat:2}}</td>
+                        <td align="right">${{subtotal|floatformat:2}}</td>
+                        <td align="right">${{mtiempo|floatformat:2}}</td>
+                        <td align="right">{{tiempo|floatformat:0}}</td>
+                        <td align="right">${{bilingue|floatformat:2}}</td>
+                        <td align="right">${{monto|floatformat:2}}</td>
+                        <td align="right">${{peaje|floatformat:2}}</td>
+                        <td align="right">${{estacion|floatformat:2}}</td>
+                        <td align="right">${{otros|floatformat:2}}</td>
                         <td align="right"><b>${{total|floatformat:2}}</b></td>
                         <td align="right"><b>${{iva|floatformat:2}}</b></td>
                         <td align="right"><b>${{final|floatformat:2}}</b></td>
@@ -246,7 +246,7 @@
     <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
     <script>
         $(document).ready(function(){
-            window.print();  
+            /*window.print();  */
         });
     </script>
 </html>
