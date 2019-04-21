@@ -365,7 +365,7 @@
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
                                                             <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="peaje" value="{{ viaje.peajes }}" name="peaje">
+                                                            <input type="text" class="form-control" id="peaje" value="{{ viaje.peajes|default_if_none:'' }}" name="peaje">
                                                             <label for="peaje">Peajes</label>
                                                         </div>
                                                     </div>
@@ -374,7 +374,7 @@
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
                                                             <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.parking }}" name="estacionamiento">
+                                                            <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.parking|default_if_none:'' }}" name="estacionamiento">
                                                             <label for="estacionamiento">Estacionamiento</label>
                                                         </div>
                                                     </div>
@@ -383,7 +383,7 @@
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
                                                             <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="otros" value="{{ viaje.otro }}" name="otros">
+                                                            <input type="text" class="form-control" id="otros" value="{{ viaje.otro|default_if_none:'' }}" name="otros">
                                                             <label for="otros">Otros</label>
                                                         </div>
                                                     </div>
