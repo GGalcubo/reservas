@@ -460,6 +460,14 @@ class Viaje(models.Model):
     creadopor = models.ForeignKey(User, null=True, blank=True, default=1)
     creadofecha = models.CharField(max_length=12, default=1)
     nropasajeros = models.CharField(max_length=2, default=1)
+    bilingue = models.BooleanField(default=False)
+    maletas = models.CharField(max_length=2, default=1)
+    espera = models.CharField(max_length=10, null=True, blank=True)
+    dispo = models.CharField(max_length=10, null=True, blank=True)
+    peajes = models.CharField(max_length=10, null=True, blank=True)
+    parking = models.CharField(max_length=10, null=True, blank=True)
+    otro = models.CharField(max_length=9, null=True, blank=True)
+    cabecera = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s' % self.fecha

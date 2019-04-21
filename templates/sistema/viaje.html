@@ -127,7 +127,7 @@
                                                                <a href="#add_solicitante" role="button" data-toggle="modal" class="btn btn-success btn-xs">+</a>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-3">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="pasajero" name="pasajero"></select>
                                                                 <label for="pasajero">Pasajero</label>
@@ -136,6 +136,22 @@
                                                         <div class="col-md-1 pd-0">
                                                             <div class="form-group form-md-line-input flex align-i-center" style="height: 49px;">
                                                                 <a href="#add_pasajero" role="button" data-toggle="modal" class="btn btn-success btn-xs">+</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <div class="form-group form-md-line-input">
+                                                                <select class="form-control" id="pasajero_cant" name="pasajero_cant">
+                                                                    <option value="0" selected="selected">Elegir cant.</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+                                                                    <option value="7">7</option>
+                                                                    <option value="8">8</option>
+                                                                </select>
+                                                                <label for="pasajero_cant" class="mg-neg-t-5">P. Cant.</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -282,20 +298,39 @@
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="tiempo_hs_dispo" name="tiempo_hs_dispo">
-                                                        <label for="tiempo_hs_dispo">Horas Disp</label>
+                                                        <select class="form-control" id="tiempo_hs_dispo" name="tiempo_hs_dispo">
+                                                                <option value="" selected="selected">Elegir cant.</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                                <option value="17">17</option>
+                                                                <option value="18">18</option>
+                                                                <option value="19">19</option>
+                                                                <option value="20">20</option>
+                                                                <option value="21">21</option>
+                                                                <option value="22">22</option>
+                                                                <option value="23">23</option>
+                                                                <option value="24">24</option>
+                                                            </select>
+                                                            <label for="tiempo_hs_dispo">Horas Disp</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-1">
                                                     <div class="form-group form-md-checkboxes">
                                                         <div class="md-checkbox-inline">
-                                                            <div class="md-checkbox">
-                                                                <input type="checkbox" id="maletas" class="md-check" name="maletas">
-                                                                <label for="maletas">
-                                                                    <span></span>
-                                                                    <span class="check"></span>
-                                                                    <span class="box"></span> Maletas </label>
-                                                            </div>
                                                             <div class="md-checkbox">
                                                                 <input type="checkbox" id="bilingue" class="md-check" name="bilingue">
                                                                 <label for="bilingue">
@@ -309,8 +344,28 @@
                                                 <div class="col-md-1">
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
+                                                            <select class="form-control" id="maletas" name="maletas">
+                                                                <option value="0" selected="selected">Elegir cant.</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                            </select>
+                                                            <label for="maletas">Maletas</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <div class="input-group left-addon right-addon">
                                                             <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="peaje" value="" name="peaje">
+                                                            <input type="text" class="form-control" id="peaje" value="{{ viaje.peajes }}" name="peaje">
                                                             <label for="peaje">Peajes</label>
                                                         </div>
                                                     </div>
@@ -319,7 +374,7 @@
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
                                                             <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="estacionamiento" value="" name="estacionamiento">
+                                                            <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.parking }}" name="estacionamiento">
                                                             <label for="estacionamiento">Estacionamiento</label>
                                                         </div>
                                                     </div>
@@ -328,7 +383,7 @@
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
                                                             <span class="input-group-addon">$</span>
-                                                            <input type="text" class="form-control" id="otros" value="" name="otros">
+                                                            <input type="text" class="form-control" id="otros" value="{{ viaje.otro }}" name="otros">
                                                             <label for="otros">Otros</label>
                                                         </div>
                                                     </div>
@@ -807,16 +862,19 @@
                                                                             <div class="col-md-1">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <select class="form-control" id="admin_cant_espera_proveedor" name="admin_cant_espera_proveedor">
-                                                                                        <option value="0">1</option>
-                                                                                        <option value="1">2</option>
-                                                                                        <option value="2">3</option>
-                                                                                        <option value="3">4</option>
-                                                                                        <option value="4">5</option>
-                                                                                        <option value="5">6</option>
-                                                                                        <option value="6">7</option>
-                                                                                        <option value="7">8</option>
-                                                                                        <option value="8">9</option>
-                                                                                        <option value="9">10</option>
+                                                                                        <option value="0" selected="selected">Elegir tiempo</option>
+                                                                                        <option value="15">00:15 hs</option>
+                                                                                        <option value="30">00:30 hs</option>
+                                                                                        <option value="45">00:45 hs</option>
+                                                                                        <option value="60">01:00 hs</option>
+                                                                                        <option value="75">01:15 hs</option>
+                                                                                        <option value="90">01:30 hs</option>
+                                                                                        <option value="105">01:45 hs</option>
+                                                                                        <option value="120">02:00 hs</option>
+                                                                                        <option value="135">02:15 hs</option>
+                                                                                        <option value="150">02:30 hs</option>
+                                                                                        <option value="165">02:45 hs</option>
+                                                                                        <option value="180">03:00 hs</option>
                                                                                     </select>
                                                                                     <label for="admin_cant_espera_proveedor" class="mg-neg-t-5">Espera</label>
                                                                                 </div>
@@ -833,18 +891,31 @@
                                                                             <div class="col-md-1">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <select class="form-control" id="admin_cant_hs_dispo_proveedor" name="admin_cant_hs_dispo_proveedor">
-                                                                                        <option value="15">00:15 hs</option>
-                                                                                        <option value="30">00:30 hs</option>
-                                                                                        <option value="45">00:45 hs</option>
-                                                                                        <option value="60">01:00 hs</option>
-                                                                                        <option value="75">01:15 hs</option>
-                                                                                        <option value="90">01:30 hs</option>
-                                                                                        <option value="105">01:45 hs</option>
-                                                                                        <option value="120">02:00 hs</option>
-                                                                                        <option value="135">02:15 hs</option>
-                                                                                        <option value="150">02:30 hs</option>
-                                                                                        <option value="165">02:45 hs</option>
-                                                                                        <option value="180">03:00 hs</option>
+                                                                                        <option value="0" selected="selected">Elegir cant.</option>
+                                                                                        <option value="1">1</option>
+                                                                                        <option value="2">2</option>
+                                                                                        <option value="3">3</option>
+                                                                                        <option value="4">4</option>
+                                                                                        <option value="5">5</option>
+                                                                                        <option value="6">6</option>
+                                                                                        <option value="7">7</option>
+                                                                                        <option value="8">8</option>
+                                                                                        <option value="9">9</option>
+                                                                                        <option value="10">10</option>
+                                                                                        <option value="11">11</option>
+                                                                                        <option value="12">12</option>
+                                                                                        <option value="13">13</option>
+                                                                                        <option value="14">14</option>
+                                                                                        <option value="15">15</option>
+                                                                                        <option value="16">16</option>
+                                                                                        <option value="17">17</option>
+                                                                                        <option value="18">18</option>
+                                                                                        <option value="19">19</option>
+                                                                                        <option value="20">20</option>
+                                                                                        <option value="21">21</option>
+                                                                                        <option value="22">22</option>
+                                                                                        <option value="23">23</option>
+                                                                                        <option value="24">24</option>
                                                                                     </select>
                                                                                     <label for="admin_cant_hs_dispo_proveedor" class="mg-neg-t-5">Horas Disp</label>
                                                                                 </div>
@@ -888,16 +959,17 @@
                                                                             <div class="col-md-1">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <select class="form-control" id="admin_cant_maletas_proveedor" name="admin_cant_maletas_proveedor">
-                                                                                        <option value="0">1</option>
-                                                                                        <option value="1">2</option>
-                                                                                        <option value="2">3</option>
-                                                                                        <option value="3">4</option>
-                                                                                        <option value="4">5</option>
-                                                                                        <option value="5">6</option>
-                                                                                        <option value="6">7</option>
-                                                                                        <option value="7">8</option>
-                                                                                        <option value="8">9</option>
-                                                                                        <option value="9">10</option>
+                                                                                        <option value="0">Elegir cant.</option>
+                                                                                        <option value="1">1</option>
+                                                                                        <option value="2">2</option>
+                                                                                        <option value="3">3</option>
+                                                                                        <option value="4">4</option>
+                                                                                        <option value="5">5</option>
+                                                                                        <option value="6">6</option>
+                                                                                        <option value="7">7</option>
+                                                                                        <option value="8">8</option>
+                                                                                        <option value="9">9</option>
+                                                                                        <option value="10">10</option>
                                                                                     </select>
                                                                                     <label for="admin_cant_maletas_proveedor" class="mg-neg-t-5">Maletas</label>
                                                                                 </div>
@@ -972,16 +1044,19 @@
                                                                             <div class="col-md-1">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <select class="form-control" id="admin_cant_espera_cliente" name="admin_cant_espera_cliente">
-                                                                                        <option value="0">1</option>
-                                                                                        <option value="1">2</option>
-                                                                                        <option value="2">3</option>
-                                                                                        <option value="3">4</option>
-                                                                                        <option value="4">5</option>
-                                                                                        <option value="5">6</option>
-                                                                                        <option value="6">7</option>
-                                                                                        <option value="7">8</option>
-                                                                                        <option value="8">9</option>
-                                                                                        <option value="9">10</option>
+                                                                                        <option value="0" selected="selected">Elegir tiempo</option>
+                                                                                        <option value="15">00:15 hs</option>
+                                                                                        <option value="30">00:30 hs</option>
+                                                                                        <option value="45">00:45 hs</option>
+                                                                                        <option value="60">01:00 hs</option>
+                                                                                        <option value="75">01:15 hs</option>
+                                                                                        <option value="90">01:30 hs</option>
+                                                                                        <option value="105">01:45 hs</option>
+                                                                                        <option value="120">02:00 hs</option>
+                                                                                        <option value="135">02:15 hs</option>
+                                                                                        <option value="150">02:30 hs</option>
+                                                                                        <option value="165">02:45 hs</option>
+                                                                                        <option value="180">03:00 hs</option>
                                                                                     </select>
                                                                                     <label for="admin_cant_espera_cliente" class="mg-neg-t-5">Espera</label>
                                                                                 </div>
@@ -998,18 +1073,31 @@
                                                                             <div class="col-md-1">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <select class="form-control" id="admin_cant_hs_dispo_cliente" name="admin_cant_hs_dispo_cliente">
-                                                                                        <option value="15">00:15 hs</option>
-                                                                                        <option value="30">00:30 hs</option>
-                                                                                        <option value="45">00:45 hs</option>
-                                                                                        <option value="60">01:00 hs</option>
-                                                                                        <option value="75">01:15 hs</option>
-                                                                                        <option value="90">01:30 hs</option>
-                                                                                        <option value="105">01:45 hs</option>
-                                                                                        <option value="120">02:00 hs</option>
-                                                                                        <option value="135">02:15 hs</option>
-                                                                                        <option value="150">02:30 hs</option>
-                                                                                        <option value="165">02:45 hs</option>
-                                                                                        <option value="180">03:00 hs</option>
+                                                                                        <option value="0" selected="selected">Elegir cant.</option>
+                                                                                        <option value="1">1</option>
+                                                                                        <option value="2">2</option>
+                                                                                        <option value="3">3</option>
+                                                                                        <option value="4">4</option>
+                                                                                        <option value="5">5</option>
+                                                                                        <option value="6">6</option>
+                                                                                        <option value="7">7</option>
+                                                                                        <option value="8">8</option>
+                                                                                        <option value="9">9</option>
+                                                                                        <option value="10">10</option>
+                                                                                        <option value="11">11</option>
+                                                                                        <option value="12">12</option>
+                                                                                        <option value="13">13</option>
+                                                                                        <option value="14">14</option>
+                                                                                        <option value="15">15</option>
+                                                                                        <option value="16">16</option>
+                                                                                        <option value="17">17</option>
+                                                                                        <option value="18">18</option>
+                                                                                        <option value="19">19</option>
+                                                                                        <option value="20">20</option>
+                                                                                        <option value="21">21</option>
+                                                                                        <option value="22">22</option>
+                                                                                        <option value="23">23</option>
+                                                                                        <option value="24">24</option>
                                                                                     </select>
                                                                                     <label for="admin_cant_hs_dispo_cliente" class="mg-neg-t-5">Horas Disp</label>
                                                                                 </div>
@@ -1053,16 +1141,17 @@
                                                                             <div class="col-md-1">
                                                                                 <div class="form-group form-md-line-input">
                                                                                     <select class="form-control" id="admin_cant_maletas_cliente" name="admin_cant_maletas_cliente">
-                                                                                        <option value="0">1</option>
-                                                                                        <option value="1">2</option>
-                                                                                        <option value="2">3</option>
-                                                                                        <option value="3">4</option>
-                                                                                        <option value="4">5</option>
-                                                                                        <option value="5">6</option>
-                                                                                        <option value="6">7</option>
-                                                                                        <option value="7">8</option>
-                                                                                        <option value="8">9</option>
-                                                                                        <option value="9">10</option>
+                                                                                        <option value="0">Elegir cant.</option>
+                                                                                        <option value="1">1</option>
+                                                                                        <option value="2">2</option>
+                                                                                        <option value="3">3</option>
+                                                                                        <option value="4">4</option>
+                                                                                        <option value="5">5</option>
+                                                                                        <option value="6">6</option>
+                                                                                        <option value="7">7</option>
+                                                                                        <option value="8">8</option>
+                                                                                        <option value="9">9</option>
+                                                                                        <option value="10">10</option>
                                                                                     </select>
                                                                                     <label for="admin_cant_maletas_cliente" class="mg-neg-t-5">Maletas</label>
                                                                                 </div>
@@ -1104,7 +1193,7 @@
                                                         </div>
                                                         <div class="form-actions noborder flex">
                                                             <button type="button" onclick="guardaViajeAdmin()" class="btn btn-outline green mg-r-10">Guardar</button>
-                                                            <!--<button type="button" class="btn btn-outline red">Cancelar</button>-->
+                                                            <button type="button" onclick="recalcularViajeAdmin()"  class="btn btn-outline red">Recalcular</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -2006,6 +2095,11 @@
             var mensaje             = '{{ mensaje }}';
             var viaje               = '{{ viaje.id }}';
             var estado              = '{{ viaje.estado.id }}';
+            var espera_viaje        = '{{ viaje.espera|default_if_none:"" }}';
+            var maletas_viaje       = '{{ viaje.maletas|default_if_none:"" }}';
+            var bilingue_viaje      = '{{ viaje.bilingue|default_if_none:"" }}';
+            var dispo_viaje         = '{{ viaje.dispo|default_if_none:"" }}';
+            var pasajero_cant       = '{{ viaje.nropasajeros|default_if_none:"" }}';
             var solicitante         = '{{ viaje.solicitante.id }}';
             var pasajero            = '{{ viaje.pasajero.id }}';
             var centro_costo        = '{{ viaje.centro_costo.id }}';

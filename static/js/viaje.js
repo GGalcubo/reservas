@@ -62,7 +62,7 @@ $(document).ready( () => {
     }else{
         $("#viaje-tab").show();
         getGrillasHistorial();
-        if(estado == '6' || estado == '7'){
+        if(estado == '7'){
             //$("#administracion").show();
             $("#administracion_tab_btn a").show();
         }
@@ -125,6 +125,17 @@ $(document).ready( () => {
             }
         });
     }
+    console.log({bilingue_viaje});
+    console.log({maletas_viaje});
+    console.log(espera_viaje);
+    console.log(dispo_viaje);
+    if(bilingue_viaje === 'True'){
+        $('#bilingue').prop('checked', true);
+    }
+    $('#maletas').val(maletas_viaje);
+    $('#tiempo_espera').val(espera_viaje);
+    $('#tiempo_hs_dispo').val(dispo_viaje);
+    $('#pasajero_cant').val(pasajero_cant);
 
     $('#categoria_viaje').select2({ placeholder: 'Seleccionar'});
     $('#contacto').select2({ placeholder: 'Seleccionar'});
@@ -252,7 +263,7 @@ $(document).ready( () => {
         obj.otros             = $("#otros").val();
         obj.estacionamiento   = $("#estacionamiento").val();
         obj.categoria_viaje   = $("#categoria_viaje").val();
-        obj.maletas           = $("#maletas:checked").val() || '';
+        obj.maletas           = $("#maletas").val();
         obj.costo_maletas     = $("#costo_maletas").val();
         obj.bilingue          = $("#bilingue:checked").val() || '';
         obj.costo_bilingue    = $("#costo_bilingue").val();
@@ -262,6 +273,7 @@ $(document).ready( () => {
         obj.importe_efectivo  = $("#importe_efectivo").val();
         obj.tiempo_hs_dispo   = $("#tiempo_hs_dispo").val();
         obj.hs_dispo          = $("#hs_dispo").val();
+        obj.pasajero_cant     = $("#pasajero_cant").val();
         obj.es_nuevo          = es_nuevo;
 
         if(es_nuevo == 0){ 
@@ -281,7 +293,7 @@ $(document).ready( () => {
                     showMsg(data.msg, 'error');
                 }else{
                     data.url ? window.location.replace(data.url) : showMsg('Los datos se han actualizado correctamente.', 'success');
-                    if(obj.estado == 6 || obj.estado == 7){
+                    if(obj.estado == 7){
                         if(data.error != 0){
                             viaje_items = [];
                             $.each(data, (k, item) => {
@@ -699,6 +711,38 @@ guardarSolicitante = () => {
         }
     });
 };
+/**
+ *
+ */
+recalcularViajeAdmin = () =>{
+    let url = "/sistema/guardaViajeAdmin/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: $("#form-guarda-viaje-admin").serialize()+'&'+$.param({ 'tiempo_hs_dispo': $('#tiempo_hs_dispo').val(),
+                                                                     'tiempo_espera': $('#tiempo_espera').val(),
+                                                                     'bilingue': $("#bilingue:checked").val() || '',
+                                                                     'maletas': $("#maletas").val(),
+                                                                     'metodo':'recalcular'
+                                                                    }),
+        success: data => {
+            showMsg('Se guardo con exito', 'success');
+            viaje_items = [];
+            $.each(data, (k, item) => {
+                let obj = {
+                    id : item.pk,
+                    monto : item.fields.monto,
+                    monto_s_iva : item.fields.monto_s_iva,
+                    monto_iva : item.fields.monto_iva,
+                    tipo_items_viaje : item.fields.tipo_items_viaje.toString() ,
+                    cant: item.fields.cant};
+                viaje_items.push(obj);
+            });
+            fillViajeItems();
+        }
+    });
+};
 
 /**
  *
@@ -712,7 +756,8 @@ guardaViajeAdmin = () => {
         data: $("#form-guarda-viaje-admin").serialize()+'&'+$.param({ 'tiempo_hs_dispo': $('#tiempo_hs_dispo').val(),
                                                                      'tiempo_espera': $('#tiempo_espera').val(),
                                                                      'bilingue': $("#bilingue:checked").val() || '',
-                                                                     'maletas': $("#maletas:checked").val() || ''
+                                                                     'maletas': $("#maletas").val(),
+                                                                     'metodo':'guarda'
                                                                     }),
         success: data => {
             showMsg('Se guardo con exito', 'success');
@@ -1288,10 +1333,11 @@ fillViajeItems = () => {
     let sum_total_proveedor = 0;
     let sum_total_cliente = 0;
     viaje_items.forEach(value => {
-        console.log(value.monto_s_iva);
+        //console.log(value.monto_s_iva);
         switch(value.tipo_items_viaje){
             case '1':
-                $('#admin_espera_cliente').val(parseFloat(value.monto_s_iva));
+                $('#admin_espera_cliente').val(value.monto_s_iva);
+                $('#admin_cant_espera_cliente').val(value.cant);
                 sum_total_cliente += parseFloat(value.monto_s_iva);
             break;              
             case '2':
@@ -1299,11 +1345,16 @@ fillViajeItems = () => {
                 sum_total_cliente += parseFloat(value.monto_s_iva);
             break;              
             case '3':
+
+                if(value.cant == 1){
+                    $('#admin_bilingue_cliente').prop('checked', true);
+                }
                 $('#admin_costo_bilingue_cliente').val(parseFloat(value.monto_s_iva));
                 sum_total_cliente += parseFloat(value.monto_s_iva);
             break;            
             case '4':
                 $('#admin_costo_maletas_cliente').val(parseFloat(value.monto_s_iva));
+                $('#admin_cant_maletas_cliente').val(value.cant);
                 sum_total_cliente += parseFloat(value.monto_s_iva);
             break;          
             case '5':
@@ -1320,20 +1371,17 @@ fillViajeItems = () => {
             break;
             case '9':
                 if(value.cant == 1){
-                    $('#bilingue').prop('checked', true);
+                    $('#admin_bilingue_proveedor').prop('checked', true);
                 }
                 $('#admin_costo_bilingue_proveedor').val(parseFloat(value.monto_s_iva));
                 sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '10':
-                if(value.cant == 1){
-                    $('#maletas').prop('checked', true);
-                }
+                $('#admin_cant_maletas_proveedor').val(value.cant);
                 $('#admin_costo_maletas_proveedor').val(parseFloat(value.monto_s_iva));
                 sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '11':
-                $('#estacionamiento').val(parseFloat(value.monto_s_iva));
                 $('#admin_estacionamiento_proveedor').val(parseFloat(value.monto_s_iva));
                 sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
@@ -1342,22 +1390,20 @@ fillViajeItems = () => {
             break;
             case '13':
                 $('#admin_hs_dispo_proveedor').val(parseFloat(value.monto_s_iva));
-                $('#tiempo_hs_dispo').val(value.cant);
+                $('#admin_cant_hs_dispo_proveedor').val(value.cant);
                 sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '14':
-                $('#admin_espera_proveedor').val(parseFloat(value.monto_s_iva));
-                $('#tiempo_espera').val(value.cant);
+                $('#admin_espera_proveedor').val(value.monto_s_iva);
+                $('#admin_cant_espera_proveedor').val(value.cant);
                 sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '15':
-                $('#peaje').val(parseFloat(value.monto_s_iva));
                 $('#admin_peaje_proveedor').val(parseFloat(value.monto_s_iva));
                 sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '16':
                 $('#admin_otros_proveedor').val(parseFloat(value.monto_s_iva));
-                $('#otros').val(parseFloat(value.monto_s_iva));
                 sum_total_proveedor += parseFloat(value.monto_s_iva);
             break;
             case '17':
@@ -1366,6 +1412,7 @@ fillViajeItems = () => {
             break;            
             case '18':
                 $('#admin_hs_dispo_cliente').val(parseFloat(value.monto_s_iva));
+                $('#admin_cant_hs_dispo_cliente').val(value.cant);
                 sum_total_cliente += parseFloat(value.monto_s_iva);
             break;
             default:
