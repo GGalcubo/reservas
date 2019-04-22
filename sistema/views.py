@@ -583,10 +583,10 @@ def guardaItemViajeCostoCliente(monto, tipo_item_viaje, cant, viaje, manual):
 
 def guardaItemViajeMaletas(monto, tipo_item_viaje, cant, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
-    unidad          = viaje.unidad
+    centro_costo = viaje.centro_costo
 
     try:
-        base = getTarifaTrayectoExtra(viaje.categoria_viaje_id, unidad.tarifario, 'maletas')
+        base = getTarifaTrayectoExtra(viaje.categoria_viaje_id, centro_costo.tarifario, 'maletas')
     except Exception as e:
         base = 0
     if base == None:
@@ -600,7 +600,7 @@ def guardaItemViajeMaletas(monto, tipo_item_viaje, cant, viaje, manual):
         item_viaje_otros = ItemViaje()
 
     monto = round(float(monto), 2)
-    monto_s_iva = monto if manual else round(float(base), 2)
+    monto_s_iva = monto if manual else round(int(cant) * float(base), 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = cant
@@ -614,10 +614,10 @@ def guardaItemViajeMaletas(monto, tipo_item_viaje, cant, viaje, manual):
 
 def guardaItemViajeMaletasAdmin(monto, tipo_item_viaje, cant, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
-    centro_costo    = viaje.centro_costo
+    unidad = viaje.unidad
 
     try:
-        base = getTarifaTrayectoExtra(viaje.categoria_viaje_id, centro_costo.tarifario, 'maletas')
+        base = getTarifaTrayectoExtra(viaje.categoria_viaje_id, unidad.tarifario, 'maletas')
     except Exception as e:
         base = 0
     if base == None:
@@ -630,7 +630,7 @@ def guardaItemViajeMaletasAdmin(monto, tipo_item_viaje, cant, viaje, manual):
         item_viaje_otros = ItemViaje()
 
     monto = round(float(monto), 2)
-    monto_s_iva = monto if manual else round(float(base), 2)
+    monto_s_iva = monto if manual else round(int(cant) * float(base), 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = cant

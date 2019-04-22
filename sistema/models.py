@@ -461,7 +461,7 @@ class Viaje(models.Model):
     creadofecha = models.CharField(max_length=12, default=1)
     nropasajeros = models.CharField(max_length=2, default=1)
     bilingue = models.BooleanField(default=False)
-    maletas = models.CharField(max_length=2, default=1)
+    maletas = models.CharField(max_length=2, default=0)
     espera = models.CharField(max_length=10, null=True, blank=True)
     dispo = models.CharField(max_length=10, null=True, blank=True)
     peajes = models.CharField(max_length=10, null=True, blank=True)
