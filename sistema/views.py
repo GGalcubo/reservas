@@ -3039,6 +3039,8 @@ def exportarPdfFactProv(request):
 			idsList.append(int(ids))
 
 	subtotal = 0
+	hsdispo = 0
+	dispo = 0
 	cobrado = 0
 	tiempo = 0
 	mtiempo = 0
@@ -3055,6 +3057,8 @@ def exportarPdfFactProv(request):
 	viajes = Viaje.objects.filter(id__in=idsList)
 	for v in viajes:
 		subtotal = subtotal + v.getSubtotalProveedor()
+		hsdispo = hsdispo + v.getHsDispoProveedor()
+		dispo = dispo + v.getMontoDispoProveedor()
 		cobrado = cobrado + v.getCobradoProveedor()
 		tiempo = tiempo + v.getCantidadTiempoEsperaProveedor()
 		mtiempo = mtiempo + v.getMontoTiempoEsperaProveedor()
@@ -3068,7 +3072,7 @@ def exportarPdfFactProv(request):
 		final = final + v.getFinalProveedor()
 		pagar = pagar + v.getPagarProveedor()
 
-	context = {'unidades': unidades, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'subtotal':subtotal,'cobrado':cobrado,'tiempo':tiempo,'mtiempo':mtiempo,'bilingue':bilingue,'maletas':maletas,'peajes':peajes,'estacion':estacion,'otros':otros,'total':total,'iva':iva,'final':final,'pagar':pagar}
+	context = {'unidades': unidades, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'subtotal':subtotal,'hsdispo':hsdispo,'dispo':dispo,'cobrado':cobrado,'tiempo':tiempo,'mtiempo':mtiempo,'bilingue':bilingue,'maletas':maletas,'peajes':peajes,'estacion':estacion,'otros':otros,'total':total,'iva':iva,'final':final,'pagar':pagar}
 	return render(request, 'sistema/pdfFactProvedor.html', context)
 
 

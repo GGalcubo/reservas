@@ -677,6 +677,20 @@ class Viaje(models.Model):
                 retorno = retorno + iv.monto_s_iva
         return retorno
 
+    def getHsDispoProveedor(self):
+        retorno = 0
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 13:
+                retorno = retorno + iv.cant
+        return retorno
+
+    def getMontoDispoProveedor(self):
+        retorno = 0.00
+        for iv in self.itemviaje_set.all():
+            if iv.tipo_items_viaje.id == 13:
+                retorno = retorno + iv.monto_s_iva
+        return retorno
+
     def getMontoBilingueProveedor(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():

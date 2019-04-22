@@ -4,18 +4,21 @@
             <th class="all"></th>
             <th class="all">N°</th>
             <th class="all">Fecha</th>
+            <th class="all">Fecha</th>
             <th class="all">TS</th>
             <th class="all">Hora</th>
             <th class="all">Pasajero</th>
             <th class="all">Origen</th>
             <th class="all">Destino</th>
             <th class="all">Subtotal</th>
+            <th class="all">Hs Dispo</th>
+            <th class="all">Dispo</th>
             <th class="all">T. Espera</th>
             <th class="all">Espera</th>
             <th class="all">Bilingue</th>
             <th class="all">Maletas</th>
             <th class="all">Peajes</th>
-            <th class="all">Estación</th>
+            <th class="all">Parking</th>
             <th class="all">Otros</th>
             <th class="all">Total</th>
             <th class="all">I.V.A.</th>
@@ -30,25 +33,28 @@
         <tr id="rowid{{ v.id }}">
             <td></td>
             <td class="text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{v.id}}">{{v.id}}</a></td>
+            <td class="all">{{ v.getFecha }}</td>
             <td class="all"><span class='hide'>{{ v.fecha }}</span>{{ v.getFecha }}</td>
             <td>{{v.categoria_viaje}}</td>
             <td>{{v.hora}}</td>
             <td>{{v.pasajero.nombre}} {{v.pasajero.apellido}}</td>
             <td><span class="label label-sm label-info">{{v.getTrayectoPrincipal.desdeConcat}}</span></td>
             <td><span class="label label-sm label-primary">{{v.getTrayectoPrincipal.hastaConcat}}</span></td>
-            <td>${{v.getSubtotalProveedor|floatformat:0}}</td>
+            <td>{{v.getSubtotalProveedor|floatformat:0}}</td>
+            <td>{{v.getHsDispoProveedor}}</td>
+            <td>{{v.getMontoDispoProveedor|floatformat:0}}</td>
             <td>{{v.getCantidadTiempoEsperaProveedor}}</td>
-            <td>${{v.getMontoTiempoEsperaProveedor|floatformat:0}}</td>
-            <td>${{v.getMontoBilingueProveedor|floatformat:0}}</td>
-            <td>${{v.getMontoMaletasProveedor|floatformat:0}}</td>
-            <td>${{v.getMontoPeajesProveedor|floatformat:0}}</td>
-            <td>${{v.getMontoEstacionProveedor|floatformat:0}}</td>
-            <td>${{v.getMontoOtrosProveedor|floatformat:0}}</td>
-            <td>${{v.getTotalProveedor|floatformat:0}}</td>
-            <td>${{v.getIvaProveedor|floatformat:0}}</td>
-            <td>${{v.getFinalProveedor|floatformat:0}}</td>
-            <td>${{v.getCobradoProveedor|floatformat:0}}</td>
-            <td>${{v.getPagarProveedor|floatformat:0}}</td>
+            <td>{{v.getMontoTiempoEsperaProveedor|floatformat:0}}</td>
+            <td>{{v.getMontoBilingueProveedor|floatformat:0}}</td>
+            <td>{{v.getMontoMaletasProveedor|floatformat:0}}</td>
+            <td>{{v.getMontoPeajesProveedor|floatformat:0}}</td>
+            <td>{{v.getMontoEstacionProveedor|floatformat:0}}</td>
+            <td>{{v.getMontoOtrosProveedor|floatformat:0}}</td>
+            <td>{{v.getTotalProveedor|floatformat:0}}</td>
+            <td>{{v.getIvaProveedor|floatformat:0}}</td>
+            <td>{{v.getFinalProveedor|floatformat:0}}</td>
+            <td>{{v.getCobradoProveedor|floatformat:0}}</td>
+            <td>{{v.getPagarProveedor|floatformat:0}}</td>
             <td>{{v.getFacturaProveedor}}</td>
         </tr>
         {%endfor%}
@@ -56,6 +62,9 @@
     <!-- ESTO SE AGREGO PARA LA FILA DE TOTAL -->
     <tfoot>
         <tr>
+            <th></th>
+            <th></th>
+            <th></th>
             <th></th>
             <th></th>
             <th></th>
@@ -103,13 +112,6 @@
                 };
     
                     // Total over all pages
-                    total8 = api
-                        .column( 8 )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0 );
-
                     total9 = api
                         .column( 9 )
                         .data()
@@ -193,22 +195,46 @@
                         .reduce( function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0 );
+
+                    total21 = api
+                        .column( 21 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total22 = api
+                        .column( 22 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total23 = api
+                        .column( 23 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
+
+                    total24 = api
+                        .column( 24 )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );
     
                     // Total over this page
                     pageTotal = api
-                        .column( 8, { page: 'current'} )
+                        .column( 9, { page: 'current'} )
                         .data()
                         .reduce( function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0 );
         
                     // Update footer
-                    $( api.column( 8 ).footer() ).html(
-                        '$'+total8
-                    );
-
                     $( api.column( 9 ).footer() ).html(
-                        '$'+total9
+                        total9
                     );
 
                     $( api.column( 10 ).footer() ).html(
@@ -216,43 +242,55 @@
                     );
 
                     $( api.column( 11 ).footer() ).html(
-                        '$'+total11
+                        total11
                     );
 
                     $( api.column( 12 ).footer() ).html(
-                        '$'+total12
+                        total12
                     );
 
                     $( api.column( 13 ).footer() ).html(
-                        '$'+total13
+                        total13
                     );
 
                     $( api.column( 14 ).footer() ).html(
-                        '$'+total14
+                        total14
                     );
 
                     $( api.column( 15 ).footer() ).html(
-                        '$'+total15
+                        total15
                     );
 
                     $( api.column( 16 ).footer() ).html(
-                        '$'+total16
+                        total16
                     );
 
                     $( api.column( 17 ).footer() ).html(
-                        '$'+total17
+                        total17
                     );
 
-                    $( api.column( 18).footer() ).html(
-                        '$'+total18
+                    $( api.column( 18 ).footer() ).html(
+                        total18
                     );
 
                     $( api.column( 19 ).footer() ).html(
-                        '$'+total19
+                        total19
                     );
 
                     $( api.column( 20 ).footer() ).html(
-                        '$'+total20
+                        total20
+                    );
+
+                    $( api.column( 21 ).footer() ).html(
+                        total21
+                    );
+
+                    $( api.column( 22 ).footer() ).html(
+                        total22
+                    );
+                    
+                    $( api.column( 23 ).footer() ).html(
+                        total23
                     );
             },
             //////////////// HASTA ACA HARDCODEADO EL TOTAL SEGUN EL EJEMPLO DE DATATABLES //////////////
@@ -281,12 +319,17 @@
                 orderable: false,
                 className: 'select-checkbox',
                 targets:   0
+            },
+            {
+                targets: 2,
+                visible: false,
+                name: "fecha"
             } ],
             select: {
                 style:    'os',
                 selector: 'td:first-child'
             },
-            order: [[ 1, "asc" ]],
+            order: [[ 3, "asc" ]],
             dom: 'lfBrtip',
             buttons: [
                 'selectAll',
@@ -301,7 +344,8 @@
                     extend: 'excelHtml5',
                     footer: true,
                     exportOptions: {
-                        columns: ':visible:not(:eq(0))'
+                        /*columns: ':visible:not(:eq(0))'*/
+                        columns: [ 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]
                     }
                 },
                 {
