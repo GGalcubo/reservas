@@ -711,13 +711,13 @@ def guardaItemViajeEspera(monto, tipo_item_viaje, tiempo, viaje, manual):
 
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
-        monto = 0 if monto == '' else monto
+        monto = '0' if monto == '' else monto
         tiempo = 0 if tiempo == '' else tiempo
     except ItemViaje.DoesNotExist:
         if tiempo == '' and monto == '':
             return
         else:
-            monto = 0 if monto == '' else monto
+            monto = '0' if monto == '' else monto
             tiempo = 0 if tiempo == '' else tiempo
         item_viaje_otros = ItemViaje()
 
@@ -745,13 +745,13 @@ def guardaItemViajeEsperaAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
         base = 0
     try:
         item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
-        monto = 0 if monto == '' else monto
+        monto = '0' if monto == '' else monto
         tiempo = 0 if tiempo == '' else tiempo
     except ItemViaje.DoesNotExist:
         if tiempo == '' and monto == '':
             return
         else:
-            monto = 0 if monto == '' else monto
+            monto = '0' if monto == '' else monto
             tiempo = 0 if tiempo == '' else tiempo
         item_viaje_otros = ItemViaje()
 
