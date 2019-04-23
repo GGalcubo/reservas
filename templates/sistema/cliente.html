@@ -72,6 +72,21 @@
                                                         <label for="telefono">Teléfono</label>
                                                     </div>
                                                 </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-checkboxes">
+                                                        <div class="md-checkbox-inline">
+                                                            <div class="md-checkbox">
+                                                                <input type="hidden" id="clienteMorosoValue" class="md-check" name="clienteMorosoValue" value="{{ cliente.moroso }}">
+                                                                <input type="checkbox" id="clienteMoroso" class="md-check" name="clienteMoroso">
+                                                                <label for="clienteMoroso">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span> Moroso</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
@@ -903,6 +918,10 @@
 
                     $("#mensajeValidacion").html("");
                     $("#clienteValidacion").hide();
+
+                    if ($("#clienteMorosoValue").val() == "True"){
+                        $("#clienteMoroso").prop( "checked", true );
+                    }
                 });
 
                 function guardarCliente(){

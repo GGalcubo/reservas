@@ -337,6 +337,7 @@ class Cliente(models.Model):
     alias = models.CharField(max_length=50, null=True, blank=True)
     dias_fechas_facturas = models.CharField(max_length=20, null=True, blank=True)
     baja = models.BooleanField(default=False)
+    moroso = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s' % self.razon_social

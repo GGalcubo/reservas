@@ -57,29 +57,30 @@ def asignaciones(request):
 
 	mensaje = ""
 	permiso = obtenerPermiso(request)
-	viajes = Viaje.objects.all()
-	unidades = Unidad.objects.all()
-	estados = Estado.objects.all()
+	#viajes = Viaje.objects.all()
+	#unidades = Unidad.objects.all()
+	estados = Estado.objects.filter(id__in=[3, 4, 5, 6, 7, 8, 9])
+	#'viajes': viajes, 'unidades': unidades,  
 
-	context = {'mensaje':mensaje, 'viajes': viajes, 'unidades': unidades, 'estados': estados,'permiso':permiso }
+	context = {'mensaje':mensaje, 'estados': estados,'permiso':permiso }
 	return render(request, 'sistema/asignaciones.html', context)
 
 @login_required
 def getViajesAsignacionesPorFecha(request):
-    mensaje = ""
-    date = getAAAAMMDD(request.POST.get('date', False))
+	mensaje = ""
+	date = getAAAAMMDD(request.POST.get('date', False))
+	unidades = getUnidadesByUser(request)
+	estados_get_seleccionados = request.POST.getlist('estados_selecionados[]', False)
+	estados_seleccionados = []
+	if estados_get_seleccionados == False:
+		estados_seleccionados = [3, 4]
+	else:
+		for i in estados_get_seleccionados:
+			estados_seleccionados.append(i)
 
-    estados_get_seleccionados = request.POST.getlist('estados_selecionados[]', False)
-    estados_seleccionados = []
-    if estados_get_seleccionados == False:
-        estados_seleccionados = [1, 2, 3, 4]
-    else:
-        for i in estados_get_seleccionados:
-            estados_seleccionados.append(i)
-
-    viajes = Viaje.objects.filter(fecha=date).filter(estado__in=estados_seleccionados)
-    context = {'mensaje': mensaje, 'viajes': viajes}
-    return render(request, 'sistema/grillaViajesAsignaciones.html', context)
+	viajes = Viaje.objects.filter(fecha=date).filter(estado__in=estados_seleccionados).filter(unidad__in=unidades)
+	context = {'mensaje': mensaje, 'viajes': viajes}
+	return render(request, 'sistema/grillaViajesAsignaciones.html', context)
 
 @login_required
 def buscarViajes(request):
@@ -1494,7 +1495,10 @@ def guardarCliente(request):
 	cliente.dias_fechas_facturas = request.POST.get('diasFechaFactura', "")
 	cliente.alias = request.POST.get('alias', "")
 	cliente.cbu = request.POST.get('cbu', "")
-
+	if request.POST.get('clienteMoroso', "") == 'on':
+		cliente.moroso = True
+	else:
+		cliente.moroso = False
 	cliente.save()
 
 	if request.POST.get('telefono', False) != "":
@@ -2857,14 +2861,15 @@ def proformarClientes(request):
 
 	viajes = Viaje.objects.filter(id__in=idsList)
 	for v in viajes:
-		if v.facturaviaje_set.all():
-			fv = v.facturaviaje_set.all()[0]
-		else:
-			fv = FacturaViaje()
-			fv.viaje = v
+		if v.estado.id == 7:
+			if v.facturaviaje_set.all():
+				fv = v.facturaviaje_set.all()[0]
+			else:
+				fv = FacturaViaje()
+				fv.viaje = v
 
-		fv.prof_cliente = numeroProforma
-		fv.save()
+			fv.prof_cliente = numeroProforma
+			fv.save()
 
 	data = {'return': numeroProforma}
 	dump = json.dumps(data)
@@ -3131,11 +3136,11 @@ def obtenerPermiso(request):
 def validarUrlPorRol(request):
 	permisos = obtenerPermiso(request)
 	if 'unidades' in permisos:
-		urls = ['operaciones','exportar','listadoLicencia','listadoAdelanto','listadoFactProvedores','password_change','editaViaje']
+		urls = ['operaciones','exportar','listadoLicencia','asignaciones','listadoAdelanto','listadoFactProvedores','password_change','editaViaje']
 	if 'operaciones' in permisos:
-		urls = ['operaciones','altaViaje','exportar','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje']
+		urls = ['operaciones','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje']
 	if 'finanzas' in permisos:
-		urls = ['operaciones','altaViaje','exportar','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje']
+		urls = ['operaciones','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje']
 	if 'superuser' in permisos:
 		urls = ['operaciones','altaViaje','exportar','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje']
 
@@ -3151,12 +3156,8 @@ def validarViajeUsuarioUnidad(request, viaje):
 		return False
 
 def validaViajeUnidad(request, viaje):
-	usrunidad = request.user.usrunidad_set.all()
-	unidades = []
+	unidades = getUnidadesByUser(request)
 	permisos = obtenerPermiso(request)
-	for u in usrunidad:
-		unidades.append(u.unidad.id)
-
 	if 'unidades' in permisos:
 		if viaje.unidad:
 			if viaje.unidad.id in unidades:
@@ -3164,3 +3165,11 @@ def validaViajeUnidad(request, viaje):
 			else:
 				return False
 	return viaje
+
+def getUnidadesByUser(request):
+	usrunidad = request.user.usrunidad_set.all()
+	unidades = []
+	
+	for u in usrunidad:
+		unidades.append(u.unidad.id)
+	return unidades

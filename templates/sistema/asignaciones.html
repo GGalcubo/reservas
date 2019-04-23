@@ -9,7 +9,32 @@
     <body id="asignaciones" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
         {% include "sistema/barra_top.html" %}
         <div class="page-container">
-            {% include "sistema/barra_lat.html" %}
+            <div id="barraLatDiv" class="page-sidebar-wrapper">
+                <!-- END SIDEBAR -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <div class="page-sidebar navbar-collapse collapse">
+                    <!-- BEGIN SIDEBAR MENU -->
+                    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                    <ul class="page-sidebar-menu page-header-fixed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item  ">
+                            <a href="javascript:;" class="nav-link nav-toggle pd-0 height-36">
+                                <div class="col-md-12 fechaDelDia pd-0">
+                                    <input id="fechaDeHoy" class="form-control form-control-inline datepicker" size="14" type="text" value="" />
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- END SIDEBAR MENU -->
+                </div>
+                <!-- END SIDEBAR -->
+            </div>
+            <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
@@ -18,11 +43,11 @@
                         <ul class="page-breadcrumb">
                             <li>
                                 <i class="icon-directions"></i>
-                                <a href="/sistema/operaciones/">Operaciones</a>
+                                <a href="#">Operaciones</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <span>Asignaciones</span>
+                                <span>Viajes</span>
                             </li>
                         </ul>
                     </div>
@@ -32,12 +57,12 @@
                                 <div class="portlet-title">
                                     <div class="caption font-green mg-t-5">
                                         <i class="icon-rocket font-green"></i>
-                                        <span class="caption-subject bold uppercase">Viajes a asignar</span>
+                                        <span class="caption-subject bold uppercase">Viajes</span>
                                     </div>
                                     <div class="inline-block mg-b-5" style="float: right;">
                                         <select id="multiselect_estado" name="multiselect_estado[]" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
                                             {% for e in estados %}
-                                                {% if e.id == 1 or e.id == 2 or e.id == 3 or e.id == 4 %}
+                                                {% if e.id == 3 or e.id == 4 %}
                                                     <option selected="selected" value="{{ e.id }}">{{ e.estado }}</option>
                                                 {% else %}
                                                     <option value="{{ e.id }}">{{ e.estado }}</option>
@@ -71,15 +96,15 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 let $table = $('#table-editable');
-                let estados_selecionados = ['1', '2', '3', '4'];
+                let estados_selecionados = ['3', '4'];
                 let viajes_seleccionado = [];
 
                 $(document).ready(function(){
                     $(document).prop('title', 'Asignaciones - Central LT');
 
-                    if ($('#permiso').val() == 'unidades' || $('#permiso').val() == 'finanzas'){
+                    /*if ($('#permiso').val() == 'unidades' || $('#permiso').val() == 'finanzas'){
                         $('#barraLatDiv').hide();
-                    }
+                    }*/
                     getGrillasAsignaciones($('#fechaDeHoy').val());
                     $('#exportExcel').click(function () {
                         $table.tableExport({
