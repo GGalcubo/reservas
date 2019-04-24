@@ -699,10 +699,9 @@
                             headers: {'X-CSRFToken': '{{ csrf_token }}'},
                             data: $("#facturarClientes").serialize(),
                             success: function(data){
-                                alert("Se asigno el numero de proformar: "+data.return);
+                                alert(data.return);
                                 $("#idViajes").val("");
                                 buscarFacturacion();
-                                //resetFiltros();
                             }
                         });
                     }

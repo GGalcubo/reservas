@@ -2860,6 +2860,10 @@ def proformarClientes(request):
 			idsList.append(int(ids))
 
 	viajes = Viaje.objects.filter(id__in=idsList)
+	
+	retorno = ''
+	proformados = ''
+	noproformados = ''
 	for v in viajes:
 		if v.estado.id == 7:
 			if v.facturaviaje_set.all():
@@ -2870,8 +2874,16 @@ def proformarClientes(request):
 
 			fv.prof_cliente = numeroProforma
 			fv.save()
+			proformados += str(v.id) + ','
+		else:
+			noproformados += str(v.id) + ','
 
-	data = {'return': numeroProforma}
+	if proformados:
+		retorno += 'Viajes con numero de proforma ' + numeroProforma + ': ' + proformados
+	if noproformados:
+		retorno += ' Viajes sin numero de proforma: '+ noproformados
+
+	data = {'return': retorno}
 	dump = json.dumps(data)
 	return HttpResponse(dump, content_type='application/json')
 
