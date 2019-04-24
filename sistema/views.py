@@ -2556,7 +2556,8 @@ def listadoFactClientes(request):
 	categorias = CategoriaViaje.objects.all()
 	condicionesPago = CondicionPago.objects.all()
 	estados = Estado.objects.all()
-	context = {'clientes': clientes, 'categorias':categorias, 'condicionesPago':condicionesPago, 'estados':estados}
+	cc = CentroCosto.objects.filter(baja=False)
+	context = {'clientes': clientes, 'categorias':categorias, 'condicionesPago':condicionesPago, 'estados':estados, 'centrosCosto': cc}
 	return render(request, 'sistema/listadoFactClientes.html', context)
 
 @login_required

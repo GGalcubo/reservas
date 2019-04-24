@@ -65,6 +65,10 @@
                                             <div class="col-sm-2" >
                                               <div class="form-group form-md-line-input" id="selectCentroCostos">
                                                 <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto" multiple="multiple">
+                                                    <option value="">Seleccionar CC</option>
+                                                    {% for c in centrosCosto %}
+                                                        <option value="{{c.id}}">{{c.id}} - {{c.nombre}}</option>
+                                                    {% endfor %}                                                    
                                                 </select>
                                                 <label for="centroDeCosto">Centro de Costo</label>
                                               </div>
@@ -511,7 +515,7 @@
 
                 function cambioCliente(){
                     cod = $("#cliente").val();
-                    cargarCentrosDeCosto(cod);
+                    //cargarCentrosDeCosto(cod);
                     cargarFactura(cod);
                     cargarProforma(cod);
                     cargarSolicitante(cod);
