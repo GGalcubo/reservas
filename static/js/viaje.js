@@ -990,8 +990,13 @@ updateFillsByCliente = (name, evt) => {
             cliente.depto = data.depto ? data.depto : '';
             cliente.direccion = data.calle + ' ' + cliente.altura + ' ' + cliente.piso + ' ' + cliente.depto;
             cliente.telefono = data.telefono;
+            cliente.moroso = data.moroso;
             cliente.personascliente = data.personascliente;
             cliente.centro_costos = data.centro_costos;
+            console.log(cliente.moroso)
+            if(cliente.moroso === true){
+                showMsg('Comunicarse con administración, cliente inhabilitado.');
+            }
 
             //$('#id_cliente').select2('val',cliente.id);
             $('#idClienteEnSol').val(cliente.id);

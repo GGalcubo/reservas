@@ -149,6 +149,7 @@ def getClienteById(request):
         'altura': cliente.altura,
         'piso': cliente.piso,
         'depto': cliente.depto,
+        'moroso': cliente.moroso,
         'razon_social': cliente.razon_social,
         'telefono': cliente.telefonoPrincipal(),
         'centro_costos': list(centrocosto),
@@ -261,6 +262,16 @@ def guardarViaje(request):
     es_nuevo = request.POST.get('es_nuevo', "1")
     mensaje = ''
 
+    cliente = Cliente.objects.get(id=request.POST.get('cliente', False))
+    if cliente.moroso == True:
+        mensaje = 'Comunicarse con administración, cliente inhabilitado.'
+        data = {
+            'error': '1',
+            'msg': mensaje
+        }
+        dump = json.dumps(data)
+        return HttpResponse(dump, content_type='application/json')
+
     if es_nuevo == "1":
         viaje = Viaje()
     else:
@@ -268,7 +279,7 @@ def guardarViaje(request):
         mensaje = 'El viaje se actualizo correctamente.'
 
     viaje.estado 				= Estado.objects.get(id=request.POST.get('estado', False))
-    viaje.cliente 				= Cliente.objects.get(id=request.POST.get('cliente', False))
+    viaje.cliente 				= cliente
     viaje.categoria_viaje 		= CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
     viaje.solicitante 			= Persona.objects.get(id=request.POST.get('contacto', False))
     viaje.centro_costo 			= CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
@@ -355,14 +366,14 @@ def guardarViaje(request):
         guardaItemViajeCostoProveedor('', 8, 1, viaje, False)
         guardaItemViajeCostoCliente('', 2, 1, viaje, False)
 
-        guardaItemViajeHsDispo('', 18, request.POST.get('tiempo_hs_dispo', ''), viaje, False)
+        item_viaje_hs_dispo = guardaItemViajeHsDispo('', 18, request.POST.get('tiempo_hs_dispo', ''), viaje, False)
         guardaItemViajeHsDispoAdmin('', 13, request.POST.get('tiempo_hs_dispo', ''), viaje, False)
 
-        guardaItemViajeEspera('', 1, request.POST.get('tiempo_espera', ''), viaje, False)
+        item_viaje_espera = guardaItemViajeEspera('', 1, request.POST.get('tiempo_espera', ''), viaje, False)
         guardaItemViajeEsperaAdmin('', 14, request.POST.get('tiempo_espera', ''), viaje, False)
 
-        guardaItemViajeBilingue('', 3, request.POST.get('bilingue', ''), viaje, False)
-        guardaItemViajeBilingueAdmin('', 9, request.POST.get('bilingue', ''), viaje, False)
+        guardaItemViajeBilingue('', 3, request.POST.get('bilingue', ''), viaje, False, item_viaje_espera, item_viaje_hs_dispo)
+        guardaItemViajeBilingueAdmin('', 9, request.POST.get('bilingue', ''), viaje, False, item_viaje_espera, item_viaje_hs_dispo)
 
         guardaItemViajeMaletas('', 4, request.POST.get('maletas', ''), viaje, False)
 
@@ -443,22 +454,22 @@ def guardaViajeAdmin(request):
     guardarHistorial(viaje, 'admin_costo_proveedor', request.POST.get('admin_costo_proveedor', ''))
     guardarHistorial(viaje, 'admin_costo_cliente', request.POST.get('admin_costo_cliente', ''))
 
-    guardaItemViajeHsDispo(request.POST.get('admin_hs_dispo_cliente', ''), 18, request.POST.get('admin_cant_hs_dispo_cliente', ''), viaje, manual)
-    guardaItemViajeHsDispoAdmin(request.POST.get('admin_hs_dispo_proveedor', ''), 13, request.POST.get('admin_cant_hs_dispo_proveedor', ''), viaje, manual)
+    item_viaje_hs_dispo = guardaItemViajeHsDispo(request.POST.get('admin_hs_dispo_cliente', ''), 18, request.POST.get('admin_cant_hs_dispo_cliente', ''), viaje, manual)
+    item_viaje_hs_dispo_admin = guardaItemViajeHsDispoAdmin(request.POST.get('admin_hs_dispo_proveedor', ''), 13, request.POST.get('admin_cant_hs_dispo_proveedor', ''), viaje, manual)
     guardarHistorial(viaje, 'admin_hs_dispo_cliente', request.POST.get('admin_hs_dispo_cliente', ''))
     guardarHistorial(viaje, 'admin_cant_hs_dispo_cliente', request.POST.get('admin_cant_hs_dispo_cliente', ''))
     guardarHistorial(viaje, 'admin_hs_dispo_proveedor', request.POST.get('admin_hs_dispo_proveedor', ''))
     guardarHistorial(viaje, 'admin_cant_hs_dispo_proveedor', request.POST.get('admin_cant_hs_dispo_proveedor', ''))
 
-    guardaItemViajeEspera(request.POST.get('admin_espera_cliente', ''), 1, request.POST.get('admin_cant_espera_cliente', ''), viaje, manual)
-    guardaItemViajeEsperaAdmin(request.POST.get('admin_espera_proveedor', ''), 14, request.POST.get('admin_cant_espera_proveedor', ''), viaje, manual)
+    item_viaje_espera = guardaItemViajeEspera(request.POST.get('admin_espera_cliente', ''), 1, request.POST.get('admin_cant_espera_cliente', ''), viaje, manual)
+    item_viaje_espera_admin = guardaItemViajeEsperaAdmin(request.POST.get('admin_espera_proveedor', ''), 14, request.POST.get('admin_cant_espera_proveedor', ''), viaje, manual)
     guardarHistorial(viaje, 'admin_espera_cliente', request.POST.get('admin_espera_cliente', ''))
     guardarHistorial(viaje, 'admin_cant_espera_cliente', request.POST.get('admin_cant_espera_cliente', ''))
     guardarHistorial(viaje, 'admin_espera_proveedor', request.POST.get('admin_espera_proveedor', ''))
     guardarHistorial(viaje, 'admin_cant_espera_proveedor', request.POST.get('admin_cant_espera_proveedor', ''))
 
-    guardaItemViajeBilingue(request.POST.get('admin_costo_bilingue_cliente', ''), 3, request.POST.get('admin_bilingue_cliente', ''), viaje, manual)
-    guardaItemViajeBilingueAdmin(request.POST.get('admin_costo_bilingue_proveedor', ''), 9, request.POST.get('admin_bilingue_proveedor', ''), viaje, manual)
+    guardaItemViajeBilingue(request.POST.get('admin_costo_bilingue_cliente', ''), 3, request.POST.get('admin_bilingue_cliente', ''), viaje, manual, item_viaje_espera, item_viaje_hs_dispo)
+    guardaItemViajeBilingueAdmin(request.POST.get('admin_costo_bilingue_proveedor', ''), 9, request.POST.get('admin_bilingue_proveedor', ''), viaje, manual, item_viaje_espera_admin, item_viaje_hs_dispo_admin)
     guardarHistorial(viaje, 'admin_costo_bilingue_cliente', request.POST.get('admin_costo_bilingue_cliente', ''))
     guardarHistorial(viaje, 'admin_costo_bilingue_proveedor', request.POST.get('admin_costo_bilingue_proveedor', ''))
 
@@ -643,11 +654,11 @@ def guardaItemViajeMaletasAdmin(monto, tipo_item_viaje, cant, viaje, manual):
     item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
     item_viaje_otros.save()
 
-def guardaItemViajeBilingue(monto, tipo_item_viaje, checkbox, viaje, manual):
+def guardaItemViajeBilingue(monto, tipo_item_viaje, checkbox, viaje, manual, espera, dispo):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
-    base = validateGetTarifaTrayecto('unidad', viaje)
+    base = validateGetTarifaTrayecto('centro_costo', viaje)
     try:
-        item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
+        item_viaje_otros = ItemViaje.objects.get(viaje=viaje, tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
         checkbox = 1 if checkbox == 'on' else 0
     except ItemViaje.DoesNotExist:
@@ -659,7 +670,7 @@ def guardaItemViajeBilingue(monto, tipo_item_viaje, checkbox, viaje, manual):
         item_viaje_otros = ItemViaje()
 
     monto       = round(float(monto), 2)
-    monto_s_iva = monto if manual else round(float(base) * 0.2, 2)
+    monto_s_iva = monto if manual else round(float(base + espera + dispo) * 0.2, 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = checkbox
@@ -671,11 +682,11 @@ def guardaItemViajeBilingue(monto, tipo_item_viaje, checkbox, viaje, manual):
     item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
     item_viaje_otros.save()
 
-def guardaItemViajeBilingueAdmin(monto, tipo_item_viaje, checkbox, viaje, manual):
+def guardaItemViajeBilingueAdmin(monto, tipo_item_viaje, checkbox, viaje, manual, espera, dispo):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
-    base = validateGetTarifaTrayecto('centro_costo', viaje)
+    base = validateGetTarifaTrayecto('unidad', viaje)
     try:
-        item_viaje_otros = ItemViaje.objects.get(viaje=viaje,tipo_items_viaje=tipo_item_viaje)
+        item_viaje_otros = ItemViaje.objects.get(viaje=viaje, tipo_items_viaje=tipo_item_viaje)
         monto = 0 if monto == '' else monto
         checkbox = 1 if checkbox == 'on' else 0
     except ItemViaje.DoesNotExist:
@@ -686,8 +697,9 @@ def guardaItemViajeBilingueAdmin(monto, tipo_item_viaje, checkbox, viaje, manual
             monto = 0 if monto == '' else monto
         item_viaje_otros = ItemViaje()
 
+
     monto       = round(float(monto), 2)
-    monto_s_iva = monto if manual else round(float(base) * 0.2, 2)
+    monto_s_iva = monto if manual else round(float(base + espera + dispo) * 0.2, 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = checkbox
@@ -735,6 +747,8 @@ def guardaItemViajeEspera(monto, tipo_item_viaje, tiempo, viaje, manual):
     item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
     item_viaje_otros.save()
 
+    return monto_s_iva
+
 def guardaItemViajeEsperaAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
     centro_costo    = viaje.centro_costo
@@ -768,6 +782,8 @@ def guardaItemViajeEsperaAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
     item_viaje_otros.monto_iva          = monto_iva
     item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
     item_viaje_otros.save()
+
+    return monto_s_iva
 
 def guardaItemViajeHsDispo(monto, tipo_item_viaje, tiempo, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
@@ -803,6 +819,8 @@ def guardaItemViajeHsDispo(monto, tipo_item_viaje, tiempo, viaje, manual):
     item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
     item_viaje_otros.save()
 
+    return monto_s_iva
+
 def guardaItemViajeHsDispoAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
     centro_costo    = viaje.centro_costo
@@ -835,6 +853,8 @@ def guardaItemViajeHsDispoAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
     item_viaje_otros.monto_iva          = monto_iva
     item_viaje_otros.tipo_items_viaje   = tipo_item_viaje
     item_viaje_otros.save()
+
+    return monto_s_iva
 
 def guardaItemViaje(monto, tipo_item_viaje, cant, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
