@@ -367,13 +367,13 @@ def guardarViaje(request):
         guardaItemViajeCostoCliente('', 2, 1, viaje, False)
 
         item_viaje_hs_dispo = guardaItemViajeHsDispo('', 18, request.POST.get('tiempo_hs_dispo', ''), viaje, False)
-        guardaItemViajeHsDispoAdmin('', 13, request.POST.get('tiempo_hs_dispo', ''), viaje, False)
+        item_viaje_hs_dispo_admin = guardaItemViajeHsDispoAdmin('', 13, request.POST.get('tiempo_hs_dispo', ''), viaje, False)
 
         item_viaje_espera = guardaItemViajeEspera('', 1, request.POST.get('tiempo_espera', ''), viaje, False)
-        guardaItemViajeEsperaAdmin('', 14, request.POST.get('tiempo_espera', ''), viaje, False)
+        item_viaje_espera_admin = guardaItemViajeEsperaAdmin('', 14, request.POST.get('tiempo_espera', ''), viaje, False)
 
         guardaItemViajeBilingue('', 3, request.POST.get('bilingue', ''), viaje, False, item_viaje_espera, item_viaje_hs_dispo)
-        guardaItemViajeBilingueAdmin('', 9, request.POST.get('bilingue', ''), viaje, False, item_viaje_espera, item_viaje_hs_dispo)
+        guardaItemViajeBilingueAdmin('', 9, request.POST.get('bilingue', ''), viaje, False, item_viaje_espera_admin, item_viaje_hs_dispo_admin)
 
         guardaItemViajeMaletas('', 4, request.POST.get('maletas', ''), viaje, False)
 
