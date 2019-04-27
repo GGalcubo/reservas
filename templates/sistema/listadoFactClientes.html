@@ -524,8 +524,8 @@
                 function buscarFacturacion(){
 
                     if ($("#proforma").val() != "0" && $("#factura").val() != "0"){
-                        if ($("#cliente").val() == ""){
-                            alert("Debe seleccionar un Cliente.");
+                        if ($("#cliente").val() == "" && $("#centroDeCosto").val() == null){
+                            alert("Debe seleccionar un Cliente o un Centro de Costo.");
                             return false;
                         }
                     }
@@ -577,10 +577,11 @@
                     $("#cliente").val('').trigger('change')
                     $("#estado").val('').trigger('change')
                     cambioCliente();
+                    cargarCentrosDeCosto();
                 }
 
-                function cargarCentrosDeCosto(codCli){
-                    var url = "/sistema/cargarCentrosDeCosto/?idCliente="+codCli;
+                function cargarCentrosDeCosto(){
+                    var url = "/sistema/cargarCentrosDeCosto/";
                     $.ajax({
                         type: "GET",
                         url: url,

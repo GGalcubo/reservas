@@ -2710,7 +2710,10 @@ def buscarFacturacionCliente(request):
 			viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		else:
 			viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
-			
+
+		if ccList:
+			viajes = viajes.filter(centro_costo_id__in=ccList)
+
 		if sinProforma:
 			q_ids = [o.id for o in viajes if o.getProforma() == ""]
 			viajes = viajes.filter(id__in=q_ids)
@@ -2721,7 +2724,10 @@ def buscarFacturacionCliente(request):
 
 	else:
 
-		viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+		if idCliente:
+			viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+		else:
+			viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 
 		if catList:
 			viajes = viajes.filter(categoria_viaje_id__in=catList)
