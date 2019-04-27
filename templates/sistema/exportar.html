@@ -210,12 +210,23 @@
                         order: [[ 0, "asc" ]],
                         dom: 'lfBrtip',
                         buttons: [
-                            'copy', 'pdf', 'print',
+                            'copy', 'print',
                             {
                             extend: 'excelHtml5',
                             exportOptions: {
-                                columns: [1, 2, 3, 4, 5, 6]
-                            }}
+                                columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                            }
+                          },
+                          {
+                            extend: 'pdfHtml5',
+                            orientation: 'landscape',
+                            // exportOptions: {
+                            //     columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                            // },
+                            // customize: function(doc) {
+                            //   doc.content[1].margin = [ 100, 0, 100, 0 ]  //left, top, right, bottom
+                            // }
+                          },
                         ],
                         columnDefs: [
                             {
