@@ -651,11 +651,19 @@ class Viaje(models.Model):
                     retorno = retorno + iv.monto_iva
         return retorno
 
+    def getIvaClienteFormat(self):
+        #return str(self.getIvaCliente())
+        return '%.2f' % self.getIvaCliente()
+
     def getFinalCliente(self):
         retorno = self.getTotalCliente() + self.getIvaCliente()
         if self.tipo_pago.id==2:
             retorno = retorno * 1.05
         return retorno
+
+    def getFinalClienteFormat(self):
+        #return str(self.getIvaCliente())
+        return '%.2f' % self.getFinalCliente()
 
     def getPasajeros(self):
         pasajeros = []
