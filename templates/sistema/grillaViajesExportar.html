@@ -52,25 +52,31 @@
         order: [[ 0, "asc" ]],
         dom: 'lfBrtip',
         buttons: [
-            'copy', 'print',
             {
-            extend: 'excelHtml5',
-            exportOptions: {
-                columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-            }
-          },
-          {
-            extend: 'pdfHtml5',
-            title: 'Central LT - Exportar viajes',
-            orientation: 'landscape',
-            pageSize: 'tabloid',
-            exportOptions: {
-                 columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                extend: 'copyHtml5',
+                exportOptions: {
+                    columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                }
             },
-            customize: function(doc) {
-                doc.content[1].table.widths = [ '6%', '3%','8%','4%','10%','15%','15%','5%','17%','17%'];
-            }
-          },
+            'print',
+                {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                title: 'Central LT - Exportar viajes',
+                orientation: 'landscape',
+                pageSize: 'tabloid',
+                exportOptions: {
+                     columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                },
+                customize: function(doc) {
+                    doc.content[1].table.widths = [ '6%', '3%','8%','4%','10%','15%','15%','5%','17%','17%'];
+                }
+            },
         ],
         columnDefs: [
             {
