@@ -15,7 +15,7 @@
                     <td>{{ t.id }}</td>
                     <td>{{ t.desdeConcat }}</td>
                     <td>{{ t.hastaConcat }}</td>
-                    <td>{{ t.pasajero }}</td>
+                    <td>{{ t.pasajero|default_if_none:'' }}</td>
                     <td class="text-center">
                         <a href="#add_tramo" data-toggle="modal" class="edit_button"
                            data-id="{{ t.id }}"

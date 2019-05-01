@@ -376,11 +376,10 @@ $(document).ready( () => {
         e.preventDefault(); 
     });
 
-    $(document).on( "click", '.delete_button', e => {
+    $(document).on( "click", '.delete_button', function(){
         var obj               = {};
         obj.id                = $(this).data('id');
         obj.idViaje           = viaje;
-
         var url = "/sistema/borrarTrayecto/"; 
         $.ajax({
                type: "POST",
