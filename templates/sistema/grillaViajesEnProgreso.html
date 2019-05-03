@@ -36,7 +36,7 @@
                             <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">------</a></td>
                             <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">------</a></td>
                             {% else %}
-                            <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.id|default_if_none:"----" }}</a></td>
+                            <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.id_fake|default_if_none:"----" }}</a></td>
                             <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.identificacion|default_if_none:"----" }}</a></td>
                             {% endifequal %}
                             {% ifequal t.destino_desde.nombre "Interior" %}
@@ -70,7 +70,7 @@
                         <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">------</a></td>
                         <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">------</a></td>
                         {% else %}
-                        <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.id|default_if_none:"----" }}</a></td>
+                        <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.id_fake|default_if_none:"----" }}</a></td>
                         <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.identificacion|default_if_none:"----" }}</a></td>
                         {% endifequal %}
                         {% ifequal v.getTrayectoPrincipal.destino_desde.nombre "Interior" %}
