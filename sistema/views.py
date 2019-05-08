@@ -2736,7 +2736,7 @@ def buscarFacturacionCliente(request):
 			viajes = viajes.filter(centro_costo_id__in=ccList)
 
 		if solList:
-			viajes = viajes.filter(cliente__personacliente__persona_id__in=solList)
+			viajes = viajes.filter(solicitante_id__in=solList)
 		
 		if condEspecial == "1":
 			q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() == 0]
@@ -2907,7 +2907,7 @@ def proformarClientes(request):
 			noproformados += str(v.id) + ','
 
 	if proformados:
-		retorno += 'Viajes con numero de proforma ' + numeroProforma + ': ' + proformados
+		retorno += 'Viajes con numero de proforma ' + str(numeroProforma) + ': ' + proformados
 	if noproformados:
 		retorno += ' Viajes sin numero de proforma: '+ noproformados
 
