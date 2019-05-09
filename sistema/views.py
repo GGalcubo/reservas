@@ -2872,16 +2872,6 @@ def facturarProveedores(request):
 def proformarClientes(request):
 	idViajes = request.POST.get('idViajes', False)
 
-	facturasViaje = FacturaViaje.objects.all().order_by('-prof_cliente')
-	if facturasViaje:
-		numeroProforma = facturasViaje[0].prof_cliente
-		if numeroProforma:
-			numeroProforma = int(numeroProforma) + 1
-		else:
-			numeroProforma = 1
-	else:
-		numeroProforma = 1
-
 	idsList = []
 	for ids in idViajes.split("-"):
 		if ids:
@@ -2889,28 +2879,42 @@ def proformarClientes(request):
 
 	viajes = Viaje.objects.filter(id__in=idsList)
 	
-	retorno = ''
-	proformados = ''
-	noproformados = ''
+	estadosCorrectos = True
 	for v in viajes:
-		if v.estado.id == 7:
-			if v.facturaviaje_set.all():
-				fv = v.facturaviaje_set.all()[0]
-			else:
-				fv = FacturaViaje()
-				fv.viaje = v
+		if v.estado.id != 7:
+			estadosCorrectos = False
 
-			fv.prof_cliente = numeroProforma
-			fv.save()
-			proformados += str(v.id) + ','
+	if not estadosCorrectos:
+		retorno = 'Alguno de los viajes seleccionados no esta cerrado.'
+		data = {'return': retorno}
+		dump = json.dumps(data)
+		return HttpResponse(dump, content_type='application/json')
+
+	facturasViaje = FacturaViaje.objects.all().order_by('-prof_cliente')
+
+	fvs = FacturaViaje.objects.exclude(prof_cliente__isnull=True).exclude(prof_cliente__exact='').values_list('prof_cliente', flat=True)
+	fvs = list(fvs)
+	numbers = [ int(x) for x in fvs ]
+	print max(numbers)
+
+	if fvs:
+		numeroProforma = max(numbers) + 1
+	else:
+		numeroProforma = 1
+	
+	proformados = ''
+	for v in viajes:
+		if v.facturaviaje_set.all():
+			fv = v.facturaviaje_set.all()[0]
 		else:
-			noproformados += str(v.id) + ','
+			fv = FacturaViaje()
+			fv.viaje = v
 
-	if proformados:
-		retorno += 'Viajes con numero de proforma ' + str(numeroProforma) + ': ' + proformados
-	if noproformados:
-		retorno += ' Viajes sin numero de proforma: '+ noproformados
+		fv.prof_cliente = numeroProforma
+		fv.save()
+		proformados += str(v.id) + ','
 
+	retorno = 'Viajes con numero de proforma ' + str(numeroProforma) + ': ' + proformados
 	data = {'return': retorno}
 	dump = json.dumps(data)
 	return HttpResponse(dump, content_type='application/json')
