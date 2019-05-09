@@ -128,6 +128,12 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 $(document).ready(function(){
+                    $("#codigo").bind('paste', function(e) {
+                        var self = this;
+                        setTimeout(function(e) {
+                            soloLetrasPaste($(self).val())
+                        }, 0);
+                    });
                     $(document).prop('title', 'Centro de Costo - Central LT');
 
                     $('#desdeCC').datepicker({
@@ -207,6 +213,19 @@
                     if(letras.indexOf(tecla) == -1 && !tecla_especial){
                         return false;
                     }
+                }
+                function soloLetrasPaste(e) {
+                    retorno = ""
+                    teclas = e
+                    letras = "áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789";//Se define todo el abecedario que se quiere que se muestre.
+                    especiales = [8, 39, 6]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
+                    for(i=0; i<teclas.length; i++){
+                        if (letras.indexOf(teclas.charAt(i)) != -1){
+                            retorno = retorno + teclas.charAt(i)
+                        }
+                    }
+
+                    $("#codigo").val(retorno)
                 }
             </script>
 
