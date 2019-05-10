@@ -712,11 +712,11 @@ def guardaItemViajeBilingueAdmin(monto, tipo_item_viaje, checkbox, viaje, manual
     item_viaje_otros.save()
 
 def guardaItemViajeEspera(monto, tipo_item_viaje, tiempo, viaje, manual):
-    tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
-    unidad          = viaje.unidad
 
+    tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
+    centro_costo    = viaje.centro_costo
     try:
-        base = getTarifaTrayectoExtra(viaje.categoria_viaje_id, unidad.tarifario, 'espera')
+        base = getTarifaTrayectoExtra(viaje.categoria_viaje_id, centro_costo.tarifario, 'espera')
     except Exception as e:
         base = 0
     if base == None:
@@ -751,9 +751,10 @@ def guardaItemViajeEspera(monto, tipo_item_viaje, tiempo, viaje, manual):
 
 def guardaItemViajeEsperaAdmin(monto, tipo_item_viaje, tiempo, viaje, manual):
     tipo_item_viaje = TipoItemViaje.objects.get(id=tipo_item_viaje)
-    centro_costo    = viaje.centro_costo
+    unidad          = viaje.unidad
+
     try:
-        base = getTarifaTrayectoExtra(viaje.categoria_viaje_id, centro_costo.tarifario, 'espera')
+        base = getTarifaTrayectoExtra(viaje.categoria_viaje_id, unidad.tarifario, 'espera')
     except Exception as e:
         base = 0
     if base == None:
