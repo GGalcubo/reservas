@@ -1616,7 +1616,7 @@ def getViajesFuturosPorFecha(request):
     estados_get_seleccionados = request.POST.getlist('estados_selecionados[]', False)
     estados_seleccionados = []
     if estados_get_seleccionados == False:
-		estados_seleccionados = [1, 2, 4]
+		estados_seleccionados = [1, 2, 3, 4, 10]
     else:
         for i in estados_get_seleccionados:
 			estados_seleccionados.append(i)
