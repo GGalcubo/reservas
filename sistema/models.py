@@ -572,6 +572,9 @@ class Viaje(models.Model):
                 retorno = retorno + iv.monto_s_iva
         return retorno   
 
+    def getMontoDispoClienteFormat(self):
+        return '%.2f' % self.getMontoDispoCliente()
+
     def getCantidadTiempoEsperaCliente(self):
         retorno = 0
         for iv in self.itemviaje_set.all():
@@ -585,6 +588,9 @@ class Viaje(models.Model):
             if iv.tipo_items_viaje.id == 1:
                 retorno = retorno + iv.monto_s_iva
         return retorno
+    
+    def getMontoTiempoEsperaClienteFormat(self):
+        return '%.2f' % self.getMontoTiempoEsperaCliente()
 
     def getMontoBilingueCliente(self):
         retorno = 0.00
@@ -593,12 +599,18 @@ class Viaje(models.Model):
                 retorno = retorno + iv.monto_s_iva
         return retorno
 
+    def getMontoBilingueClienteFormat(self):
+        return '%.2f' % self.getMontoBilingueCliente()
+
     def getMontoMontoCliente(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():
             if iv.tipo_items_viaje.id == 4:
                 retorno = retorno + iv.monto_s_iva
         return retorno
+
+    def getMontoMontoClienteFormat(self):
+        return '%.2f' % self.getMontoMontoCliente()
 
     def getMontoPeajesCliente(self):
         retorno = 0.00
@@ -607,12 +619,18 @@ class Viaje(models.Model):
                 retorno = retorno + iv.monto_s_iva
         return retorno
 
+    def getMontoPeajesClienteFormat(self):
+        return '%.2f' % self.getMontoPeajesCliente()
+
     def getMontoEstacionCliente(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():
             if iv.tipo_items_viaje.id == 5:
                 retorno = retorno + iv.monto_s_iva
         return retorno
+
+    def getMontoEstacionClienteFormat(self):
+        return '%.2f' % self.getMontoEstacionCliente()
 
     def getMontoOtrosCliente(self):
         retorno = 0.00
@@ -621,12 +639,18 @@ class Viaje(models.Model):
                 retorno = retorno + iv.monto_s_iva
         return retorno
 
+    def getMontoOtrosClienteFormat(self):
+        return '%.2f' % self.getMontoOtrosCliente()
+
     def getMontoPeftCliente(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():
             if iv.tipo_items_viaje.id == 12:
                 retorno = retorno + iv.monto_s_iva
         return retorno
+
+    def getMontoPeftClienteFormat(self):
+        return '%.2f' % self.getMontoPeftCliente()
 
     def getSubtotalCliente(self):
         retorno = 0.00
@@ -636,12 +660,18 @@ class Viaje(models.Model):
                 retorno = retorno + iv.monto_s_iva
         return retorno
 
+    def getSubtotalClienteFormat(self):
+        return '%.2f' % self.getSubtotalCliente()
+
     def getTotalCliente(self):
         retorno = 0.00
         for iv in self.itemviaje_set.all():
             if iv.tipo_items_viaje.id == 2 or iv.tipo_items_viaje.id == 18 or iv.tipo_items_viaje.id == 1 or iv.tipo_items_viaje.id == 3 or iv.tipo_items_viaje.id == 4 or iv.tipo_items_viaje.id == 5 or iv.tipo_items_viaje.id == 6 or iv.tipo_items_viaje.id == 17:
                 retorno = retorno + iv.monto_s_iva
         return retorno - self.getMontoPeftCliente()
+
+    def getTotalClienteFormat(self):
+        return '%.2f' % self.getTotalCliente()
 
     def getIvaCliente(self):
         retorno = 0.00

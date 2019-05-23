@@ -2750,7 +2750,7 @@ def buscarFacturacionCliente(request):
 		elif condEspecial == "4":
 			viajes = viajes.filter(categoria_viaje_id__in=[5,6,7,8,9])
 		elif condEspecial == "5":
-			viajes = viajes.filter(estado_id__in=[1,2,3,4,5,6,8,9,10])
+			viajes = viajes.filter(estado_id__in=[1,2,3,4,5,6,9,10])
 
 		if facList:
 			q_ids = [o.id for o in viajes if o.getFacturaCliente() in facList]
