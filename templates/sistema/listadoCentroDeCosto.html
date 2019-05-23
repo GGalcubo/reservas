@@ -47,6 +47,7 @@
                                                     <th class="all">ID</th>
                                                     <th class="all">Centro de Costo</th>
                                                     <th class="all">Descripción</th>
+                                                    <th class="all">Raz&oacute;n Social</th>
                                                     <th class="all">Tarifario</th>
                                                     <th class="all">Desde</th>
                                                     <th class="all">Hasta</th>
@@ -61,6 +62,7 @@
                                                     <td>{{ cc.id }}</td>
                                                     <td>{{ cc.nombre }}</td>
                                                     <td>{{ cc.descripcion }}</td>
+                                                    <td>{{ cc.getClienteRazonSocial }}</td>
                                                     <td>{{ cc.tarifario.nombre }}</td>
                                                     <td>{{ cc.getFechaInicio }}</td>
                                                     <td>{{ cc.getFechaFin }}</td>   

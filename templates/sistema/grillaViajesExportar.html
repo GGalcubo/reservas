@@ -16,6 +16,7 @@
                 <th class="all">Origen</th>
                 <th class="all">Destino</th>
                 <th class="all">Obs. chofer</th>
+                <th class="all">Cant</th>
             </tr>
         </thead>
         <tbody>
@@ -43,6 +44,7 @@
                         <td class="all"><span class="label label-sm label-danger">{{ t.desdeConcat }}</span></td>
                         <td class="all"><span class="label label-sm label-warning">{{ t.hastaConcat }}</span></td>
                         <td class="all">{{ v.getObservacioneChofer }}</td>
+                        <td class="all">{{ v.nropasajeros }}</td>
                     </tr>
                 {% endfor %}
             {% endfor %}
@@ -53,20 +55,20 @@
     $('#tablaExportar').DataTable( {
         responsive: true,
         // scrollY: 200,
-        order: [[ 0, "asc" ]],
+        order: [[ 0, "asc" ], [ 2, "asc" ]],
         dom: 'lfBrtip',
         buttons: [
             {
                 extend: 'copyHtml5',
                 exportOptions: {
-                    columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                    columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
                 }
             },
             'print',
                 {
                 extend: 'excelHtml5',
                 exportOptions: {
-                    columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                    columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
                 }
             },
             {
@@ -75,10 +77,10 @@
                 orientation: 'landscape',
                 pageSize: 'tabloid',
                 exportOptions: {
-                     columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-                }
+                     columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                },
                 /*customize: function(doc) {
-                    doc.content[1].table.widths = [ '6%', '3%','8%','4%','5%','9%','14%','14%','5%','16%','16%'];
+                    doc.content[1].table.widths = [ '10%', '5%','5%','5%','5%','5%','5%','5%','5%','5%','5%','5%'];
                 }*/
             },
         ],

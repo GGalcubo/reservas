@@ -413,6 +413,13 @@ class CentroCosto(models.Model):
     def getFechaFin(self):
         return getFecha(self.fecha_fin)
 
+    def getClienteRazonSocial(self):
+        if self.cliente:
+            return self.cliente.razon_social
+        else:
+            return ''
+    
+
 class TipoPagoViaje(models.Model):
     tipo_pago_viaje = models.CharField(max_length=50, null=True, blank=True)
 
@@ -1057,7 +1064,7 @@ class Trayecto(models.Model):
     def desdeConcat(self):
         retorno = ""
 
-        if self.destino_desde:
+        if self.destino_desde and self.destino_desde.id != 3:
             retorno = self.destino_desde.nombre + ", "
         if self.provincia_desde:
             retorno += self.provincia_desde.nombre + ", "
@@ -1077,7 +1084,7 @@ class Trayecto(models.Model):
     def hastaConcat(self):
         retorno = ""
 
-        if self.destino_hasta:
+        if self.destino_hasta and self.destino_hasta.id != 3:
             retorno = self.destino_hasta.nombre + ", "
         if self.provincia_hasta:
             retorno += self.provincia_hasta.nombre + ", "
