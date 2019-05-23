@@ -274,6 +274,8 @@ def guardarViaje(request):
 
     if es_nuevo == "1":
         viaje = Viaje()
+        viaje.creadofecha = fecha()
+        viaje.creadopor = request.user
     else:
         viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
         mensaje = 'El viaje se actualizo correctamente.'
@@ -294,8 +296,7 @@ def guardarViaje(request):
     viaje.nro_aux               = request.POST.get('nro_aux', "")
     viaje.nropasajeros          = request.POST.get('pasajero_cant', "")
     viaje.tipo_pago             = TipoPagoViaje.objects.get(id=request.POST.get('tipo_pago', False))
-    viaje.creadofecha           = fecha()
-    viaje.creadopor             = request.user
+
     if viaje.cabecera is False:
         if request.POST.get('bilingue', False) == '':
             viaje.bilingue = False
