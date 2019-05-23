@@ -2410,8 +2410,38 @@ def exportar(request):
 
 	mensaje = ""
 
-	context = {'mensaje': mensaje, 'clientes': Cliente.objects.all(), 'personas':Persona.objects.all(),'unidades':Unidad.objects.filter(baja=False),'estados':Estado.objects.all()}
+	context = {'mensaje': mensaje, 'clientes': Cliente.objects.filter(baja=False).values_list('id', 'razon_social'), 'unidades':Unidad.objects.filter(baja=False),'estados':Estado.objects.all()}
 	return render(request, 'sistema/exportar.html', context)
+
+@login_required
+def exportarDatosPorCliente(request):
+	idCliente = request.GET.get('idCliente', False)
+
+	cliente = Cliente.objects.get(id=idCliente)
+
+	listadoPasajeros = []
+	listadoSolicitantes = []
+	for personacliente in cliente.personacliente_set.all():
+		nombre_apellido = personacliente.persona.nombre + " " + personacliente.persona.apellido
+		dict = {'id': personacliente.persona.id, 'valor': nombre_apellido }
+		if personacliente.persona.tipo_persona.id == 1:
+			listadoSolicitantes.append(dict)
+		if personacliente.persona.tipo_persona.id == 2:
+			listadoPasajeros.append(dict)
+
+	listadoPasajeros = sorted(listadoPasajeros, key = lambda i: i['valor']) 
+	listadoSolicitantes = sorted(listadoSolicitantes, key = lambda i: i['valor']) 
+
+	listadoCC = []
+	for cc in cliente.centrocosto_set.all():
+		dict = {'id': cc.id, 'valor': cc.nombre }
+		listadoCC.append(dict)
+
+	listadoCC = sorted(listadoCC, key = lambda i: i['valor']) 
+
+	data = {'listadoPasajeros': listadoPasajeros, 'listadoSolicitantes': listadoSolicitantes, 'listadoCC': listadoCC}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
 
 @login_required
 def usuario(request):

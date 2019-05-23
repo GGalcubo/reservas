@@ -59,7 +59,7 @@
                                                 <select class="form-control select2me" id="cliente" name="cliente">
                                                     <option value=""> Seleccionar Cliente</option>
                                                     {% for c in clientes %}
-                                                        <option value="{{ c.id }}">{{ c.id }} - {{ c.razon_social }}</option>
+                                                        <option value="{{ c.0 }}">{{ c.0 }} - {{ c.1 }}</option>
                                                     {% endfor %}
                                                 </select>
                                                 <label for="cliente">Cliente</label>
@@ -160,33 +160,33 @@
 
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
-                var clientes = [];
-                {% for cliente in clientes %}
-                    var centro_costos = [{% for cc in cliente.centrocosto_set.all %}
-                    { "id" : "{{ cc.id }}",
-                       "nombre" : "{{ cc.nombre }}"
-                    },
-                    {% endfor %}
-                    ];
-                    var personascliente = [{% for personacliente in cliente.personacliente_set.all %}
-                    { "id" : "{{ personacliente.persona.id }}",
-                       "nombre" : "{{ personacliente.persona.nombre}} {{ personacliente.persona.apellido}}",
-                       "tipo_persona" : "{{ personacliente.persona.tipo_persona}}"
-                    },
-                    {% endfor %}
-                    ];
+                // var clientes = [];
+                // {% for cliente in clientes %}
+                //     var centro_costos = [{% for cc in cliente.centrocosto_set.all %}
+                //     { "id" : "{{ cc.id }}",
+                //        "nombre" : "{{ cc.nombre }}"
+                //     },
+                //     {% endfor %}
+                //     ];
+                //     var personascliente = [{% for personacliente in cliente.personacliente_set.all %}
+                //     { "id" : "{{ personacliente.persona.id }}",
+                //        "nombre" : "{{ personacliente.persona.nombre}} {{ personacliente.persona.apellido}}",
+                //        "tipo_persona" : "{{ personacliente.persona.tipo_persona}}"
+                //     },
+                //     {% endfor %}
+                //     ];
 
-                    var obj = {
-                        id : '{{ cliente.id }}',
-                        razon_social:'{{ cliente.razon_social }}',
-                        direccion:'{{ cliente.calle|default_if_none:""  }} {{ cliente.altura|default_if_none:""  }} {{ cliente.piso|default_if_none:""  }} {{ cliente.depto|default_if_none:""  }}',
-                        categoria_id:'{{ cliente.categoria.categoria }}',
-                        telefono:'{{ cliente.telefonoPrincipal }}',
-                        centro_costos: centro_costos,
-                        personascliente: personascliente};
+                //     var obj = {
+                //         id : '{{ cliente.id }}',
+                //         razon_social:'{{ cliente.razon_social }}',
+                //         direccion:'{{ cliente.calle|default_if_none:""  }} {{ cliente.altura|default_if_none:""  }} {{ cliente.piso|default_if_none:""  }} {{ cliente.depto|default_if_none:""  }}',
+                //         categoria_id:'{{ cliente.categoria.categoria }}',
+                //         telefono:'{{ cliente.telefonoPrincipal }}',
+                //         centro_costos: centro_costos,
+                //         personascliente: personascliente};
 
-                    clientes.push(obj);
-                {% endfor %}
+                //     clientes.push(obj);
+                // {% endfor %}
                 $(document).ready(function(){
                   $(document).prop('title', 'Exportar - Central LT');
 
@@ -304,27 +304,33 @@
                 });
 
                 updateFillsByCliente = (name, evt) => {
-                    let cliente = searchCliente($('#cliente').val());
 
                     $('#centroDeCosto').empty().append($('<option>').text('').attr('value', ''));
                     $('#solicitante').empty().append($('<option>').text('').attr('value', ''));
                     $('#pasajero').empty().append($('<option>').text('').attr('value', ''));
 
-                    $.each(cliente.centro_costos, (i, value) => {
-                      $('#centroDeCosto').append($('<option>').text(value.nombre).attr('value', value.id));
-                    });
 
-                    $.each(cliente.personascliente, (i, value) => {
-                        if(value.tipo_persona === 'Solicitante'){
-                            $('#solicitante').append($('<option>').text(value.nombre).attr('value', value.id));
+                    var url = "/sistema/exportarDatosPorCliente/?idCliente="+$('#cliente').val();
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        success: function(data){
+                            $.each(data.listadoCC, (i, value) => {
+                                $('#centroDeCosto').append($('<option>').text(value.valor).attr('value', value.id));
+                            });
+
+                            $.each(data.listadoSolicitantes, (i, value) => {
+                                $('#solicitante').append($('<option>').text(value.valor).attr('value', value.id));
+                            });
+
+                            $.each(data.listadoPasajeros, (i, value) => {
+                                $('#pasajero').append($('<option>').text(value.valor).attr('value', value.id));
+                            });
                         }
                     });
 
-                    $.each(cliente.personascliente, (i, value) => {
-                        if(value.tipo_persona === 'Pasajero'){
-                            $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
-                        }
-                    });
+
+
                 };
 
                 searchCliente = (_cliente_id) => {
