@@ -511,11 +511,10 @@ class Viaje(models.Model):
         return viaje_items
 
     def getViajeBilingue(self):
-        viaje_bilingue = ''
-        for item in self.itemviaje_set.all():
-            if item.tipo_items_viaje_id == 9:
-                viaje_bilingue = '(Bi)'
-        return viaje_bilingue
+        if self.bilingue:
+            return '(Bi)'
+        else:
+            return ''
 
     def getViajeAdjuntos(self):
         viaje_adjuntos = []
