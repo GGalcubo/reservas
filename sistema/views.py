@@ -176,7 +176,7 @@ def altaViaje(request):
 				#'clientes':Cliente.objects.filter(baja=False),
 				'tipoobservacion':TipoObservacion.objects.all(),
 				'tipo_pago':TipoPagoViaje.objects.all(),
-				'unidades':Unidad.objects.filter(baja=False).order_by('id_fake'),
+				'unidades':Unidad.objects.filter(baja=False).values_list('id', 'id_fake', 'identificacion').order_by('id_fake'),
 				'estados':Estado.objects.all(),
 				'categoria_viajes':CategoriaViaje.objects.all(),
 				'tarifarios':Tarifario.objects.filter(baja=False),
@@ -199,14 +199,12 @@ def editaViaje(request):
 		context = { 'mensaje':mensaje }
 
 		return render(request, 'sistema/urlBloqueada.html', context)
-
 	context = {'mensaje': mensaje,
 				#'clientes':Cliente.objects.filter(baja=False),
 				'tipoobservacion':TipoObservacion.objects.all(),
 				'tipo_pago':TipoPagoViaje.objects.all(),
 				#'itemsviaje':ItemViaje.objects.filter(viaje_id=id_viaje),
-				#'unidades':Unidad.objects.extra(select={'id_fake': 'CAST(id_fake AS INTEGER)'}).order_by('id_fake').filter(baja=False),
-				'unidades':Unidad.objects.filter(baja=False).order_by('id_fake').values_list('id', 'id_fake', 'identificacion'),
+				'unidades':Unidad.objects.filter(baja=False).values_list('id', 'id_fake', 'identificacion').order_by('id_fake'),
 				'estados':Estado.objects.all(),
 				'categoria_viajes':CategoriaViaje.objects.all(),
 				'tarifarios':Tarifario.objects.filter(baja=False),
