@@ -210,7 +210,7 @@ def editaViaje(request):
 				'tarifarios':Tarifario.objects.filter(baja=False),
 				'destinos':TrayectoDestino.objects.all(),
 				#'localidades':Localidad.objects.filter(baja=False),
-				#'provincias':Provincia.objects.all(),
+				'provincias':Provincia.objects.all(),
 				'es_nuevo':es_nuevo,
 				'viaje':viaje,
 				'trayectos':Trayecto.objects.filter(viaje_id=id_viaje)}
