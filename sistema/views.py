@@ -1339,6 +1339,19 @@ def guardarCentroCostoProspect(request):
 	context = {'mensaje': mensaje, 'trayectos': trayectos, 'cliente':cliente}
 	return render(request, 'sistema/grillaCentroCostos.html', context)
 
+@login_required
+def checkLocalidadFlag(request):
+    if request.POST.get('localidad_id', "") != '':
+        localidad = Localidad.objects.get(id=request.POST.get('localidad_id', ""))
+        data = {
+            'terminal_flag': localidad.terminal_flag
+        }
+    else:
+        data = {
+            'terminal_flag': 0
+        }
+    dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
 
 
 @login_required

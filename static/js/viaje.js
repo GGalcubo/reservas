@@ -1077,6 +1077,7 @@ updateFillsByUnidad = (name, evt) => {
  * @param evt
  */
 updateFillsByLocalidad = (name, evt) => {
+    console.log('QUE PASA')
     var localidad_id = evt.params.data.id,
         init = evt.params.data.init,
         html_select = evt.currentTarget.id,
@@ -1130,20 +1131,29 @@ updateFillsByLocalidad = (name, evt) => {
             break;
     }
 
-    var terminal_flag;
-    $.each(localidades, function(i, value) {
-        if(value.id == localidad_id){
-            terminal_flag = value.terminal_flag;
-        }
-    });
+    checkLocalidadFlag(localidad_id, html_direccion, html_vuelo);
+};
 
-    if(terminal_flag == 'True'){
-        $("." + html_direccion).hide();
-        $("." + html_vuelo).show();
-    }else{
-        $('.' + html_direccion).show();
-        $("." + html_vuelo).hide();
-    }
+checkLocalidadFlag = (localidad_id, html_direccion, html_vuelo) => {
+    let url = "/sistema/checkLocalidadFlag/";
+        let param = {};
+        param.localidad_id = localidad_id;
+        $.ajax({
+            type: "POST",
+            url: url,
+            headers: {'X-CSRFToken': csrf_token},
+            data: param,
+            success:  data => {
+                console.log(data.terminal_flag)
+                if(data.terminal_flag === true){
+                    $("." + html_direccion).hide();
+                    $("." + html_vuelo).show();
+                }else{
+                    $('.' + html_direccion).show();
+                    $("." + html_vuelo).hide();
+                }
+            }
+        });
 };
 
 /**
