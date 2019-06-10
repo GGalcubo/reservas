@@ -49,8 +49,8 @@
             <td>{{v.solicitante}}</td>
             <td>{{v.centro_costo.nombre|default_if_none:""}}</td>
             <td>{{v.pasajero|default_if_none:""}}</td>
-            <td><span class="label label-sm label-info">{{v.getTrayectoPrincipal.desdeConcat}}</span></td>
-            <td><span class="label label-sm label-primary">{{v.getTrayectoPrincipal.hastaConcat}}</span></td>
+            <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
+            <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
             <td>{{v.getHsDispoCliente}}</td>
             <td>{{v.getMontoDispoClienteFormat}}</td>
             <td>{{v.getSubtotalClienteFormat}}</td>
