@@ -55,8 +55,9 @@ $(document).ready( () => {
     $("#administracion_tab_btn a").hide();
 
     if(es_nuevo == '1'){
-        $('#fecha').datepicker('setDate', 'today');
+        //$('#fecha').datepicker('setDate', 'blank');
         $("#viaje-tab").hide();
+        $("#hora").val('') ;
         $('#estado').attr("disabled", true);
         getClientes();
     }else{
@@ -206,7 +207,7 @@ $(document).ready( () => {
             showMsg("El campo pasajero es obligatorio.");
             return false;
         }
-        if ($("#fecha").val() == ""){
+        if ($("#fecha").val() == "//"){
             showMsg("El campo fecha es obligatorio.");
             return false;
         }

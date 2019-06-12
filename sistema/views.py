@@ -3090,7 +3090,7 @@ def exportarPdfFactCliente(request):
 	total = 0
 	iva   = 0
 	final = 0
-	viajes = Viaje.objects.filter(id__in=idsList)
+	viajes = Viaje.objects.filter(id__in=idsList).order_by('fecha', 'hora')
 	for v in viajes:
 		total = total + v.getTotalCliente()
 		iva   = iva + v.getIvaCliente()
@@ -3146,7 +3146,7 @@ def exportarPdfFactProv(request):
 	final = 0
 	pagar = 0
 
-	viajes = Viaje.objects.filter(id__in=idsList)
+	viajes = Viaje.objects.filter(id__in=idsList).order_by('fecha', 'hora')
 	for v in viajes:
 		subtotal = subtotal + v.getSubtotalProveedor()
 		hsdispo = hsdispo + v.getHsDispoProveedor()
