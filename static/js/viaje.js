@@ -58,6 +58,7 @@ $(document).ready( () => {
         //$('#fecha').datepicker('setDate', 'blank');
         $("#viaje-tab").hide();
         $("#hora").val('') ;
+        $("#hora_estimada").val('');
         $('#estado').attr("disabled", true);
         getClientes();
     }else{
