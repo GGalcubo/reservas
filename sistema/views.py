@@ -11,6 +11,7 @@ from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 import json
 import os
+import datetime
 
 @login_required
 def dashboard(request):
@@ -1956,8 +1957,6 @@ def eliminarLicencia(request):
 def eliminarLicenciaPropect(request):
 	idLicencia = request.POST.get('idLicencia', False)
 	idUnidad = request.POST.get('idUnidad', False)
-	LicenciaPersona.objects.filter(licencia_id=idLicencia).delete()
-	LicenciaVehiculo.objects.filter(licencia_id=idLicencia).delete()
 	Licencia.objects.get(id=idLicencia).delete()
 	unidad = Unidad.objects.get(id=idUnidad)
 	context = {'unidad':unidad}
@@ -2842,7 +2841,7 @@ def buscarFacturacionProveedor(request):
 			uniList.append(int(c))
 
 	if sinFactura:
-		if idUnidad:
+		if uniList:
 			viajes = Viaje.objects.filter(unidad_id__in=uniList,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 		else:
 			viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
@@ -3025,7 +3024,7 @@ def borrarPasajeroCliente(request):
 @login_required
 def exportarExcelFactCliente(request):
 	ids = request.POST.get('ids', False)
-	print ids
+
 	from openpyxl import Workbook
 	wb = Workbook()
 
@@ -3039,7 +3038,6 @@ def exportarExcelFactCliente(request):
 	ws.append([1, 2, 3])
 
 	# Python types will automatically be converted
-	import datetime
 	ws['A2'] = datetime.datetime.now()
 
 	# Save the file

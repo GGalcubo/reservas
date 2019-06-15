@@ -54,6 +54,7 @@
                                               <div class="col-sm-3">
                                                 <div class="form-group form-md-line-input">
                                                   <select class="form-control select2me" id="unidad" name="unidad" multiple="multiple" onchange="cambioUnidad();">
+                                                      <option value="">Seleccionar provedor</option>
                                                       {% for u in unidades %}
                                                         <option value="{{u.id}}">{{u.identificacion}}</option>
                                                       {% endfor %}
@@ -620,7 +621,7 @@
 
                 function buscarFacturacion(){
                     if ($("#factura").val() != "0"){
-                        if ($("#unidad").val() == ""){
+                        if ($("#unidad").val() == null){
                             alert("Debe seleccionar una Unidad.");
                             return false;
                         }
