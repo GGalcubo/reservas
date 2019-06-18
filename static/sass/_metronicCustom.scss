@@ -24,13 +24,13 @@
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/OpenSans-Semibold.ttf") format("truetype");
+  src: url("../fonts/OpenSans-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/OpenSans-SemiboldItalic.ttf") format("truetype");
+  src: url("../fonts/OpenSans-SemiBoldItalic.ttf") format("truetype");
   font-weight: 600;
   font-style: italic;
 }
@@ -454,11 +454,11 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
       overflow: hidden;
       position: absolute;
       right: 0px;
-      top: -20px;
-      z-index: 1;
+      // top: -20px;
+      z-index: 9999;
       .page-sidebar,
       .page-sidebar.navbar-collapse.in {
-        margin: 20px 0 0 0;
+        margin: 0 0 0 0;
       }
     }
   }
@@ -473,14 +473,17 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   }
 }
 
-@media (max-width: 481px) {
+@media (max-width: 768px) {
   body#operaciones,
   body#asignaciones {
     .page-sidebar-wrapper {
-      top: -11px;
+      // position: absolute;
+      // z-index: 9999;
+      top: -42px;
+      // right: 0px;
       .page-sidebar,
       .page-sidebar.in {
-        margin: 10px 0 0 0 !important;
+        margin: 0 0 0 0 !important;
       }
     }
   }
