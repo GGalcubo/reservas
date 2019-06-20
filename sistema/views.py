@@ -2065,6 +2065,17 @@ def listadoCentroDeCosto(request):
 
 	context = {'centroCostos': centroCostos}
 	return render(request, 'sistema/listadoCentroDeCosto.html', context)
+	
+@login_required
+def buscarCentroDeCostos(request):
+	desde = request.POST.get('desde', "")
+	hasta = request.POST.get('hasta', "")
+	fechaDesde =  getAAAAMMDD(desde)
+	fechaHasta =  getAAAAMMDD(hasta)
+	centroCostos = CentroCosto.objects.filter(baja=False, fecha_inicio__lte=fechaHasta, fecha_fin__gte=fechaDesde)
+	context = {'centroCostos': centroCostos}
+	return render(request, 'sistema/grillaListadoCentroDeCosto.html', context)
+
 
 @login_required
 def listadoTarifario(request):

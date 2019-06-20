@@ -39,6 +39,28 @@
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="portlet-body">
+                                    <form role="form" method="post" id="formCentroDeCosto" action="">
+                                        <div class="form-body">
+                                            <div class="row">
+                                              <div class="col-sm-4">
+                                                  <div class="form-group mg-b-10">
+                                                      <label class="control-label mg-b-0" style="color: #888;">Fecha</label>
+                                                      <div class="input-group date-picker input-daterange" data-date-format="dd/mm/yyyy">
+                                                        <input type="text" class="form-control" name="desde" id="desde">
+                                                        <span class="input-group-addon" style="font-size: 10px;"> hasta </span>
+                                                        <input type="text" class="form-control" name="hasta" id="hasta">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions noborder flex">
+                                            <button type="button" onclick="buscarCentroDeCostos();" class="btn green btn-outline mg-r-10">Buscar Activos</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <hr>
+                                <div class="portlet-body" id="grillaCentroDeCosto">
                                     <div class="table-responsive pd-t-5">
                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoCC">
                                             <thead>
@@ -135,8 +157,61 @@
                             }
                         }
                     } );
+
+
+                    $('#desde').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+
+                    $('#hasta').datepicker({
+                        language: 'es',
+                        dateFormat: 'dd/mm/yy',
+                        todayHighlight: true,
+                        autoclose: true
+                    });
+
+                    
+
                     
                 });
+
+                function buscarCentroDeCostos(){
+
+                    if ($('#desde').val() == ""){
+                        alert("El campo Fecha desde es obligatorio.")
+                        return false;
+                    }
+                    if ($('#hasta').val() == ""){
+                        alert("El campo Fecha hasta es obligatorio.")
+                        return false;
+                    }
+
+                    desde = $('#desde').val().substring(6,10) + $('#desde').val().substring(3,5) + $('#desde').val().substring(0,2);
+                    hasta = $('#hasta').val().substring(6,10) + $('#hasta').val().substring(3,5) + $('#hasta').val().substring(0,2);
+
+                    if (desde.localeCompare(hasta) == 1 ){
+                        alert("La fecha desde no puede ser mayor a la fecha hasta.")
+                        return false;
+                    }
+
+                    var params = "&desde="+$("#desde").val();
+                    params += "&hasta="+$("#hasta").val();
+
+                    var url = "/sistema/buscarCentroDeCostos/";
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        data: params,
+                        success: function(data){
+                            $('#grillaCentroDeCosto').html(data);
+                        }
+                    });
+                }
+
             </script>
 
         </div>
