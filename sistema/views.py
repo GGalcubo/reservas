@@ -326,29 +326,29 @@ def guardarViaje(request):
 
     viaje.save()
 
-    guardarHistorial(viaje, 'estado', viaje.estado.estado)
-    guardarHistorial(viaje, 'cliente', viaje.cliente.razon_social)
-    guardarHistorial(viaje, 'categoria viaje', viaje.categoria_viaje.categoria)
-    guardarHistorial(viaje, 'solicitante', viaje.solicitante.apellido + ' ' + viaje.solicitante.nombre)
-    guardarHistorial(viaje, 'centro costo', viaje.centro_costo.nombre)
-    guardarHistorial(viaje, 'pasajero', viaje.pasajero.apellido + ' ' + viaje.pasajero.nombre)
-    guardarHistorial(viaje, 'hora', viaje.hora)
-    guardarHistorial(viaje, 'hora estimada', viaje.hora_estimada)
-    guardarHistorial(viaje, 'tarifa pasada', viaje.tarifapasada)
-    guardarHistorial(viaje, 'cod ext viaje', viaje.Cod_ext_viaje)
-    guardarHistorial(viaje, 'nro aux', viaje.nro_aux)
-    guardarHistorial(viaje, 'tipo pago', viaje.tipo_pago.tipo_pago_viaje)
+    guardarHistorial(viaje, 'estado', viaje.estado.estado, request.user)
+    guardarHistorial(viaje, 'cliente', viaje.cliente.razon_social, request.user)
+    guardarHistorial(viaje, 'categoria viaje', viaje.categoria_viaje.categoria, request.user)
+    guardarHistorial(viaje, 'solicitante', viaje.solicitante.apellido + ' ' + viaje.solicitante.nombre, request.user)
+    guardarHistorial(viaje, 'centro costo', viaje.centro_costo.nombre, request.user)
+    guardarHistorial(viaje, 'pasajero', viaje.pasajero.apellido + ' ' + viaje.pasajero.nombre, request.user)
+    guardarHistorial(viaje, 'hora', viaje.hora, request.user)
+    guardarHistorial(viaje, 'hora estimada', viaje.hora_estimada, request.user)
+    guardarHistorial(viaje, 'tarifa pasada', viaje.tarifapasada, request.user)
+    guardarHistorial(viaje, 'cod ext viaje', viaje.Cod_ext_viaje, request.user)
+    guardarHistorial(viaje, 'nro aux', viaje.nro_aux, request.user)
+    guardarHistorial(viaje, 'tipo pago', viaje.tipo_pago.tipo_pago_viaje, request.user)
 
-    guardarHistorial(viaje, 'bilingue', viaje.bilingue)
-    guardarHistorial(viaje, 'pasajero cant', viaje.nropasajeros)
-    guardarHistorial(viaje, 'maletas', viaje.maletas)
-    guardarHistorial(viaje, 'espera', viaje.espera)
-    guardarHistorial(viaje, 'hora disponible', viaje.dispo)
-    guardarHistorial(viaje, 'peajes', viaje.peajes)
-    guardarHistorial(viaje, 'parking', viaje.parking)
-    guardarHistorial(viaje, 'otro', viaje.otro)
+    guardarHistorial(viaje, 'bilingue', viaje.bilingue, request.user)
+    guardarHistorial(viaje, 'pasajero cant', viaje.nropasajeros, request.user)
+    guardarHistorial(viaje, 'maletas', viaje.maletas, request.user)
+    guardarHistorial(viaje, 'espera', viaje.espera, request.user)
+    guardarHistorial(viaje, 'hora disponible', viaje.dispo, request.user)
+    guardarHistorial(viaje, 'peajes', viaje.peajes, request.user)
+    guardarHistorial(viaje, 'parking', viaje.parking, request.user)
+    guardarHistorial(viaje, 'otro', viaje.otro, request.user)
     if unidad != '':
-        guardarHistorial(viaje, 'unidad', viaje.unidad.id_fake + ' ' + viaje.unidad.identificacion)
+        guardarHistorial(viaje, 'unidad', viaje.unidad.id_fake + ' ' + viaje.unidad.identificacion, request.user)
 
     if viaje.getTrayectoPrincipal() != '':
         trayecto = viaje.getTrayectoPrincipal()
@@ -357,9 +357,9 @@ def guardarViaje(request):
 
     #guardaViajePasajero(pasajero, True, viaje)
     guardaObsViaje(request.POST.get('comentario_chofer', ''), viaje, request)
-    guardarHistorial(viaje, 'comentario chofer', request.POST.get('comentario_chofer', ''))
+    guardarHistorial(viaje, 'comentario chofer', request.POST.get('comentario_chofer', ''), request.user)
     guardaItemViaje(request.POST.get('importe_efectivo', ''), 12, 1, viaje, False)
-    guardarHistorial(viaje, 'importe efectivo', request.POST.get('importe_efectivo', ''))
+    guardarHistorial(viaje, 'importe efectivo', request.POST.get('importe_efectivo', ''), request.user)
 
     if viaje.estado.id == 7 and viaje.calculo_admin is False:
 
@@ -381,14 +381,14 @@ def guardarViaje(request):
         guardaItemViaje              (request.POST.get('peaje', ''), 6, 1, viaje, False)
         guardaItemViaje              (request.POST.get('estacionamiento', ''), 5, 1, viaje, False)
 
-        guardarHistorial(viaje, 'otros', request.POST.get('otros', ''))
-        guardarHistorial(viaje, 'peaje', request.POST.get('peaje', ''))
-        guardarHistorial(viaje, 'estacionamiento', request.POST.get('estacionamiento', ''))
-        guardarHistorial(viaje, 'comentario_chofer', request.POST.get('comentario_chofer', ''))
-        guardarHistorial(viaje, 'tiempo_hs_dispo', request.POST.get('tiempo_hs_dispo', ''))
-        guardarHistorial(viaje, 'tiempo_espera', request.POST.get('tiempo_espera', ''))
-        guardarHistorial(viaje, 'bilingue', request.POST.get('bilingue', ''))
-        guardarHistorial(viaje, 'maletas', request.POST.get('maletas', ''))
+        guardarHistorial(viaje, 'otros', request.POST.get('otros', ''), request.user)
+        guardarHistorial(viaje, 'peaje', request.POST.get('peaje', ''), request.user)
+        guardarHistorial(viaje, 'estacionamiento', request.POST.get('estacionamiento', ''), request.user)
+        guardarHistorial(viaje, 'comentario_chofer', request.POST.get('comentario_chofer', ''), request.user)
+        guardarHistorial(viaje, 'tiempo_hs_dispo', request.POST.get('tiempo_hs_dispo', ''), request.user)
+        guardarHistorial(viaje, 'tiempo_espera', request.POST.get('tiempo_espera', ''), request.user)
+        guardarHistorial(viaje, 'bilingue', request.POST.get('bilingue', ''), request.user)
+        guardarHistorial(viaje, 'maletas', request.POST.get('maletas', ''), request.user)
 
         viaje.calculo_admin = True
         viaje.cabecera = True
@@ -405,7 +405,7 @@ def guardarViaje(request):
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
 
-def guardarHistorial(viaje, field, value):
+def guardarHistorial(viaje, field, value, edit_by):
     if value != '':
         historial = ViajeHistorial.objects.filter(viaje=viaje, campo_modificado=field).last()
         if historial != None:
@@ -416,7 +416,7 @@ def guardarHistorial(viaje, field, value):
                 historial_nuevo.valor_anterior = historial.valor_actual
                 historial_nuevo.valor_actual = value
                 historial_nuevo.fecha = fecha()
-                historial_nuevo.usuario = viaje.creadopor
+                historial_nuevo.usuario = edit_by
                 historial_nuevo.save()
         else:
             historial = ViajeHistorial()
@@ -425,7 +425,7 @@ def guardarHistorial(viaje, field, value):
             historial.valor_anterior = ''
             historial.valor_actual = value
             historial.fecha = fecha()
-            historial.usuario = viaje.creadopor
+            historial.usuario = edit_by
             historial.save()
 
 def guardaViajeAdmin(request):
@@ -436,49 +436,49 @@ def guardaViajeAdmin(request):
 
     guardaItemViaje(request.POST.get('admin_otros_proveedor', ''), 16, 1, viaje, manual)
     guardaItemViaje(request.POST.get('admin_otros_cliente', ''), 17, 1, viaje, manual)
-    guardarHistorial(viaje, 'admin_otros_proveedor', request.POST.get('admin_otros_proveedor', ''))
-    guardarHistorial(viaje, 'admin_otros_cliente', request.POST.get('admin_otros_cliente', ''))
+    guardarHistorial(viaje, 'admin_otros_proveedor', request.POST.get('admin_otros_proveedor', ''), request.user)
+    guardarHistorial(viaje, 'admin_otros_cliente', request.POST.get('admin_otros_cliente', ''), request.user)
 
     guardaItemViaje(request.POST.get('admin_peaje_proveedor', ''), 15, 1, viaje, manual)
     guardaItemViaje(request.POST.get('admin_peaje_cliente', ''), 6, 1, viaje, manual)
-    guardarHistorial(viaje, 'admin_peaje_proveedor', request.POST.get('admin_peaje_proveedor', ''))
-    guardarHistorial(viaje, 'admin_peaje_cliente', request.POST.get('admin_peaje_cliente', ''))
+    guardarHistorial(viaje, 'admin_peaje_proveedor', request.POST.get('admin_peaje_proveedor', ''), request.user)
+    guardarHistorial(viaje, 'admin_peaje_cliente', request.POST.get('admin_peaje_cliente', ''), request.user)
 
     guardaItemViaje(request.POST.get('admin_estacionamiento_proveedor', ''), 11, 1, viaje, manual)
     guardaItemViaje(request.POST.get('admin_estacionamiento_cliente', ''), 5, 1, viaje, manual)
-    guardarHistorial(viaje, 'admin_estacionamiento_proveedor', request.POST.get('admin_peaje_cliente', ''))
-    guardarHistorial(viaje, 'admin_estacionamiento_cliente', request.POST.get('admin_estacionamiento_cliente', ''))
+    guardarHistorial(viaje, 'admin_estacionamiento_proveedor', request.POST.get('admin_peaje_cliente', ''), request.user)
+    guardarHistorial(viaje, 'admin_estacionamiento_cliente', request.POST.get('admin_estacionamiento_cliente', ''), request.user)
 
     guardaItemViajeCostoProveedor(request.POST.get('admin_costo_proveedor', ''), 8, 1, viaje, manual)
     guardaItemViajeCostoCliente(request.POST.get('admin_costo_cliente', ''), 2, 1, viaje, manual)
-    guardarHistorial(viaje, 'admin_costo_proveedor', request.POST.get('admin_costo_proveedor', ''))
-    guardarHistorial(viaje, 'admin_costo_cliente', request.POST.get('admin_costo_cliente', ''))
+    guardarHistorial(viaje, 'admin_costo_proveedor', request.POST.get('admin_costo_proveedor', ''), request.user)
+    guardarHistorial(viaje, 'admin_costo_cliente', request.POST.get('admin_costo_cliente', ''), request.user)
 
     item_viaje_hs_dispo = guardaItemViajeHsDispo(request.POST.get('admin_hs_dispo_cliente', ''), 18, request.POST.get('admin_cant_hs_dispo_cliente', ''), viaje, manual)
     item_viaje_hs_dispo_admin = guardaItemViajeHsDispoAdmin(request.POST.get('admin_hs_dispo_proveedor', ''), 13, request.POST.get('admin_cant_hs_dispo_proveedor', ''), viaje, manual)
-    guardarHistorial(viaje, 'admin_hs_dispo_cliente', request.POST.get('admin_hs_dispo_cliente', ''))
-    guardarHistorial(viaje, 'admin_cant_hs_dispo_cliente', request.POST.get('admin_cant_hs_dispo_cliente', ''))
-    guardarHistorial(viaje, 'admin_hs_dispo_proveedor', request.POST.get('admin_hs_dispo_proveedor', ''))
-    guardarHistorial(viaje, 'admin_cant_hs_dispo_proveedor', request.POST.get('admin_cant_hs_dispo_proveedor', ''))
+    guardarHistorial(viaje, 'admin_hs_dispo_cliente', request.POST.get('admin_hs_dispo_cliente', ''), request.user)
+    guardarHistorial(viaje, 'admin_cant_hs_dispo_cliente', request.POST.get('admin_cant_hs_dispo_cliente', ''), request.user)
+    guardarHistorial(viaje, 'admin_hs_dispo_proveedor', request.POST.get('admin_hs_dispo_proveedor', ''), request.user)
+    guardarHistorial(viaje, 'admin_cant_hs_dispo_proveedor', request.POST.get('admin_cant_hs_dispo_proveedor', ''), request.user)
 
     item_viaje_espera = guardaItemViajeEspera(request.POST.get('admin_espera_cliente', ''), 1, request.POST.get('admin_cant_espera_cliente', ''), viaje, manual)
     item_viaje_espera_admin = guardaItemViajeEsperaAdmin(request.POST.get('admin_espera_proveedor', ''), 14, request.POST.get('admin_cant_espera_proveedor', ''), viaje, manual)
-    guardarHistorial(viaje, 'admin_espera_cliente', request.POST.get('admin_espera_cliente', ''))
-    guardarHistorial(viaje, 'admin_cant_espera_cliente', request.POST.get('admin_cant_espera_cliente', ''))
-    guardarHistorial(viaje, 'admin_espera_proveedor', request.POST.get('admin_espera_proveedor', ''))
-    guardarHistorial(viaje, 'admin_cant_espera_proveedor', request.POST.get('admin_cant_espera_proveedor', ''))
+    guardarHistorial(viaje, 'admin_espera_cliente', request.POST.get('admin_espera_cliente', ''), request.user)
+    guardarHistorial(viaje, 'admin_cant_espera_cliente', request.POST.get('admin_cant_espera_cliente', ''), request.user)
+    guardarHistorial(viaje, 'admin_espera_proveedor', request.POST.get('admin_espera_proveedor', ''), request.user)
+    guardarHistorial(viaje, 'admin_cant_espera_proveedor', request.POST.get('admin_cant_espera_proveedor', ''), request.user)
 
     guardaItemViajeBilingue(request.POST.get('admin_costo_bilingue_cliente', ''), 3, request.POST.get('admin_bilingue_cliente', ''), viaje, manual, item_viaje_espera, item_viaje_hs_dispo)
     guardaItemViajeBilingueAdmin(request.POST.get('admin_costo_bilingue_proveedor', ''), 9, request.POST.get('admin_bilingue_proveedor', ''), viaje, manual, item_viaje_espera_admin, item_viaje_hs_dispo_admin)
-    guardarHistorial(viaje, 'admin_costo_bilingue_cliente', request.POST.get('admin_costo_bilingue_cliente', ''))
-    guardarHistorial(viaje, 'admin_costo_bilingue_proveedor', request.POST.get('admin_costo_bilingue_proveedor', ''))
+    guardarHistorial(viaje, 'admin_costo_bilingue_cliente', request.POST.get('admin_costo_bilingue_cliente', ''), request.user)
+    guardarHistorial(viaje, 'admin_costo_bilingue_proveedor', request.POST.get('admin_costo_bilingue_proveedor', ''), request.user)
 
     guardaItemViajeMaletas(request.POST.get('admin_costo_maletas_cliente', ''), 4, request.POST.get('admin_cant_maletas_cliente', ''), viaje, manual)
     guardaItemViajeMaletasAdmin(request.POST.get('admin_costo_maletas_proveedor', ''), 10, request.POST.get('admin_cant_maletas_proveedor', ''), viaje, manual)
-    guardarHistorial(viaje, 'admin_costo_maletas_cliente', request.POST.get('admin_costo_bilingue_proveedor', ''))
-    guardarHistorial(viaje, 'admin_cant_maletas_cliente', request.POST.get('admin_cant_maletas_cliente', ''))
-    guardarHistorial(viaje, 'admin_costo_maletas_proveedor', request.POST.get('admin_costo_maletas_proveedor', ''))
-    guardarHistorial(viaje, 'admin_cant_maletas_proveedor', request.POST.get('admin_cant_maletas_proveedor', ''))
+    guardarHistorial(viaje, 'admin_costo_maletas_cliente', request.POST.get('admin_costo_bilingue_proveedor', ''), request.user)
+    guardarHistorial(viaje, 'admin_cant_maletas_cliente', request.POST.get('admin_cant_maletas_cliente', ''), request.user)
+    guardarHistorial(viaje, 'admin_costo_maletas_proveedor', request.POST.get('admin_costo_maletas_proveedor', ''), request.user)
+    guardarHistorial(viaje, 'admin_cant_maletas_proveedor', request.POST.get('admin_cant_maletas_proveedor', ''), request.user)
 
     items_viaje = serializers.serialize('json', ItemViaje.objects.filter(viaje=viaje))
     return HttpResponse(items_viaje, content_type='application/json')
@@ -1056,21 +1056,21 @@ def guardarTrayecto(request):
             trayecto.pasajero = pasajero
         trayecto.save()
 
-        guardarHistorial(viaje, 'desde_destino', request.POST.get('desde_destino', ''))
-        guardarHistorial(viaje, 'desde_localidad', request.POST.get('desde_localidad', ''))
-        guardarHistorial(viaje, 'desde_provincia', request.POST.get('desde_provincia', ''))
-        guardarHistorial(viaje, 'desde_altura', request.POST.get('desde_altura', ''))
-        guardarHistorial(viaje, 'desde_calle', request.POST.get('desde_calle', ''))
-        guardarHistorial(viaje, 'desde_compania', request.POST.get('desde_compania', ''))
-        guardarHistorial(viaje, 'desde_vuelo', request.POST.get('desde_vuelo', ''))
+        guardarHistorial(viaje, 'desde_destino', request.POST.get('desde_destino', ''), request.user)
+        guardarHistorial(viaje, 'desde_localidad', request.POST.get('desde_localidad', ''), request.user)
+        guardarHistorial(viaje, 'desde_provincia', request.POST.get('desde_provincia', ''), request.user)
+        guardarHistorial(viaje, 'desde_altura', request.POST.get('desde_altura', ''), request.user)
+        guardarHistorial(viaje, 'desde_calle', request.POST.get('desde_calle', ''), request.user)
+        guardarHistorial(viaje, 'desde_compania', request.POST.get('desde_compania', ''), request.user)
+        guardarHistorial(viaje, 'desde_vuelo', request.POST.get('desde_vuelo', ''), request.user)
 
-        guardarHistorial(viaje, 'hasta_destino', request.POST.get('hasta_destino', ''))
-        guardarHistorial(viaje, 'hasta_localidad', request.POST.get('hasta_localidad', ''))
-        guardarHistorial(viaje, 'hasta_provincia', request.POST.get('hasta_provincia', ''))
-        guardarHistorial(viaje, 'hasta_altura', request.POST.get('hasta_altura', ''))
-        guardarHistorial(viaje, 'hasta_calle', request.POST.get('hasta_calle', ''))
-        guardarHistorial(viaje, 'hasta_compania', request.POST.get('hasta_compania', ''))
-        guardarHistorial(viaje, 'hasta_vuelo', request.POST.get('hasta_vuelo', ''))
+        guardarHistorial(viaje, 'hasta_destino', request.POST.get('hasta_destino', ''), request.user)
+        guardarHistorial(viaje, 'hasta_localidad', request.POST.get('hasta_localidad', ''), request.user)
+        guardarHistorial(viaje, 'hasta_provincia', request.POST.get('hasta_provincia', ''), request.user)
+        guardarHistorial(viaje, 'hasta_altura', request.POST.get('hasta_altura', ''), request.user)
+        guardarHistorial(viaje, 'hasta_calle', request.POST.get('hasta_calle', ''), request.user)
+        guardarHistorial(viaje, 'hasta_compania', request.POST.get('hasta_compania', ''), request.user)
+        guardarHistorial(viaje, 'hasta_vuelo', request.POST.get('hasta_vuelo', ''), request.user)
 
 
 
