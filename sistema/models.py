@@ -880,6 +880,9 @@ class ViajeHistorial(models.Model):
     def getFecha(self):
         return getFecha(self.fecha)
 
+    def getFechaHora(self):
+        return getFechaHora(self.fecha)
+
     class Meta:
         verbose_name_plural = "Historial de viajes"
 

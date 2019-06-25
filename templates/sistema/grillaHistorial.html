@@ -14,7 +14,7 @@
 
         {% else %}
             <tr>
-                <td>{{ h.getFecha|default_if_none:"" }}</td>
+                <td>{{ h.getFechaHora|default_if_none:"" }}</td>
                 <td>{{ h.campo_modificado|default_if_none:"" }}</td>
                 <td>{{ h.valor_anterior|default_if_none:"" }}</td>
                 <td>{{ h.valor_actual|default_if_none:"" }}</td>
