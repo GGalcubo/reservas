@@ -57,6 +57,7 @@
 
                             <td class="all">{{v.solicitante.apellido }},{{ v.solicitante.nombre }}</td>
                             <td class="all">{{ v.centro_costo.nombre }}</td>
+                            <td class="all">{{ v.cliente.razon_social }}</td>
                         </tr>
                     {% empty %}
                       <tr>
@@ -90,6 +91,7 @@
                         {% endif %}
                         <td class="all">{{v.solicitante.apellido }},{{ v.solicitante.nombre }}</td>
                         <td class="all">{{ v.centro_costo.nombre }}</td>
+                        <td class="all">{{ v.cliente.razon_social }}</td>
                     </tr>
                     {% endfor %}
                 {% endif %}
