@@ -339,7 +339,7 @@ def guardarViaje(request):
     guardarHistorial(viaje, 'nro aux', viaje.nro_aux, request.user)
     guardarHistorial(viaje, 'tipo pago', viaje.tipo_pago.tipo_pago_viaje, request.user)
 
-    guardarHistorial(viaje, 'bilingue', viaje.bilingue, request.user)
+    ##guardarHistorial(viaje, 'bilingue', viaje.bilingue, request.user)
     guardarHistorial(viaje, 'pasajero cant', viaje.nropasajeros, request.user)
     guardarHistorial(viaje, 'maletas', viaje.maletas, request.user)
     guardarHistorial(viaje, 'espera', viaje.espera, request.user)
@@ -3232,7 +3232,7 @@ def obtenerPermiso(request):
 def validarUrlPorRol(request):
 	permisos = obtenerPermiso(request)
 	if 'unidades' in permisos:
-		urls = ['operaciones','exportar','listadoLicencia','asignaciones','listadoAdelanto','listadoFactProvedores','password_change','editaViaje']
+		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change']
 	if 'operaciones' in permisos:
 		urls = ['operaciones','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje']
 	if 'finanzas' in permisos:
