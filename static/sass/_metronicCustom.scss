@@ -177,6 +177,10 @@
   display: inline;
 }
 
+body {
+  background-color: transparent !important;
+}
+
 .page-header.navbar {
   .page-logo {/* Menú a la derecha */
     float: right;
@@ -430,6 +434,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   }
 }
 
+.page-sidebar-wrapper .page-sidebar .page-sidebar-menu > li:hover > a {
+  background-color: transparent;
+}
+
 //Margins y paddings de los iconos en el menú mobile
 @media (max-width: 767px) {
   .page-header.navbar .top-menu .navbar-nav>li.dropdown-user {
@@ -450,6 +458,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   body#asignaciones {
     .page-sidebar-wrapper {
       display: block !important;
+      background-image: url('../img/panelOperaciones.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position-y: 20px;
       width: 160px;
       overflow: hidden;
       position: absolute;
@@ -459,6 +471,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
       .page-sidebar,
       .page-sidebar.navbar-collapse.in {
         margin: 0 0 0 0;
+        background-color: transparent;
+        .page-sidebar-menu > li:hover > a {
+          background-color: transparent;
+        }
       }
     }
   }
@@ -516,6 +532,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   body#asignaciones {
     & > .page-container > .page-sidebar-wrapper > .page-sidebar.navbar-collapse.collapse > .slimScrollDiv {
       display: block !important;
+      background-image: url('../img/panelOperaciones.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position-y: 20px;
     }
   }
 }
