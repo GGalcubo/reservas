@@ -107,6 +107,7 @@ urlpatterns = [
     url(r'^exportarPdfFactCliente/', exportarPdfFactCliente, name='exportarPdfFactCliente'),
     url(r'^exportarExcelFactCliente/', exportarExcelFactCliente, name='exportarExcelFactCliente'),
     url(r'^exportarPdfFactProv/', exportarPdfFactProv, name='exportarPdfFactProv'),
+    url(r'^exportarPdfViaje/', exportarPdfViaje, name='exportarPdfViaje'),
     url(r'^buscarFacturacionProveedor/', buscarFacturacionProveedor, name='buscarFacturacionProveedor'),
     url(r'^facturarClientes/', facturarClientes, name='facturarClientes'),
     url(r'^proformarClientes/', proformarClientes, name='proformarClientes'),

@@ -1,0 +1,441 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>Voucher Viaje - Central LT</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="Custom PDF by Lucio" name="description" />
+        <meta content="Lucio" name="author" />
+
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" /> </head>
+        <style>
+            @font-face {
+                font-family: DINProRegular;
+                src: url("{% static 'fonts/DINProRegular.otf' %}");
+                font-stretch: condensed;
+            }
+
+            @font-face {
+                font-family: DINProBold;
+                src: url("{% static 'fonts/DINProBold.otf' %}");
+                font-weight: bold;
+                font-stretch: condensed;
+            }
+
+            @font-face {
+                font-family: DINProMedium;
+                src: url("{% static 'fonts/DINProMedium.otf' %}");
+                font-stretch: condensed;
+            }
+
+            @font-face {
+                font-family: DINProLight;
+                src: url("{% static 'fonts/DINProLight.otf' %}");
+                font-stretch: light-condensed;
+                font-weight: lighter;
+            }
+
+            body {
+                font-family: DINProRegular;
+                font-size: 1rem;
+                width: 800px;
+                margin: 0 auto;
+            }
+
+            .fondo {
+                width: 800px;
+                position: absolute;
+            }
+
+            #original {
+                position: relative;
+                padding: 0 25px;
+                padding-bottom: 20px;
+                border-bottom: 2px dashed #727277;
+            }
+
+            #copia {
+                position: relative;
+                padding: 0 25px;
+                padding-bottom: 20px;
+                margin-top: 10px;
+                border-top: 2px dashed #727277;
+            }
+
+            .cabeceraPDF {
+                position: relative;
+                padding: 0 15px;
+                min-height: 60px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .cabeceraPDF .nroVoucher {
+                text-align: right;
+            }
+
+            .cabeceraPDF .nroVoucher p:first-child {
+                font-weight: bold;
+                font-size: 1.8rem;
+                color: #E87E04;
+                margin-bottom: 0;
+            }
+
+            .cabeceraPDF .nroVoucher p:last-child {
+                font-size: 1.8rem;
+                color: #433F40;
+                margin-bottom: 0;
+            }
+
+            .row {
+                margin: 0;
+            }
+
+            .campo {
+                margin-top: 15px;
+            }
+
+            .campoContenedor {
+                margin: 0 auto;
+                border-bottom: 1px solid #434F40;
+            }
+
+            .campoContenedor p:first-child {
+                text-transform: uppercase;
+                color: #727277;
+                font-family: DINProLight;
+                font-size: 1.2rem;
+                margin-bottom: 0px;
+            }
+
+            .campoContenedor p:last-child {
+                text-transform: uppercase;
+                color: #433F40;
+                font-size: 1.3rem;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .campo.observaciones .campoContenedor p:last-child {
+                font-size: 1.6rem;
+            }
+
+            .campo.observaciones .campoContenedor:first-child p {
+                font-size: 1.3rem;
+            }
+
+            .campoContenedor.sinBorde {
+                border-bottom: none;
+            }
+
+            .campoContenedor.sinBorde p {
+                margin-bottom: 0;
+                padding-bottom: 13px;
+            }
+
+            .firmaPasajero .campoContenedor:nth-last-child(-n+3) {
+                background-color: #F0F0F2;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .firmaPasajero .campoContenedor:last-child p {
+                font-size: 1.2rem;
+                font-family: DINProLight;
+                color: #727277;
+            }
+
+            .dni .campoContenedor:last-child p {
+                margin-bottom: 2.5px;
+            }
+
+            @media print {
+                .cabeceraPDF .nroVoucher p:first-child {
+                    font-weight: bold;
+                    font-size: 1.8rem;
+                    color: #E87E04 !important;
+                    margin-bottom: 0;
+                }
+
+                .firmaPasajero .campoContenedor:nth-last-child(-n+3) {
+                    background-color: #F0F0F2 !important;
+                    -webkit-print-color-adjust: exact;
+                }
+            }
+        </style>
+    </head>    
+    <body>
+        <img src="{% static 'img/fondoBlanco.png' %}" alt="" class="fondo">
+        <div id="original">
+            <div class="cabeceraPDF">
+                <img class="logoPDF" src="{% static 'img/logoColor.png' %}" alt="" width="150px">
+                <div class="nroVoucher">
+                    <p>Voucher Nro</p>
+                    <p>0000</p>
+                </div>
+            </div>
+            <div class="content-loader">
+                <div class="row datosDelViaje">
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Cliente</p>
+                            <p>Furlong Fox</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Centro de costos</p>
+                            <p>Oroplata</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>ID Aux</p>
+                            <p>310028005</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 campo">
+                        <div class="campoContenedor">
+                            <p>Fecha</p>
+                            <p>2019 / 06 / 14</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 campo">
+                        <div class="campoContenedor">
+                            <p>Hora</p>
+                            <p>10:00</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-8 campo">
+                        <div class="campoContenedor">
+                            <p>Pasajero</p>
+                            <p>José Luis Pérez</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Origen</p>
+                            <p>Ituzaingo - Terminal de Bus</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Localidad</p>
+                            <p>Corrientes</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Provincia</p>
+                            <p>Corrientes</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Destino</p>
+                            <p>Posadas - Terminal de Bus</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Localidad</p>
+                            <p>Posadas</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Provincia</p>
+                            <p>Misiones</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-8 campo">
+                        <div class="campoContenedor">
+                            <p>Observaciones Unidad</p>
+                            <p>Lorem ipsum</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 campo">
+                        <div class="campoContenedor">
+                            <p>Hora fin</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 campo">
+                        <div class="campoContenedor">
+                            <p>Espera</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-8 campo observaciones">
+                        <div class="campoContenedor">
+                            <p>Obervaciones</p>
+                            <p>&nbsp;</p>
+                        </div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
+                    </div>
+                    <div class="col-xs-4 campo firmaPasajero">
+                        <div class="campoContenedor">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                        <div class="campoContenedor sinBorde"><p>&nbsp;</p></div>
+                        <div class="campoContenedor sinBorde"><p>&nbsp;</p></div>
+                        <div class="campoContenedor"><p>Firma pasajero</p></div>
+                    </div>
+                    <div class="col-xs-4 campo dni">
+                        <div class="campoContenedor">
+                            <p>DNI</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="copia">
+            <div class="cabeceraPDF">
+                <img class="logoPDF" src="{% static 'img/logoColor.png' %}" alt="" width="150px">
+                <div class="nroVoucher">
+                    <p>Voucher Nro</p>
+                    <p>0000</p>
+                </div>
+            </div>
+            <div class="content-loader">
+                <div class="row datosDelViaje">
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Cliente</p>
+                            <p>Furlong Fox</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Centro de costos</p>
+                            <p>Oroplata</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>ID Aux</p>
+                            <p>310028005</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 campo">
+                        <div class="campoContenedor">
+                            <p>Fecha</p>
+                            <p>2019 / 06 / 14</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 campo">
+                        <div class="campoContenedor">
+                            <p>Hora</p>
+                            <p>10:00</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-8 campo">
+                        <div class="campoContenedor">
+                            <p>Pasajero</p>
+                            <p>José Luis Pérez</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Origen</p>
+                            <p>Ituzaingo - Terminal de Bus</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Localidad</p>
+                            <p>Corrientes</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Provincia</p>
+                            <p>Corrientes</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Destino</p>
+                            <p>Posadas - Terminal de Bus</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Localidad</p>
+                            <p>Posadas</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 campo">
+                        <div class="campoContenedor">
+                            <p>Provincia</p>
+                            <p>Misiones</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-8 campo">
+                        <div class="campoContenedor">
+                            <p>Observaciones Unidad</p>
+                            <p>Lorem ipsum</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 campo">
+                        <div class="campoContenedor">
+                            <p>Hora fin</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 campo">
+                        <div class="campoContenedor">
+                            <p>Espera</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-8 campo observaciones">
+                        <div class="campoContenedor">
+                            <p>Obervaciones</p>
+                            <p>&nbsp;</p>
+                        </div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
+                    </div>
+                    <div class="col-xs-4 campo firmaPasajero">
+                        <div class="campoContenedor">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                        <div class="campoContenedor sinBorde"><p>&nbsp;</p></div>
+                        <div class="campoContenedor sinBorde"><p>&nbsp;</p></div>
+                        <div class="campoContenedor"><p>Firma pasajero</p></div>
+                    </div>
+                    <div class="col-xs-4 campo dni">
+                        <div class="campoContenedor">
+                            <p>DNI</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+            // window.print();
+        });
+    </script>
+</html>

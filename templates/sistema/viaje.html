@@ -270,7 +270,7 @@
                                                                 <div class="input-group left-addon right-addon">
                                                                     <span class="input-group-addon">$</span>
                                                                     <input type="text" class="form-control" id="importe_efectivo" name="importe_efectivo" value="">
-                                                                    <label for="importe_efectivo">Imp efvo</label>
+                                                                    <label for="importe_efectivo">Importe efvo</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -422,7 +422,7 @@
                                                 </div>
                                             </div>
                                             <div class="row mg-t-20">
-                                                <div class="col-md-6">
+                                                <div class="col-md-5">
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="caption font-green" style="margin:0 auto;margin-bottom: 10px;text-align: center">
@@ -518,7 +518,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-2 flex flex-j-center">
+                                                    <a href="#!" class="btn btn-lg blue"><i class="icon-refresh"></i></a>
+                                                </div>
+                                                <div class="col-md-5">
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="caption font-green" style="margin:0 auto;margin-bottom: 10px;text-align: center">
@@ -2193,6 +2196,26 @@
 
             var csrf_token          = '{{ csrf_token }}';
             var uid                 = '{{ uid }}';
+
+
+            function exportarPdf( e, dt, node, config ){
+                // var table = $('#tablaListadoFactClientes').DataTable();
+                // var selectedRows = table.rows().ids(true);
+                // var ids = "";
+                // for (var i = 0; i < selectedRows.length; i++) {
+                //     ids = ids + selectedRows[i].replace("#rowid","") + "-"
+                // }
+
+                // var params = '<input type="hidden" name="cliente" value="'+$("#cliente").val()+'">';
+                // params += '<input type="hidden" name="desde" value="'+$("#desde").val()+'">';
+                // params += '<input type="hidden" name="hasta" value="'+$("#hasta").val()+'">';
+                // params += '<input type="hidden" name="ids" value="'+ids+'">';
+                // params += '<input type="hidden" name="centrosCosto" value="'+$("#centroDeCosto").val()+'">';
+
+                $("#formularioPdf").html('');
+                $("#formularioPdf").html('<form id="dynForm" target="_blank" action="/sistema/exportarPdfViaje/" method="get">'+params+'</form>');
+                $("#dynForm").submit();
+            }
         </script>
 
         <script src="{% static 'js/viaje.js' %}" type="text/javascript"></script>

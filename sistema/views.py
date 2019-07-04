@@ -3176,6 +3176,13 @@ def exportarPdfFactProv(request):
 	context = {'unidades': unidades, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'subtotal':subtotal,'hsdispo':hsdispo,'dispo':dispo,'cobrado':cobrado,'tiempo':tiempo,'mtiempo':mtiempo,'bilingue':bilingue,'maletas':maletas,'peajes':peajes,'estacion':estacion,'otros':otros,'total':total,'iva':iva,'final':final,'pagar':pagar}
 	return render(request, 'sistema/pdfFactProvedor.html', context)
 
+@login_required
+def exportarPdfViaje(request):
+    mensaje = ""
+
+    context = {'mensaje' : mensaje}
+    return render(request, 'sistema/pdfViaje.html', context)
+
 
 @login_required
 def cargarMenu(request):
