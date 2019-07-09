@@ -258,6 +258,7 @@ class Tarifario(models.Model):
 class Unidad(models.Model):
     id_fake = models.CharField(max_length=10, null=True, blank=True)
     identificacion = models.CharField(max_length=50)
+    alias = models.CharField(max_length=20, null=True, blank=True)
     vehiculo = models.ForeignKey(Vehiculo, null=True, blank=True)
     baja = models.BooleanField(default=False)
     unidad_propia = models.BooleanField(default=False)

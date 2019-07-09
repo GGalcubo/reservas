@@ -26,19 +26,23 @@ def dashboard(request):
 
 @login_required
 def operaciones(request):
+	permiso = obtenerPermiso(request)
 	if not validarUrlPorRol(request):
+		if 'unidades' in permiso:
+			return redirect("/sistema/asignaciones/")
 		mensaje = ""
 		context = { 'mensaje':mensaje }
 		return render(request, 'sistema/urlBloqueada.html', context)
 
 	mensaje = ""
-	permiso = obtenerPermiso(request)
+	
 	if 'unidades' in permiso:
 		viajes = []
 		viajesQ = Viaje.objects.filter(estado_id__in=[4,5,6])
 		for v in viajesQ:
 			if validaViajeUnidad(request, v):
 				viajes.append(v)
+		return redirect("/asignaciones/")
 	else:
 		viajes = Viaje.objects.all()
 	estados = Estado.objects.all()
@@ -1862,6 +1866,7 @@ def guardarUnidad(request):
 
 	unidad.id_fake = request.POST.get('selectIdFake', "")
 	unidad.identificacion = request.POST.get('identificacion', "")
+	unidad.alias = request.POST.get('alias', "")
 	unidad.mail = request.POST.get('mail', "")
 	unidad.telefono = request.POST.get('telefono', "")
 	unidad.documento = request.POST.get('documento', "")
