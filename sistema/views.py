@@ -2757,63 +2757,50 @@ def buscarFacturacionCliente(request):
 		for c in solicitantes.split(","):
 			solList.append(int(c))
 
-	if sinProforma or sinFactura:
-
-		if idCliente:
-			viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
-		else:
-			viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
-
-		if ccList:
-			viajes = viajes.filter(centro_costo_id__in=ccList)
-
-		if sinProforma:
-			q_ids = [o.id for o in viajes if o.getProforma() == ""]
-			viajes = viajes.filter(id__in=q_ids)
-
-		if sinFactura:
-			q_ids = [o.id for o in viajes if o.getFacturaCliente() == ""]
-			viajes = viajes.filter(id__in=q_ids)
-
+	if idCliente:
+		viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 	else:
+		viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 
-		if idCliente:
-			viajes = Viaje.objects.filter(cliente_id=idCliente,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
-		else:
-			viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+	if catList:
+		viajes = viajes.filter(categoria_viaje_id__in=catList)
 
-		if catList:
-			viajes = viajes.filter(categoria_viaje_id__in=catList)
-			
-		if ccList:
-			viajes = viajes.filter(centro_costo_id__in=ccList)
+	if ccList:
+		viajes = viajes.filter(centro_costo_id__in=ccList)
 
-		if solList:
-			viajes = viajes.filter(solicitante_id__in=solList)
-		
-		if condEspecial == "1":
-			q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() == 0]
-			viajes = viajes.filter(id__in=q_ids)
-		elif condEspecial == "2":
-			q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() > 0]
-			viajes = viajes.filter(id__in=q_ids)
-		elif condEspecial == "3":
-			viajes = viajes.filter(categoria_viaje_id__in=[1,2,3,4,17,18,19])
-		elif condEspecial == "4":
-			viajes = viajes.filter(categoria_viaje_id__in=[5,6,7,8,9])
-		elif condEspecial == "5":
-			viajes = viajes.filter(estado_id__in=[1,2,3,4,5,6,9,10])
+	if solList:
+		viajes = viajes.filter(solicitante_id__in=solList)
 
-		if facList:
-			q_ids = [o.id for o in viajes if o.getFacturaCliente() in facList]
-			viajes = viajes.filter(id__in=q_ids)
-
-		if proList:
-			q_ids = [o.id for o in viajes if o.getProforma() in proList]
-			viajes = viajes.filter(id__in=q_ids)
+	if condEspecial == "1":
+		q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() == 0]
+		viajes = viajes.filter(id__in=q_ids)
+	elif condEspecial == "2":
+		q_ids = [o.id for o in viajes if o.getMontoEstacionCliente() > 0]
+		viajes = viajes.filter(id__in=q_ids)
+	elif condEspecial == "3":
+		viajes = viajes.filter(categoria_viaje_id__in=[1,2,3,4,17,18,19])
+	elif condEspecial == "4":
+		viajes = viajes.filter(categoria_viaje_id__in=[5,6,7,8,9])
+	elif condEspecial == "5":
+		viajes = viajes.filter(estado_id__in=[1,2,3,4,5,6,9,10])
 
 	if estList:
 		viajes = viajes.filter(estado_id__in=estList)
+
+	if sinProforma or sinFactura:
+		if sinProforma:
+			q_ids = [o.id for o in viajes if o.getProforma() == ""]
+			viajes = viajes.filter(id__in=q_ids)
+		if sinFactura:
+			q_ids = [o.id for o in viajes if o.getFacturaCliente() == ""]
+			viajes = viajes.filter(id__in=q_ids)
+	else:
+		if facList:
+			q_ids = [o.id for o in viajes if o.getFacturaCliente() in facList]
+			viajes = viajes.filter(id__in=q_ids)
+		if proList:
+			q_ids = [o.id for o in viajes if o.getProforma() in proList]
+			viajes = viajes.filter(id__in=q_ids)
 
 	context = {'viajes': viajes}
 	return render(request, 'sistema/grillaFacturacionCliente.html', context)
