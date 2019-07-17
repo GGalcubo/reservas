@@ -59,10 +59,16 @@
                                                         <label for="selectIdFake">Ids</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" id="identificacion" name="identificacion" value="{{ unidad.identificacion }}">
+                                                        <input maxlength="20" type="text" class="form-control" id="identificacion" name="identificacion" value="{{ unidad.identificacion }}">
                                                         <label for="identificacion">Nombre de la unidad</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input onkeyup="limitarInput(this, 20)" type="text" class="form-control" id="alias" name="alias" value="{{ unidad.alias|default_if_none:"" }}">
+                                                        <label for="alias">Alias</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
@@ -489,6 +495,11 @@
                         alert("El campo Nombre Unidad es obligatorio.");
                         return false;
                     }
+
+                    if ($("#alias").val() == ""){
+                        alert("El campo alias es obligatorio.");
+                        return false;
+                    }
                     
                     $("#formGuardarUnidad").submit();
 
@@ -557,6 +568,10 @@
                     }
                     
                 } 
+
+                function limitarInput(obj, cant){
+                    obj.value = obj.value.substring(0,cant);
+                }
                 
             </script>
 
