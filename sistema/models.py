@@ -1038,7 +1038,7 @@ class TarifaTrayecto(models.Model):
 class Trayecto(models.Model):
     viaje = models.ForeignKey(Viaje, null=True, blank=True)
     calle_desde = models.CharField(max_length=100, null=True, blank=True)
-    altura_desde = models.CharField(max_length=10, null=True, blank=True)
+    altura_desde = models.CharField(max_length=20, null=True, blank=True)
     entre_desde = models.CharField(max_length=80, null=True, blank=True)
     localidad_desde = models.ForeignKey(Localidad, null=True, blank=True, related_name='localidad_desde')
     provincia_desde = models.ForeignKey(Provincia, null=True, blank=True, related_name='provincia_desde')

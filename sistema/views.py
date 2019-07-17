@@ -3183,6 +3183,31 @@ def exportarPdfViaje(request):
     context = {'mensaje' : mensaje}
     return render(request, 'sistema/pdfViaje.html', context)
 
+@login_required
+def mailtoViaje(request):
+	idViaje = request.POST.get('idViaje', False)
+	viaje = Viaje.objects.get(id=idViaje)
+	
+	body = '''Servicio:	{} %0D%0A
+	Hora: {}hs %0D%0A
+	Desde: {} %0D%0A
+	Hasta: {} %0D%0A
+	C. Costos: {} %0D%0A
+	Nota: %0D%0A %0D%0A %0D%0A
+	Cordialmente, %0D%0A
+	Operaciones | LOGOSTRASLADOS | T +5411 5031-3800 | M: operaciones@logostraslados.com.ar | W: www.logostraslados.com.ar 
+	'''.format(viaje.id, viaje.getHora(), viaje.getTrayectoPrincipal().desdeConcat() if viaje.getTrayectoPrincipal() else '', viaje.getTrayectoPrincipal().hastaConcat() if viaje.getTrayectoPrincipal() else '', viaje.centro_costo.nombre)
+
+	data = {
+		'mailto': '%s' %(viaje.solicitante.getMail()),
+		'subject': 'Informe | CLIENTE | Pax: %s %s' %(viaje.pasajero.apellido, viaje.pasajero.nombre),
+		'mailtocco': 'informes@logostraslados.com.ar',
+		'body': body
+	}
+
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
 
 @login_required
 def cargarMenu(request):

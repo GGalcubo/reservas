@@ -1536,3 +1536,17 @@ soloLetras = e =>{
         return false;
     }
 }
+
+mailto = () =>{
+    let url = "/sistema/mailtoViaje/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: "idViaje="+$("#idViajeObser").val(),
+        headers: {'X-CSRFToken': csrf_token},
+        success: function(data){
+            hrefmailto = "mailto:"+data['mailto']+"?subject="+data['subject']+"&bcc="+data['mailtocco']+"&body="+data['body']
+            window.location.href = hrefmailto;
+        }
+    });
+}
