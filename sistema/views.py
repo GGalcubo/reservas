@@ -3192,7 +3192,7 @@ def mailtoViaje(request):
 
 	data = {
 		'mailto': '%s' %(viaje.solicitante.getMail()),
-		'subject': 'Informe | CLIENTE | Pax: %s %s' %(viaje.pasajero.apellido, viaje.pasajero.nombre),
+		'subject': 'Informe | CLIENTE | Pax: %s %s' %(viaje.cliente.razon_social),
 		'mailtocco': 'informes@logostraslados.com.ar',
 		'body': body
 	}
