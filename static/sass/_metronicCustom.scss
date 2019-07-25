@@ -710,8 +710,8 @@ body.login {
       }
     }
   }
-  table#futurosViajes,
-  table#viajesEnProgreso {
+  #cont_viajesEnProgreso table,
+  #cont_futurosViajes table {
     border: 1px solid lightgrey;
     tbody,
     thead {
@@ -754,6 +754,14 @@ body.login {
   }
   div.dataTables_wrapper div.dataTables_paginate {
     font-size: 10px;
+    .pagination>.active>a,
+    .pagination>.active>a:focus,
+    .pagination>.active>a:hover,
+    .pagination>.active>span,
+    .pagination>.active>span:focus,
+    .pagination>.active>span:hover {
+      z-index: 1;
+    }
   }
 }
 
