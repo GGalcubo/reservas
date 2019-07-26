@@ -3170,10 +3170,11 @@ def exportarPdfFactProv(request):
 
 @login_required
 def exportarPdfViaje(request):
-    mensaje = ""
-
-    context = {'mensaje' : mensaje}
-    return render(request, 'sistema/pdfViaje.html', context)
+	mensaje = ""
+	idViaje = request.GET['idViaje']
+	viaje = Viaje.objects.get(id=idViaje)
+	context = {'viaje' : viaje}
+	return render(request, 'sistema/pdfViaje.html', context)
 
 @login_required
 def mailtoViaje(request):

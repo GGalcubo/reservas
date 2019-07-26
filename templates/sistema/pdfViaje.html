@@ -178,7 +178,7 @@
                 <img class="logoPDF" src="{% static 'img/logoColor.png' %}" alt="" width="150px">
                 <div class="nroVoucher">
                     <p>Voucher Nro</p>
-                    <p>0000</p>
+                    <p>{{ viaje.id }}</p>
                 </div>
             </div>
             <div class="content-loader">
@@ -186,79 +186,85 @@
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Cliente</p>
-                            <p>Furlong Fox</p>
+                            <p>{{ viaje.cliente.razon_social }}</p>
                         </div>
                     </div>
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Centro de costos</p>
-                            <p>Oroplata</p>
+                            <p>{{ viaje.centro_costo.nombre }}</p>
                         </div>
                     </div>
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>ID Aux</p>
-                            <p>310028005</p>
+                            <p>{{ viaje.nro_aux }}</p>
                         </div>
                     </div>
                     <div class="col-xs-2 campo">
                         <div class="campoContenedor">
                             <p>Fecha</p>
-                            <p>2019 / 06 / 14</p>
+                            <p>{{ viaje.getFecha }}</p>
                         </div>
                     </div>
                     <div class="col-xs-2 campo">
                         <div class="campoContenedor">
                             <p>Hora</p>
-                            <p>10:00</p>
+                            <p>{{ viaje.getHora }}</p>
                         </div>
                     </div>
                     <div class="col-xs-8 campo">
                         <div class="campoContenedor">
                             <p>Pasajero</p>
-                            <p>José Luis Pérez</p>
+                            <p>{{ viaje.pasajero.nombreCompleto }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-4 campo">
+                    <div class="col-xs-12 campo">
                         <div class="campoContenedor">
                             <p>Origen</p>
-                            <p>Ituzaingo - Terminal de Bus</p>
+                            <p>{{ viaje.getTrayectoPrincipal.desdeConcat  }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-4 campo">
+                    <!--div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Localidad</p>
-                            <p>Corrientes</p>
+                            <p>{{ viaje.localidad_desde }}</p>
                         </div>
                     </div>
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Provincia</p>
-                            <p>Corrientes</p>
+                            <p>{{ viaje.provincia_desde  }}</p>
                         </div>
-                    </div>
-                    <div class="col-xs-4 campo">
+                    </div-->
+                    <div class="col-xs-12 campo">
                         <div class="campoContenedor">
                             <p>Destino</p>
-                            <p>Posadas - Terminal de Bus</p>
+                            <p>{{ viaje.getTrayectoPrincipal.hastaConcat  }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-4 campo">
+                    <!--div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Localidad</p>
-                            <p>Posadas</p>
+                            <p>{{ viaje.localidad_hasta }}</p>
                         </div>
                     </div>
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Provincia</p>
-                            <p>Misiones</p>
+                            <p>{{ viaje.provincia_hasta }}</p>
                         </div>
-                    </div>
+                    </div-->
                     <div class="col-xs-8 campo">
                         <div class="campoContenedor">
                             <p>Observaciones Unidad</p>
-                            <p>Lorem ipsum</p>
+                            <p>
+                                {% if viaje.getObservacioneChofer %}
+                                    {{ viaje.getObservacioneChofer }}
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </p>
                         </div>
                     </div>
                     <div class="col-xs-2 campo">
@@ -270,7 +276,11 @@
                     <div class="col-xs-2 campo">
                         <div class="campoContenedor">
                             <p>Espera</p>
-                            <p>&nbsp;</p>
+                            {% if viaje.espera %}
+                                <p>{{ viaje.espera }}</p>
+                            {% else %}
+                                <p>&nbsp;</p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-xs-8 campo observaciones">
@@ -307,7 +317,7 @@
                 <img class="logoPDF" src="{% static 'img/logoColor.png' %}" alt="" width="150px">
                 <div class="nroVoucher">
                     <p>Voucher Nro</p>
-                    <p>0000</p>
+                    <p>{{ viaje.id }}</p>
                 </div>
             </div>
             <div class="content-loader">
@@ -315,79 +325,85 @@
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Cliente</p>
-                            <p>Furlong Fox</p>
+                            <p>{{ viaje.cliente.razon_social }}</p>
                         </div>
                     </div>
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Centro de costos</p>
-                            <p>Oroplata</p>
+                            <p>{{ viaje.centro_costo.nombre }}</p>
                         </div>
                     </div>
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>ID Aux</p>
-                            <p>310028005</p>
+                            <p>{{ viaje.nro_aux }}</p>
                         </div>
                     </div>
                     <div class="col-xs-2 campo">
                         <div class="campoContenedor">
                             <p>Fecha</p>
-                            <p>2019 / 06 / 14</p>
+                            <p>{{ viaje.getFecha }}</p>
                         </div>
                     </div>
                     <div class="col-xs-2 campo">
                         <div class="campoContenedor">
                             <p>Hora</p>
-                            <p>10:00</p>
+                            <p>{{ viaje.getHora }}</p>
                         </div>
                     </div>
                     <div class="col-xs-8 campo">
                         <div class="campoContenedor">
                             <p>Pasajero</p>
-                            <p>José Luis Pérez</p>
+                            <p>{{ viaje.pasajero.nombreCompleto }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-4 campo">
+                    <div class="col-xs-12 campo">
                         <div class="campoContenedor">
                             <p>Origen</p>
-                            <p>Ituzaingo - Terminal de Bus</p>
+                            <p>{{ viaje.getTrayectoPrincipal.desdeConcat  }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-4 campo">
+                    <!--div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Localidad</p>
-                            <p>Corrientes</p>
+                            <p>{{ viaje.localidad_desde }}</p>
                         </div>
                     </div>
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Provincia</p>
-                            <p>Corrientes</p>
+                            <p>{{ viaje.provincia_desde  }}</p>
                         </div>
-                    </div>
-                    <div class="col-xs-4 campo">
+                    </div-->
+                    <div class="col-xs-12 campo">
                         <div class="campoContenedor">
                             <p>Destino</p>
-                            <p>Posadas - Terminal de Bus</p>
+                            <p>{{ viaje.getTrayectoPrincipal.hastaConcat  }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-4 campo">
+                    <!--div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Localidad</p>
-                            <p>Posadas</p>
+                            <p>{{ viaje.localidad_hasta }}</p>
                         </div>
                     </div>
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>Provincia</p>
-                            <p>Misiones</p>
+                            <p>{{ viaje.provincia_hasta }}</p>
                         </div>
-                    </div>
+                    </div-->
                     <div class="col-xs-8 campo">
                         <div class="campoContenedor">
                             <p>Observaciones Unidad</p>
-                            <p>Lorem ipsum</p>
+                            <p>
+                                {% if viaje.getObservacioneChofer %}
+                                    {{ viaje.getObservacioneChofer }}
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </p>
                         </div>
                     </div>
                     <div class="col-xs-2 campo">
@@ -399,7 +415,11 @@
                     <div class="col-xs-2 campo">
                         <div class="campoContenedor">
                             <p>Espera</p>
-                            <p>&nbsp;</p>
+                            {% if viaje.espera %}
+                                <p>{{ viaje.espera }}</p>
+                            {% else %}
+                                <p>&nbsp;</p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-xs-8 campo observaciones">
