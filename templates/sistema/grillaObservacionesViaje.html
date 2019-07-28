@@ -5,6 +5,7 @@
             <th class="all">Detalle</th>
             <th class="all">Hora</th>
             <th class="all">Comentario</th>
+            <th class="all">Usuario</th>
         </tr>
     </thead>
     <tbody>
@@ -12,8 +13,9 @@
         <tr>
             <td>{{ o.tipo_observacion.tipo_observacion }}</td>
             <td>{{ o.tipo_observacion.detalle_tipo_obs }}</td>
-            <td>{{ o.fecha }}</td>
+            <td>{{ o.getFechaHora }}</td>
             <td>{{ o.texto }}</td>
+            <td>{{ o.usuario }}</td>
         </tr>
         {% endfor %}
     </tbody>
