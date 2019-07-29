@@ -27,3 +27,5 @@ sistema/fixtures/bk20190508.json
 sistema/fixtures/bk.json
 sistema/fixtures/jsonmarz.jsons
 sistema/fixtures/jsonmarz.json
+/static/admin
+/sistema/fixtures
