@@ -112,25 +112,25 @@
                 text-transform: uppercase;
                 color: #727277;
                 font-family: DINProLight;
-                font-size: 1.2rem;
+                font-size: 1.0rem;
                 margin-bottom: 0px;
             }
 
             .campoContenedor p:last-child {
                 text-transform: uppercase;
                 color: #433F40;
-                font-size: 1.3rem;
+                font-size: 1.1rem;
                 font-weight: bold;
                 margin-bottom: 5px;
                 min-height: 18px;
             }
 
             .campo.observaciones .campoContenedor p:last-child {
-                font-size: 1.6rem;
+                font-size: 1.3rem;
             }
 
             .campo.observaciones .campoContenedor:first-child p {
-                font-size: 1.3rem;
+                font-size: 1.0rem;
             }
 
             .campoContenedor.sinBorde {
@@ -182,15 +182,15 @@
                     <p>{{ viaje.id }}</p>
                 </div>
             </div>
-            <div class="content-loader">
+             <div class="content-loader">
                 <div class="row datosDelViaje">
-                    <div class="col-xs-4 campo">
+                    <div class="col-xs-5 campo">
                         <div class="campoContenedor">
                             <p>Cliente</p>
                             <p>{{ viaje.cliente.razon_social }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-4 campo">
+                    <div class="col-xs-3 campo">
                         <div class="campoContenedor">
                             <p>Centro de costos</p>
                             <p>{{ viaje.centro_costo.nombre }}</p>
@@ -199,7 +199,14 @@
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>ID Aux</p>
-                            <p>{{ viaje.nro_aux }}</p>
+                            <p>
+                                {% if viaje.nro_aux %}
+                                    {{ viaje.nro_aux }}
+                                    &nbsp;
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </p>
                         </div>
                     </div>
                     <div class="col-xs-2 campo">
@@ -208,13 +215,23 @@
                             <p>{{ viaje.getFecha }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-2 campo">
+                    <div class="col-xs-1 campo">
                         <div class="campoContenedor">
                             <p>Hora</p>
                             <p>{{ viaje.getHora }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-8 campo">
+                    <div class="col-xs-2 campo">
+                        <div class="campoContenedor">
+                            <p>Espera[min]</p>
+                            {% if viaje.espera %}
+                                <p>{{ viaje.espera }}</p>
+                            {% else %}
+                                <p>&nbsp;</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-xs-7 campo">
                         <div class="campoContenedor">
                             <p>Pasajero</p>
                             <p>{{ viaje.pasajero.nombreCompleto }}</p>
@@ -256,12 +273,15 @@
                             <p>{{ viaje.provincia_hasta }}</p>
                         </div>
                     </div-->
-                    <div class="col-xs-8 campo">
-                        <div class="campoContenedor">
+                    <div class="col-xs-10 campo">
+                        <div  width: 200px;
+  word-break: break-all;
+  white-space: normal>
                             <p>Observaciones Unidad</p>
                             <p>
                                 {% if viaje.getObservacioneChofer %}
                                     {{ viaje.getObservacioneChofer }}
+                                    &nbsp;
                                 {% else %}
                                     &nbsp;
                                 {% endif %}
@@ -272,16 +292,6 @@
                         <div class="campoContenedor">
                             <p>Hora fin</p>
                             <p>&nbsp;</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 campo">
-                        <div class="campoContenedor">
-                            <p>Espera</p>
-                            {% if viaje.espera %}
-                                <p>{{ viaje.espera }}</p>
-                            {% else %}
-                                <p>&nbsp;</p>
-                            {% endif %}
                         </div>
                     </div>
                     <div class="col-xs-8 campo observaciones">
@@ -321,15 +331,15 @@
                     <p>{{ viaje.id }}</p>
                 </div>
             </div>
-            <div class="content-loader">
+             <div class="content-loader">
                 <div class="row datosDelViaje">
-                    <div class="col-xs-4 campo">
+                    <div class="col-xs-5 campo">
                         <div class="campoContenedor">
                             <p>Cliente</p>
                             <p>{{ viaje.cliente.razon_social }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-4 campo">
+                    <div class="col-xs-3 campo">
                         <div class="campoContenedor">
                             <p>Centro de costos</p>
                             <p>{{ viaje.centro_costo.nombre }}</p>
@@ -338,7 +348,14 @@
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>ID Aux</p>
-                            <p>{{ viaje.nro_aux }}</p>
+                            <p>
+                                {% if viaje.nro_aux %}
+                                    {{ viaje.nro_aux }}
+                                    &nbsp;
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </p>
                         </div>
                     </div>
                     <div class="col-xs-2 campo">
@@ -347,13 +364,23 @@
                             <p>{{ viaje.getFecha }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-2 campo">
+                    <div class="col-xs-1 campo">
                         <div class="campoContenedor">
                             <p>Hora</p>
                             <p>{{ viaje.getHora }}</p>
                         </div>
                     </div>
-                    <div class="col-xs-8 campo">
+                    <div class="col-xs-2 campo">
+                        <div class="campoContenedor">
+                            <p>Espera[min]</p>
+                            {% if viaje.espera %}
+                                <p>{{ viaje.espera }}</p>
+                            {% else %}
+                                <p>&nbsp;</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-xs-7 campo">
                         <div class="campoContenedor">
                             <p>Pasajero</p>
                             <p>{{ viaje.pasajero.nombreCompleto }}</p>
@@ -395,7 +422,7 @@
                             <p>{{ viaje.provincia_hasta }}</p>
                         </div>
                     </div-->
-                    <div class="col-xs-8 campo">
+                    <div class="col-xs-10 campo">
                         <div class="campoContenedor">
                             <p>Observaciones Unidad</p>
                             <p>
@@ -411,16 +438,6 @@
                         <div class="campoContenedor">
                             <p>Hora fin</p>
                             <p>&nbsp;</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 campo">
-                        <div class="campoContenedor">
-                            <p>Espera</p>
-                            {% if viaje.espera %}
-                                <p>{{ viaje.espera }}</p>
-                            {% else %}
-                                <p>&nbsp;</p>
-                            {% endif %}
                         </div>
                     </div>
                     <div class="col-xs-8 campo observaciones">
