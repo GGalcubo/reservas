@@ -11,7 +11,6 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Custom PDF by Lucio" name="description" />
         <meta content="Lucio" name="author" />
-
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" /> </head>
@@ -21,46 +20,39 @@
                 src: url("{% static 'fonts/DINProRegular.otf' %}");
                 font-stretch: condensed;
             }
-
             @font-face {
                 font-family: DINProBold;
                 src: url("{% static 'fonts/DINProBold.otf' %}");
                 font-weight: bold;
                 font-stretch: condensed;
             }
-
             @font-face {
                 font-family: DINProMedium;
                 src: url("{% static 'fonts/DINProMedium.otf' %}");
                 font-stretch: condensed;
             }
-
             @font-face {
                 font-family: DINProLight;
                 src: url("{% static 'fonts/DINProLight.otf' %}");
                 font-stretch: light-condensed;
                 font-weight: lighter;
             }
-
             body {
                 font-family: DINProRegular;
                 font-size: 1rem;
                 width: 800px;
                 margin: 0 auto;
             }
-
             .fondo {
                 width: 800px;
                 position: absolute;
             }
-
             #original {
                 position: relative;
                 padding: 0 25px;
                 padding-bottom: 20px;
                 border-bottom: 2px dashed #727277;
             }
-
             #copia {
                 position: relative;
                 padding: 0 25px;
@@ -68,7 +60,6 @@
                 margin-top: 10px;
                 border-top: 2px dashed #727277;
             }
-
             .cabeceraPDF {
                 position: relative;
                 padding: 0 15px;
@@ -77,86 +68,71 @@
                 justify-content: space-between;
                 align-items: center;
             }
-
             .cabeceraPDF .nroVoucher {
                 text-align: right;
             }
-
             .cabeceraPDF .nroVoucher p:first-child {
                 font-weight: bold;
                 font-size: 1.8rem;
                 color: #E87E04;
                 margin-bottom: 0;
             }
-
             .cabeceraPDF .nroVoucher p:last-child {
                 font-size: 1.8rem;
                 color: #433F40;
                 margin-bottom: 0;
             }
-
             .row {
                 margin: 0;
             }
-
             .campo {
                 margin-top: 15px;
             }
-
             .campoContenedor {
                 margin: 0 auto;
                 border-bottom: 1px solid #434F40;
             }
-
             .campoContenedor p:first-child {
                 text-transform: uppercase;
                 color: #727277;
                 font-family: DINProLight;
-                font-size: 1.0rem;
+                font-size: 1.2rem;
                 margin-bottom: 0px;
             }
-
             .campoContenedor p:last-child {
                 text-transform: uppercase;
                 color: #433F40;
-                font-size: 1.1rem;
+                font-size: 1.3rem;
                 font-weight: bold;
-                margin-bottom: 5px;
+                margin-bottom: 0px;
                 min-height: 18px;
             }
-
             .campo.observaciones .campoContenedor p:last-child {
+                font-size: 1.9rem;
+            }
+            .campo.observaciones .campoContenedor:first-child p {
                 font-size: 1.3rem;
             }
-
-            .campo.observaciones .campoContenedor:first-child p {
-                font-size: 1.0rem;
-            }
-
             .campoContenedor.sinBorde {
                 border-bottom: none;
             }
-
             .campoContenedor.sinBorde p {
                 margin-bottom: 0;
-                padding-bottom: 13px;
+                padding-bottom: 7px;
             }
-
             .firmaPasajero .campoContenedor:nth-last-child(-n+3) {
                 background-color: #F0F0F2;
                 -webkit-print-color-adjust: exact;
             }
-
             .firmaPasajero .campoContenedor:last-child p {
                 font-size: 1.2rem;
                 font-family: DINProLight;
                 color: #727277;
             }
-
             .dni .campoContenedor:last-child p {
-                margin-bottom: 2.5px;
+                margin-bottom: 0.3px;
+                padding-top: 10px;
             }
-
             @media print {
                 .cabeceraPDF .nroVoucher p:first-child {
                     font-weight: bold;
@@ -164,7 +140,6 @@
                     color: #E87E04 !important;
                     margin-bottom: 0;
                 }
-
                 .firmaPasajero .campoContenedor:nth-last-child(-n+3) {
                     background-color: #F0F0F2 !important;
                     -webkit-print-color-adjust: exact;
@@ -182,7 +157,7 @@
                     <p>{{ viaje.id }}</p>
                 </div>
             </div>
-             <div class="content-loader">
+            <div class="content-loader">
                 <div class="row datosDelViaje">
                     <div class="col-xs-5 campo">
                         <div class="campoContenedor">
@@ -199,14 +174,7 @@
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>ID Aux</p>
-                            <p>
-                                {% if viaje.nro_aux %}
-                                    {{ viaje.nro_aux }}
-                                    &nbsp;
-                                {% else %}
-                                    &nbsp;
-                                {% endif %}
-                            </p>
+                            <p>{{ viaje.nro_aux }}</p>
                         </div>
                     </div>
                     <div class="col-xs-2 campo">
@@ -243,50 +211,18 @@
                             <p>{{ viaje.getTrayectoPrincipal.desdeConcat  }}</p>
                         </div>
                     </div>
-                    <!--div class="col-xs-4 campo">
-                        <div class="campoContenedor">
-                            <p>Localidad</p>
-                            <p>{{ viaje.localidad_desde }}</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 campo">
-                        <div class="campoContenedor">
-                            <p>Provincia</p>
-                            <p>{{ viaje.provincia_desde  }}</p>
-                        </div>
-                    </div-->
                     <div class="col-xs-12 campo">
                         <div class="campoContenedor">
                             <p>Destino</p>
                             <p>{{ viaje.getTrayectoPrincipal.hastaConcat  }}</p>
                         </div>
                     </div>
-                    <!--div class="col-xs-4 campo">
+                    <div class="col-xs-10 campo observaciones">
                         <div class="campoContenedor">
-                            <p>Localidad</p>
-                            <p>{{ viaje.localidad_hasta }}</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 campo">
-                        <div class="campoContenedor">
-                            <p>Provincia</p>
-                            <p>{{ viaje.provincia_hasta }}</p>
-                        </div>
-                    </div-->
-                    <div class="col-xs-10 campo">
-                        <div  width: 200px;
-  word-break: break-all;
-  white-space: normal>
                             <p>Observaciones Unidad</p>
-                            <p>
-                                {% if viaje.getObservacioneChofer %}
-                                    {{ viaje.getObservacioneChofer }}
-                                    &nbsp;
-                                {% else %}
-                                    &nbsp;
-                                {% endif %}
-                            </p>
+                            <p>{{ viaje.getObservacioneChofer }}</p>
                         </div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
                     </div>
                     <div class="col-xs-2 campo">
                         <div class="campoContenedor">
@@ -331,7 +267,7 @@
                     <p>{{ viaje.id }}</p>
                 </div>
             </div>
-             <div class="content-loader">
+            <div class="content-loader">
                 <div class="row datosDelViaje">
                     <div class="col-xs-5 campo">
                         <div class="campoContenedor">
@@ -348,14 +284,7 @@
                     <div class="col-xs-4 campo">
                         <div class="campoContenedor">
                             <p>ID Aux</p>
-                            <p>
-                                {% if viaje.nro_aux %}
-                                    {{ viaje.nro_aux }}
-                                    &nbsp;
-                                {% else %}
-                                    &nbsp;
-                                {% endif %}
-                            </p>
+                            <p>{{ viaje.nro_aux }}</p>
                         </div>
                     </div>
                     <div class="col-xs-2 campo">
@@ -392,47 +321,18 @@
                             <p>{{ viaje.getTrayectoPrincipal.desdeConcat  }}</p>
                         </div>
                     </div>
-                    <!--div class="col-xs-4 campo">
-                        <div class="campoContenedor">
-                            <p>Localidad</p>
-                            <p>{{ viaje.localidad_desde }}</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 campo">
-                        <div class="campoContenedor">
-                            <p>Provincia</p>
-                            <p>{{ viaje.provincia_desde  }}</p>
-                        </div>
-                    </div-->
                     <div class="col-xs-12 campo">
                         <div class="campoContenedor">
                             <p>Destino</p>
                             <p>{{ viaje.getTrayectoPrincipal.hastaConcat  }}</p>
                         </div>
                     </div>
-                    <!--div class="col-xs-4 campo">
-                        <div class="campoContenedor">
-                            <p>Localidad</p>
-                            <p>{{ viaje.localidad_hasta }}</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 campo">
-                        <div class="campoContenedor">
-                            <p>Provincia</p>
-                            <p>{{ viaje.provincia_hasta }}</p>
-                        </div>
-                    </div-->
-                    <div class="col-xs-10 campo">
+                    <div class="col-xs-10 campo observaciones">
                         <div class="campoContenedor">
                             <p>Observaciones Unidad</p>
-                            <p>
-                                {% if viaje.getObservacioneChofer %}
-                                    {{ viaje.getObservacioneChofer }}
-                                {% else %}
-                                    &nbsp;
-                                {% endif %}
-                            </p>
+                            <p>{{ viaje.getObservacioneChofer }}</p>
                         </div>
+                        <div class="campoContenedor"><p>&nbsp;</p></div>
                     </div>
                     <div class="col-xs-2 campo">
                         <div class="campoContenedor">
@@ -473,7 +373,7 @@
     <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
     <script>
         $(document).ready(function(){
-            // window.print();
+            window.print();
         });
     </script>
 </html>
