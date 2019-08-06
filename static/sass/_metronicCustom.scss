@@ -704,9 +704,9 @@ body.login {
   .page-content {
     .portlet.light {
       font-size: 12px;
-      padding: 7px;
+      padding: 7px 7px 0 7px;
       & > .portlet-title {
-          margin-bottom: 5px;
+          margin-bottom: 0;
       }
     }
   }
@@ -762,6 +762,15 @@ body.login {
     .pagination>.active>span:hover {
       z-index: 1;
     }
+  }
+  .dataTables_wrapper .dataTables_length label {
+    margin-bottom: 0;
+  }
+  .dataTables_wrapper .dataTables_filter label {
+    margin-bottom: 0;
+  }
+  .dataTables_wrapper .dataTables_scroll {
+    margin-bottom: 0;
   }
 }
 
