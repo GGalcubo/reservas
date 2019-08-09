@@ -3181,14 +3181,14 @@ def mailtoViaje(request):
 	idViaje = request.POST.get('idViaje', False)
 	viaje = Viaje.objects.get(id=idViaje)
 	
-	body = '''Servicio:	{} %0D%0A
+	body = '''Estimados,%0ALes informamos el estado del servicio del pasajero de referencia:%0DServicio:	{} %0D%0A
 	Hora: {}hs %0D%0A
 	Desde: {} %0D%0A
 	Hasta: {} %0D%0A
 	C. Costos: {} %0D%0A
 	Nota: %0D%0A %0D%0A %0D%0A
 	Cordialmente, %0D%0A
-	Operaciones | LOGOSTRASLADOS | T +5411 5031-3800 | M: operaciones@logostraslados.com.ar | W: www.logostraslados.com.ar 
+	Reservas | LOGOSTRASLADOS | T +5411 5031-3800 | WhatsApp +54911 3193-1428 | M: reservas@logostraslados.com.ar | W: www.logostraslados.com.ar 
 	'''.format(viaje.id, viaje.getHora(), viaje.getTrayectoPrincipal().desdeConcat() if viaje.getTrayectoPrincipal() else '', viaje.getTrayectoPrincipal().hastaConcat() if viaje.getTrayectoPrincipal() else '', viaje.centro_costo.nombre)
 
 	data = {

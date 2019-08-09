@@ -216,10 +216,6 @@ $(document).ready( () => {
             showMsg("El campo hora es obligatorio.");
             return false;
         }
-        if ($("#hora_estimada").val() == ""){
-            showMsg("El campo hora estimada es obligatorio.");
-            return false;
-        }
         if ($("#categoria_viaje").val() == ""){
             showMsg("El campo categoria viaje es obligatorio.");
             return false;

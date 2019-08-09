@@ -6,7 +6,6 @@
                 <th class="all">Categ.</th>
                 <th class="all">Fecha</th>
                 <th class="all">Hora</th>
-                <th class="all">H.E</th>
                 <th class="all">Estado</th>
                 <th class="all">Unidad</th>
                 <th class="all">Nombre Unidad</th>
@@ -31,7 +30,6 @@
                             <td class="all">{{ v.categoria_viaje }}</td>
                             <td class="all">{{ v.getFecha }}</td>
                             <td class="all">{{ v.hora }}</td>
-                            <td class="all">{{ v.hora_estimada }}</td>
                             <td class="all"><span class="label label-primary" style="background-color: {{ v.estado.color }}!important;"> {{ v.estado }} </span></td>
                             {% ifequal v.unidad None %}
                             <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">------</a></td>
