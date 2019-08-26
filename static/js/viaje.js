@@ -139,22 +139,22 @@ $(document).ready( () => {
     $('#tiempo_hs_dispo').val(dispo_viaje);
     $('#pasajero_cant').val(pasajero_cant);
 
-    $('#categoria_viaje').select2({ placeholder: 'Seleccionar'});
-    $('#contacto').select2({ placeholder: 'Seleccionar'});
-    $('#pasajero').select2({ placeholder: 'Seleccionar'});
-    $('#pasajero_trayecto').select2({ placeholder: 'Seleccionar Pasajero', dropdownParent: $('#add_tramo')});
+    $('#categoria_viaje').select2({ placeholder: 'Seleccionar', width: 'auto'});
+    $('#contacto').select2({ placeholder: 'Seleccionar', width: 'auto'});
+    $('#pasajero').select2({ placeholder: 'Seleccionar', width: 'auto'});
+    $('#pasajero_trayecto').select2({ placeholder: 'Seleccionar Pasajero', width: 'auto', dropdownParent: $('#add_tramo')});
 
     $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
-    $('#id_cliente').select2({ placeholder: 'Seleccionar Cliente'});
+    $('#id_cliente').select2({ placeholder: 'Seleccionar Cliente', width: 'auto'});
     //$("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
-    $('#unidad_id').select2({placeholder: 'Seleccionar'});
-    $('#centroDeCosto').select2({placeholder: 'Seleccionar'});
+    $('#unidad_id').select2({placeholder: 'Seleccionar', width: 'auto'});
+    $('#centroDeCosto').select2({placeholder: 'Seleccionar', width: 'auto'});
 
 
     $("#desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
-    $('#desde_destino').select2({placeholder: 'Seleccionar'});
+    $('#desde_destino').select2({placeholder: 'Seleccionar', width: 'auto'});
     $("#hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
-    $('#hasta_destino').select2({placeholder: 'Seleccionar'});
+    $('#hasta_destino').select2({placeholder: 'Seleccionar', width: 'auto'});
     $("#modal_desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
     $('#modal_desde_destino').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
     $("#modal_hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
@@ -162,9 +162,9 @@ $(document).ready( () => {
     $('#modal_hasta_provincia').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
 
     $("#desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
-    $('#desde_localidad').select2({placeholder: 'Seleccionar'});
+    $('#desde_localidad').select2({placeholder: 'Seleccionar', width: 'auto'});
     $("#hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
-    $('#hasta_localidad').select2({placeholder: 'Seleccionar'});
+    $('#hasta_localidad').select2({placeholder: 'Seleccionar', width: 'auto'});
     $("#modal_desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
     $('#modal_desde_localidad').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
     $("#modal_hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
