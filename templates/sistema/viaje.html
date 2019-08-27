@@ -51,23 +51,22 @@
                         <div class="col-md-12">
                             <div class="portlet light ">
                                 <div class="portlet-title">
-                                    <div class="caption font-green">
-                                        <i class="icon-rocket font-green"></i>
-                                        <span class="caption-subject bold uppercase" id="viaje_titulo">Ingreso del Cliente y Datos del Viaje</span>
-                                        <a href="#!" class="btn btn-outline blue mg-l-10" type="submit">Guardar</a>
-                                        <a href="#!" class="btn btn-outline blue mg-l-10">Clonar</a>
-                                        <a href="#!" class="btn btn-outline blue mg-l-10">Copiar Evento</a>
-                                        <a href="#!" class="btn blue mg-b-5 mg-l-10"><i class="icon-cloud-download"></i></a>
-                                        <a href="#" onclick="mailto();"class="btn blue mg-b-5 mg-l-10"><i class="icon-envelope"></i></a>
-                                        <a href="#!" class="btn blue mg-b-5 mg-l-10"><i class="icon-bubble"></i></a>
+                                    <div class="caption font-green" style="display: flex; align-items: baseline; flex-flow: wrap;">
+                                        <span class="caption-subject bold uppercase mg-b-5 mg-r-20" id="viaje_titulo"><i class="icon-rocket font-green mg-r-5"></i>Ingreso del Cliente y Datos del Viaje</span>
+                                        <a href="#!" class="btn btn-outline blue mg-r-10" type="submit">Guardar</a>
+                                        <a href="#!" class="btn btn-outline blue mg-r-10">Clonar</a>
+                                        <a href="#!" class="btn btn-outline blue mg-r-10">Copiar Evento</a>
+                                        <a href="#!" class="btn blue mg-b-5 mg-r-10"><i class="icon-cloud-download"></i></a>
+                                        <a href="#" onclick="mailto();"class="btn blue mg-b-5 mg-r-10"><i class="icon-envelope"></i></a>
+                                        <a href="#!" class="btn blue mg-b-5 mg-r-10"><i class="icon-bubble"></i></a>
                                     </div>
                                     <div class="tools"></div>
                                 </div>
                                 <div class="portlet-body">
                                     <form role="form" class="form-viaje-viaje" id="form-viaje-viaje" method="post" action="/sistema/guardarViaje/">{% csrf_token %}
                                         <div class="form-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
+                                            <div class="row flex mg-b-10">
+                                                <div class="col-xs-12 col-sm-5 col-md-3 col-lg-4">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" id="id_cliente" name="id_cliente">
                                                             <option value=""></option>
@@ -82,69 +81,63 @@
                                                         <label for="id_cliente">Cliente</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-1">
+                                                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1">
                                                     <div class="form-group form-md-line-input">
                                                         <input type="text" class="form-control" id="cliente_tel" value="" readonly>
                                                         <label for="cliente_tel">Teléfono</label>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col-md-3">
-                                                    <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="cliente_direccion" value="" readonly>
-                                                        <label for="cliente_direccion">Dirección</label>
-                                                    </div>
-                                                </div> -->
-                                                <div class="col-md-2">
+                                                <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
                                                     <div class="form-group form-md-line-input">
                                                         <input type="text" class="form-control" id="cod_externo" name="cod_externo" value="{{ viaje.Cod_ext_viaje|default_if_none:'' }}">
                                                         <label for="cod_externo">Cod Externo</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1">
                                                     <div class="form-group form-md-line-input">
                                                         <input type="text" class="form-control" id="nro_aux" name="nro_aux" value="{{ viaje.nro_aux|default_if_none:'' }}">
                                                         <label for="nro_aux">ID Aux</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-xs-6 col-sm-4 col-md-2 col-lg-3">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" id="centroDeCosto" name="centroDeCosto">
                                                         </select>
                                                         <label for="centroDeCosto">Centro de Costos</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-1 pd-0">
+                                                <div class="col-xs-1 pd-0">
                                                     <div class="form-group form-md-line-input flex align-i-center" style="height: 49px;">
                                                        <a href="#add_centro_costo" role="button" data-toggle="modal" class="btn btn-success btn-xs">+</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-9">
+                                            <div class="row flex mg-b-10">
+                                                <div class="col-xs-12 col-md-9">
                                                     <div class="row">
-                                                        <div class="col-md-3">
+                                                        <div class="col-xs-10 col-sm-3">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="contacto" name="contacto"></select>
                                                                 <label for="contacto">Solicitante</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-1 pd-0">
+                                                        <div class="col-xs-1 pd-0">
                                                             <div class="form-group form-md-line-input flex align-i-center" style="height: 49px;">
                                                                <a href="#add_solicitante" role="button" data-toggle="modal" class="btn btn-success btn-xs">+</a>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-xs-10 col-sm-3">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="pasajero" name="pasajero"></select>
                                                                 <label for="pasajero">Pasajero</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-1 pd-0">
+                                                        <div class="col-xs-1 pd-0">
                                                             <div class="form-group form-md-line-input flex align-i-center" style="height: 49px;">
                                                                 <a href="#add_pasajero" role="button" data-toggle="modal" class="btn btn-success btn-xs">+</a>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-1">
+                                                        <div class="col-xs-6 col-sm-2 col-md-1">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control" id="pasajero_cant" name="pasajero_cant">
                                                                     <option value="0" selected="selected">Elegir cant.</option>
@@ -160,7 +153,7 @@
                                                                 <label for="pasajero_cant" class="mg-neg-t-5">Cant.</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-xs-6 col-sm-2 col-md-3">
                                                             <div class="form-group form-md-line-input">
                                                                 <input type="text" class="form-control" id="pasajero_telefono" value="" readonly>
                                                                 <label for="pasajero_telefono">P. Teléfono</label>
@@ -168,21 +161,21 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-xs-12 col-md-3">
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-xs-6 col-sm-2 col-md-6">
                                                             <div class="form-group form-md-line-input">
                                                                 <input type="text" class="form-control" id="fecha" value="{{ viaje.getFecha }}" name="fecha" readonly="readonly" style="cursor: text!important;">
                                                                 <label for="fecha">Fecha</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-xs-3 col-sm-2 col-md-3">
                                                             <div class="form-group form-md-line-input">
                                                                 <input type="text" class="form-control timepicker timepicker-24" id="hora" value="{{ viaje.hora|default_if_none:'' }}" name="hora">
                                                                 <label for="hora">Hora</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-xs-3 col-sm-2 col-md-3">
                                                             <div class="form-group form-md-line-input">
                                                                 <input type="text" class="form-control timepicker timepicker-24" id="hora_estimada" value="{{ viaje.hora_estimada|default_if_none:'' }}" name="hora_estimada">
                                                                 <label for="hora_estimada">Est.</label>
@@ -191,8 +184,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-2">
+                                            <div class="row flex mg-b-10">
+                                                <div class="col-xs-6 col-sm-4 col-md-2">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" id="categoria_viaje" name="categoria_viaje">
                                                             <option selected="selected" value=""></option>
@@ -207,7 +200,7 @@
                                                         <label for="categoria_viaje">C. Viaje</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-xs-6 col-sm-4 col-md-2">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" name="estado" id="estado">
                                                             {% for e in estados %}
@@ -221,7 +214,7 @@
                                                         <label for="estado">Estado</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-xs-12 col-sm-4 col-md-3">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" id="unidad_id" name="unidad_id">
                                                             <option value=""></option>
@@ -236,203 +229,196 @@
                                                         <label for="unidad_id">Unidad</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-xs-12 col-sm-6 col-md-3">
                                                     <div class="form-group form-md-line-input">
                                                         <textarea class="form-control" rows="3" placeholder="" name="comentario_chofer" id="comentario_chofer">{{ viaje.getObservacioneChofer }}</textarea>
                                                         <label for="comentario_chofer">Comentario para el chofer</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-xs-12 col-sm-6 col-md-2">
                                                     <div class="form-group form-md-line-input">
                                                         <textarea class="form-control" rows="3" placeholder="" name="tarifa_pasada" id="tarifa_pasada" maxlength="50">{{ viaje.tarifapasada|default_if_none:'' }}</textarea>
                                                         <label for="tarifa_pasada">Comentario interno</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="row">
-                                                        <div class="col-md-3">
-                                                            <div class="form-group form-md-line-input">
-                                                                <select class="form-control" id="tipo_pago" name="tipo_pago">
-                                                                    {% for tp in tipo_pago %}
-                                                                        {% if tp.id == viaje.tipo_pago.id %}
-                                                                            <option selected="selected" value="{{ tp.id }}">{{ tp.tipo_pago_viaje }}</option>
-                                                                        {% else %}
-                                                                            <option value="{{ tp.id }}">{{ tp.tipo_pago_viaje }}</option>
-                                                                        {% endif %}
-                                                                    {% endfor %}
-                                                                </select>
-                                                                <label for="tipo_pago">Tipo Pago</label>
-                                                            </div>
+                                            <div class="row flex mg-b-10">
+                                                <div class="col-xs-6 col-sm-3 col-md-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control" id="tipo_pago" name="tipo_pago">
+                                                            {% for tp in tipo_pago %}
+                                                                {% if tp.id == viaje.tipo_pago.id %}
+                                                                    <option selected="selected" value="{{ tp.id }}">{{ tp.tipo_pago_viaje }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ tp.id }}">{{ tp.tipo_pago_viaje }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                        <label for="tipo_pago">Tipo Pago</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-2 col-md-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <div class="input-group left-addon right-addon">
+                                                            <span class="input-group-addon">$</span>
+                                                            <input type="text" class="form-control" id="importe_efectivo" name="importe_efectivo" value="">
+                                                            <label for="importe_efectivo">Importe efvo</label>
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            <div class="form-group form-md-line-input">
-                                                                <div class="input-group left-addon right-addon">
-                                                                    <span class="input-group-addon">$</span>
-                                                                    <input type="text" class="form-control" id="importe_efectivo" name="importe_efectivo" value="">
-                                                                    <label for="importe_efectivo">Importe efvo</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <div class="form-group form-md-line-input">
-                                                                <select class="form-control" id="tiempo_espera" name="tiempo_espera">
-                                                                    <option value="" selected="selected">Elegir tiempo</option>
-                                                                    <option value="15">00:15 hs</option>
-                                                                    <option value="30">00:30 hs</option>
-                                                                    <option value="45">00:45 hs</option>
-                                                                    <option value="60">01:00 hs</option>
-                                                                    <option value="75">01:15 hs</option>
-                                                                    <option value="90">01:30 hs</option>
-                                                                    <option value="105">01:45 hs</option>
-                                                                    <option value="120">02:00 hs</option>
-                                                                    <option value="135">02:15 hs</option>
-                                                                    <option value="150">02:30 hs</option>
-                                                                    <option value="165">02:45 hs</option>
-                                                                    <option value="180">3:00 hs</option>
-                                                                    <option value="195">3:15 hs</option>
-                                                                    <option value="210">3:30 hs</option>
-                                                                    <option value="225">3:45 hs</option>
-                                                                    <option value="240">4:00 hs</option>
-                                                                    <option value="255">4:15 hs</option>
-                                                                    <option value="270">4:30 hs</option>
-                                                                    <option value="285">4:45 hs</option>
-                                                                    <option value="300">5:00 hs</option>
-                                                                    <option value="315">5:15 hs</option>
-                                                                    <option value="330">5:30 hs</option>
-                                                                    <option value="345">5:45 hs</option>
-                                                                    <option value="360">6:00 hs</option>
-                                                                    <option value="375">6:15 hs</option>
-                                                                    <option value="390">6:30 hs</option>
-                                                                    <option value="405">6:45 hs</option>
-                                                                    <option value="420">7:00 hs</option>
-                                                                    <option value="435">7:15 hs</option>
-                                                                    <option value="450">7:30 hs</option>
-                                                                    <option value="465">7:45 hs</option>
-                                                                    <option value="480">8:00 hs</option>
-                                                                    <option value="495">8:15 hs</option>
-                                                                    <option value="510">8:30 hs</option>
-                                                                    <option value="525">8:45 hs</option>
-                                                                    <option value="540">9:00 hs</option>
-                                                                    <option value="555">9:15 hs</option>
-                                                                    <option value="570">9:30 hs</option>
-                                                                    <option value="585">9:45 hs</option>
-                                                                    <option value="600">10:00 hs</option>    
-                                                                </select>
-                                                                <label for="tiempo_espera">Espera</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <div class="form-group form-md-line-input">
-                                                                <select class="form-control" id="tiempo_hs_dispo" name="tiempo_hs_dispo">
-                                                                    <option value="" selected="selected">Elegir cant.</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                    <option value="5">5</option>
-                                                                    <option value="6">6</option>
-                                                                    <option value="7">7</option>
-                                                                    <option value="8">8</option>
-                                                                    <option value="9">9</option>
-                                                                    <option value="10">10</option>
-                                                                    <option value="11">11</option>
-                                                                    <option value="12">12</option>
-                                                                    <option value="13">13</option>
-                                                                    <option value="14">14</option>
-                                                                    <option value="15">15</option>
-                                                                    <option value="16">16</option>
-                                                                    <option value="17">17</option>
-                                                                    <option value="18">18</option>
-                                                                    <option value="19">19</option>
-                                                                    <option value="20">20</option>
-                                                                    <option value="21">21</option>
-                                                                    <option value="22">22</option>
-                                                                    <option value="23">23</option>
-                                                                    <option value="24">24</option>
-                                                                </select>
-                                                                <label for="tiempo_hs_dispo">H. Disp</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-3 col-md-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control" id="tiempo_espera" name="tiempo_espera">
+                                                            <option value="" selected="selected">Elegir tiempo</option>
+                                                            <option value="15">00:15 hs</option>
+                                                            <option value="30">00:30 hs</option>
+                                                            <option value="45">00:45 hs</option>
+                                                            <option value="60">01:00 hs</option>
+                                                            <option value="75">01:15 hs</option>
+                                                            <option value="90">01:30 hs</option>
+                                                            <option value="105">01:45 hs</option>
+                                                            <option value="120">02:00 hs</option>
+                                                            <option value="135">02:15 hs</option>
+                                                            <option value="150">02:30 hs</option>
+                                                            <option value="165">02:45 hs</option>
+                                                            <option value="180">3:00 hs</option>
+                                                            <option value="195">3:15 hs</option>
+                                                            <option value="210">3:30 hs</option>
+                                                            <option value="225">3:45 hs</option>
+                                                            <option value="240">4:00 hs</option>
+                                                            <option value="255">4:15 hs</option>
+                                                            <option value="270">4:30 hs</option>
+                                                            <option value="285">4:45 hs</option>
+                                                            <option value="300">5:00 hs</option>
+                                                            <option value="315">5:15 hs</option>
+                                                            <option value="330">5:30 hs</option>
+                                                            <option value="345">5:45 hs</option>
+                                                            <option value="360">6:00 hs</option>
+                                                            <option value="375">6:15 hs</option>
+                                                            <option value="390">6:30 hs</option>
+                                                            <option value="405">6:45 hs</option>
+                                                            <option value="420">7:00 hs</option>
+                                                            <option value="435">7:15 hs</option>
+                                                            <option value="450">7:30 hs</option>
+                                                            <option value="465">7:45 hs</option>
+                                                            <option value="480">8:00 hs</option>
+                                                            <option value="495">8:15 hs</option>
+                                                            <option value="510">8:30 hs</option>
+                                                            <option value="525">8:45 hs</option>
+                                                            <option value="540">9:00 hs</option>
+                                                            <option value="555">9:15 hs</option>
+                                                            <option value="570">9:30 hs</option>
+                                                            <option value="585">9:45 hs</option>
+                                                            <option value="600">10:00 hs</option>    
+                                                        </select>
+                                                        <label for="tiempo_espera">Espera</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-2 col-md-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control" id="tiempo_hs_dispo" name="tiempo_hs_dispo">
+                                                            <option value="" selected="selected">Elegir cant.</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                            <option value="13">13</option>
+                                                            <option value="14">14</option>
+                                                            <option value="15">15</option>
+                                                            <option value="16">16</option>
+                                                            <option value="17">17</option>
+                                                            <option value="18">18</option>
+                                                            <option value="19">19</option>
+                                                            <option value="20">20</option>
+                                                            <option value="21">21</option>
+                                                            <option value="22">22</option>
+                                                            <option value="23">23</option>
+                                                            <option value="24">24</option>
+                                                        </select>
+                                                        <label for="tiempo_hs_dispo">H. Disp</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-2 col-md-2">
+                                                    <div class="form-group form-md-checkboxes">
+                                                        <div class="md-checkbox-inline">
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="bilingue" class="md-check" name="bilingue">
+                                                                <label for="bilingue">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span> Bilingue </label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-7">
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <div class="form-group form-md-checkboxes">
-                                                                <div class="md-checkbox-inline">
-                                                                    <div class="md-checkbox">
-                                                                        <input type="checkbox" id="bilingue" class="md-check" name="bilingue">
-                                                                        <label for="bilingue">
-                                                                            <span></span>
-                                                                            <span class="check"></span>
-                                                                            <span class="box"></span> Bilingue </label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                <div class="col-xs-6 col-sm-2 col-md-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <!-- <div class="input-group left-addon right-addon"> -->
+                                                            <select class="form-control" id="maletas" name="maletas">
+                                                                <option value="0" selected="selected">Elegir cant.</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                            </select>
+                                                            <label for="maletas">Maletas</label>
+                                                        <!-- </div> -->
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-2 col-md-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <div class="input-group left-addon right-addon">
+                                                            <span class="input-group-addon">$</span>
+                                                            <input type="text" class="form-control" id="peaje" value="{{ viaje.peajes|default_if_none:'' }}" name="peaje">
+                                                            <label for="peaje">Peajes</label>
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            <div class="form-group form-md-line-input">
-                                                                <!-- <div class="input-group left-addon right-addon"> -->
-                                                                    <select class="form-control" id="maletas" name="maletas">
-                                                                        <option value="0" selected="selected">Elegir cant.</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                        <option value="10">10</option>
-                                                                    </select>
-                                                                    <label for="maletas">Maletas</label>
-                                                                <!-- </div> -->
-                                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-3 col-md-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <div class="input-group left-addon right-addon">
+                                                            <span class="input-group-addon">$</span>
+                                                            <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.parking|default_if_none:'' }}" name="estacionamiento">
+                                                            <label for="estacionamiento">Estacionamiento</label>
                                                         </div>
-                                                        <div class="col-md-2">
-                                                            <div class="form-group form-md-line-input">
-                                                                <div class="input-group left-addon right-addon">
-                                                                    <span class="input-group-addon">$</span>
-                                                                    <input type="text" class="form-control" id="peaje" value="{{ viaje.peajes|default_if_none:'' }}" name="peaje">
-                                                                    <label for="peaje">Peajes</label>
-                                                                </div>
-                                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-2 col-md-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <div class="input-group left-addon right-addon">
+                                                            <span class="input-group-addon">$</span>
+                                                            <input type="text" class="form-control" id="otros" value="{{ viaje.otro|default_if_none:'' }}" name="otros">
+                                                            <label for="otros">Otros</label>
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            <div class="form-group form-md-line-input">
-                                                                <div class="input-group left-addon right-addon">
-                                                                    <span class="input-group-addon">$</span>
-                                                                    <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.parking|default_if_none:'' }}" name="estacionamiento">
-                                                                    <label for="estacionamiento">Estacionamiento</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <div class="form-group form-md-line-input">
-                                                                <div class="input-group left-addon right-addon">
-                                                                    <span class="input-group-addon">$</span>
-                                                                    <input type="text" class="form-control" id="otros" value="{{ viaje.otro|default_if_none:'' }}" name="otros">
-                                                                    <label for="otros">Otros</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>  
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="row mg-t-20">
-                                                <div class="col-md-5">
+                                            <hr>
+                                            <div class="row flex align-i-center mg-t-20">
+                                                <div class="col-xs-12 col-sm-5 mg-b-10">
                                                     <div class="row">
-                                                        <div class="col-md-12">
+                                                        <div class="col-xs-12">
                                                             <div class="caption font-green" style="margin:0 auto;margin-bottom: 10px;text-align: center">
                                                                 <span class="caption-subject bold uppercase" style="font-size: 16px">Desde</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-xs-12 col-sm-12 col-md-6">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="desde_destino" name="desde_destino">
                                                                     <option value=""></option>
@@ -447,7 +433,7 @@
                                                                 <label>Dirección</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6 cont_desde_localidad">
+                                                        <div class="col-xs-12 col-sm-12 col-md-6 cont_desde_localidad">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="desde_localidad" name="desde_localidad">
                                                                     <option value=""></option>
@@ -462,7 +448,7 @@
                                                                 <label>Localidad</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6 cont_desde_provincia">
+                                                        <div class="col-xs-12 col-sm-12 col-md-6 cont_desde_provincia">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="desde_provincia" name="desde_provincia">
                                                                     <option value=""></option>
@@ -480,21 +466,19 @@
                                                     </div>
                                                     <div class="desde_direccion">
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-xs-12 col-sm-12 col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <input type="text" class="form-control" id="desde_calle" name="desde_calle" value="{{ viaje.getTrayectoPrincipal.calle_desde }}">
                                                                     <label>Calle</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-xs-6 col-sm-12 col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <input type="text" class="form-control" id="desde_altura" name="desde_altura" value="{{ viaje.getTrayectoPrincipal.altura_desde }}">
                                                                     <label>Altura</label>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-xs-6 col-sm-12 col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <input type="text" class="form-control" id="desde_entre" name="desde_entre" value="{{ viaje.getTrayectoPrincipal.entre_desde }}">
                                                                     <label>Campo Auxiliar</label>
@@ -504,13 +488,13 @@
                                                     </div>
                                                     <div class="desde_vuelo">
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-xs-6 col-sm-12 col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <input type="text" class="form-control" id="desde_compania" name="desde_compania" value="{{ viaje.getTrayectoPrincipal.compania_desde }}">
                                                                     <label>Compania</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-xs-6 col-sm-12 col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <input type="text" class="form-control" id="desde_vuelo" name="desde_vuelo" value="{{ viaje.getTrayectoPrincipal.vuelo_desde }}">
                                                                     <label>Número de Vuelo</label>
@@ -519,19 +503,19 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2 flex flex-j-center">
+                                                <div class="col-xs-12 col-sm-2 flex flex-j-center mg-b-10">
                                                     <a href="#!" class="btn btn-lg blue"><i class="icon-refresh"></i></a>
                                                 </div>
-                                                <div class="col-md-5">
+                                                <div class="col-xs-12 col-sm-5 mg-b-10">
                                                     <div class="row">
-                                                        <div class="col-md-12">
+                                                        <div class="col-xs-12">
                                                             <div class="caption font-green" style="margin:0 auto;margin-bottom: 10px;text-align: center">
                                                                 <span class="caption-subject bold uppercase" style="font-size: 16px">Hasta</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-xs-12 col-sm-12 col-md-6">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="hasta_destino" name="hasta_destino">
                                                                     <option value=""></option>
@@ -546,7 +530,7 @@
                                                                 <label>Dirección</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6 cont_hasta_localidad">
+                                                        <div class="col-xs-12 col-sm-12 col-md-6 cont_hasta_localidad">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="hasta_localidad" name="hasta_localidad">
                                                                     <option value=""></option>
@@ -561,7 +545,7 @@
                                                                 <label>Localidad</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6 cont_hasta_provincia">
+                                                        <div class="col-xs-12 col-sm-12 col-md-6 cont_hasta_provincia">
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="hasta_provincia" name="hasta_provincia">
                                                                     <option value=""></option>
@@ -579,21 +563,19 @@
                                                     </div>
                                                     <div class="hasta_direccion">
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-xs-12 col-sm-12 col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <input type="text" class="form-control" id="hasta_calle" name="hasta_calle" value="{{ viaje.getTrayectoPrincipal.calle_hasta }}">
                                                                     <label>Calle</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-xs-6 col-sm-12 col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <input type="text" class="form-control" id="hasta_altura" name="hasta_altura" value="{{ viaje.getTrayectoPrincipal.altura_hasta }}">
                                                                     <label>Altura</label>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-xs-6 col-sm-12 col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <input type="text" class="form-control" id="hasta_entre" name="hasta_entre" value="{{ viaje.getTrayectoPrincipal.entre_hasta }}">
                                                                     <label>Campo Auxiliar</label>
@@ -603,13 +585,13 @@
                                                     </div>
                                                     <div class="hasta_vuelo">
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-xs-6 col-sm-12 col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <input type="text" class="form-control" id="hasta_compania" name="hasta_compania" value="{{ viaje.getTrayectoPrincipal.compania_hasta }}">
                                                                     <label>Compania</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-xs-6 col-sm-12 col-md-6">
                                                                 <div class="form-group form-md-line-input">
                                                                     <input type="text" class="form-control" id="hasta_vuelo" name="hasta_vuelo" value="{{ viaje.getTrayectoPrincipal.vuelo_hasta }}">
                                                                     <label>Número de Vuelo</label>
@@ -624,6 +606,7 @@
                                             <button class="btn btn-outline green-haze" type="submit">Guardar</button>
                                         </div>
                                     </form>
+                                    <hr>
                                     <div class="row mg-t-20">
                                         <div class="col-md-12">
                                             <form role="form">{% csrf_token %}
@@ -633,10 +616,10 @@
                                                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                                             <div class="portlet light ">
                                                                 <div class="portlet-title">
-                                                                    <div class="caption font-blue">
-                                                                        <i class="icon-notebook font-blue mg-t-8"></i>
-                                                                        <span class="caption-subject bold uppercase">Tramos</span>
-                                                                        <a href="#add_tramo" role="button" data-toggle="modal" class="btn green btn-outline mg-l-20" id="add_button">Agregar tramo</a>
+                                                                    <div class="caption font-blue" style="display: flex; align-items: baseline; flex-flow: wrap;">
+                                                                        <i class="icon-notebook font-blue"></i>
+                                                                        <span class="caption-subject bold uppercase mg-b-5 mg-r-20">Tramos</span>
+                                                                        <a href="#add_tramo" role="button" data-toggle="modal" class="btn green btn-outline" id="add_button">Agregar tramo</a>
                                                                     </div>
                                                                     <div class="tools"> </div>
                                                                 </div>
@@ -749,10 +732,10 @@
                                                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                                                 <div class="portlet light ">
                                                                     <div class="portlet-title">
-                                                                        <div class="caption font-blue">
-                                                                            <i class="icon-notebook font-blue mg-t-8"></i>
-                                                                            <span class="caption-subject bold uppercase">Observaciones</span>
-                                                                            <a href="#add_observacion_viaje" role="button" data-toggle="modal" class="btn green btn-outline mg-l-20">Agregar observación</a>
+                                                                        <div class="caption font-blue" style="display: flex; align-items: baseline; flex-flow: wrap;">
+                                                                            <i class="icon-notebook font-blue"></i>
+                                                                            <span class="caption-subject bold uppercase mg-b-5 mg-r-20">Observaciones</span>
+                                                                            <a href="#add_observacion_viaje" role="button" data-toggle="modal" class="btn green btn-outline">Agregar observación</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -1479,36 +1462,30 @@
                                                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                                                 <div class="portlet light ">
                                                                     <div class="portlet-title">
-                                                                        <div class="caption font-blue">
-                                                                            <i class="icon-notebook font-blue mg-t-8"></i>
-                                                                            <span class="caption-subject bold uppercase">Adjuntos</span>
-                                                                            <br>
-                                                                            <br>
-                                                                            <div class="form-group">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                                                        <span class="btn green btn-file">
-                                                                                            <span class="fileinput-new"> Seleccionar Archivo </span>
-                                                                                            <span class="fileinput-exists"> Cambiar </span>
-                                                                                            <input type="file" name="file"> </span>
-                                                                                        <span class="fileinput-filename"> </span> &nbsp;
-                                                                                        <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
-                                                                                    </div>
+                                                                        <div class="caption font-blue" style="display: flex; align-items: baseline; flex-flow: wrap;">
+                                                                            <i class="icon-notebook font-blue"></i>
+                                                                            <span class="caption-subject bold uppercase mg-b-5 mg-r-20">Adjuntos</span>
+                                                                            <div class="form-group mg-b-0">
+                                                                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                                    <span class="btn green btn-file">
+                                                                                        <span class="fileinput-new"> Seleccionar Archivo </span>
+                                                                                        <span class="fileinput-exists"> Cambiar </span>
+                                                                                        <input type="file" name="file"> </span>
+                                                                                    <span class="fileinput-filename"> </span> &nbsp;
+                                                                                    <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
                                                                                 </div>
                                                                             </div>
-                                                                            <br>
-                                                                            <br>
-                                                                            <button type="submit" class="btn green btn-outline mg-l-20">Agregar adjunto</button>
+                                                                            <button type="submit" class="btn green btn-outline mg-t-5">Agregar adjunto</button>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
                                                                     <div class="portlet-body">
                                                                         <div id="grillaAdjuntos" >
-                                                                            <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaAjuntosViajes">
+                                                                            <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaAdjuntosViajes">
                                                                                 <thead>
                                                                                     <tr>
                                                                                         <th class="all">Acciones</th>
-                                                                                        <th class="all">Ajunto</th>
+                                                                                        <th class="all">Adjunto</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>

@@ -67,6 +67,10 @@
 	transition: none !important;
 }
 
+.form-group.form-md-line-input .input-group>label {
+	margin-top: -15px;
+}
+
 .form-group.form-md-line-input {
 	padding-top: 15px;
 }
