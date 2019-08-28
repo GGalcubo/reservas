@@ -56,7 +56,8 @@ $(document).ready( () => {
 
     if(es_nuevo == '1'){
         //$('#fecha').datepicker('setDate', 'blank');
-        $("#viaje-tab").hide();
+        //$("#viaje-tab").hide();
+        $("#viaje-tab").show();
         $("#hora").val('') ;
         $("#hora_estimada").val('');
         $('#estado').attr("disabled", true);
