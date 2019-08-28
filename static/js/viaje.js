@@ -926,7 +926,8 @@ guardarPasajeroModal = () => {
             $('#cpPasajeroClienteModal').val("")
             $('#comentarioPasajeroClienteModal').val("")
             $('#add_pasajero').modal('toggle');
-            $('#pasajero').html(data);
+            //$('#pasajero').html(data);
+            $('#pasajero').append($('<option selected="selected">').text(data.pasajero_apellido + ' ' +data.pasajero_nombre).attr('value', data.pasajero));
         }
     });
 };

@@ -1149,7 +1149,7 @@ def guardarSolicitanteDesdeViaje(request):
 def guardarPasajeroDesdeViaje(request):
     mensaje = ""
     idClientePasajero = request.POST.get('idClientePasajeroModal', "")
-    cliente = Cliente.objects.get(id=idClientePasajero)
+    #cliente = Cliente.objects.get(id=idClientePasajero)
     idPasajero = request.POST.get('idPasajeroModal', "")
     if idPasajero == "0":
         persona = Persona()
@@ -1174,7 +1174,7 @@ def guardarPasajeroDesdeViaje(request):
     if idPasajero == "0":
         perCli = PersonaCliente()
         perCli.persona = persona
-        perCli.cliente = cliente
+        perCli.cliente_id = idClientePasajero
         perCli.save()
 
     if telefono != "" and telefono != "Sin telefono":
@@ -1211,8 +1211,13 @@ def guardarPasajeroDesdeViaje(request):
         obsper.observacion = obs
         obsper.save()
 
-    context = {'mensaje': mensaje, 'cliente':cliente}
-    return render(request, 'sistema/selectPasajero.html', context)
+    data = {
+        'pasajero': persona.id,
+        'pasajero_nombre': persona.nombre,
+        'pasajero_apellido': persona.apellido
+    }
+    dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
 
 
 @login_required
