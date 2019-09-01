@@ -2441,6 +2441,26 @@ def exportar(request):
 	return render(request, 'sistema/exportar.html', context)
 
 @login_required
+def cambiarEstadoViajes(request):
+	idViajes = request.POST.get('idViajes', False)
+	id_estado = request.POST.get('estadoModal', False)
+
+	idsList = []
+	for ids in idViajes.split("-"):
+		if ids:
+			idsList.append(int(ids))
+
+	viajes = Viaje.objects.filter(id__in=idsList)
+	for v in viajes:
+		v.estado_id = id_estado
+		v.save()
+
+	retorno = 'Se actualizo el estado de los viajes seleccionados.'
+	data = {'return': retorno}
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
+
+@login_required
 def exportarDatosPorCliente(request):
 	idCliente = request.GET.get('idCliente', False)
 
