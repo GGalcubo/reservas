@@ -214,7 +214,11 @@
                         <div class="col-xs-7 campo">
                             <div class="campoContenedor">
                                 <p>Pasajero</p>
-                                <p>{{ viaje.pasajero.nombreCompleto }}</p>
+                                <p>{{ viaje.pasajero.nombreCompleto }}
+                                    {% if viaje.getCantidadPasajeros > 1 %}
+                                    + otros
+                                    {% endif %}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -222,7 +226,11 @@
                         <div class="col-xs-12 campo">
                             <div class="campoContenedor">
                                 <p>Origen</p>
-                                <p>{{ viaje.getTrayectoPrincipal.desdeConcat  }}</p>
+                                <p>{{ viaje.getTrayectoPrincipal.desdeConcat  }} 
+                                    {% if viaje.getCantidadTrayectos > 1 %}
+                                     + otros
+                                    {% endif %}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -230,7 +238,11 @@
                         <div class="col-xs-12 campo">
                             <div class="campoContenedor">
                                 <p>Destino</p>
-                                <p>{{ viaje.getTrayectoPrincipal.hastaConcat  }}</p>
+                                <p>{{ viaje.getTrayectoPrincipal.hastaConcat  }}
+                                    {% if viaje.getCantidadTrayectos > 1 %}
+                                    + otros
+                                    {% endif %}
+                                </p>
                             </div>
                         </div>
                     </div>

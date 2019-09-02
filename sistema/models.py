@@ -535,6 +535,16 @@ class Viaje(models.Model):
             viaje_trayectos.append(trayecto)
         return viaje_trayectos
 
+    def getCantidadTrayectos(self):
+        return len(self.trayecto_set.all())
+
+    def getCantidadPasajeros(self):
+        lista_pasajeros = []
+        for t in self.getTrayectos():
+            if t.pasajero and t.pasajero.id in lista_pasajeros:
+                lista_pasajeros.append(t.pasajero.id)
+        return len(lista_pasajeros)
+
     def getProforma(self):
         if self.facturaviaje_set.all():
             if self.facturaviaje_set.all()[0].prof_cliente:

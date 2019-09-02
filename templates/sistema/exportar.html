@@ -132,7 +132,9 @@
                                                                 <div class="form-group form-md-line-input">
                                                                     <select class="form-control select2me" id="estadoModal" name="estadoModal">
                                                                     {% for e in estados %}
+                                                                        {% if e.estado != 'Cerrado'%}
                                                                         <option value="{{ e.id }}">{{ e.estado }}</option>
+                                                                        {% endif %}
                                                                     {% endfor %}
                                                                     </select>
                                                                     <label for="estado">Seleccionar Estado</label>
