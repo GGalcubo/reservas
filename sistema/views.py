@@ -35,7 +35,7 @@ def operaciones(request):
 		return render(request, 'sistema/urlBloqueada.html', context)
 
 	mensaje = ""
-	
+
 	if 'unidades' in permiso:
 		viajes = []
 		viajesQ = Viaje.objects.filter(estado_id__in=[4,5,6])
@@ -65,7 +65,7 @@ def asignaciones(request):
 	#viajes = Viaje.objects.all()
 	#unidades = Unidad.objects.all()
 	estados = Estado.objects.filter(id__in=[3, 4, 5, 6, 7, 8, 9, 10])
-	#'viajes': viajes, 'unidades': unidades,  
+	#'viajes': viajes, 'unidades': unidades,
 
 	context = {'mensaje':mensaje, 'estados': estados,'permiso':permiso }
 	return render(request, 'sistema/asignaciones.html', context)
@@ -99,7 +99,7 @@ def buscarViajes(request):
 	estados 		= request.POST.get('estados', False)
 	desde           = request.POST.get('desde', False)
 	hasta           = request.POST.get('hasta', False)
-	
+
 	print estados
 
 	estList = []
@@ -1383,7 +1383,7 @@ def guardarSolicitanteProspect(request):
 		perCli.persona = persona
 		perCli.cliente = cliente
 		perCli.save()
-	
+
 	if telefono != "" and telefono != "Sin telefono":
 		if len(persona.telefonopersona_set.all()) > 0:
 			tel = persona.telefonopersona_set.all()[0].telefono
@@ -1515,7 +1515,7 @@ def guardarCliente(request):
 		else:
 			tel = Telefono()
 			telcli = TelefonoCliente()
-		
+
 	cliente.razon_social = request.POST.get('razonSocial', "")
 	cliente.cuil = request.POST.get('cuil', "")
 	cliente.calle = request.POST.get('calle', "")
@@ -1774,7 +1774,7 @@ def guardarProvedor(request):
 	persona.localidad = request.POST.get('localidad', "")
 	persona.provincia = request.POST.get('provincia', "")
 	persona.save()
-	
+
 	url = '/sistema/provedor/?idProv='+str(persona.id)
 	return redirect(url)
 
@@ -2070,7 +2070,7 @@ def listadoCentroDeCosto(request):
 
 	context = {'centroCostos': centroCostos}
 	return render(request, 'sistema/listadoCentroDeCosto.html', context)
-	
+
 @login_required
 def buscarCentroDeCostos(request):
 	desde = request.POST.get('desde', "")
@@ -2476,15 +2476,15 @@ def exportarDatosPorCliente(request):
 		if personacliente.persona.tipo_persona.id == 2:
 			listadoPasajeros.append(dict)
 
-	listadoPasajeros = sorted(listadoPasajeros, key = lambda i: i['valor']) 
-	listadoSolicitantes = sorted(listadoSolicitantes, key = lambda i: i['valor']) 
+	listadoPasajeros = sorted(listadoPasajeros, key = lambda i: i['valor'])
+	listadoSolicitantes = sorted(listadoSolicitantes, key = lambda i: i['valor'])
 
 	listadoCC = []
 	for cc in cliente.centrocosto_set.all():
 		dict = {'id': cc.id, 'valor': cc.nombre }
 		listadoCC.append(dict)
 
-	listadoCC = sorted(listadoCC, key = lambda i: i['valor']) 
+	listadoCC = sorted(listadoCC, key = lambda i: i['valor'])
 
 	data = {'listadoPasajeros': listadoPasajeros, 'listadoSolicitantes': listadoSolicitantes, 'listadoCC': listadoCC}
 	dump = json.dumps(data)
@@ -2768,7 +2768,7 @@ def buscarFacturacionCliente(request):
 			if c == "0":
 				sinFactura = True
 			facList.append(c)
-	
+
 	proList = []
 	sinProforma = False
 	if proformas != "null":
@@ -2857,7 +2857,7 @@ def buscarFacturacionProveedor(request):
 	if estados != "null":
 		for c in estados.split(","):
 			estList.append(int(c))
-			
+
 	uniList = []
 	if idUnidad != "null":
 		for c in idUnidad.split(","):
@@ -2943,7 +2943,7 @@ def proformarClientes(request):
 			idsList.append(int(ids))
 
 	viajes = Viaje.objects.filter(id__in=idsList)
-	
+
 	estadosCorrectos = True
 	for v in viajes:
 		if v.estado.id != 7:
@@ -2966,7 +2966,7 @@ def proformarClientes(request):
 		numeroProforma = max(numbers) + 1
 	else:
 		numeroProforma = 1
-	
+
 	proformados = ''
 	for v in viajes:
 		if v.facturaviaje_set.all():
@@ -3014,7 +3014,7 @@ def cargarFacturaProveedor(request):
 def borrarSolicitanteCliente(request):
 	idPersona = request.POST.get('idPersona', False)
 	idCliente = request.POST.get('idCliente', False)
-	
+
 	persona = Persona.objects.get(id=idPersona)
 	persona.baja = True
 	persona.save()
@@ -3031,7 +3031,7 @@ def borrarSolicitanteCliente(request):
 def borrarPasajeroCliente(request):
 	idPersona = request.POST.get('idPersona', False)
 	idCliente = request.POST.get('idCliente', False)
-	
+
 	persona = Persona.objects.get(id=idPersona)
 	persona.baja = True
 	persona.save()
@@ -3200,16 +3200,17 @@ def exportarPdfViaje(request):
 def mailtoViaje(request):
 	idViaje = request.POST.get('idViaje', False)
 	viaje = Viaje.objects.get(id=idViaje)
-	
+
 	body = '''Estimados,%0ALes informamos el estado del servicio del pasajero de referencia:%0DServicio:	{} %0D%0A
+	Fecha: {} %0D%0A
 	Hora: {}hs %0D%0A
 	Desde: {} %0D%0A
 	Hasta: {} %0D%0A
 	C. Costos: {} %0D%0A
 	Nota: %0D%0A %0D%0A %0D%0A
 	Cordialmente, %0D%0A
-	Reservas | LOGOSTRASLADOS | T +5411 5031-3800 | WhatsApp +54911 3193-1428 | M: reservas@logostraslados.com.ar | W: www.logostraslados.com.ar 
-	'''.format(viaje.id, viaje.getHora(), viaje.getTrayectoPrincipal().desdeConcat() if viaje.getTrayectoPrincipal() else '', viaje.getTrayectoPrincipal().hastaConcat() if viaje.getTrayectoPrincipal() else '', viaje.centro_costo.nombre)
+	Reservas | LOGOSTRASLADOS | T +5411 5031-3800 | WhatsApp +54911 3193-1428 | M: reservas@logostraslados.com.ar | W: www.logostraslados.com.ar
+	'''.format(viaje.id,viaje.getFecha(), viaje.getHora(), viaje.getTrayectoPrincipal().desdeConcat() if viaje.getTrayectoPrincipal() else '', viaje.getTrayectoPrincipal().hastaConcat() if viaje.getTrayectoPrincipal() else '', viaje.centro_costo.nombre)
 
 	data = {
 		'mailto': '%s' %(viaje.solicitante.getMail()),
@@ -3310,7 +3311,7 @@ def validaViajeUnidad(request, viaje):
 def getUnidadesByUser(request):
 	usrunidad = request.user.usrunidad_set.all()
 	unidades = []
-	
+
 	for u in usrunidad:
 		unidades.append(u.unidad.id)
 	return unidades
