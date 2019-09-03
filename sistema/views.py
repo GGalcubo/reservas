@@ -185,6 +185,8 @@ def altaViaje(request):
 				'estados':Estado.objects.all(),
 				'categoria_viajes':CategoriaViaje.objects.all(),
 				'tarifarios':Tarifario.objects.filter(baja=False),
+				'destinos':TrayectoDestino.objects.all(),
+				'provincias':Provincia.objects.all(),
 				'es_nuevo':es_nuevo,
 				'viaje':viaje}
 
@@ -330,6 +332,8 @@ def guardarViaje(request):
 
     viaje.save()
 
+    guardarTrayecto(request, True, viaje.id)
+
     guardarHistorial(viaje, 'estado', viaje.estado.estado, request.user)
     guardarHistorial(viaje, 'cliente', viaje.cliente.razon_social, request.user)
     guardarHistorial(viaje, 'categoria viaje', viaje.categoria_viaje.categoria, request.user)
@@ -404,6 +408,7 @@ def guardarViaje(request):
     if es_nuevo == "1":
         data = {
             'url': '/sistema/editaViaje/?idViaje=' + str(viaje.id) + '&msg=1',
+            'viaje': viaje.id
         }
 
     dump = json.dumps(data)
@@ -1007,10 +1012,16 @@ def deleteViajeAdjunto(request):
     return render(request, 'sistema/grillaAdjuntos.html', context)
 
 @login_required
-def guardarTrayecto(request):
+def guardarTrayecto(request, principal=None, idViaje=None):
 
-    trayectos = Trayecto.objects.filter(viaje_id=request.POST.get('idViaje', False))
-    principal = request.POST.get('principal', '')
+    if principal:
+        trayectos = Trayecto.objects.filter(viaje_id=idViaje)
+        viaje = Viaje.objects.get(id=idViaje)
+        principal = '1'
+    else:
+        trayectos = Trayecto.objects.filter(viaje_id=request.POST.get('idViaje', False))
+        viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
+        principal = request.POST.get('principal', '')
 
     if principal != '1' and trayectos.count() == 0:
         data = {
@@ -1020,8 +1031,6 @@ def guardarTrayecto(request):
         dump = json.dumps(data)
         return HttpResponse(dump, content_type='application/json')
     else:
-        viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
-
         if trayectos.count() == 0 and principal == '1':
             trayecto = Trayecto()
         elif trayectos.count() >= 1 and principal == '1':
@@ -1035,7 +1044,11 @@ def guardarTrayecto(request):
 
 
         trayecto.viaje = viaje
-        trayecto.destino_desde = TrayectoDestino.objects.get(id=request.POST.get('desde_destino', False))
+        #trayecto.destino_desde = TrayectoDestino.objects.get(id=request.POST.get('desde_destino', False))
+
+        if request.POST.get('desde_destino', '') != '':
+            trayecto.destino_desde = TrayectoDestino.objects.get(id=request.POST.get('desde_destino', False))
+
         if request.POST.get('desde_localidad', '') != '':
             trayecto.localidad_desde = Localidad.objects.get(id=request.POST.get('desde_localidad', False))
         if request.POST.get('desde_provincia', '') != '':
@@ -1045,7 +1058,11 @@ def guardarTrayecto(request):
         trayecto.entre_desde = request.POST.get('desde_entre', '')
         trayecto.compania_desde = request.POST.get('desde_compania', '')
         trayecto.vuelo_desde = request.POST.get('desde_vuelo', '')
-        trayecto.destino_hasta = TrayectoDestino.objects.get(id=request.POST.get('hasta_destino', False))
+
+        #trayecto.destino_hasta = TrayectoDestino.objects.get(id=request.POST.get('hasta_destino', False))
+        if request.POST.get('hasta_destino', '') != '':
+            trayecto.destino_hasta = TrayectoDestino.objects.get(id=request.POST.get('hasta_destino', False))
+
         if request.POST.get('hasta_localidad', '') != '':
             trayecto.localidad_hasta = Localidad.objects.get(id=request.POST.get('hasta_localidad', False))
         if request.POST.get('hasta_provincia', '') != '':
@@ -1083,8 +1100,8 @@ def guardarTrayecto(request):
                 'error': '0',
                 'msg': 'Los datos han sido guardados correctamente.'
             }
-            dump = json.dumps(data)
-            return HttpResponse(dump, content_type='application/json')
+            #dump = json.dumps(data)
+            #return HttpResponse(dump, content_type='application/json')
         else:
             mensaje = ''
             context = {'mensaje': mensaje, 'trayectos': trayectos}

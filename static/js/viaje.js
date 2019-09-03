@@ -61,7 +61,6 @@ $(document).ready( () => {
         $("#hora").val('') ;
         $("#hora_estimada").val('');
         $('#estado').attr("disabled", true);
-        getClientes();
     }else{
         $("#viaje-tab").show();
         getGrillasHistorial();
@@ -71,63 +70,8 @@ $(document).ready( () => {
         }
         if(mensaje != ''){showMsg(mensaje, 'success')}
         $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
-        //HAGO ESTO PARA SIMULAR UN EVENTO QUE PIDE LA FUNCION DE SELECT2ME
-        let url = "/sistema/getClientes/";
-        $.ajax({
-            type: "POST",
-            url: url,
-            headers: {'X-CSRFToken': csrf_token},
-            data: {},
-            success: function(data)
-            {
-                $.each(data, (k, item) => {
-                    let obj = {
-                        id : item.pk,
-                        razon_social : item.fields.razon_social
-                    };
-                    clientes.push(obj);
-                    if(item.pk === cliente_id){
-                        $('#id_cliente').append($('<option selected="selected">').text(item.pk + ' - ' + item.fields.razon_social).attr('value', item.pk));
-                    }else{
-                        $('#id_cliente').append($('<option>').text(item.pk + ' - ' + item.fields.razon_social).attr('value', item.pk));
-                    }
-                });
-                var evt = {};
-
-                evt.params = {};
-                evt.params.data = {};
-                evt.params.data.id = cliente_id;
-                evt.params.data.no_borrar_pasajeros = true;
-                updateFillsByCliente('', evt);
-
-                evt.params.data.id = destino_desde_id;
-                evt.params.data.provincia_select_id = provincia_desde_id;
-                evt.params.data.localidad_select_id = localidad_desde_id;
-                evt.params.data.init = true;
-                evt.currentTarget = {};
-                evt.currentTarget.id = 'desde_destino';
-                updateFillsByDestino('', evt);
-
-                evt.currentTarget.id = 'desde_localidad';
-                evt.params.data.id = localidad_desde_id;
-                updateFillsByLocalidad('', evt);
-
-                evt.params.data.id = destino_hasta_id;
-                evt.params.data.provincia_select_id = provincia_hasta_id;
-                evt.params.data.localidad_select_id = localidad_hasta_id;
-                evt.params.data.init = true;
-                evt.currentTarget = {};
-                evt.currentTarget.id = 'hasta_destino';
-                updateFillsByDestino('', evt);
-
-                evt.params.data.id = localidad_hasta_id;
-                evt.currentTarget.id = 'hasta_localidad';
-                updateFillsByLocalidad('', evt);
-
-                fillViajeItems();
-            }
-        });
     }
+    getClientes(es_nuevo);
     console.log({bilingue_viaje});
     console.log({maletas_viaje});
     console.log(espera_viaje);
@@ -192,192 +136,15 @@ $(document).ready( () => {
         });
     });
 
+    $('.guardar_viaje').click(function() {
+        guardarViaje();
+    });
+
     $("#form-viaje-viaje").submit( e => {
-        if ($("#id_cliente").val() == ""){
-            showMsg("El campo cliente es obligatorio.");
-            return false;
-        }
-        if ($("#centroDeCosto").val() == ""){
-            showMsg("El campo centro de costo es obligatorio.");
-            return false;
-        }
-        if ($("#contacto").val() == ""){
-            showMsg("El campo solicitante es obligatorio.");
-            return false;
-        }
-        if ($("#pasajero").val() == ""){
-            showMsg("El campo pasajero es obligatorio.");
-            return false;
-        }
-        if ($("#fecha").val() == "//"){
-            showMsg("El campo fecha es obligatorio.");
-            return false;
-        }
-        if ($("#hora").val() == ""){
-            showMsg("El campo hora es obligatorio.");
-            return false;
-        }
-        if ($("#hora_estimada").val() == ""){
-            showMsg("El campo hora estimada es obligatorio.");
-            return false;
-        }
-        if ($("#categoria_viaje").val() == ""){
-            showMsg("El campo categoria viaje es obligatorio.");
-            return false;
-        }
-        if($("#estado").val() == '6' || $("#estado").val() == '7'){
-            if ($("#unidad_id").val() == ""){
-                showMsg("El campo unidad es obligatorio.");
-                return false;
-            }
-        }
-        if(es_nuevo != '1'){
-
-        }
-        if ($("#estado").val() == ""){
-            showMsg("El campo estado es obligatorio.");
-            return false;
-        }
-        if ($("#tiempo_espera").val() != "" && $("#tiempo_espera").val() < 15){
-            showMsg("La espera minima es 15 min.");
-            return false;
-        }
-        if ($("#tiempo_hs_dispo").val() != "" && $("#tiempo_hs_dispo").val() < 1){
-            showMsg("El horario disponible minimo es 1 hs.");
-            return false;
-        }
-
-        var obj               = {};
-        obj.estado            = $("#estado").val();
-        obj.cliente           = $("#id_cliente").val();
-        obj.contacto          = $("#contacto").val();
-        obj.centro_costos     = $("#centroDeCosto").val();
-        obj.pasajero          = $("#pasajero").val();
-        obj.fecha             = $("#fecha").val();
-        obj.hora              = ($("#hora").val().length == 5) ? $("#hora").val() : '0' + $("#hora").val();
-        obj.hora_estimada     = ($("#hora_estimada").val().length == 5) ? $("#hora_estimada").val() : '0' + $("#hora_estimada").val();
-        obj.costo_proveedor   = $("#costo_proveedor").val();
-        obj.tarifa_pasada     = $("#tarifa_pasada").val();
-        obj.comentario_chofer = $("#comentario_chofer").val();
-        obj.unidad            = $("#unidad_id").val();
-        obj.espera            = $("#espera").val();
-        obj.tiempo_espera     = $("#tiempo_espera").val();
-        obj.peaje             = $("#peaje").val();
-        obj.otros             = $("#otros").val();
-        obj.estacionamiento   = $("#estacionamiento").val();
-        obj.categoria_viaje   = $("#categoria_viaje").val();
-        obj.maletas           = $("#maletas").val();
-        obj.costo_maletas     = $("#costo_maletas").val();
-        obj.bilingue          = $("#bilingue:checked").val() || '';
-        obj.costo_bilingue    = $("#costo_bilingue").val();
-        obj.cod_externo       = $("#cod_externo").val();
-        obj.nro_aux           = $("#nro_aux").val();
-        obj.tipo_pago         = $("#tipo_pago").val();
-        obj.importe_efectivo  = $("#importe_efectivo").val();
-        obj.tiempo_hs_dispo   = $("#tiempo_hs_dispo").val();
-        obj.hs_dispo          = $("#hs_dispo").val();
-        obj.pasajero_cant     = $("#pasajero_cant").val();
-        obj.es_nuevo          = es_nuevo;
-
-        if(es_nuevo == 0){ 
-            obj.idViaje = viaje;
-        }else{
-            obj.mensaje = 1;
-        }
-
-        var url = "/sistema/guardarViaje/"; 
-        $.ajax({
-           type: "POST",
-           url: url,
-           headers: {'X-CSRFToken': csrf_token},
-           data: obj,
-           success: data => {
-                if(data.error === '1'){
-                    showMsg(data.msg, 'error');
-                }else{
-                    data.url ? window.location.replace(data.url) : showMsg('Los datos se han actualizado correctamente.', 'success');
-                    if(obj.estado == 7){
-                        if(data.error != 0){
-                            viaje_items = [];
-                            $.each(data, (k, item) => {
-                                let obj = {
-                                    id : item.pk,
-                                    monto : item.fields.monto,
-                                    monto_s_iva : item.fields.monto_s_iva,
-                                    monto_iva : item.fields.monto_iva,
-                                    tipo_items_viaje : item.fields.tipo_items_viaje.toString() ,
-                                    cant: item.fields.cant};
-                                viaje_items.push(obj);
-                            });
-                            fillViajeItems();
-                            //$("#administracion").show();
-                            $("#administracion_tab_btn a").show();
-                        }
-                    }else{
-                        //$("#administracion").hide();
-                        $("#administracion_tab_btn a").hide();
-                    }
-                }
-                getGrillasHistorial();
-           }
-        });
-
+        guardarViaje();
         e.preventDefault(); // avoid to execute the actual submit of the form.
     });
 
-    $("#form-viaje-trayecto").submit( e => {
-        /*if ($("#desde_destino").val() == ""){
-            showMsg("El campo desde destino es obligatorio.");
-            return false;
-        }
-        if ($("#desde_localidad").val() == ""){
-            showMsg("El campo desde localidad es obligatorio.");
-            return false;
-        }
-        if ($("#hasta_destino").val() == ""){
-            showMsg("El campo hasta destino es obligatorio.");
-            return false;
-        }
-        if ($("#hasta_localidad").val() == ""){
-            showMsg("El campo hasta localidad es obligatorio.");
-            return false;
-        }*/
-
-        var obj               = {};
-        obj.desde_destino     = $("#desde_destino").val();
-        obj.desde_localidad   = $("#desde_localidad").val();
-        obj.desde_provincia   = $("#desde_provincia").val();
-        obj.desde_calle       = $("#desde_calle").val();
-        obj.desde_altura      = $("#desde_altura").val();
-        obj.desde_entre       = $("#desde_entre").val();
-        obj.desde_compania    = $("#desde_compania").val();
-        obj.desde_vuelo       = $("#desde_vuelo").val();
-        obj.hasta_destino     = $("#hasta_destino").val();
-        obj.hasta_localidad   = $("#hasta_localidad").val();
-        obj.hasta_provincia   = $("#hasta_provincia").val();
-        obj.hasta_altura      = $("#hasta_altura").val();
-        obj.hasta_calle       = $("#hasta_calle").val();
-        obj.hasta_entre       = $("#hasta_entre").val();
-        obj.hasta_compania    = $("#hasta_compania").val();
-        obj.hasta_vuelo       = $("#hasta_vuelo").val();
-        obj.pasajero          = $("#pasajero").val();
-        obj.principal         = 1;
-        obj.idViaje           = viaje;
-
-
-        var url = "/sistema/guardarTrayecto/"; 
-        $.ajax({
-               type: "POST",
-               url: url,
-               headers: {'X-CSRFToken': csrf_token},
-               data: obj,
-               success: data => {
-                  showMsg(data.msg, 'success');
-               }
-             });
-
-        e.preventDefault(); 
-    });
 
     $(document).on( "click", '.delete_button', function(){
         var obj               = {};
@@ -537,8 +304,6 @@ $(document).ready( () => {
             $(".modal_hasta_vuelo").hide();
         }
 
-        debugger
-
         //$(".modal-title").text('Editar Tramo');
     });
 
@@ -637,10 +402,206 @@ $(document).ready( () => {
     
 });
 
+guardarViaje = () =>{
+    if ($("#id_cliente").val() == ""){
+            showMsg("El campo cliente es obligatorio.");
+            return false;
+        }
+        if ($("#centroDeCosto").val() == ""){
+            showMsg("El campo centro de costo es obligatorio.");
+            return false;
+        }
+        if ($("#contacto").val() == ""){
+            showMsg("El campo solicitante es obligatorio.");
+            return false;
+        }
+        if ($("#pasajero").val() == ""){
+            showMsg("El campo pasajero es obligatorio.");
+            return false;
+        }
+        if ($("#fecha").val() == "//"){
+            showMsg("El campo fecha es obligatorio.");
+            return false;
+        }
+        if ($("#hora").val() == ""){
+            showMsg("El campo hora es obligatorio.");
+            return false;
+        }
+        if ($("#hora_estimada").val() == ""){
+            showMsg("El campo hora estimada es obligatorio.");
+            return false;
+        }
+        if ($("#categoria_viaje").val() == ""){
+            showMsg("El campo categoria viaje es obligatorio.");
+            return false;
+        }
+        if($("#estado").val() == '6' || $("#estado").val() == '7'){
+            if ($("#unidad_id").val() == ""){
+                showMsg("El campo unidad es obligatorio.");
+                return false;
+            }
+        }
+        if(es_nuevo != '1'){
+
+        }
+        if ($("#estado").val() == ""){
+            showMsg("El campo estado es obligatorio.");
+            return false;
+        }
+        if ($("#tiempo_espera").val() != "" && $("#tiempo_espera").val() < 15){
+            showMsg("La espera minima es 15 min.");
+            return false;
+        }
+        if ($("#tiempo_hs_dispo").val() != "" && $("#tiempo_hs_dispo").val() < 1){
+            showMsg("El horario disponible minimo es 1 hs.");
+            return false;
+        }
+
+        var obj               = {};
+        obj.estado            = $("#estado").val();
+        obj.cliente           = $("#id_cliente").val();
+        obj.contacto          = $("#contacto").val();
+        obj.centro_costos     = $("#centroDeCosto").val();
+        obj.pasajero          = $("#pasajero").val();
+        obj.fecha             = $("#fecha").val();
+        obj.hora              = ($("#hora").val().length == 5) ? $("#hora").val() : '0' + $("#hora").val();
+        obj.hora_estimada     = ($("#hora_estimada").val().length == 5) ? $("#hora_estimada").val() : '0' + $("#hora_estimada").val();
+        obj.costo_proveedor   = $("#costo_proveedor").val();
+        obj.tarifa_pasada     = $("#tarifa_pasada").val();
+        obj.comentario_chofer = $("#comentario_chofer").val();
+        obj.unidad            = $("#unidad_id").val();
+        obj.espera            = $("#espera").val();
+        obj.tiempo_espera     = $("#tiempo_espera").val();
+        obj.peaje             = $("#peaje").val();
+        obj.otros             = $("#otros").val();
+        obj.estacionamiento   = $("#estacionamiento").val();
+        obj.categoria_viaje   = $("#categoria_viaje").val();
+        obj.maletas           = $("#maletas").val();
+        obj.costo_maletas     = $("#costo_maletas").val();
+        obj.bilingue          = $("#bilingue:checked").val() || '';
+        obj.costo_bilingue    = $("#costo_bilingue").val();
+        obj.cod_externo       = $("#cod_externo").val();
+        obj.nro_aux           = $("#nro_aux").val();
+        obj.tipo_pago         = $("#tipo_pago").val();
+        obj.importe_efectivo  = $("#importe_efectivo").val();
+        obj.tiempo_hs_dispo   = $("#tiempo_hs_dispo").val();
+        obj.hs_dispo          = $("#hs_dispo").val();
+        obj.pasajero_cant     = $("#pasajero_cant").val();
+        obj.es_nuevo          = es_nuevo;
+
+        //TRAYECTO PRINCIPAL
+        obj.desde_destino     = $("#desde_destino").val();
+        obj.desde_localidad   = $("#desde_localidad").val();
+        obj.desde_provincia   = $("#desde_provincia").val();
+        obj.desde_calle       = $("#desde_calle").val();
+        obj.desde_altura      = $("#desde_altura").val();
+        obj.desde_entre       = $("#desde_entre").val();
+        obj.desde_compania    = $("#desde_compania").val();
+        obj.desde_vuelo       = $("#desde_vuelo").val();
+        obj.hasta_destino     = $("#hasta_destino").val();
+        obj.hasta_localidad   = $("#hasta_localidad").val();
+        obj.hasta_provincia   = $("#hasta_provincia").val();
+        obj.hasta_altura      = $("#hasta_altura").val();
+        obj.hasta_calle       = $("#hasta_calle").val();
+        obj.hasta_entre       = $("#hasta_entre").val();
+        obj.hasta_compania    = $("#hasta_compania").val();
+        obj.hasta_vuelo       = $("#hasta_vuelo").val();
+        obj.principal         = 1;
+        //
+
+        if(es_nuevo == 0){
+            obj.idViaje = viaje;
+        }else{
+            obj.mensaje = 1;
+        }
+
+        var url = "/sistema/guardarViaje/";
+        $.ajax({
+           type: "POST",
+           url: url,
+           headers: {'X-CSRFToken': csrf_token},
+           data: obj,
+           success: data => {
+                if(data.error === '1'){
+                    showMsg(data.msg, 'error');
+                }else{
+                    /*data.url ? window.location.replace(data.url) : */showMsg('Los datos se han actualizado correctamente.', 'success');
+                    if(es_nuevo == '1'){
+                        es_nuevo = 0;
+                        viaje = data.viaje;
+                        idViaje = data.viaje;
+                        $("#idViajeObser").val(idViaje);
+                        $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
+                    }
+
+                    if(obj.estado == 7){
+                        if(data.error != 0){
+                            viaje_items = [];
+                            $.each(data, (k, item) => {
+                                let obj = {
+                                    id : item.pk,
+                                    monto : item.fields.monto,
+                                    monto_s_iva : item.fields.monto_s_iva,
+                                    monto_iva : item.fields.monto_iva,
+                                    tipo_items_viaje : item.fields.tipo_items_viaje.toString(),
+                                    cant: item.fields.cant};
+                                viaje_items.push(obj);
+                            });
+                            fillViajeItems();
+                            //$("#administracion").show();
+                            $("#administracion_tab_btn a").show();
+                        }
+                    }else{
+                        //$("#administracion").hide();
+                        $("#administracion_tab_btn a").hide();
+                    }
+                }
+                getGrillasHistorial();
+           }
+        });
+};
+
+guardarViajeTrayecto = () =>{
+    var obj               = {};
+    obj.desde_destino     = $("#desde_destino").val();
+    obj.desde_localidad   = $("#desde_localidad").val();
+    obj.desde_provincia   = $("#desde_provincia").val();
+    obj.desde_calle       = $("#desde_calle").val();
+    obj.desde_altura      = $("#desde_altura").val();
+    obj.desde_entre       = $("#desde_entre").val();
+    obj.desde_compania    = $("#desde_compania").val();
+    obj.desde_vuelo       = $("#desde_vuelo").val();
+    obj.hasta_destino     = $("#hasta_destino").val();
+    obj.hasta_localidad   = $("#hasta_localidad").val();
+    obj.hasta_provincia   = $("#hasta_provincia").val();
+    obj.hasta_altura      = $("#hasta_altura").val();
+    obj.hasta_calle       = $("#hasta_calle").val();
+    obj.hasta_entre       = $("#hasta_entre").val();
+    obj.hasta_compania    = $("#hasta_compania").val();
+    obj.hasta_vuelo       = $("#hasta_vuelo").val();
+    obj.pasajero          = $("#pasajero").val();
+    obj.principal         = 1;
+    obj.idViaje           = viaje;
+
+
+    var url = "/sistema/guardarTrayecto/";
+    $.ajax({
+           type: "POST",
+           url: url,
+           headers: {'X-CSRFToken': csrf_token},
+           data: obj,
+           success: data => {
+              showMsg(data.msg, 'success');
+           }
+         });
+
+    e.preventDefault();
+};
+
 /**
  *
  */
-getClientes = () => {
+getClientes = es_nuevo => {
     let url = "/sistema/getClientes/";
     $.ajax({
         type: "POST",
@@ -661,8 +622,51 @@ getClientes = () => {
                     $('#id_cliente').append($('<option>').text(item.pk + ' - ' + item.fields.razon_social).attr('value', item.pk));
                 }
             });
+
+            //HAGO ESTO PARA SIMULAR UN EVENTO QUE PIDE LA FUNCION DE SELECT2ME
+
+            let evt = {};
+            evt.params = {};
+            evt.params.data = {};
+            evt.params.data.no_borrar_pasajeros = true;
+
+            if(es_nuevo != '1') {
+                evt.params.data.id = cliente_id;
+                updateFillsByCliente('', evt);
+            }
+
+            getDetinos(evt);
+
         }
     });
+};
+
+getDetinos = evt => {
+    evt.params.data.id = destino_desde_id;
+    evt.params.data.provincia_select_id = provincia_desde_id;
+    evt.params.data.localidad_select_id = localidad_desde_id;
+    evt.params.data.init = true;
+    evt.currentTarget = {};
+    evt.currentTarget.id = 'desde_destino';
+    updateFillsByDestino('', evt);
+
+    evt.currentTarget.id = 'desde_localidad';
+    evt.params.data.id = localidad_desde_id;
+    updateFillsByLocalidad('', evt);
+
+    evt.params.data.id = destino_hasta_id;
+    evt.params.data.provincia_select_id = provincia_hasta_id;
+    evt.params.data.localidad_select_id = localidad_hasta_id;
+    evt.params.data.init = true;
+    evt.currentTarget = {};
+    evt.currentTarget.id = 'hasta_destino';
+    updateFillsByDestino('', evt);
+
+    evt.params.data.id = localidad_hasta_id;
+    evt.currentTarget.id = 'hasta_localidad';
+    updateFillsByLocalidad('', evt);
+
+    fillViajeItems();
 };
 
 /**
@@ -913,18 +917,18 @@ guardarPasajeroModal = () => {
         headers: {'X-CSRFToken': csrf_token},
         data: $("#form-datos-cliente-pasajeros").serialize(),
         success: data => {
-            $('#idPasajeroModal').val("0")
-            $('#nombrePasClienteModal').val("")
-            $('#apellidoPasClienteModal').val("")
-            $('#documentoPasajeroClienteModal').val("")
-            $('#telefonoPasajeroClienteModal').val("")
-            $('#mailPasajeroClienteModal').val("")
-            $('#nacionalidadPasajeroClienteModal').val("")
-            $('#callePasajeroClienteModal').val("")
-            $('#alturaPasajeroClienteModal').val("")
-            $('#pisoPasajeroClienteModal').val("")
-            $('#cpPasajeroClienteModal').val("")
-            $('#comentarioPasajeroClienteModal').val("")
+            $('#idPasajeroModal').val("0");
+            $('#nombrePasClienteModal').val("");
+            $('#apellidoPasClienteModal').val("");
+            $('#documentoPasajeroClienteModal').val("");
+            $('#telefonoPasajeroClienteModal').val("");
+            $('#mailPasajeroClienteModal').val("");
+            $('#nacionalidadPasajeroClienteModal').val("");
+            $('#callePasajeroClienteModal').val("");
+            $('#alturaPasajeroClienteModal').val("");
+            $('#pisoPasajeroClienteModal').val("");
+            $('#cpPasajeroClienteModal').val("");
+            $('#comentarioPasajeroClienteModal').val("");
             $('#add_pasajero').modal('toggle');
             //$('#pasajero').html(data);
             $('#pasajero').append($('<option selected="selected">').text(data.pasajero_apellido + ' ' +data.pasajero_nombre).attr('value', data.pasajero));
@@ -996,7 +1000,7 @@ updateFillsByCliente = (name, evt) => {
             cliente.moroso = data.moroso;
             cliente.personascliente = data.personascliente;
             cliente.centro_costos = data.centro_costos;
-            console.log(cliente.moroso)
+            //console.log(cliente.moroso)
             if(cliente.moroso === true){
                 showMsg('Comunicarse con administración, cliente inhabilitado.');
             }
@@ -1081,7 +1085,7 @@ updateFillsByUnidad = (name, evt) => {
  * @param evt
  */
 updateFillsByLocalidad = (name, evt) => {
-    console.log('QUE PASA')
+    //console.log('QUE PASA')
     var localidad_id = evt.params.data.id,
         init = evt.params.data.init,
         html_select = evt.currentTarget.id,
@@ -1282,6 +1286,11 @@ updateFillsByDestino = (name, evt) => {
  *
  */
 agregarTramo = () => {
+    console.log(viaje);
+    if(!viaje){
+        showMsg('Debes guardar el viaje antes de crear un tramo');
+        return;
+    }
 
     let obj               = {};
     obj.desde_destino     = $("#modal_desde_destino").val();
@@ -1329,6 +1338,8 @@ agregarTramo = () => {
 agregarObservacion = () => {
     if ($('#textAreaObservacion').val() == ""){
         showMsg("Campo observacion es obligatorio", 'error');
+    }else if($("#idViajeObser").val() == 0){
+        showMsg("Debes crear el viaje antes.", 'error');
     }else{
         let url = "/sistema/guardarObservacionViaje/";
         $.ajax({
