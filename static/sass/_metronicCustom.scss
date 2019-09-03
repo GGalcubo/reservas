@@ -264,7 +264,8 @@ table.dataTable td.select-checkbox:before {
   top: 35%;
 }
 table.dataTable tr.selected td.select-checkbox:after {
-  margin-top: -7px;
+  margin-top: -13px;
+  margin-left: -5px;
 }
 
 /* BOOTSTRAP TABLES */
@@ -776,4 +777,5 @@ body.login {
 
 div.dataTables_wrapper div.dataTables_info {
   font-size: 12px;
+  white-space: normal;
 }
