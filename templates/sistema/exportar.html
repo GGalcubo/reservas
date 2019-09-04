@@ -39,6 +39,7 @@
                               </div>
                               <div class="portlet-body">
                                   <form role="form" method="post" id="form_exportar" action="">
+                                      <input type="hidden" class="form-control" id="idViajes" name="idViajes">
                                       <div class="form-body">
                                           <div class="row">
                                             <div class="col-sm-3">
@@ -117,6 +118,38 @@
                                           <button type="button" class="btn green" onclick="buscarViaje()">Buscar</button>
                                           <button type="button" class="btn blue" onclick="resetFiltros()">Resetear filtros</button>
                                       </div>
+                                      <div id="cambiarEstadoViajeModal" class="modal fade" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                    <h4 class="modal-title" style="color:#888;">Cambiar estado</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group form-md-line-input">
+                                                                    <select class="form-control select2me" id="estadoModal" name="estadoModal">
+                                                                    {% for e in estados %}
+                                                                        {% if e.estado != 'Cerrado'%}
+                                                                        <option value="{{ e.id }}">{{ e.estado }}</option>
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                    </select>
+                                                                    <label for="estado">Seleccionar Estado</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer noborder flex flex-j-between">
+                                                    <button type="button" onclick="cambiarEstadoViajes();" class="btn green">Guardar</button>
+                                                    <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
                                   </form>
                               </div>
                               <hr>
@@ -125,6 +158,7 @@
                                   <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaExportar">
                                       <thead>
                                           <tr>
+                                              <th class="all"></th>
                                               <th class="all">Fecha</th>
                                               <th class="all">Hora</th>
                                               <th class="all">Categoría</th>
@@ -145,6 +179,7 @@
                                   </table>
                                 </div>
                               </div>
+                              
                           </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
@@ -162,34 +197,15 @@
 
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
-                // var clientes = [];
-                // {% for cliente in clientes %}
-                //     var centro_costos = [{% for cc in cliente.centrocosto_set.all %}
-                //     { "id" : "{{ cc.id }}",
-                //        "nombre" : "{{ cc.nombre }}"
-                //     },
-                //     {% endfor %}
-                //     ];
-                //     var personascliente = [{% for personacliente in cliente.personacliente_set.all %}
-                //     { "id" : "{{ personacliente.persona.id }}",
-                //        "nombre" : "{{ personacliente.persona.nombre}} {{ personacliente.persona.apellido}}",
-                //        "tipo_persona" : "{{ personacliente.persona.tipo_persona}}"
-                //     },
-                //     {% endfor %}
-                //     ];
-
-                //     var obj = {
-                //         id : '{{ cliente.id }}',
-                //         razon_social:'{{ cliente.razon_social }}',
-                //         direccion:'{{ cliente.calle|default_if_none:""  }} {{ cliente.altura|default_if_none:""  }} {{ cliente.piso|default_if_none:""  }} {{ cliente.depto|default_if_none:""  }}',
-                //         categoria_id:'{{ cliente.categoria.categoria }}',
-                //         telefono:'{{ cliente.telefonoPrincipal }}',
-                //         centro_costos: centro_costos,
-                //         personascliente: personascliente};
-
-                //     clientes.push(obj);
-                // {% endfor %}
                 $(document).ready(function(){
+                  
+                    $("#estadoModal").select2({
+                        placeholder: "Seleccionar Estados",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
                   $(document).prop('title', 'Exportar - Central LT');
 
 
@@ -215,6 +231,8 @@
                         order: [[ 0, "asc" ]],
                         dom: 'lfBrtip',
                         buttons: [
+                            'selectAll',
+                            'selectNone',
                             {
                                 extend: 'copyHtml5',
                                 exportOptions: {
@@ -412,6 +430,48 @@
                     $("#cliente").val('').trigger('change');
                     $("#estado").val('').trigger('change');
                 };
+
+                obtenerRowChecked = () => {
+                    let table = $('#tablaExportar').DataTable();
+                    let selectedRows = table.rows({ selected: true }).ids(true);
+                    let ids = "";
+                    for (var i = 0; i < selectedRows.length; i++) {
+                        ids = ids + selectedRows[i].replace("#rowid","") + "-"
+                    }
+                    $("#idViajes").val(ids);
+                    return ids;
+                }
+
+                cambiarEstadoViajes = () => {
+                    if (obtenerRowChecked() == ""){
+                        alert("Debe seleccionar Viajes para poder cambiar estado.");
+                        return false;
+                    }else{
+                        var url = "/sistema/cambiarEstadoViajes/";
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                            data: $("#form_exportar").serialize(),
+                            success: function(data){
+                                alert(data.return);
+                                $('#cambiarEstadoViajeModal').modal('toggle');
+                                $("#idViajes").val("");
+                                buscarViaje();
+                            }
+                        });
+                    }
+                }
+
+                openCambiarEstadoViajes = () =>{
+                    if (obtenerRowChecked() == ""){
+                        alert("Debe seleccionar Viajes para poder facturar.")
+                    }else{
+                        $('#nuevoEstado').val("");
+                        $('#cambiarEstadoViajeModal').modal('toggle');
+                    }
+                }
+
 
             </script>
 

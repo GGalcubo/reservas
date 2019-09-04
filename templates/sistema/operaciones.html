@@ -40,7 +40,7 @@
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light ">
                                 <div class="portlet-title">
-                                    <div class="caption font-green mg-t-5">
+                                    <div class="caption font-green">
                                         <i class="icon-rocket font-green"></i>
                                         <span class="caption-subject bold uppercase">Viajes</span>
                                     </div>
@@ -172,50 +172,58 @@
                         }
                     });
                     $('#viajesEnProgreso').DataTable( {
+                        colReorder: true,
+                        scrollY: 150,
+                        scrollX: true,
+                        scrollCollapse: true,
                         responsive: true,
                         select: true,
                         order: [[ 3, "asc" ]],
-                        dom: 'lfBrtip',
-                        buttons: [
-                            {
-                                extend: 'copy',
-                                exportOptions: {
-                                    columns: ':visible:not(:eq(0))'
-                                }
-                            },
-                            {
-                                extend: 'excel',
-                                exportOptions: {
-                                    columns: ':visible:not(:eq(0))'
-                                }
-                            },
-                            {
-                                extend: 'pdf',
-                                exportOptions: {
-                                    columns: ':visible:not(:eq(0))'
-                                }
-                            },
-                            {
-                                extend: 'print',
-                                exportOptions: {
-                                    columns: ':visible:not(:eq(0))'
-                                }
-                            },
-                        ],
-                        lengthMenu: [
-                                        [ 100, 50, 25, 10, -1 ],
-                                        [ '100', '50', '25', '10', 'Todos' ]
-                                    ],
+                        dom: 'rtip',
+                        // buttons: [
+                        //     {
+                        //         extend: 'copy',
+                        //         exportOptions: {
+                        //             columns: ':visible:not(:eq(0))'
+                        //         }
+                        //     },
+                        //     {
+                        //         extend: 'excel',
+                        //         exportOptions: {
+                        //             columns: ':visible:not(:eq(0))'
+                        //         }
+                        //     },
+                        //     {
+                        //         extend: 'pdf',
+                        //         exportOptions: {
+                        //             columns: ':visible:not(:eq(0))'
+                        //         }
+                        //     },
+                        //     {
+                        //         extend: 'print',
+                        //         exportOptions: {
+                        //             columns: ':visible:not(:eq(0))'
+                        //         }
+                        //     },
+                        // ],
+                        // lengthMenu: [
+                        //                 [ 100, 50, 25, 10, -1 ],
+                        //                 [ '100', '50', '25', '10', 'Todos' ]
+                        //             ],
                         language: {
-                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json',
-                            buttons: {
-                                copy: "Copiar",
-                                print: "Imprimir"
-                            }
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            // buttons: {
+                            //     copy: "Copiar",
+                            //     print: "Imprimir"
+                            // }
                         }
                     } );
 
                     $('#futurosViajes').DataTable( {
+                        colReorder: true,
+                        scrollY: 500,
+                        scrollX: true,
+                        scrollCollapse: true,
                         responsive: true,
                         order: [[ 3, "asc" ]],
                         dom: 'lfBrtip',

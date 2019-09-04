@@ -93,6 +93,7 @@ urlpatterns = [
     url(r'^cargarLocalidadByDestino/', cargarLocalidadByDestino, name='cargarLocalidadByDestino'),
     url(r'^cargarProvincia/', cargarProvincia, name='cargarProvincia'),
     url(r'^exportar/', exportar, name='exportar'),
+    url(r'^cambiarEstadoViajes/', cambiarEstadoViajes, name='cambiarEstadoViajes'),
     url(r'^exportarDatosPorCliente/', exportarDatosPorCliente, name='exportarDatosPorCliente'),
     url(r'^usuario/', usuario, name='usuario'),
     url(r'^listadoAdelanto/', listadoAdelanto, name='listadoAdelanto'),

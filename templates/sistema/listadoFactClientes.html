@@ -135,8 +135,8 @@
                                           </div>
                                       </div>
                                       <div class="form-actions noborder flex">
-                                          <button type="button" onclick="buscarFacturacion();" class="btn green btn-outline mg-r-10">Buscar</button>
-                                          <button type="button" onclick="resetFiltros();" class="btn blue">Resetear filtros</button>
+                                          <button type="button" onclick="buscarFacturacion();" class="btn green mg-r-10">Buscar</button>
+                                          <button type="button" onclick="resetFiltros();" class="btn blue btn-outline">Resetear filtros</button>
                                       </div>
                                   </form>
                               </div>
@@ -221,8 +221,8 @@
                                   </table>
                               </div>
                               <div class="flex flex-j-start">
-                                  <button type="button" onclick="openFacturar();" class="btn green btn-outline mg-r-10 mg-b-5">Facturar</button>
-                                  <button type="button" onclick="asignarProforma();" class="btn blue mg-b-5">Asignar N° proforma</button>
+                                  <button type="button" onclick="asignarProforma();" class="btn green mg-r-10 mg-b-5">Asignar N° proforma</button>
+                                  <button type="button" onclick="openFacturar();" class="btn blue btn-outline mg-b-5">Facturar</button>
                               </div>
                           </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
@@ -241,7 +241,7 @@
                             <h4 class="modal-title" style="color:#888;">Facturar Clientes</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
+                            <div class="scroller" style="height: 100%;" data-always-visible="1" data-rail-visible1="1">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group form-md-line-input form-md-floating-label">
@@ -258,9 +258,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer noborder flex flex-j-between">
+                        <div class="modal-footer noborder flex">
                             <button type="button" onclick="guardarNumeroFactura();" class="btn green">Guardar</button>
-                            <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn red btn-outline" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
                     </div>
@@ -441,7 +441,7 @@
                                       [ 100, 50, 25, 10, -1 ],
                                       [ '100', '50', '25', '10', 'Todos' ]
                                   ],
-                      "pageLength": -1,
+                      pageLength: 25,
                       language: {
                           url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json',
                           buttons: {

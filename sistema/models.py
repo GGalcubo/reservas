@@ -462,7 +462,7 @@ class Viaje(models.Model):
     categoria_viaje = models.ForeignKey(CategoriaViaje, null=True, blank=True)
     hora_estimada = models.CharField(max_length=10, null=True, blank=True)
     Cod_ext_viaje = models.CharField(max_length=30, null=True, blank=True)
-    tarifapasada = models.CharField(max_length=50, null=True, blank=True)
+    tarifapasada = models.CharField(max_length=90, null=True, blank=True)
     nro_aux = models.CharField(max_length=30, null=True, blank=True)
     tipo_pago = models.ForeignKey(TipoPagoViaje, null=True, blank=True, default=1)
     calculo_admin = models.BooleanField(default=False)
@@ -534,6 +534,16 @@ class Viaje(models.Model):
         for trayecto in self.trayecto_set.all():
             viaje_trayectos.append(trayecto)
         return viaje_trayectos
+
+    def getCantidadTrayectos(self):
+        return len(self.trayecto_set.all())
+
+    def getCantidadPasajeros(self):
+        lista_pasajeros = []
+        for t in self.getTrayectos():
+            if t.pasajero and t.pasajero.id in lista_pasajeros:
+                lista_pasajeros.append(t.pasajero.id)
+        return len(lista_pasajeros)
 
     def getProforma(self):
         if self.facturaviaje_set.all():
