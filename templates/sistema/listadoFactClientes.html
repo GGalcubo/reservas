@@ -5,6 +5,7 @@
 <!--[if !IE]><!-->
 <html lang="es">
     <!--<![endif]-->
+    <link href="{% static 'css/fixedHeader.dataTables.min.css' %}" rel="stylesheet" type="text/css" />
     {% include "sistema/cabecera.html" %}
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
         {% include "sistema/barra_top.html" %}
@@ -181,7 +182,7 @@
                                           </tr>
                                       </thead>
                                       <tbody>
-                                          
+
                                       </tbody>
                                       <!-- ESTO SE AGREGO PARA LA FILA DE TOTAL -->
                                       <tfoot>
@@ -277,6 +278,7 @@
         {% include "sistema/footer.html" %}
 
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
+            <script src="{% static 'js/dataTables.fixedHeader.min.js' %}" type="text/javascript"></script>
             <script>
                 $(document).ready(function(){
                     $(document).prop('title', 'Listado Facturación Clientes - Central LT');
@@ -451,6 +453,10 @@
                               selectNone: "Deseleccionar"
                           }
                       },
+                      fixedHeader: {
+                        header: true,
+                        headerOffset: $('.page-header-inner').outerHeight()
+                      }
                         
                     });
 
