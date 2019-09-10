@@ -110,21 +110,16 @@
     $(document).ready(function(){
         let table = $('#tablaListadoFactClientes').DataTable( {
           ///////////////// EJEMPLO DE DATATABLES CON TABLE FOOTER PARA FILAS CON TOTAL /////////////
-          /*
-          Se puede usar esto que entiendo es una API de datatables o bien clavar una ultima fila y que algún
-          método haga la magia de sumar los valores de las filas anteriores. Como diría Jelinek, lo dejo a tu
-          criterio.
-          */
-          "footerCallback": function ( row, data, start, end, display ) {
-              var api = this.api(), data;
+            "footerCallback": function ( row, data, start, end, display ) {
+                var api = this.api(), data;
    
-              // Remove the formatting to get integer data for summation
-              var intVal = function ( i ) {
-                  return typeof i === 'string' ?
-                      i.replace(/[\$,]/g, '')*1 :
-                      typeof i === 'number' ?
-                          i : 0;
-              };
+                // Remove the formatting to get integer data for summation
+                var intVal = function ( i ) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '')*1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                };
    
                 // Total over all pages
                 total15 = api.column( 15 ).data().reduce( function (a, b) {
@@ -199,11 +194,11 @@
                 $( api.column( 26 ).footer() ).html(total26);
                 $( api.column( 27 ).footer() ).html(total27);
                 $( api.column( 28 ).footer() ).html(total28);
-          },
-          //////////////// HASTA ACA HARDCODEADO EL TOTAL SEGUN EL EJEMPLO DE DATATABLES .replace(/\d(?=(\d{3})+\.)/g, '$&,')//////////////
+            },
+            //////////////// HASTA ACA HARDCODEADO EL TOTAL SEGUN EL EJEMPLO DE DATATABLES //////////////
 
-          //////////////////// ESTO PARA QUE EL SCROLL ESTÉ DESPUÉS DEL FOOTER ////////////////////////
-          "fnInitComplete": function(){
+            //////////////////// ESTO PARA QUE EL SCROLL ESTÉ DESPUÉS DEL FOOTER ////////////////////////
+            "fnInitComplete": function(){
                 // Disable TBODY scoll bars
                 $('.dataTables_scrollBody').css({
                     'overflow': 'hidden',
@@ -216,42 +211,47 @@
                 // Sync TFOOT scrolling with TBODY
                 $('.dataTables_scrollFoot').on('scroll', function () {
                     $('.dataTables_scrollBody').scrollLeft($(this).scrollLeft());
-                });                    
+                });
             },
             ////////////////////////////// HASTA ACA LO DEL FOOTER ///////////////////////////////////
             colReorder: true,
             responsive: true,
             scrollX: true,
+            fixedHeader: {
+                    header: true,
+                    headerOffset: $('.page-header-inner').outerHeight()
+            },
             columnDefs: [ {
-                orderable: false,
-                className: 'select-checkbox',
-                targets:   0
-            },
-            {
-                targets: 29,
-                visible: false,
-                name: "ID"
-            },
-            {
-                targets: 1,
-                visible: false,
-                name: "fecha"
-            },
-            {
-                targets: 5,
-                visible: false,
-                name: "unidad"
-            } ,
-            {
-                targets: 7,
-                visible: false,
-                name: "id_aux"
-            },
-            /*{
-                targets: 9,
-                visible: false,
-                name: "factura"
-            }*/],
+                    orderable: false,
+                    className: 'select-checkbox',
+                    targets:   0
+                },
+                {
+                    targets: 29,
+                    visible: false,
+                    name: "ID"
+                },
+                {
+                    targets: 1,
+                    visible: false,
+                    name: "fecha"
+                },
+                {
+                    targets: 5,
+                    visible: false,
+                    name: "unidad"
+                } ,
+                {
+                    targets: 7,
+                    visible: false,
+                    name: "id_aux"
+                },
+                /*{
+                    targets: 9,
+                    visible: false,
+                    name: "factura"
+                }*/
+            ],
             select: {
                 style:    'os',
                 selector: 'td:first-child'
@@ -315,11 +315,7 @@
                     selectAll: "Seleccionar Todo",
                     selectNone: "Deseleccionar"
                 }
-            },
-            fixedHeader: {
-                    header: true,
-                    headerOffset: $('.page-header-inner').outerHeight()
             }
-        } );
+        });
     });
 </script>

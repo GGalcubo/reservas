@@ -374,6 +374,10 @@
                       colReorder: true,
                       responsive: true,
                       scrollX: true,
+                      fixedHeader: {
+                        header: true,
+                        headerOffset: $('.page-header-inner').outerHeight()
+                      },
                       columnDefs: [ {
                           orderable: false,
                           className: 'select-checkbox',
@@ -452,10 +456,6 @@
                               selectAll: "Seleccionar Todo",
                               selectNone: "Deseleccionar"
                           }
-                      },
-                      fixedHeader: {
-                        header: true,
-                        headerOffset: $('.page-header-inner').outerHeight()
                       }
                         
                     });
