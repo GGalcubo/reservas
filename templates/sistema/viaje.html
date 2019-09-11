@@ -56,7 +56,7 @@
                                         <a href="#!" class="btn btn-outline blue mg-r-10 guardar_viaje" type="submit">Guardar</a>
                                         <a href="#!" class="btn btn-outline blue mg-r-10">Clonar</a>
                                         <a href="#!" class="btn btn-outline blue mg-r-10">Copiar Evento</a>
-                                        <a href="#!" class="btn blue mg-b-5 mg-r-10"><i class="icon-cloud-download"></i></a>
+                                        <a href="/sistema/exportarPdfViaje/?idViaje={{ viaje.id }}" class="btn blue mg-b-5 mg-r-10"><i class="icon-cloud-download"></i></a>
                                         <a href="#" onclick="mailto();"class="btn blue mg-b-5 mg-r-10"><i class="icon-envelope"></i></a>
                                         <a href="#!" class="btn blue mg-b-5 mg-r-10"><i class="icon-bubble"></i></a>
                                     </div>
@@ -2065,7 +2065,8 @@
                 var personascliente = [{% for personacliente in cliente.personacliente_set.all %}
                 { "id" : "{{ personacliente.persona.id }}",
                    "nombre" : "{{ personacliente.persona.apellido}} {{ personacliente.persona.nombre}} ",
-                   "tipo_persona" : "{{ personacliente.persona.tipo_persona}}"
+                   "tipo_persona" : "{{ personacliente.persona.tipo_persona}}",
+                   "telefono" : "{{ personacliente.persona.telefono}}"
                 },
                 {% endfor %}
                 ];

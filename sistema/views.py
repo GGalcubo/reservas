@@ -1180,12 +1180,14 @@ def guardarPasajeroDesdeViaje(request):
     persona.mail = request.POST.get('mailPasajeroClienteModal', "")
     persona.nacionalidad = request.POST.get('nacionalidadPasajeroClienteModal', "")
     persona.calle = request.POST.get('callePasajeroClienteModal', "")
+    persona.telefono = request.POST.get('telefonoPasajeroClienteModal', "")
     #persona.altura = request.POST.get('alturaPasajeroCliente', "")
     #persona.piso = request.POST.get('pisoPasajeroCliente', "")
     #persona.cp = request.POST.get('cpPasajeroCliente', "")
     persona.save()
 
-    telefono = request.POST.get('telefonoPasajeroClienteModal', "")
+
+    telefono = persona.telefono
     comentario = request.POST.get('comentarioPasajeroClienteModal', "")
 
     if idPasajero == "0":
@@ -1231,11 +1233,23 @@ def guardarPasajeroDesdeViaje(request):
     data = {
         'pasajero': persona.id,
         'pasajero_nombre': persona.nombre,
-        'pasajero_apellido': persona.apellido
+        'pasajero_apellido': persona.apellido,
+        'pasajero_telefono': persona.telefono
     }
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
 
+
+
+@login_required
+def getTelefonoPasajeroById(request):
+    persona = Persona.objects.get(id=request.POST.get('pasajero_id', False))
+    data = {
+        'telefono': persona.telefono
+    }
+
+    dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
 
 @login_required
 def altaPersona(request):

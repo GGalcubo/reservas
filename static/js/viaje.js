@@ -86,6 +86,7 @@ $(document).ready( () => {
 
     $('#categoria_viaje').select2({ placeholder: 'Seleccionar', width: 'auto'});
     $('#contacto').select2({ placeholder: 'Seleccionar', width: 'auto'});
+    $("#pasajero").on("select2:select", function (e) { updateFillsByPasajero("select2:select", e); });
     $('#pasajero').select2({ placeholder: 'Seleccionar', width: 'auto'});
     $('#pasajero_trayecto').select2({ placeholder: 'Seleccionar Pasajero', width: 'auto', dropdownParent: $('#add_tramo')});
 
@@ -150,12 +151,12 @@ $(document).ready( () => {
         var obj               = {};
         obj.id                = $(this).data('id');
         obj.idViaje           = viaje;
-        var url = "/sistema/borrarTrayecto/"; 
+        var url = "/sistema/borrarTrayecto/";
         $.ajax({
                type: "POST",
                url: url,
                headers: {'X-CSRFToken': csrf_token},
-               data: obj, 
+               data: obj,
                success: data => {
                    if(data.error == '1'){
                       showMsg(data.msg, 'error');
@@ -307,9 +308,9 @@ $(document).ready( () => {
         //$(".modal-title").text('Editar Tramo');
     });
 
-    $( "#pasajero" ).change(updateFillsByPasajero);
+    //$( "#pasajero" ).change(updateFillsByPasajero);
 
-    $("#guardarAdjunto").submit( evt => { 
+    $("#guardarAdjunto").submit( evt => {
        evt.preventDefault();
        var formData = new FormData(document.getElementById("guardarAdjunto"));
        formData.append("idViaje", viaje);
@@ -399,7 +400,7 @@ $(document).ready( () => {
             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
         },
     });
-    
+
 });
 
 guardarViaje = () =>{
@@ -797,7 +798,7 @@ sumarPasajero = () => {
             showMsg('Agregado con exito', 'success');
             $('#grillaPasajero').html(data);
         }
-    });    
+    });
 };
 
 /**
@@ -822,7 +823,7 @@ getViajePasajeros = () => {
 /**
  *
  */
-updateFillsByPasajero = () =>{
+updateFillsByPasajero = (name, evt) =>{
     $('#suma_pasajero').empty();
     let pasajeros = getViajePasajeros;
     $.each(cliente.personascliente, (i, persona) => {
@@ -838,6 +839,17 @@ updateFillsByPasajero = () =>{
                     $('#suma_pasajero').append($('<option>').text(persona.nombre).attr('value', persona.id));
                 }
             }
+        }
+    });
+
+    let url = "/sistema/getTelefonoPasajeroById/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: {cliente_id: $('#id_cliente').val(), pasajero_id: evt.params.data.id},
+        success: function (data) {
+            $('#pasajero_telefono').val(data.telefono);
         }
     });
 };
@@ -930,8 +942,8 @@ guardarPasajeroModal = () => {
             $('#cpPasajeroClienteModal').val("");
             $('#comentarioPasajeroClienteModal').val("");
             $('#add_pasajero').modal('toggle');
-            //$('#pasajero').html(data);
             $('#pasajero').append($('<option selected="selected">').text(data.pasajero_apellido + ' ' +data.pasajero_nombre).attr('value', data.pasajero));
+            $('#pasajero_telefono').val(data.pasajero_telefono);
         }
     });
 };
@@ -1018,6 +1030,7 @@ updateFillsByCliente = (name, evt) => {
             $('#centroDeCosto').empty().append($('<option>').text('').attr('value', ''));
             $('#contacto').empty().append($('<option>').text('').attr('value', ''));
             $('#pasajero').empty().append($('<option>').text('').attr('value', ''));
+            $('#pasajero_telefono').empty().append($('<option>').text('').attr('value', ''));
             $('#pasajero_trayecto').empty().append($('<option>').text('').attr('value', ''));
             $('#suma_pasajero').empty();
 
@@ -1052,6 +1065,7 @@ updateFillsByCliente = (name, evt) => {
                 if(value.tipo_persona === 'Pasajero'){
                     if(value.id == pasajero){
                         $('#pasajero').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
+                        $('#pasajero_telefono').val(value.telefono);
                     }else{
                         $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
                     }
