@@ -80,47 +80,65 @@
                                     </form>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                                            <div class="panel panel-primary box-shadow">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title"><b>Recaudación</b></h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <p class="bold big mg-b-0">$<span id="recaudacion">25.000</span></p>
-                                                    <p class="mg-b-0">Es el importe que has recaudado en este período</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                                            <div class="panel panel-danger box-shadow">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title"><b>Adelantos</b></h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <p class="bold big mg-b-0">$<span id="adelantos">10.000</span></p>
-                                                    <p class="mg-b-0">Es el importe que te hemos adelantado en este período</p>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                            <div class="dashboard-stat2 ">
+                                                <div class="display">
+                                                    <div class="number">
+                                                        <p class="big bold font-green-sharp">
+                                                            <span class="font-green-sharp">$</span>
+                                                            <span data-counter="counterup" data-value="25.000">0</span>
+                                                        </p>
+                                                        <small>RECAUDADO</small>
+                                                    </div>
+                                                    <div class="icon">
+                                                        <i class="icon-wallet"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                                            <div class="panel panel-success box-shadow">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title"><b>Cantidad de Viajes</b></h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <p class="bold big mg-b-0"><span id="cant_viajes">30</span></p>
-                                                    <p class="mg-b-0">Son los viajes que has hecho en este período</p>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                            <div class="dashboard-stat2 ">
+                                                <div class="display">
+                                                    <div class="number">
+                                                        <p class="big bold font-red-haze">
+                                                            <span class="font-red-haze">$</span>
+                                                            <span data-counter="counterup" data-value="10.000">0</span>
+                                                        </p>
+                                                        <small>ADELANTOS</small>
+                                                    </div>
+                                                    <div class="icon">
+                                                        <i class="icon-credit-card"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                                            <div class="panel panel-warning box-shadow">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title"><b>Días Trabajados</b></h3>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                            <div class="dashboard-stat2 ">
+                                                <div class="display">
+                                                    <div class="number">
+                                                        <p class="big bold font-blue-sharp">
+                                                            <span data-counter="counterup" data-value="30"></span>
+                                                        </p>
+                                                        <small>VIAJES</small>
+                                                    </div>
+                                                    <div class="icon">
+                                                        <i class="icon-rocket"></i>
+                                                    </div>
                                                 </div>
-                                                <div class="panel-body">
-                                                    <p class="bold big mg-b-0"><span id="dias_trabajados">15</span></p>
-                                                    <p class="mg-b-0">Son los días que has trabajado en este período</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                            <div class="dashboard-stat2 ">
+                                                <div class="display">
+                                                    <div class="number">
+                                                        <p class="big bold font-purple-soft">
+                                                            <span data-counter="counterup" data-value="15"></span>
+                                                        </p>
+                                                        <small>DÍAS TRABAJADOS</small>
+                                                    </div>
+                                                    <div class="icon">
+                                                        <i class="icon-calendar"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -142,7 +160,9 @@
         <div id="prueba"></div>
 
         {% include "sistema/footer.html" %}
-
+        
+        <script src="{% static 'js/jquery.waypoints.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/jquery.counterup.min.js' %}" type="text/javascript"></script>
         <script>
             $(document).ready(function(){
                 $(document).prop('title', 'Dashboard Unidad - Central LT');
