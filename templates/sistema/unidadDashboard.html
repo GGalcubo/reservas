@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="es">
+    <!--<![endif]-->
+    {% include "sistema/cabecera.html" %}
+    <link href="{% static 'css/viajeStyle.css' %}" rel="stylesheet" type="text/css" />
+    <!-- <link href="{% static 'css/select2.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/select2-bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/jquery.fancybox.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/bootstrap-fileinput.min.css' %}" rel="stylesheet" type="text/css" /> -->
+    <style>
+        .tabbable-line > .tab-content {
+                padding: 10px 0!important;
+        }
+        .disabled-select {
+           background-color:#d5d5d5;
+           opacity:0.5;
+           border-radius:3px;
+           cursor:not-allowed;
+           position:absolute;
+           top:0;
+           bottom:0;
+           right:0;
+           left:0;
+        }
+    </style>
+    <body id="viajes" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-reversed page-sidebar-fixed page-md">
+    {% include "sistema/barra_top.html" %}
+        <div class="page-container">
+
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper clearfix">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <i class="icon-home"></i>
+                                <a href="/sistema/operaciones/">Operaciones</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <span>Viaje</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 pd-l-5 pd-r-5">
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green" style="display: flex; align-items: baseline; flex-flow: wrap;">
+                                        <span class="caption-subject bold uppercase mg-b-5 mg-r-20" id="viaje_titulo"><i class="icon-rocket font-green mg-r-5"></i>DASHBOARD UNIDAD</span>
+                                    </div>
+                                    <div class="tools"></div>
+                                </div>
+                                <div class="portlet-body">
+                                    <form role="form" method="post" id="formPeriodoUnidad" action="">
+                                        <div class="row flex align-i-center">
+                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                                <div class="form-body">
+                                                    <div class="form-group mg-b-10">
+                                                        <label class="control-label mg-b-0" style="color: #888;">Período</label>
+                                                        <div class="input-group date-picker input-daterange" data-date-format="dd/mm/yyyy">
+                                                          <input type="text" class="form-control" name="periodo_desde" id="periodo_desde" value="01/09/2019">
+                                                          <span class="input-group-addon" style="font-size: 10px;"> hasta </span>
+                                                          <input type="text" class="form-control" name="periodo_hasta" id="periodo_hasta" value="30/09/2019">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
+                                                <div class="form-actions noborder">
+                                                    <button type="button" onclick="buscar();" class="btn green mg-r-10">Buscar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                            <div class="panel panel-primary box-shadow">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title"><b>Recaudación</b></h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p class="bold big mg-b-0">$<span id="recaudacion">25.000</span></p>
+                                                    <p class="mg-b-0">Es el importe que has recaudado en este período</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                            <div class="panel panel-danger box-shadow">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title"><b>Adelantos</b></h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p class="bold big mg-b-0">$<span id="adelantos">10.000</span></p>
+                                                    <p class="mg-b-0">Es el importe que te hemos adelantado en este período</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                            <div class="panel panel-success box-shadow">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title"><b>Cantidad de Viajes</b></h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p class="bold big mg-b-0"><span id="cant_viajes">30</span></p>
+                                                    <p class="mg-b-0">Son los viajes que has hecho en este período</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                            <div class="panel panel-warning box-shadow">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title"><b>Días Trabajados</b></h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p class="bold big mg-b-0"><span id="dias_trabajados">15</span></p>
+                                                    <p class="mg-b-0">Son los días que has trabajado en este período</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                    </div>
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+
+        <div id="prueba"></div>
+
+        {% include "sistema/footer.html" %}
+
+        <script>
+            $(document).ready(function(){
+                $(document).prop('title', 'Dashboard Unidad - Central LT');
+
+                $('#periodo_desde').datepicker({
+                    language: 'es',
+                    dateFormat: 'dd/mm/yy',
+                    // todayBtn: true,
+                    todayHighlight: true,
+                    autoclose: true
+                });
+
+                $('#periodo_hasta').datepicker({
+                    language: 'es',
+                    dateFormat: 'dd/mm/yy',
+                    // todayBtn: true,
+                    todayHighlight: true,
+                    autoclose: true
+                });
+            });
+
+            function buscar(){
+                alert('No funciona claro, hay que hacer la magia :)')
+                //Los IDs de los <span> los puse para los uses también, si no sirven vuelan
+            }
+
+        </script>
+    </body>
+</html>

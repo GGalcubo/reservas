@@ -3358,3 +3358,10 @@ def unidadViaje(request):
 
     context = {'mensaje': mensaje}
     return render(request, 'sistema/unidadViaje.html', context)
+
+@login_required
+def unidadDashboard(request):
+    mensaje = ""
+
+    context = {'mensaje': mensaje}
+    return render(request, 'sistema/unidadDashboard.html', context)

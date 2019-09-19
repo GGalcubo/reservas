@@ -443,6 +443,15 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   border-right: 1px solid #32c5d2;
 }
 
+.box-shadow {
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.18) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.18) !important;
+}
+
+p.big {
+  font-size: 3em;
+}
+
 //Margins y paddings de los iconos en el menú mobile
 @media (max-width: 767px) {
   .page-header.navbar .top-menu .navbar-nav>li.dropdown-user {
