@@ -32,9 +32,8 @@
                             <div class="portlet light ">
                                 <div class="portlet-title">
                                     <div class="caption font-blue">
-                                        <i class="icon-flag font-blue mg-t-8"></i>
-                                        <span class="caption-subject bold uppercase">Listado de centros de costo</span>
-                                        <a href="/sistema/altaCentroDeCosto/" role="button" class="btn green btn-outline mg-l-20">Agregar centro de costo</a>
+                                        <span class="caption-subject bold uppercase"><i class="icon-flag font-blue mg-r-5"></i>Listado de centros de costo</span>
+                                        <a href="/sistema/altaCentroDeCosto/" role="button" class="btn green btn-outline">Agregar centro de costo</a>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -55,7 +54,7 @@
                                             </div>
                                         </div>
                                         <div class="form-actions noborder flex">
-                                            <button type="button" onclick="buscarCentroDeCostos();" class="btn green btn-outline mg-r-10">Buscar Activos</button>
+                                            <button type="button" onclick="buscarCentroDeCostos();" class="btn green">Buscar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -65,29 +64,30 @@
                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaListadoCC">
                                             <thead>
                                                 <tr>
-                                                    <th class="all" style="max-width: 50px;">Acciones</th>
-                                                    <th class="all">ID</th>
-                                                    <th class="all">Centro de Costo</th>
-                                                    <th class="all">Descripción</th>
-                                                    <th class="all">Raz&oacute;n Social</th>
-                                                    <th class="all">Tarifario</th>
-                                                    <th class="all">Desde</th>
-                                                    <th class="all">Hasta</th>
+                                                    <!-- <th class="all" style="max-width: 50px;">Acciones</th> -->
+                                                    <th class="">ID</th>
+                                                    <th class="">Centro de Costo</th>
+                                                    <th class="">Descripción</th>
+                                                    <th class="">Raz&oacute;n Social</th>
+                                                    <th class="">Tarifario</th>
+                                                    <th class="">Desde</th>
+                                                    <th class="">Hasta</th>
+                                                    <th class="" style="max-width: 50px;">Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {% for cc in centroCostos %}
                                                 <tr>
-                                                    <td class="text-center">
-                                                        <a href="/sistema/centroCosto/?idCC={{ cc.id }}" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                    </td>
                                                     <td>{{ cc.id }}</td>
                                                     <td>{{ cc.nombre }}</td>
                                                     <td>{{ cc.descripcion }}</td>
                                                     <td>{{ cc.getClienteRazonSocial }}</td>
                                                     <td>{{ cc.tarifario.nombre }}</td>
                                                     <td>{{ cc.getFechaInicio }}</td>
-                                                    <td>{{ cc.getFechaFin }}</td>   
+                                                    <td>{{ cc.getFechaFin }}</td>
+                                                    <td class="text-center">
+                                                        <a href="/sistema/centroCosto/?idCC={{ cc.id }}" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                    </td>
                                                 </tr>
                                                 {% endfor %}
                                             </tbody>
@@ -117,31 +117,53 @@
                     $('#tablaListadoCC').DataTable( {
                         responsive: true,
                         // scrollY: 300,
-                        order: [[ 1, "asc" ]],
+                        order: [[ 0, "asc" ]],
+                        columnDefs: [
+                            { responsivePriority: 1, targets: 0 },
+                            { responsivePriority: 2, targets: 1 },
+                            { responsivePriority: 3, targets: 3 },
+                            { responsivePriority: 4, targets: 6 },
+                            { responsivePriority: 5, targets: 5 },
+                            { responsivePriority: 6, targets: 4 },
+                            { responsivePriority: 7, targets: 2 },
+                            { responsivePriority: 8, targets: 7 }
+                        ],
                         dom: 'lfBrtip',
                         buttons: [
                             {
                                 extend: 'copy',
                                 exportOptions: {
-                                    columns: ':visible:not(:eq(0))'
+                                    columns: ':visible:not(:eq(7))'
                                 }
                             },
                             {
                                 extend: 'excel',
                                 exportOptions: {
-                                    columns: ':visible:not(:eq(0))'
+                                    columns: ':visible:not(:eq(7))'
                                 }
                             },
                             {
-                                extend: 'pdf',
+                                extend: 'pdfHtml5',
+                                title: 'Central LT - Listado Centro de Costos',
+                                orientation: 'landscape',
+                                pageSize: 'A4',
                                 exportOptions: {
-                                    columns: ':visible:not(:eq(0))'
+                                     columns: [ 0, 1, 2, 3, 4, 5, 6 ]
+                                },
+                                customize: function(doc) {
+                                    doc.content[1].table.widths = [ '5%','20%','20%','25%','10%','10%','10%'];
                                 }
                             },
+                            // {
+                            //     extend: 'pdf',
+                            //     exportOptions: {
+                            //         columns: ':visible:not(:eq(7))'
+                            //     }
+                            // },
                             {
                                 extend: 'print',
                                 exportOptions: {
-                                    columns: ':visible:not(:eq(0))'
+                                    columns: ':visible:not(:eq(7))'
                                 }
                             },
                         ],

@@ -51,14 +51,14 @@
                         <div class="col-md-12">
                             <div class="portlet light ">
                                 <div class="portlet-title">
-                                    <div class="caption font-green" style="display: flex; align-items: baseline; flex-flow: wrap;">
-                                        <span class="caption-subject bold uppercase mg-b-5 mg-r-20" id="viaje_titulo"><i class="icon-rocket font-green mg-r-5"></i>Ingreso del Cliente y Datos del Viaje</span>
-                                        <a href="#!" class="btn btn-outline blue mg-r-10 guardar_viaje" type="submit">Guardar</a>
-                                        <a href="#!" class="btn btn-outline blue mg-r-10">Clonar</a>
-                                        <a href="#!" class="btn btn-outline blue mg-r-10">Copiar Evento</a>
-                                        <a href="/sistema/exportarPdfViaje/?idViaje={{ viaje.id }}" class="btn blue mg-b-5 mg-r-10"><i class="icon-cloud-download"></i></a>
-                                        <a href="#" onclick="mailto();"class="btn blue mg-b-5 mg-r-10"><i class="icon-envelope"></i></a>
-                                        <a href="#!" class="btn blue mg-b-5 mg-r-10"><i class="icon-bubble"></i></a>
+                                    <div class="caption font-green">
+                                        <span class="caption-subject bold uppercase" id="viaje_titulo"><i class="icon-rocket font-green mg-r-5"></i>Ingreso del Cliente y Datos del Viaje</span>
+                                        <a href="#!" class="btn btn-outline blue mg-r-10 mg-b-5 guardar_viaje" type="submit">Guardar</a>
+                                        <a href="#!" class="btn btn-outline blue mg-r-10 mg-b-5">Clonar</a>
+                                        <a href="#!" class="btn btn-outline blue mg-r-10 mg-b-5">Copiar Evento</a>
+                                        <a href="/sistema/exportarPdfViaje/?idViaje={{ viaje.id }}" class="btn blue mg-b-5 mg-r-10 mg-b-5"><i class="icon-cloud-download"></i></a>
+                                        <a href="#" onclick="mailto();"class="btn blue mg-b-5 mg-r-10 mg-b-5"><i class="icon-envelope"></i></a>
+                                        <a href="#!" class="btn blue mg-b-5 mg-r-10 mg-b-5"><i class="icon-bubble"></i></a>
                                     </div>
                                     <div class="tools"></div>
                                 </div>
@@ -504,7 +504,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-2 flex flex-j-center mg-b-10">
-                                                    <a href="#!" class="btn btn-lg blue"><i class="icon-refresh"></i></a>
+                                                    <a href="#!" class="btn btn-lg blue btn-outline"><i class="icon-refresh"></i></a>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-5 mg-b-10">
                                                     <div class="row">
@@ -603,7 +603,7 @@
                                             </div>
                                         </div>
                                         <div class="form-footer flex mg-t-10">
-                                            <button class="btn btn-outline green-haze" type="submit">Guardar</button>
+                                            <button class="btn green-haze" type="submit">Guardar</button>
                                         </div>
                                     </form>
                                     <hr>
@@ -1484,18 +1484,18 @@
                                                                             <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaAdjuntosViajes">
                                                                                 <thead>
                                                                                     <tr>
-                                                                                        <th class="all">Acciones</th>
-                                                                                        <th class="all">Adjunto</th>
+                                                                                        <th class="">Adjunto</th>
+                                                                                        <th class="">Acciones</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>
                                                                                     {% for adjuntoviaje in viaje.getViajeAdjuntos %}
                                                                                     <tr>
+                                                                                        <td>{{ adjuntoviaje.adjunto.upload }}</td>
                                                                                         <td class="text-center">
                                                                                             <a href="#" onclick="deleteViajeAdjunto('{{ adjuntoviaje.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-trash"></i></a>
-                                                                                            <a href="/media/{{adjuntoviaje.adjunto.upload}}" target="_blank" class="btn btn-xs btn-outline red"><i class="fa fa-download"></i></a>
+                                                                                            <a href="/media/{{adjuntoviaje.adjunto.upload}}" target="_blank" class="btn btn-xs btn-outline blue"><i class="fa fa-download"></i></a>
                                                                                         </td>
-                                                                                        <td>{{ adjuntoviaje.adjunto.upload }}</td>
                                                                                     </tr>
                                                                                     {% endfor %}
                                                                                 </tbody>
@@ -1838,7 +1838,7 @@
                             </div>
                         </div>
                         <div class="modal-footer noborder flex">
-                          <button type="button" onclick="javascript:guardarSolicitante();" class="btn btn-outline green mg-r-10">Guardar</button>
+                          <button type="button" onclick="javascript:guardarSolicitante();" class="btn green mg-r-10">Guardar</button>
                           <button type="button" class="btn btn-outline red" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
@@ -1938,7 +1938,7 @@
                             </div>
                         </div>
                         <div class="modal-footer noborder flex">
-                          <button type="button" onclick="guardarPasajeroModal()" class="btn btn-outline green mg-r-10">Guardar</button>
+                          <button type="button" onclick="guardarPasajeroModal()" class="btn green mg-r-10">Guardar</button>
                           <button type="button" class="btn btn-outline red" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
@@ -1997,7 +1997,7 @@
                                 </div>
                                 <div class="modal-footer noborder flex">
                                   <button type="button" onclick="guardarCentroCosto();" class="btn green">Guardar</button>
-                                  <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                  <button type="button" class="btn red btn-outline" data-dismiss="modal">Cancelar</button>
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,65 @@
 {% load static %}
         <div class="preloader"></div>
+        <!-- MODAL NUEVO MENSAJE/NOTIFICACION -->
+        <div id="modal-nuevo-mensaje" class="modal fade" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" style="color:#888;">Nueva Notificación</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="scroller" style="height: 100%;" data-always-visible="1" data-rail-visible1="1">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="form-group form-md-line-input" id="selectDestinatario">
+                                    <select class="form-control select2me" id="destinatario" name="destinatario" multiple="multiple">
+                                        <option value="0">Todos</option>
+                                        <option value="1">Silvio</option>
+                                        <option value="2">René</option>
+                                        <option value="3">Tweety</option>
+                                        <option value="4">Carrario</option>
+                                    </select>
+                                    <label for="destinatario">Para</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group form-md-line-input">
+                                    <textarea class="form-control" rows="3" placeholder="" name="notificacion" id="notificacion"></textarea>
+                                    <label for="notificacion">Mensaje</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer noborder flex">
+                    <button type="button" class="btn green">Enviar</button>
+                    <button type="button" class="btn red btn-outline" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- MODAL MENSAJE/NOTIFICACION -->
+        <div id="modal-mensaje" class="modal fade" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" style="color:#888;">Notificación</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="scroller" style="height: 100%;" data-always-visible="1" data-rail-visible1="1">
+                        <h5>Mensaje de <span class="emisor bold">Diego Alberto</span> | <span class="fecha bold">20/09/2019 15:30</span></h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam suscipit iste enim, laboriosam ratione obcaecati repudiandae possimus. Alias, distinctio molestiae reprehenderit harum deleniti. Minima, ipsum aperiam quidem. Officia exercitationem, aliquid. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae doloribus, dicta consequatur perferendis minus cupiditate voluptate quibusdam laborum eveniet quas recusandae facilis nihil optio tempore neque officia omnis laudantium nam!</p>
+                    </div>
+                </div>
+                <div class="modal-footer noborder flex">
+                    <button type="button" class="btn green" data-dismiss="modal">Mantener</button>
+                    <button type="button" class="btn red btn-outline" data-dismiss="modal">Borrar</button>
+                </div>
+            </div>
+            </div>
+        </div>
         <!-- BEGIN FOOTER -->
         <div class="page-footer">
             <div class="page-footer-inner"> 2019 &nbsp;|&nbsp; &copy; ReservaLogos By
@@ -84,6 +144,13 @@
 
             <script>
                 $(document).ready(function(){
+                    $("#destinatario").select2({
+                        placeholder: "Seleccionar usuario",
+                        allowClear: true,
+                        dropdownAutoWidth : true,
+                        width: 'auto'
+                    });
+
                     toastr.options = {
                       "closeButton": true,
                       "debug": false,

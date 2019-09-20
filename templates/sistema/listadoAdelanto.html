@@ -32,10 +32,10 @@
                             <div class="portlet light ">
                               <div class="portlet-title">
                                   <div class="caption font-blue">
-                                      <i class="icon-credit-card font-blue mg-t-8"></i>
+                                      <i class="icon-credit-card font-blue"></i>
                                       <span class="caption-subject bold uppercase">Listado de Adelantos</span>
-                                      <a href="/sistema/altaAdelanto/" role="button" class="btn green btn-outline mg-l-20">Agregar adelanto</a>
-                                      <a href="#" role="button" onclick="nuevaFacturacion();" class="btn blue btn-outline mg-l-20">Facturar adelanto</a>
+                                      <a href="/sistema/altaAdelanto/" role="button" class="btn green btn-outline mg-r-20 mg-b-5">Agregar adelanto</a>
+                                      <a href="#" role="button" onclick="nuevaFacturacion();" class="btn blue btn-outline">Facturar adelanto</a>
                                   </div>
                                   <div class="tools"> </div>
                               </div>
@@ -67,8 +67,8 @@
                                           </div>
                                       </div>
                                       <div class="form-actions noborder flex">
-                                          <button type="button" onclick="buscarAdelantos();" class="btn green btn-outline mg-r-10">Buscar</button>
-                                          <button type="button" onclick="resetFiltros();"class="btn blue">Resetear filtros</button>
+                                          <button type="button" onclick="buscarAdelantos();" class="btn green mg-r-10">Buscar</button>
+                                          <button type="button" onclick="resetFiltros();"class="btn blue btn-outline">Resetear filtros</button>
                                       </div>
                                   </form>
                               </div>
@@ -104,7 +104,7 @@
                                         <h4 class="modal-title" style="color:#888;">Facturar Adelanto</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="scroller" style="height:200px" data-always-visible="1" data-rail-visible1="1">
+                                        <div class="scroller" style="height: 100%;" data-always-visible="1" data-rail-visible1="1">
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
@@ -117,7 +117,7 @@
                                     </div>
                                     <div class="modal-footer noborder flex">
                                       <button type="button" onclick="guardarNumeroFactura();" class="btn green">Guardar</button>
-                                      <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                      <button type="button" class="btn red btn-outline" data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>
                               </div>
@@ -156,6 +156,7 @@
                         //     style: 'os',
                         //     selector: 'td:first-child'
                         // },
+                        scrollX: true,
                         columnDefs: [ {
                             orderable: false,
                             className: 'select-checkbox',

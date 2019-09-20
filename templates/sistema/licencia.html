@@ -31,13 +31,13 @@
                         </ul>
                     </div>
                     <div class="row">
-                        <div class="col-sm-10 col-sm-offset-1">
+                        <div class="col-sm-12">
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light ">
                                 <div class="portlet-title">
                                     <div class="caption font-blue">
-                                        <i class="icon-user font-blue"></i>
-                                        <span class="caption-subject bold uppercase">Alta/Edición de licencia</span>
+                                        
+                                        <span class="caption-subject bold uppercase"><i class="icon-user font-blue mg-r-5"></i>Alta/Edición de licencia</span>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -48,7 +48,7 @@
                                         
                                         <div class="form-body">
                                             <div class="row">
-                                                <div class="col-sm-3">
+                                                <div class="col-sm-6 col-md-3">
                                                     <div class="form-group form-md-line-input">
                                                         <select id="unidades" class="form-control select2me" name="unidades">
                                                             <option value="">Seleccionar Unidad</option>
@@ -59,7 +59,7 @@
                                                         <label for="unidades">Asignada a:</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3">
+                                                <div class="col-sm-6 col-md-3">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" id="tipoLicencia" name="tipoLicencia">
                                                             {% for tl in tipo_licencias %}
@@ -69,11 +69,11 @@
                                                         <label for="tipoLicencia">Tipo de licencia</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3">
+                                                <div class="col-sm-6 col-md-3">
                                                     <label for="vencimientoLicencia font-12">Vencimiento</label>
                                                     <input class="form-control form-control-inline input-medium date-picker" id="vencimientoLicencia" name="vencimientoLicencia" size="10" type="text" value="{{ licencia.getFechaVencimiento }}" />
                                                 </div>
-                                                <div class="col-sm-3">
+                                                <div class="col-sm-6 col-md-3">
                                                     <div class="form-group form-md-line-input">
                                                         <input type="text" class="form-control" id="descripcionLicencia" name="descripcionLicencia" value="{{ licencia.comentario }}">
                                                         <label for="descripcionLicencia">Descripción</label>
@@ -81,9 +81,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-actions noborder flex mg-t-10">
-                                            <button type="button" onclick="guardarLicencia();" class="btn green btn-outline mg-r-10">Guardar</button>
-                                            <button type="button" onclick="location.href='/sistema/listadoLicencia/';" class="btn red">Cancelar</button>
+                                        <div class="form-actions noborder flex mg-t-20">
+                                            <button type="button" onclick="guardarLicencia();" class="btn green mg-r-10">Guardar</button>
+                                            <button type="button" onclick="location.href='/sistema/listadoLicencia/';" class="btn red btn-outline">Cancelar</button>
                                         </div>
                                     </form>
                                 </div>

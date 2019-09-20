@@ -178,148 +178,24 @@
                                     </div>
                                     <hr>
                                     <div class="row flex align-i-center mg-t-10">
-                                        <div class="col-xs-12 col-sm-6 mg-b-10 viajeDesde">
-                                            <div class="row">
-                                                <div class="col-xs-12">
-                                                    <div class="caption font-green" style="margin:0 auto;margin-bottom: 10px;text-align: center">
-                                                        <span class="caption-subject bold uppercase" style="font-size: 16px">Desde</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- ESTOS SON CAMPOS DINÁMICOS, DEBERÍAN MOSTRARSE UNOS U OTROS SEGÚN SI ES CABA/BA/INTERIOR/TERMINAL (ver la lógica de viaje) -->
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-5 col-md-3 col-lg-3">
-                                                    <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="desde_destino" value="CABA" name="desde_destino" readonly="readonly">
-                                                        <label for="desde_destino">Dirección</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5 cont_desde_localidad">
-                                                    <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="desde_localidad" value="ZONA 2" name="desde_localidad" readonly="readonly">
-                                                        <label for="desde_localidad">Localidad</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cont_desde_provincia">
-                                                    <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="desde_provincia" value="BUENOS AIRES" name="desde_provincia" readonly="readonly">
-                                                        <label for="desde_provincia">Provincia</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="desde_direccion">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-5">
-                                                        <div class="form-group form-md-line-input">
-                                                            <input type="text" class="form-control" id="desde_calle" value="AV. SAN MARTIN" name="desde_calle" readonly="readonly">
-                                                            <label for="desde_calle">Calle</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
-                                                        <div class="form-group form-md-line-input">
-                                                            <input type="text" class="form-control" id="desde_altura" value="125" name="desde_altura" readonly="readonly">
-                                                            <label for="desde_altura">Altura</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-5">
-                                                        <div class="form-group form-md-line-input">
-                                                            <input type="text" class="form-control" id="desde_entre" value="FRENTE A LA SHELL" name="desde_entre" readonly="readonly">
-                                                            <label for="desde_entre">Campo Auxiliar</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="desde_vuelo">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
-                                                        <div class="form-group form-md-line-input">
-                                                            <input type="text" class="form-control" id="desde_compania" value="AEROLÍNEAS ARGENTINAS" name="desde_compania" readonly="readonly">
-                                                            <label for="desde_compania">Compañía</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
-                                                        <div class="form-group form-md-line-input">
-                                                            <input type="text" class="form-control" id="desde_vuelo" value="AA9154" name="desde_vuelo" readonly="readonly">
-                                                            <label for="desde_vuelo">N° vuelo</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="text" class="form-control" id="origenConcat" value="CABA - ZONA 1 - Av. Corrientes 2345" name="origenConcat" readonly="readonly">
+                                                <label for="origenConcat">DESDE</label>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 mg-b-10 viajeHasta">
-                                            <div class="row">
-                                                <div class="col-xs-12">
-                                                    <div class="caption font-green" style="margin:0 auto;margin-bottom: 10px;text-align: center">
-                                                        <span class="caption-subject bold uppercase" style="font-size: 16px">Hasta</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- ESTOS SON CAMPOS DINÁMICOS, DEBERÍAN MOSTRARSE UNOS U OTROS SEGÚN SI ES CABA/BA/INTERIOR/TERMINAL (ver la lógica de viaje) -->
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-5 col-md-3 col-lg-3">
-                                                    <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="hasta_destino" value="CABA" name="hasta_destino" readonly="readonly">
-                                                        <label for="hasta_destino">Dirección</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5 cont_hasta_localidad">
-                                                    <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="hasta_localidad" value="ZONA 2" name="hasta_localidad" readonly="readonly">
-                                                        <label for="hasta_localidad">Localidad</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cont_hasta_provincia">
-                                                    <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control" id="hasta_provincia" value="BUENOS AIRES" name="hasta_provincia" readonly="readonly">
-                                                        <label for="hasta_provincia">Provincia</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="hasta_direccion">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-5">
-                                                        <div class="form-group form-md-line-input">
-                                                            <input type="text" class="form-control" id="hasta_calle" value="AV. SAN MARTIN" name="hasta_calle" readonly="readonly">
-                                                            <label for="hasta_calle">Calle</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
-                                                        <div class="form-group form-md-line-input">
-                                                            <input type="text" class="form-control" id="hasta_altura" value="125" name="hasta_altura" readonly="readonly">
-                                                            <label for="hasta_altura">Altura</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-5">
-                                                        <div class="form-group form-md-line-input">
-                                                            <input type="text" class="form-control" id="hasta_entre" value="FRENTE A LA SHELL" name="hasta_entre" readonly="readonly">
-                                                            <label for="hasta_entre">Campo Auxiliar</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="hasta_vuelo">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
-                                                        <div class="form-group form-md-line-input">
-                                                            <input type="text" class="form-control" id="hasta_compania" value="AEROLÍNEAS ARGENTINAS" name="hasta_compania" readonly="readonly">
-                                                            <label for="hasta_compania">Compañía</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
-                                                        <div class="form-group form-md-line-input">
-                                                            <input type="text" class="form-control" id="hasta_vuelo" value="AA9154" name="hasta_vuelo" readonly="readonly">
-                                                            <label for="hasta_vuelo">N° vuelo</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="text" class="form-control" id="destinoConcat" value="INTERIOR - Córdoba - La Cumbrecita - Av. San Martín 120" name="destinoConcat" readonly="readonly">
+                                                <label for="destinoConcat">HASTA</label>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- ACA PONDRÍA UN if QUE SI NO HAY TRAMOS NO MUESTRE NI LA TABLA NI NADA SOBRE LOS TRAMOS -->
                                     <div class="row mg-t-10">
                                         <div class="col-md-12">
                                             <div class="row">
                                                 <div class="col-sm-12">
-                                                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                                     <div class="portlet light ">
                                                         <div class="portlet-title">
                                                             <div class="caption font-blue" style="display: flex; align-items: baseline; flex-flow: wrap;">
@@ -357,14 +233,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- END EXAMPLE TABLE PORTLET-->
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                             <div class="portlet light ">
                                                 <div class="portlet-title">
                                                     <div class="caption font-blue" style="display: flex; align-items: baseline; flex-flow: wrap;">
@@ -400,12 +274,10 @@
                                                     </table>
                                                 </div>
                                             </div>
-                                            <!-- END EXAMPLE TABLE PORTLET-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
                     </div>
                 </div>

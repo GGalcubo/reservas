@@ -36,8 +36,7 @@
                             <div class="portlet light ">
                                 <div class="portlet-title">
                                     <div class="caption font-blue">
-                                        <i class="icon-briefcase font-blue"></i>
-                                        <span class="caption-subject bold uppercase">Alta/Edición de cliente</span>
+                                        <span class="caption-subject bold uppercase"><i class="icon-briefcase font-blue mg-r-5"></i>Alta/Edición de cliente</span>
                                     </div>
                                     <div class="tools"> </div>
                                 </div>
@@ -182,7 +181,7 @@
                                             </div>
                                         </div>
                                         <div class="form-actions noborder flex">
-                                            <button type="button" onclick="guardarCliente();" class="btn green btn-outline mg-r-10">Guardar</button>
+                                            <button type="button" onclick="guardarCliente();" class="btn green mg-r-10">Guardar</button>
                                             <button type="button" class="btn btn-outline red">Cancelar</button>
                                         </div>
                                     </form>
@@ -220,8 +219,8 @@
                                                                     <div class="portlet-title">
                                                                         <div class="caption font-blue">
                                                                             <i class="icon-flag font-blue mg-t-8"></i>
-                                                                            <span class="caption-subject bold uppercase">Centros de Costo</span>
-                                                                            <a href="#" onclick="javascript:nuevoCCProspect();" data-toggle="modal" role="button" class="btn green btn-outline mg-l-20">Agregar centro de costo</a>
+                                                                            <span class="caption-subject bold uppercase mg-r-20">Centros de Costo</span>
+                                                                            <a href="#" onclick="javascript:nuevoCCProspect();" data-toggle="modal" role="button" class="btn green btn-outline">Agregar centro de costo</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -230,20 +229,21 @@
                                                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaCentroCostos">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th class="all">Editar</th>
-                                                                                    <!--th class="all">Eliminar</th-->
-                                                                                    <th class="all">ID</th>
-                                                                                    <th class="all">Código CC</th>
-                                                                                    <th class="all">Descripción</th>
-                                                                                    <th class="all">Tarifario</th>
-                                                                                    <th class="all">Desde</th>
-                                                                                    <th class="all">Hasta</th>
+                                                                                    <!-- <th class="">Editar</th> -->
+                                                                                    <!--th class="">Eliminar</th-->
+                                                                                    <th class="">ID</th>
+                                                                                    <th class="">Código CC</th>
+                                                                                    <th class="">Descripción</th>
+                                                                                    <th class="">Tarifario</th>
+                                                                                    <th class="">Desde</th>
+                                                                                    <th class="">Hasta</th>
+                                                                                    <th class="">Acciones</th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
                                                                                 {% for cc in cliente.getCentroCostos %}
                                                                                 <tr>
-                                                                                    <td class="text-center"><a href="#" onclick="editarCCPropect('{{ cc.id }}','{{ cliente.id }}','{{ cc.nombre }}','{{ cc.descripcion }}','{{ cc.getFechaInicio }}','{{ cc.getFechaFin }}','{{ cc.tarifario.id }}');"><i class="fa fa-pencil"></i></a></td>
+                                                                                    <!-- <td></td> -->
                                                                                     <!--td class="text-center"><a href="#" onclick="eliminarCCPropect('{{ cc.id }}','{{ cliente.id }}');"><i class="fa fa-minus-circle"></i></a></td -->
                                                                                     <td>{{ cc.id }}</td>
                                                                                     <td>{{ cc.nombre }}</td>
@@ -251,6 +251,8 @@
                                                                                     <td>{{ cc.tarifario.nombre }}</td>
                                                                                     <td>{{ cc.getFechaInicio }}</td>
                                                                                     <td>{{ cc.getFechaFin }}</td>   
+                                                                                    <td class="text-center"><a href="#" onclick="editarCCPropect('{{ cc.id }}','{{ cliente.id }}','{{ cc.nombre }}','{{ cc.descripcion }}','{{ cc.getFechaInicio }}','{{ cc.getFechaFin }}','{{ cc.tarifario.id }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                    </td>
                                                                                 </tr>
                                                                                 {% endfor %}
                                                                             </tbody>
@@ -269,7 +271,7 @@
                                                                                             <h4 class="modal-title" style="color:#888;">Agregar Centro de Costo</h4>
                                                                                         </div>
                                                                                         <div class="modal-body">
-                                                                                            <div class="scroller" style="height:150px" data-always-visible="1" data-rail-visible1="1">
+                                                                                            <div class="scroller" style="height:100%" data-always-visible="1" data-rail-visible1="1">
                                                                                                 <div class="row">
                                                                                                     <div class="col-sm-4">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
@@ -308,7 +310,7 @@
                                                                                         </div>
                                                                                         <div class="modal-footer noborder flex">
                                                                                           <button type="button" onclick="guardarCentroCosto();" class="btn green">Guardar</button>
-                                                                                          <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                          <button type="button" class="btn red btn-outline" data-dismiss="modal">Cancelar</button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -321,7 +323,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-actions noborder flex">
-                                                        <button type="button" class="btn green btn-outline mg-r-10">Guardar</button>
+                                                        <button type="button" class="btn green mg-r-10">Guardar</button>
                                                         <button type="button" class="btn btn-outline red">Cancelar</button>
                                                     </div>
                                                 </form>
@@ -335,9 +337,9 @@
                                                                 <div class="portlet light ">
                                                                     <div class="portlet-title">
                                                                         <div class="caption font-blue">
-                                                                            <i class="icon-user font-blue mg-t-8"></i>
-                                                                            <span class="caption-subject bold uppercase">Solicitante</span>
-                                                                            <a href="#" onclick="javascript:nuevoSolicitanteProspect();" role="button" data-toggle="modal" class="btn green btn-outline mg-l-20">Agregar solicitante</a>
+                                                                            <i class="icon-user font-blue"></i>
+                                                                            <span class="caption-subject bold uppercase mg-r-20">Solicitante</span>
+                                                                            <a href="#" onclick="javascript:nuevoSolicitanteProspect();" role="button" data-toggle="modal" class="btn green btn-outline">Agregar solicitante</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -346,29 +348,28 @@
                                                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaSolicitanteClientes">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th class="all">Editar</th>
-                                                                                    <th class="all">Borrar</th>
-                                                                                    <th class="all">Nombre</th>
-                                                                                    <th class="all">Apellido</th>
-                                                                                    <th class="all">Puesto</th>
-                                                                                    <th class="all">Teléfono</th>
-                                                                                    <th class="all">Mail</th>
+                                                                                    <!-- <th class="">Editar</th>
+                                                                                    <th class="">Borrar</th> -->
+                                                                                    <th class="">Apellido</th>
+                                                                                    <th class="">Nombre</th>
+                                                                                    <th class="">Puesto</th>
+                                                                                    <th class="">Teléfono</th>
+                                                                                    <th class="">Mail</th>
+                                                                                    <th class="">Acciones</th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
                                                                                 {% for c in cliente.getContactos %}
                                                                                 <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#" onclick="editarSolicitante('{{ c.id }}','{{ cliente.id }}','{{ c.nombre }}','{{ c.apellido }}','{{ c.puesto|default_if_none:"" }}','{{ c.mail|default_if_none:"" }}','{{ c.getTelefono }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#" onclick="borrarSolicitante('{{ c.id }}','{{ cliente.id }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-times"></i></a>
-                                                                                    </td>
-                                                                                    <td>{{ c.nombre|default_if_none:"" }}</td>
                                                                                     <td>{{ c.apellido|default_if_none:"" }}</td>
+                                                                                    <td>{{ c.nombre|default_if_none:"" }}</td>
                                                                                     <td>{{ c.puesto|default_if_none:"" }}</td>
                                                                                     <td>{{ c.getTelefono }}</td>
                                                                                     <td>{{ c.mail|default_if_none:"" }}</td>
+                                                                                    <td>
+                                                                                        <a href="#" onclick="editarSolicitante('{{ c.id }}','{{ cliente.id }}','{{ c.nombre }}','{{ c.apellido }}','{{ c.puesto|default_if_none:"" }}','{{ c.mail|default_if_none:"" }}','{{ c.getTelefono }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                        <a href="#" onclick="borrarSolicitante('{{ c.id }}','{{ cliente.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
+                                                                                    </td>
                                                                                 </tr>
                                                                                 {% endfor %}
                                                                             </tbody>
@@ -387,7 +388,7 @@
                                                                                             <h4 class="modal-title" style="color:#888;">Agregar Solicitante</h4>
                                                                                         </div>
                                                                                         <div class="modal-body">
-                                                                                            <div class="scroller" style="height:120px" data-always-visible="1" data-rail-visible1="1">
+                                                                                            <div class="scroller" style="height:100%" data-always-visible="1" data-rail-visible1="1">
                                                                                                 <div class="row">
                                                                                                     <div class="col-sm-4">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
@@ -426,7 +427,7 @@
                                                                                         </div>
                                                                                         <div class="modal-footer noborder flex">
                                                                                           <button type="button" onclick="javascript:guardarSolicitante();" class="btn green">Guardar</button>
-                                                                                          <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                          <button type="button" class="btn red btn-outline" data-dismiss="modal">Cancelar</button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -439,7 +440,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-actions noborder flex">
-                                                        <button type="button" class="btn green btn-outline mg-r-10">Guardar</button>
+                                                        <button type="button" class="btn green mg-r-10">Guardar</button>
                                                         <button type="button" class="btn btn-outline red">Cancelar</button>
                                                     </div>
                                                 </form>
@@ -453,9 +454,9 @@
                                                                 <div class="portlet light ">
                                                                     <div class="portlet-title">
                                                                         <div class="caption font-blue">
-                                                                            <i class="icon-user font-blue mg-t-8"></i>
-                                                                            <span class="caption-subject bold uppercase">Pasajeros</span>
-                                                                            <a href="#add_pasajero_cliente" role="button" data-toggle="modal" class="btn green btn-outline mg-l-20">Agregar pasajero</a>
+                                                                            <i class="icon-user font-blue"></i>
+                                                                            <span class="caption-subject bold uppercase mg-r-20">Pasajeros</span>
+                                                                            <a href="#add_pasajero_cliente" role="button" data-toggle="modal" class="btn green btn-outline">Agregar pasajero</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -464,33 +465,34 @@
                                                                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaPasajeroClientes">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th class="all">Editar</th>
-                                                                                    <th class="all">Borrar</th>
-                                                                                    <th class="all">Nombre</th>
-                                                                                    <th class="all">Apellido</th>
-                                                                                    <th class="all">DNI</th>
-                                                                                    <th class="all">Nacionalidad</th>
-                                                                                    <th class="all">Domicilio</th>
-                                                                                    <th class="all">Teléfono</th>
-                                                                                    <th class="all">Comentario</th>
+                                                                                    <!-- <th class="">Editar</th>
+                                                                                    <th class="">Borrar</th> -->
+                                                                                    <th class="">Apellido</th>
+                                                                                    <th class="">Nombre</th>
+                                                                                    <th class="">DNI</th>
+                                                                                    <th class="">Nacionalidad</th>
+                                                                                    <th class="">Domicilio</th>
+                                                                                    <th class="">Teléfono</th>
+                                                                                    <th class="">Comentario</th>
+                                                                                    <th class="">Acciones</th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
                                                                                 {% for p in cliente.getPasajeros %}
                                                                                 <tr>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#" onclick="editarPasajero('{{ p.id }}','{{ cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
-                                                                                    </td>
-                                                                                    <td class="text-center">
-                                                                                        <a href="#" onclick="borrarPasajero('{{ p.id }}','{{ cliente.id }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-times"></i></a>
-                                                                                    </td>
-                                                                                    <td>{{ p.nombre|default_if_none:"" }}</td>
+                                                                                    <!-- <td class="text-center"></td>
+                                                                                    <td class="text-center"></td> -->
                                                                                     <td>{{ p.apellido|default_if_none:"" }}</td>
+                                                                                    <td>{{ p.nombre|default_if_none:"" }}</td>
                                                                                     <td>{{ p.documento|default_if_none:"" }}</td>
                                                                                     <td>{{ p.nacionalidad|default_if_none:"" }}</td>
                                                                                     <td>{{ p.getDomicilio }}</td>
                                                                                     <td>{{ p.getTelefono }}</td>
                                                                                     <td>{{ p.getObservacion }}</td>
+                                                                                    <td>
+                                                                                        <a href="#" onclick="editarPasajero('{{ p.id }}','{{ cliente.id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                        <a href="#" onclick="borrarPasajero('{{ p.id }}','{{ cliente.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
+                                                                                    </td>
                                                                                 </tr>
                                                                                 {% endfor %}
                                                                             </tbody>
@@ -509,7 +511,7 @@
                                                                                             <h4 class="modal-title" style="color:#888;">Agregar Pasajero</h4>
                                                                                         </div>
                                                                                         <div class="modal-body">
-                                                                                            <div class="scroller" style="height:220px" data-always-visible="1" data-rail-visible1="1">
+                                                                                            <div class="scroller" style="height:100%" data-always-visible="1" data-rail-visible1="1">
                                                                                                 <div class="row">
                                                                                                     <div class="col-sm-4">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
@@ -589,7 +591,7 @@
                                                                                         </div>
                                                                                         <div class="modal-footer noborder flex">
                                                                                           <button type="button" onclick="guardarPasajero()" class="btn green">Guardar</button>
-                                                                                          <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                          <button type="button" class="btn red btn-outline" data-dismiss="modal">Cancelar</button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -602,7 +604,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-actions noborder flex">
-                                                        <button type="button" class="btn green btn-outline mg-r-10">Guardar</button>
+                                                        <button type="button" class="btn green mg-r-10">Guardar</button>
                                                         <button type="button" class="btn btn-outline red">Cancelar</button>
                                                     </div>
                                                 </form>
@@ -707,9 +709,9 @@
                                                                 <div class="portlet light ">
                                                                     <div class="portlet-title">
                                                                         <div class="caption font-blue">
-                                                                            <i class="icon-notebook font-blue mg-t-8"></i>
-                                                                            <span class="caption-subject bold uppercase">Observaciones</span>
-                                                                            <a href="#add_observacion_cliente" role="button" data-toggle="modal" class="btn green btn-outline mg-l-20">Agregar observación</a>
+                                                                            <i class="icon-notebook font-blue"></i>
+                                                                            <span class="caption-subject bold uppercase mg-r-20">Observaciones</span>
+                                                                            <a href="#add_observacion_cliente" role="button" data-toggle="modal" class="btn green btn-outline">Agregar observación</a>
                                                                         </div>
                                                                         <div class="tools"> </div>
                                                                     </div>
@@ -745,7 +747,7 @@
                                                                                                 <h4 class="modal-title" style="color:#888;">Agregar Observación</h4>
                                                                                             </div>
                                                                                             <div class="modal-body">
-                                                                                                <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
+                                                                                                <div class="scroller" style="height:100%" data-always-visible="1" data-rail-visible1="1">
                                                                                                     <div class="row">
                                                                                                         <div class="col-sm-6 col-sm-offset-3">
                                                                                                             <div class="form-group form-md-line-input">
@@ -758,7 +760,7 @@
                                                                                             </div>
                                                                                             <div class="modal-footer noborder flex">
                                                                                               <button type="button" onclick="agregarObservacion()" class="btn green">Guardar</button>
-                                                                                              <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                                                                              <button type="button" class="btn red btn-outline" data-dismiss="modal">Cancelar</button>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -772,7 +774,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-actions noborder flex">
-                                                        <button type="button" class="btn green btn-outline mg-r-10">Guardar</button>
+                                                        <button type="button" class="btn green mg-r-10">Guardar</button>
                                                         <button type="button" class="btn btn-outline red">Cancelar</button>
                                                     </div>
                                                 </form>
@@ -815,10 +817,40 @@
                     var idCliente = getUrlParameter('idCliente');
                     $(document).prop('title', 'Cliente '+ idCliente+' - Central LT');
 
+                    $('#tablaCentroCostos').DataTable( {
+                        responsive: true,
+                        // scrollY: 200,
+                        order: [[ 0, "asc" ]],
+                        columnDefs: [
+                            { responsivePriority: 1, targets: 0 },
+                            { responsivePriority: 2, targets: 1 },
+                            { responsivePriority: 3, targets: 2 },
+                            { responsivePriority: 4, targets: 3 },
+                            { responsivePriority: 5, targets: 4 },
+                            { responsivePriority: 6, targets: 5 },
+                            { responsivePriority: 7, targets: 6 }
+                        ],
+                        lengthMenu: [
+                                        [ 100, 50, 25, 10, -1 ],
+                                        [ '100', '50', '25', '10', 'Todos' ]
+                                    ],
+                        language: {
+                            url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                        },
+                    } );
+
                     $('#tablaSolicitanteClientes').DataTable( {
                         responsive: true,
                         // scrollY: 200,
-                        order: [[ 1, "asc" ]],
+                        order: [[ 0, "asc" ]],
+                        columnDefs: [
+                            { responsivePriority: 1, targets: 0 },
+                            { responsivePriority: 2, targets: 1 },
+                            { responsivePriority: 3, targets: 2 },
+                            { responsivePriority: 4, targets: 3 },
+                            { responsivePriority: 5, targets: 4 },
+                            { responsivePriority: 6, targets: 5 }
+                        ],
                         lengthMenu: [
                                         [ 100, 50, 25, 10, -1 ],
                                         [ '100', '50', '25', '10', 'Todos' ]
@@ -831,7 +863,17 @@
                     $('#tablaPasajeroClientes').DataTable( {
                         responsive: true,
                         // scrollY: 200,
-                        order: [[ 1, "asc" ]],
+                        order: [[ 0, "asc" ]],
+                        columnDefs: [
+                            { responsivePriority: 1, targets: 0 },
+                            { responsivePriority: 2, targets: 1 },
+                            { responsivePriority: 3, targets: 2 },
+                            { responsivePriority: 4, targets: 3 },
+                            { responsivePriority: 5, targets: 4 },
+                            { responsivePriority: 6, targets: 5 },
+                            { responsivePriority: 7, targets: 6 },
+                            { responsivePriority: 8, targets: 7 }
+                        ],
                         lengthMenu: [
                                         [ 100, 50, 25, 10, -1 ],
                                         [ '100', '50', '25', '10', 'Todos' ]
