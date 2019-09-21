@@ -414,7 +414,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 
 //Menú notificaciones
 .page-header.navbar .top-menu .navbar-nav>li.dropdown-inbox>.dropdown-menu .dropdown-menu-list {
-  max-height: 220px;
+  max-height: 260px;
   overflow-x: hidden;
   overflow-y: scroll;
   &>li .subject {
@@ -422,7 +422,8 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   }
   &>li .message {
     margin-left: 0;
-    height: 30px;
+    height: auto;
+    max-height: 45px;
     overflow: hidden;
   }
 }
@@ -442,6 +443,11 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
       align-items: center;
       padding: 0 0 0 10px;
     }
+}
+
+//Ancho del menu notificaciones
+.page-header.navbar .top-menu .navbar-nav>li.dropdown-user.dropdown-inbox>.dropdown-menu {
+    width: 250px;
 }
 
 .dropdown-menu.dropdown-menu-default {
@@ -504,11 +510,11 @@ p.big {
 
   // menu de notificaciones en mobile
   .page-header.navbar .top-menu .navbar-nav>li.dropdown-inbox .dropdown-menu {
-    left: -150px;
+    left: -200px;
   }
   .page-header.navbar .top-menu .navbar-nav>li.dropdown-inbox .dropdown-menu:after,
   .page-header.navbar .top-menu .navbar-nav>li.dropdown-inbox .dropdown-menu:before {
-    margin-left: 155px;
+    margin-left: 205px;
   }
 
   .viajeDesde {
