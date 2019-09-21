@@ -2113,7 +2113,14 @@ def buscarCentroDeCostos(request):
 	hasta = request.POST.get('hasta', "")
 	fechaDesde =  getAAAAMMDD(desde)
 	fechaHasta =  getAAAAMMDD(hasta)
-	centroCostos = CentroCosto.objects.filter(baja=False, fecha_inicio__lte=fechaHasta, fecha_fin__gte=fechaDesde)
+	viajes = Viaje.objects.filter(fecha__lte=fechaHasta, fecha__gte=fechaDesde,centro_costo__isnull=False)
+	centroCostosIds = []
+	centroCostos = []
+	for v in viajes:
+		if v.centro_costo.id not in centroCostosIds:
+			centroCostos.append(v.centro_costo)
+			centroCostosIds.append(v.centro_costo.id)
+
 	context = {'centroCostos': centroCostos}
 	return render(request, 'sistema/grillaListadoCentroDeCosto.html', context)
 
