@@ -8,13 +8,11 @@
                 <th class="all">Fecha</th>
                 <th class="all">Hora</th>
                 <th class="all">Cliente</th>
-                <th class="all">Solicitante</th>
                 <th class="all">Pasajero</th>
                 <th class="all">Origen</th>
                 <th class="all">Destino</th>
-                <th class="all">Unidad</th>
-                <th class="all">C. Costo</th>
-                <th class="all">Estado</th>
+                <th class="all">Comentario Chofer</th>
+
             </tr>
         </thead>
         <tbody>
@@ -25,14 +23,10 @@
                     <td class="all">{{ v.getFecha }}</td>
                     <td class="all">{{ v.hora }}</td>
                     <td class="all">{{ v.cliente }}</td>
-                    <td class="all">{{ v.solicitante }}</td>
                     <td class="all">{{ v.pasajero }}</td>
                     <td class="all"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.desdeConcat }}</span></td>
                     <td class="all"><span class="label label-sm label-warning">{{ v.getTrayectoPrincipal.hastaConcat }}</span></td>
-                    <td class="all">{{ v.unidad.id }} {{ v.unidad.identificacion }}</td>
-                    <td class="all">{{ v.centro_costo }}</td>
-                    <td class="all"><span class="label label-primary" style="background-color:{{v.estado.color}}!important;"> {{ v.estado }} </span></td>
-
+                    <td class="all">{{ v.getObservacioneChofer }}</td>
                 </tr>
         {% endfor %}
         </tbody>
