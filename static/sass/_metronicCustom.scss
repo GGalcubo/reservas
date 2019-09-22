@@ -448,6 +448,14 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 //Ancho del menu notificaciones
 .page-header.navbar .top-menu .navbar-nav>li.dropdown-user.dropdown-inbox>.dropdown-menu {
     width: 250px;
+    // cuando no tiene notificaciones
+    li.sinNotificaciones {
+        color: #505050;
+        text-align: center;
+        font-weight: 700;
+        padding: 15px;
+        background-color: #f1f1f1;
+    }
 }
 
 .dropdown-menu.dropdown-menu-default {
