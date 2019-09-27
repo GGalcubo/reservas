@@ -9,7 +9,7 @@
                         <h4 class="modal-title" style="color:#888;">Nueva Notificación</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="scroller" style="height: 100%;" data-always-visible="1" data-rail-visible1="1">
+                        <div class="scroller" style="height: 100%; min-height: 175px;" data-always-visible="1" data-rail-visible1="1">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-4">
                                     <div class="form-group form-md-line-input" id="selectDestinatario">
@@ -25,8 +25,9 @@
                                 </div>
                                 <div class="col-xs-12">
                                     <div class="form-group form-md-line-input">
-                                        <textarea class="form-control" rows="3" placeholder="" name="notificacion" id="notificacion"></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="" name="notificacion" id="notificacion" maxlength="400"></textarea>
                                         <label for="notificacion">Mensaje</label>
+                                        <span class="help-block">Se permiten hasta 400 caracteres</span>
                                     </div>
                                 </div>
                             </div>

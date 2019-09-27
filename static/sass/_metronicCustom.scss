@@ -358,6 +358,11 @@ table.dataTable tr.selected td.select-checkbox:after {
   background: #3598dc;
 }
 
+// .form-group.form-md-line-input .form-control.edited:not([readonly]) ~ .help-block,
+.form-group.form-md-line-input .form-control:focus:not([readonly]) ~ .help-block {
+  color: #757575;
+}
+
 // CAMBIO EL COLOR DE LA LINEA DE LAS TABS ACTIVE
 .tabbable-line>.nav-tabs>li.active {
   border-bottom: 4px solid #3598dc;
