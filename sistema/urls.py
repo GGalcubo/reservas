@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^checkLocalidadFlag/', checkLocalidadFlag, name='checkLocalidadFlag'),
     url(r'^guardaViajeAdmin/', guardaViajeAdmin, name='guardaViajeAdmin'),
     url(r'^editEstadoViaje/', editEstadoViaje, name='editEstadoViaje'),
+    url(r'^cambiarEstadoViajes/', cambiarEstadoViajes, name='cambiarEstadoViajes'),
     url(r'^guardarObservacionViaje/', guardarObservacionViaje, name='guardarObservacionViaje'),
     url(r'^guardarTrayecto/', guardarTrayecto, name='guardarTrayecto'),
     url(r'^borrarTrayecto/', borrarTrayecto, name='borrarTrayecto'),
