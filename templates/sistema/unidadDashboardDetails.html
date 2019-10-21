@@ -1,0 +1,63 @@
+{% load static %}
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="dashboard-stat2 ">
+        <div class="display">
+            <div class="number">
+                <p class="big bold font-green-sharp">
+                    <span class="font-green-sharp">$</span>
+                    <span data-counter="counterup" data-value="{{ recaudado }}">{{ recaudado }}</span>
+                </p>
+                <small>RECAUDADO</small>
+            </div>
+            <div class="icon">
+                <i class="icon-wallet"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="dashboard-stat2 ">
+        <div class="display">
+            <div class="number">
+                <p class="big bold font-red-haze">
+                    <span class="font-red-haze">$</span>
+                    <span data-counter="counterup" data-value="{{ adelantos }}">{{ adelantos }}</span>
+                </p>
+                <small>ADELANTOS</small>
+            </div>
+            <div class="icon">
+                <i class="icon-credit-card"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="dashboard-stat2 ">
+        <div class="display">
+            <div class="number">
+                <p class="big bold font-blue-sharp">
+                    <span data-counter="counterup" data-value="{{ cantidad_viajes }}">{{ cantidad_viajes }}</span>
+                </p>
+                <small>VIAJES</small>
+            </div>
+            <div class="icon">
+                <i class="icon-rocket"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="dashboard-stat2 ">
+        <div class="display">
+            <div class="number">
+                <p class="big bold font-purple-soft">
+                    <span data-counter="counterup" data-value="{{ dias_trabajados }}">{{ dias_trabajados }}</span>
+                </p>
+                <small>DÍAS TRABAJADOS</small>
+            </div>
+            <div class="icon">
+                <i class="icon-calendar"></i>
+            </div>
+        </div>
+    </div>
+</div>

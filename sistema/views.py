@@ -3267,6 +3267,73 @@ def mailtoViaje(request):
 
 
 @login_required
+def unidadViaje(request):
+    mensaje = ""
+
+    context = {'mensaje': mensaje}
+    return render(request, 'sistema/unidadViaje.html', context)
+
+
+
+@login_required
+def unidadDashboard(request):
+	mensaje = ""
+	context = {'mensaje': mensaje}
+	return render(request, 'sistema/unidadDashboard.html', context)
+
+
+
+@login_required
+def refreshUnidadDashboard(request):
+	desde = request.POST.get('desde', False)
+	hasta = request.POST.get('hasta', False)
+
+	fechaDesde =  getAAAAMMDD(desde)
+	fechaHasta =  getAAAAMMDD(hasta)
+	uniList    = []
+
+	current_user = request.user
+
+	uni_usu = current_user.usrunidad_set.all()
+	unidades = []
+	for uu in uni_usu:
+		if uu.unidad:
+			unidades.append(uu.unidad)
+
+	if unidades:
+		viajes = Viaje.objects.filter(unidad_id__in=unidades,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+	else:
+		viajes = []
+
+	viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+
+	recaudado   = 0
+	adelantos   = 0
+	cant_viajes = 0
+	dias_trab   = []
+
+	for u in unidades:
+		for a in u.adelanto_set.all():
+			adelantos += a.monto
+
+	for v in viajes:
+		print v.fecha
+		if v.fecha not in dias_trab:
+			dias_trab.append(v.fecha)
+		cant_viajes += 1 
+		recaudado += v.getTotalCliente()
+
+
+	context = {
+		'recaudado': recaudado,
+		'adelantos': adelantos,
+		'cantidad_viajes': cant_viajes,
+		'dias_trabajados': len(dias_trab)
+	}
+	return render(request, 'sistema/unidadDashboardDetails.html', context)
+
+
+@login_required
 def cargarMenu(request):
 	permisos = [x.name for x in Permission.objects.filter(user=request.user)]
 	if 'unidades' in permisos:
@@ -3358,17 +3425,3 @@ def getUnidadesByUser(request):
 	for u in usrunidad:
 		unidades.append(u.unidad.id)
 	return unidades
-
-@login_required
-def unidadViaje(request):
-    mensaje = ""
-
-    context = {'mensaje': mensaje}
-    return render(request, 'sistema/unidadViaje.html', context)
-
-@login_required
-def unidadDashboard(request):
-    mensaje = ""
-
-    context = {'mensaje': mensaje}
-    return render(request, 'sistema/unidadDashboard.html', context)

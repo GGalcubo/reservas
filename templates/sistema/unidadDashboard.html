@@ -79,7 +79,7 @@
                                         </div>
                                     </form>
                                     <hr>
-                                    <div class="row">
+                                    <div id="details" class="row">
                                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                             <div class="dashboard-stat2 ">
                                                 <div class="display">
@@ -182,12 +182,45 @@
                     todayHighlight: true,
                     autoclose: true
                 });
+
+                buscar();
+
             });
 
             function buscar(){
-                alert('No funciona claro, hay que hacer la magia :)')
+                if ($('#periodo_desde').val() == ""){
+                    alert("El campo Fecha desde es obligatorio.")
+                    return false;
+                }
+                if ($('#periodo_hasta').val() == ""){
+                    alert("El campo Fecha hasta es obligatorio.")
+                    return false;
+                }
+
+                desde = $('#periodo_desde').val().substring(6,10) + $('#periodo_desde').val().substring(3,5) + $('#periodo_desde').val().substring(0,2);
+                hasta = $('#periodo_hasta').val().substring(6,10) + $('#periodo_hasta').val().substring(3,5) + $('#periodo_hasta').val().substring(0,2);
+
+                if (desde.localeCompare(hasta) == 1 ){
+                    alert("La fecha desde no puede ser mayor a la fecha hasta.")
+                    return false;
+                }
+
+                var params = "&desde="+$("#periodo_hasta").val();
+                params += "&hasta="+$("#periodo_hasta").val();
+
+                var url = "/sistema/refreshUnidadDashboard/";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                    data: params,
+                    success: function(data){
+                        $("#details").html(data)
+                    }
+                });
             }
 
         </script>
+        
     </body>
 </html>

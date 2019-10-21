@@ -303,6 +303,15 @@ class Unidad(models.Model):
     def getFechaNacimiento(self):
         return getFecha(self.fecha_nacimiento)
 
+    def getUsuarioUnidad(self):
+        retorno = []
+        usu_uni = self.usrunidad_set.all()
+        if usu_uni:
+            for uu in usu_uni:
+                if uu.usuario:
+                    retorno.append(uu)
+        return retorno
+
     class Meta:
         verbose_name_plural = "Unidades"
 
