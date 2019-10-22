@@ -1268,7 +1268,7 @@ class Adelanto (models.Model):
     unidad = models.ForeignKey(Unidad, null=True, blank=True)
     tipo_adelanto = models.ForeignKey(TipoAdelanto, null=True, blank=True)
     fecha = models.CharField(max_length=8, null=True, blank=True)
-    monto = models.CharField(max_length=25, null=True, blank=True)
+    monto = models.FloatField(default=0)
     factura = models.CharField(max_length=25, null=True, blank=True)
     descripcion = models.CharField(max_length=250, null=True, blank=True)
 
