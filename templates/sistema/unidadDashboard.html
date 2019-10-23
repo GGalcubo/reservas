@@ -64,9 +64,9 @@
                                                     <div class="form-group mg-b-10">
                                                         <label class="control-label mg-b-0" style="color: #888;">Período</label>
                                                         <div class="input-group date-picker input-daterange" data-date-format="dd/mm/yyyy">
-                                                          <input type="text" class="form-control" name="periodo_desde" id="periodo_desde" value="01/09/2019">
+                                                          <input type="text" class="form-control" name="periodo_desde" id="periodo_desde" value="">
                                                           <span class="input-group-addon" style="font-size: 10px;"> hasta </span>
-                                                          <input type="text" class="form-control" name="periodo_hasta" id="periodo_hasta" value="30/09/2019">
+                                                          <input type="text" class="form-control" name="periodo_hasta" id="periodo_hasta" value="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -166,7 +166,11 @@
         <script>
             $(document).ready(function(){
                 $(document).prop('title', 'Dashboard Unidad - Central LT');
-
+                var d = new Date();
+                var currMonth = d.getMonth();
+                var currYear = d.getFullYear();
+                var startDate = new Date(currYear,currMonth,1);
+                
                 $('#periodo_desde').datepicker({
                     language: 'es',
                     dateFormat: 'dd/mm/yy',
@@ -174,7 +178,9 @@
                     todayHighlight: true,
                     autoclose: true
                 });
+                $('#periodo_desde').datepicker('setDate',startDate);
 
+                var endDate = new Date(currYear,currMonth+1,0);
                 $('#periodo_hasta').datepicker({
                     language: 'es',
                     dateFormat: 'dd/mm/yy',
@@ -182,6 +188,7 @@
                     todayHighlight: true,
                     autoclose: true
                 });
+                $('#periodo_hasta').datepicker('setDate',endDate);
 
                 buscar();
 
@@ -205,7 +212,7 @@
                     return false;
                 }
 
-                var params = "&desde="+$("#periodo_hasta").val();
+                var params = "&desde="+$("#periodo_desde").val();
                 params += "&hasta="+$("#periodo_hasta").val();
 
                 var url = "/sistema/refreshUnidadDashboard/";

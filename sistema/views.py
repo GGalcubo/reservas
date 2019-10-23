@@ -3317,11 +3317,10 @@ def refreshUnidadDashboard(request):
 			adelantos += a.monto
 
 	for v in viajes:
-		print v.fecha
 		if v.fecha not in dias_trab:
 			dias_trab.append(v.fecha)
 		cant_viajes += 1 
-		recaudado += v.getTotalCliente()
+		recaudado += v.getPagarProveedor()
 
 
 	context = {
