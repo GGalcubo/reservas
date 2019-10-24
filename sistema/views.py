@@ -3298,23 +3298,22 @@ def refreshUnidadDashboard(request):
 	unidades = []
 	for uu in uni_usu:
 		if uu.unidad:
-			unidades.append(uu.unidad)
+			unidades.append(uu.unidad.id)
 
 	if unidades:
 		viajes = Viaje.objects.filter(unidad_id__in=unidades,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 	else:
 		viajes = []
 
-	viajes = Viaje.objects.filter(fecha__gte=fechaDesde, fecha__lte=fechaHasta)
-
 	recaudado   = 0
 	adelantos   = 0
 	cant_viajes = 0
 	dias_trab   = []
 
-	for u in unidades:
-		for a in u.adelanto_set.all():
-			adelantos += a.monto
+	adelantos = Adelanto().objects.filter(unidad_id__in=unidades,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+
+	for a in adelantos:
+		adelantos += a.monto
 
 	for v in viajes:
 		if v.fecha not in dias_trab:
