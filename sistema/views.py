@@ -3310,7 +3310,7 @@ def refreshUnidadDashboard(request):
 	cant_viajes = 0
 	dias_trab   = []
 
-	adelantos = Adelanto().objects.filter(unidad_id__in=unidades,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
+	adelantos = Adelanto.objects.filter(unidad_id__in=unidades,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 
 	for a in adelantos:
 		adelantos += a.monto
