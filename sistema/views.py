@@ -3306,7 +3306,7 @@ def refreshUnidadDashboard(request):
 		viajes = []
 
 	recaudado   = 0
-	adelantos_valor   = 0
+	adelantos_valor = 0
 	cant_viajes = 0
 	dias_trab   = []
 
