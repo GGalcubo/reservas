@@ -3306,14 +3306,14 @@ def refreshUnidadDashboard(request):
 		viajes = []
 
 	recaudado   = 0
-	adelantos   = 0
+	adelantos_valor   = 0
 	cant_viajes = 0
 	dias_trab   = []
 
 	adelantos = Adelanto.objects.filter(unidad_id__in=unidades,fecha__gte=fechaDesde, fecha__lte=fechaHasta)
 
 	for a in adelantos:
-		adelantos += a.monto
+		adelantos_valor += a.monto
 
 	for v in viajes:
 		if v.fecha not in dias_trab:
@@ -3324,7 +3324,7 @@ def refreshUnidadDashboard(request):
 
 	context = {
 		'recaudado': recaudado,
-		'adelantos': adelantos,
+		'adelantos': adelantos_valor,
 		'cantidad_viajes': cant_viajes,
 		'dias_trabajados': len(dias_trab)
 	}
