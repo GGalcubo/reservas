@@ -1502,7 +1502,10 @@ def guardarPasajeroProspect(request):
 		obsper.observacion = obs
 		obsper.save()
 
-	context = {'mensaje': mensaje, 'cliente':cliente}
+	cliente_id = cliente.id
+	pasajeros = cliente.getPasajeros()
+
+	context = {'mensaje': mensaje, 'cliente_id':cliente_id, 'pasajeros':pasajeros}
 	return render(request, 'sistema/grillaPasajeros.html', context)
 
 @login_required
@@ -3084,7 +3087,10 @@ def borrarPasajeroCliente(request):
 		if c.persona.tipo_persona.id == 2 and c.persona.id == persona.id:
 			c.delete()
 
-	context = {'cliente':cliente}
+	cliente_id = cliente.id
+	pasajeros = cliente.getPasajeros()
+
+	context = {'cliente_id':cliente_id, 'pasajeros':pasajeros}
 	return render(request, 'sistema/grillaPasajeros.html', context)
 
 @login_required
@@ -3268,10 +3274,11 @@ def mailtoViaje(request):
 
 @login_required
 def unidadViaje(request):
-    mensaje = ""
+	id_viaje    = request.GET.get('idViaje', '')
+	viaje = Viaje.objects.get(id=id_viaje)
 
-    context = {'mensaje': mensaje}
-    return render(request, 'sistema/unidadViaje.html', context)
+	context = {'viaje': viaje }
+	return render(request, 'sistema/unidadViaje.html', context)
 
 
 
