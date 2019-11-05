@@ -3314,6 +3314,8 @@ def refreshUnidadDashboard(request):
 		viajes = []
 
 	recaudado   = 0
+	promedio_dia = 0
+	promedio_viaje = 0
 	adelantos_valor = 0
 	cant_viajes = 0
 	dias_trab   = []
@@ -3329,9 +3331,17 @@ def refreshUnidadDashboard(request):
 		cant_viajes += 1 
 		recaudado += v.getPagarProveedor()
 
+	try:
+		promedio_dia = recaudado/len(dias_trab)
+		promedio_viaje = recaudado/cant_viajes
+	except Exception as exception:
+		promedio_dia = 0
+		promedio_viaje = 0
 
 	context = {
 		'recaudado': recaudado,
+		'promedio_dia' : promedio_dia,
+		'promedio_viaje' : promedio_viaje,
 		'adelantos': adelantos_valor,
 		'cantidad_viajes': cant_viajes,
 		'dias_trabajados': len(dias_trab)
