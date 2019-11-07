@@ -5,7 +5,7 @@
             <div class="number">
                 <p class="big bold font-green-jungle">
                     <span class="font-green-jungle">$</span>
-                    <span data-value="{{ recaudado }}">{{ recaudado }}</span>
+                    <span">{{ recaudado }}</span>
                 </p>
                 <small>RECAUDADO</small>
             </div>
@@ -21,7 +21,7 @@
             <div class="number">
                 <p class="big bold font-green-meadow">
                     <span class="font-green-meadow">$</span>
-                    <span data-value="{{ promedio_dia }}">{{ promedio_dia }}</span>
+                    <span>{{ promedio_dia|floatformat:"0" }}</span>
                 </p>
                 <small>PROMEDIO POR DÍA</small>
             </div>
@@ -37,7 +37,7 @@
             <div class="number">
                 <p class="big bold font-green-dark">
                     <span class="font-green-dark">$</span>
-                    <span data-value="{{ promedio_viaje }}">{{ promedio_viaje }}</span>
+                    <span>{{ promedio_viaje|floatformat:"0" }}</span>
                 </p>
                 <small>PROMEDIO POR VIAJE</small>
             </div>
@@ -53,7 +53,7 @@
             <div class="number">
                 <p class="big bold font-red-haze">
                     <span class="font-red-haze">$</span>
-                    <span data-value="{{ adelantos }}">{{ adelantos }}</span>
+                    <span>{{ adelantos }}</span>
                 </p>
                 <small>ADELANTOS</small>
             </div>
@@ -68,7 +68,7 @@
         <div class="display">
             <div class="number">
                 <p class="big bold font-blue-sharp">
-                    <span data-value="{{ cantidad_viajes }}">{{ cantidad_viajes }}</span>
+                    <span>{{ cantidad_viajes }}</span>
                 </p>
                 <small>VIAJES REALIZADOS</small>
             </div>
@@ -83,7 +83,7 @@
         <div class="display">
             <div class="number">
                 <p class="big bold font-purple-soft">
-                    <span data-value="{{ dias_trabajados }}">{{ dias_trabajados }}</span>
+                    <span>{{ dias_trabajados }}</span>
                 </p>
                 <small>DÍAS TRABAJADOS</small>
             </div>

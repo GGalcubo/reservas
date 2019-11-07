@@ -3332,8 +3332,8 @@ def refreshUnidadDashboard(request):
 		recaudado += v.getPagarProveedor()
 
 	try:
-		promedio_dia = recaudado/len(dias_trab)
-		promedio_viaje = recaudado/cant_viajes
+		promedio_dia = round(recaudado/len(dias_trab))
+		promedio_viaje = round(recaudado/cant_viajes)
 	except Exception as exception:
 		promedio_dia = 0
 		promedio_viaje = 0
