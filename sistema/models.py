@@ -160,6 +160,7 @@ class Persona(models.Model):
     dias_fechas_facturas = models.CharField(max_length=20, null=True, blank=True)
     nacionalidad = models.CharField(max_length=50, null=True, blank=True)
     baja = models.BooleanField(default=False)
+    pasajero_frecuente = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s' % self.nombre + " " + self.apellido
