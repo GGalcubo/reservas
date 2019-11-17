@@ -9,6 +9,7 @@ from django.conf import settings
 from .models import *
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
+from datetime import timedelta
 import json
 import os
 import datetime
@@ -3278,7 +3279,30 @@ def unidadViaje(request):
 	id_viaje    = request.GET.get('idViaje', '')
 	viaje = Viaje.objects.get(id=id_viaje)
 
-	context = {'viaje': viaje }
+	context = {
+		'id': id_viaje,
+		'fecha' : viaje.getFecha(),
+		'hora' : viaje.hora,
+		'estimados' : viaje.hora_estimada,
+		'estado' : viaje.estado.estado,
+		'categoria_viaje' : viaje.categoria_viaje.categoria,
+		'comentario' : viaje.getObservacioneChofer(),
+		'pasajero' : viaje.pasajero.nombreCompleto(),
+		'cantidad' : viaje.nropasajeros,
+		'cliente' : viaje.cliente.razon_social,
+		'espera' : str(timedelta(minutes=int(viaje.espera)))[:-3] + 'hs' if viaje.espera else '',
+		'hs_dispo' : viaje.dispo,
+		'bilingue' : viaje.bilingue,
+		'maletas' : viaje.maletas,
+		'peajes' : viaje.peajes,
+		'estacionamiento' : viaje.parking,
+		'otros' : viaje.otro,
+		'desde' : viaje.getTrayectoPrincipal().desdeConcat(),
+		'hasta' : viaje.getTrayectoPrincipal().hastaConcat(),
+		'trayectos' : Trayecto.objects.filter(viaje_id=id_viaje),
+		'adjuntos' : viaje.getViajeAdjuntos()
+	}
+
 	return render(request, 'sistema/unidadViaje.html', context)
 
 

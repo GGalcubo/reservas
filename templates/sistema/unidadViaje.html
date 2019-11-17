@@ -52,7 +52,7 @@
                             <div class="portlet light ">
                                 <div class="portlet-title">
                                     <div class="caption font-green" style="display: flex; align-items: baseline; flex-flow: wrap;">
-                                        <span class="caption-subject bold uppercase mg-b-5 mg-r-20" id="viaje_titulo"><i class="icon-rocket font-green mg-r-5"></i>Datos del Viaje</span>
+                                        <span class="caption-subject bold uppercase mg-b-5 mg-r-20" id="viaje_titulo"><i class="icon-rocket font-green mg-r-5"></i>Datos del Viaje {{ id }}</span>
                                     </div>
                                     <div class="tools"></div>
                                 </div>
@@ -60,37 +60,37 @@
                                     <div class="row flex mg-b-10">
                                         <div class="col-xs-4 col-sm-2 col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="fecha" value="19/09/2019" name="fecha" readonly="readonly">
+                                                <input type="text" class="form-control" id="fecha" value="{{fecha}}" name="fecha" readonly="readonly">
                                                 <label for="fecha">Fecha</label>
                                             </div>
                                         </div>
                                         <div class="col-xs-4 col-sm-1 col-md-1">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="hora" value="15:30" name="hora" readonly="readonly">
+                                                <input type="text" class="form-control" id="hora" value="{{hora}}" name="hora" readonly="readonly">
                                                 <label for="hora">Hora</label>
                                             </div>
                                         </div>
                                         <div class="col-xs-4 col-sm-1 col-md-1">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="hora_estimada" value="15:30" name="hora_estimada" readonly="readonly">
+                                                <input type="text" class="form-control" id="hora_estimada" value="{{estimados}}" name="hora_estimada" readonly="readonly">
                                                 <label for="hora_estimada">Est.</label>
                                             </div>
                                         </div>
                                         <div class="col-xs-6 col-sm-2 col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="estado" value="Confirmado" name="estado" readonly="readonly">
+                                                <input type="text" class="form-control" id="estado" value="{{estado}}" name="estado" readonly="readonly">
                                                 <label for="estado">Estado</label>
                                             </div>
                                         </div>
                                         <div class="col-xs-6 col-sm-2 col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="categoria" value="Auto STD" name="categoria" readonly="readonly">
+                                                <input type="text" class="form-control" id="categoria" value="{{categoria_viaje}}" name="categoria" readonly="readonly">
                                                 <label for="categoria">Cat. Viaje</label>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-4 col-md-4">
                                             <div class="form-group form-md-line-input">
-                                                <textarea class="form-control" rows="3" placeholder="" name="comentario_chofer" id="comentario_chofer" readonly="readonly">Tratá de llegar temprano porque la ultima vez hiciste esperar al cliente 40 minutos, pelotudo</textarea>
+                                                <textarea class="form-control" rows="3" placeholder="" name="comentario_chofer" id="comentario_chofer" readonly="readonly">{{comentario}}</textarea>
                                                 <label for="comentario_chofer">Comentario</label>
                                             </div>
                                         </div>
@@ -98,19 +98,19 @@
                                     <div class="row flex mg-b-10">
                                         <div class="col-xs-9 col-sm-5 col-md-5">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="pasajero" value="DIEGO ALBERTO MILITO" name="pasajero" readonly="readonly">
+                                                <input type="text" class="form-control" id="pasajero" value="{{pasajero}}" name="pasajero" readonly="readonly">
                                                 <label for="pasajero">Pasajero</label>
                                             </div>
                                         </div>
                                         <div class="col-xs-3 col-sm-2 col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cantidad" value="3" name="cantidad" readonly="readonly">
+                                                <input type="text" class="form-control" id="cantidad" value="{{cantidad}}" name="cantidad" readonly="readonly">
                                                 <label for="cantidad">Cant.</label>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-5 col-md-5">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="cliente" value="FURLONG FOX PFIZER" name="cliente" readonly="readonly">
+                                                <input type="text" class="form-control" id="cliente" value="{{cliente}}" name="cliente" readonly="readonly">
                                                 <label for="cliente">Cliente</label>
                                             </div>
                                         </div>
@@ -119,13 +119,13 @@
                                     <div class="row flex mg-b-10">
                                         <div class="col-xs-6 col-sm-3 col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="tiempo_espera" value="00:30 hs" name="tiempo_espera" readonly="readonly">
+                                                <input type="text" class="form-control" id="tiempo_espera" value="{{espera}}" name="tiempo_espera" readonly="readonly">
                                                 <label for="tiempo_espera">Espera</label>
                                             </div>
                                         </div>
                                         <div class="col-xs-6 col-sm-3 col-md-2">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="tiempo_hs_dispo" value="4" name="tiempo_hs_dispo" readonly="readonly">
+                                                <input type="text" class="form-control" id="tiempo_hs_dispo" value="{{hs_dispo}}" name="tiempo_hs_dispo" readonly="readonly">
                                                 <label for="tiempo_hs_dispo">Hs Disp.</label>
                                             </div>
                                         </div>
@@ -133,7 +133,7 @@
                                             <div class="form-group form-md-checkboxes">
                                                 <div class="md-checkbox-inline">
                                                     <div class="md-checkbox">
-                                                        <input type="checkbox" id="bilingue" class="md-check" name="bilingue" checked disabled>
+                                                        <input type="checkbox" id="bilingue" class="md-check" name="bilingue" {% if bilingue %}checked{% endif %} disabled>
                                                         <label for="bilingue">
                                                             <span></span>
                                                             <span class="check"></span>
@@ -144,7 +144,7 @@
                                         </div>
                                         <div class="col-xs-6 col-sm-3 col-md-1">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="maletas" value="4" name="maletas" readonly="readonly">
+                                                <input type="text" class="form-control" id="maletas" value="{{maletas}}" name="maletas" readonly="readonly">
                                                 <label for="maletas">Maletas</label>
                                             </div>
                                         </div>
@@ -152,7 +152,7 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="peaje" name="peaje" value="150" readonly="readonly">
+                                                    <input type="text" class="form-control" id="peaje" name="peaje" value="{{peajes}}" readonly="readonly">
                                                     <label for="peaje">Peajes</label>
                                                 </div>
                                             </div>
@@ -161,7 +161,7 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="estacionamiento" name="estacionamiento" value="150" readonly="readonly">
+                                                    <input type="text" class="form-control" id="estacionamiento" name="estacionamiento" value="{{estacionamiento}}" readonly="readonly">
                                                     <label for="estacionamiento">Estacionamiento</label>
                                                 </div>
                                             </div>
@@ -170,7 +170,7 @@
                                             <div class="form-group form-md-line-input">
                                                 <div class="input-group left-addon right-addon">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="otros" name="otros" value="150" readonly="readonly">
+                                                    <input type="text" class="form-control" id="otros" name="otros" value="{{otros}}" readonly="readonly">
                                                     <label for="otros">Otros</label>
                                                 </div>
                                             </div>
@@ -180,13 +180,13 @@
                                     <div class="row flex align-i-center mg-t-10">
                                         <div class="col-xs-12 col-md-6">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="origenConcat" value="CABA - ZONA 1 - Av. Corrientes 2345" name="origenConcat" readonly="readonly">
+                                                <input type="text" class="form-control" id="origenConcat" value="{{desde}}" name="origenConcat" readonly="readonly">
                                                 <label for="origenConcat">DESDE</label>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-md-6">
                                             <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="destinoConcat" value="INTERIOR - Córdoba - La Cumbrecita - Av. San Martín 120" name="destinoConcat" readonly="readonly">
+                                                <input type="text" class="form-control" id="destinoConcat" value="{{hasta}}" name="destinoConcat" readonly="readonly">
                                                 <label for="destinoConcat">HASTA</label>
                                             </div>
                                         </div>
@@ -216,18 +216,16 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>TERMINAL BUQUEBUS</td>
-                                                                            <td>AV. CORRIENTES 2345 - CABA</td>
-                                                                            <td>DIEGO ALBERTO MILITO</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>2</td>
-                                                                            <td>AV. CORRIENTES 2345 - CABA</td>
-                                                                            <td>AEP - EZEIZA - BA</td>
-                                                                            <td>DIEGO ALBERTO MILITO</td>
-                                                                        </tr>
+                                                                        {% for t in trayectos %}
+                                                                            {% if t.id != trayectos.0.id %}
+                                                                                <tr>
+                                                                                    <td>{{ t.id }}</td>
+                                                                                    <td>{{ t.desdeConcat }}</td>
+                                                                                    <td>{{ t.hastaConcat }}</td>
+                                                                                    <td>{{ t.pasajero|default_if_none:'' }}</td>
+                                                                                </tr>
+                                                                            {% endif %}
+                                                                        {% endfor %}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -256,13 +254,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td class="text-center">
-                                                                    <a href="/media/{{adjuntoviaje.adjunto.upload}}" target="_blank" class="btn btn-xs btn-outline blue"><i class="fa fa-download"></i>Descargar</a>
-                                                                </td>
-                                                                <td>facultad/tps/usabilidad/imprimir/pack1-den.martino.JPEG</td>
-                                                            </tr>
-                                                            {% for adjuntoviaje in viaje.getViajeAdjuntos %}
+                                                            {% for adjuntoviaje in adjuntos %}
                                                             <tr>
                                                                 <td class="text-center">
                                                                     <a href="/media/{{adjuntoviaje.adjunto.upload}}" target="_blank" class="btn btn-xs btn-outline blue"><i class="fa fa-download"></i>Descargar</a>
