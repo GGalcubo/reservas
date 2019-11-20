@@ -1529,7 +1529,8 @@ def cliente(request):
 	tarifarios = Tarifario.objects.all()
 	ivas = Iva.objects.all()
 	condiciones = CondicionPago.objects.all()
-	context = {'mensaje': mensaje, 'cliente':cliente, 'tarifarios':tarifarios,"ivas":ivas, "condiciones": condiciones }
+	centrosDeCosto = cliente.getCentroCostos()
+	context = {'mensaje': mensaje, 'cliente':cliente, 'tarifarios':tarifarios,"ivas":ivas, "condiciones": condiciones, 'centrosDeCosto':centrosDeCosto }
 	return render(request, 'sistema/cliente.html', context)
 
 @login_required
@@ -3094,6 +3095,20 @@ def borrarPasajeroCliente(request):
 
 	context = {'cliente_id':cliente_id, 'pasajeros':pasajeros}
 	return render(request, 'sistema/grillaPasajeros.html', context)
+
+@login_required
+def borrarCCPropect(request):
+	idCC = request.POST.get('idCC', False)
+	idCliente = request.POST.get('idCliente', False)
+
+	cc = CentroCosto.objects.get(id=idCC)
+	cc.baja = True
+	cc.save()
+
+	cliente = Cliente.objects.get(id=idCliente)
+
+	context = {'cliente':cliente }
+	return render(request, 'sistema/grillaCentroCostos.html', context)
 
 @login_required
 def exportarExcelFactCliente(request):

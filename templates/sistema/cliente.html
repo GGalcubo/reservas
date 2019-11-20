@@ -243,15 +243,15 @@
                                                                             <tbody>
                                                                                 {% for cc in cliente.getCentroCostos %}
                                                                                 <tr>
-                                                                                    <!-- <td></td> -->
-                                                                                    <!--td class="text-center"><a href="#" onclick="eliminarCCPropect('{{ cc.id }}','{{ cliente.id }}');"><i class="fa fa-minus-circle"></i></a></td -->
                                                                                     <td>{{ cc.id }}</td>
                                                                                     <td>{{ cc.nombre }}</td>
                                                                                     <td>{{ cc.descripcion }}</td>
                                                                                     <td>{{ cc.tarifario.nombre }}</td>
                                                                                     <td>{{ cc.getFechaInicio }}</td>
                                                                                     <td>{{ cc.getFechaFin }}</td>   
-                                                                                    <td class="text-center"><a href="#" onclick="editarCCPropect('{{ cc.id }}','{{ cliente.id }}','{{ cc.nombre }}','{{ cc.descripcion }}','{{ cc.getFechaInicio }}','{{ cc.getFechaFin }}','{{ cc.tarifario.id }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                    <td class="text-center">
+                                                                                        <a href="#" onclick="editarCCPropect('{{ cc.id }}','{{ cliente.id }}','{{ cc.nombre }}','{{ cc.descripcion }}','{{ cc.getFechaInicio }}','{{ cc.getFechaFin }}','{{ cc.tarifario.id }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                        <a href="#" onclick="borrarCCPropect('{{ cc.id }}','{{ cliente.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-times"></i></a>
                                                                                     </td>
                                                                                 </tr>
                                                                                 {% endfor %}
@@ -1164,6 +1164,23 @@
                     }
                 }
 
+                function borrarCCPropect(ccid, idCliente){
+                    var r = confirm("Desea borrar el centro de costos?");
+                    if (r == true) {
+                        var url = "/sistema/borrarCCPropect/";
+                        var params = "idCC="+ccid+"&idCliente="+idCliente;
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                            data: params,
+                            success: function(data){
+                                $("#grillaCentroCostos").html(data);
+                            }
+                        });
+                    }
+                }
+
                 function guardarCentroCosto(){
                     if ($('#codigoCCCliente').val() == ""){
                         alert("El Codigo es obligatorio.")
@@ -1193,6 +1210,7 @@
                     }
 
                 }
+                
 
                 function guardarCCmetodo(){
                     var url = "/sistema/guardarCentroCostoProspect/";

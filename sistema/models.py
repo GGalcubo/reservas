@@ -393,7 +393,8 @@ class Cliente(models.Model):
     def getCentroCostos(self):
         cc = []
         for c in self.centrocosto_set.all():
-            cc.append(c)
+            if not c.baja:
+                cc.append(c)
         return cc
 
     def getTelefonos(self):

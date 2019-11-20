@@ -78,6 +78,7 @@ urlpatterns = [
     url(r'^centroCosto/', centroCosto, name='centroCosto'),
     url(r'^listadoCentroDeCosto/', listadoCentroDeCosto, name='listadoCentroDeCosto'),
     url(r'^buscarCentroDeCostos/', buscarCentroDeCostos, name='buscarCentroDeCostos'),
+    url(r'^borrarCCPropect/', borrarCCPropect, name='borrarCCPropect'),
     url(r'^listadoTarifario/', listadoTarifario, name='listadoTarifario'),
     url(r'^tarifario/', tarifario, name='tarifario'),
     url(r'^guardarTarifario/', guardarTarifario, name='guardarTarifario'),
