@@ -226,6 +226,55 @@ def editaViaje(request):
 
 
 @login_required
+def clonarViaje(request):
+    viaje_a_clonar = Viaje.objects.get(id=request.POST.get('idViaje', ""))
+    viaje_clonado = Viaje()
+    viaje_clonado.centro_costo = viaje_a_clonar.centro_costo
+    viaje_clonado.cliente = viaje_a_clonar.cliente
+    viaje_clonado.solicitante = viaje_a_clonar.solicitante
+    viaje_clonado.pasajero = viaje_a_clonar.pasajero
+    viaje_clonado.Cod_ext_viaje = viaje_a_clonar.Cod_ext_viaje
+    viaje_clonado.nro_aux = viaje_a_clonar.nro_aux
+    viaje_clonado.categoria_viaje = viaje_a_clonar.categoria_viaje
+    viaje_clonado.unidad = viaje_a_clonar.unidad
+    viaje_clonado.creadofecha = fecha()
+    viaje_clonado.creadopor = request.user
+    viaje_clonado.save()
+
+    trayectos_a_clonar = Trayecto.objects.filter(viaje_id=viaje_a_clonar.id)
+    for t in trayectos_a_clonar:
+        trayectos_clonados = Trayecto()
+        trayectos_clonados.viaje_id = viaje_clonado.id
+        trayectos_clonados.pasajero = t.pasajero
+        trayectos_clonados.altura_desde = t.altura_desde
+        trayectos_clonados.altura_hasta = t.altura_hasta
+        trayectos_clonados.calle_desde = t.calle_desde
+        trayectos_clonados.calle_hasta = t.calle_hasta
+        trayectos_clonados.comentario = t.comentario
+        trayectos_clonados.compania_desde = t.compania_desde
+        trayectos_clonados.compania_hasta = t.compania_hasta
+        trayectos_clonados.destino_desde = t.destino_desde
+        trayectos_clonados.destino_hasta = t.destino_hasta
+        trayectos_clonados.entre_desde = t.entre_desde
+        trayectos_clonados.entre_hasta = t.entre_hasta
+        trayectos_clonados.localidad_desde = t.localidad_desde
+        trayectos_clonados.localidad_hasta = t.localidad_hasta
+        trayectos_clonados.provincia_desde = t.provincia_desde
+        trayectos_clonados.provincia_hasta = t.provincia_hasta
+        trayectos_clonados.tramoppalflag = t.tramoppalflag
+        trayectos_clonados.vuelo_desde = t.vuelo_desde
+        trayectos_clonados.vuelo_hasta = t.vuelo_hasta
+        trayectos_clonados.save()
+    data = {
+        'error': '0',
+        'viaje_a_clonar': viaje_clonado.id
+    }
+    dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
+
+
+
+@login_required
 def cambiarUnidadViaje(request):
     viaje = Viaje.objects.get(id=request.POST.get('idViaje', False))
     unidad = request.POST.get('unidad_id', '')

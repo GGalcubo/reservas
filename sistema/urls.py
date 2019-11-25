@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^asignaciones/', asignaciones, name='asignaciones'),
     url(r'^altaViaje/', altaViaje, name='altaViaje'),
     url(r'^editaViaje/$', editaViaje, name='editaViaje'),
+    url(r'^clonarViaje/', clonarViaje, name='clonarViaje'),
     url(r'^guardarViaje/', guardarViaje, name='guardarViaje'),
     url(r'^guardarViajeAdjunto/', guardarViajeAdjunto, name='guardarViajeAdjunto'),
     url(r'^guardaViajePasajeroPOST/', guardaViajePasajeroPOST, name='guardaViajePasajeroPOST'),

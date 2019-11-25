@@ -61,6 +61,7 @@ $(document).ready( () => {
         $("#hora").val('') ;
         $("#hora_estimada").val('');
         $('#estado').attr("disabled", true);
+        $('#clonar_btn').hide();
     }else{
         $("#viaje-tab").show();
         getGrillasHistorial();
@@ -715,6 +716,23 @@ guardarSolicitante = () => {
             $('#telefonoSol').val("");
             $('#contacto').html(data);
             $('#add_solicitante').modal('toggle');
+        }
+    });
+};
+
+/**
+ *
+ * @returns {boolean}
+ */
+clonarViaje = () => {
+    var url = "/sistema/clonarViaje/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: {'idViaje':idViaje},
+        success: data => {
+            window.open('/sistema/editaViaje/?idViaje=' + data.viaje_a_clonar, '_blank');
         }
     });
 };
