@@ -63,6 +63,10 @@ $(document).ready( () => {
         $('#estado').attr("disabled", true);
         $('#clonar_btn').hide();
     }else{
+        if(is_clone == '1'){
+            $("#hora").val('') ;
+            $("#hora_estimada").val('');
+        }
         $("#viaje-tab").show();
         getGrillasHistorial();
         if(estado == '7'){
@@ -534,6 +538,7 @@ guardarViaje = () =>{
                         idViaje = data.viaje;
                         $("#idViajeObser").val(idViaje);
                         $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
+                        $('#clonar_btn').show();
                     }
 
                     if(obj.estado == 7){
@@ -732,7 +737,7 @@ clonarViaje = () => {
         headers: {'X-CSRFToken': csrf_token},
         data: {'idViaje':idViaje},
         success: data => {
-            window.open('/sistema/editaViaje/?idViaje=' + data.viaje_a_clonar, '_blank');
+            window.open('/sistema/editaViaje/?idViaje=' + data.viaje_a_clonar + '&c=1', '_blank');
         }
     });
 };

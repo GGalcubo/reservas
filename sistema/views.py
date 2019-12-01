@@ -198,6 +198,7 @@ def editaViaje(request):
 	mensaje     = ""
 	es_nuevo    = 0
 	id_viaje    = request.GET.get('idViaje', "")
+	is_clone    = request.GET.get('c', "")
 	if request.GET.get('msg', "") == '1':
 		mensaje = 'El viaje se creo correctamente.'
 	viaje = Viaje.objects.get(id=id_viaje)
@@ -210,6 +211,7 @@ def editaViaje(request):
 	context = {'mensaje': mensaje,
 				#'clientes':Cliente.objects.filter(baja=False),
 				'tipoobservacion':TipoObservacion.objects.all(),
+				'is_clone':is_clone,
 				'tipo_pago':TipoPagoViaje.objects.all(),
 				#'itemsviaje':ItemViaje.objects.filter(viaje_id=id_viaje),
 				'unidades':Unidad.objects.filter(baja=False).values_list('id', 'id_fake', 'identificacion').order_by('id_fake'),
