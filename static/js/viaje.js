@@ -1080,19 +1080,13 @@ updateFillsByCliente = (name, evt) => {
                     }else{
                         $('#contacto').append($('<option>').text(value.nombre).attr('value', value.id));
                     }
-
-                }
-            });
-
-            $.each(cliente.personascliente, (i, value) => {
-                if(value.tipo_persona === 'Pasajero'){
+                }else if(value.tipo_persona === 'Pasajero'){
                     if(value.id == pasajero){
                         $('#pasajero').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
                         $('#pasajero_telefono').val(value.telefono);
                     }else{
                         $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
                     }
-
                     if(value.id != $('#pasajero').val()){
                         $('#suma_pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
                     }
