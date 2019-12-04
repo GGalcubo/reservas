@@ -513,53 +513,49 @@
                                                                                         <div class="modal-body">
                                                                                             <div class="scroller" style="height:100%" data-always-visible="1" data-rail-visible1="1">
                                                                                                 <div class="row">
-                                                                                                    <div class="col-sm-4">
+                                                                                                    <div class="col-xs-6 col-sm-4">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                                                                             <input type="text" class="form-control" id="nombrePasCliente" name="nombrePasCliente">
                                                                                                             <label for="nombrePasCliente">Nombre</label>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="col-sm-4">
+                                                                                                    <div class="col-xs-6 col-sm-4">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                                                                             <input type="text" class="form-control" id="apellidoPasCliente" name="apellidoPasCliente">
                                                                                                             <label for="apellidoPasCliente">Apellido</label>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="col-sm-4">
+                                                                                                    <div class="col-xs-6 col-sm-4">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                                                                             <input type="text" class="form-control" id="documentoPasajeroCliente" name="documentoPasajeroCliente">
                                                                                                             <label for="documentoPasajeroCliente">DNI</label>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                </div>
-                                                                                                <div class="row">
-                                                                                                    <div class="col-sm-4">
+                                                                                                    <div class="col-xs-6 col-sm-4">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                                                                             <input type="text" class="form-control" id="telefonoPasajeroCliente" name="telefonoPasajeroCliente">
                                                                                                             <label for="telefonoPasajeroCliente">Teléfono</label>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="col-sm-4">
+                                                                                                    <div class="col-xs-12 col-sm-4">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                                                                             <input type="email" class="form-control" id="mailPasajeroCliente" name="mailPasajeroCliente">
                                                                                                             <label for="mailPasajeroCliente">Mail</label>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="col-sm-4">
+                                                                                                    <div class="col-xs-12 col-sm-4">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                                                                             <input type="text" class="form-control" id="nacionalidadPasajeroCliente" name="nacionalidadPasajeroCliente" >
                                                                                                             <label for="nacionalidadPasajeroCliente">Nacionalidad</label>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                </div>
-                                                                                                <div class="row">
-                                                                                                    <div class="col-sm-12">
+                                                                                                    <div class="col-xs-12 col-sm-12">
                                                                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                                                                             <input type="text" class="form-control" id="callePasajeroCliente" name="callePasajeroCliente">
                                                                                                             <label for="callePasajeroCliente">Calle</label>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="col-sm-2" style="display:none;">
+                                                                                                    <!-- <div class="col-sm-2" style="display:none;">
                                                                                                         <div class="form-group form-md-line-input">
                                                                                                             <input type="text" class="form-control" name="alturaPasajeroCliente" id="alturaPasajeroCliente" >
                                                                                                             <label for="alturaPasajeroCliente">Altura</label>
@@ -576,17 +572,28 @@
                                                                                                             <input type="text" class="form-control" name="cpPasajeroCliente" id="cpPasajeroCliente" >
                                                                                                             <label for="cpPasajeroCliente">CP</label>
                                                                                                         </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="row">
-                                                                                                    <div class="col-sm-12">
+                                                                                                    </div> -->
+                                                                                                    <div class="col-xs-12 col-sm-8">
                                                                                                         <div class="form-group form-md-line-input">
                                                                                                             <textarea class="form-control" rows="1" name="comentarioPasajeroCliente" id="comentarioPasajeroCliente" placeholder=""></textarea>
                                                                                                             <label for="comentarioPasajeroCliente">Comentario</label>
                                                                                                         </div>
                                                                                                     </div>
+                                                                                                    <div class="col-xs-12 col-sm-4">
+                                                                                                        <div class="form-group form-md-checkboxes">
+                                                                                                            <div class="md-checkbox-inline">
+                                                                                                                <div class="md-checkbox">
+                                                                                                                    <input type="hidden" id="pasajero_frecuente" class="md-check" name="pasajero_frecuente" value="">
+                                                                                                                    <input type="checkbox" id="pasajeroFrecuente" class="md-check" name="pasajeroFrecuente">
+                                                                                                                    <label for="pasajeroFrecuente">
+                                                                                                                        <span></span>
+                                                                                                                        <span class="check"></span>
+                                                                                                                        <span class="box"></span> Pasajero frecuente</label>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
                                                                                                 </div>
-
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="modal-footer noborder flex">
