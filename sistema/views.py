@@ -140,11 +140,17 @@ def getClientes(request):
 @login_required
 def getClienteById(request):
     cliente = Cliente.objects.get(id=request.POST.get('cliente_id', False))
+    pasajero_id = request.POST.get('pasajero', False)
     personacliente = []
     for i in cliente.personacliente_set.all():
         if i.persona.baja is False:
-            #if (i.persona.tipo_persona.tipo_persona != 'Pasajero') or (i.persona.tipo_persona.tipo_persona == 'Pasajero' and i.persona.pasajero_frecuente == 1):
-            personacliente.append({'id':i.persona.id,'nombre':i.persona.apellido + ' ' + i.persona.nombre,'tipo_persona':i.persona.tipo_persona.tipo_persona,'telefono':i.persona.telefono})
+            if (i.persona.tipo_persona.tipo_persona != 'Pasajero') or (int(i.persona.id) == int(pasajero_id)) or (i.persona.tipo_persona.tipo_persona == 'Pasajero' and i.persona.pasajero_frecuente == 1):
+                personacliente.append({
+                    'id':i.persona.id,
+                    'nombre':i.persona.apellido + ' ' + i.persona.nombre,
+                    'tipo_persona':i.persona.tipo_persona.tipo_persona,
+                    'telefono':i.persona.telefono
+                })
 
     centrocosto = []
     for c in cliente.centrocosto_set.filter(baja=False):
@@ -1234,6 +1240,10 @@ def guardarPasajeroDesdeViaje(request):
     persona.nacionalidad = request.POST.get('nacionalidadPasajeroClienteModal', "")
     persona.calle = request.POST.get('callePasajeroClienteModal', "")
     persona.telefono = request.POST.get('telefonoPasajeroClienteModal', "")
+    if request.POST.get('pasajeroFrecuente', '') == 'on':
+        persona.pasajero_frecuente = True
+    else:
+        persona.pasajero_frecuente = False
     #persona.altura = request.POST.get('alturaPasajeroCliente', "")
     #persona.piso = request.POST.get('pisoPasajeroCliente', "")
     #persona.cp = request.POST.get('cpPasajeroCliente', "")
@@ -1287,7 +1297,8 @@ def guardarPasajeroDesdeViaje(request):
         'pasajero': persona.id,
         'pasajero_nombre': persona.nombre,
         'pasajero_apellido': persona.apellido,
-        'pasajero_telefono': persona.telefono
+        'pasajero_telefono': persona.telefono,
+        'pasajero_frecuente': persona.pasajero_frecuente
     }
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')

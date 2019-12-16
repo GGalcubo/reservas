@@ -959,6 +959,7 @@ guardarPasajeroModal = () => {
             $('#telefonoPasajeroClienteModal').val("");
             $('#mailPasajeroClienteModal').val("");
             $('#nacionalidadPasajeroClienteModal').val("");
+            $('#pasajeroFrecuente').prop('checked', false);
             $('#callePasajeroClienteModal').val("");
             $('#alturaPasajeroClienteModal').val("");
             $('#pisoPasajeroClienteModal').val("");
@@ -1021,7 +1022,7 @@ updateFillsByCliente = (name, evt) => {
         type: "POST",
         url: url,
         headers: {'X-CSRFToken': csrf_token},
-        data: {cliente_id:evt.params.data.id},
+        data: {cliente_id:evt.params.data.id, pasajero:pasajero},
         success: function(data)
         {
             let cliente = {};
