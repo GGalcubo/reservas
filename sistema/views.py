@@ -140,7 +140,9 @@ def getClientes(request):
 @login_required
 def getClienteById(request):
     cliente = Cliente.objects.get(id=request.POST.get('cliente_id', False))
-    pasajero_id = request.POST.get('pasajero', False)
+    pasajero_id = request.POST.get('pasajero', 0)
+    if pasajero_id == '':
+        pasajero_id = 0
     personacliente = []
     for i in cliente.personacliente_set.all():
         if i.persona.baja is False:
