@@ -53,12 +53,28 @@
                                 <div class="portlet-title">
                                     <div class="caption font-green">
                                         <span class="caption-subject bold uppercase" id="viaje_titulo"><i class="icon-rocket font-green mg-r-5"></i>Ingreso del Cliente y Datos del Viaje</span>
-                                        <a href="#" class="btn btn-outline blue mg-r-10 mg-b-5 guardar_viaje" type="submit">Guardar</a>
-                                        <a id="clonar_btn" href="#" onclick="clonarViaje();" class="btn btn-outline blue mg-r-10 mg-b-5">Clonar</a>
+                                        <a href="#" class="btn blue mg-r-10 mg-b-5 guardar_viaje" type="submit">Guardar</a>
+                                        <!-- <a id="clonar_btn" href="#" onclick="clonarViaje();" class="btn btn-outline blue mg-r-10 mg-b-5">Clonar</a> -->
                                         <!-- <a href="#!" class="btn btn-outline blue mg-r-10 mg-b-5">Copiar Evento</a> -->
-                                        <a href="/sistema/exportarPdfViaje/?idViaje={{ viaje.id }}" class="btn blue mg-b-5 mg-r-10 mg-b-5"><i class="icon-cloud-download"></i></a>
-                                        <a href="#" onclick="mailto();"class="btn blue mg-b-5 mg-r-10 mg-b-5"><i class="icon-envelope"></i></a>
+                                        <!-- <a href="/sistema/exportarPdfViaje/?idViaje={{ viaje.id }}" class="btn blue mg-b-5 mg-r-10 mg-b-5"><i class="icon-cloud-download"></i></a>
+                                        <a href="#" onclick="mailto();" class="btn blue mg-b-5 mg-r-10 mg-b-5"><i class="icon-envelope"></i></a> -->
                                         <!-- <a href="#!" class="btn blue mg-b-5 mg-r-10 mg-b-5"><i class="icon-bubble"></i></a> -->
+                                        <div id="dropdownMasAcciones" class="btn-group btn-group-vertical">
+                                            <a class="btn btn-outline dropdown-toggle green" data-toggle="dropdown" href="javascript:;"> MÁS ACCIONES
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a id="clonar_btn" href="#" onclick="clonarViaje();">Clonar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/sistema/exportarPdfViaje/?idViaje={{ viaje.id }}" >Descargar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" onclick="mailto();">Enviar por mail</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <div class="tools"></div>
                                 </div>

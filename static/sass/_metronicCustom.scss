@@ -399,6 +399,28 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   top: 0;
 }
 
+//Dropdown MAS ACCIONES
+#dropdownMasAcciones .dropdown-menu {
+  & > li > a {
+    padding: 8px 16px;
+    color: #6f6f6f;
+    text-decoration: none;
+    display: block;
+    clear: both;
+    font-weight: 300;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+
+  &:before {
+    display: none !important;
+  }
+
+  &:after {
+    display: none !important;
+  }
+}
+
 //Menú notificaciones
 .page-header.navbar .top-menu .navbar-nav>li.dropdown-extended .dropdown-menu>li.external {
   background-color: #9facac;
