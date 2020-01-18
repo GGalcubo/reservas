@@ -195,7 +195,7 @@ def altaViaje(request):
 				'estados':Estado.objects.all(),
 				'categoria_viajes':CategoriaViaje.objects.all(),
 				'tarifarios':Tarifario.objects.filter(baja=False),
-				'destinos':TrayectoDestino.objects.all(),
+				#'destinos':TrayectoDestino.objects.all(),
 				'provincias':Provincia.objects.all(),
 				'es_nuevo':es_nuevo,
 				'viaje':viaje}
@@ -227,7 +227,7 @@ def editaViaje(request):
 				'estados':Estado.objects.all(),
 				'categoria_viajes':CategoriaViaje.objects.all(),
 				'tarifarios':Tarifario.objects.filter(baja=False),
-				'destinos':TrayectoDestino.objects.all(),
+				#'destinos':TrayectoDestino.objects.all(),
 				#'localidades':Localidad.objects.filter(baja=False),
 				'provincias':Provincia.objects.all(),
 				'es_nuevo':es_nuevo,
@@ -247,7 +247,7 @@ def clonarViaje(request):
     viaje_clonado.Cod_ext_viaje = viaje_a_clonar.Cod_ext_viaje
     viaje_clonado.nro_aux = viaje_a_clonar.nro_aux
     viaje_clonado.categoria_viaje = viaje_a_clonar.categoria_viaje
-    viaje_clonado.unidad = viaje_a_clonar.unidad
+    #viaje_clonado.unidad = viaje_a_clonar.unidad
     viaje_clonado.creadofecha = fecha()
     viaje_clonado.creadopor = request.user
     viaje_clonado.save()
@@ -1107,13 +1107,13 @@ def guardarTrayecto(request, principal=None, idViaje=None):
         trayecto.viaje = viaje
         #trayecto.destino_desde = TrayectoDestino.objects.get(id=request.POST.get('desde_destino', False))
 
-        if request.POST.get('desde_destino', '') != '':
-            trayecto.destino_desde = TrayectoDestino.objects.get(id=request.POST.get('desde_destino', False))
+        #if request.POST.get('desde_destino', '') != '':
+            #trayecto.destino_desde = TrayectoDestino.objects.get(id=request.POST.get('desde_destino', False))
 
         if request.POST.get('desde_localidad', '') != '':
             trayecto.localidad_desde = Localidad.objects.get(id=request.POST.get('desde_localidad', False))
-        if request.POST.get('desde_provincia', '') != '':
-            trayecto.provincia_desde = Provincia.objects.get(id=request.POST.get('desde_provincia', False))
+        if request.POST.get('desde_destino', '') != '':
+            trayecto.provincia_desde = Provincia.objects.get(id=request.POST.get('desde_destino', False))
         trayecto.altura_desde = request.POST.get('desde_altura', '')
         trayecto.calle_desde = request.POST.get('desde_calle', '')
         trayecto.entre_desde = request.POST.get('desde_entre', '')
@@ -1121,13 +1121,13 @@ def guardarTrayecto(request, principal=None, idViaje=None):
         trayecto.vuelo_desde = request.POST.get('desde_vuelo', '')
 
         #trayecto.destino_hasta = TrayectoDestino.objects.get(id=request.POST.get('hasta_destino', False))
-        if request.POST.get('hasta_destino', '') != '':
-            trayecto.destino_hasta = TrayectoDestino.objects.get(id=request.POST.get('hasta_destino', False))
+        #if request.POST.get('hasta_destino', '') != '':
+            #trayecto.destino_hasta = TrayectoDestino.objects.get(id=request.POST.get('hasta_destino', False))
 
         if request.POST.get('hasta_localidad', '') != '':
             trayecto.localidad_hasta = Localidad.objects.get(id=request.POST.get('hasta_localidad', False))
-        if request.POST.get('hasta_provincia', '') != '':
-            trayecto.provincia_hasta = Provincia.objects.get(id=request.POST.get('hasta_provincia', False))
+        if request.POST.get('hasta_destino', '') != '':
+            trayecto.provincia_hasta = Provincia.objects.get(id=request.POST.get('hasta_destino', False))
         trayecto.altura_hasta = request.POST.get('hasta_altura', '')
         trayecto.calle_hasta = request.POST.get('hasta_calle', '')
         trayecto.entre_hasta = request.POST.get('hasta_entre', '')
@@ -2530,7 +2530,7 @@ def cargarLocalidad(request):
 def cargarLocalidadByDestino(request):
 	destino_id = request.POST.get('destino_id', False)
 	localidad_select_id = request.POST.get('localidad_select_id', '')
-	localidades = Localidad.objects.filter(trayectodestino_id=destino_id)
+	localidades = Localidad.objects.filter(provincia_id=destino_id)
 	context = {'localidades': localidades, 'localidad_select_id':localidad_select_id}
 	return render(request, 'sistema/selectLocalidadViaje.html', context)
 

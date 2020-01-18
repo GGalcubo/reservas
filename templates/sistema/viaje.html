@@ -438,15 +438,15 @@
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="desde_destino" name="desde_destino">
                                                                     <option value=""></option>
-                                                                    {% for d in destinos %}
-                                                                        {% if d.id == viaje.getTrayectoPrincipal.destino_desde_id %}
-                                                                            <option selected="selected" value="{{ d.id }}">{{ d.nombre }}</option>
+                                                                    {{% for p in provincias %}
+                                                                        {% if p.id == viaje.getTrayectoPrincipal.provincia_desde_id %}
+                                                                            <option selected="selected" value="{{ p.id }}">{{ p.nombre }}</option>
                                                                         {% else %}
-                                                                            <option value="{{ d.id }}">{{ d.nombre }}</option>
+                                                                            <option value="{{ p.id }}">{{ p.nombre }}</option>
                                                                         {% endif %}
                                                                     {% endfor %}
                                                                 </select>
-                                                                <label>Dirección</label>
+                                                                <label>Provincia</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-6 cont_desde_localidad">
@@ -535,15 +535,15 @@
                                                             <div class="form-group form-md-line-input">
                                                                 <select class="form-control select2me" id="hasta_destino" name="hasta_destino">
                                                                     <option value=""></option>
-                                                                    {% for d in destinos %}
-                                                                        {% if d.id == viaje.getTrayectoPrincipal.destino_hasta_id %}
-                                                                            <option selected="selected" value="{{ d.id }}">{{ d.nombre }}</option>
+                                                                    {% for p in provincias %}
+                                                                        {% if p.id == viaje.getTrayectoPrincipal.provincia_hasta_id %}
+                                                                            <option selected="selected" value="{{ p.id }}">{{ p.nombre }}</option>
                                                                         {% else %}
-                                                                            <option value="{{ d.id }}">{{ d.nombre }}</option>
+                                                                            <option value="{{ p.id }}">{{ p.nombre }}</option>
                                                                         {% endif %}
                                                                     {% endfor %}
                                                                 </select>
-                                                                <label>Dirección</label>
+                                                                <label>Provincia</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-6 cont_hasta_localidad">
@@ -1626,11 +1626,11 @@
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="modal_desde_destino" name="modal_desde_destino" style="width: 100%;">
                                                     <option value=""></option>
-                                                    {% for d in destinos %}
-                                                       <option value="{{ d.id }}">{{ d.nombre }}</option>
+                                                    {% for p in provincias %}
+                                                       <option value="{{ p.id }}">{{ p.nombre }}</option>
                                                     {% endfor %}
                                                 </select>
-                                                <label>Dirección</label>
+                                                <label>Provincia</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6 cont_modal_desde_localidad">
@@ -1644,7 +1644,7 @@
                                                 <label>Localidad</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 cont_modal_desde_provincia">
+                                        <!--<div class="col-md-6 cont_modal_desde_provincia">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="modal_desde_provincia" name="modal_desde_provincia" style="width: 100%;">
                                                     <option value=""></option>
@@ -1654,7 +1654,7 @@
                                                 </select>
                                                 <label>Provincia</label>
                                             </div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class="modal_desde_direccion">
                                         <div class="row">
@@ -1710,11 +1710,11 @@
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="modal_hasta_destino" name="modal_hasta_destino" style="width: 100%;">
                                                     <option value=""></option>
-                                                    {% for d in destinos %}
-                                                       <option value="{{ d.id }}">{{ d.nombre }}</option>
+                                                    {% for p in provincias %}
+                                                       <option value="{{ p.id }}">{{ p.nombre }}</option>
                                                     {% endfor %}
                                                 </select>
-                                                <label>Dirección</label>
+                                                <label>Provincia</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6 cont_modal_hasta_localidad">
@@ -1728,7 +1728,7 @@
                                                 <label>Localidad</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 cont_modal_hasta_provincia">
+                                        <!--<div class="col-md-6 cont_modal_hasta_provincia">
                                             <div class="form-group form-md-line-input">
                                                 <select class="form-control select2me" id="modal_hasta_provincia" name="modal_hasta_provincia" style="width: 100%;">
                                                     <option value=""></option>
@@ -1738,7 +1738,7 @@
                                                 </select>
                                                 <label>Provincia</label>
                                             </div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class="modal_hasta_direccion">
                                         <div class="row">

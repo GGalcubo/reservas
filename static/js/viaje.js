@@ -77,10 +77,6 @@ $(document).ready( () => {
         $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
     }
     getClientes(es_nuevo);
-    console.log({bilingue_viaje});
-    console.log({maletas_viaje});
-    console.log(espera_viaje);
-    console.log(dispo_viaje);
     if(bilingue_viaje === 'True'){
         $('#bilingue').prop('checked', true);
     }
@@ -211,10 +207,10 @@ $(document).ready( () => {
 
         let provincia_desde     = $(this).data('provincia_desde');
         let localidad_desde     = $(this).data('localidad_desde');
-        let destino_desde       = $(this).data('destino_desde');
+        let destino_desde       = $(this).data('provincia_desde');
         let provincia_hasta     = $(this).data('provincia_hasta');
         let localidad_hasta     = $(this).data('localidad_hasta');
-        let destino_hasta       = $(this).data('destino_hasta');
+        let destino_hasta       = $(this).data('provincia_hasta');
 
         let calle_desde         = $(this).data('calle_desde');
         let altura_desde        = $(this).data('altura_desde');
@@ -230,12 +226,12 @@ $(document).ready( () => {
 
         $("#modal_id").val(id);
 
-        $("#modal_desde_destino").val(destino_desde).trigger('change');
+        $("#modal_desde_destino").val(provincia_desde).trigger('change');
         $("#modal_desde_localidad").val(localidad_desde).trigger('change');
-        $("#modal_desde_provincia").val(provincia_desde).trigger('change');
-        $("#modal_hasta_destino").val(destino_hasta).trigger('change');
+        //$("#modal_desde_provincia").val(provincia_desde).trigger('change');
+        $("#modal_hasta_destino").val(provincia_hasta).trigger('change');
         $("#modal_hasta_localidad").val(localidad_hasta).trigger('change');
-        $("#modal_hasta_provincia").val(provincia_hasta).trigger('change');
+        //$("#modal_hasta_provincia").val(provincia_hasta).trigger('change');
 
         $("#modal_desde_calle").val(calle_desde);
         $("#modal_desde_altura").val(altura_desde);
@@ -249,7 +245,35 @@ $(document).ready( () => {
         $("#modal_hasta_vuelo").val(vuelo_hasta);
         $("#pasajero_trayecto").val(pasajero_trayecto).trigger('change');
 
-        if(provincia_desde != ''){
+        let evt = {};
+        evt.params = {};
+        evt.params.data = {};
+
+        evt.params.data.id = provincia_desde;
+        evt.params.data.provincia_select_id = provincia_desde;
+        evt.params.data.localidad_select_id = localidad_desde;
+        evt.params.data.init = true;
+        evt.currentTarget = {};
+        evt.currentTarget.id = 'modal_desde_destino';
+        updateFillsByDestino('', evt);
+
+        evt.currentTarget.id = 'modal_desde_localidad';
+        evt.params.data.id = localidad_desde;
+        updateFillsByLocalidad('', evt);
+
+        evt.params.data.id = provincia_hasta;
+        evt.params.data.provincia_select_id = provincia_hasta;
+        evt.params.data.localidad_select_id = localidad_hasta;
+        evt.params.data.init = true;
+        evt.currentTarget = {};
+        evt.currentTarget.id = 'modal_hasta_destino';
+        updateFillsByDestino('', evt);
+
+        evt.params.data.id = localidad_hasta_id;
+        evt.currentTarget.id = 'modal_hasta_localidad';
+        updateFillsByLocalidad('', evt);
+
+        /*if(provincia_desde != ''){
             $(".cont_modal_desde_localidad").hide();
             $(".modal_desde_direccion").show();
             $(".cont_modal_desde_provincia").show();
@@ -259,9 +283,9 @@ $(document).ready( () => {
             $(".modal_desde_direccion").show();
             $(".cont_modal_desde_provincia").hide();
             $(".modal_desde_vuelo").hide();
-        }
+        }*/
 
-        if(provincia_hasta != ''){
+        /*if(provincia_hasta != ''){
             $(".cont_modal_hasta_localidad").hide();
             $(".modal_hasta_direccion").show();
             $(".cont_modal_hasta_provincia").show();
@@ -271,7 +295,7 @@ $(document).ready( () => {
             $(".modal_hasta_direccion").show();
             $(".cont_modal_hasta_provincia").hide();
             $(".modal_hasta_vuelo").hide();
-        }
+        }*/
         /*if(localidad_desde == 9){
             $(".cont_modal_desde_localidad").show();
             $(".modal_desde_vuelo").show();
@@ -319,7 +343,6 @@ $(document).ready( () => {
        evt.preventDefault();
        var formData = new FormData(document.getElementById("guardarAdjunto"));
        formData.append("idViaje", viaje);
-       console.log(formData)
        $.ajax({
             url: '/sistema/guardarViajeAdjunto/',
             type: 'POST',
@@ -433,10 +456,10 @@ guardarViaje = () =>{
             showMsg("El campo hora es obligatorio.");
             return false;
         }
-        if ($("#hora_estimada").val() == ""){
+        /*if ($("#hora_estimada").val() == ""){
             showMsg("El campo hora estimada es obligatorio.");
             return false;
-        }
+        }*/
         if ($("#categoria_viaje").val() == ""){
             showMsg("El campo categoria viaje es obligatorio.");
             return false;
@@ -649,7 +672,7 @@ getClientes = es_nuevo => {
 };
 
 getDetinos = evt => {
-    evt.params.data.id = destino_desde_id;
+    evt.params.data.id = provincia_desde_id;
     evt.params.data.provincia_select_id = provincia_desde_id;
     evt.params.data.localidad_select_id = localidad_desde_id;
     evt.params.data.init = true;
@@ -661,7 +684,7 @@ getDetinos = evt => {
     evt.params.data.id = localidad_desde_id;
     updateFillsByLocalidad('', evt);
 
-    evt.params.data.id = destino_hasta_id;
+    evt.params.data.id = provincia_hasta_id;
     evt.params.data.provincia_select_id = provincia_hasta_id;
     evt.params.data.localidad_select_id = localidad_hasta_id;
     evt.params.data.init = true;
