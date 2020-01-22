@@ -64,5 +64,140 @@
                 url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
             },
         } );
+        $('.edit_button').click(function() {
+
+        let id                  = $(this).data('id');
+
+        let provincia_desde     = $(this).data('provincia_desde');
+        let localidad_desde     = $(this).data('localidad_desde');
+        let destino_desde       = $(this).data('provincia_desde');
+        let provincia_hasta     = $(this).data('provincia_hasta');
+        let localidad_hasta     = $(this).data('localidad_hasta');
+        let destino_hasta       = $(this).data('provincia_hasta');
+
+        let calle_desde         = $(this).data('calle_desde');
+        let altura_desde        = $(this).data('altura_desde');
+        let entre_desde         = $(this).data('entre_desde');
+        let compania_desde      = $(this).data('compania_desde');
+        let vuelo_desde         = $(this).data('vuelo_desde');
+        let calle_hasta         = $(this).data('calle_hasta');
+        let altura_hasta        = $(this).data('altura_hasta');
+        let entre_hasta         = $(this).data('entre_hasta');
+        let compania_hasta      = $(this).data('compania_hasta');
+        let vuelo_hasta         = $(this).data('vuelo_hasta');
+        let pasajero_trayecto   = $(this).data('pasajero_trayecto');
+
+        $("#modal_id").val(id);
+
+        $("#modal_desde_destino").val(provincia_desde).trigger('change');
+        $("#modal_desde_localidad").val(localidad_desde).trigger('change');
+        //$("#modal_desde_provincia").val(provincia_desde).trigger('change');
+        $("#modal_hasta_destino").val(provincia_hasta).trigger('change');
+        $("#modal_hasta_localidad").val(localidad_hasta).trigger('change');
+        //$("#modal_hasta_provincia").val(provincia_hasta).trigger('change');
+
+        $("#modal_desde_calle").val(calle_desde);
+        $("#modal_desde_altura").val(altura_desde);
+        $("#modal_desde_entre").val(entre_desde);
+        $("#modal_desde_compania").val(compania_desde);
+        $("#modal_desde_vuelo").val(vuelo_desde);
+        $("#modal_hasta_calle").val(calle_hasta);
+        $("#modal_hasta_altura").val(altura_hasta);
+        $("#modal_hasta_entre").val(entre_hasta);
+        $("#modal_hasta_compania").val(compania_hasta);
+        $("#modal_hasta_vuelo").val(vuelo_hasta);
+        $("#pasajero_trayecto").val(pasajero_trayecto).trigger('change');
+
+        let evt = {};
+        evt.params = {};
+        evt.params.data = {};
+
+        evt.params.data.id = provincia_desde;
+        evt.params.data.provincia_select_id = provincia_desde;
+        evt.params.data.localidad_select_id = localidad_desde;
+        evt.params.data.init = true;
+        evt.currentTarget = {};
+        evt.currentTarget.id = 'modal_desde_destino';
+        updateFillsByDestino('', evt);
+
+        evt.currentTarget.id = 'modal_desde_localidad';
+        evt.params.data.id = localidad_desde;
+        updateFillsByLocalidad('', evt);
+
+        evt.params.data.id = provincia_hasta;
+        evt.params.data.provincia_select_id = provincia_hasta;
+        evt.params.data.localidad_select_id = localidad_hasta;
+        evt.params.data.init = true;
+        evt.currentTarget = {};
+        evt.currentTarget.id = 'modal_hasta_destino';
+        updateFillsByDestino('', evt);
+
+        evt.params.data.id = localidad_hasta_id;
+        evt.currentTarget.id = 'modal_hasta_localidad';
+        updateFillsByLocalidad('', evt);
+
+        /*if(provincia_desde != ''){
+            $(".cont_modal_desde_localidad").hide();
+            $(".modal_desde_direccion").show();
+            $(".cont_modal_desde_provincia").show();
+            $(".modal_desde_vuelo").hide();
+        }else{
+            $(".cont_modal_desde_localidad").show();
+            $(".modal_desde_direccion").show();
+            $(".cont_modal_desde_provincia").hide();
+            $(".modal_desde_vuelo").hide();
+        }*/
+
+        /*if(provincia_hasta != ''){
+            $(".cont_modal_hasta_localidad").hide();
+            $(".modal_hasta_direccion").show();
+            $(".cont_modal_hasta_provincia").show();
+            $(".modal_hasta_vuelo").hide();
+        }else{
+            $(".cont_modal_hasta_localidad").show();
+            $(".modal_hasta_direccion").show();
+            $(".cont_modal_hasta_provincia").hide();
+            $(".modal_hasta_vuelo").hide();
+        }*/
+        /*if(localidad_desde == 9){
+            $(".cont_modal_desde_localidad").show();
+            $(".modal_desde_vuelo").show();
+        }
+        if(localidad_hasta == 9){
+            $(".cont_modal_hasta_localidad").show();
+            $(".modal_hasta_vuelo").show();
+        }*/
+
+        var terminal_flag_desde;
+        var terminal_flag_hasta;
+        $.each(localidades, function(i, value) {
+            if(value.id == localidad_desde){
+                terminal_flag_desde = value.terminal_flag;
+            }
+        });
+
+        if(terminal_flag_desde == 'True'){
+            $(".modal_desde_direccion").hide();
+            $(".modal_desde_vuelo").show();
+        }else{
+            $(".modal_desde_direccion").show();
+            $(".modal_desde_vuelo").hide();
+        }
+        $.each(localidades, function(i, value) {
+            if(value.id == localidad_hasta){
+                terminal_flag_hasta = value.terminal_flag;
+            }
+        });
+
+        if(terminal_flag_hasta == 'True'){
+            $(".modal_hasta_direccion").hide();
+            $(".modal_hasta_vuelo").show();
+        }else{
+            $(".modal_hasta_direccion").show();
+            $(".modal_hasta_vuelo").hide();
+        }
+
+        //$(".modal-title").text('Editar Tramo');
+    });
     });
 </script>

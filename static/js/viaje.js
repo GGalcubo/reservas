@@ -1308,12 +1308,7 @@ updateFillsByDestino = (name, evt) => {
         $("." + html_vuelo).hide();
         $("." + html_cont_localidad).show();
         $("." + html_cont_provincia).hide();
-    }else if(destino_id == 3 ){
-        $("." + html_direccion).show();
-        $("." + html_vuelo).hide();
-        $("." + html_cont_localidad).hide();
-        $("." + html_cont_provincia).show();
-    }else if(destino_id == 9/* || destino_id == 2 || destino_id == 3 || destino_id == 4 */){
+    }else if(destino_id == 9){
         $("." + html_direccion).hide();
         $("." + html_vuelo).show();
         $("." + html_cont_localidad).hide();
