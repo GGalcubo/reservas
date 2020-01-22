@@ -325,7 +325,7 @@
                                                             <option value="555">9:15 hs</option>
                                                             <option value="570">9:30 hs</option>
                                                             <option value="585">9:45 hs</option>
-                                                            <option value="600">10:00 hs</option>    
+                                                            <option value="600">10:00 hs</option>
                                                         </select>
                                                         <label for="tiempo_espera">Espera</label>
                                                     </div>
@@ -923,7 +923,7 @@
                                                                                             <option value="555">9:15 hs</option>
                                                                                             <option value="570">9:30 hs</option>
                                                                                             <option value="585">9:45 hs</option>
-                                                                                            <option value="600">10:00 hs</option>  
+                                                                                            <option value="600">10:00 hs</option>
                                                                                     </select>
                                                                                     <label for="admin_cant_espera_proveedor" class="mg-neg-t-5">Espera</label>
                                                                                 </div>
@@ -1134,7 +1134,7 @@
                                                                                         <option value="555">9:15 hs</option>
                                                                                         <option value="570">9:30 hs</option>
                                                                                         <option value="585">9:45 hs</option>
-                                                                                        <option value="600">10:00 hs</option>  
+                                                                                        <option value="600">10:00 hs</option>
                                                                                     </select>
                                                                                     <label for="admin_cant_espera_cliente" class="mg-neg-t-5">Espera</label>
                                                                                 </div>
@@ -1282,9 +1282,9 @@
                                                         <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                                         <div class="portlet light ">
                                                             <div class="flex flex-j-between">
-                                                                <p><b>Creado por: </b><span>Sarasa</span></p>
-                                                                <p><b>Fecha: </b><span>31/12/19 15:30</span></p>
-                                                                <p><b>Clonado del viaje: </b><span>123456</span></p>
+                                                                <p><b>Creado por: </b><span></span></p>
+                                                                <p><b>Fecha: </b><span></span></p>
+                                                                <p><b>Clonado del viaje: </b><span></span></p>
                                                             </div>
                                                             <div class="portlet-title">
                                                                 <div class="caption font-blue">
@@ -1587,7 +1587,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </form>                                        
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -1810,7 +1810,7 @@
         <!-- END MODAL AGREGAR TRAMO -->
 
         <!-- MODAL AGREGAR SOLICITANTE -->
-        <div id="add_solicitante" class="modal fade" tabindex="-1" aria-hidden="true">    
+        <div id="add_solicitante" class="modal fade" tabindex="-1" aria-hidden="true">
             <form role="form" id="form-datos-cliente-solicitante" class="form-datos-cliente-solicitante">
                 <input type="hidden" id="idClienteEnSol" name="idClienteEnSol" value="{{ viaje.cliente.id }}">
                 <input type="hidden" id="idSolicitante" name="idSolicitante" value="0">
@@ -2079,7 +2079,7 @@
             if(idViaje === undefined){
                 $(document).prop('title', 'Nuevo viaje - Central LT');
             } else {
-                $(document).prop('title', 'Viaje '+ idViaje+' - Central LT');   
+                $(document).prop('title', 'Viaje '+ idViaje+' - Central LT');
             }
 
             var clientes = [];
