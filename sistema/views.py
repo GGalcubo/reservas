@@ -3356,18 +3356,18 @@ def mailtoViaje(request):
 
 @login_required
 def unidadViaje(request):
-	if not validarUrlPorRol(request):
-		mensaje = ""
-		context = { 'mensaje':mensaje }
-		return render(request, 'sistema/urlBloqueada.html', context)
+	#if not validarUrlPorRol(request):
+	#	mensaje = ""
+	#	context = { 'mensaje':mensaje }
+	#	return render(request, 'sistema/urlBloqueada.html', context)
 
 	id_viaje = request.GET.get('idViaje', '')
 	viaje = Viaje.objects.get(id=id_viaje)
 
-	#if not validarViajeUsuarioUnidad(request, viaje):
-	#	mensaje = ""
-	#	context = { 'mensaje':mensaje }
-	#	return render(request, 'sistema/urlBloqueada.html', context)
+	if not validarViajeUsuarioUnidad(request, viaje):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
 
 	context = {
 		'id': id_viaje,
