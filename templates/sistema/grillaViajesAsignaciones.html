@@ -16,19 +16,45 @@
             </tr>
         </thead>
         <tbody>
-            {% for v in viajes %}
-                <tr>
-                    <td class="all text-center"><a href="/sistema/unidadViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>
+{% for v in viajes %}
+		{% for t in v.getTrayectos %}
+            <tr>
+                {% if t.id != v.getTrayectos.0.id %}
+                    <td class="all text-center"><a href="/sistema/unidadViaje/?idViaje={{ v.id }}"></a></td>
+                  {% else %}
+                    <td class="all text-center"><a  href="/sistema/unidadViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>
+                {% endif %}                   
                     <td class="all">{{ v.categoria_viaje }}</td>
                     <td class="all">{{ v.getFecha }}</td>
                     <td class="all">{{ v.hora }}</td>
                     <td class="all">{{ v.cliente }}</td>
-                    <td class="all">{{ v.pasajero }}</td>
+                    {% if t.id != v.getTrayectos.0.id %}
+                    <td class="all text-center"><a>{{v.getViajeBilingue}}{{t.pasajero.apellido }},{{ t.pasajero.nombre }}</a></td>
+                    {% else %}
+                    <td class="all text-center"><a>{{v.getViajeBilingue}}{{v.pasajero.apellido }},{{ v.pasajero.nombre }}</a></td>
+                    {% endif %}
                     <td class="all"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.desdeConcat }}</span></td>
                     <td class="all"><span class="label label-sm label-warning">{{ v.getTrayectoPrincipal.hastaConcat }}</span></td>
                     <td class="all">{{ v.getObservacioneChofer }}</td>
                 </tr>
-        {% endfor %}
+		{% empty %}
+			<tr>
+					<td class="all text-center"><a  href="/sistema/unidadViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>                 
+                    <td class="all">{{ v.categoria_viaje }}</td>
+                    <td class="all">{{ v.getFecha }}</td>
+                    <td class="all">{{ v.hora }}</td>
+                    <td class="all">{{ v.cliente }}</td>
+                    {% if t.id != v.getTrayectos.0.id %}
+                    <td class="all"><a>{{v.getViajeBilingue}}{{t.pasajero.apellido }},{{ t.pasajero.nombre }}</a></td>
+                    {% else %}
+                    <td class="all"><a >{{v.getViajeBilingue}}{{v.pasajero.apellido }},{{ v.pasajero.nombre }}</a></td>
+                    {% endif %}
+                    <td class="all"><span class="label label-sm label-danger">{{ v.getTrayectoPrincipal.desdeConcat }}</span></td>
+                    <td class="all"><span class="label label-sm label-warning">{{ v.getTrayectoPrincipal.hastaConcat }}</span></td>
+                    <td class="all">{{ v.getObservacioneChofer }}</td>
+                </tr>
+            {% endfor %}	
+{% endfor %}
         </tbody>
     </table>
 </div>
