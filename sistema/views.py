@@ -3364,10 +3364,10 @@ def unidadViaje(request):
 	id_viaje = request.GET.get('idViaje', '')
 	viaje = Viaje.objects.get(id=id_viaje)
 
-	if not validarViajeUsuarioUnidad(request, viaje):
-		mensaje = ""
-		context = { 'mensaje':mensaje }
-		return render(request, 'sistema/urlBloqueada.html', context)
+	#if not validarViajeUsuarioUnidad(request, viaje):
+	#	mensaje = ""
+	#	context = { 'mensaje':mensaje }
+	#	return render(request, 'sistema/urlBloqueada.html', context)
 
 	context = {
 		'id': id_viaje,
