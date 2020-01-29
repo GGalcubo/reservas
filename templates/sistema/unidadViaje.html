@@ -117,63 +117,211 @@
                                     </div>
                                     <hr>
                                     <div class="row flex mg-b-10">
-                                        <div class="col-xs-6 col-sm-3 col-md-2">
-                                            <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="tiempo_espera" value="{{espera}}" name="tiempo_espera" readonly="readonly">
-                                                <label for="tiempo_espera">Espera</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3 col-md-2">
-                                            <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="tiempo_hs_dispo" value="{{hs_dispo}}" name="tiempo_hs_dispo" readonly="readonly">
-                                                <label for="tiempo_hs_dispo">Hs Disp.</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-2 col-md-2">
-                                            <div class="form-group form-md-checkboxes">
-                                                <div class="md-checkbox-inline">
-                                                    <div class="md-checkbox">
-                                                        <input type="checkbox" id="bilingue" class="md-check" name="bilingue" {% if bilingue %}checked{% endif %} disabled>
-                                                        <label for="bilingue">
-                                                            <span></span>
-                                                            <span class="check"></span>
-                                                            <span class="box"></span> Bilingue </label>
+
+                                        <div class="col-sm-12 ">
+                                            <!-- BEGIN SAMPLE FORM PORTLET-->
+                                            <div class="portlet light ">
+                                                <div class="portlet-title">
+                                                    <div class="caption font-blue">
+                                                        <span class="caption-subject bold uppercase">Proveedor</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-2">
+                                                        <div class="form-group form-md-line-input has-success form-md-floating-label">
+                                                            <div class="input-group left-addon right-addon">
+                                                                <span class="input-group-addon">$</span>
+                                                                <input type="text" class="form-control" id="admin_total_proveedor" name="admin_total_proveedor" readonly="true">
+                                                                <label for="admin_total_proveedor">TOTAL</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <div class="form-group form-md-line-input">
+                                                            <div class="input-group left-addon right-addon">
+                                                                <span class="input-group-addon">$</span>
+                                                                <input type="text" class="form-control" id="admin_costo_proveedor" name="admin_costo_proveedor" value="" readonly="true">
+                                                                <label for="admin_costo_proveedor">Costo Proveedor</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group form-md-line-input">
+                                                            <select class="form-control" id="admin_cant_espera_proveedor" name="admin_cant_espera_proveedor">
+                                                                <option value="0" selected="selected">Elegir tiempo</option>
+                                                                    <option value="15">00:15 hs</option>
+                                                                    <option value="30">00:30 hs</option>
+                                                                    <option value="45">00:45 hs</option>
+                                                                    <option value="60">01:00 hs</option>
+                                                                    <option value="75">01:15 hs</option>
+                                                                    <option value="90">01:30 hs</option>
+                                                                    <option value="105">01:45 hs</option>
+                                                                    <option value="120">02:00 hs</option>
+                                                                    <option value="135">02:15 hs</option>
+                                                                    <option value="150">02:30 hs</option>
+                                                                    <option value="165">02:45 hs</option>
+                                                                    <option value="180">3:00 hs</option>
+                                                                    <option value="195">3:15 hs</option>
+                                                                    <option value="210">3:30 hs</option>
+                                                                    <option value="225">3:45 hs</option>
+                                                                    <option value="240">4:00 hs</option>
+                                                                    <option value="255">4:15 hs</option>
+                                                                    <option value="270">4:30 hs</option>
+                                                                    <option value="285">4:45 hs</option>
+                                                                    <option value="300">5:00 hs</option>
+                                                                    <option value="315">5:15 hs</option>
+                                                                    <option value="330">5:30 hs</option>
+                                                                    <option value="345">5:45 hs</option>
+                                                                    <option value="360">6:00 hs</option>
+                                                                    <option value="375">6:15 hs</option>
+                                                                    <option value="390">6:30 hs</option>
+                                                                    <option value="405">6:45 hs</option>
+                                                                    <option value="420">7:00 hs</option>
+                                                                    <option value="435">7:15 hs</option>
+                                                                    <option value="450">7:30 hs</option>
+                                                                    <option value="465">7:45 hs</option>
+                                                                    <option value="480">8:00 hs</option>
+                                                                    <option value="495">8:15 hs</option>
+                                                                    <option value="510">8:30 hs</option>
+                                                                    <option value="525">8:45 hs</option>
+                                                                    <option value="540">9:00 hs</option>
+                                                                    <option value="555">9:15 hs</option>
+                                                                    <option value="570">9:30 hs</option>
+                                                                    <option value="585">9:45 hs</option>
+                                                                    <option value="600">10:00 hs</option>
+                                                            </select>
+                                                            <label for="admin_cant_espera_proveedor" class="mg-neg-t-5">Espera</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group form-md-line-input">
+                                                            <div class="input-group left-addon right-addon">
+                                                                <span class="input-group-addon">$</span>
+                                                                <input type="text" class="form-control" value="" id="admin_espera_proveedor" name="admin_espera_proveedor" readonly="true">
+                                                                <label for="admin_espera_proveedor">Espera</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group form-md-line-input">
+                                                            <select class="form-control" id="admin_cant_hs_dispo_proveedor" name="admin_cant_hs_dispo_proveedor">
+                                                                <option value="0" selected="selected">Elegir cant.</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                                <option value="17">17</option>
+                                                                <option value="18">18</option>
+                                                                <option value="19">19</option>
+                                                                <option value="20">20</option>
+                                                                <option value="21">21</option>
+                                                                <option value="22">22</option>
+                                                                <option value="23">23</option>
+                                                                <option value="24">24</option>
+                                                            </select>
+                                                            <label for="admin_cant_hs_dispo_proveedor" class="mg-neg-t-5">Horas Disp</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group form-md-line-input">
+                                                            <div class="input-group left-addon right-addon">
+                                                                <span class="input-group-addon">$</span>
+                                                                <input type="text" class="form-control" value="" id="admin_hs_dispo_proveedor" name="admin_hs_dispo_proveedor" readonly="true">
+                                                                <label for="admin_hs_dispo_proveedor">Horas Disp</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group form-md-line-input">
+                                                            <div class="input-group left-addon right-addon">
+                                                                <span class="input-group-addon">$</span>
+                                                                <input type="text" class="form-control" value="" id="admin_peaje_proveedor" name="admin_peaje_proveedor" readonly="true">
+                                                                <label for="admin_peaje_proveedor">Peajes</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group form-md-line-input">
+                                                            <div class="input-group left-addon right-addon">
+                                                                <span class="input-group-addon">$</span>
+                                                                <input type="text" class="form-control" value="" id="admin_estacionamiento_proveedor" name="admin_estacionamiento_proveedor" readonly="true">
+                                                                <label for="admin_estacionamiento_proveedor">Parking</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group form-md-line-input">
+                                                            <div class="input-group left-addon right-addon">
+                                                                <span class="input-group-addon">$</span>
+                                                                <input type="text" class="form-control" value="" id="admin_otros_proveedor" name="admin_otros_proveedor" readonly="true">
+                                                                <label for="admin_otros_proveedor">Otros</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group form-md-line-input">
+                                                            <select class="form-control" id="admin_cant_maletas_proveedor" name="admin_cant_maletas_proveedor">
+                                                                <option value="0">Elegir cant.</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                            </select>
+                                                            <label for="admin_cant_maletas_proveedor" class="mg-neg-t-5">Maletas</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group form-md-line-input">
+                                                            <div class="input-group left-addon right-addon">
+                                                                <span class="input-group-addon">$</span>
+                                                                <input type="text" class="form-control" value="" id="admin_costo_maletas_proveedor" name="admin_costo_maletas_proveedor" readonly="true">
+                                                                <label for="admin_costo_maletas_proveedor">Maletas</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1 flex flex-row pd-0">
+                                                        <div class="form-group form-md-checkboxes">
+                                                            <div class="md-checkbox-inline">
+                                                                <div class="md-checkbox">
+                                                                    <input type="checkbox" id="admin_bilingue_proveedor" class="md-check" name="admin_bilingue_proveedor" readonly="true">
+                                                                    <label for="admin_bilingue_proveedor">
+                                                                        <span></span>
+                                                                        <span class="check"></span>
+                                                                        <span class="box"></span></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group form-md-line-input">
+                                                            <div class="input-group left-addon right-addon">
+                                                                <span class="input-group-addon">$</span>
+                                                                <input type="text" class="form-control" value="" id="admin_costo_bilingue_proveedor" name="admin_costo_bilingue_proveedor" readonly="true">
+                                                                <label for="admin_costo_bilingue_proveedor">Bilingüe</label>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3 col-md-1">
-                                            <div class="form-group form-md-line-input">
-                                                <input type="text" class="form-control" id="maletas" value="{{maletas}}" name="maletas" readonly="readonly">
-                                                <label for="maletas">Maletas</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3 col-md-1">
-                                            <div class="form-group form-md-line-input">
-                                                <div class="input-group left-addon right-addon">
-                                                    <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="peaje" name="peaje" value="{{peajes}}" readonly="readonly">
-                                                    <label for="peaje">Peajes</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3 col-md-2">
-                                            <div class="form-group form-md-line-input">
-                                                <div class="input-group left-addon right-addon">
-                                                    <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="estacionamiento" name="estacionamiento" value="{{estacionamiento}}" readonly="readonly">
-                                                    <label for="estacionamiento">Estacionamiento</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3 col-md-1">
-                                            <div class="form-group form-md-line-input">
-                                                <div class="input-group left-addon right-addon">
-                                                    <span class="input-group-addon">$</span>
-                                                    <input type="text" class="form-control" id="otros" name="otros" value="{{otros}}" readonly="readonly">
-                                                    <label for="otros">Otros</label>
-                                                </div>
-                                            </div>
+                                            <!-- END SAMPLE FORM PORTLET-->
                                         </div>
                                     </div>
                                     <hr>
@@ -397,17 +545,17 @@
             //     localidades.push(obj);
             // {% endfor %}
 
-            // var viaje_items = [];
-            // {% for viaje_item in viaje.getViajeItems %}
-            //     var obj = {
-            //         id : '{{ viaje_item.id }}',
-            //         monto : '{{ viaje_item.monto }}',
-            //         monto_s_iva : '{{ viaje_item.monto_s_iva }}',
-            //         monto_iva : '{{ viaje_item.monto_iva }}',
-            //         tipo_items_viaje : '{{ viaje_item.tipo_items_viaje_id }}',
-            //         cant:'{{ viaje_item.cant }}'};
-            //     viaje_items.push(obj);
-            // {% endfor %}
+            var viaje_items = [];
+             {% for viaje_item in viaje.getViajeItems %}
+                 var obj = {
+                     id : '{{ viaje_item.id }}',
+                     monto : '{{ viaje_item.monto }}',
+                     monto_s_iva : '{{ viaje_item.monto_s_iva }}',
+                     monto_iva : '{{ viaje_item.monto_iva }}',
+                     tipo_items_viaje : '{{ viaje_item.tipo_items_viaje_id }}',
+                     cant:'{{ viaje_item.cant }}'};
+                 viaje_items.push(obj);
+             {% endfor %}
 
             // var es_nuevo            = '{{ es_nuevo }}';
             // var mensaje             = '{{ mensaje }}';
@@ -443,6 +591,100 @@
             //     $("#formularioPdf").html('<form id="dynForm" target="_blank" action="/sistema/exportarPdfViaje/" method="get">'+params+'</form>');
             //     $("#dynForm").submit();
             // }
+
+
+        fillViajeItems = () => {
+            let sum_total_proveedor = 0;
+            let sum_total_cliente = 0;
+            viaje_items.forEach(value => {
+                //console.log(value.monto_s_iva);
+                switch(value.tipo_items_viaje){
+                    case '1':
+                        $('#admin_espera_cliente').val(value.monto_s_iva);
+                        $('#admin_cant_espera_cliente').val(value.cant);
+                        sum_total_cliente += parseFloat(value.monto_s_iva);
+                    break;
+                    case '2':
+                        $('#admin_costo_cliente').val(parseFloat(value.monto_s_iva));
+                        sum_total_cliente += parseFloat(value.monto_s_iva);
+                    break;
+                    case '3':
+
+                        if(value.cant == 1){
+                            $('#admin_bilingue_cliente').prop('checked', true);
+                        }
+                        $('#admin_costo_bilingue_cliente').val(parseFloat(value.monto_s_iva));
+                        sum_total_cliente += parseFloat(value.monto_s_iva);
+                    break;
+                    case '4':
+                        $('#admin_costo_maletas_cliente').val(parseFloat(value.monto_s_iva));
+                        $('#admin_cant_maletas_cliente').val(value.cant);
+                        sum_total_cliente += parseFloat(value.monto_s_iva);
+                    break;
+                    case '5':
+                        $('#admin_estacionamiento_cliente').val(parseFloat(value.monto_s_iva));
+                        sum_total_cliente += parseFloat(value.monto_s_iva);
+                    break;
+                    case '6':
+                        $('#admin_peaje_cliente').val(parseFloat(value.monto_s_iva));
+                        sum_total_cliente += parseFloat(value.monto_s_iva);
+                    break;
+                    case '8':
+                        $('#admin_costo_proveedor').val(parseFloat(value.monto_s_iva));
+                        sum_total_proveedor += parseFloat(value.monto_s_iva);
+                    break;
+                    case '9':
+                        if(value.cant == 1){
+                            $('#admin_bilingue_proveedor').prop('checked', true);
+                        }
+                        $('#admin_costo_bilingue_proveedor').val(parseFloat(value.monto_s_iva));
+                        sum_total_proveedor += parseFloat(value.monto_s_iva);
+                    break;
+                    case '10':
+                        $('#admin_cant_maletas_proveedor').val(value.cant);
+                        $('#admin_costo_maletas_proveedor').val(parseFloat(value.monto_s_iva));
+                        sum_total_proveedor += parseFloat(value.monto_s_iva);
+                    break;
+                    case '11':
+                        $('#admin_estacionamiento_proveedor').val(parseFloat(value.monto_s_iva));
+                        sum_total_proveedor += parseFloat(value.monto_s_iva);
+                    break;
+                    case '12':
+                        $('#importe_efectivo').val(parseFloat(value.monto_s_iva));
+                    break;
+                    case '13':
+                        $('#admin_hs_dispo_proveedor').val(parseFloat(value.monto_s_iva));
+                        $('#admin_cant_hs_dispo_proveedor').val(value.cant);
+                        sum_total_proveedor += parseFloat(value.monto_s_iva);
+                    break;
+                    case '14':
+                        $('#admin_espera_proveedor').val(value.monto_s_iva);
+                        $('#admin_cant_espera_proveedor').val(value.cant);
+                        sum_total_proveedor += parseFloat(value.monto_s_iva);
+                    break;
+                    case '15':
+                        $('#admin_peaje_proveedor').val(parseFloat(value.monto_s_iva));
+                        sum_total_proveedor += parseFloat(value.monto_s_iva);
+                    break;
+                    case '16':
+                        $('#admin_otros_proveedor').val(parseFloat(value.monto_s_iva));
+                        sum_total_proveedor += parseFloat(value.monto_s_iva);
+                    break;
+                    case '17':
+                        $('#admin_otros_cliente').val(parseFloat(value.monto_s_iva));
+                        sum_total_cliente += parseFloat(value.monto_s_iva);
+                    break;
+                    case '18':
+                        $('#admin_hs_dispo_cliente').val(parseFloat(value.monto_s_iva));
+                        $('#admin_cant_hs_dispo_cliente').val(value.cant);
+                        sum_total_cliente += parseFloat(value.monto_s_iva);
+                    break;
+                    default:
+                }
+            });
+            $('#admin_total_cliente').val(sum_total_cliente);
+            $('#admin_total_proveedor').val(sum_total_proveedor);
+        };
 
         </script>
 
