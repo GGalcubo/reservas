@@ -73,7 +73,7 @@ $(document).ready( () => {
         getGrillasHistorial();
         if(estado == '7'){
             //$("#administracion").show();
-            if(permiso != 'operaciones'){
+            if(permiso != 'operaciones' or permiso != 'unidades'){
                 $("#administracion_tab_btn a").show();
             }
 

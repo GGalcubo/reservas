@@ -211,7 +211,15 @@ def editaViaje(request):
 	if request.GET.get('msg', "") == '1':
 		mensaje = 'El viaje se creo correctamente.'
 	viaje = Viaje.objects.get(id=id_viaje)
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
 
+	mensaje = ""
+	context = { 'mensaje':mensaje }
+	return render(request, 'sistema/urlBloqueada.html', context)
+ 
 	if not validarViajeUsuarioUnidad(request, viaje):
 		mensaje = ""
 		context = { 'mensaje':mensaje }
@@ -3357,6 +3365,7 @@ def mailtoViaje(request):
 
 @login_required
 def unidadViaje(request):
+   
 	if not validarUrlPorRol(request):
 		mensaje = ""
 		context = { 'mensaje':mensaje }
@@ -3519,7 +3528,7 @@ def obtenerPermiso(request):
 def validarUrlPorRol(request):
 	permisos = obtenerPermiso(request)
 	if 'unidades' in permisos:
-		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change','unidadViaje']
+		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change','unidadViaje','editaViaje']
 	if 'operaciones' in permisos:
 		urls = ['operaciones','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje']
 	if 'finanzas' in permisos:
