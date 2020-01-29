@@ -13,7 +13,7 @@ $(document).ready( () => {
         }
     });
 
-    console.log('user: ' + user);
+    console.log('permiso: ' + permiso);
 
     //$('#admin_total').val(0);
 
@@ -73,7 +73,7 @@ $(document).ready( () => {
         getGrillasHistorial();
         if(estado == '7'){
             //$("#administracion").show();
-            if(user != 'OPERACIONES'){
+            if(permiso != 'operaciones'){
                 $("#administracion_tab_btn a").show();
             }
 
@@ -584,7 +584,7 @@ guardarViaje = () =>{
                             });
                             fillViajeItems();
                             //$("#administracion").show();
-                            if(user != 'OPERACIONES'){
+                            if(permiso != 'operaciones'){
                                 $("#administracion_tab_btn a").show();
                             }
                         }
