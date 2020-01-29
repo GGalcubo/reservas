@@ -3357,10 +3357,10 @@ def mailtoViaje(request):
 
 @login_required
 def unidadViaje(request):
-	#if not validarUrlPorRol(request):
-	#	mensaje = ""
-	#	context = { 'mensaje':mensaje }
-	#	return render(request, 'sistema/urlBloqueada.html', context)
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
 
 	id_viaje = request.GET.get('idViaje', '')
 	viaje = Viaje.objects.get(id=id_viaje)
@@ -3519,13 +3519,13 @@ def obtenerPermiso(request):
 def validarUrlPorRol(request):
 	permisos = obtenerPermiso(request)
 	if 'unidades' in permisos:
-		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change']
+		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change','unidadViaje']
 	if 'operaciones' in permisos:
 		urls = ['operaciones','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje']
 	if 'finanzas' in permisos:
 		urls = ['operaciones','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje']
 	if 'superuser' in permisos:
-		urls = ['operaciones','altaViaje','exportar','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje']
+		urls = ['operaciones','altaViaje','exportar','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje','unidadViaje']
 
 	for url in urls:
 		if url in request.build_absolute_uri():
