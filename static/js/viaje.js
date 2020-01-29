@@ -13,6 +13,8 @@ $(document).ready( () => {
         }
     });
 
+    console.log('user: ' + user);
+
     //$('#admin_total').val(0);
 
     $('#admin_espera_cliente, #admin_estacionamiento_cliente, #admin_estacionamiento_cliente, #admin_peaje_cliente, #admin_hs_dispo_cliente, #admin_costo_cliente, #admin_costo_bilingue_cliente, #admin_costo_maletas_cliente, #admin_otros_cliente').on('input', function () {
@@ -71,7 +73,10 @@ $(document).ready( () => {
         getGrillasHistorial();
         if(estado == '7'){
             //$("#administracion").show();
-            $("#administracion_tab_btn a").show();
+            if(user != 'OPERACIONES'){
+                $("#administracion_tab_btn a").show();
+            }
+
         }
         if(mensaje != ''){showMsg(mensaje, 'success')}
         $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
@@ -579,7 +584,9 @@ guardarViaje = () =>{
                             });
                             fillViajeItems();
                             //$("#administracion").show();
-                            $("#administracion_tab_btn a").show();
+                            if(user != 'OPERACIONES'){
+                                $("#administracion_tab_btn a").show();
+                            }
                         }
                     }else{
                         //$("#administracion").hide();

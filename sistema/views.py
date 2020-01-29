@@ -232,6 +232,7 @@ def editaViaje(request):
 				'provincias':Provincia.objects.all(),
 				'es_nuevo':es_nuevo,
 				'viaje':viaje,
+                'user':request.user,
 				'trayectos':Trayecto.objects.filter(viaje_id=id_viaje)}
 	return render(request, 'sistema/viaje.html', context)
 
