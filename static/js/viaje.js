@@ -1315,12 +1315,12 @@ updateFillsByDestino = (name, evt) => {
         $("." + html_vuelo).hide();
         $("." + html_cont_localidad).show();
         $("." + html_cont_provincia).hide();
-    }else if(destino_id == 9){
+    }/*else if(destino_id == 9){
         $("." + html_direccion).hide();
         $("." + html_vuelo).show();
         $("." + html_cont_localidad).hide();
         $("." + html_cont_provincia).hide();
-    }
+    }*/
 
     if(destino_id != '' && destino_id != ''){
         var url = "/sistema/cargarLocalidadByDestino/";
