@@ -211,7 +211,12 @@ def editaViaje(request):
 	if request.GET.get('msg', "") == '1':
 		mensaje = 'El viaje se creo correctamente.'
 	viaje = Viaje.objects.get(id=id_viaje)
+	if not validarUrlPorRol(request):
+		mensaje = ""
+		context = { 'mensaje':mensaje }
+		return render(request, 'sistema/urlBloqueada.html', context)
 
+ 
 	if not validarViajeUsuarioUnidad(request, viaje):
 		mensaje = ""
 		context = { 'mensaje':mensaje }
@@ -3357,6 +3362,7 @@ def mailtoViaje(request):
 
 @login_required
 def unidadViaje(request):
+   
 	if not validarUrlPorRol(request):
 		mensaje = ""
 		context = { 'mensaje':mensaje }
@@ -3522,11 +3528,11 @@ def validarUrlPorRol(request):
 	if 'unidades' in permisos:
 		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change','unidadViaje']
 	if 'operaciones' in permisos:
-		urls = ['operaciones','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje']
+		urls = ['operaciones','editaViaje','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje']
 	if 'finanzas' in permisos:
-		urls = ['operaciones','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje']
+		urls = ['operaciones','altaViaje','editaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje']
 	if 'superuser' in permisos:
-		urls = ['operaciones','altaViaje','exportar','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje','unidadViaje']
+		urls = ['operaciones','altaViaje','exportar','editaViaje','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje','unidadViaje']
 
 	for url in urls:
 		if url in request.build_absolute_uri():
