@@ -3372,6 +3372,7 @@ def unidadViaje(request):
 
 	context = {
 		'id': id_viaje,
+        'viaje': viaje,
 		'fecha' : viaje.getFecha(),
 		'hora' : viaje.hora,
 		'estimados' : viaje.hora_estimada,
