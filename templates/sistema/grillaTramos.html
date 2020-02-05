@@ -17,7 +17,7 @@
                     <td>{{ t.hastaConcat }}</td>
                     <td>{{ t.pasajero|default_if_none:'' }}</td>
                     <td class="text-center">
-                        <a href="#add_tramo" data-toggle="modal" class="edit_button"
+                        <a href="#add_tramo" data-toggle="modal" class="edit_button btn btn-xs btn-outline blue"
                            data-id="{{ t.id }}"
                            data-destino_desde="{{ t.destino_desde.id|default_if_none:'' }}"
                            data-provincia_desde="{{ t.provincia_desde.id|default_if_none:'' }}"
@@ -38,7 +38,7 @@
                            data-pasajero_trayecto="{{ t.pasajero.id|default_if_none:'' }}">
                            <i class="fa fa-pencil"></i>
                         </a>
-                        <a href="#" class="delete_button" data-id="{{ t.id }}">
+                        <a href="#" class="delete_button btn btn-xs btn-outline red" data-id="{{ t.id }}">
                            <i class="fa fa-trash"></i>
                         </a>
                     </td>
