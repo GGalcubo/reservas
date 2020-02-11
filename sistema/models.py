@@ -1091,7 +1091,7 @@ class Trayecto(models.Model):
         if self.destino_desde and self.destino_desde.id != 3:
             retorno = self.destino_desde.nombre + ", "
         if self.provincia_desde:
-            retorno += self.provincia_desde.nombre + ", "
+            retorno += self.provincia_desde.nombre.rstrip(" ")[0:4] + ", "
         if self.localidad_desde:
             retorno += self.localidad_desde.nombre + ", "
         if self.calle_desde:
@@ -1111,7 +1111,7 @@ class Trayecto(models.Model):
         if self.destino_hasta and self.destino_hasta.id != 3:
             retorno = self.destino_hasta.nombre + ", "
         if self.provincia_hasta:
-            retorno += self.provincia_hasta.nombre + ", "
+            retorno += self.provincia_hasta.nombre.rstrip(" ")[0:4] + ", "
         if self.localidad_hasta:
             retorno += self.localidad_hasta.nombre + ", "
         if self.calle_hasta:
