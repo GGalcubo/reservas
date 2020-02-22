@@ -40,16 +40,8 @@
                             <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.id_fake|default_if_none:"----" }}</a></td>
                             <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.alias|default_if_none:"----" }}</a></td>
                             {% endifequal %}
-                            {% ifequal t.destino_desde.nombre "Interior" %}
-                                <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.destino_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ t.desdeConcat }}</span></td>
-                            {% else %}
-                                <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ t.desdeConcat }}</span></td>
-                            {% endifequal %}
-                            {% ifequal t.destino_hasta.nombre "Interior" %}
-                                <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.destino_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ t.hastaConcat }}</span></td>
-                            {% else %}
-                                <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ t.hastaConcat }}</span></td>
-                            {% endifequal %}
+                            <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ t.desdeConcat }}</span></td>
+                            <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ t.hastaConcat }}</span></td>
                             {% if t.id != v.getTrayectos.0.id %}
                             <td class="all"><a href="#" data-toggle="modal" class="open_pasajero_modal" data-pasajero-apellido="{{t.pasajero.apellido }}" data-pasajero-nombre="{{t.pasajero.nombre }}" data-pasajero-tel="{{t.pasajero.getTelefono|default_if_none:'' }}" data-pasajero-mail="{{t.pasajero.getMail|default_if_none:'' }}">{{v.getViajeBilingue}}{{t.pasajero.apellido }},{{ t.pasajero.nombre }}</a></td>
                             {% else %}
