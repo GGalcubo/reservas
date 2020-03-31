@@ -570,8 +570,9 @@ guardarViaje = () =>{
                     }
 
                     if(obj.estado == 7){
-                        if(data.error != 0){
-                            viaje_items = [];
+                        if(data.error == 0){
+                            guardaViajeAdmin();
+                            /*viaje_items = [];
                             $.each(data, (k, item) => {
                                 let obj = {
                                     id : item.pk,
@@ -582,7 +583,7 @@ guardarViaje = () =>{
                                     cant: item.fields.cant};
                                 viaje_items.push(obj);
                             });
-                            fillViajeItems();
+                            fillViajeItems();*/
                             //$("#administracion").show();
                             if(permiso != 'operaciones'){
                                 $("#administracion_tab_btn a").show();
