@@ -581,7 +581,8 @@ def validateGetTarifaTrayecto(tarifario, viaje):
             base = getTarifaTrayecto(viaje.categoria_viaje_id, tarifario, viaje.getTrayectoPrincipal().localidad_hasta, viaje.getTrayectoPrincipal().localidad_desde)
         except Exception as e:
             base = 0
-
+    if base is None:
+        base = 0
     return base
 
 def getTarifaTrayecto(categoria_viaje, tarifario, desde, hasta):
@@ -601,6 +602,8 @@ def getTarifaTrayecto(categoria_viaje, tarifario, desde, hasta):
         return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=desde, localidad_hasta=hasta).cat7
     elif categoria_viaje == 8:
         return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=desde, localidad_hasta=hasta).cat8
+    elif categoria_viaje == 9:
+        return TarifaTrayecto.objects.get(tarifario=tarifario, localidad_desde=desde, localidad_hasta=hasta).cat9
 
 def getTarifaTrayectoExtra(categoria_viaje, tarifario, extra_descripcion):
     if categoria_viaje == 1:
@@ -619,6 +622,8 @@ def getTarifaTrayectoExtra(categoria_viaje, tarifario, extra_descripcion):
         return TarifaExtra.objects.get(tarifario=tarifario, extra_descripcion=extra_descripcion).cat7
     elif categoria_viaje == 8:
         return TarifaExtra.objects.get(tarifario=tarifario, extra_descripcion=extra_descripcion).cat8
+    elif categoria_viaje == 9:
+        return TarifaExtra.objects.get(tarifario=tarifario, extra_descripcion=extra_descripcion).cat9
 
 
 def guardaItemViajeCostoProveedor(monto, tipo_item_viaje, cant, viaje, manual):
@@ -632,6 +637,9 @@ def guardaItemViajeCostoProveedor(monto, tipo_item_viaje, cant, viaje, manual):
         monto = 0 if monto == '' else monto
         item_viaje_otros = ItemViaje()
 
+    print monto
+    print base
+    print manual
     monto       = round(float(monto), 2)
     monto_s_iva = monto if manual else round(float(base), 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
@@ -746,6 +754,11 @@ def guardaItemViajeBilingue(monto, tipo_item_viaje, checkbox, viaje, manual, esp
         item_viaje_otros = ItemViaje()
 
     monto       = round(float(monto), 2)
+    print base
+    print espera
+    print dispo
+    if dispo is None:
+        dispo = 0
     monto_s_iva = monto if manual else round(float(base + espera + dispo) * 0.2, 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
@@ -775,6 +788,8 @@ def guardaItemViajeBilingueAdmin(monto, tipo_item_viaje, checkbox, viaje, manual
 
 
     monto       = round(float(monto), 2)
+    if dispo is None:
+        dispo = 0
     monto_s_iva = monto if manual else round(float(base + espera + dispo) * 0.2, 2)
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
