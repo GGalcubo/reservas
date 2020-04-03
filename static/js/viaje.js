@@ -1435,9 +1435,13 @@ fillViajeItems = () => {
 
                 if(value.cant == 1){
                     $('#admin_bilingue_cliente').prop('checked', true);
+                    $('#admin_costo_bilingue_cliente').val(parseFloat(value.monto_s_iva));
+                    sum_total_cliente += parseFloat(value.monto_s_iva);
+                }else{
+                    $('#admin_costo_bilingue_cliente').val(0);
                 }
                 $('#admin_costo_bilingue_cliente').val(parseFloat(value.monto_s_iva));
-                sum_total_cliente += parseFloat(value.monto_s_iva);
+
             break;            
             case '4':
                 $('#admin_costo_maletas_cliente').val(parseFloat(value.monto_s_iva));
@@ -1459,9 +1463,12 @@ fillViajeItems = () => {
             case '9':
                 if(value.cant == 1){
                     $('#admin_bilingue_proveedor').prop('checked', true);
+                    $('#admin_costo_bilingue_proveedor').val(parseFloat(value.monto_s_iva));
+                    sum_total_proveedor += parseFloat(value.monto_s_iva);
+                }else{
+                    $('#admin_costo_bilingue_proveedor').val(0);
                 }
-                $('#admin_costo_bilingue_proveedor').val(parseFloat(value.monto_s_iva));
-                sum_total_proveedor += parseFloat(value.monto_s_iva);
+
             break;
             case '10':
                 $('#admin_cant_maletas_proveedor').val(value.cant);
