@@ -204,7 +204,7 @@
                                                 </div>
                                                 <div class="col-xs-12 col-sm-4 col-md-6 col-lg-2">
                                                     <div class="form-group form-md-line-input">
-                                                        <textarea class="form-control" rows="2" placeholder="" name="tarifa_pasada" id="tarifa_pasada">{{ viaje.tarifapasada|default_if_none:'' }}</textarea>
+                                                        <textarea class="form-control" rows="2"  maxlength="200" placeholder="" name="tarifa_pasada" id="tarifa_pasada">{{ viaje.tarifapasada|default_if_none:'' }}</textarea>
                                                         <label for="tarifa_pasada">Comentario interno</label>
                                                     </div>
                                                 </div>
