@@ -410,8 +410,9 @@ $(document).ready( () => {
 
     $('#tablaPasajeroViaje').DataTable({
         responsive: true,
-        // scrollY: 200,
+        scrollX: true,
         order: [[ 1, "asc" ]],
+        dom: 'ti',
         lengthMenu: [
                         [ -1, 500, 100, 50, 25, 10 ],
                         [ 'Todos', '500', '100', '50', '25', '10' ]

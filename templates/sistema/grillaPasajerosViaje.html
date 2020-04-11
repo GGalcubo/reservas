@@ -5,7 +5,7 @@
             <th class="all">Nombre</th>
             <th class="all">Apellido</th>
             <th class="all">DNI</th>
-            <th class="all">Nacionalidad</th>
+            <!-- <th class="all">Nacionalidad</th> -->
             <th class="all">Domicilio</th>
             <th class="all">Teléfono</th>
             <th class="all">Comentario</th>
@@ -20,10 +20,10 @@
             <td>{{ p.nombre|default_if_none:"" }}</td>
             <td>{{ p.apellido|default_if_none:"" }}</td>
             <td>{{ p.documento|default_if_none:"" }}</td>
-            <td>{{ p.nacionalidad|default_if_none:"" }}</td>
-            <td>{{ p.getDomicilio }}</td>
-            <td>{{ p.getTelefono }}</td>
-            <td>{{ p.getObservacion }}</td>
+            <!-- <td>{{ p.nacionalidad|default_if_none:"" }}</td> -->
+            <td>{{ p.getDomicilio|default_if_none:""  }}</td>
+            <td>{{ p.getTelefono|default_if_none:""  }}</td>
+            <td>{{ p.getObservacion|default_if_none:""  }}</td>
         </tr>
         {% endfor %}
     </tbody>
@@ -31,8 +31,9 @@
 <script>
     $('#tablaPasajeroViaje').DataTable( {
         responsive: true,
-        // scrollY: 200,
+        scrollX: true,
         order: [[ 1, "asc" ]],
+        dom: 'ti',
         lengthMenu: [
                         [ -1, 500, 100, 50, 25, 10 ],
                         [ 'Todos', '500', '100', '50', '25', '10' ]
