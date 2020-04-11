@@ -357,12 +357,12 @@ def guardarViaje(request):
     viaje.categoria_viaje 		= CategoriaViaje.objects.get(id=request.POST.get('categoria_viaje', False))
     viaje.solicitante 			= Persona.objects.get(id=request.POST.get('contacto', False))
     viaje.centro_costo 			= CentroCosto.objects.get(id=request.POST.get('centro_costos', False))
-    pasajero                    = Persona.objects.get(id=request.POST.get('pasajero', False))
-    viaje.pasajero 				= pasajero
+    #pasajero                   = Persona.objects.get(id=request.POST.get('pasajero', False))
+    #viaje.pasajero 				= pasajero
     fecha_tmp 					= request.POST.get('fecha', "")
     viaje.fecha 				= fecha_tmp[6:10] + fecha_tmp[3:5] + fecha_tmp[0:2]
     viaje.hora 					= request.POST.get('hora', "")
-    viaje.hora_estimada 		= request.POST.get('hora_estimada', "")
+    #viaje.hora_estimada 		= request.POST.get('hora_estimada', "")
     viaje.tarifapasada 			= request.POST.get('tarifa_pasada', "")
     viaje.Cod_ext_viaje         = request.POST.get('cod_externo', "")
     viaje.nro_aux               = request.POST.get('nro_aux', "")
@@ -408,7 +408,7 @@ def guardarViaje(request):
     guardarHistorial(viaje, 'centro costo', viaje.centro_costo.nombre, request.user)
     guardarHistorial(viaje, 'pasajero', viaje.pasajero.apellido + ' ' + viaje.pasajero.nombre, request.user)
     guardarHistorial(viaje, 'hora', viaje.hora, request.user)
-    guardarHistorial(viaje, 'hora estimada', viaje.hora_estimada, request.user)
+    #guardarHistorial(viaje, 'hora estimada', viaje.hora_estimada, request.user)
     guardarHistorial(viaje, 'tarifa pasada', viaje.tarifapasada, request.user)
     guardarHistorial(viaje, 'cod ext viaje', viaje.Cod_ext_viaje, request.user)
     guardarHistorial(viaje, 'nro aux', viaje.nro_aux, request.user)
@@ -427,7 +427,7 @@ def guardarViaje(request):
 
     if viaje.getTrayectoPrincipal() != '':
         trayecto = viaje.getTrayectoPrincipal()
-        trayecto.pasajero = pasajero
+        #trayecto.pasajero = pasajero
         trayecto.save()
 
     #guardaViajePasajero(pasajero, True, viaje)
@@ -754,12 +754,12 @@ def guardaItemViajeBilingue(monto, tipo_item_viaje, checkbox, viaje, manual, esp
         item_viaje_otros = ItemViaje()
 
     monto       = round(float(monto), 2)
-    print base
-    print espera
-    print dispo
     if dispo is None:
         dispo = 0
-    monto_s_iva = monto if manual else round(float(base + espera + dispo) * 0.2, 2)
+    try:
+        monto_s_iva = monto if manual else round(float(base + espera + dispo) * 0.2, 2)
+    except Exception as e:
+        monto_s_iva = 0
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = checkbox
@@ -790,7 +790,10 @@ def guardaItemViajeBilingueAdmin(monto, tipo_item_viaje, checkbox, viaje, manual
     monto       = round(float(monto), 2)
     if dispo is None:
         dispo = 0
-    monto_s_iva = monto if manual else round(float(base + espera + dispo) * 0.2, 2)
+    try:
+        monto_s_iva = monto if manual else round(float(base + espera + dispo) * 0.2, 2)
+    except Exception as e:
+        monto_s_iva = 0
     monto_iva   = round(monto_s_iva * tipo_item_viaje.iva_pct, 2) if manual else round(monto_s_iva * tipo_item_viaje.iva_pct, 2)
 
     item_viaje_otros.cant               = checkbox
@@ -3396,7 +3399,7 @@ def unidadViaje(request):
         'viaje': viaje,
 		'fecha' : viaje.getFecha(),
 		'hora' : viaje.hora,
-		'estimados' : viaje.hora_estimada,
+		#'estimados' : viaje.hora_estimada,
 		'estado' : viaje.estado.estado,
 		'categoria_viaje' : viaje.categoria_viaje.categoria,
 		'comentario' : viaje.getObservacioneChofer(),

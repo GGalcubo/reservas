@@ -61,13 +61,13 @@ $(document).ready( () => {
         //$("#viaje-tab").hide();
         $("#viaje-tab").show();
         $("#hora").val('') ;
-        $("#hora_estimada").val('');
+        //$("#hora_estimada").val('');
         $('#estado').attr("disabled", true);
         $('#clonar_btn').hide();
     }else{
         if(is_clone == '1'){
             $("#hora").val('') ;
-            $("#hora_estimada").val('');
+            //$("#hora_estimada").val('');
         }
         $("#viaje-tab").show();
         getGrillasHistorial();
@@ -392,7 +392,7 @@ $(document).ready( () => {
     });
 
     $('#hora').timepicker();
-    $('#hora_estimada').timepicker();
+    //$('#hora_estimada').timepicker();
     $('#hora_obs').timepicker();
 
     $('#tablaPasajeroClientes').DataTable({
@@ -500,7 +500,7 @@ guardarViaje = () =>{
         obj.pasajero          = $("#pasajero").val();
         obj.fecha             = $("#fecha").val();
         obj.hora              = ($("#hora").val().length == 5) ? $("#hora").val() : '0' + $("#hora").val();
-        obj.hora_estimada     = ($("#hora_estimada").val().length == 5) ? $("#hora_estimada").val() : '0' + $("#hora_estimada").val();
+        //obj.hora_estimada     = ($("#hora_estimada").val().length == 5) ? $("#hora_estimada").val() : '0' + $("#hora_estimada").val();
         obj.costo_proveedor   = $("#costo_proveedor").val();
         obj.tarifa_pasada     = $("#tarifa_pasada").val();
         obj.comentario_chofer = $("#comentario_chofer").val();
