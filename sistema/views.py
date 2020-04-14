@@ -406,7 +406,7 @@ def guardarViaje(request):
     guardarHistorial(viaje, 'categoria viaje', viaje.categoria_viaje.categoria, request.user)
     guardarHistorial(viaje, 'solicitante', viaje.solicitante.apellido + ' ' + viaje.solicitante.nombre, request.user)
     guardarHistorial(viaje, 'centro costo', viaje.centro_costo.nombre, request.user)
-    guardarHistorial(viaje, 'pasajero', viaje.pasajero.apellido + ' ' + viaje.pasajero.nombre, request.user)
+    #guardarHistorial(viaje, 'pasajero', viaje.pasajero.apellido + ' ' + viaje.pasajero.nombre, request.user)
     guardarHistorial(viaje, 'hora', viaje.hora, request.user)
     #guardarHistorial(viaje, 'hora estimada', viaje.hora_estimada, request.user)
     guardarHistorial(viaje, 'tarifa pasada', viaje.tarifapasada, request.user)
