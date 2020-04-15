@@ -1549,6 +1549,10 @@ def guardarPasajeroProspect(request):
 	persona.nacionalidad = request.POST.get('nacionalidadPasajeroCliente', "")
 	persona.direccion = request.POST.get('callePasajeroCliente', "")
 	persona.telefono = request.POST.get('telefonoPasajeroCliente', "")
+	if request.POST.get('pasajeroFrecuente', '') == 'on':
+		persona.pasajero_frecuente = True
+	else:
+		persona.pasajero_frecuente = False
 	persona.save()
 	telefono = persona.telefono
 	comentario = request.POST.get('comentarioPasajeroCliente', "")
