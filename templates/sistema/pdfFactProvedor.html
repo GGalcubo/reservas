@@ -126,6 +126,7 @@
                         <th class="all">Fecha</th>
                         <th class="all">TS</th>
                         <th class="all">Hora</th>
+                        <th class="all"># Pax</th>
                         <th class="all">Pasajero</th>
                         <th class="all">Origen</th>
                         <th class="all">Destino</th>
@@ -151,6 +152,7 @@
                         <td>{{v.getFecha}}</td>
                         <td>{{v.categoria_viaje}}</td>
                         <td>{{v.hora}}</td>
+                        <td>{{v.nropasajeros}}</td>
                         <td>{{v.pasajero.nombre}} {{v.pasajero.apellido}}</td>
                         <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
                         <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
@@ -189,11 +191,13 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
                         <td>&nbsp;</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

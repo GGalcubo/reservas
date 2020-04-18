@@ -135,6 +135,7 @@
                         {% if centroCosto == "" %}
                             <th class="all">CC</th>
                         {% endif %}
+                        <th class="text-center"># PAX</th>
                         <th class="all">PAX</th>
                         <th class="all">ORIGEN</th>
                         <th class="all">DESTINO</th>
@@ -165,6 +166,7 @@
                         {% if centroCosto == "" %}
                             <td>{{v.centro_costo|default_if_none:""}}</td>
                         {% endif %}
+                        <td>{{v.nropasajeros|default_if_none:"1"}}</td>
                         <td>{{v.pasajero|default_if_none:""}}</td>
                         <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
                         <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
@@ -203,6 +205,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
                         {% if centroCosto == "" %}
                         <td></td>
                         {% endif %}
@@ -213,6 +216,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

@@ -89,7 +89,7 @@
                             <h4 class="modal-title" style="color:#888;">Modificar Unidad del Viaje</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="scroller" style="height:150px" data-always-visible="1" data-rail-visible1="1">
+                            <div class="scroller" style="height:250px" data-always-visible="1" data-rail-visible1="1">
                                 <input type="hidden" id="idViaje" name="idViaje" value="">
                                 <div class="form-group form-md-line-input">
                                     <select class="form-control select2me" id="unidad_id" name="unidad_id">
@@ -171,6 +171,7 @@
                             getGrillasViajes($('#fechaDeHoy').val());
                         }
                     });
+
                     $('#viajesEnProgreso').DataTable( {
                         colReorder: true,
                         scrollY: 150,
@@ -399,7 +400,7 @@
                      let apellido = $(this).data('pasajero-apellido');
                      let telefono = $(this).data('pasajero-tel');
                      let mail = $(this).data('pasajero-mail');
-                     $('#pasajero_detalles').html(nombre + ' - ' + apellido + checkField(telefono) + checkField(mail));
+                     $('#pasajero_detalles').html(nombre + ', ' + apellido + checkField(telefono) + checkField(mail));
                      $('#ver_pasajero').modal('show');
                 });
 
