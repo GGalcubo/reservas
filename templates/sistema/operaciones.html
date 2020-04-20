@@ -122,23 +122,35 @@
 
         <!-- MODAL VER PASAJERO -->
         <div id="ver_pasajero" class="modal fade" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title" style="color:#888;">Ver Pasajero Detalles</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
+                            <div id="pasajero_detalles"></div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MODAL AGREGAR PASAJERO -->
+        
+        <!-- MODAL OBSERVACION -->
+        <div id="ver_observacion" class="modal fade" tabindex="-1" aria-hidden="true"> <!--<div id="observacion_detalles"></div>-->
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                            <h4 class="modal-title" style="color:#888;">Ver Pasajero Detalles</h4>
+                            <h4 class="modal-title" style="color:#888;">OBSERVACIONES</h4>
                         </div>
-                        <div class="modal-body">
-                            <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
-                                <div id="pasajero_detalles"></div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        <!-- END MODAL AGREGAR PASAJERO -->
+                        <div id="observacion_detalles"></div>
+                        
+        <!-- END MODAL OBSERVACION -->
+        
         {% include "sistema/footer.html" %}
             
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
@@ -403,7 +415,16 @@
                      $('#pasajero_detalles').html(nombre + ', ' + apellido + checkField(telefono) + checkField(mail));
                      $('#ver_pasajero').modal('show');
                 });
-
+                /* Logica en prod para hacer observaciones */
+                $(document).on("click", ".open_observacion_modal", function () {
+                     let tarifapasada = $(this).data('obs-tarifapasada');
+                     let comchofer = $(this).data('obs-comchofer');
+                     let  todas = $(this).data('obs-todas');
+                     //let mail = $(this).data('pasajero-mail');*/
+                     $('#observacion_detalles').html( '<b>- Comentario interno: </b>' + tarifapasada  + '<br/>  <b>- Observaciones Chofer: </b>' + comchofer + '<br/> <b>- Observaciones: </b>' + todas);
+                     $('#ver_observacion').modal('show');
+                }); 
+                /* Logica en prod para hacer observaciones */
                 updateFillsByUnidad = (name, evt) => {
                     let unidad_id = evt.params.data.id;
                     let url = "/sistema/getDatosUnidad/";

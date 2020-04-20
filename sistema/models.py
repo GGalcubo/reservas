@@ -515,6 +515,12 @@ class Viaje(models.Model):
             if obsviaje.observacion.tipo_observacion_id == 17:
                 obs_chofer = obsviaje.observacion.texto
         return obs_chofer
+    def getObservacionTodas(self):
+        obs_todas = ''
+        for obsviaje in self.observacionviaje_set.all():
+            if obsviaje.observacion.tipo_observacion_id != 17:
+                obs_todas = obsviaje.observacion.texto + '(' + obsviaje.observacion.fecha + ')' + ', ' + obs_todas
+        return obs_todas
 
     def getViajeItems(self):
         viaje_items = []
