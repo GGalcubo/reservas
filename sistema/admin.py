@@ -41,9 +41,23 @@ class TarifaTrayectoAdmin(admin.ModelAdmin):
 class TarifaExtraAdmin(admin.ModelAdmin):
     list_display = ('id', 'extra_descripcion', 'cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6', 'cat7', 'cat8')
 
+class ProvinciaAdmin(admin.TabularInline):
+    model = Provincia
+    
+    extra= 1
+    
+class LocalidadAdmin(admin.ModelAdmin):
+    model = Localidad
+    extra = 1
+    list_display = ('nombre','provincia')
+    fk_name= Provincia
+    list_filter = ['provincia']
+    search_fields = ['nombre']
+    ordering = ['nombre']
+
 admin.site.register(Viaje, ViajeAdmin)
 admin.site.register(Provincia)
-admin.site.register(Localidad)
+admin.site.register(Localidad,LocalidadAdmin)
 admin.site.register(Calle)
 admin.site.register(Estado)
 admin.site.register(EstadoCivil)
