@@ -51,7 +51,7 @@
                             {% if v.tarifapasada == '' and v.getObservacioneChofer == '' %}
                             <td class="all"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada|default_if_none:'' }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" ></a></td>
                             {% else %}
-                            <td class="all"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada|default_if_none:'' }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" >ver</a></td>
+                            <td class="fa fa-bars"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada|default_if_none:'' }}" data-obs-comchofer="{{ v.getObservacioneChofer }}">. ver</a></td>
                             {% endif %}
                             <td class="all">{{v.solicitante.apellido }},{{ v.solicitante.nombre }}</td>
                             <td class="all">{{ v.centro_costo.nombre }}</td>

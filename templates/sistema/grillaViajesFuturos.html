@@ -42,15 +42,15 @@
                     <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ t.desdeConcat }}</span></td>
                     <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ t.hastaConcat }}</span></td>
                     <td class="all">{{ v.nropasajeros }}</td>
-                    {% if t.id != v.getTrayectos.0.id and %}
+                    {% if t.id != v.getTrayectos.0.id %}
                     <td class="all"><a href="#" data-toggle="modal" class="open_pasajero_modal" data-pasajero-apellido="{{t.pasajero.apellido }}" data-pasajero-nombre="{{t.pasajero.nombre }}" data-pasajero-tel="{{t.pasajero.getTelefono|default_if_none:'' }}" data-pasajero-mail="{{t.pasajero.getMail|default_if_none:'' }}">{{v.getViajeBilingue}}{{t.pasajero.apellido }},{{ t.pasajero.nombre }}</a></td>
                     {% else %}
                     <td class="all"><a href="#" data-toggle="modal" class="open_pasajero_modal" data-pasajero-apellido="{{v.pasajero.apellido }}" data-pasajero-nombre="{{v.pasajero.nombre }}" data-pasajero-tel="{{v.pasajero.getTelefono|default_if_none:'' }}" data-pasajero-mail="{{v.pasajero.getMail|default_if_none:'' }}">{{v.getViajeBilingue}}{{v.pasajero.apellido }},{{ v.pasajero.nombre }}</a></td>
                     {% endif %}
                     {% if v.tarifapasada == '' and v.getObservacioneChofer == '' %}
-                    <td class="all"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada|default_if_none:'' }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" ></a></td>
+                    <td class="all"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" ></a></td>
                     {% else %}
-                    <td class="all"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada|default_if_none:'' }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" >ver</a></td>
+                    <td class="fa fa-bars"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" >. ver</a></td>
                     {% endif %}
                     <td class="all">{{v.solicitante.apellido }},{{ v.solicitante.nombre }}</td>
                     <td class="all">{{ v.centro_costo.nombre }}</td>
@@ -78,7 +78,7 @@
                 {% else %}
                 <td class="all"><a href="#" data-toggle="modal" class="open_pasajero_modal" data-pasajero-apellido="{{v.pasajero.apellido }}" data-pasajero-nombre="{{v.pasajero.nombre }}" data-pasajero-tel="{{v.pasajero.getTelefono|default_if_none:'' }}" data-pasajero-mail="{{v.pasajero.getMail|default_if_none:'' }}">{{v.getViajeBilingue}}{{v.pasajero.apellido }},{{ v.pasajero.nombre }}</a></td>
                 {% endif %}
-                                
+                <td class="all"></td>           
                 <td class="all">{{v.solicitante.apellido }},{{ v.solicitante.nombre }}</td>
                 <td class="all">{{ v.centro_costo.nombre }}</td>
                 <td class="all">{{ v.cliente.razon_social }}</td>
