@@ -153,6 +153,8 @@ def getClienteById(request):
                     'tipo_persona':i.persona.tipo_persona.tipo_persona,
                     'telefono':i.persona.telefono
                 })
+    personacliente = sorted(personacliente, key = lambda  i: (i['tipo_persona'], i['nombre'].lower()))
+
 
     centrocosto = []
     for c in cliente.centrocosto_set.filter(baja=False):
