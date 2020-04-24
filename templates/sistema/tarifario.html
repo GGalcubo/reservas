@@ -140,8 +140,8 @@
                                                                             <tbody>
                                                                                 {% for trayecto in tarifario.getTarifaViaje %}
                                                                                 <tr>
-                                                                                    <td>{{trayecto.localidad_desde}}</td>
-                                                                                    <td>{{trayecto.localidad_hasta}}</td>
+                                                                                    <td>{{trayecto.desdeConcat}}</td>
+                                                                                    <td>{{trayecto.hastaConcat}}</td>
                                                                                     <td>{{ trayecto|get_tarifa_by_cat:1 }}</td>
                                                                                     <td>{{ trayecto|get_tarifa_by_cat:2 }}</td>
                                                                                     <td>{{ trayecto|get_tarifa_by_cat:3 }}</td>

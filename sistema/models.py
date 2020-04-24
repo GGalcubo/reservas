@@ -937,7 +937,7 @@ class Provincia(models.Model):
 
 class Localidad(models.Model):
     nombre = models.CharField(max_length=50)
-    provincia = models.ForeignKey(Provincia, null=True, blank=True)
+    provincia = models.ForeignKey(Provincia)
     id_externo = models.CharField(max_length=50, null=True, blank=True)
     codigo_postal = models.CharField(max_length=10, null=True, blank=True)
     trayectodestino = models.ForeignKey(TrayectoDestino, null=True, blank=True)
@@ -1062,6 +1062,12 @@ class TarifaTrayecto(models.Model):
         retorno.tarifatrayecto = self
         retorno.categoria_viaje = cat
         return retorno
+    
+    def desdeConcat (self):
+        return self.localidad_desde.nombre + ' (' + self.localidad_desde.provincia.nombre + ')'
+    
+    def hastaConcat (self):
+        return self.localidad_hasta.nombre + ' (' + self.localidad_hasta.provincia.nombre + ')'
 
 class Trayecto(models.Model):
     viaje = models.ForeignKey(Viaje, null=True, blank=True)
