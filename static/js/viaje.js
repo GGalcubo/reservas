@@ -64,6 +64,7 @@ $(document).ready( () => {
         //$("#hora_estimada").val('');
         $('#estado').attr("disabled", true);
         $('#clonar_btn').hide();
+        $('.cargar_pasajeros').hide();
     }else{
         if(is_clone == '1'){
             $("#hora").val('') ;
@@ -145,6 +146,10 @@ $(document).ready( () => {
 
     $('.guardar_viaje').click(function() {
         guardarViaje();
+    });
+
+    $('.cargar_pasajeros').click(function() {
+        window.open('../pasajeros/?idViaje=' + viaje, '_blank');
     });
 
     $("#form-viaje-viaje").submit( e => {
@@ -568,6 +573,7 @@ guardarViaje = () =>{
                         $("#idViajeObser").val(idViaje);
                         $('#viaje_titulo').html('Ingreso del Cliente y Datos del Viaje ' + viaje);
                         $('#clonar_btn').show();
+                        $('.cargar_pasajeros').show();
                     }
 
                     if(obj.estado == 7){
@@ -843,7 +849,7 @@ guardaViajeAdmin = () => {
  *
  */
 sumarPasajero = () => {
-    let url = "/sistema/guardaViajePasajeroPOST/";
+    /*let url = "/sistema/guardaViajePasajeroPOST/";
     $.ajax({
         type: "POST",
         url: url,
@@ -853,7 +859,7 @@ sumarPasajero = () => {
             showMsg('Agregado con exito', 'success');
             $('#grillaPasajero').html(data);
         }
-    });
+    });*/
 };
 
 /**
@@ -923,24 +929,6 @@ deleteViajeAdjunto = adjunto_id =>{
         success: data => {
             //console.table(data);
             $('#grillaAdjuntos').html(data);
-        }
-    });
-};
-
-/**
- *
- * @param pasajero_id
- */
-deleteViajePasajero = pasajero_id =>{
-    let url       = "/sistema/deleteViajePasajero/";
-    $.ajax({
-        type: "POST",
-        url: url,
-        headers: {'X-CSRFToken': csrf_token},
-        data: {pasajero:pasajero_id,viaje},
-        success: data => {
-            //console.table(data);
-            $('#grillaPasajero').html(data);
         }
     });
 };
@@ -1216,7 +1204,7 @@ checkLocalidadFlag = (localidad_id, html_direccion, html_vuelo) => {
             headers: {'X-CSRFToken': csrf_token},
             data: param,
             success:  data => {
-                console.log(data.terminal_flag)
+                //console.log(data.terminal_flag)
                 if(data.terminal_flag === true){
                     $("." + html_direccion).hide();
                     $("." + html_vuelo).show();
@@ -1624,7 +1612,7 @@ mailto = () =>{
         data: "idViaje="+$("#idViajeObser").val(),
         headers: {'X-CSRFToken': csrf_token},
         success: function(data){
-            hrefmailto = "mailto:"+data['mailto']+"?subject="+data['subject']+"&bcc="+data['mailtocco']+"&body="+data['body']
+            hrefmailto = "mailto:"+data['mailto']+"?subject="+data['subject']+"&bcc="+data['mailtocco']+"&body="+data['body'];
             window.location.href = hrefmailto;
         }
     });

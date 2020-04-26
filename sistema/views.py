@@ -72,6 +72,17 @@ def asignaciones(request):
 	return render(request, 'sistema/asignaciones.html', context)
 
 @login_required
+def pasajeros(request):
+
+    mensaje = ""
+    permiso = obtenerPermiso(request)
+    id_viaje = request.GET.get('idViaje', "")
+    viaje = Viaje.objects.get(id=id_viaje)
+
+    context = {'mensaje':mensaje,'viaje':viaje,'permiso':permiso}
+    return render(request, 'sistema/pasajeros.html', context)
+
+@login_required
 def getViajesAsignacionesPorFecha(request):
 	mensaje = ""
 	date = getAAAAMMDD(request.POST.get('date', False))
@@ -170,6 +181,34 @@ def getClienteById(request):
         'razon_social': cliente.razon_social,
         'telefono': cliente.telefonoPrincipal(),
         'centro_costos': list(centrocosto),
+        'personascliente': list(personacliente)
+    }
+
+    dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
+
+
+@login_required
+def getPasajerosByClienteId(request):
+    cliente = Cliente.objects.get(id=request.POST.get('cliente_id', False))
+    pasajero_id = request.POST.get('pasajero', 0)
+    if pasajero_id == '':
+        pasajero_id = 0
+    personacliente = []
+    for i in cliente.personacliente_set.all():
+        if i.persona.baja is False:
+            if (int(i.persona.id) == int(pasajero_id)) or (i.persona.tipo_persona.tipo_persona == 'Pasajero' and i.persona.pasajero_frecuente == 0) or (i.persona.tipo_persona.tipo_persona == 'Pasajero' and i.persona.pasajero_frecuente == 1):
+                personacliente.append({
+                    'id':i.persona.id,
+                    'nombre':i.persona.apellido + ' ' + i.persona.nombre,
+                    'tipo_persona':i.persona.tipo_persona.tipo_persona,
+                    'telefono':i.persona.telefono
+                })
+    personacliente = sorted(personacliente, key = lambda i: (i['tipo_persona'], i['nombre'].lower()))
+
+
+    data = {
+        'id': cliente.id,
         'personascliente': list(personacliente)
     }
 
