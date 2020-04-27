@@ -197,14 +197,14 @@ def getPasajerosByClienteId(request):
     personacliente = []
     for i in cliente.personacliente_set.all():
         if i.persona.baja is False:
-            if (int(i.persona.id) == int(pasajero_id)) or (i.persona.tipo_persona.tipo_persona == 'Pasajero' and i.persona.pasajero_frecuente == 0) or (i.persona.tipo_persona.tipo_persona == 'Pasajero' and i.persona.pasajero_frecuente == 1):
+            if (i.persona.tipo_persona.tipo_persona == 'Pasajero'):
                 personacliente.append({
                     'id':i.persona.id,
                     'nombre':i.persona.apellido + ' ' + i.persona.nombre,
                     'tipo_persona':i.persona.tipo_persona.tipo_persona,
-                    'telefono':i.persona.telefono
+
                 })
-    personacliente = sorted(personacliente, key = lambda i: (i['tipo_persona'], i['nombre'].lower()))
+    personacliente = sorted(personacliente, key = lambda i: (i['nombre'].lower()))
 
 
     data = {
