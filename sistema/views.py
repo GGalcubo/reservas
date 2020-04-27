@@ -157,7 +157,7 @@ def getClienteById(request):
     personacliente = []
     for i in cliente.personacliente_set.all():
         if i.persona.baja is False:
-            if (i.persona.tipo_persona.tipo_persona != 'Pasajero') or (int(i.persona.id) == int(pasajero_id)) or (i.persona.tipo_persona.tipo_persona == 'Pasajero' and i.persona.pasajero_frecuente == 1):
+            if ((i.persona.tipo_persona.tipo_persona == 'Solicitante') or (int(i.persona.id) == int(pasajero_id))):
                 personacliente.append({
                     'id':i.persona.id,
                     'nombre':i.persona.apellido + ' ' + i.persona.nombre,

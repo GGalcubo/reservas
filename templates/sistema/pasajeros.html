@@ -107,7 +107,11 @@
                                                                     <tbody>
                                                                         {% for p in viaje.getPasajeros %}
                                                                         <tr>
-                                                                            <td class="text-center"><a href="#" onclick="deleteViajePasajero('{{ p.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-trash"></i></a></td>
+                                                                            <td class="text-center">
+                                                                               <!-- GG: agregue el edit-->
+                                                                                <a href="#" onclick="editarPasajero('{{ p.id }}','{{ cliente_id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
+                                                                                <a href="#" onclick="deleteViajePasajero('{{ p.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-trash"></i></a>
+                                                                            </td>
                                                                             <td>{{ p.nombre|default_if_none:"" }}</td>
                                                                             <td>{{ p.apellido|default_if_none:"" }}</td>
                                                                             <td>{{ p.documento|default_if_none:"" }}</td>
@@ -120,6 +124,8 @@
                                                                 </table>
                                                                 </div>
                                                             </div>
+                                                            
+                                                            <!-- GG: esto de aca abajo para que es???-->
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <input type="hidden" id="idClientePasajero" name="idClientePasajero" value="{{ cliente.id }}">
@@ -341,7 +347,7 @@
                             </div>
                         </div>
                         <div class="modal-footer noborder flex">
-                          <button type="button" onclick="guardarPasajeroModal()" class="btn green mg-r-10">Guardar</button>
+                          <button type="button" onclick="guardarPasajero()" class="btn green mg-r-10">Guardar</button>
                           <button type="button" class="btn btn-outline red" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
@@ -361,7 +367,7 @@
 
                     var idCliente = cliente_id;
 
-                    $(document).prop('title', 'Pasajeros - Central LT');
+                    //GG: te lo comente y agregue logica del viaje// $(document).prop('title', 'Pasajeros - Central LT');
                     //HAGO ESTO PARA SIMULAR UN EVENTO QUE PIDE LA FUNCION DE SELECT2ME
 
                     let evt = {};
@@ -374,7 +380,29 @@
                     updateFillsByCliente('', evt);
 
                 });
+                //GG: esto lo agregue de viaje (puede fallar)
+                var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
 
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+                };
+                let idViaje = getUrlParameter('idViaje');
+                if(idViaje === undefined){
+                    $(document).prop('title', 'Nuevo viaje - Central LT');
+                } else {
+                    $(document).prop('title', 'Pasajero del Viaje '+ idViaje);
+                }
+                //GG: FIN agregado 
+                
                 $('#tablaPasajeroViaje').DataTable( {
                         responsive: true,
                         scrollX: true,
@@ -475,12 +503,28 @@
                             }
                         });
                     };
+                    //GG: agrego esto que copie de cliente
+                    function editarPasajero(pasId,clienteid,nombre,apellido,documento,mail,telefono,nacionalidad,calle,altura,piso,cp,comentario){
+                    $('#idPasajero').val(pasId)
+                    $('#nombrePasCliente').val(nombre)
+                    $('#apellidoPasCliente').val(apellido)
+                    $('#documentoPasajeroCliente').val(documento)
+                    $('#telefonoPasajeroCliente').val(telefono)
+                    $('#mailPasajeroCliente').val(mail)
+                    $('#nacionalidadPasajeroCliente').val(nacionalidad)
+                    $('#callePasajeroCliente').val(calle)
+                    $('#alturaPasajeroCliente').val(altura)
+                    $('#pisoPasajeroCliente').val(piso)
+                    $('#cpPasajeroCliente').val(cp)
+                    $('#comentarioPasajeroCliente').val(comentario)
+                    $('#add_pasajero_cliente').modal('toggle');
+                }
 
                     /**
                      * Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado
                      * @returns {boolean}
                      */
-                    guardarPasajero = () => {
+                    guardarPasajeroModal = () => {
                         if ($('#nombrePasCliente').val() == ''){
                             showMsg("El Nombre es obligatorio.");
                             return false;
@@ -513,6 +557,7 @@
                             }
                         });
                     };
+                    
             </script>
         </div>
     </body>
