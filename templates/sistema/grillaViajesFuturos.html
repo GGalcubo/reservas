@@ -100,12 +100,6 @@
         dom: 'lfBrtip',
         buttons: [
             {
-                extend: 'selectAll'
-            },    
-            {
-                extend:'selectNone'
-            },
-            {
                 extend: 'copy'
             },
             {
@@ -136,38 +130,6 @@
 
     var tablefuturosViajes = $('#futurosViajes').DataTable();
 
-
-    obtenerRowChecked = () => {
-    let table = $('#futurosViajes').DataTable();
-    let selectedRows = table.rows({ selected: true }).ids(true);
-    let ids = "";
-    for (var i = 0; i < selectedRows.length; i++) {
-        ids = ids + selectedRows[i].replace("#rowid","") + "-"
-    }
-    $("#idViajes").val(ids);
-    return ids;
-}
-
-    cambiarEstadoViajes = () => {
-        if (obtenerRowChecked() == ""){
-            alert("Debe seleccionar Viajes para poder cambiar estado.");
-            return false;
-        }else{
-            var url = "/sistema/editEstadoViaje/";
-            $.ajax({
-                type: "POST",
-                url: url,
-                headers: {'X-CSRFToken': '{{ csrf_token }}'},
-                data: $("#form_exportar").serialize(),
-                success: function(data){
-                    alert(data.return);
-                    $("#idViajes").val("");
-                    
-                }
-            });
-        }
-    }
-    /*  ESTO es logica de cris
     $('#futurosViajes tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');
@@ -180,6 +142,5 @@
             $('#estado_actual').text($(this).context.childNodes[11].innerText)
         }
     });
-    */
     
 </script>
