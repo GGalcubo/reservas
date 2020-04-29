@@ -124,107 +124,6 @@
                                                                 </table>
                                                                 </div>
                                                             </div>
-                                                            
-                                                            <!-- GG: esto de aca abajo para que es???-->
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <input type="hidden" id="idClientePasajero" name="idClientePasajero" value="{{ cliente.id }}">
-                                                                    <input type="hidden" id="idPasajero" name="idPasajero" value="0">
-                                                                    <div id="add_pasajero_cliente" class="modal fade" tabindex="-1" aria-hidden="true">
-                                                                        <div class="modal-dialog">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                                                    <h4 class="modal-title" style="color:#888;">Agregar Pasajero al Cliente</h4>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    <div class="scroller" style="height:100%;" data-always-visible="1" data-rail-visible1="1">
-                                                                                        <div class="row">
-                                                                                            <div class="col-sm-4">
-                                                                                                <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                    <input type="text" class="form-control" id="nombrePasCliente" name="nombrePasCliente">
-                                                                                                    <label for="nombrePasCliente">Nombre</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-sm-4">
-                                                                                                <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                    <input type="text" class="form-control" id="apellidoPasCliente" name="apellidoPasCliente">
-                                                                                                    <label for="apellidoPasCliente">Apellido</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-sm-4">
-                                                                                                <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                    <input type="text" class="form-control" id="documentoPasajeroCliente" name="documentoPasajeroCliente">
-                                                                                                    <label for="documentoPasajeroCliente">DNI</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="row">
-                                                                                            <div class="col-sm-4">
-                                                                                                <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                    <input type="text" class="form-control" id="telefonoPasajeroCliente" name="telefonoPasajeroCliente">
-                                                                                                    <label for="telefonoPasajeroCliente">Teléfono</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-sm-4">
-                                                                                                <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                    <input type="email" class="form-control" id="mailPasajeroCliente" name="mailPasajeroCliente">
-                                                                                                    <label for="mailPasajeroCliente">Mail</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-sm-4">
-                                                                                                <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                    <input type="text" class="form-control" id="nacionalidadPasajeroCliente" name="nacionalidadPasajeroCliente" >
-                                                                                                    <label for="nacionalidadPasajeroCliente">Nacionalidad</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="row">
-                                                                                            <div class="col-sm-4">
-                                                                                                <div class="form-group form-md-line-input form-md-floating-label">
-                                                                                                    <input type="text" class="form-control" id="callePasajeroCliente" name="callePasajeroCliente">
-                                                                                                    <label for="callePasajeroCliente">Calle</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-sm-3">
-                                                                                                <div class="form-group form-md-line-input">
-                                                                                                    <input type="text" class="form-control" name="alturaPasajeroCliente" id="alturaPasajeroCliente" >
-                                                                                                    <label for="alturaPasajeroCliente">Altura</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-sm-2">
-                                                                                                <div class="form-group form-md-line-input">
-                                                                                                    <input type="text" class="form-control" name="pisoPasajeroCliente" id="pisoPasajeroCliente" >
-                                                                                                    <label for="pisoPasajeroCliente">Piso</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-sm-3">
-                                                                                                <div class="form-group form-md-line-input">
-                                                                                                    <input type="text" class="form-control" name="cpPasajeroCliente" id="cpPasajeroCliente" >
-                                                                                                    <label for="cpPasajeroCliente">CP</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="row">
-                                                                                            <div class="col-sm-12">
-                                                                                                <div class="form-group form-md-line-input">
-                                                                                                    <textarea class="form-control" rows="1" name="comentarioPasajeroCliente" id="comentarioPasajeroCliente" placeholder=""></textarea>
-                                                                                                    <label for="comentarioPasajeroCliente">Comentario</label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="modal-footer noborder flex">
-                                                                                  <button type="button" onclick="guardarPasajero()" class="btn btn-outline green">Guardar</button>
-                                                                                  <button type="button" class="btn btn-outline red" data-dismiss="modal">Cancelar</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                         <!-- END EXAMPLE TABLE PORTLET-->
                                                     </div>
@@ -305,24 +204,6 @@
                                             <label for="callePasajeroCliente">Calle</label>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-sm-2" style="display:none;">
-                                        <div class="form-group form-md-line-input">
-                                            <input type="text" class="form-control" name="alturaPasajeroClienteModal" id="alturaPasajeroClienteModal" >
-                                            <label for="alturaPasajeroCliente">Altura</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2" style="display:none;">
-                                        <div class="form-group form-md-line-input">
-                                            <input type="text" class="form-control" name="pisoPasajeroClienteModal" id="pisoPasajeroClienteModal" >
-                                            <label for="pisoPasajeroCliente">Piso</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2" style="display:none;" >
-                                        <div class="form-group form-md-line-input">
-                                            <input type="text" class="form-control" name="cpPasajeroClienteModal" id="cpPasajeroClienteModal" >
-                                            <label for="cpPasajeroCliente">CP</label>
-                                        </div>
-                                    </div> -->
                                     <div class="col-xs-12 col-sm-8">
                                         <div class="form-group form-md-line-input">
                                             <textarea class="form-control" rows="1" name="comentarioPasajeroClienteModal" id="comentarioPasajeroClienteModal" placeholder=""></textarea>
@@ -347,7 +228,7 @@
                             </div>
                         </div>
                         <div class="modal-footer noborder flex">
-                          <button type="button" onclick="guardarPasajero()" class="btn green mg-r-10">Guardar</button>
+                          <button type="button" onclick="guardarPasajeroModal()" class="btn green mg-r-10">Guardar</button>
                           <button type="button" class="btn btn-outline red" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
@@ -505,20 +386,20 @@
                     };
                     //GG: agrego esto que copie de cliente
                     function editarPasajero(pasId,clienteid,nombre,apellido,documento,mail,telefono,nacionalidad,calle,altura,piso,cp,comentario){
-                    $('#idPasajero').val(pasId)
-                    $('#nombrePasCliente').val(nombre)
-                    $('#apellidoPasCliente').val(apellido)
-                    $('#documentoPasajeroCliente').val(documento)
-                    $('#telefonoPasajeroCliente').val(telefono)
-                    $('#mailPasajeroCliente').val(mail)
-                    $('#nacionalidadPasajeroCliente').val(nacionalidad)
-                    $('#callePasajeroCliente').val(calle)
-                    $('#alturaPasajeroCliente').val(altura)
-                    $('#pisoPasajeroCliente').val(piso)
-                    $('#cpPasajeroCliente').val(cp)
-                    $('#comentarioPasajeroCliente').val(comentario)
-                    $('#add_pasajero_cliente').modal('toggle');
-                }
+                        $('#idPasajeroModal').val(pasId);
+                        $('#nombrePasClienteModal').val(nombre);
+                        $('#apellidoPasClienteModal').val(apellido);
+                        $('#documentoPasajeroClienteModal').val(documento);
+                        $('#telefonoPasajeroClienteModal').val(telefono);
+                        $('#mailPasajeroClienteModal').val(mail);
+                        $('#nacionalidadPasajeroClienteModal').val(nacionalidad);
+                        $('#callePasajeroClienteModal').val(calle);
+                        $('#alturaPasajeroClienteModal').val(altura);
+                        $('#pisoPasajeroClienteModal').val(piso);
+                        $('#cpPasajeroClienteModal').val(cp);
+                        $('#comentarioPasajeroClienteModal').val(comentario);
+                        $('#add_pasajero').modal('toggle');
+                    }
 
                     /**
                      * Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado
@@ -533,27 +414,29 @@
                             showMsg("El Apellido es obligatorio.");
                             return false;
                         }
-                        let url = "/sistema/guardarPasajeroProspect/";
+                        let url = "/sistema/guardarPasajeroDesdeViaje/";
                         $.ajax({
                             type: "POST",
                             url: url,
                             headers: {'X-CSRFToken': csrf_token},
-                            data: $("#form-viaje-pasajeros").serialize(),
+                            data: $("#form-datos-cliente-pasajeros").serialize(),
                             success: data => {
-                                $('#idPasajero').val("0");
-                                $('#nombrePasCliente').val("");
-                                $('#apellidoPasCliente').val("");
-                                $('#documentoPasajeroCliente').val("");
-                                $('#telefonoPasajeroCliente').val("");
-                                $('#mailPasajeroCliente').val("");
-                                $('#nacionalidadPasajeroCliente').val("");
-                                $('#callePasajeroCliente').val("");
-                                $('#alturaPasajeroCliente').val("");
-                                $('#pisoPasajeroCliente').val("");
-                                $('#cpPasajeroCliente').val("");
-                                $('#comentarioPasajeroCliente').val("");
-                                $('#add_pasajero_cliente').modal('toggle');
-                                $('#grillaPasajero').html(data);
+                                $('#idPasajeroModal').val("0");
+                                $('#nombrePasClienteModal').val("");
+                                $('#apellidoPasClienteModal').val("");
+                                $('#documentoPasajeroClienteModal').val("");
+                                $('#telefonoPasajeroClienteModal').val("");
+                                $('#mailPasajeroClienteModal').val("");
+                                $('#nacionalidadPasajeroClienteModal').val("");
+                                $('#pasajeroFrecuente').prop('checked', false);
+                                $('#callePasajeroClienteModal').val("");
+                                $('#alturaPasajeroClienteModal').val("");
+                                $('#pisoPasajeroClienteModal').val("");
+                                $('#cpPasajeroClienteModal').val("");
+                                $('#comentarioPasajeroClienteModal').val("");
+                                $('#add_pasajero').modal('toggle');
+                                $('#suma_pasajero').append($('<option selected="selected">').text(data.pasajero_apellido + ' ' +data.pasajero_nombre).attr('value', data.pasajero));
+                                $('#pasajero_telefono').val(data.pasajero_telefono);
                             }
                         });
                     };
