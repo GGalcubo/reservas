@@ -1816,6 +1816,9 @@ def getViajesFuturosPorFecha(request):
 			estados_seleccionados.append(i)
 
 	viajes = Viaje.objects.filter(fecha=date).filter(estado__in=estados_seleccionados)
+    for v in viajes:
+        for p in v.getPasajeros():
+            print p
     context = {'mensaje': mensaje, 'viajes':viajes}
     return render(request, 'sistema/grillaViajesFuturos.html', context)
 
