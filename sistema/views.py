@@ -1024,6 +1024,11 @@ def guardaViajePasajeroPOST(request):
     context = {'viaje':viaje}
     return render(request, 'sistema/grillaPasajerosViaje.html', context)
 
+def updateGrillaPasajero(request):
+    viaje                        = Viaje.objects.get(id=request.POST.get('viaje', False))
+    context = {'viaje':viaje}
+    return render(request, 'sistema/grillaPasajerosViaje.html', context)
+
 def getViajePasajeros(request):
     viaje = Viaje.objects.get(id=request.POST.get('viaje', False))
 

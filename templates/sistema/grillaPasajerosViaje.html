@@ -15,6 +15,7 @@
         {% for p in viaje.getPasajeros %}
         <tr>
             <td class="text-center">
+                <a href="#" onclick="editarPasajero('{{ p.id }}','{{ cliente_id }}','{{ p.nombre }}','{{ p.apellido }}','{{ p.documento|default_if_none:"" }}','{{ p.mail|default_if_none:"" }}','{{ p.getTelefono }}','{{ p.nacionalidad }}','{{ p.calle }}','{{ p.altura }}','{{ p.piso }}','{{ p.cp }}');" class="btn btn-xs btn-outline blue"><i class="fa fa-pencil"></i></a>
                 <a href="#" onclick="deleteViajePasajero('{{ p.id }}');" class="btn btn-xs btn-outline red"><i class="fa fa-trash"></i></a>
             </td>
             <td>{{ p.nombre|default_if_none:"" }}</td>
