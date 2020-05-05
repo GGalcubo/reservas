@@ -25,12 +25,10 @@
                                         <span class="caption-subject bold uppercase">Viajes en progreso</span>
                                     </div>
                                     <div class="tools"> </div>
-                                </div>
-                                <div class="portlet-body">
+                                </div>                           
                                     <div id="cont_viajesEnProgreso">
-
-                                    </div>
-                                </div>
+                                    </div>  
+                            </form>
                             </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
@@ -38,6 +36,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                             
                             <div class="portlet light ">
                                 <div class="portlet-title">
                                     <div class="caption font-green">
@@ -57,12 +56,48 @@
                                     </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <div id="cont_futurosViajes">
-
-                                    </div>
-                                </div>
+                                    <form role="form" method="post" id="form_exportar" action="">
+                                     <input type="hidden" class="form-control" id="idViajes" name="idViajes">
+                                        <div id="cont_futurosViajes">
+                                        </div>
+                                        <!-- MODAL cambiar estados -->
+                                        <div id="cambiarEstadoViajeModal" class="modal fade" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                    <h4 class="modal-title" style="color:#888;">Cambiar estado</h4>
+                                                </div>
+                                            <div class="modal-body">
+                                                <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group form-md-line-input">
+                                                                <select class="form-control select2me" id="estadoModal" name="estadoModal">
+                                                                {% for e in estados %}
+                                                                    {% if e.estado != 'Cerrado'%}
+                                                                    <option value="{{ e.id }}">{{ e.estado }}</option>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                                </select>
+                                                                <label for="estado">Seleccionar Estado</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer noborder flex flex-j-between">
+                                                <button type="button" onclick="cambiarEstadoViajes();" class="btn green">Guardar</button>
+                                                <button type="button" class="btn red" data-dismiss="modal">Cancelar</button>
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>   
+                                    <!-- FIN MODAL cambiar estados -->
+                                    </form>
+                                </div>                                
                                 <!-- </div> -->
-                                <div class="tools"> </div>
+                                <div class="tools"> </div> -->
                             </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
@@ -76,8 +111,7 @@
             <!-- BEGIN QUICK SIDEBAR -->
             <!-- END QUICK SIDEBAR -->
         </div>
-        <!-- END CONTAINER -->
-
+        <!-- END CONTAINER -->       
         <!-- MODAL CAMBIAR UNIDAD -->
         <div id="change_unidad" class="modal fade" tabindex="-1" aria-hidden="true">
             <form role="form" class="form-cambiar-unidad-viaje" id="form-cambiar-unidad-viaje">
@@ -131,7 +165,6 @@
                     <div class="modal-body">
                         <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
                             <div id="pasajero_detalles"></div>
-
                         </div>
                     </div>
                 </div>
@@ -141,28 +174,83 @@
         
         <!-- MODAL OBSERVACION -->
         <div id="ver_observacion" class="modal fade" tabindex="-1" aria-hidden="true"> <!--<div id="observacion_detalles"></div>-->
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                            <h4 class="modal-title" style="color:#888;">OBSERVACIONES</h4>
-                        </div>
-                        <div id="observacion_detalles"></div>
-                        
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title" style="color:#888;">OBSERVACIONES</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="scroller" style="height:100px" data-always-visible="1" data-rail-visible1="1">
+                            <div id="observacion_detalles"></div>
+                        </div>    
+                    </div>
+                </div>     
+            </div>
+            </div>
         <!-- END MODAL OBSERVACION -->
+
         
         {% include "sistema/footer.html" %}
             
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
 
-                var viaje_seleccionado = '';
-                var row_seleccionado = '';
+                var viaje_seleccionado = [];
+                var row_seleccionado = [];
                 var estados_selecionados = ['1', '2', '3', '4', '10'];
+
+
+
 
                 $(document).ready(function(){
                     $(document).prop('title', 'Operaciones - Central LT');
 
+                <!-- logica: seleccion multiple y cambiar estado-->
+                openCambiarEstadoViajes = () =>{
+                    if (obtenerRowChecked() == ""){
+                        alert("Debe seleccionar Viajes para poder facturar.")
+                    }else{
+                        $('#nuevoEstado').val("");
+                        $('#cambiarEstadoViajeModal').modal('toggle');
+                    }
+                }
+                
+                obtenerRowChecked = () => {
+                    let table = $('#futurosViajes').DataTable();
+                    let selectedRows = table.rows({ selected: true }).ids(true);
+                    let ids = "";
+                    for (var i = 0; i < selectedRows.length; i++) {
+                        ids = ids + selectedRows[i].replace("#rowid","") + "-"
+                    }
+                    $("#idViajes").val(ids);
+                    return ids;
+                }
+
+                cambiarEstadoViajes = () => {
+                    if (obtenerRowChecked() == ""){
+                        alert("Debe seleccionar Viajes para poder cambiar estado.");
+                        return false;
+                    }else{
+                        var url = "/sistema/cambiarEstadoViajes/";
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                            data: $("#form_exportar").serialize(),
+                            success: function(data){
+                                alert(data.return);
+                                $('#cambiarEstadoViajeModal').modal('toggle');
+                                $("#idViajes").val("");
+                                getGrillasViajesFuturos($('#fechaDeHoy').val());
+                                getGrillasViajesEnProgreso($('#fechaDeHoy').val());
+                            }
+                        });
+                    }
+                }
+                <!-- logica: seleccion multiple y cambiar estado en progreso-->
+
+                <!-- end  logica: seleccion multiple y cambiar estado -->
                     if ($('#permiso').val() == 'unidades'){
                         $('#barraLatDiv').hide();
                     }
@@ -186,57 +274,23 @@
 
                     $('#viajesEnProgreso').DataTable( {
                         colReorder: true,
-                        scrollY: 150,
-                        scrollX: true,
-                        scrollCollapse: true,
+                        //scrollY: 150,
+                        //scrollX: true,
+                        //scrollCollapse: true,
                         responsive: true,
                         select: true,
                         order: [[ 3, "asc" ]],
-                        dom: 'rtip',
-                        // buttons: [
-                        //     {
-                        //         extend: 'copy',
-                        //         exportOptions: {
-                        //             columns: ':visible:not(:eq(0))'
-                        //         }
-                        //     },
-                        //     {
-                        //         extend: 'excel',
-                        //         exportOptions: {
-                        //             columns: ':visible:not(:eq(0))'
-                        //         }
-                        //     },
-                        //     {
-                        //         extend: 'pdf',
-                        //         exportOptions: {
-                        //             columns: ':visible:not(:eq(0))'
-                        //         }
-                        //     },
-                        //     {
-                        //         extend: 'print',
-                        //         exportOptions: {
-                        //             columns: ':visible:not(:eq(0))'
-                        //         }
-                        //     },
-                        // ],
-                        // lengthMenu: [
-                        //                 [ 100, 50, 25, 10, -1 ],
-                        //                 [ '100', '50', '25', '10', 'Todos' ]
-                        //             ],
+                        dom: 'lfBrtip',
                         language: {
                             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
-                            // buttons: {
-                            //     copy: "Copiar",
-                            //     print: "Imprimir"
-                            // }
                         }
                     } );
 
                     $('#futurosViajes').DataTable( {
                         colReorder: true,
-                        scrollY: 500,
-                        scrollX: true,
-                        scrollCollapse: true,
+                       //scrollY: 500,
+                        //scrollX: true,
+                        //scrollCollapse: true,
                         responsive: true,
                         order: [[ 3, "asc" ]],
                         dom: 'lfBrtip',
@@ -293,7 +347,7 @@
                     $('[data-toggle="tooltip"]').tooltip();
                 });
 
-
+                /* Logica vieja de cambio de estado simple con la barra.
                 $('#estado_pre_asignado').css( 'cursor', 'pointer' );
                 $('#estado_asignado').css( 'cursor', 'pointer' );
                 $('#estado_confirmado').css( 'cursor', 'pointer' );
@@ -342,10 +396,11 @@
                            getGrillasViajesFuturos($('#fechaDeHoy').val());
                            getGrillasViajesEnProgreso($('#fechaDeHoy').val());
                            /*row_seleccionado.context.childNodes[11].innerHTML = '<span class="label label-primary"> Confirmado </span>';
-                           row_seleccionado.addClass('selected');*/
+                           row_seleccionado.addClass('selected');*/ 
+                           /*
                        }
                      });
-                };
+                };*/
                 getGrillasViajes = fecha => {
                     getGrillasViajesFuturos(fecha);
                     getGrillasViajesEnProgreso(fecha);

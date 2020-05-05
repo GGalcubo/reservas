@@ -35,3 +35,8 @@ db.json
 db.json
 templates/sistema/grillaViajesFuturos1.html
 templates/sistema/grillaFacturacionCliente1.html
+templates/sistema/grillaViajesFuturos_GG.html
+templates/sistema/grillaViajesFuturos0.html
+templates/sistema/operaciones_GG.html
+templates/sistema/operaciones0.html
+templates/sistema/grillaViajesFuturos_CRI.html

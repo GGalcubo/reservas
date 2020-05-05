@@ -13,6 +13,9 @@ from datetime import timedelta
 import json
 import os
 import datetime
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 @login_required
 def dashboard(request):
