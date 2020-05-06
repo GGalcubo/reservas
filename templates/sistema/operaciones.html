@@ -97,7 +97,7 @@
                                     </form>
                                 </div>                                
                                 <!-- </div> -->
-                                <div class="tools"> </div> -->
+                                <div class="tools"> </div>
                             </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
@@ -347,7 +347,7 @@
                     $('[data-toggle="tooltip"]').tooltip();
                 });
 
-                /* Logica vieja de cambio de estado simple con la barra.
+              
                 $('#estado_pre_asignado').css( 'cursor', 'pointer' );
                 $('#estado_asignado').css( 'cursor', 'pointer' );
                 $('#estado_confirmado').css( 'cursor', 'pointer' );
@@ -397,10 +397,10 @@
                            getGrillasViajesEnProgreso($('#fechaDeHoy').val());
                            /*row_seleccionado.context.childNodes[11].innerHTML = '<span class="label label-primary"> Confirmado </span>';
                            row_seleccionado.addClass('selected');*/ 
-                           /*
+                      
                        }
                      });
-                };*/
+                };
                 getGrillasViajes = fecha => {
                     getGrillasViajesFuturos(fecha);
                     getGrillasViajesEnProgreso(fecha);

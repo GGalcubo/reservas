@@ -6,7 +6,6 @@
                 <th class="all">Categ.</th>
                 <th class="all">Fecha</th>
                 <th class="all">Hora</th>
-                <th class="all">Estado</th>
                 <th class="all">Unidad</th>
                 <th class="all">Nombre Unidad</th>
                 <th class="all">Origen</th>
@@ -20,19 +19,16 @@
             </tr>
         </thead>
         <tbody>
-            {% for v in viajes %}
-                {% if v.estado_id == 5 %}
-                    {% for t in v.getTrayectos %}
-                      <tr>
-                            {% if t.id != v.getTrayectos.0.id %}
-                            <td class="all text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{ v.id }}"></a></td>
-                            {% else %}
+        {% for v in viajes %}
+            {% for t in v.getTrayectos %}
+               {%  if t.id == v.getTrayectos.0.id  and v.estado_id == 5  %} 
+                   {% for p in v.getPasajeros %}
+                       {% if p.id == v.getPasajeros.0.id or v.getPasajeros is False %} <!--viaje principal, pasajeros principal  --> 
+                        <tr>    
                             <td class="all text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>
-                            {% endif %}
                             <td class="all">{{ v.categoria_viaje }}</td>
                             <td class="all">{{ v.getFecha }}</td>
                             <td class="all">{{ v.hora }}</td>
-                            <td class="all"><span class="label label-primary" style="background-color: {{ v.estado.color }}!important;"> {{ v.estado }} </span></td>
                             {% ifequal v.unidad None %}
                             <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">------</a></td>
                             <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">------</a></td>
@@ -43,28 +39,69 @@
                             <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ t.desdeConcat }}</span></td>
                             <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ t.hastaConcat }}</span></td>
                             <td class="all">{{ v.nropasajeros }}</td>
-                            {% if t.id != v.getTrayectos.0.id %}
-                            <td class="all"><a href="#" data-toggle="modal" class="open_pasajero_modal" data-pasajero-apellido="{{t.pasajero.apellido }}" data-pasajero-nombre="{{t.pasajero.nombre }}" data-pasajero-tel="{{t.pasajero.getTelefono|default_if_none:'' }}" data-pasajero-mail="{{t.pasajero.getMail|default_if_none:'' }}">{{v.getViajeBilingue}}{{t.pasajero.apellido }},{{ t.pasajero.nombre }}</a></td>
-                            {% else %}
-                            <td class="all"><a href="#" data-toggle="modal" class="open_pasajero_modal" data-pasajero-apellido="{{v.pasajero.apellido }}" data-pasajero-nombre="{{v.pasajero.nombre }}" data-pasajero-tel="{{v.pasajero.getTelefono|default_if_none:'' }}" data-pasajero-mail="{{v.pasajero.getMail|default_if_none:'' }}">{{v.getViajeBilingue}}{{v.pasajero.apellido }},{{ v.pasajero.nombre }}</a></td>
-                            {% endif %}
+                            <td class="all"><a href="#" data-toggle="modal" class="open_pasajero_modal" data-pasajero-apellido="{{p.apellido }}" data-pasajero-nombre="{{p.nombre }}" data-pasajero-tel="{{p.getTelefono|default_if_none:'' }}" data-pasajero-mail="{{p.getMail|default_if_none:'' }}">{{v.getViajeBilingue}}{{p.apellido }},{{ p.nombre }}</a></td>
                             {% if v.tarifapasada == '' and v.getObservacioneChofer == '' %}
-                            <td class="all"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada|default_if_none:'' }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" ></a></td>
+                            <td class="all"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" ></a></td>
                             {% else %}
-                            <td class="fa fa-bars"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada|default_if_none:'' }}" data-obs-comchofer="{{ v.getObservacioneChofer }}">. ver</a></td>
+                            <td class="fa fa-bars"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" >. ver</a></td>
                             {% endif %}
                             <td class="all">{{v.solicitante.apellido }},{{ v.solicitante.nombre }}</td>
                             <td class="all">{{ v.centro_costo.nombre }}</td>
                             <td class="all">{{ v.cliente.razon_social }}</td>
                         </tr>
-                    {% empty %}
-                      <tr>
-                        <td class="all text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>
+                       {% else %}  <!--viaje principal, pasajeros multiples  --> 
+                         <tr> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{ v.hora }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="all"><a href="#" data-toggle="modal" class="open_pasajero_modal" data-pasajero-apellido="{{p.apellido }}" data-pasajero-nombre="{{p.nombre }}" data-pasajero-tel="{{p.getTelefono|default_if_none:'' }}" data-pasajero-mail="{{p.getMail|default_if_none:'' }}">{{v.getViajeBilingue}}{{p.apellido }},{{ p.nombre }}</a></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        {% endif %}   
+                        {% empty %} <!--viaje principal, cubre caso sin pasajero (get pasajeros empty)   --> 
+                        <tr >    
+                            <td class="all text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{ v.id }}">{{v.id}}</a></td>
+                            <td class="all">{{ v.categoria_viaje }}</td>
+                            <td class="all">{{ v.getFecha }}</td>
+                            <td class="all">{{ v.hora }}</td>
+                            {% ifequal v.unidad None %}
+                            <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">------</a></td>
+                            <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">------</a></td>
+                            {% else %}
+                            <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.id_fake|default_if_none:"----" }}</a></td>
+                            <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.alias|default_if_none:"----" }}</a></td>
+                            {% endifequal %}
+                            <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ t.desdeConcat }}</span></td>
+                            <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ t.hastaConcat }}</span></td>
+                            <td class="all">{{ v.nropasajeros }}</td>
+                            <td class="all"><a href="#" data-toggle="modal" class="open_pasajero_modal" data-pasajero-apellido="{{p.apellido }}" data-pasajero-nombre="{{p.nombre }}" data-pasajero-tel="{{p.getTelefono|default_if_none:'' }}" data-pasajero-mail="{{p.getMail|default_if_none:'' }}">{{v.getViajeBilingue}}{{p.apellido }},{{ p.nombre }}</a></td>
+                            {% if v.tarifapasada == '' and v.getObservacioneChofer == '' %}
+                            <td class="all"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" ></a></td>
+                            {% else %}
+                            <td class="fa fa-bars"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" >. ver</a></td>
+                            {% endif %}
+                            <td class="all">{{v.solicitante.apellido }},{{ v.solicitante.nombre }}</td>
+                            <td class="all">{{ v.centro_costo.nombre }}</td>
+                            <td class="all">{{ v.cliente.razon_social }}</td>
+                        </tr>
+                    {% endfor %}  
+                {% endif %}      
+                    <!--comienzan el viaje sin pasajeros multiples  --> 
+                   <!--{% if t.id != v.getTrayectos.0.id or v.getPasajeros is False %} -->
+                    <tr>    
+                        <td class="all text-center"><a target="_blank" href="/sistema/editaViaje/?idViaje={{ v.id }}"></a></td>
                         <td class="all">{{ v.categoria_viaje }}</td>
                         <td class="all">{{ v.getFecha }}</td>
                         <td class="all">{{ v.hora }}</td>
-                        <td class="all">{{ v.hora_estimada }}</td>
-                        <td class="all"><span class="label label-primary" style="background-color: {{ v.estado.color }}!important;"> {{ v.estado }} </span></td>
                         {% ifequal v.unidad None %}
                         <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">------</a></td>
                         <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">------</a></td>
@@ -72,19 +109,21 @@
                         <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.id_fake|default_if_none:"----" }}</a></td>
                         <td class="all"><a href="#" data-toggle="modal" class="open_change_modal" data-viaje-id="{{ v.id}}" data-unidad-id="{{ v.unidad.id}}">{{ v.unidad.alias|default_if_none:"----" }}</a></td>
                         {% endifequal %}
-                        <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ v.getTrayectoPrincipal.localidad_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ v.getTrayectoPrincipal.desdeConcat }}</span></td>
-                        <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ v.getTrayectoPrincipal.localidad_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ v.getTrayectoPrincipal.hastaConcat }}</span></td>
-                        {% if t.id != v.getTrayectos.0.id %}
+                        <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_desde.color|default_if_none:"#FFFFFF" }}!important;">{{ t.desdeConcat }}</span></td>
+                        <td class="all"><span class="label label-primary" style="color:#000000; background-color: {{ t.localidad_hasta.color|default_if_none:"#FFFFFF" }}!important;">{{ t.hastaConcat }}</span></td>
+                        <td class="all">{{ v.nropasajeros }}</td>
                         <td class="all"><a href="#" data-toggle="modal" class="open_pasajero_modal" data-pasajero-apellido="{{t.pasajero.apellido }}" data-pasajero-nombre="{{t.pasajero.nombre }}" data-pasajero-tel="{{t.pasajero.getTelefono|default_if_none:'' }}" data-pasajero-mail="{{t.pasajero.getMail|default_if_none:'' }}">{{v.getViajeBilingue}}{{t.pasajero.apellido }},{{ t.pasajero.nombre }}</a></td>
+                        {% if v.tarifapasada == '' and v.getObservacioneChofer == '' %}
+                        <td class="all"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" ></a></td>
                         {% else %}
-                        <td class="all"><a href="#" data-toggle="modal" class="open_pasajero_modal" data-pasajero-apellido="{{v.pasajero.apellido }}" data-pasajero-nombre="{{v.pasajero.nombre }}" data-pasajero-tel="{{v.pasajero.getTelefono|default_if_none:'' }}" data-pasajero-mail="{{v.pasajero.getMail|default_if_none:'' }}">{{v.getViajeBilingue}}{{v.pasajero.apellido }},{{ v.pasajero.nombre }}</a></td>
+                        <td class="fa fa-bars"><a href="#" data-toggle="modal" class="open_observacion_modal" data-obs-tarifapasada="{{ v.tarifapasada }}" data-obs-comchofer="{{ v.getObservacioneChofer }}" >. ver</a></td>
                         {% endif %}
                         <td class="all">{{v.solicitante.apellido }},{{ v.solicitante.nombre }}</td>
                         <td class="all">{{ v.centro_costo.nombre }}</td>
                         <td class="all">{{ v.cliente.razon_social }}</td>
                     </tr>
-                    {% endfor %}
-                {% endif %}
+               <!-- {% endif %}  -->                           
+            {% endfor %}
         {% endfor %}
         </tbody>
     </table>
@@ -92,12 +131,12 @@
 <script>
     $('#viajesEnProgreso').DataTable( {
         colReorder: true,
-        scrollY: 150,
+        scrollY: 200,
         scrollX: true,
         scrollCollapse: true,
         responsive: true,
         order: [[ 3, "asc" ]],
-        dom: 'rtip',
+        dom: 'lfbrtip',
         // buttons: [
         //     {
         //         extend: 'copy'
@@ -117,6 +156,7 @@
         //     [ 100, 50, 25, 10, -1 ],
         //     [ '100', '50', '25', '10', 'Todos' ]
         // ],
+        
         language: {
             url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
             // buttons: {
