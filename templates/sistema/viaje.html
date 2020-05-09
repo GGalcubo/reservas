@@ -54,6 +54,7 @@
                                     <div class="caption font-green">
                                         <span class="caption-subject bold uppercase" id="viaje_titulo"><i class="icon-rocket font-green mg-r-5"></i>Ingreso del Cliente y Datos del Viaje</span>
                                         <a href="#" class="btn blue mg-r-10 mg-b-5 guardar_viaje" type="submit">Guardar</a>
+                                        <a href="#" class="btn green-haze cargar_pasajeros" type="submit">Cargar Pasajeros</a>
                                         <!-- <a id="clonar_btn" href="#" onclick="clonarViaje();" class="btn btn-outline blue mg-r-10 mg-b-5">Clonar</a> -->
                                         <!-- <a href="#!" class="btn btn-outline blue mg-r-10 mg-b-5">Copiar Evento</a> -->
                                         <!-- <a href="/sistema/exportarPdfViaje/?idViaje={{ viaje.id }}" class="btn blue mg-b-5 mg-r-10 mg-b-5"><i class="icon-cloud-download"></i></a>
@@ -167,42 +168,14 @@
                                                         <label for="categoria_viaje">C. Viaje</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
-                                                    <div class="form-group form-md-line-input">
-                                                        <select class="form-control select2me" name="estado" id="estado">
-                                                            {% for e in estados %}
-                                                                {% if e.id == viaje.estado.id %}
-                                                                    <option selected="selected" value="{{ e.id }}">{{ e.estado }}</option>
-                                                                {% else %}
-                                                                    <option value="{{ e.id }}">{{ e.estado }}</option>
-                                                                {% endif %}
-                                                            {% endfor %}
-                                                        </select>
-                                                        <label for="estado">Estado</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-4 col-md-5 col-lg-2">
-                                                    <div class="form-group form-md-line-input">
-                                                        <select class="form-control select2me" id="unidad_id" name="unidad_id">
-                                                            <option value=""></option>
-                                                            {% for u in unidades %}
-                                                                {% if u.0 == viaje.unidad.id %}
-                                                                    <option selected="selected" value="{{ u.0 }}">{{u.1}} - {{ u.2 }}</option>
-                                                                {% else %}
-                                                                    <option value="{{ u.0 }}">{{u.1}} - {{ u.2 }}</option>
-                                                                {% endif %}
-                                                            {% endfor %}
-                                                        </select>
-                                                        <label for="unidad_id">Unidad</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-2">
+                                                
+                                                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-3">
                                                     <div class="form-group form-md-line-input">
                                                         <textarea class="form-control" rows="2" placeholder="" name="comentario_chofer" id="comentario_chofer">{{ viaje.getObservacioneChofer }}</textarea>
                                                         <label for="comentario_chofer">Comentario para el chofer</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-2">
+                                                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-3">
                                                     <div class="form-group form-md-line-input">
                                                         <textarea class="form-control" rows="2"  maxlength="200" placeholder="" name="tarifa_pasada" id="tarifa_pasada">{{ viaje.tarifapasada|default_if_none:'' }}</textarea>
                                                         <label for="tarifa_pasada">Comentario interno</label>
@@ -211,7 +184,13 @@
                                             </div>
 
                                             <div class="row flex mg-b-10">
-                                                <div class="col-xs-6 col-sm-3 col-md-2">
+                                                <div class="col-xs-6 col-sm-2 col-md-1">
+                                                    <div class="form-group form-md-line-input">
+                                                    <input type="number" min="1" max="2" class="form-control" id="pasajero_cant" name="pasajero_cant" value="{{ viaje.nropasajeros|default_if_none:"1"}}">
+                                                    <label for="pasajero_cant" class="mg-neg-t-5"># Pax</label>
+                                                </div>
+                                            </div>
+                                                <div class="col-xs-6 col-sm-2 col-md-2">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control" id="tipo_pago" name="tipo_pago">
                                                             {% for tp in tipo_pago %}
@@ -234,10 +213,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-6 col-sm-3 col-md-2">
+                                                <div class="col-xs-6 col-sm-3 col-md-1">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control" id="tiempo_espera" name="tiempo_espera">
-                                                            <option value="" selected="selected">Elegir tiempo</option>
+                                                            <option value="" selected="selected">Elegiro</option>
                                                             <option value="15">00:15 hs</option>
                                                             <option value="30">00:30 hs</option>
                                                             <option value="45">00:45 hs</option>
@@ -282,10 +261,10 @@
                                                         <label for="tiempo_espera">Espera</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-6 col-sm-2 col-md-2">
+                                                <div class="col-xs-6 col-sm-2 col-md-1">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control" id="tiempo_hs_dispo" name="tiempo_hs_dispo">
-                                                            <option value="" selected="selected">Elegir cant.</option>
+                                                            <option value="" selected="selected">Hs</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
@@ -314,7 +293,7 @@
                                                         <label for="tiempo_hs_dispo">H. Disp</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-6 col-sm-2 col-md-2">
+                                                <div class="col-xs-6 col-sm-2 col-md-1">
                                                     <div class="form-group form-md-checkboxes">
                                                         <div class="md-checkbox-inline">
                                                             <div class="md-checkbox">
@@ -327,11 +306,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-6 col-sm-2 col-md-2">
+                                                <div class="col-xs-6 col-sm-2 col-md-1">
                                                     <div class="form-group form-md-line-input">
                                                         <!-- <div class="input-group left-addon right-addon"> -->
                                                             <select class="form-control" id="maletas" name="maletas">
-                                                                <option value="0" selected="selected">Elegir cant.</option>
+                                                                <option value="0" selected="selected">Cant.</option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
                                                                 <option value="3">3</option>
@@ -347,7 +326,7 @@
                                                         <!-- </div> -->
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-6 col-sm-2 col-md-2">
+                                                <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
                                                             <span class="input-group-addon">$</span>
@@ -356,22 +335,51 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-6 col-sm-3 col-md-2">
+                                                <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
                                                             <span class="input-group-addon">$</span>
                                                             <input type="text" class="form-control" id="estacionamiento" value="{{ viaje.parking|default_if_none:'' }}" name="estacionamiento">
-                                                            <label for="estacionamiento">Estacionamiento</label>
+                                                            <label for="estacionamiento">Estac.</label>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-6 col-sm-2 col-md-2">
+                                                <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
                                                     <div class="form-group form-md-line-input">
                                                         <div class="input-group left-addon right-addon">
                                                             <span class="input-group-addon">$</span>
                                                             <input type="text" class="form-control" id="otros" value="{{ viaje.otro|default_if_none:'' }}" name="otros">
                                                             <label for="otros">Otros</label>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control select2me" name="estado" id="estado">
+                                                            {% for e in estados %}
+                                                                {% if e.id == viaje.estado.id %}
+                                                                    <option selected="selected" value="{{ e.id }}">{{ e.estado }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ e.id }}">{{ e.estado }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                        <label for="estado">Estado</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-4 col-md-5 col-lg-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control select2me" id="unidad_id" name="unidad_id">
+                                                            <option value=""></option>
+                                                            {% for u in unidades %}
+                                                                {% if u.0 == viaje.unidad.id %}
+                                                                    <option selected="selected" value="{{ u.0 }}">{{u.1}} - {{ u.2 }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ u.0 }}">{{u.1}} - {{ u.2 }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                        <label for="unidad_id">Unidad</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -570,11 +578,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-footer flex mg-t-10">
-                                            <button href="#" class="btn green-haze guardar_viaje" type="submit">Guardar</button>
-                                            <button href="#" class="btn green-haze btn-outline cargar_pasajeros" type="submit">Cargar Pasajeros</button>
-                                        </div>
+
                                     </form>
+                                    <div class="form-footer flex mg-t-10">
+                                        <button href="#" class="btn blue mg-r-10 mg-b-5 guardar_viaje" type="submit">Guardar</button>     
+                                    </div>
                                     <hr>
                                     <div class="row mg-t-20">
                                         <div class="col-md-12">
