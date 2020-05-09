@@ -39,7 +39,7 @@
                         {% if t.id != v.getTrayectos.0.id %}
                             <td class="all">{{ t.pasajero.nombreCompletoExportar }}</td>
                         {% else %}
-                            <td class="all">{{ v.pasajero.nombreCompletoExportar }}</td>
+                            <td class="all">{{ v.getPasajerosConcats }}</td>
                         {% endif %}
                         <td class="all">{{ v.getViajeBilingue }}</td>
                         <td class="all">{{ t.desdeConcat }}</td>
