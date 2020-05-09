@@ -735,6 +735,17 @@ class Viaje(models.Model):
             pasajeros.append(pervi.pasajero)
         return pasajeros
 
+    def getPasajerosConcats(self):
+        pasajeros = ''
+        first = True
+        for pervi in self.viajepasajero_set.all():
+            if first:
+                first = False
+                pasajeros = pervi.pasajero.apellido
+            else:
+                pasajeros = pasajeros + ' - ' + pervi.pasajero.apellido
+        return pasajeros
+
     #items proveedor
     def getCantidadTiempoEsperaProveedor(self):
         retorno = 0
