@@ -745,6 +745,16 @@ class Viaje(models.Model):
             else:
                 pasajeros = pasajeros + ' - ' + pervi.pasajero.apellido
         return pasajeros
+    def getPasajerosNomConcats(self):
+        pasajeros = ''
+        first = True
+        for pervi in self.viajepasajero_set.all():
+            if first:
+                first = False
+                pasajeros = pervi.pasajero.apellido  + ', ' + pervi.pasajero.nombre
+            else:
+                pasajeros = pasajeros + ' - ' + pervi.pasajero.apellido  + ', ' + pervi.pasajero.nombre
+        return pasajeros
 
     #items proveedor
     def getCantidadTiempoEsperaProveedor(self):
