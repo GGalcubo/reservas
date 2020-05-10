@@ -345,6 +345,8 @@ $(document).ready( () => {
         }
 
         //$(".modal-title").text('Editar Tramo');
+
+        getPasajerosByClienteId();
     });
 
     //$( "#pasajero" ).change(updateFillsByPasajero);
@@ -860,6 +862,26 @@ sumarPasajero = () => {
             $('#grillaPasajero').html(data);
         }
     });*/
+};
+
+getPasajerosByClienteId = () => {
+    let url = "/sistema/getPasajerosByClienteId/";
+    $.ajax({
+        type: "POST",
+        url: url,
+        headers: {'X-CSRFToken': csrf_token},
+        data: {cliente_id:cliente_id, pasajero:''},
+        success: function(data)
+        {
+            $('#pasajero_trayecto').empty().append($('<option>').text('').attr('value', ''));
+
+            $.each(data.personascliente, (i, value) => {
+                if(value.tipo_persona === 'Pasajero'){
+                    $('#pasajero_trayecto').append($('<option>').text(value.nombre).attr('value', value.id));
+                }
+            });
+        }
+    });
 };
 
 /**
