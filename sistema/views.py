@@ -3459,7 +3459,7 @@ def unidadViaje(request):
 		'estado' : viaje.estado.estado,
 		'categoria_viaje' : viaje.categoria_viaje.categoria,
 		'comentario' : viaje.getObservacioneChofer(),
-		'pasajero' : viaje.pasajero.nombreCompleto(),
+		'pasajero' : viaje.getPasajerosNomConcats(),
 		'cantidad' : viaje.nropasajeros,
 		'cliente' : viaje.cliente.razon_social,
 		'espera' : str(timedelta(minutes=int(viaje.espera)))[:-3] + 'hs' if viaje.espera else '',
