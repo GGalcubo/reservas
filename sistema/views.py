@@ -3425,7 +3425,7 @@ def mailtoViaje(request):
 
 	data = {
 		'mailto': '%s' %(viaje.solicitante.getMail()),
-		'subject': 'Informe | %s | Pax: %s %s' %(viaje.cliente.razon_social, viaje.pasajero.apellido, viaje.pasajero.nombre),
+		'subject': 'Informe | %s | Pax: %s' %(viaje.cliente.razon_social, viaje.getPasajerosConcats()),
 		'mailtocco': 'informes@logostraslados.com.ar',
 		'body': body
 	}

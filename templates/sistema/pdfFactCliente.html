@@ -167,7 +167,7 @@
                             <td>{{v.centro_costo|default_if_none:""}}</td>
                         {% endif %}
                         <td>{{v.nropasajeros|default_if_none:"1"}}</td>
-                        <td>{{v.pasajero|default_if_none:""}}</td>
+                        <td>{{v.getPasajerosNomConcats}}</td>
                         <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
                         <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
                         <td align="right">{{v.getHsDispoCliente}}</td>
