@@ -208,6 +208,8 @@ $(document).ready( () => {
         $(".cont_modal_hasta_provincia").hide();
         $(".modal_desde_vuelo").hide();
         $(".modal_hasta_vuelo").hide();
+
+        getPasajerosByClienteId();
     });
 
 
@@ -870,7 +872,7 @@ getPasajerosByClienteId = () => {
         type: "POST",
         url: url,
         headers: {'X-CSRFToken': csrf_token},
-        data: {cliente_id:cliente_id, pasajero:''},
+        data: {cliente_id:$("#id_cliente").val(), pasajero:''},
         success: function(data)
         {
             $('#pasajero_trayecto').empty().append($('<option>').text('').attr('value', ''));
@@ -973,85 +975,6 @@ deleteAllViajePasajero = () =>{
     });
 };
 
-
-/**
- * Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado
- * @returns {boolean}
- */
-guardarPasajeroModal = () => {
-    if ($('#nombrePasClienteModal').val() == ""){
-        showMsg("El Nombre es obligatorio.");
-        return false;
-    }
-    if ($('#apellidoPasClienteModal').val() == ""){
-        showMsg("El Apellido es obligatorio.");
-        return false;
-    }
-    let url = "/sistema/guardarPasajeroDesdeViaje/";
-    $.ajax({
-        type: "POST",
-        url: url,
-        headers: {'X-CSRFToken': csrf_token},
-        data: $("#form-datos-cliente-pasajeros").serialize(),
-        success: data => {
-            $('#idPasajeroModal').val("0");
-            $('#nombrePasClienteModal').val("");
-            $('#apellidoPasClienteModal').val("");
-            $('#documentoPasajeroClienteModal').val("");
-            $('#telefonoPasajeroClienteModal').val("");
-            $('#mailPasajeroClienteModal').val("");
-            $('#nacionalidadPasajeroClienteModal').val("");
-            $('#pasajeroFrecuente').prop('checked', false);
-            $('#callePasajeroClienteModal').val("");
-            $('#alturaPasajeroClienteModal').val("");
-            $('#pisoPasajeroClienteModal').val("");
-            $('#cpPasajeroClienteModal').val("");
-            $('#comentarioPasajeroClienteModal').val("");
-            $('#add_pasajero').modal('toggle');
-            $('#pasajero').append($('<option selected="selected">').text(data.pasajero_apellido + ' ' +data.pasajero_nombre).attr('value', data.pasajero));
-            $('#pasajero_telefono').val(data.pasajero_telefono);
-        }
-    });
-};
-
-
-/**
- * Cris, te dejo esto del html cliente, que es de donde saqué el modal ya armado
- * @returns {boolean}
- */
-guardarPasajero = () => {
-    if ($('#nombrePasCliente').val() == ''){
-        showMsg("El Nombre es obligatorio.");
-        return false;
-    }
-    if ($('#apellidoPasCliente').val() == ''){
-        showMsg("El Apellido es obligatorio.");
-        return false;
-    }
-    let url = "/sistema/guardarPasajeroProspect/";
-    $.ajax({
-        type: "POST",
-        url: url,
-        headers: {'X-CSRFToken': csrf_token},
-        data: $("#form-viaje-pasajeros").serialize(),
-        success: data => {
-            $('#idPasajero').val("0");
-            $('#nombrePasCliente').val("");
-            $('#apellidoPasCliente').val("");
-            $('#documentoPasajeroCliente').val("");
-            $('#telefonoPasajeroCliente').val("");
-            $('#mailPasajeroCliente').val("");
-            $('#nacionalidadPasajeroCliente').val("");
-            $('#callePasajeroCliente').val("");
-            $('#alturaPasajeroCliente').val("");
-            $('#pisoPasajeroCliente').val("");
-            $('#cpPasajeroCliente').val("");
-            $('#comentarioPasajeroCliente').val("");
-            $('#add_pasajero_cliente').modal('toggle');
-            $('#grillaPasajero').html(data);
-        }
-    });
-};
 
 /**
  *
