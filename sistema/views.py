@@ -302,6 +302,15 @@ def clonarViaje(request):
     viaje_clonado.creadopor = request.user
     viaje_clonado.save()
 
+    pasajeros_a_clonar = ViajePasajero.objects.filter(viaje_id=viaje_a_clonar.id)
+
+    for p in pasajeros_a_clonar:
+        pasajeros_clonados = ViajePasajero()
+        pasajeros_clonados.viaje_id = viaje_clonado.id
+        pasajeros_clonados.pasajero = p.pasajero
+        pasajeros_clonados.pasajero_ppal = p.pasajero_ppal
+        pasajeros_clonados.save()
+
     trayectos_a_clonar = Trayecto.objects.filter(viaje_id=viaje_a_clonar.id)
     for t in trayectos_a_clonar:
         trayectos_clonados = Trayecto()
