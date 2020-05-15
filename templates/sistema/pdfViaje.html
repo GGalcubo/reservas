@@ -215,10 +215,7 @@
                         <div class="col-xs-7 campo">
                             <div class="campoContenedor">
                                 <p>Pasajero</p>
-                                <p>{{ viaje.pasajero.nombreCompleto }}
-                                    {% if viaje.getCantidadPasajeros > 1 %}
-                                    + otros
-                                    {% endif %}
+                                <p>{{ viaje.getPasajerosNomConcats }}
                                 </p>
                             </div>
                         </div>
