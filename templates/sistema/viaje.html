@@ -384,6 +384,34 @@
                                                 </div>
                                             </div>
                                             <hr>
+                                            <div class="portlet light">
+                                             <div id="grillaPasajero" >
+                                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="tablaPasajeroViaje">
+                                                        <thead>
+                                                            <tr> 
+                                                                <th class="all">Nombre</th>
+                                                                <th class="all">Apellido</th>
+                                                                <th class="all">DNI</th>
+                                                                <th class="all">Domicilio</th>
+                                                                <th class="all">Teléfono</th>
+                                                                <th class="all">Comentario</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for p in viaje.getPasajeros %}
+                                                            <tr>
+                                                                <td>{{ p.nombre|default_if_none:"" }}</td>
+                                                                <td>{{ p.apellido|default_if_none:"" }}</td>
+                                                                <td>{{ p.documento|default_if_none:"" }}</td>
+                                                                <td>{{ p.getDomicilio|default_if_none:"" }}</td>
+                                                                <td>{{ p.getTelefono|default_if_none:"" }}</td>
+                                                                <td>{{ p.getObservacion|default_if_none:"" }}</td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+
+                                            </div>
                                             <div class="row flex align-i-center mg-t-20">
                                                 <div class="col-xs-12 col-sm-5 mg-b-10">
                                                     <div class="row">

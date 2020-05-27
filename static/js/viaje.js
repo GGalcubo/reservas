@@ -149,7 +149,7 @@ $(document).ready( () => {
     });
 
     $('.cargar_pasajeros').click(function() {
-        window.open('../pasajeros/?idViaje=' + viaje, '_blank');
+        window.open('../pasajeros/?idViaje=' + viaje, '_self');
     });
 
     $("#form-viaje-viaje").submit( e => {
