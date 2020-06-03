@@ -31,7 +31,7 @@
             <th class="all">Total</th>
             <th class="all">I.V.A.</th>
             <th class="all">Final</th>
-            <th class="all">ID</th>
+             <th class="all">Final</th>
         </tr>
     </thead>
     <tbody>
@@ -67,7 +67,7 @@
             <td>{{v.getTotalClienteFormat}}</td>
             <td>{{v.getIvaClienteFormat}}</td>
             <td>{{v.getFinalClienteFormat}}</td>
-            <td>{{v.id}}</td>
+            <td>{{v.getFinalClienteFormat}}</td>
         </tr>
         {% endfor %}
     </tbody>
@@ -182,6 +182,10 @@
                     parseado = parseFloat(a) + parseFloat(b);
                     return parseado.toFixed(2);
                 }, 0 );
+                total30 = api.column( 30 ).data().reduce( function (a, b) {
+                    parseado = parseFloat(a) + parseFloat(b);
+                    return parseado.toFixed(2);
+                }, 0 );
    
                 // Update footer
                 
@@ -199,6 +203,7 @@
                 $( api.column( 27 ).footer() ).html(total27);
                 $( api.column( 28 ).footer() ).html(total28);
                 $( api.column( 29 ).footer() ).html(total29);
+                $( api.column( 30 ).footer() ).html(total29);
             },
             //////////////// HASTA ACA HARDCODEADO EL TOTAL SEGUN EL EJEMPLO DE DATATABLES //////////////
 
