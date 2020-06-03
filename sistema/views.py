@@ -2319,7 +2319,7 @@ def guardarTarifario(request):
 @login_required
 def editarTarifaTrayecto(request):
 	idTarifaTrayecto = request.POST.get('idTarifaTrayecto', "")
-	localidades = Localidad.objects.all().values_list('id', 'nombre').order_by('nombre')
+	localidades = Localidad.objects.filter(baja=False).values_list('id', 'nombre').order_by('nombre')
 	localidades = map(lambda localidades:(int(localidades[0]),localidades[1]), localidades)
 	if idTarifaTrayecto == "0":
 		tramoTarifa = TarifaTrayecto()
@@ -2619,7 +2619,7 @@ def cargarLocalidad(request):
 def cargarLocalidadByDestino(request):
 	destino_id = request.POST.get('destino_id', False)
 	localidad_select_id = request.POST.get('localidad_select_id', '')
-	localidades = Localidad.objects.filter(provincia_id=destino_id)
+	localidades = Localidad.objects.filter(provincia_id=destino_id,baja=False)
 	context = {'localidades': localidades, 'localidad_select_id':localidad_select_id}
 	return render(request, 'sistema/selectLocalidadViaje.html', context)
 
