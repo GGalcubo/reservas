@@ -184,7 +184,7 @@ def getClienteById(request):
         'razon_social': cliente.razon_social,
         'telefono': cliente.telefonoPrincipal(),
         #'centro_costos': list(centrocosto),
-        #'personascliente': list(personacliente)
+        'personascliente': list(personacliente)
     }
 
     dump = json.dumps(data)
