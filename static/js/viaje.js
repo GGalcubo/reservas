@@ -1011,6 +1011,7 @@ updateFillsByCliente = (name, evt) => {
         {
             let cliente = {};
             cliente.id = data.id;
+            cliente_id = data.id;
             cliente.calle = data.calle ? data.calle : '';
             cliente.altura = data.altura ? data.altura : '';
             cliente.piso = data.piso ? data.piso : '';
