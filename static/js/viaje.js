@@ -101,7 +101,26 @@ $(document).ready( () => {
     $('#id_cliente').select2({ placeholder: 'Seleccionar Cliente', width: 'auto'});
     //$("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
     $('#unidad_id').select2({placeholder: 'Seleccionar', width: 'auto'});
-    $('#centroDeCosto').select2({placeholder: 'Seleccionar', width: 'auto'});
+    $('#centroDeCosto').select2({placeholder: 'Seleccionar', width: 'auto', minimumInputLength: 3, ajax: {
+          url: '/sistema/getCentroDeCostosByLetters/',
+          dataType: 'json',
+          delay: 250,
+            data: function (params) {
+            let queryParameters = {
+              q: params.term,
+              cliente_id: cliente_id
+            };
+            return queryParameters;
+          },
+          //,data: {cliente_id, q},
+          processResults: function (data) {
+            return {
+              results: data
+            };
+          },
+          cache: true
+        }
+      });
 
 
     $("#desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
@@ -1016,7 +1035,7 @@ updateFillsByCliente = (name, evt) => {
             $('#cliente_categoria').val(cliente.categoria_id);
             $('#cliente_tel').val(cliente.telefono);
 
-            $('#centroDeCosto').empty().append($('<option>').text('').attr('value', ''));
+            //$('#centroDeCosto').empty().append($('<option>').text('').attr('value', ''));
             $('#contacto').empty().append($('<option>').text('').attr('value', ''));
             $('#pasajero').empty().append($('<option>').text('').attr('value', ''));
             $('#pasajero_telefono').empty().append($('<option>').text('').attr('value', ''));
@@ -1031,13 +1050,13 @@ updateFillsByCliente = (name, evt) => {
                 }
             }
 
-            $.each(cliente.centro_costos, (i, value) => {
+            /*$.each(cliente.centro_costos, (i, value) => {
                 if(value.id == centro_costo){
                     $('#centroDeCosto').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
                 }else{
                     $('#centroDeCosto').append($('<option>').text(value.nombre).attr('value', value.id));
                 }
-            });
+            });*/
 
             $.each(cliente.personascliente, (i, value) => {
                 if(value.tipo_persona === 'Solicitante'){
@@ -1525,9 +1544,8 @@ guardarCCmetodo = () =>{
     });
 };
 
-//Se utiliza para que el campo de texto solo acepte letras
 /**
- *
+ *Se utiliza para que el campo de texto solo acepte letras
  * @param e
  * @returns {boolean}
  */
@@ -1536,7 +1554,7 @@ soloLetras = e =>{
     tecla = String.fromCharCode(key).toString();
     letras = "áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789";//Se define todo el abecedario que se quiere que se muestre.
     especiales = [8, 39, 6]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
-    tecla_especial = false
+    tecla_especial = false;
     for(var i in especiales) {
         if(key == especiales[i]) {
             tecla_especial = true;
@@ -1547,7 +1565,7 @@ soloLetras = e =>{
     if(letras.indexOf(tecla) == -1 && !tecla_especial){
         return false;
     }
-}
+};
 
 mailto = () =>{
     let url = "/sistema/mailtoViaje/";
@@ -1561,4 +1579,4 @@ mailto = () =>{
             window.location.href = hrefmailto;
         }
     });
-}
+};

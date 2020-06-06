@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^getViajesAsignacionesPorFecha/', getViajesAsignacionesPorFecha, name='getViajesAsignacionesPorFecha'),
     url(r'^editEstadoViajeAsignaciones/', editEstadoViajeAsignaciones, name='editEstadoViajeAsignaciones'),
     url(r'^getViajePasajeros/', getViajePasajeros, name='getViajePasajeros'),
+    url(r'^getCentroDeCostosByLetters/', getCentroDeCostosByLetters, name='getCentroDeCostosByLetters'),
     url(r'^pasajeros/', pasajeros, name='pasajeros'),
     url(r'^getPasajerosByClienteId/', getPasajerosByClienteId, name='getPasajerosByClienteId'),
     url(r'^updateGrillaPasajero/', updateGrillaPasajero, name='updateGrillaPasajero'),

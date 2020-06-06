@@ -167,12 +167,12 @@ def getClienteById(request):
                     'tipo_persona':i.persona.tipo_persona.tipo_persona,
                     'telefono':i.persona.telefono
                 })
-    personacliente = sorted(personacliente, key = lambda  i: (i['tipo_persona'], i['nombre'].lower()))
+    #personacliente = sorted(personacliente, key = lambda  i: (i['tipo_persona'], i['nombre'].lower()))
 
 
-    centrocosto = []
-    for c in cliente.centrocosto_set.filter(baja=False):
-        centrocosto.append({'id':c.id,'nombre':c.nombre})
+    # centrocosto = []
+    # for c in cliente.centrocosto_set.filter(baja=False):
+    #     centrocosto.append({'id':c.id,'nombre':c.nombre})
 
     data = {
         'id': cliente.id,
@@ -183,13 +183,26 @@ def getClienteById(request):
         'moroso': cliente.moroso,
         'razon_social': cliente.razon_social,
         'telefono': cliente.telefonoPrincipal(),
-        'centro_costos': list(centrocosto),
-        'personascliente': list(personacliente)
+        #'centro_costos': list(centrocosto),
+        #'personascliente': list(personacliente)
     }
 
     dump = json.dumps(data)
     return HttpResponse(dump, content_type='application/json')
 
+@login_required
+def getCentroDeCostosByLetters(request):
+    centrocosto = []
+    cliente = Cliente.objects.get(id=request.GET.get('cliente_id', False))
+    for c in cliente.centrocosto_set.filter(baja=False, nombre__icontains=request.GET.get('q', '')):
+       centrocosto.append({'id':c.id,'text':c.nombre})
+
+    data = {
+        'centro_costos': list(centrocosto)
+    }
+
+    dump = json.dumps(list(centrocosto))
+    return HttpResponse(dump, content_type='application/json')
 
 @login_required
 def getPasajerosByClienteId(request):
