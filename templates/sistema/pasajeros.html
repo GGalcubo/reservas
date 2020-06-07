@@ -258,8 +258,27 @@
                     evt.params.data.no_borrar_pasajeros = true;
 
                     evt.params.data.id = idCliente;
-                    $('#suma_pasajero').empty();
-                    updateFillsByCliente('', evt);
+
+                    $('#suma_pasajero').select2({ placeholder: 'Seleccionar', width: 'auto', minimumInputLength: 3, ajax: {
+                          url: '/sistema/getPersonasByLetters/',
+                          dataType: 'json',
+                          delay: 250,
+                            data: function (params) {
+                            let queryParameters = {
+                              q: params.term,
+                              tipo_persona: 2,
+                              cliente_id: idCliente
+                            };
+                            return queryParameters;
+                          },
+                          processResults: function (data) {
+                            return {
+                              results: data
+                            };
+                          },
+                          cache: true
+                        }
+                      });
 
                 });
                 //GG: esto lo agregue de viaje (puede fallar)
@@ -283,7 +302,7 @@
                 } else {
                     $(document).prop('title', 'Pax #'+ idViaje);
                 }
-                //GG: FIN agregado 
+                //GG: FIN agregado
                 
                 $('#tablaPasajeroViaje').DataTable( {
                         responsive: true,
@@ -332,9 +351,6 @@
                             }
                         });
                     };
-
-
-
                     /**
                      *
                      */
@@ -349,42 +365,6 @@
                             success: data => {
                                 showMsg('Agregado con exito', 'success');
                                 $('#grillaPasajero').html(data);
-                            }
-                        });
-                    };
-
-                    updateFillsByCliente = (name, evt) => {
-                        let url = "/sistema/getPasajerosByClienteId/";
-                        $.ajax({
-                            type: "POST",
-                            url: url,
-                            headers: {'X-CSRFToken': csrf_token},
-                            data: {cliente_id:evt.params.data.id, pasajero:''},
-                            success: function(data)
-                            {
-                                let cliente = {};
-                                cliente.id = data.id;
-                                //console.log({data})
-                                $('#pasajero').empty().append($('<option>').text('').attr('value', ''));
-                                $('#pasajero_telefono').empty().append($('<option>').text('').attr('value', ''));
-                                $('#pasajero_trayecto').empty().append($('<option>').text('').attr('value', ''));
-                                $('#suma_pasajero').empty();
-
-                                $.each(data.personascliente, (i, value) => {
-                                    if(value.tipo_persona === 'Pasajero'){
-                                        /*if(value.id == pasajero){
-                                            $('#pasajero').append($('<option selected="selected">').text(value.nombre).attr('value', value.id));
-                                            $('#pasajero_telefono').val(value.telefono);
-                                        }else{
-                                            $('#pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
-                                        }*/
-                                        if(value.id != $('#pasajero').val()){
-                                            $('#suma_pasajero').append($('<option>').text(value.nombre).attr('value', value.id));
-                                        }
-
-                                        $('#pasajero_trayecto').append($('<option>').text(value.nombre).attr('value', value.id));
-                                    }
-                                });
                             }
                         });
                     };

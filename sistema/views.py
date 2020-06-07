@@ -154,25 +154,7 @@ def getClientes(request):
 @login_required
 def getClienteById(request):
     cliente = Cliente.objects.get(id=request.POST.get('cliente_id', False))
-    pasajero_id = request.POST.get('pasajero', 0)
-    if pasajero_id == '':
-        pasajero_id = 0
-    personacliente = []
-    for i in cliente.personacliente_set.all():
-        if i.persona.baja is False:
-            if ((i.persona.tipo_persona.tipo_persona == 'Solicitante') or (int(i.persona.id) == int(pasajero_id))):
-                personacliente.append({
-                    'id':i.persona.id,
-                    'nombre':i.persona.apellido + ' ' + i.persona.nombre,
-                    'tipo_persona':i.persona.tipo_persona.tipo_persona,
-                    'telefono':i.persona.telefono
-                })
-    #personacliente = sorted(personacliente, key = lambda  i: (i['tipo_persona'], i['nombre'].lower()))
-
-
-    # centrocosto = []
-    # for c in cliente.centrocosto_set.filter(baja=False):
-    #     centrocosto.append({'id':c.id,'nombre':c.nombre})
+    print cliente
 
     data = {
         'id': cliente.id,
@@ -184,10 +166,28 @@ def getClienteById(request):
         'razon_social': cliente.razon_social,
         'telefono': cliente.telefonoPrincipal(),
         #'centro_costos': list(centrocosto),
-        'personascliente': list(personacliente)
+        #'personascliente': list(personacliente)
     }
 
     dump = json.dumps(data)
+    return HttpResponse(dump, content_type='application/json')
+
+@login_required
+def getPersonasByLetters(request):
+    cliente = Cliente.objects.get(id=request.GET.get('cliente_id', False))
+    tipo_persona = request.GET.get('tipo_persona', '')
+    personacliente = []
+    personas = cliente.personacliente_set.filter(persona__baja=False, persona__tipo_persona=tipo_persona, persona__apellido__icontains=request.GET.get('q', ''))
+    for i in personas:
+        personacliente.append({
+            'id': i.persona.id,
+            'text': i.persona.apellido + ' ' + i.persona.nombre,
+            'tipo_persona': i.persona.tipo_persona.tipo_persona,
+            'telefono': i.persona.telefono
+        })
+    personacliente = sorted(personacliente, key=lambda i: (i['tipo_persona'], i['text'].lower()))
+
+    dump = json.dumps(list(personacliente))
     return HttpResponse(dump, content_type='application/json')
 
 @login_required
@@ -196,10 +196,6 @@ def getCentroDeCostosByLetters(request):
     cliente = Cliente.objects.get(id=request.GET.get('cliente_id', False))
     for c in cliente.centrocosto_set.filter(baja=False, nombre__icontains=request.GET.get('q', '')):
        centrocosto.append({'id':c.id,'text':c.nombre})
-
-    data = {
-        'centro_costos': list(centrocosto)
-    }
 
     dump = json.dumps(list(centrocosto))
     return HttpResponse(dump, content_type='application/json')

@@ -92,7 +92,26 @@ $(document).ready( () => {
     $('#pasajero_cant').val(pasajero_cant);
 
     $('#categoria_viaje').select2({ placeholder: 'Seleccionar', width: 'auto'});
-    $('#contacto').select2({ placeholder: 'Seleccionar', width: 'auto'});
+    $('#contacto').select2({ placeholder: 'Seleccionar', width: 'auto', minimumInputLength: 3, ajax: {
+          url: '/sistema/getPersonasByLetters/',
+          dataType: 'json',
+          delay: 250,
+            data: function (params) {
+            let queryParameters = {
+              q: params.term,
+              tipo_persona: 1,
+              cliente_id: cliente_id
+            };
+            return queryParameters;
+          },
+          processResults: function (data) {
+            return {
+              results: data
+            };
+          },
+          cache: true
+        }
+      });
     $("#pasajero").on("select2:select", function (e) { updateFillsByPasajero("select2:select", e); });
     $('#pasajero').select2({ placeholder: 'Seleccionar', width: 'auto'});
     $('#pasajero_trayecto').select2({ placeholder: 'Seleccionar Pasajero', width: 'auto', dropdownParent: $('#add_tramo')});
@@ -112,7 +131,6 @@ $(document).ready( () => {
             };
             return queryParameters;
           },
-          //,data: {cliente_id, q},
           processResults: function (data) {
             return {
               results: data
@@ -1037,9 +1055,9 @@ updateFillsByCliente = (name, evt) => {
             $('#cliente_tel').val(cliente.telefono);
 
             //$('#centroDeCosto').empty().append($('<option>').text('').attr('value', ''));
-            $('#contacto').empty().append($('<option>').text('').attr('value', ''));
-            $('#pasajero').empty().append($('<option>').text('').attr('value', ''));
-            $('#pasajero_telefono').empty().append($('<option>').text('').attr('value', ''));
+            //#$('#contacto').empty().append($('<option>').text('').attr('value', ''));
+            //$('#pasajero').empty().append($('<option>').text('').attr('value', ''));
+            //$('#pasajero_telefono').empty().append($('<option>').text('').attr('value', ''));
             $('#pasajero_trayecto').empty().append($('<option>').text('').attr('value', ''));
             $('#suma_pasajero').empty();
 
@@ -1059,7 +1077,7 @@ updateFillsByCliente = (name, evt) => {
                 }
             });*/
 
-            $.each(cliente.personascliente, (i, value) => {
+            /*$.each(cliente.personascliente, (i, value) => {
                 if(value.tipo_persona === 'Solicitante'){
                     if(value.id == solicitante){
                         $('#contacto').append($('<option selected="selected">').text(value.nombre).attr('value', value.id))
@@ -1079,7 +1097,7 @@ updateFillsByCliente = (name, evt) => {
 
                     $('#pasajero_trayecto').append($('<option>').text(value.nombre).attr('value', value.id));
                 }
-            });
+            });*/
         }
     });
 };

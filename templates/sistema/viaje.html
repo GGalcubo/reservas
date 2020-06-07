@@ -131,7 +131,9 @@
                                                 </div>
                                                 <div class="col-xs-10 col-sm-5 col-md-2 col-lg-2">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control select2me" id="contacto" name="contacto"></select>
+                                                        <select class="form-control select2me" id="contacto" name="contacto">
+                                                            <option selected="selected" value="{{ viaje.solicitante.id }}">{{ viaje.solicitante.apellido}} {{ viaje.solicitante.nombre }}</option>
+                                                        </select>
                                                         <label for="contacto">Solicitante</label>
                                                     </div>
                                                 </div>
