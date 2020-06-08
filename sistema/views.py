@@ -14,6 +14,7 @@ import json
 import os
 import datetime
 import sys
+from django.db.models import Q
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -201,6 +202,18 @@ def getCentroDeCostosByLetters(request):
     return HttpResponse(dump, content_type='application/json')
 
 @login_required
+def getUnidadesByLetters(request):
+    q = request.GET.get('q', '')
+    unidad = Unidad.objects.filter(Q(id_fake__icontains=q) | Q(identificacion__icontains=q), baja=False).order_by('id_fake')
+    #unidad = map(lambda x: int(x), unidad)
+    unidades = []
+    for u in unidad:
+        unidades.append({'id':u.id,'text':u.id_fake + ' ' + u.identificacion})
+
+    dump = json.dumps(list(unidades))
+    return HttpResponse(dump, content_type='application/json')
+
+@login_required
 def getPasajerosByClienteId(request):
     cliente = Cliente.objects.get(id=request.POST.get('cliente_id', False))
     pasajero_id = request.POST.get('pasajero', 0)
@@ -244,7 +257,7 @@ def altaViaje(request):
 				#'clientes':Cliente.objects.filter(baja=False),
 				'tipoobservacion':TipoObservacion.objects.all(),
 				'tipo_pago':TipoPagoViaje.objects.all(),
-				'unidades':Unidad.objects.filter(baja=False).values_list('id', 'id_fake', 'identificacion').order_by('id_fake'),
+				#'unidades':Unidad.objects.filter(baja=False).values_list('id', 'id_fake', 'identificacion').order_by('id_fake'),
 				'estados':Estado.objects.all(),
 				'categoria_viajes':CategoriaViaje.objects.all(),
 				'tarifarios':Tarifario.objects.filter(baja=False),
@@ -281,7 +294,7 @@ def editaViaje(request):
 				'is_clone':is_clone,
 				'tipo_pago':TipoPagoViaje.objects.all(),
 				#'itemsviaje':ItemViaje.objects.filter(viaje_id=id_viaje),
-				'unidades':Unidad.objects.filter(baja=False).values_list('id', 'id_fake', 'identificacion').order_by('id_fake'),
+				#'unidades':Unidad.objects.filter(baja=False).values_list('id', 'id_fake', 'identificacion').order_by('id_fake'),
 				'estados':Estado.objects.all(),
 				'categoria_viajes':CategoriaViaje.objects.all(),
 				'tarifarios':Tarifario.objects.filter(baja=False),

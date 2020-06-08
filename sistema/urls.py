@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^getViajePasajeros/', getViajePasajeros, name='getViajePasajeros'),
     url(r'^getCentroDeCostosByLetters/', getCentroDeCostosByLetters, name='getCentroDeCostosByLetters'),
     url(r'^getPersonasByLetters/', getPersonasByLetters, name='getPersonasByLetters'),
+    url(r'^getUnidadesByLetters/', getUnidadesByLetters, name='getUnidadesByLetters'),
     url(r'^pasajeros/', pasajeros, name='pasajeros'),
     url(r'^getPasajerosByClienteId/', getPasajerosByClienteId, name='getPasajerosByClienteId'),
     url(r'^updateGrillaPasajero/', updateGrillaPasajero, name='updateGrillaPasajero'),

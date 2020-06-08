@@ -119,7 +119,25 @@ $(document).ready( () => {
     $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
     $('#id_cliente').select2({ placeholder: 'Seleccionar Cliente', width: 'auto'});
     //$("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
-    $('#unidad_id').select2({placeholder: 'Seleccionar', width: 'auto'});
+    $('#unidad_id').select2({placeholder: 'Seleccionar', width: 'auto', minimumInputLength: 1, ajax: {
+          url: '/sistema/getUnidadesByLetters/',
+          dataType: 'json',
+          delay: 250,
+            data: function (params) {
+            let queryParameters = {
+              q: params.term,
+              cliente_id: cliente_id
+            };
+            return queryParameters;
+          },
+          processResults: function (data) {
+            return {
+              results: data
+            };
+          },
+          cache: true
+        }
+      });
     $('#centroDeCosto').select2({placeholder: 'Seleccionar', width: 'auto', minimumInputLength: 3, ajax: {
           url: '/sistema/getCentroDeCostosByLetters/',
           dataType: 'json',
