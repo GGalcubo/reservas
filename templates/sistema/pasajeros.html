@@ -245,6 +245,28 @@
 
                 var csrf_token          = '{{ csrf_token }}';
                 var cliente_id          = '{{ viaje.cliente.id|default_if_none:"" }}';
+                var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+                };
+                var idViaje = getUrlParameter('idViaje');
+                if(idViaje === undefined){
+                    $(document).prop('title', 'Nuevo viaje - Central LT');
+                } else {
+                    $(document).prop('title', 'Pax #'+ idViaje);
+                }
+                //GG: FIN agregado
+
                 $(document).ready(function(){
 
                     var idCliente = cliente_id;
@@ -267,6 +289,7 @@
                             let queryParameters = {
                               q: params.term,
                               tipo_persona: 2,
+                              viaje_id: idViaje,
                               cliente_id: idCliente
                             };
                             return queryParameters;
@@ -282,27 +305,7 @@
 
                 });
                 //GG: esto lo agregue de viaje (puede fallar)
-                var getUrlParameter = function getUrlParameter(sParam) {
-                var sPageURL = window.location.search.substring(1),
-                    sURLVariables = sPageURL.split('&'),
-                    sParameterName,
-                    i;
 
-                for (i = 0; i < sURLVariables.length; i++) {
-                    sParameterName = sURLVariables[i].split('=');
-
-                    if (sParameterName[0] === sParam) {
-                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-                    }
-                }
-                };
-                let idViaje = getUrlParameter('idViaje');
-                if(idViaje === undefined){
-                    $(document).prop('title', 'Nuevo viaje - Central LT');
-                } else {
-                    $(document).prop('title', 'Pax #'+ idViaje);
-                }
-                //GG: FIN agregado
                 
                 $('#tablaPasajeroViaje').DataTable( {
                         responsive: true,
@@ -347,6 +350,7 @@
                             data: {pasajero:$('#suma_pasajero').val(), viaje},
                             success: data => {
                                 showMsg('Agregado con exito', 'success');
+                                $('#suma_pasajero').empty();
                                 $('#grillaPasajero').html(data);
                             }
                         });

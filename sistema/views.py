@@ -176,16 +176,24 @@ def getClienteById(request):
 @login_required
 def getPersonasByLetters(request):
     cliente = Cliente.objects.get(id=request.GET.get('cliente_id', False))
+    viaje = Viaje.objects.get(id=request.GET.get('viaje_id', False))
+    viaje_pasajeros = viaje.getPasajeros()
     tipo_persona = request.GET.get('tipo_persona', '')
     personacliente = []
     personas = cliente.personacliente_set.filter(persona__baja=False, persona__tipo_persona=tipo_persona, persona__apellido__icontains=request.GET.get('q', ''))
     for i in personas:
-        personacliente.append({
-            'id': i.persona.id,
-            'text': i.persona.apellido + ' ' + i.persona.nombre,
-            'tipo_persona': i.persona.tipo_persona.tipo_persona,
-            'telefono': i.persona.telefono
-        })
+        pasajero_ya_existe = False
+        for j in viaje_pasajeros:
+            if j.id == i.persona.id:
+                pasajero_ya_existe = True
+                break
+        if pasajero_ya_existe == False:
+            personacliente.append({
+                'id': i.persona.id,
+                'text': i.persona.apellido + ' ' + i.persona.nombre,
+                'tipo_persona': i.persona.tipo_persona.tipo_persona,
+                'telefono': i.persona.telefono
+            })
     personacliente = sorted(personacliente, key=lambda i: (i['tipo_persona'], i['text'].lower()))
 
     dump = json.dumps(list(personacliente))
