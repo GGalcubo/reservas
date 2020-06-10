@@ -176,11 +176,15 @@ def getClienteById(request):
 @login_required
 def getPersonasByLetters(request):
     cliente = Cliente.objects.get(id=request.GET.get('cliente_id', False))
-    viaje = Viaje.objects.get(id=request.GET.get('viaje_id', False))
-    viaje_pasajeros = viaje.getPasajeros()
     tipo_persona = request.GET.get('tipo_persona', '')
+    viaje_pasajeros = []
+    if tipo_persona == 2:
+        viaje = Viaje.objects.get(id=request.GET.get('viaje_id', False))
+        viaje_pasajeros = viaje.getPasajeros()
+
     personacliente = []
-    personas = cliente.personacliente_set.filter(persona__baja=False, persona__tipo_persona=tipo_persona, persona__apellido__icontains=request.GET.get('q', ''))
+    q = request.GET.get('q', '')
+    personas = cliente.personacliente_set.filter(Q(persona__apellido__icontains=q) | Q(persona__nombre__icontains=q), persona__baja=False, persona__tipo_persona=tipo_persona)
     for i in personas:
         pasajero_ya_existe = False
         for j in viaje_pasajeros:
