@@ -2334,17 +2334,23 @@ def listadoTarifario(request):
 @login_required
 def tarifario(request):
 	mensaje = ""
-	idTarifario = request.GET.get('idTarifario', "")
-	tarifario = Tarifario.objects.get(id=idTarifario)
+	idTarifario = request.GET.get('idTarifario', False)
+	if idTarifario:
+		tarifario = Tarifario.objects.get(id=idTarifario)
+	else:
+		tarifario=Tarifario()
 	context = {'tarifario': tarifario}
 	return render(request, 'sistema/tarifario.html', context)
 
 @login_required
 def guardarTarifario(request):
 	mensaje = ""
-	idTarifario = request.POST.get('idTarifario', "")
+	idTarifario = request.POST.get('idTarifario', False)
+	if idTarifario:
+		tarifario = Tarifario.objects.get(id=idTarifario)
+	else:
+		tarifario=Tarifario()	
 	nombre = request.POST.get('nombre', "")
-	tarifario = Tarifario.objects.get(id=idTarifario)
 	tarifario.nombre = nombre
 	tarifario.save()
 	url = '/sistema/tarifario/?idTarifario='+str(tarifario.id)
@@ -2353,8 +2359,9 @@ def guardarTarifario(request):
 @login_required
 def editarTarifaTrayecto(request):
 	idTarifaTrayecto = request.POST.get('idTarifaTrayecto', "")
-	localidades = Localidad.objects.filter(baja=False).values_list('id', 'nombre').order_by('nombre')
-	localidades = map(lambda localidades:(int(localidades[0]),localidades[1]), localidades)
+	#localidades = Localidad.objects.filter(baja=False).values_list('id', 'provincia.nombre','nombre').order_by('provincia')
+	localidades = Localidad.objects.filter(baja=False).order_by('nombre')
+	localidades = map(lambda localidades:(localidades.id, localidades.localidadProvincia()), localidades)
 	if idTarifaTrayecto == "0":
 		tramoTarifa = TarifaTrayecto()
 		tramoTarifa.id = 0
@@ -2977,7 +2984,7 @@ def buscarFacturacionCliente(request):
 	proformas 		= request.POST.get('proformas', False)
 	desde 			= request.POST.get('desde', False)
 	hasta 			= request.POST.get('hasta', False)
-
+    #selectorDNI    = request.POST.get('selectorDNI', False)
 	fechaDesde =  getAAAAMMDD(desde)
 	fechaHasta =  getAAAAMMDD(hasta)
 
@@ -3065,6 +3072,8 @@ def buscarFacturacionCliente(request):
 			viajes = viajes.filter(id__in=q_ids)
 
 	context = {'viajes': viajes}
+    #if selectorDNI:
+    #    return render(request, 'sistema/grillaFacturacionClienteDNI.html', context)
 	return render(request, 'sistema/grillaFacturacionCliente.html', context)
 
 @login_required

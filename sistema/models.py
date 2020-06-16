@@ -972,6 +972,9 @@ class Localidad(models.Model):
     def __str__(self):
         return self.nombre
 
+    def localidadProvincia(self):
+        return self.provincia.nombre + "-" + self.nombre
+
 class Calle(models.Model):
     nombre = models.CharField(max_length=100)
     altura_desde = models.CharField(max_length=10, null=True, blank=True)
