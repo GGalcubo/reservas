@@ -2984,7 +2984,7 @@ def buscarFacturacionCliente(request):
 	proformas 		= request.POST.get('proformas', False)
 	desde 			= request.POST.get('desde', False)
 	hasta 			= request.POST.get('hasta', False)
-    #selectorDNI    = request.POST.get('selectorDNI', False)
+	selectorDNI		= request.POST.get('selectorDNI', False)
 	fechaDesde =  getAAAAMMDD(desde)
 	fechaHasta =  getAAAAMMDD(hasta)
 
@@ -3072,9 +3072,10 @@ def buscarFacturacionCliente(request):
 			viajes = viajes.filter(id__in=q_ids)
 
 	context = {'viajes': viajes}
-    #if selectorDNI:
-    #    return render(request, 'sistema/grillaFacturacionClienteDNI.html', context)
-	return render(request, 'sistema/grillaFacturacionCliente.html', context)
+	if selectorDNI == "1":
+		return render(request, 'sistema/grillaFacturacionClienteDNI.html', context)
+	else:
+		return render(request, 'sistema/grillaFacturacionCliente.html', context)
 
 @login_required
 def buscarFacturacionProveedor(request):

@@ -133,6 +133,15 @@
                                                 <label for="factura">Factura</label>
                                               </div>
                                             </div>
+                                            <div class="col-sm-2">
+                                              <div class="form-group form-md-line-input" id="selectFactura">
+                                                <select class="form-control select2me" id="selectorDNI" name="selectorDNI">
+                                                  <option value="0">Ver por viaje</option>
+                                                  <option value="1">Ver por DNI</option>
+                                                </select>
+                                                <label for="selectorDNI">Reporte</label>
+                                              </div>
+                                            </div>
                                           </div>
                                       </div>
                                       <div class="form-actions noborder flex">
@@ -577,6 +586,7 @@
                     params += "&cliente="+$("#cliente").val();
                     params += "&desde="+$("#desde").val();
                     params += "&hasta="+$("#hasta").val();
+                    params += "&selectorDNI="+$("#selectorDNI").val(); 
 
                     var url = "/sistema/buscarFacturacionCliente/";
                     $.ajax({
