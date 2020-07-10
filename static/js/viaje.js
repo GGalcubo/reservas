@@ -203,6 +203,50 @@ $(document).ready( () => {
         guardarViaje();
     });
 
+    $('#revert').click(function() {
+        let aux_destino = $('#desde_destino').val();
+        let aux_localidad = $('#desde_localidad').val();
+        let aux_provincia = $('#desde_provincia').val();
+        let aux_calle = $('#desde_calle').val();
+        let aux_altura = $('#desde_altura').val();
+        let aux_entre = $('#desde_entre').val();
+        let aux_compania = $('#desde_compania').val();
+        let aux_vuelo = $('#desde_vuelo').val();
+        $('#desde_destino').val($('#hasta_destino').val()).trigger('change');
+        $('#desde_localidad').val($('#hasta_localidad').val()).trigger('change');
+        $('#desde_provincia').val($('#hasta_provincia').val()).trigger('change');
+        $('#desde_calle').val($('#hasta_calle').val());
+        $('#desde_altura').val($('#hasta_altura').val());
+        $('#desde_entre').val($('#hasta_entre').val());
+        $('#desde_compania').val($('#hasta_compania').val());
+        $('#desde_vuelo').val($('#hasta_vuelo').val());
+        $('#hasta_destino').val(aux_destino).trigger('change');
+        $('#hasta_localidad').val(aux_localidad).trigger('change');
+        $('#hasta_provincia').val(aux_provincia).trigger('change');
+        $('#hasta_calle').val(aux_calle);
+        $('#hasta_altura').val(aux_altura);
+        $('#hasta_entre').val(aux_entre);
+        $('#hasta_compania').val(aux_compania);
+        $('#hasta_vuelo').val(aux_vuelo);
+
+        if($('#desde_vuelo').val() != ''){
+            $(".desde_direccion").hide();
+            $(".desde_vuelo").show();
+        }else{
+            $(".desde_direccion").show();
+            $(".desde_vuelo").hide();
+        }
+
+        if($('#hasta_vuelo').val() != ''){
+            $(".hasta_direccion").hide();
+            $(".hasta_vuelo").show();
+        }else{
+            $(".hasta_direccion").show();
+            $(".hasta_vuelo").hide();
+        }
+
+    });
+
     $('.cargar_pasajeros').click(function() {
         window.open('../pasajeros/?idViaje=' + viaje, '_self');
     });
