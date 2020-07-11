@@ -3342,6 +3342,7 @@ def exportarPdfFactCliente(request):
 	hasta   	= request.GET['hasta']
 	idsViaje	= request.GET['ids']
 	centroCosto	= request.GET['centrosCosto']
+	selectorDNI = request.GET['selectorDNI']
 
 	retornoCC = ""
 	ccList = []
@@ -3393,7 +3394,15 @@ def exportarPdfFactCliente(request):
 		otros = otros + v.getMontoOtrosCliente()
 
 	context = {'cliente': cliente, 'desde':desde, 'hasta': hasta, 'viajes':viajes, 'total':total, 'iva': iva, 'final': final, 'subtotal':subtotal,'peft':peft,'tiempo':tiempo,'mtiempo':mtiempo, 'bilingue':bilingue,'monto':monto,'peaje':peaje,'estacion':estacion,'otros':otros, 'centroCosto':retornoCC, 'hsdispo':hsdispo, 'dispo': dispo}
-	return render(request, 'sistema/pdfFactCliente.html', context)
+	print selectorDNI
+	print type(selectorDNI)
+	if selectorDNI == "1" or selectorDNI == 1:
+		print 'es el iffffff'
+		return render(request, 'sistema/pdfFactClienteDNI.html', context)
+	else:
+		print 'es el else'
+		return render(request, 'sistema/pdfFactCliente.html', context)
+	
 
 @login_required
 def exportarPdfFactProv(request):

@@ -133,6 +133,7 @@ urlpatterns = [
     url(r'^cargarProforma/', cargarProforma, name='cargarProforma'),
     url(r'^cargarSolicitante/', cargarSolicitantes, name='cargarSolicitantes'),
     url(r'^cargarMenu/', cargarMenu, name='cargarMenu'),
-    url(r'^urlBloqueada/', urlBloqueada, name='urlBloqueada')
+    url(r'^urlBloqueada/', urlBloqueada, name='urlBloqueada'),
+    url(r'^exportarPdfFactClienteDNI/', exportarPdfFactCliente, name='exportarPdfFactClienteDNI')
     #url(r'^$', 'sistema.views.index', name='index'),
 ]
