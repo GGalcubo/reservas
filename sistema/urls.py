@@ -125,6 +125,7 @@ urlpatterns = [
     url(r'^buscarFacturacionProveedor/', buscarFacturacionProveedor, name='buscarFacturacionProveedor'),
     url(r'^facturarClientes/', facturarClientes, name='facturarClientes'),
     url(r'^proformarClientes/', proformarClientes, name='proformarClientes'),
+    url(r'^listadoTramoTarifario/', listadoTramoTarifario, name='listadoTramoTarifario'),
     url(r'^facturarProveedores/', facturarProveedores, name='facturarProveedores'),
     url(r'^listadoFactProvedores/', listadoFactProvedores, name='listadoFactProvedores'),
     url(r'^cargarCentrosDeCosto/', cargarCentrosDeCosto, name='cargarCentrosDeCosto'),

@@ -975,6 +975,11 @@ class Localidad(models.Model):
     def localidadProvincia(self):
         return self.provincia.nombre + "-" + self.nombre
 
+    def localidadConcat(self):
+        return self.nombre + ' (' + self.provincia.nombre + ')'
+    
+        
+
 class Calle(models.Model):
     nombre = models.CharField(max_length=100)
     altura_desde = models.CharField(max_length=10, null=True, blank=True)

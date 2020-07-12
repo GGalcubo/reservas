@@ -2517,6 +2517,21 @@ def guardarTarifaExtra(request):
 	return render(request, 'sistema/grillaTarifaExtra.html', context)
 
 @login_required
+def listadoTramoTarifario(request):
+	localidades = Localidad.objects.filter(baja=False).order_by('nombre')
+	localidades = map(lambda localidades:(localidades.id, localidades.localidadConcat()), localidades)
+
+	if request.method == 'GET':
+		tramoTarifarioList = []
+	elif request.method == 'POST':
+		localidadDesde = request.POST.get('localidadDesde', "")
+		localidadHasta = request.POST.get('localidadHasta', "")
+		tramoTarifarioList = TarifaTrayecto.objects.filter(localidad_desde=localidadDesde, localidad_hasta=localidadHasta)
+
+	context = {'tramoTarifarioList': tramoTarifarioList, 'localidades': localidades}
+	return render(request, 'sistema/listadoTramoTarifario.html', context)
+
+@login_required
 def guardarMasivo(request):
 	idTarifario = request.POST.get('idTarifario', "")
 	tipoMasivo  = request.POST.get('tipoMasivo', "")
@@ -3662,13 +3677,13 @@ def obtenerPermiso(request):
 def validarUrlPorRol(request):
 	permisos = obtenerPermiso(request)
 	if 'unidades' in permisos:
-		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change','unidadViaje']
+		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change','unidadViaje','listadoTramoTarifario']
 	if 'operaciones' in permisos:
-		urls = ['operaciones','editaViaje','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje']
+		urls = ['operaciones','editaViaje','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje','listadoTramoTarifario']
 	if 'finanzas' in permisos:
-		urls = ['operaciones','altaViaje','editaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje']
+		urls = ['operaciones','altaViaje','editaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje','listadoTramoTarifario']
 	if 'superuser' in permisos:
-		urls = ['operaciones','altaViaje','exportar','editaViaje','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje','unidadViaje']
+		urls = ['operaciones','altaViaje','exportar','editaViaje','asignaciones','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje','unidadViaje','listadoTramoTarifario']
 
 	for url in urls:
 		if url in request.build_absolute_uri():
