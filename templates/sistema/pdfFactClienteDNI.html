@@ -137,6 +137,7 @@
                         {% endif %}
                         <th class="text-center"># PAX</th>
                         <th class="all">PAX</th>
+                        <th class="all">DNI</th>
                         <th class="all">ORIGEN</th>
                         <th class="all">DESTINO</th>
                         <th class="all">HS DISPO</th>
@@ -171,7 +172,8 @@
                                                 <td>{{v.centro_costo|default_if_none:""}}</td>
                                             {% endif %}
                                             <td>{{v.nropasajeros|default_if_none:"1"}}</td>
-                                            <td>{{p.apellido }},{{ p.nombre }}({{p.documento }})</td>
+                                            <td>{{p.apellido }},{{ p.nombre }}</td>
+                                            <td>{{p.documento }}</td>
                                             <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
                                             <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
                                             <td align="right">{{v.getHsDispoCliente}}</td>
@@ -200,7 +202,8 @@
                                                 <td>-</td>
                                             {% endif %}
                                             <td>-</td>
-                                            <td>{{p.apellido }},{{ p.nombre }}({{p.documento }})</td>
+                                            <td>{{p.apellido }},{{ p.nombre }}</td>
+                                            <td>{{p.documento }}</td>
                                             <td></td>
                                             <td></td>
                                             <td align="right">0</td>
@@ -223,7 +226,7 @@
                                         <!--comienzan los tramos "t" sin pasajeros multiples  --> 
                                         {% if t.id != v.getTrayectos.0.id or v.getPasajeros is False %}
                                             <tr id="rowid{{ v.id }}">
-                                                 <td>{{v.getFecha}}</td>
+                                                <td>{{v.getFecha}}</td>
                                                 <td>{{v.getHora}}</td>
                                                 <td>-</td>
                                                 <td>{{v.id}}</td>
@@ -233,7 +236,8 @@
                                                     <td>-</td>
                                                 {% endif %}
                                                 <td>-</td>
-                                                <td>{{t.pasajero.apellido  }},{{ t.pasajero.nombre }}({{t.pasajero.documento }})</td>
+                                                <td>{{t.pasajero.apellido  }},{{ t.pasajero.nombre }}</td>
+                                                <td>{{t.pasajero.documento }}</td>
                                                 <td>{{t.desdeConcat}}</td>
                                                 <td>{{t.hastaConcat}}</td>
                                                 <td align="right">0</td>
@@ -262,13 +266,14 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
                                             {% if centroCosto == "" %}
                                                 <td></td>
                                             {% endif %}
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                             <td align="right">{{hsdispo|floatformat:0}}</td>
                                             <td align="right">${{dispo|floatformat:2}}</td>
                                             <td align="right">${{subtotal|floatformat:2}}</td>
