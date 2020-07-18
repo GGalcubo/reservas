@@ -3677,7 +3677,7 @@ def obtenerPermiso(request):
 def validarUrlPorRol(request):
 	permisos = obtenerPermiso(request)
 	if 'unidades' in permisos:
-		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change','unidadViaje','listadoTramoTarifario']
+		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change','unidadViaje']
 	if 'operaciones' in permisos:
 		urls = ['operaciones','editaViaje','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje','listadoTramoTarifario']
 	if 'finanzas' in permisos:
