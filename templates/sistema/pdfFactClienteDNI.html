@@ -220,7 +220,38 @@
                                             <td align="right">0</td>
                                             <td align="right">0</td>
                                         </tr>
-                                        {% endif %}  
+                                        {% endif %}
+                                        {% empty %}                            
+                                        <tr id="rowid{{ v.id }}">
+                                            <td>{{v.getFecha}}</td>
+                                            <td>{{v.getHora}}</td>
+                                            <td>{{v.categoria_viaje}}</td>
+                                            <td>{{v.id}}</td>
+                                            <td>{{v.nro_aux|default_if_none:""}}</td>
+                                            <td>{{v.solicitante}}</td>
+                                            {% if centroCosto == "" %}
+                                                <td>{{v.centro_costo|default_if_none:""}}</td>
+                                            {% endif %}
+                                            <td>{{v.nropasajeros|default_if_none:"1"}}</td>
+                                            <td>{{p.apellido }},{{ p.nombre }}</td>
+                                            <td>{{p.documento }}</td>
+                                            <td>{{v.getTrayectoPrincipal.desdeConcat}}</td>
+                                            <td>{{v.getTrayectoPrincipal.hastaConcat}}</td>
+                                            <td align="right">{{v.getHsDispoCliente}}</td>
+                                            <td align="right">${{v.getMontoDispoCliente|floatformat:2}}</td>
+                                            <td align="right">${{v.getSubtotalCliente|floatformat:2}}</td>
+                                            <td align="right">${{v.getMontoTiempoEsperaCliente|floatformat:2}}</td>
+                                            <td align="right">{{v.getCantidadTiempoEsperaCliente}}</td>
+                                            <td align="right">${{v.getMontoBilingueCliente|floatformat:2}}</td>
+                                            <td align="right">${{v.getMontoMontoCliente|floatformat:2}}</td>
+                                            <td align="right">${{v.getMontoPeajesCliente|floatformat:2}}</td>
+                                            <td align="right">${{v.getMontoEstacionCliente|floatformat:2}}</td>
+                                            <td align="right">${{v.getMontoOtrosCliente|floatformat:2}}</td>
+                                            <td align="right">${{v.getTotalCliente|floatformat:2}}</td>
+                                            <td align="right">${{v.getIvaCliente|floatformat:2}}</td>
+                                            <td align="right">${{v.getFinalCliente|floatformat:2}}</td>
+                                        </tr>
+                                            </tr>                                        
                                         {% endfor %}  
                                         {% endif %} 
                                         <!--comienzan los tramos "t" sin pasajeros multiples  --> 

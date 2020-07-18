@@ -3679,7 +3679,7 @@ def validarUrlPorRol(request):
 	if 'unidades' in permisos:
 		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change','unidadViaje','listadoTramoTarifario']
 	if 'operaciones' in permisos:
-		urls = ['operaciones','editaViaje','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje','listadoTramoTarifario']
+		urls = ['operaciones','editaViaje','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje','listadoTramoTarifario']
 	if 'finanzas' in permisos:
 		urls = ['operaciones','altaViaje','editaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje','listadoTramoTarifario']
 	if 'superuser' in permisos:
