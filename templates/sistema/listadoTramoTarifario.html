@@ -41,34 +41,68 @@
                                     <form role="form" class="form-datos-tarifario" method="post" id="formTramoTrayecto" action="/sistema/listadoTramoTarifario/">{% csrf_token %}
                                         <div class="form-body">
                                             <div class="row">
-                                                <div class="col-sm-6">
+
+                                                <div class="col-sm-3">
                                                     <div class="form-group form-md-line-input">
-                                                        <select class="form-control select2me" id="localidadDesde" name="localidadDesde" style="width: 100%;">
-                                                            <option selected value="">Seleccionar Desde</option>
-                                                            {% for i in localidades %}
-                                                                {% if i.0 == idDesde %}
-                                                                    <option selected value="{{ i.0 }}" >{{ i.1 }}</option>
+                                                        <select class="form-control select2me" id="provinciaDesde" name="provinciaDesde" style="width: 100%;" onchange="onchangeProvDesde()">
+                                                            <option value="">Provincia Desde</option>
+                                                            {% for p in provincias %}
+                                                                {% if p.id == idDesdeProv %}
+                                                                    <option selected value="{{ p.id }}" >{{ p.nombre }}</option>
                                                                 {% else %}
-                                                                    <option value="{{ i.0 }}" >{{ i.1 }}</option>
+                                                                    <option value="{{ p.id }}" >{{ p.nombre }}</option>
                                                                 {% endif %}
                                                             {% endfor %}
                                                         </select>
-                                                        <label for="localidadDesde">Desde</label>
+                                                        <label for="provinciaDesde">Provincia Desde</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6">
+
+                                                <div class="col-sm-3" id="localidadDesdeSelect">
+                                                    <div class="form-group form-md-line-input">
+                                                        <select class="form-control select2me" id="localidadDesde" name="localidadDesde" style="width: 100%;">
+                                                            <option value="">Localidad Desde</option>
+                                                            {% for loc in localidadesDesde %}
+                                                                {% if loc.id == idDesdeLoc %}
+                                                                    <option selected value="{{ loc.id }}" >{{ loc.nombre }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ loc.id }}" >{{ loc.nombre }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                        <label for="localidadDesde">Localidad Desde</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-3">
+                                                    <div class="form-group form-md-line-input" onchange="onchangeProvHasta()">
+                                                        <select class="form-control select2me" id="provinciaHasta" name="provinciaHasta" style="width: 100%;">
+                                                            <option value="">Provincia Hasta</option>
+                                                            {% for p in provincias %}
+                                                                {% if p.id == idHastaProv %}
+                                                                    <option selected value="{{ p.id }}" >{{ p.nombre }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ p.id }}" >{{ p.nombre }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                        <label for="provinciaHasta">Provincia Hasta</label>
+                                                    </div>
+                                                </div> 
+
+                                                <div class="col-sm-3" id="localidadHastaSelect">
                                                     <div class="form-group form-md-line-input">
                                                         <select class="form-control select2me" id="localidadHasta" name="localidadHasta" style="width: 100%;">
                                                             <option value="">Seleccionar Hasta</option>
-                                                            {% for i in localidades %}
-                                                                {% if i.0 == idHasta %}
-                                                                    <option selected value="{{ i.0 }}" >{{ i.1 }}</option>
+                                                            {% for loc in localidadesHasta %}
+                                                                {% if loc.id == idHastaLoc %}
+                                                                    <option selected value="{{ loc.id }}" >{{ loc.nombre }}</option>
                                                                 {% else %}
-                                                                    <option value="{{ i.0 }}" >{{ i.1 }}</option>
+                                                                    <option value="{{ loc.id }}" >{{ loc.nombre }}</option>
                                                                 {% endif %}
                                                             {% endfor %}
                                                         </select>
-                                                        <label for="localidadHasta">Hasta</label>
+                                                        <label for="localidadHasta">Localidad Hasta</label>
                                                     </div>
                                                 </div>                                    
                                             </div>
@@ -202,6 +236,34 @@
                 }
 
                 $("#formTramoTrayecto").submit();
+            }
+
+            function onchangeProvDesde(){
+                var url = "/sistema/getLocalidadDesde/";
+                param = 'idDesde='+$('#provinciaDesde').val()
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                    data: param,
+                    success: function(data){
+                        $("#localidadDesdeSelect").html(data)
+                    }
+                });
+            }
+
+            function onchangeProvHasta(){
+                var url = "/sistema/getLocalidadHasta/";
+                param = 'idHasta='+$('#provinciaHasta').val()
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                    data: param,
+                    success: function(data){
+                        $("#localidadHastaSelect").html(data)
+                    }
+                });
             }
 
         </script>

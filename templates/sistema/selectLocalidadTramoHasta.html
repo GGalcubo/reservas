@@ -1,0 +1,24 @@
+<div class="form-group form-md-line-input">
+    <select class="form-control select2me" id="localidadHasta" name="localidadHasta" style="width: 100%;">
+        <option value="">Seleccionar Hasta</option>
+        {% for loc in localidades %}
+            {% if loc.id == idHasta %}
+                <option selected value="{{ loc.id }}" >{{ loc.nombre }}</option>
+            {% else %}
+                <option value="{{ loc.id }}" >{{ loc.nombre }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <label for="localidadHasta">Localidad Hasta</label>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#localidadHasta').select2({
+            placeholder: "Localidad Hasta",
+            allowClear: true,
+            dropdownAutoWidth : true,
+            width: 'auto'
+        });
+    })
+</script>

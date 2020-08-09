@@ -1594,8 +1594,9 @@ def guardarSolicitanteProspect(request):
 	persona.apellido = request.POST.get('apellidoPasajeroCliente', "")
 	persona.puesto = request.POST.get('puestoSol', "")
 	persona.mail = request.POST.get('mailSol', "")
+	persona.telefono = request.POST.get('telefonoSol', "")
 	persona.save()
-	telefono = request.POST.get('telefonoSol', "")
+	
 
 	if idSol == "0":
 		perCli = PersonaCliente()
@@ -1603,21 +1604,21 @@ def guardarSolicitanteProspect(request):
 		perCli.cliente = cliente
 		perCli.save()
 
-	if telefono != "" and telefono != "Sin telefono":
-		if len(persona.telefonopersona_set.all()) > 0:
-			tel = persona.telefonopersona_set.all()[0].telefono
-			telcli = persona.telefonopersona_set.all()[0]
-		else:
-			telcli = TelefonoPersona()
-			tel = Telefono()
-			tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
+	#if telefono != "" and telefono != "Sin telefono":
+	#	if len(persona.telefonopersona_set.all()) > 0:
+	#		tel = persona.telefonopersona_set.all()[0].telefono
+	#		telcli = persona.telefonopersona_set.all()[0]
+	#	else:
+	#		telcli = TelefonoPersona()
+	#		tel = Telefono()
+	#		tel.tipo_telefono = TipoTelefono.objects.get(tipo_telefono="Principal")
 
-		tel.numero = telefono
-		tel.save()
+	#	tel.numero = telefono
+	#	tel.save()
 
-		telcli.persona = persona
-		telcli.telefono = tel
-		telcli.save()
+	#	telcli.persona = persona
+	#	telcli.telefono = tel
+	#	telcli.save()
 
 	context = {'mensaje': mensaje, 'cliente':cliente}
 	return render(request, 'sistema/grillaSolicitantes.html', context)
@@ -2517,20 +2518,69 @@ def guardarTarifaExtra(request):
 	context = {'tarifario': tarifario}
 	return render(request, 'sistema/grillaTarifaExtra.html', context)
 
+
 @login_required
 def listadoTramoTarifario(request):
-	localidades = Localidad.objects.filter(baja=False).order_by('nombre')
-	localidades = map(lambda localidades:(localidades.id, localidades.localidadConcat()), localidades)
+	provincias = Provincia.objects.all().order_by('nombre')
 
 	if request.method == 'GET':
 		tramoTarifarioList = []
+		localidadesDesde = []
+		localidadesHasta = []
+		idDesdeProv = ''
+		idHastaProv = ''
+		idDesdeLoc  = ''
+		idHastaLoc  = ''
 	elif request.method == 'POST':
 		localidadDesde = request.POST.get('localidadDesde', "")
 		localidadHasta = request.POST.get('localidadHasta', "")
-		tramoTarifarioList = TarifaTrayecto.objects.filter(localidad_desde=localidadDesde, localidad_hasta=localidadHasta)
+		provinciaDesde = request.POST.get('provinciaDesde', "")
+		provinciaHasta = request.POST.get('provinciaHasta', "")
+		localidadesDesde = Localidad.objects.filter(provincia_id=provinciaDesde)
+		localidadesHasta = Localidad.objects.filter(provincia_id=provinciaHasta)
+		idDesdeProv = int(provinciaDesde)
+		idHastaProv = int(provinciaHasta)
+		idDesdeLoc  = int(localidadDesde)
+		idHastaLoc  = int(localidadHasta)
+		
+		tramoTarifarioList = TarifaTrayecto.objects.filter(Q(localidad_desde=localidadDesde, localidad_hasta=localidadHasta) | Q(localidad_desde=localidadHasta, localidad_hasta=localidadDesde))
 
-	context = {'tramoTarifarioList': tramoTarifarioList, 'localidades': localidades}
+	context = {
+		'tramoTarifarioList': tramoTarifarioList,
+		'provincias': provincias,
+		'localidadesDesde': localidadesDesde,
+		'localidadesHasta':localidadesHasta,
+		'idDesdeProv':idDesdeProv,
+		'idHastaProv':idHastaProv,
+		'idDesdeLoc':idDesdeLoc,
+		'idHastaLoc':idHastaLoc,
+	}
+
 	return render(request, 'sistema/listadoTramoTarifario.html', context)
+
+
+@login_required
+def getLocalidadDesde(request):
+	idDesde = request.POST.get('idDesde', False)
+	if idDesde:
+		localidades = Localidad.objects.filter(provincia_id=idDesde)
+	else:
+		localidades = []
+
+	context = {'localidades': localidades}
+	return render(request, 'sistema/selectLocalidadTramoDesde.html', context)
+
+
+@login_required
+def getLocalidadHasta(request):
+	idHasta = request.POST.get('idHasta', False)
+	if idHasta:
+		localidades = Localidad.objects.filter(provincia_id=idHasta)
+	else:
+		localidades = []
+	context = {'localidades': localidades}
+	return render(request, 'sistema/selectLocalidadTramoHasta.html', context)
+
 
 @login_required
 def guardarMasivo(request):
