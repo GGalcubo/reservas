@@ -15,6 +15,7 @@ import os
 import datetime
 import sys
 from django.db.models import Q
+from django.views.decorators.csrf import csrf_exempt
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -3620,6 +3621,33 @@ def refreshUnidadDashboard(request):
 		'dias_trabajados': len(dias_trab)
 	}
 	return render(request, 'sistema/unidadDashboardDetails.html', context)
+
+
+@login_required
+def getCostoDesdeHasta(request):
+	desde = request.GET.get('idDesde', False)
+	hasta = request.GET.get('idHasta', False)
+	categ = request.GET.get('idCategoria', False)
+
+	costo = Costo.objects.filter(localidad_desde_id=desde, localidad_hasta_id=hasta, baja=False, categoria_id = categ)
+
+	if costo:
+		data = {
+			'valor_peaje': costo[0].valor_peaje,
+			'valor_parking': costo[0].valor_parking,
+			'valor_otros': costo[0].valor_otros,
+			'status': 200
+		}
+	else:
+		data = {
+			'valor_peaje': 0,
+			'valor_parking': 0,
+			'valor_otros': 0,
+			'status': 404
+		}
+
+	dump = json.dumps(data)
+	return HttpResponse(dump, content_type='application/json')
 
 
 @login_required

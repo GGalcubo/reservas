@@ -135,6 +135,7 @@ urlpatterns = [
     url(r'^cargarSolicitante/', cargarSolicitantes, name='cargarSolicitantes'),
     url(r'^cargarMenu/', cargarMenu, name='cargarMenu'),
     url(r'^urlBloqueada/', urlBloqueada, name='urlBloqueada'),
-    url(r'^exportarPdfFactClienteDNI/', exportarPdfFactCliente, name='exportarPdfFactClienteDNI')
+    url(r'^exportarPdfFactClienteDNI/', exportarPdfFactCliente, name='exportarPdfFactClienteDNI'),
+    url(r'^getCostoDesdeHasta/', getCostoDesdeHasta, name='getCostoDesdeHasta')
     #url(r'^$', 'sistema.views.index', name='index'),
 ]

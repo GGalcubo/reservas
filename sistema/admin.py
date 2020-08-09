@@ -55,6 +55,9 @@ class LocalidadAdmin(admin.ModelAdmin):
     search_fields = ['nombre']
     ordering = ['nombre']
 
+class CostoAdmin(admin.ModelAdmin):
+    list_display = ('descripcion', 'localidad_desde', 'localidad_hasta', 'valor_peaje', 'valor_parking', 'valor_otros', 'categoria', 'baja')
+
 admin.site.register(Viaje, ViajeAdmin)
 admin.site.register(Provincia)
 admin.site.register(Localidad,LocalidadAdmin)
@@ -104,3 +107,4 @@ admin.site.register(TarifaTrayecto, TarifaTrayectoAdmin)
 admin.site.register(TarifaExtra, TarifaExtraAdmin)
 admin.site.register(UsrUnidad)
 admin.site.register(UsrCliente)
+admin.site.register(Costo, CostoAdmin)

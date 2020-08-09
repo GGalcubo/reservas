@@ -967,10 +967,10 @@ class Localidad(models.Model):
     baja = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return u'%s' % self.nombre
+        return self.nombre + ' (' + self.provincia.nombre + ')'
 
     def __str__(self):
-        return self.nombre
+        return self.nombre + ' (' + self.provincia.nombre + ')'
 
     def localidadProvincia(self):
         return self.provincia.nombre + "-" + self.nombre
@@ -1307,6 +1307,7 @@ class TipoAdelanto (models.Model):
     def __str__(self):
         return self.descripcion
 
+
 class Adelanto (models.Model):
     unidad = models.ForeignKey(Unidad, null=True, blank=True)
     tipo_adelanto = models.ForeignKey(TipoAdelanto, null=True, blank=True)
@@ -1323,6 +1324,24 @@ class Adelanto (models.Model):
 
     def getFecha(self):
         return getFecha(self.fecha)
+
+
+class Costo(models.Model):
+    descripcion = models.CharField(max_length=50)
+    localidad_desde = models.ForeignKey(Localidad, related_name='loc_desde')
+    localidad_hasta = models.ForeignKey(Localidad, related_name='loc_hasta', null=True, blank=True)
+    valor_peaje = models.FloatField(default=0)
+    valor_parking = models.FloatField(default=0)
+    valor_otros = models.FloatField(default=0)
+    categoria = models.ForeignKey(CategoriaViaje)
+    baja = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return u'%s' % self.descripcion
+
+    def __str__(self):
+        return self.descripcion
+
 
 # devuelve hh:mm dd/mm/aaaa
 def getFechaHora(aaaammddhhmm):
