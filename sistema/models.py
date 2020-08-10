@@ -1327,7 +1327,7 @@ class Adelanto (models.Model):
 
 
 class Costo(models.Model):
-    descripcion = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=50, null=True, blank=True)
     localidad_desde = models.ForeignKey(Localidad, related_name='loc_desde')
     localidad_hasta = models.ForeignKey(Localidad, related_name='loc_hasta', null=True, blank=True)
     valor_peaje = models.FloatField(default=0)
