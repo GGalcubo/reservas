@@ -3792,3 +3792,10 @@ def getUnidadesByUser(request):
 	for u in usrunidad:
 		unidades.append(u.unidad.id)
 	return unidades
+
+@login_required
+def altaViajeCliente(request):
+    mensaje = ""
+
+    context = {'mensaje': mensaje}
+    return render(request, 'sistema/altaViajeCliente.html', context)

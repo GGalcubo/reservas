@@ -138,6 +138,7 @@ urlpatterns = [
     url(r'^exportarPdfFactClienteDNI/', exportarPdfFactCliente, name='exportarPdfFactClienteDNI'),
     url(r'^getCostoDesdeHasta/', getCostoDesdeHasta, name='getCostoDesdeHasta'),
     url(r'^getLocalidadDesde/', getLocalidadDesde, name='getLocalidadDesde'),
-    url(r'^getLocalidadHasta/', getLocalidadHasta, name='getLocalidadHasta')
+    url(r'^getLocalidadHasta/', getLocalidadHasta, name='getLocalidadHasta'),
+    url(r'^altaViajeCliente/', altaViajeCliente, name='altaViajeCliente'),
     #url(r'^$', 'sistema.views.index', name='index'),
 ]
