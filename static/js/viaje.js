@@ -204,30 +204,42 @@ $(document).ready( () => {
     });
 
     $('#revert').click(function() {
+        let aux_destino_data = $('#desde_destino').html();
         let aux_destino = $('#desde_destino').val();
+        let aux_localidad_data = $('#desde_localidad').html();
         let aux_localidad = $('#desde_localidad').val();
+        let aux_provincia_data = $('#desde_provincia').html();
         let aux_provincia = $('#desde_provincia').val();
         let aux_calle = $('#desde_calle').val();
         let aux_altura = $('#desde_altura').val();
         let aux_entre = $('#desde_entre').val();
         let aux_compania = $('#desde_compania').val();
         let aux_vuelo = $('#desde_vuelo').val();
-        $('#desde_destino').val($('#hasta_destino').val()).trigger('change');
-        $('#desde_localidad').val($('#hasta_localidad').val()).trigger('change');
-        $('#desde_provincia').val($('#hasta_provincia').val()).trigger('change');
+
+        $('#desde_destino').html($('#hasta_destino').html());
+
+        $('#desde_localidad').html($('#hasta_localidad').html());
+
+        $('#desde_provincia').html($('#hasta_provincia').html());
+
         $('#desde_calle').val($('#hasta_calle').val());
         $('#desde_altura').val($('#hasta_altura').val());
         $('#desde_entre').val($('#hasta_entre').val());
         $('#desde_compania').val($('#hasta_compania').val());
         $('#desde_vuelo').val($('#hasta_vuelo').val());
-        $('#hasta_destino').val(aux_destino).trigger('change');
-        $('#hasta_localidad').val(aux_localidad).trigger('change');
-        $('#hasta_provincia').val(aux_provincia).trigger('change');
+
+        $('#hasta_destino').html(aux_destino_data);
+
+        $('#hasta_localidad').html(aux_localidad_data);
+
+        $('#hasta_provincia').html(aux_provincia_data);
+
         $('#hasta_calle').val(aux_calle);
         $('#hasta_altura').val(aux_altura);
         $('#hasta_entre').val(aux_entre);
         $('#hasta_compania').val(aux_compania);
         $('#hasta_vuelo').val(aux_vuelo);
+
 
         if($('#desde_vuelo').val() != ''){
             $(".desde_direccion").hide();
