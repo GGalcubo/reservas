@@ -72,7 +72,7 @@ $(document).ready( () => {
         }
         $("#viaje-tab").show();
         getGrillasHistorial();
-        if(estado == '7'){
+        if(estado == '7' || estado == '12' || estado == '13'){
             //$("#administracion").show();
             if(permiso != 'operaciones'){
                 $("#administracion_tab_btn a").show();
@@ -691,7 +691,7 @@ guardarViaje = () =>{
                         $('.cargar_pasajeros').show();
                     }
 
-                    if(obj.estado == 7){
+                    if(obj.estado == 7 ){
                         if(data.error != 0){
                             //guardaViajeAdmin();
                             viaje_items = [];

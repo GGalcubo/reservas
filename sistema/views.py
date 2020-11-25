@@ -524,7 +524,7 @@ def guardarViaje(request):
     guardaItemViaje(request.POST.get('importe_efectivo', ''), 12, 1, viaje, False)
     guardarHistorial(viaje, 'importe efectivo', request.POST.get('importe_efectivo', ''), request.user)
 
-    if viaje.estado.id == 7 and viaje.calculo_admin is False:
+    if viaje.estado.id in (7,12,13) and viaje.calculo_admin is False:
 
         guardaItemViajeCostoProveedor('', 8, 1, viaje, False)
         guardaItemViajeCostoCliente('', 2, 1, viaje, False)
