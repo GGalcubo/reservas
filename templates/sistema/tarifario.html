@@ -362,6 +362,13 @@
                             { responsivePriority: 9, targets: 8 },
                             { responsivePriority: 10, targets: 9 }
                         ],
+                        'print',
+                                {
+                                extend: 'excelHtml5',
+                                exportOptions: {
+                                    columns: [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                                }
+                            },
                         lengthMenu: [
                                         [ 100, 50, 25, 10, -1 ],
                                         [ '100', '50', '25', '10', 'Todos' ]

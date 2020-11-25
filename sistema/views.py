@@ -70,7 +70,7 @@ def asignaciones(request):
 	permiso = obtenerPermiso(request)
 	#viajes = Viaje.objects.all()
 	#unidades = Unidad.objects.all()
-	estados = Estado.objects.filter(id__in=[2,3, 4, 5, 6, 7, 8, 9, 10])
+	estados = Estado.objects.filter(id__in=[2,3, 4, 5, 6, 7, 8, 9, 10,12,13])
 	#'viajes': viajes, 'unidades': unidades,
 
 	context = {'mensaje':mensaje, 'estados': estados,'permiso':permiso }
@@ -1863,7 +1863,7 @@ def getViajesFuturosPorFecha(request):
     estados_get_seleccionados = request.POST.getlist('estados_selecionados[]', False)
     estados_seleccionados = []
     if estados_get_seleccionados == False:
-		estados_seleccionados = [1, 2, 3, 4, 10]
+		estados_seleccionados = [1, 2, 3, 4, 9, 10, 14]
     else:
         for i in estados_get_seleccionados:
 			estados_seleccionados.append(i)
@@ -3259,7 +3259,7 @@ def proformarClientes(request):
 
 	estadosCorrectos = True
 	for v in viajes:
-		if v.estado.id != 7:
+		if v.estado.id not in (7,12,13):
 			estadosCorrectos = False
 
 	if not estadosCorrectos:
@@ -3757,7 +3757,7 @@ def validarUrlPorRol(request):
 	if 'unidades' in permisos:
 		urls = ['asignaciones','listadoAdelanto','listadoFactProvedores','password_change','unidadViaje']
 	if 'operaciones' in permisos:
-		urls = ['operaciones','editaViaje','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje','listadoTramoTarifario']
+		urls = ['operaciones','editaViaje','altaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','password_change','editaViaje','listadoTramoTarifario','listadoTarifario']
 	if 'finanzas' in permisos:
 		urls = ['operaciones','altaViaje','editaViaje','exportar','listadoCliente','listadoCentroDeCosto','listadoTarifario','listadoContacto','listadoProvedor','listadoUnidad','listadoLicencia','listadoAdelanto','listadoFactClientes','listadoFactProvedores','password_change','editaViaje','listadoTramoTarifario']
 	if 'superuser' in permisos:
