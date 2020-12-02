@@ -62,7 +62,7 @@
                                     <div class="inline-block mg-b-5" style="float: right;">
                                         <select id="multiselect_estado" name="multiselect_estado[]" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-drop-right="true" data-width="100%">
                                             {% for e in estados %}
-                                                {% if e.id == 2 or e.id == 3 or e.id == 4 or e.id == 5 or e.id == 6 or e.id == 7 or e.id == 8 or e.id == 9 or e.id == 10 or e.id == 12 or e.id == 13 %}
+                                                {% if e.id == 2 or e.id == 3 or e.id == 4 or e.id == 5 or e.id == 6 or e.id == 7 or e.id == 9 or e.id == 10 or e.id == 12 or e.id == 13 %}
                                                     <option selected="selected" value="{{ e.id }}">{{ e.estado }}</option>
                                                 {% else %}
                                                     <option value="{{ e.id }}">{{ e.estado }}</option>
@@ -96,7 +96,7 @@
             <!-- SCRIPTS PROPIOS DE ESTA VISTA -->
             <script>
                 let $table = $('#table-editable');
-                let estados_selecionados = ['2','3', '4','5','6','7','8','9', '10','12','13'];
+                let estados_selecionados = ['2','3', '4','5','6','7','9', '10','12','13'];
                 let viajes_seleccionado = [];
 
                 $(document).ready(function(){

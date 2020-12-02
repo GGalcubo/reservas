@@ -70,7 +70,7 @@ def asignaciones(request):
 	permiso = obtenerPermiso(request)
 	#viajes = Viaje.objects.all()
 	#unidades = Unidad.objects.all()
-	estados = Estado.objects.filter(id__in=[2,3, 4, 5, 6, 7, 8, 9, 10,12,13])
+	estados = Estado.objects.filter(id__in=[2,3, 4, 5, 6, 7, 9, 10,12,13])
 	#'viajes': viajes, 'unidades': unidades,
 
 	context = {'mensaje':mensaje, 'estados': estados,'permiso':permiso }
