@@ -1369,6 +1369,8 @@ updateFillsByDestino = (name, evt) => {
         $("." + html_cont_provincia).hide();
     }*/
 
+
+
     if(destino_id != '' && destino_id != ''){
         var url = "/sistema/cargarLocalidadByDestino/";
         var param = {};
@@ -1381,6 +1383,12 @@ updateFillsByDestino = (name, evt) => {
             data: param,
             success:  data => {
                 $('#' + html_to_change).html(data);
+                if(localidad_select_id == 8 && (html_select == 'modal_desde_destino' || html_select == 'modal_hasta_destino') ){
+                    $("." + html_direccion).hide();
+                    $("." + html_vuelo).show();
+                    //$("." + html_cont_localidad).show();
+                    //$("." + html_cont_provincia).hide();
+                }
             }
         });
     }
