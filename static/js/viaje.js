@@ -91,8 +91,8 @@ $(document).ready( () => {
     $('#tiempo_hs_dispo').val(dispo_viaje);
     $('#pasajero_cant').val(pasajero_cant);
 
-    $('#categoria_viaje').select2({ placeholder: 'Seleccionar', width: 'auto'});
-    $('#contacto').select2({ placeholder: 'Seleccionar', width: 'auto', minimumInputLength: 3, ajax: {
+    $('#categoria_viaje').select2({ placeholder: 'Seleccionar',allowClear: true, width: 'auto'});
+    $('#contacto').select2({ placeholder: 'Seleccionar',allowClear: true, width: 'auto', minimumInputLength: 3, ajax: {
           url: '/sistema/getPersonasByLetters/',
           dataType: 'json',
           delay: 250,
@@ -113,13 +113,13 @@ $(document).ready( () => {
         }
       });
     $("#pasajero").on("select2:select", function (e) { updateFillsByPasajero("select2:select", e); });
-    $('#pasajero').select2({ placeholder: 'Seleccionar', width: 'auto'});
+    $('#pasajero').select2({ placeholder: 'Seleccionar',allowClear: true, width: 'auto'});
     $('#pasajero_trayecto').select2({ placeholder: 'Seleccionar Pasajero', width: 'auto', dropdownParent: $('#add_tramo')});
 
     $("#id_cliente").on("select2:select", function (e) { updateFillsByCliente("select2:select", e); });
     $('#id_cliente').select2({ placeholder: 'Seleccionar Cliente', width: 'auto'});
     //$("#unidad_id").on("select2:select", function (e) { updateFillsByUnidad("select2:select", e); });
-    $('#unidad_id').select2({placeholder: 'Seleccionar', width: 'auto', minimumInputLength: 1, ajax: {
+    $('#unidad_id').select2({placeholder: 'Seleccionar',allowClear: true, width: 'auto', minimumInputLength: 1, ajax: {
           url: '/sistema/getUnidadesByLetters/',
           dataType: 'json',
           delay: 250,
@@ -138,7 +138,7 @@ $(document).ready( () => {
           cache: true
         }
       });
-    $('#centroDeCosto').select2({placeholder: 'Seleccionar', width: 'auto', minimumInputLength: 3, ajax: {
+    $('#centroDeCosto').select2({placeholder: 'Seleccionar',allowClear: true, width: 'auto', minimumInputLength: 3, ajax: {
           url: '/sistema/getCentroDeCostosByLetters/',
           dataType: 'json',
           delay: 250,
@@ -160,24 +160,24 @@ $(document).ready( () => {
 
 
     $("#desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
-    $('#desde_destino').select2({placeholder: 'Seleccionar', width: 'auto'});
+    $('#desde_destino').select2({placeholder: 'Seleccionar',allowClear: true, width: 'auto'});
     $("#hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
-    $('#hasta_destino').select2({placeholder: 'Seleccionar', width: 'auto'});
+    $('#hasta_destino').select2({placeholder: 'Seleccionar',allowClear: true, width: 'auto'});
     $("#modal_desde_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
-    $('#modal_desde_destino').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
+    $('#modal_desde_destino').select2({placeholder: 'Seleccionar',allowClear: true, dropdownParent: $('#add_tramo')});
     $("#modal_hasta_destino").on("select2:select", function (e) { updateFillsByDestino("select2:select", e); });
-    $('#modal_hasta_destino').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
-    $('#modal_hasta_provincia').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
+    $('#modal_hasta_destino').select2({placeholder: 'Seleccionar',allowClear: true, dropdownParent: $('#add_tramo')});
+    $('#modal_hasta_provincia').select2({placeholder: 'Seleccionar',allowClear: true, dropdownParent: $('#add_tramo')});
 
     $("#desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
-    $('#desde_localidad').select2({placeholder: 'Seleccionar', width: 'auto'});
+    $('#desde_localidad').select2({placeholder: 'Seleccionar',allowClear: true, width: 'auto'});
     $("#hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
-    $('#hasta_localidad').select2({placeholder: 'Seleccionar', width: 'auto'});
+    $('#hasta_localidad').select2({placeholder: 'Seleccionar',allowClear: true, width: 'auto'});
     $("#modal_desde_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
-    $('#modal_desde_localidad').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
+    $('#modal_desde_localidad').select2({placeholder: 'Seleccionar',allowClear: true, dropdownParent: $('#add_tramo')});
     $("#modal_hasta_localidad").on("select2:select", function (e) { updateFillsByLocalidad("select2:select", e); });
-    $('#modal_hasta_localidad').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
-    $('#modal_desde_provincia').select2({placeholder: 'Seleccionar', dropdownParent: $('#add_tramo')});
+    $('#modal_hasta_localidad').select2({placeholder: 'Seleccionar',allowClear: true, dropdownParent: $('#add_tramo')});
+    $('#modal_desde_provincia').select2({placeholder: 'Seleccionar',allowClear: true, dropdownParent: $('#add_tramo')});
 
     var tmp_tipo_observacion;
     $('#tipo_viaje_obs').append($('<option>').text('').attr('value', ''));

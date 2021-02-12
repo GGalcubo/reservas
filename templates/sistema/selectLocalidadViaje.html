@@ -1,5 +1,5 @@
+<option value=""></option>
 {% for l in localidades %}
-    <option value=""></option>
     {% if l.id == localidad_select_id|add:"0" %}
         <option selected="selected" value="{{ l.id }}">{{ l.nombre }}</option>
     {% else %}
